@@ -1,0 +1,74 @@
+---
+title: "Introduction to Training Predictions"
+author: "Peter Hurford"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes  
+vignette: >
+  %\VignetteIndexEntry{Using Training Predictions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+**Training predictions** are the out-of-fold predictions on train data made by a model. That is, DataRobot can do 5-fold cross validation, where it trains on 80% of the train data and predicts for 20% of the train data. After doing this for each segment of the data, the five different 20% holdout sets can be recombined into a single file with a prediction for each row of the training data that was not made by a model that had trained on that row. This is important because predictions for rows that the model has trained on (in-fold predictions) will almost always overfit the data and not generalize well to new data. These training predictions are useful for further model validation and for blending the model with other models. Generating and retrieving these training predictions is now possible via the DataRobot API.
+
+
+## Retrieving Training Predictions
+
+Before you can retrieve training predictions, you must first request their creation. This is done on the model object you want training predictions for.
+
+`dataSubset` specifies the subset of training data you want training predictions for, such as `DataSubset$All` for all training data (note this will retrain your model at 100%), `DataSubset$ValidationAndHoldout` will return predictions for solely data in validation and holdout sets, and `DataSubset$Holdout` will return predictions solely for the holdout set.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+models <- ListModels(projectId)
+model <- models[[1]]
+trainingPredictions <- GetTrainingPredictionsForModel(model, dataSubset = DataSubset$All)
+kable(head(trainingPredictions), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+```{r results = "asis", echo = FALSE}
+library(knitr)
+trainingPredictions <- readRDS("trainingPredictions.rds")
+kable(head(trainingPredictions), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+You may also find it valuable to split a call to request and get like this:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+models <- ListModels(projectId)
+model <- models[[1]]
+jobId <- RequestTrainingPredictions(model, dataSubset = DataSubset$All)
+# can run computations here while training predictions compute in the background
+trainingPredictions <- GetTrainingPredictionsFromJobId(projectId, jobId) # blocks until job complete
+kable(head(trainingPredictions), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+```{r results = "asis", echo = FALSE}
+library(knitr)
+trainingPredictions <- readRDS("trainingPredictions.rds")
+kable(head(trainingPredictions), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+Or you can retrieve training predictions from a specific ID.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+trainingPredictions <- ListTrainingPredictions(projectId)
+trainingPredictionId <- trainingPredictions[[1]]$id
+trainingPrediction <- GetTrainingPredictions(projectId, trainingPredictionId)
+kable(head(trainingPrediction), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+```{r results = "asis", echo = FALSE}
+trainingPrediction <- readRDS("trainingPrediction.rds")
+kable(head(trainingPrediction), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
+```
+
+
+## Downloading Training Predictions
+
+You can also download training predictions to a CSV.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+DownloadTrainingPredictions(projectId, trainingPredictionId, "trainingPredictions.csv")
+```

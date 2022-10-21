@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Peter Hurford, Madeleine Mott" />
+
+<meta name="date" content="2022-05-06" />
+
+<title>Introduction to Time Series</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to Time Series</h1>
+<h4 class="author">Peter Hurford, Madeleine Mott</h4>
+<h4 class="date">2022-05-06</h4>
+
+
+
+<p>DataRobot now includes the ability to make time series projects via the API.</p>
+<p>Time series projects, like OTV projects, use datetime partitioning, and all the workflow changes that apply to other datetime partitioned projects also apply to them. Unlike other projects, time series projects produce different types of models which forecast multiple future predictions instead of an individual prediction for each row.</p>
+<p>DataRobot uses a general time series framework to configure how time series features are created and what future values the models will output. This framework consists of a Forecast Point (defining a time a prediction is being made), a Feature Derivation Window (a rolling window used to create features), and a Forecast Window (a rolling window of future values to predict). These components are described in more detail below.</p>
+<p>Time series projects will automatically transform the dataset provided in order to apply this framework. During the transformation, DataRobot uses the Feature Derivation Window to derive time series features (such as lags and rolling statistics), and uses the Forecast Window to provide examples of forecasting different distances in the future (such as time shifts). After project creation, a new dataset and a new feature list are generated and used to train the models. This process is reapplied automatically at prediction time as well in order to generate future predictions based on the original data features.</p>
+<p>The <code>timeUnit</code> and <code>timeStep</code> used to define the Feature Derivation and Forecast Windows are taken from the datetime partition column, and can be retrieved for a given column in the input data by using <code>GetFeatureInfo</code>.</p>
+<div id="setting-up-a-time-series-project" class="section level2">
+<h2>Setting Up A Time Series Project</h2>
+<p>To set up a time series project, use the new time series specific parameters found in <code>CreateDatetimePartitionSpecification</code>:</p>
+<ul>
+<li><strong>useTimeSeries</strong> - set this to TRUE to enable time series for the project.</li>
+<li><strong>defaultToKnownInAdvance</strong> - set this to TRUE to default to treating all features as known in advance features. Otherwise they will not be handled as known in advance features. See the prediction documentation for more information.</li>
+<li><strong>featureDerivationWindowStart</strong> - the offset into the past to the start of the feature derivation window.</li>
+<li><strong>featureDerivationWindowEnd</strong> - the offset into the past to the end of the feature derivation window.</li>
+<li><strong>forecastWindowStart</strong> - the offset into the future to the start of the forecast window.</li>
+<li><strong>forecastWindowEnd</strong> - the offset into the future to the end of the forecast window.</li>
+<li><strong>featureSettings</strong> - A list of settings. Can be used to set individual features to “known in advance”.</li>
+<li><strong>treatAsExponential</strong> - Used to specify whether to treat the data as an exponential trend, which will apply a log-transform. By default, set as “auto”, this can be inferred automatically. See possible values in <code>TreatAsExponential</code>.</li>
+<li><strong>differencingMethod</strong> - Used to specify a differencing method to apply if data is stationary. By default, set as “auto”, this can be inferred automatically. See possible values in <code>DifferenicngMethod</code>.</li>
+<li><strong>periodicities</strong> - A list of periodicities of different timestamps, specified in a list of lists.</li>
+<li><strong>windowsBasisUnit</strong> - The unit to use for feature derivation and forecast windows. Defaults to the inferred time step. If <code>&quot;ROW&quot;</code>, will define the window with a number of rows.</li>
+</ul>
+<p>When using datasets to a time series project, the dataset might look something like the following, if <code>time</code> is the datetime partition column, <code>target</code> is the target column, and <code>temp</code> is an input feature. If the dataset was uploaded with a forecast point of “2017-01-08” and during partitioning the feature derivation window start and end were set to -5 and -3 and the forecast window start and end were set to 1 and 3, then rows 1 through 3 are historical data, row 6 is the forecast point, and rows 7 though 9 are forecast rows that will have predictions when predictions are computed.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">row</th>
+<th align="left">time</th>
+<th align="right">target</th>
+<th align="right">temp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">2017-01-03</td>
+<td align="right">16443</td>
+<td align="right">72</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">2017-01-04</td>
+<td align="right">3013</td>
+<td align="right">72</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">2017-01-05</td>
+<td align="right">1643</td>
+<td align="right">68</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">2017-01-06</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">2017-01-07</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">2017-01-08</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">2017-01-09</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">2017-01-10</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">2017-01-11</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p>On the other hand, if the project instead used <code>holiday</code> as a known in advance input feature, the uploaded dataset might look like the following:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">row</th>
+<th align="left">time</th>
+<th align="right">target</th>
+<th align="left">holiday</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">2017-01-03</td>
+<td align="right">16443</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">2017-01-04</td>
+<td align="right">3013</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">2017-01-05</td>
+<td align="right">1643</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">2017-01-06</td>
+<td align="right">NA</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">2017-01-07</td>
+<td align="right">NA</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">2017-01-08</td>
+<td align="right">NA</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">2017-01-09</td>
+<td align="right">NA</td>
+<td align="left">TRUE</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">2017-01-10</td>
+<td align="right">NA</td>
+<td align="left">FALSE</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="left">2017-01-11</td>
+<td align="right">NA</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody>
+</table>
+<p>Here’s a simple example of using this data in a time series project:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StartProject</span>(<span class="at">dataSource =</span> data, <span class="at">target =</span> <span class="st">&quot;target&quot;</span>, <span class="at">partition =</span> partition, <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>)</span></code></pre></div>
+</div>
+<div id="feature-derivation-window" class="section level2">
+<h2>Feature Derivation Window</h2>
+<p>The Feature Derivation window represents the rolling window that is used to derive time series features and lags, relative to the Forecast Point. It is defined in terms of <code>featureDerivationWindowStart</code> and <code>featureDerivationWindowEnd</code> which are integer values representing datetime offsets in terms of the <code>timeUnit</code> (e.g. hours or days).</p>
+<p>The Feature Derivation Window start and end must be less than or equal to zero, indicating they are positioned before the forecast point. Additionally, the window must be specified as an integer multiple of the <code>timeStep</code> which defines the expected difference in time units between rows in the data.</p>
+<p>Enough rows of historical data must be provided to cover the span of the effective Feature Derivation Window (which may be longer than the project’s Feature Derivation Window depending on the differencing settings chosen). The effective Feature Derivation Window of any model can be checked via the <code>effectiveFeatureDerivationWindowStart</code> and <code>effectiveFeatureDerivationWindowEnd</code> attributes of a datetime model. See <code>GetDatetimeModel</code>.</p>
+<p>The window is closed, meaning the edges are considered to be inside the window.</p>
+<p>This information is added to your <code>CreateDatetimePartitionSpecification</code> call like so:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureDerivationWindowStart =</span> <span class="sc">-</span><span class="dv">24</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureDerivationWindowEnd =</span> <span class="sc">-</span><span class="dv">12</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="forecast-window" class="section level2">
+<h2>Forecast Window</h2>
+<p>The Forecast Window represents the rolling window of future values to predict, relative to the Forecast Point. It is defined in terms of the <code>forecastWindowStart</code> and <code>forecastWindowEnd</code>, which are positive integer values indicating datetime offsets in terms of the <code>timeUnit</code> (e.g. hours or days).</p>
+<p>The Forecast Window start and end must be positive integers, indicating they are positioned after the forecast point. Additionally, the window must be specified as an integer multiple of the <code>timeStep</code> which defines the expected difference in time units between rows in the data.</p>
+<p>The window is closed, meaning the edges are considered to be inside the window.</p>
+<p>This information is added to your <code>CreateDatetimePartitionSpecification</code> call like so:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">forecastWindowStart =</span> <span class="dv">1</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">forecastWindowEnd =</span> <span class="dv">10</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+<div id="modeling-data-and-time-series-features" class="section level2">
+<h2>Modeling Data and Time Series Features</h2>
+<p>In time series projects, a new set of modeling features is created after setting the partitioning options. If a featurelist is specified with the partitioning options, it will be used to select which features should be used to derived modeling features; if a featurelist is not specified, the default featurelist will be used.</p>
+<p>These features are automatically derived from those in the project’s dataset and are the features used for modeling - note that <code>ListFeaturelists</code> and <code>ListModelingFeaturelists</code> will return different data in time series projects. Modeling featurelists are the ones that can be used for modeling and will be accepted by the backend, while regular featurelists will continue to exist but cannot be used. Modeling features are only accessible once the target and partitioning options have been set. In projects that don’t use time series modeling, once the target has been set, both modeling and regular features and featurelists will behave the same.</p>
+</div>
+<div id="making-predictions" class="section level2">
+<h2>Making Predictions</h2>
+<p>Prediction datasets are uploaded as normal predictions. However, when uploading a prediction dataset, a new parameter <code>forecastPoint</code> can be specified. The forecast point of a prediction dataset identifies the point in time relative which predictions should be generated, and if one is not specified when uploading a dataset, the server will choose the most recent possible forecast point. The forecast window specified when setting the partitioning options for the project determines how far into the future from the forecast point predictions should be calculated.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(timeSeriesModel, testData, <span class="at">forecastPoint =</span> <span class="st">&quot;1958-01-01&quot;</span>)</span></code></pre></div>
+</div>
+<div id="feature-settings" class="section level2">
+<h2>Feature Settings</h2>
+<p>When setting up a time series project, input features could be identified as known in advance features. These features are not used to generate lags, and are expected to be known for the rows in the forecast window at predict time (e.g. “how much money will have been spent on marketing”, “is this a holiday”).</p>
+<p>To start a time series project, use <code>CreateDatetimePartitionSpecification</code> and specify the <code>feaureSettings</code>. (Note that this is for illustrative purposes only - this project will not actually build because the 10 data points are smaller than the 100 datapoint minimum required.)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;holiday&quot;</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                                                                         <span class="st">&quot;knownInAdvance&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(data,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">projectName =</span> <span class="st">&quot;test-TimeSeries&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;target&quot;</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">partition =</span> partition,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>)</span></code></pre></div>
+<p>If you have another known in advance feature (e.g., <code>weekend</code>), just add it to feature settings as a list of lists:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;holiday&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="st">&quot;knownInAdvance&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                                                         <span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;weekend&quot;</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="st">&quot;knownInAdvance&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>)))</span></code></pre></div>
+</div>
+<div id="formatting-durations" class="section level2">
+<h2>Formatting Durations</h2>
+<p>Some parts of time series require specifying durations. When date ranges are specified with a start and an end date, the end date is exclusive, so only dates earlier than the end date are included, but the start date is inclusive, so dates equal to or later than the start date are included. If the start and end date are the same, then no dates are included in the range.</p>
+<p>Durations are specified using a subset of ISO8601. Durations will be of the form PnYnMnDTnHnMnS where each “n” may be replaced with an integer value. Within the duration string,</p>
+<ul>
+<li>nY represents the number of years</li>
+<li>the nM following the “P” represents the number of months</li>
+<li>nD represents the number of days</li>
+<li>nH represents the number of hours</li>
+<li>the nM following the “T” represents the number of minutes</li>
+<li>nS represents the number of seconds</li>
+<li>“P” is used to indicate that the string represents a period and “T” indicates the beginning of the time component of the string. Any section with a value of 0 may be excluded. As with datetimes, if the partition column did not include a time component in its date format, the time component of any duration must be either unspecified or consist only of zeros.</li>
+</ul>
+<p>Example Durations:</p>
+<ul>
+<li>“P3Y6M” (three years, six months)</li>
+<li>“P1Y0M0DT0H0M0S” (one year)</li>
+<li>“P1Y5DT10H” (one year, 5 days, 10 hours)</li>
+</ul>
+</div>
+<div id="multiseries" class="section level2">
+<h2>Multiseries</h2>
+<p>The API also supports <strong>multiseries</strong>, or data with multiple time series delineated by multiseries ID columns. To create this, create a project, then create a datetime partition specification that specifies the <code>datetimePartitionColumn</code> (the column with your date in it) and the <code>multiseriesIdColumns</code> (a list of columns specifying the ids that delineate the multiseries).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;multiseries.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarobot&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">multiseriesIdColumns =</span> <span class="st">&quot;series_id&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(data,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">projectName =</span> <span class="st">&quot;test-TimeSeries&quot;</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;target&quot;</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">partition =</span> partition,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">mode =</span> AutopilotMode<span class="sc">$</span>Manual,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">targetType =</span> <span class="st">&quot;Regression&quot;</span>)</span></code></pre></div>
+</div>
+<div id="prediction-intervals" class="section level2">
+<h2>Prediction Intervals</h2>
+<p>For each model, prediction intervals estimate the range of values DataRobot expects actual values of the target to fall within. They are similar to a confidence interval of a prediction, but are based on the residual errors measured during the backtesting for the selected model.</p>
+<p>Note that because calculation depends on the backtesting values, prediction intervals are not available for predictions on models that have not had all backtests completed. Additionally, prediction intervals are not available when the number of points per forecast distance is less than 10, due to insufficient data.</p>
+<p>In a prediction request, users can specify a prediction intervals size, which specifies the desired probability of actual values falling within the interval range. Larger values are less precise, but more conservative. For example, specifying a size of 80 will result in a lower bound of 10% and an upper bound of 90%. More generally, for a specific <code>predictionIntervalsSize</code>, the upper and lower bounds will be calculated as follows:</p>
+<ul>
+<li>predictionIntervalUpperBound = 50% + (<code>predictionIntervalsSize</code> / 2)</li>
+<li>predictionIntervalLowerBound = 50% - (<code>predictionIntervalsSize</code> / 2)</li>
+</ul>
+<p>To view prediction intervals data for a prediction, the prediction needs to have been created using <code>Predict</code> and specifying <code>includePredictionIntervals = TRUE</code>. The size for the prediction interval can be specified with the <code>predictionIntervalsSize</code> parameter for the same function, and will default to 80 if left unspecified. Specifying these fields will result in prediction interval bounds being included in the retrieved prediction data for that request. See <code>Predict</code> for more details.</p>
+</div>
+<div id="disabling-derived-features" class="section level2">
+<h2>Disabling Derived Features</h2>
+<p>DataRobot does a lot of good work to automatically derive features that may be useful (e.g., lags). You can always see these features clearly by calling <code>GetTimeSeriesFeatureDerivationLog</code>. However, from time to time, it may be useful to disable DataRobot’s automatic feature engineering for a particular feature (e.g., so you can derive lags yourself manually). To do this, we can use the <code>featureSettings</code> to turn off derived features for a particular base feature:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;sales&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="st">&quot;doNotDerive&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>)))</span></code></pre></div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

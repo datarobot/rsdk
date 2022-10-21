@@ -1,0 +1,26 @@
+{
+  "datetimePartitionColumn": ["timestamp"],
+  "detectedMultiseriesIdColumns": [
+    {
+      "multiseriesIdColumns": [
+        ["series_id"]
+      ],
+      "timeUnit": ["DAY"],
+      "timeStep": [1]
+    },
+    {
+      "multiseriesIdColumns": [
+        ["シリーズ識別子"]
+      ],
+      "timeUnit": ["DAY"],
+      "timeStep": [1]
+    },
+    {
+      "multiseriesIdColumns": [
+        ["ідентифікатор"]
+      ],
+      "timeUnit": ["DAY"],
+      "timeStep": [1]
+    }
+  ]
+}

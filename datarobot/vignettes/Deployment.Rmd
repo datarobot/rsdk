@@ -1,0 +1,120 @@
+---
+title: "Introduction to Model Deployment"
+author: "Peter Hurford"
+date: "`r Sys.Date()`"
+output: 
+ rmarkdown::html_vignette:
+  fig_caption: yes 
+vignette: >
+ %\VignetteIndexEntry{Introduction to Model Deployment}
+ %\VignetteEngine{knitr::rmarkdown}
+ %\VignetteEncoding{UTF-8}
+---
+
+Deployment is the central hub for users to deploy, manage and monitor their models.
+
+## Manage Deployments
+
+The following commands can be used to manage deployments.
+
+### Create a Deployment
+
+When creating a new deployment, a DataRobot `model_id` and `label` must be provided. A `description` can be optionally provided to document the purpose of the deployment.
+
+The default prediction server is used when making predictions against the deployment, and is a requirement for creating a deployment on DataRobot cloud. For on-prem installations, a user must not provide a default prediction server and a pre-configured prediction server will be used instead.
+Refer to `ListPredictionServers` for more information on retrieving available prediction servers.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+library(datarobot)
+project <- GetProject("5506fcd38bd88f5953219da0")
+model <- ListModels(project)[[1]]
+predictionServer <- ListPredictionServers()[[1]]
+deployment <- CreateDeployment(model,
+                               label = "New Deployment",
+                               description = "A new deployment for demo purposes",
+                               defaultPredictionServerId = predictionServer)
+```
+
+### List Deployments
+
+Use the following command to list deployments a user can view.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+ListDeployments()
+```
+
+### Retrieve a Deployment
+
+It is possible to retrieve a single deployment with its identifier, rather than list all deployments.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+GetDeployment("5e319d2e422fbd6b58a5edad")
+```
+
+### Delete a Deployment
+
+To mark a deployment as deleted, use the following command.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+deployment <- GetDeployment("5e319d2e422fbd6b58a5edad")
+DeleteDeployment(deployment)
+```
+
+
+## Model Replacement
+
+The model of a deployment can be replaced effortlessly with zero interruption of predictions.
+
+Model replacement is an asynchronous process, which means there are some preparatory works to complete before the process is fully finished.  However, predictions made against this deployment will start using the new model as soon as you initiate the process. The `ReplaceDeployedModel` function won't return until this asynchronous process is fully finished.
+
+Alongside the identifier of the new model, a `reason` is also required. The reason is stored in model history of the deployment for bookkeeping purpose. An enum `ModelReplacementReason` is provided for convenience, all possible values are documented below:
+
+- ModelReplacementReason$Accuracy
+- ModelReplacementReason$DataDrift
+- ModelReplacementReason$Errors
+- ModelReplacementReason$ScheduledRefresh
+- ModelReplacementReason$ScoringSpeed
+- ModelReplacementReason$Other
+
+Here is an example of model replacement:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+project <- GetProject("5506fcd38bd88f5953219da0")
+newModel <- ListModels(project)[[2]]
+deployment <- GetDeployment("5e319d2e422fbd6b58a5edad")
+ReplaceDeployedModel(deployment, newModel, ModelReplacementReason$Accuracy)
+```
+
+### Validation
+
+Before initiating the model replacement request, it is usually a good idea to use the `ValidateReplaceDeployedModel` function to validate if the new model can be used as a replacement.
+
+The `ValidateReplaceDeployedModel` function returns the validation status, a message and a list with details on each check. If the status is "passing" or "warning", use `ReplaceDeployedModel` to perform model the replacement. If status is "failing", refer to the `checks` list for more details on why the new model cannot be used as a replacement.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+project <- GetProject("5506fcd38bd88f5953219da0")
+newModel <- ListModels(project)[[2]]
+deployment <- GetDeployment("5e319d2e422fbd6b58a5edad")
+validation <- ValidateReplaceDeployedModel(deployment, newModel)
+print(validation$status)  # Look here to see if passing
+print(validation$checks)  # Look here if not passing to see why
+```
+
+
+## Drift Tracking Setting
+
+Drift tracking is used to help analyze and monitor the performance of a model after it is deployed. When the model of a deployment is replaced drift tracking status will not be altered.
+
+Use `GetDeploymentDriftTrackingSettings` to retrieve the current tracking status for target drift and feature drift:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+deployment <- GetDeployment("5e319d2e422fbd6b58a5edad")
+GetDeploymentDriftTrackingSettings(deployment)
+```
+
+Use `UpdateDeploymentDriftTrackingSettings` to update target drift and feature drift tracking status.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+deployment <- GetDeployment("5e319d2e422fbd6b58a5edad")
+UpdateDeploymentDriftTrackingSettings(deployment, targetDriftEnabled = TRUE)
+```

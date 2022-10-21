@@ -1,0 +1,7 @@
+{"crossSeriesGroupByColumns": [
+		{"eligibility":"suitable",
+		 "name":"category",
+		 "isEligible":true}
+  ],
+	"multiseriesId":["Department"]
+}

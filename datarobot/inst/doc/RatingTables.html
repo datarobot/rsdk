@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Peter Hurford" />
+
+<meta name="date" content="2022-05-06" />
+
+<title>Introduction to Rating Tables</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Introduction to Rating Tables</h1>
+<h4 class="author">Peter Hurford</h4>
+<h4 class="date">2022-05-06</h4>
+
+
+
+<p>A <strong>rating table</strong> is an exportable CSV representation of a Generalized Additive Model. It contains information about the features and coefficients used to make predictions. Users can influence predictions by downloading and editing values in a rating table, then uploading the table and using it to create a new model. See the page about interpreting Generalized Additive Model output in the Datarobot user guide for more details on how to interpret and edit rating tables.</p>
+<div id="connect-to-datarobot" class="section level2">
+<h2>Connect to DataRobot</h2>
+<p>To explore rating tables, let’s first connect to DataRobot. First, you must load the DataRobot R package library.</p>
+<p>If you have set up a credentials file, <code>library(datarobot)</code> will initialize a connection to DataRobot automatically. Otherwise, you can specify your <code>endpoint</code> and <code>apiToken</code> as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the “Introduction to DataRobot” vignette.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR DATAROBOT URL GOES HERE&gt;/api/v2&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN GOES HERE&gt;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(<span class="at">endpoint =</span> endpoint, <span class="at">token =</span> apiToken)</span></code></pre></div>
+</div>
+<div id="retrieving-rating-tables" class="section level2">
+<h2>Retrieving Rating Tables</h2>
+<p>You can retrieve a rating table from the list of rating tables in a project:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>projectId <span class="ot">&lt;-</span> <span class="st">&quot;59dab74bbd2a54035786bfc0&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ratingTables <span class="ot">&lt;-</span> <span class="fu">ListRatingTables</span>(projectId)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ratingTable <span class="ot">&lt;-</span> ratingTables[[<span class="dv">1</span>]]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ratingTable)</span></code></pre></div>
+<p>$validationJobId NULL</p>
+<p>$validationError [1] “”</p>
+<p>$projectId [1] “59dab74bbd2a54035786bfc0”</p>
+<p>$ratingTableName [1] “Rating Table for 59dab774bd2a54035d157fa7”</p>
+<p>$parentModelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>$modelJobId NULL</p>
+<p>$id [1] “59dab7a06f42a6df428bc14c”</p>
+<p>$originalFilename [1] “rating_table.csv”</p>
+<p>$modelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>attr(,“class”) [1] “dataRobotRatingTable”</p>
+<p>Or you can retrieve a rating table from a specific model. The model must already have a rating table.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>projectId <span class="ot">&lt;-</span> <span class="st">&quot;59dab74bbd2a54035786bfc0&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ratingTableModels <span class="ot">&lt;-</span> <span class="fu">ListRatingTableModels</span>(projectId)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ratingTableModel <span class="ot">&lt;-</span> ratingTableModels[[<span class="dv">1</span>]]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ratingTableId <span class="ot">&lt;-</span> ratingTableModel<span class="sc">$</span>ratingTableId</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ratingTable <span class="ot">&lt;-</span> <span class="fu">GetRatingTable</span>(projectId, ratingTableId)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ratingTable)</span></code></pre></div>
+<p>$validationJobId NULL</p>
+<p>$validationError [1] “”</p>
+<p>$projectId [1] “59dab74bbd2a54035786bfc0”</p>
+<p>$ratingTableName [1] “Rating Table for 59dab774bd2a54035d157fa7”</p>
+<p>$parentModelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>$modelJobId NULL</p>
+<p>$id [1] “59dab7a06f42a6df428bc14c”</p>
+<p>$originalFilename [1] “rating_table.csv”</p>
+<p>$modelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>attr(,“class”) [1] “dataRobotRatingTable”</p>
+<p>Or retrieve model by id. The model must have a rating table.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>projectId <span class="ot">&lt;-</span> <span class="st">&quot;59dab74bbd2a54035786bfc0&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>modelId <span class="ot">&lt;-</span> <span class="st">&quot;59dd0b01d9575702bec96e4&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ratingTableModel <span class="ot">&lt;-</span> <span class="fu">GetRatingTableModel</span>(projectId, modelId)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ratingTableId <span class="ot">&lt;-</span> ratingTableModel<span class="sc">$</span>ratingTableId</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ratingTable <span class="ot">&lt;-</span> <span class="fu">GetRatingTable</span>(projectId, ratingTableId)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ratingTable)</span></code></pre></div>
+<p>$validationJobId NULL</p>
+<p>$validationError [1] “”</p>
+<p>$projectId [1] “59dab74bbd2a54035786bfc0”</p>
+<p>$ratingTableName [1] “Rating Table for 59dab774bd2a54035d157fa7”</p>
+<p>$parentModelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>$modelJobId NULL</p>
+<p>$id [1] “59dab7a06f42a6df428bc14c”</p>
+<p>$originalFilename [1] “rating_table.csv”</p>
+<p>$modelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>attr(,“class”) [1] “dataRobotRatingTable”</p>
+</div>
+<div id="downloading-rating-tables" class="section level2">
+<h2>Downloading Rating Tables</h2>
+<p>Once you have a rating table, you can download the contents to a CSV.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DownloadRatingTable</span>(projectId, ratingTableId, <span class="st">&quot;myRatingTable.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="modifying-rating-tables" class="section level2">
+<h2>Modifying Rating Tables</h2>
+<p>You can then modify the values in the CSV and re-upload a new rating table back to DataRobot.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">DownloadRatingTable</span>(projectId, ratingTableId, <span class="st">&quot;myRatingTable.csv&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>newRatingTableJobId <span class="ot">&lt;-</span> <span class="fu">CreateRatingTable</span>(project,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                         modelId,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">&quot;myRatingTable.csv&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">ratingTableName =</span> <span class="st">&quot;Modified File&quot;</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>newRatingTable <span class="ot">&lt;-</span> <span class="fu">GetRatingTableFromJobId</span>(project, newRatingTableJobId)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(newRatingTable)</span></code></pre></div>
+<p>$validationJobId NULL</p>
+<p>$validationError [1] “”</p>
+<p>$projectId [1] “59dab74bbd2a54035786bfc0”</p>
+<p>$ratingTableName [1] “Rating Table for 59dab774bd2a54035d157fa7”</p>
+<p>$parentModelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>$modelJobId NULL</p>
+<p>$id [1] “59dab7a06f42a6df428bc14c”</p>
+<p>$originalFilename [1] “rating_table.csv”</p>
+<p>$modelId [1] “59dab774bd2a54035d157fa7”</p>
+<p>attr(,“class”) [1] “dataRobotRatingTable”</p>
+</div>
+<div id="making-new-gams-from-new-rating-tables" class="section level2">
+<h2>Making New GAMs from New Rating Tables</h2>
+<p>You can then take the new rating tables you make and create new models from them.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>newModelJobId <span class="ot">&lt;-</span> <span class="fu">RequestNewRatingTableModel</span>(project, newRatingTable)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>newRatingTableModel <span class="ot">&lt;-</span> <span class="fu">GetRatingTableModelFromJobId</span>(project, newModelJobId)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(newRatingTableModel)</span></code></pre></div>
+<p>$featurelistId [1] “59dd4731c0d33327b8f55610”</p>
+<p>$processes [1] “One-Hot Encoding”<br />
+[2] “Ordinal encoding of categorical variables”<br />
+[3] “Missing Values Imputed”<br />
+[4] “Matrix of word-grams occurrences”<br />
+[5] “Generalized Additive Model”<br />
+[6] “Text fit on Residuals (L2 / Binomial Deviance)”</p>
+<p>$featurelistName [1] “Informative Features”</p>
+<p>$projectId [1] “59dd4723d957570407bc37b4”</p>
+<p>$modelType [1] “Generalized Additive Model”</p>
+<p>$samplePct [1] 64.041</p>
+<p>$isFrozen [1] FALSE</p>
+<p>$metrics <span class="math inline">\(metrics\)</span>AUC <span class="math inline">\(metrics\)</span>AUC$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span>AUC$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span>AUC$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span>AUC$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span>AUC$validation [1] 0.77283</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top5%</code> <span class="math inline">\(metrics\)</span><code>Rate@Top5%</code>$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top5%</code>$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top5%</code>$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top5%</code>$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top5%</code>$validation [1] 1</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code> <span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code>$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code>$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code>$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code>$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@TopTenth%</code>$validation [1] 1</p>
+<p><span class="math inline">\(metrics\)</span>RMSE <span class="math inline">\(metrics\)</span>RMSE$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span>RMSE$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span>RMSE$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span>RMSE$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span>RMSE$validation [1] 0.41992</p>
+<p><span class="math inline">\(metrics\)</span>LogLoss <span class="math inline">\(metrics\)</span>LogLoss$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span>LogLoss$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span>LogLoss$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span>LogLoss$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span>LogLoss$validation [1] 0.50643</p>
+<p><span class="math inline">\(metrics\)</span><code>FVE Binomial</code> <span class="math inline">\(metrics\)</span><code>FVE Binomial</code>$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>FVE Binomial</code>$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>FVE Binomial</code>$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>FVE Binomial</code>$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>FVE Binomial</code>$validation [1] 0.23955</p>
+<p><span class="math inline">\(metrics\)</span><code>Gini Norm</code> <span class="math inline">\(metrics\)</span><code>Gini Norm</code>$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Gini Norm</code>$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Gini Norm</code>$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Gini Norm</code>$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Gini Norm</code>$validation [1] 0.54566</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top10%</code> <span class="math inline">\(metrics\)</span><code>Rate@Top10%</code>$backtesting NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top10%</code>$holdout NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top10%</code>$backtestingScores NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top10%</code>$crossValidation NULL</p>
+<p><span class="math inline">\(metrics\)</span><code>Rate@Top10%</code>$validation [1] 1</p>
+<p>$modelCategory [1] “model”</p>
+<p>$blueprintId [1] “24ea7590216323555b8fe51fe006dfba”</p>
+<p>$ratingTableId [1] “59dd4778e643feefd5d87c9b”</p>
+<p>$id [1] “59dd474bd95757040120a8e8”</p>
+<p>attr(,“class”) [1] “dataRobotRatingTableModel”</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

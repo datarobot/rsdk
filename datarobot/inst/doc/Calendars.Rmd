@@ -1,0 +1,135 @@
+---
+title: "Introduction to Calendars"
+author: "Peter Hurford"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes  
+vignette: >
+  %\VignetteIndexEntry{Using Calendars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+A **calendar** is an external file that lists events for a time series, such as holidays. For example, we might consider this calendar:
+
+```{r}
+library(knitr)
+calendar <- read.csv(system.file("extdata", "calendar.csv", package = "datarobot"))
+kable(calendar)
+```
+
+## Connect to DataRobot
+
+To explore calendars, let's first connect to DataRobot. First, you must load the DataRobot R package library.
+
+If you have set up a credentials file, `library(datarobot)` will initialize a connection to DataRobot automatically. Otherwise, you can specify your `endpoint` and `apiToken` as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the "Introduction to DataRobot" vignette.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+library(datarobot)
+endpoint <- "https://<YOUR DATAROBOT URL GOES HERE>/api/v2"
+apiToken <- "<YOUR API TOKEN GOES HERE>"
+ConnectToDataRobot(endpoint = endpoint, token = apiToken)
+```
+
+
+## Creating Calendars
+
+To create a DataRobot calendar from the CSV file, use `CreateCalendar`:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+calendar <- CreateCalendar("calendar.csv", name = "holidays")
+print(calendar)
+```
+
+```{r results = "asis", echo = FALSE}
+calendar <- readRDS("calendar.rds")
+print(calendar)
+```
+
+
+## Retrieving Calendars
+
+You can retrieve a calendar from the list of calendars. This will list all calendars across all projects.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+calendars <- ListCalendars()
+calendar <- calendars[[1]]
+print(calendar)
+```
+
+```{r results = "asis", echo = FALSE}
+calendar <- readRDS("calendar.rds")
+print(calendar)
+```
+
+
+## Modifying Calendars
+
+You can rename the calendar using `UpdateCalendar`.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+newCalendar <- UpdateCalendar(calendar, name = "newName")
+print(newCalendar)
+```
+
+```{r results = "asis", echo = FALSE}
+calendar <- readRDS("calendar.rds")
+calendar$name <- "newName"
+print(calendar)
+```
+
+
+## Making a Time Series Project using a Calendar
+
+The main point of having calendars is not to admire them, but to use them for time series modeling! To do this, make a datetime partition like you usually would and pass the calendar using the `calendar` parameter.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+project <- SetupProject(timeSeriesData, projectName = "time series with calendar")
+cal <- CreateCalendar("calendar.csv")
+partition <- CreateDatetimePartitionSpecification("date",
+                                                  autopilotDataSelectionMethod = "duration",
+                                                  useTimeSeries = TRUE,
+                                                  calendar = cal)
+StartProject(project, partition = partition, target = "target")
+```
+
+
+## Getting the Calendar Associated with a Project
+
+You can get the calendar associated with a project using `GetCalendarFromProject`
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+projectId <- "59dab74bbd2a54035786bfc0"
+calendar <- GetCalendarFromProject(project)
+print(calendar)
+```
+
+```{r results = "asis", echo = FALSE}
+calendar <- readRDS("calendar.rds")
+print(calendar)
+```
+
+
+## Getting the Projects Associated with a Calendar
+
+To see all the projects associated with a particular calendar, look at the `projectIds` parameter of the calendar.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+print(calendar$projectIds)
+```
+
+```{r results = "asis", echo = FALSE}
+calendar <- readRDS("calendar.rds")
+calendar$projectIds <- list("59dab74bbd2a54035786bfc0")
+print(calendar$projectIds)
+```
+
+
+## Sharing Projects with Others
+
+Calendars can also be shared:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+Share(calendar, "other.person.email@your.company.com")
+```
