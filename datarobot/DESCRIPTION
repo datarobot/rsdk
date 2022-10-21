@@ -1,0 +1,37 @@
+Package: datarobot
+Title: 'DataRobot' Predictive Modeling API
+Version: 2.18.2
+Description: For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
+Depends: R (>= 3.2), methods, stats
+Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19)
+License: MIT + file LICENSE
+Encoding: UTF-8
+Author: 
+    Ron Pearson [aut],
+    Zachary Deane-Mayer [aut],
+    David Chudzicki [aut],
+    Dallin Akagi [aut],
+    Sergey Yurgenson [aut],
+    Thakur Raj Anand [aut],
+    Peter Hurford [aut],
+    Chester Ismay [aut],
+    AJ Alon [aut],
+    Andrew Watson [aut],
+    Gregory Williams [aut],
+    Anastasiia Tamazlykar [ctb],
+    Mykhailo Poliakov [ctb],
+    DataRobot, Inc. [cph]
+Maintainer: AJ Alon <api-maintainer@datarobot.com>
+Suggests: lubridate, knitr, testthat, lintr, stubthat, data.table,
+        MASS, mlbench, beanplot, doBy, insuranceData, rmarkdown,
+        ggplot2, modelwordcloud, withr, memoise
+Additional_repositories:
+        https://cran.microsoft.com/snapshot/2022-04-12/
+VignetteBuilder: knitr
+RoxygenNote: 7.1.2
+NeedsCompilation: no
+Packaged: 2022-05-05 19:03:39 UTC; aj
+Language: en-US
+Config/testthat/edition: 2
+Repository: CRAN
+Date/Publication: 2022-05-06 09:20:04 UTC

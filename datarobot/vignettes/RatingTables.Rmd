@@ -1,0 +1,122 @@
+---
+title: "Introduction to Rating Tables"
+author: "Peter Hurford"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes  
+vignette: >
+  %\VignetteIndexEntry{Using Rating Tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+A **rating table** is an exportable CSV representation of a Generalized Additive Model. It contains information about the features and coefficients used to make predictions. Users can influence predictions by downloading and editing values in a rating table, then uploading the table and using it to create a new model. See the page about interpreting Generalized Additive Model output in the Datarobot user guide for more details on how to interpret and edit rating tables.
+
+
+## Connect to DataRobot
+
+To explore rating tables, let's first connect to DataRobot. First, you must load the DataRobot R package library.
+
+If you have set up a credentials file, `library(datarobot)` will initialize a connection to DataRobot automatically. Otherwise, you can specify your `endpoint` and `apiToken` as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the "Introduction to DataRobot" vignette.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+library(datarobot)
+endpoint <- "https://<YOUR DATAROBOT URL GOES HERE>/api/v2"
+apiToken <- "<YOUR API TOKEN GOES HERE>"
+ConnectToDataRobot(endpoint = endpoint, token = apiToken)
+```
+
+
+## Retrieving Rating Tables
+
+You can retrieve a rating table from the list of rating tables in a project:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+projectId <- "59dab74bbd2a54035786bfc0"
+ratingTables <- ListRatingTables(projectId)
+ratingTable <- ratingTables[[1]]
+print(ratingTable)
+```
+
+```{r results = "asis", echo = FALSE}
+ratingTable <- readRDS("ratingTable.rds")
+print(ratingTable)
+```
+
+Or you can retrieve a rating table from a specific model. The model must already have a rating table.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+projectId <- "59dab74bbd2a54035786bfc0"
+ratingTableModels <- ListRatingTableModels(projectId)
+ratingTableModel <- ratingTableModels[[1]]
+ratingTableId <- ratingTableModel$ratingTableId
+ratingTable <- GetRatingTable(projectId, ratingTableId)
+print(ratingTable)
+```
+
+```{r results = "asis", echo = FALSE}
+ratingTable <- readRDS("ratingTable.rds")
+print(ratingTable)
+```
+
+Or retrieve model by id. The model must have a rating table.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+projectId <- "59dab74bbd2a54035786bfc0"
+modelId <- "59dd0b01d9575702bec96e4"
+ratingTableModel <- GetRatingTableModel(projectId, modelId)
+ratingTableId <- ratingTableModel$ratingTableId
+ratingTable <- GetRatingTable(projectId, ratingTableId)
+print(ratingTable)
+```
+
+```{r results = "asis", echo = FALSE}
+ratingTable <- readRDS("ratingTable.rds")
+print(ratingTable)
+```
+
+
+## Downloading Rating Tables
+
+Once you have a rating table, you can download the contents to a CSV.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+DownloadRatingTable(projectId, ratingTableId, "myRatingTable.csv")
+```
+
+## Modifying Rating Tables
+
+You can then modify the values in the CSV and re-upload a new rating table back to DataRobot.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+DownloadRatingTable(projectId, ratingTableId, "myRatingTable.csv")
+newRatingTableJobId <- CreateRatingTable(project,
+                                         modelId,
+                                         "myRatingTable.csv",
+                                         ratingTableName = "Modified File")
+newRatingTable <- GetRatingTableFromJobId(project, newRatingTableJobId)
+print(newRatingTable)
+```
+
+```{r results = "asis", echo = FALSE}
+ratingTable <- readRDS("ratingTable.rds")
+print(ratingTable)
+```
+
+
+## Making New GAMs from New Rating Tables
+
+You can then take the new rating tables you make and create new models from them.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+newModelJobId <- RequestNewRatingTableModel(project, newRatingTable)
+newRatingTableModel <- GetRatingTableModelFromJobId(project, newModelJobId)
+print(newRatingTableModel)
+```
+
+```{r results = "asis", echo = FALSE}
+newRatingTableModel <- readRDS("ratingTableModel.RDS")
+print(newRatingTableModel)
+```
+

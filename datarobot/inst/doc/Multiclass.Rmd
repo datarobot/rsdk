@@ -1,0 +1,111 @@
+---
+title: "Introduction to Multiclass"
+author: "Peter Hurford"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes  
+vignette: >
+  %\VignetteIndexEntry{Introduction to Multiclass}
+  %\VignetteEngine{rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+**Multiclass projects** in DataRobot are projects that allow for prediction of more than two classes (unlike binary prediction, which is for precisely two classes). Currently, DataRobot supports predicting up to 10 different classes.
+
+
+## Connect to DataRobot
+
+To explore multiclass projects, let's first connect to DataRobot. First, you must load the DataRobot R package library.
+
+If you have set up a credentials file, `library(datarobot)` will initialize a connection to DataRobot automatically. Otherwise, you can specify your `endpoint` and `apiToken` as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the "Introduction to DataRobot" vignette.
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+library(datarobot)
+endpoint <- "https://<YOUR DATAROBOT URL GOES HERE>/api/v2"
+apiToken <- "<YOUR API TOKEN GOES HERE>"
+ConnectToDataRobot(endpoint = endpoint, token = apiToken)
+```
+
+
+## Creating a Multiclass Project
+
+Let's predict for the iris dataset:
+
+```r
+library(knitr)
+data(iris) # Load `iris` from R data memory.
+kable(iris)
+```
+
+If your target is categorical and has a cardinality of up to 10, we will automatically select a Multiclass `targetType` and that argument is not needed when calling `StartProject`. However, if the target is numerical and you would like to force it to be seen as a Multiclass project in DataRobot, you can specify the `targetType` as seen below:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+project <- StartProject(iris,
+                        projectName = "multiclassExample",
+                        target = "Species",
+                        targetType = TargetType$Multiclass,
+                        maxWait = 600)
+```
+
+Now we can build a model:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+blueprint <- ListBlueprints(project)[[1]]
+RequestNewModel(project, blueprint)
+```
+
+And then we can get predictions:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+model <- ListModels(project)[[1]]
+predictions <- Predict(model, iris)
+print(table(predictions))
+```
+
+```{r results = "asis", echo = FALSE}
+message("request issued, waiting for predictions")
+message("Multiclass with labels setosa, versicolor, virginica")
+print(table(readRDS("multiclassPredictions.rds")))
+```
+
+You can also get a dataframe with the probabilities of each class using `type = "probability"`:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+predictions <- Predict(model, iris, type = "probability")
+kable(head(predictions))
+```
+
+```{r results = "asis", echo = FALSE}
+message("request issued, waiting for predictions")
+message("Multiclass with labels setosa, versicolor, virginica")
+library(knitr)
+kable(head(readRDS("multiclassPredictionProbs.rds")))
+```
+
+
+## Confusion Charts
+
+The **confusion chart** is a chart that helps understand how the multiclass model performs:
+
+```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
+confusionChart <- GetConfusionChart(model, source = DataPartition$VALIDATION)
+kable(capture.output(confusionChart))
+```
+
+```{r results = "asis", echo = FALSE}
+kable(capture.output(readRDS("confusionChart.rds")))
+```
+
+Here, we can see the source comes from the `"validation"` partition (options are in the `DataPartition` object), and class metrics show:
+
+* **wasActualPercentages:** for each class, what percentage of that class was predicted as. A prediction of any other class would involve mispredicting.
+* **wasPredictedPercentages:** for each predicted class, what percentage of that prediction was actually the other class.
+* **confusionMatrix:** A matrix for each predicted class, showing on the x-axis whether the actual class matches the predicted class (1) or not (2), and on the y-axis whether the class being predicted is the class for the matrix (1) or not (2). Thus the top-left quadrant (1-1) is the number of records that actually are the predicted class and were predicted to be that class (true positives), the top-right quadrant (1-2) is the number of records that were mispredicted as not the class but actually were the class (false negatives), the bottom-left quadrant (1-2) is the number of records that actually were not the class but were mispredicted to be the class (false positives), and the bottom-right quadrant (2-2) is the number of records that are not the class and were also predicted to not be the class (true negatives).
+* **f1:** The F1 score for each class.
+* **precision** The precision statistic for each class.
+* **recall:** The recall statistic for each class.
+* **actualCount:** The number of records for each class that actually are that class.
+* **predictedCount:** The number of times each class was predicted.
+
+The confusion chart also shows a full confusion matrix with one row and one column for each class, showing how each class was predicted or mispredicted. The columns represent the predicted classes and the rows represent the actual classes.
