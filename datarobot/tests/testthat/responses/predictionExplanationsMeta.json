@@ -1,0 +1,13 @@
+{
+  "finishTime": [1557895928.8275],
+  "numColumns": [1],
+  "predictionExplanationsLocation": ["https://app.datarobot.com/api/v2/projects/5cdb968249dd8515bd4330a9/predictionExplanations/5cdb9af049dd8516c14330b0/"],
+  "projectId": ["5cdb968249dd8515bd4330a9"],
+  "thresholdLow": {},
+  "id": ["5cdb9af049dd8516c14330b0"],
+  "thresholdHigh": {},
+  "predictionThreshold": [0.5],
+  "maxExplanations": [3],
+  "datasetId": ["5cdb974449dd8515de4330ba"],
+  "modelId": ["5cdb96b449dd8515ab4330d9"]
+}

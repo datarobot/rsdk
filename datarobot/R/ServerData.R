@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Reformat paginated data returned from the server.
 #' @param serverData list. Raw JSON parsed list returned from the server.
 CleanServerData <- function(serverData) {

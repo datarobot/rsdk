@@ -1,0 +1,12 @@
+{
+  "updated": ["2018-12-14T06:02:50.675000"],
+  "creator": ["5c1302ba8cdd6dad13cc242c"],
+  "canonicalName": ["New Name"],
+  "params": {
+    "query": ["SELECT * FROM kickcars;"],
+    "dataStoreId": ["5c1302d79300d900016b41a5"],
+    "table": ["this is a table"]
+  },
+  "type": ["jdbc"],
+  "id": ["5c1344939300d900016b41b0"]
+}

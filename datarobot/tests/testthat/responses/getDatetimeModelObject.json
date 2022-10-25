@@ -1,0 +1,107 @@
+{
+  "isFrozen": false,
+  "featurelistId": "5a2f754ff58a42732f8150a4",
+  "processes": [
+    "One-Hot Encoding",
+    "Matrix of word-grams occurrences",
+    "Missing Values Imputed",
+    "Standardize",
+    "Smooth Ridit Transform",
+    "Elastic-Net Classifier (L2 / Binomial Deviance)"
+  ],
+  "featurelistName": "Informative Features",
+  "backtests": [
+    {
+      "status": "COMPLETED",
+      "index": 0,
+      "trainingDuration": "P572D",
+      "trainingRowCount": 572,
+      "trainingStartDate": "2014-06-09T00:00:00.000000Z",
+      "score": 0.71501,
+      "trainingEndDate": "2016-01-02T00:00:00.000000Z"
+    }
+  ],
+  "modelType": "Elastic-Net Classifier (L2 / Binomial Deviance)",
+  "modelNumber": 62,
+  "modelCategory": "model",
+  "projectId": "5a2f753ddb11bf541235f73c",
+  "dataSelectionMethod": "rowCount",
+  "samplePct": null,
+  "holdoutStatus": "COMPLETED",
+  "trainingStartDate": null,
+  "metrics": {
+    "AUC": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.58925],
+      "crossValidation": null,
+      "validation": 0.58925
+    },
+    "Rate@Top5%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.5],
+      "crossValidation": null,
+      "validation": 0.5
+    },
+    "Rate@TopTenth%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [1.0],
+      "crossValidation": null,
+      "validation": 1.0
+    },
+    "RMSE": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.50991],
+      "crossValidation": null,
+      "validation": 0.50991
+    },
+    "LogLoss": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.71501],
+      "crossValidation": null,
+      "validation": 0.71501
+    },
+    "FVE Binomial": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [-0.03626],
+      "crossValidation": null,
+      "validation": -0.03626
+    },
+    "Gini Norm": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.1785],
+      "crossValidation": null,
+      "validation": 0.1785
+    },
+    "Rate@Top10%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": [0.57143],
+      "crossValidation": null,
+      "validation": 0.57143
+    }
+  },
+  "trainingDuration": null,
+  "trainingRowCount": 572,
+  "holdoutScore": null,
+  "trainingInfo": {
+    "predictionTrainingDuration": "P572D",
+    "holdoutTrainingStartDate": "2014-08-11T00:00:00.000000Z",
+    "predictionTrainingStartDate": "2014-06-09T00:00:00.000000Z",
+    "holdoutTrainingDuration": "P572D",
+    "predictionTrainingRowCount": 572,
+    "holdoutTrainingEndDate": "2016-03-05T00:00:00.000000Z",
+    "predictionTrainingEndDate": "2016-01-02T00:00:00.000000Z",
+    "holdoutTrainingRowCount": 572
+  },
+  "timeWindowSamplePct": null,
+  "blueprintId": "0c9d4c1225e0b5c556ec30b84cdcbcee",
+  "trainingEndDate": null,
+  "id": "5a304611db11bf78a0e0e52e"
+}

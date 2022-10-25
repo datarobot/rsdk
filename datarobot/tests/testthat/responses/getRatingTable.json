@@ -1,0 +1,12 @@
+{
+  "validationJobId": null,
+  "validationError": "",
+  "created": 1507658535.176341,
+  "projectId": "59dab74bbd2a54035786bfc0",
+  "ratingTableName": "Rating Table for 59dd0b01d9575702bec96e4b",
+  "parentModelId": "59dd0b01d9575702bec96e4b",
+  "modelJobId": null,
+  "id": "59dd0b27c0d333f951b3b1b3",
+  "originalFilename": "rating_table.csv",
+  "modelId": "59dd0b01d9575702bec96e4b"
+}

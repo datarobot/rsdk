@@ -7,10 +7,6 @@
 GetModelRecommendation(project, type = RecommendedModelType$FastAccurate)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{type}{character. The type of recommendation to retrieve. See
 \code{RecommendedModelType} for available options. Defaults to
 \code{RecommendedModelType$FastAccurate}.}
@@ -35,7 +31,7 @@ it is more accurate.
 }
 \examples{
 \dontrun{
-  projectId <- "5984b4d7100d2b31c1166529"
-  GetModelRecommendation(projectId)
+projectId <- "5984b4d7100d2b31c1166529"
+GetModelRecommendation(projectId)
 }
 }

@@ -1,4 +1,13 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 library(testthat)
+library(stubthat)
 
 test_that("Required parameters are present", {
   expect_error(CreateUserPartition())
@@ -8,9 +17,11 @@ test_that("Required parameters are present", {
 })
 
 test_that("validationType = 'CV' option with holdout", {
-  ValidCase <- CreateUserPartition(validationType = "CV",
-                                   userPartitionCol = "TVHflag",
-                                   cvHoldoutLevel = "H")
+  ValidCase <- CreateUserPartition(
+    validationType = "CV",
+    userPartitionCol = "TVHflag",
+    cvHoldoutLevel = "H"
+  )
   expect_equal(length(ValidCase), 4)
   expect_equal(ValidCase$cvMethod, "user")
   expect_equal(ValidCase$validationType, "CV")
@@ -19,9 +30,11 @@ test_that("validationType = 'CV' option with holdout", {
 })
 
 test_that("validationType = 'CV' option explicit without holdout", {
-  ValidCase <- CreateUserPartition(validationType = "CV",
-                                   userPartitionCol = "TVHflag",
-                                   cvHoldoutLevel = NA)
+  ValidCase <- CreateUserPartition(
+    validationType = "CV",
+    userPartitionCol = "TVHflag",
+    cvHoldoutLevel = NA
+  )
   expect_equal(length(ValidCase), 4)
   expect_equal(ValidCase$cvMethod, "user")
   expect_equal(ValidCase$validationType, "CV")
@@ -30,8 +43,10 @@ test_that("validationType = 'CV' option explicit without holdout", {
 })
 
 test_that("validationType = 'CV' option implicit without holdout", {
-  ValidCase <- CreateUserPartition(validationType = "CV",
-                                   userPartitionCol = "TVHflag")
+  ValidCase <- CreateUserPartition(
+    validationType = "CV",
+    userPartitionCol = "TVHflag"
+  )
   expect_equal(length(ValidCase), 4)
   expect_equal(ValidCase$cvMethod, "user")
   expect_equal(ValidCase$validationType, "CV")
@@ -40,18 +55,26 @@ test_that("validationType = 'CV' option implicit without holdout", {
 })
 
 test_that("validationType = 'TVH' option", {
-  expect_error(CreateUserPartition(validationType = "TVH",
-                                   userPartitionCol = "TVHflag"),
-               "trainingLevel must be specified")
-  expect_error(CreateUserPartition(validationType = "TVH",
-                                   userPartitionCol = "TVHflag",
-                                   trainingLevel = "T",
-                holdoutLevel = "H"), "validationLevel must be specified")
-  ValidCase <- CreateUserPartition(validationType = "TVH",
-                                   userPartitionCol = "TVHflag",
-                                   trainingLevel = "T",
-                                   holdoutLevel = "H",
-                                   validationLevel = "V")
+  expect_error(
+    CreateUserPartition(
+      validationType = "TVH",
+      userPartitionCol = "TVHflag"
+    ),
+    "trainingLevel must be specified"
+  )
+  expect_error(CreateUserPartition(
+    validationType = "TVH",
+    userPartitionCol = "TVHflag",
+    trainingLevel = "T",
+    holdoutLevel = "H"
+  ), "validationLevel must be specified")
+  ValidCase <- CreateUserPartition(
+    validationType = "TVH",
+    userPartitionCol = "TVHflag",
+    trainingLevel = "T",
+    holdoutLevel = "H",
+    validationLevel = "V"
+  )
   expect_equal(length(ValidCase), 6)
   expect_equal(ValidCase$cvMethod, "user")
   expect_equal(ValidCase$validationType, "TVH")
@@ -59,49 +82,77 @@ test_that("validationType = 'TVH' option", {
   expect_equal(ValidCase$trainingLevel, "T")
   expect_equal(ValidCase$holdoutLevel, "H")
   expect_equal(ValidCase$validationLevel, "V")
-  CreateUserPartition(validationType = "TVH",
-                      userPartitionCol = "TVHflag",
-                      trainingLevel = "T",
-                      validationLevel = "V")
+  CreateUserPartition(
+    validationType = "TVH",
+    userPartitionCol = "TVHflag",
+    trainingLevel = "T",
+    validationLevel = "V"
+  )
 })
 
 
 test_that("validationType = 'CV' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    userPartition <- CreateUserPartition(validationType = "CV",
-                                         userPartitionCol = "TVHflag",
-                                         trainingLevel = "T",
-                                         holdoutLevel = "H",
-                                         validationLevel = "V")
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = userPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      userPartition <- CreateUserPartition(
+        validationType = "CV",
+        userPartitionCol = "TVHflag",
+        trainingLevel = "T",
+        holdoutLevel = "H",
+        validationLevel = "V"
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = userPartition
+      )
+    }
+  )
 })
 
 test_that("validationType = 'TVH' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    userPartition <- CreateUserPartition(validationType = "TVH",
-                                         userPartitionCol = "TVHflag",
-                                         trainingLevel = "T",
-                                         holdoutLevel = "H",
-                                         validationLevel = "V")
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = userPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      userPartition <- CreateUserPartition(
+        validationType = "TVH",
+        userPartitionCol = "TVHflag",
+        trainingLevel = "T",
+        holdoutLevel = "H",
+        validationLevel = "V"
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = userPartition
+      )
+    }
+  )
 })
 
 test_that("Invalid validationType returns message", {
-  expect_error(CreateUserPartition(validationType = "XYZ",
-                                   userPartitionCol = "TVHflag"),
-               "not valid")
+  expect_error(
+    CreateUserPartition(
+      validationType = "XYZ",
+      userPartitionCol = "TVHflag"
+    ),
+    "not valid"
+  )
 })

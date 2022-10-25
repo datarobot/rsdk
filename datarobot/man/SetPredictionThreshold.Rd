@@ -28,9 +28,9 @@ set a deployment or predictions have been made with the dedicated prediction API
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  SetPredictionThreshold(model, threshold = 0.6)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+SetPredictionThreshold(model, threshold = 0.6)
 }
 }

@@ -1,0 +1,11 @@
+{
+  "updated": ["2018-12-14T01:11:02.613000"],
+  "creator": ["5c1302858cdd6dad13cc23bb"],
+  "canonicalName": ["test"],
+  "params": {
+    "driverId": ["5c1302d79300d900016b41a4"],
+    "jdbcUrl": ["lala"]
+  },
+  "type": ["jdbc"],
+  "id": ["5c1303269300d900016b41a7"]
+}

@@ -13,12 +13,6 @@ DownloadPredictionExplanations(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
-\item{predictionExplanationId}{character. Id of the prediction explanations.}
-
 \item{filename}{character. Filename of file to save prediction explanations rows}
 
 \item{encoding}{character. Optional. Character string A string representing the encoding
@@ -37,15 +31,15 @@ Function to download and save prediction explanations rows as csv file
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  datasets <- ListPredictionDatasets(projectId)
-  dataset <- datasets[[1]]
-  datasetId <- dataset$id
-  model <- GetModel(projectId, modelId)
-  jobId <- RequestPredictionExplanations(model, datasetId)
-  predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-  file <- file.path(tempdir(), "testPredictionExplanation.csv")
-  DownloadPredictionExplanations(projectId, predictionExplanationId, file)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+datasets <- ListPredictionDatasets(projectId)
+dataset <- datasets[[1]]
+datasetId <- dataset$id
+model <- GetModel(projectId, modelId)
+jobId <- RequestPredictionExplanations(model, datasetId)
+predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+file <- file.path(tempdir(), "testPredictionExplanation.csv")
+DownloadPredictionExplanations(projectId, predictionExplanationId, file)
 }
 }

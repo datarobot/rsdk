@@ -48,9 +48,9 @@ Retrieve residuals chart data for a model for a data partition (see DataPartitio
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  GetResidualsChart(model, source = DataPartition$VALIDATION)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+GetResidualsChart(model, source = DataPartition$VALIDATION)
 }
 }

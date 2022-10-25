@@ -1,0 +1,133 @@
+{
+  "positiveClass": {},
+  "task": ["Regression"],
+  "predictions": [
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [179],
+      "timestamp": ["2017-07-08T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [1],
+      "prediction": [15538.6543]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [180],
+      "timestamp": ["2017-07-09T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [2],
+      "prediction": [11623.7985]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [181],
+      "timestamp": ["2017-07-10T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [3],
+      "prediction": [15185.1069]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [182],
+      "timestamp": ["2017-07-11T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [4],
+      "prediction": [18539.9133]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [183],
+      "timestamp": ["2017-07-12T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [5],
+      "prediction": [9273.5328]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [184],
+      "timestamp": ["2017-07-13T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [6],
+      "prediction": [15184.0929]
+    },
+    {
+      "seriesId": [1],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [185],
+      "timestamp": ["2017-07-14T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [7],
+      "prediction": [9466.9723]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [508],
+      "timestamp": ["2017-07-08T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [1],
+      "prediction": [9928.651]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [509],
+      "timestamp": ["2017-07-09T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [2],
+      "prediction": [4731.2377]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [510],
+      "timestamp": ["2017-07-10T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [3],
+      "prediction": [7984.4417]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [511],
+      "timestamp": ["2017-07-11T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [4],
+      "prediction": [6931.8054]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [512],
+      "timestamp": ["2017-07-12T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [5],
+      "prediction": [11379.2121]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [513],
+      "timestamp": ["2017-07-13T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [6],
+      "prediction": [7533.7901]
+    },
+    {
+      "seriesId": [2],
+      "forecastPoint": ["2017-07-07T00:00:00.000000Z"],
+      "rowId": [514],
+      "timestamp": ["2017-07-14T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [7],
+      "prediction": [7321.6548]
+    }
+  ],
+  "includesPredictionIntervals": [false]
+}

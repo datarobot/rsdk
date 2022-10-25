@@ -58,9 +58,9 @@ that can be trained into the holdout data (once the holdout is unlocked).
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetDatetimeModel(modelId)
-  RequestFrozenDatetimeModel(model)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetDatetimeModel(modelId)
+RequestFrozenDatetimeModel(model)
 }
 }

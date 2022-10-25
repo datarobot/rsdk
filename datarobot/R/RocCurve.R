@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve ROC curve data for a model for a particular data partition (see DataPartition)
 #'
 #' @inheritParams GetLiftChart
@@ -15,36 +23,19 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   GetRocCurve(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' GetRocCurve(model)
 #' }
 #' @export
 GetRocCurve <- function(model, source = DataPartition$VALIDATION,
                         fallbackToParentInsights = FALSE) {
-  as.dataRobotRocCurve(GetGeneralizedInsight("rocCurve",
-                                             model,
-                                             source = source,
-                                             fallbackToParentInsights = fallbackToParentInsights))
-}
-
-as.dataRobotRocCurve <- function(inList) {
-  rocElements <- c("source",
-                   "negativeClassPredictions",
-                   "rocPoints",
-                   "positiveClassPredictions")
-  rocList <- ApplySchema(inList, rocElements)
-  rocPointsElements <- c("accuracy", "f1Score", "falseNegativeScore",
-                         "trueNegativeScore", "truePositiveScore",
-                         "falsePositiveScore", "trueNegativeRate",
-                         "falsePositiveRate", "truePositiveRate",
-                         "matthewsCorrelationCoefficient", "positivePredictiveValue",
-                         "negativePredictiveValue", "threshold",
-                         "fractionPredictedAsPositive", "fractionPredictedAsNegative",
-                         "liftPositive", "liftNegative")
-  rocList$rocPoints <- ApplySchema(rocList$rocPoints, rocPointsElements)
-  rocList
+  return(GetGeneralizedInsight("rocCurve",
+    model,
+    source = source,
+    fallbackToParentInsights = fallbackToParentInsights
+  ))
 }
 
 
@@ -68,25 +59,28 @@ as.dataRobotRocCurve <- function(inList) {
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   ListRocCurves(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' ListRocCurves(model)
 #' }
 #' @export
 ListRocCurves <- function(model, fallbackToParentInsights = FALSE) {
   response <- GetGeneralizedInsight("rocCurve",
-                                    model,
-                                    source = NULL,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+    model,
+    source = NULL,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   temp <- list()
-  for (i in 1:nrow(response$charts)) {
-    temp[[i]] <- list(source = response$charts$source[i],
-                      negativeClassPredictions = response$charts$negativeClassPredictions[[i]],
-                      rocPoints = response$charts$rocPoints[[i]],
-                      positiveClassPredictions = response$charts$positiveClassPredictions[[i]])
+  for (i in seq_len(nrow(response$charts))) {
+    temp[[i]] <- list(
+      source = response$charts$source[i],
+      negativeClassPredictions = response$charts$negativeClassPredictions[[i]],
+      rocPoints = response$charts$rocPoints[[i]],
+      positiveClassPredictions = response$charts$positiveClassPredictions[[i]]
+    )
   }
   names(temp) <- response$charts$source
   response$charts <- temp
-  lapply(response$charts, as.dataRobotRocCurve)
+  return(response$charts)
 }

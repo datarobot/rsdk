@@ -22,6 +22,6 @@ of \code{paramPossibilities}.
 }
 \examples{
 \dontrun{
-  ValidateParameterIn("all", DataSubset)
+ValidateParameterIn("all", DataSubset)
 }
 }

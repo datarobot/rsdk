@@ -48,9 +48,9 @@ Get supported capabilities for a model, e.g., whether it has a word cloud.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  GetModelCapabilities(model)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+GetModelCapabilities(model)
 }
 }

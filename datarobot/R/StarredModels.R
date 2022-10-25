@@ -1,17 +1,25 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Star a model.
 #'
 #' @inheritParams GetFeatureImpact
 #' @return the model object, but now starred
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   StarModel(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' StarModel(model)
 #' }
 #' @export
 StarModel <- function(model) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   modelId <- model$modelId
   projectId <- ValidateProject(model$projectId)
   routeString <- UrlJoin("projects", projectId, "models", modelId)
@@ -26,14 +34,14 @@ StarModel <- function(model) {
 #' @return the model object, but now unstarred
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   UnstarModel(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' UnstarModel(model)
 #' }
 #' @export
 UnstarModel <- function(model) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   modelId <- model$modelId
   projectId <- ValidateProject(model$projectId)
   routeString <- UrlJoin("projects", projectId, "models", modelId)
@@ -48,15 +56,19 @@ UnstarModel <- function(model) {
 #' @return the model object, but now starred if unstarred or unstarred if starred.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   ToggleStarForModel(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' ToggleStarForModel(model)
 #' }
 #' @export
 ToggleStarForModel <- function(model) {
-  model <- ValidateModel(model)
-  if (isTRUE(model$isStarred)) { UnstarModel(model) } else { StarModel(model) }
+  model <- ValidateAndReturnModel(model)
+  if (isTRUE(model$isStarred)) {
+    UnstarModel(model)
+  } else {
+    StarModel(model)
+  }
 }
 
 #' List all the starred models in a project.
@@ -69,8 +81,8 @@ ToggleStarForModel <- function(model) {
 #' @inherit ListModels return
 #' @examples
 #' \dontrun{
-#'    projectId <- "59a5af20c80891534e3c2bde"
-#'    ListStarredModels(projectId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' ListStarredModels(projectId)
 #' }
 #' @export
 ListStarredModels <- function(project, orderBy = NULL) {

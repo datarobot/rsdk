@@ -1,0 +1,201 @@
+{
+  "seriesId": "S1F0EGMT",
+  "startDate": "2015-10-07T00:00:00.000000Z",
+  "endDate": "2015-11-02T00:00:00.000000Z",
+  "recordId": "607d657551a4bef68dd29d2f",
+  "projectId": "5ece5927962d741e19c2febb",
+  "source": "validation",
+  "previewBins": [
+    {
+      "avgPredicted": 0.43967850596755503,
+      "startDate": "2015-10-07T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-08T00:00:00.000000Z",
+      "maxPredicted": 0.43967850596755503
+    },
+    {
+      "avgPredicted": 0.04400171163603127,
+      "startDate": "2015-10-08T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-09T00:00:00.000000Z",
+      "maxPredicted": 0.04400171163603127
+    },
+    {
+      "avgPredicted": 0.011554394299903506,
+      "startDate": "2015-10-09T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-10T00:00:00.000000Z",
+      "maxPredicted": 0.011554394299903506
+    },
+    {
+      "avgPredicted": 0.004541973367480505,
+      "startDate": "2015-10-10T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-11T00:00:00.000000Z",
+      "maxPredicted": 0.004541973367480505
+    },
+    {
+      "avgPredicted": 0.00255463353784887,
+      "startDate": "2015-10-11T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-12T00:00:00.000000Z",
+      "maxPredicted": 0.00255463353784887
+    },
+    {
+      "avgPredicted": 0.0016201837233524017,
+      "startDate": "2015-10-12T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-13T00:00:00.000000Z",
+      "maxPredicted": 0.0016201837233524017
+    },
+    {
+      "avgPredicted": 0.001301009084024815,
+      "startDate": "2015-10-13T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-14T00:00:00.000000Z",
+      "maxPredicted": 0.001301009084024815
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-14T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-15T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-15T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-16T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-16T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-17T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-17T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-18T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-18T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-19T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-19T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-20T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-20T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-21T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-21T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-22T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-22T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-23T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-23T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-24T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-24T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-25T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-25T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-26T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-26T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-27T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-27T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-28T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": null,
+      "startDate": "2015-10-28T00:00:00.000000Z",
+      "frequency": 0,
+      "endDate": "2015-10-29T00:00:00.000000Z",
+      "maxPredicted": null
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-29T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-30T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-30T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-10-31T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-10-31T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-11-01T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    },
+    {
+      "avgPredicted": null,
+      "startDate": "2015-11-01T00:00:00.000000Z",
+      "frequency": 0,
+      "endDate": "2015-11-02T00:00:00.000000Z",
+      "maxPredicted": null
+    },
+    {
+      "avgPredicted": 0.001152261490359791,
+      "startDate": "2015-11-02T00:00:00.000000Z",
+      "frequency": 1,
+      "endDate": "2015-11-03T00:00:00.000000Z",
+      "maxPredicted": 0.001152261490359791
+    }
+  ],
+  "backtest": 0,
+  "modelId": "607d6544823fa548132dc257"
+}

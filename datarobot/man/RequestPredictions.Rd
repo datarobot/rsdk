@@ -13,10 +13,6 @@ RequestPredictions(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{modelId}{numeric. The ID of the model to use to make predictions}
 
 \item{datasetId}{numeric. The ID of the dataset to make predictions against (as uploaded from
@@ -42,17 +38,18 @@ based on the residual errors measured during the backtesting for the selected mo
 }
 \examples{
 \dontrun{
-  dataset <- UploadPredictionDataset(project, diamonds_small)
-  model <- ListModels(project)[[1]]
-  modelId <- model$modelId
-  predictJobId <- RequestPredictions(project, modelId, dataset$id)
-  predictions <- GetPredictions(project, predictJobId)
+dataset <- UploadPredictionDataset(project, diamonds_small)
+model <- ListModels(project)[[1]]
+modelId <- model$modelId
+predictJobId <- RequestPredictions(project, modelId, dataset$id)
+predictions <- GetPredictions(project, predictJobId)
 
-  # Or, if prediction intervals are desired (datetime only)
-  predictJobId <- RequestPredictions(datetimeProject,
-                                     DatetimeModelId,
-                                     includePredictionIntervals = TRUE,
-                                     predictionIntervalsSize = 100)
-  predictions <- GetPredictions(datetimeProject, predictJobId, type = "raw")
+# Or, if prediction intervals are desired (datetime only)
+predictJobId <- RequestPredictions(datetimeProject,
+  DatetimeModelId,
+  includePredictionIntervals = TRUE,
+  predictionIntervalsSize = 100
+)
+predictions <- GetPredictions(datetimeProject, predictJobId, type = "raw")
 }
 }

@@ -1,0 +1,30 @@
+{
+  "count": 2,
+  "data": [ 
+    {
+    "id": "579a35dea07c9627b919c8b3",
+    "projectId": "579a35d7c808910d2c73c86d",
+    "finishTime": 1485877863,
+    "numColumns":9,
+    "reasonCodesLocation":"https://app.datarobot.com/api/v2/projects/lala/reasonCodes/5lala/",
+    "thresholdHigh":0.75,
+    "thresholdLow":0.25,
+    "maxCodes":2,
+    "modelId":"58909af0b502b16252fb66b8"
+    },
+    {
+    "id": "579a35dea07c9627b920c8b3",
+    "projectId": "579a35d7c808910d2c73c86d",
+    "finishTime": 1485877863,
+    "numColumns":9,
+    "reasonCodesLocation":"https://app.datarobot.com/api/v2/projects/lala/reasonCodes/5lala/",
+    "thresholdHigh":0.75,
+    "thresholdLow":0.25,
+    "maxCodes":2,
+    "modelId":"58909af0b502b16252fb66b8"
+    }
+  ],
+  "previous": null,
+  "next": null
+}
+

@@ -1,0 +1,56 @@
+{
+    "id": "579a35dea07c9627b919c8b3",
+    "count": 2,
+    "previousPage":null,
+    "nextPage": null,
+    "reasonCodesRecordLocation":"dummy_location",
+    "data":[
+	{
+	  "rowId": 0,
+ 	  "prediction": 1,
+          "reasonCodes":[
+                        ]
+         },
+	{
+	  "rowId": 1,
+ 	  "prediction": 1,
+          "reasonCodes":[
+			  {
+                          "featureValue":"male",
+			  "strength":-0.7686339,
+			  "feature":"Sex",
+                          "qualitativeStrength":"---",
+                          "label":1
+		          },
+			  {
+                          "featureValue":"male",
+			  "strength":-0.7686339,
+			  "feature":"Sex",
+                          "qualitativeStrength":"---",
+                          "label":1
+		          }
+                        ]
+         },
+	{
+	  "rowId": 2,
+ 	  "prediction": 1,
+          "reasonCodes":[
+			  {
+                          "featureValue":"male",
+			  "strength":-0.7686339,
+			  "feature":"Sex",
+                          "qualitativeStrength":"---",
+                          "label":1
+		          },
+			  {
+                          "featureValue":"male",
+			  "strength":-0.7686339,
+			  "feature":"Sex",
+                          "qualitativeStrength":"---",
+                          "label":1
+		          }
+                        ]
+         }
+     ]
+}
+

@@ -51,9 +51,9 @@ Retrieve a model's confusion chart for a specified source.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  GetModel(projectId, modelId)
-  GetConfusionChart(modelId, source = DataPartition$VALIDATION)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+GetModel(projectId, modelId)
+GetConfusionChart(modelId, source = DataPartition$VALIDATION)
 }
 }

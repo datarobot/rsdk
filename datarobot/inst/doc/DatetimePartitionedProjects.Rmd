@@ -92,3 +92,13 @@ modelJobId   <- RequestNewDatetimeModel(proj, bps[[1]],
                                         trainingDuration = ConstructDurationString(months=10))
 new_dt_model <- GetDatetimeModelFromJobId(proj, modelJobId)
 ```
+
+### Datetime trend plots
+
+It is possible to retrieve Datetime Trend Plots for datetime partitioned models
+to estimate the accuracy of the model. This includes Accuracy over Time for supervised projects and Anomaly over Time for unsupervised projects. 
+
+* You can retrieve respective plots using the `GetAccuracyOverTimePlot` and `GetAnomalyOverTimePlot` functions. You can find the example for plotting the data in the each function documentation. 
+* By default, the plots would be automatically computed when accessed via retrieval methods. You can compute Datetime Trend Plots separately using a common `ComputeDatetimeTrendPlots` function. 
+* In addition, you can retrieve the respective detailed metadata for each plot type. Use the `GetAccuracyOverTimePlotsMetadata`, and `GetAnomalyOverTimePlotsMetadata` functions.
+* And the preview plots using using the `GetAccuracyOverTimePlotPreview` and `GetAnomalyOverTimePlotPreview` functions.

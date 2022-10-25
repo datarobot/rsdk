@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve residuals chart data for a model for a data partition (see DataPartition).
 #'
 #' @param model dataRobotModel. A DataRobot model object like that returned by `GetModel`. The model
@@ -29,17 +37,19 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   GetResidualsChart(model, source = DataPartition$VALIDATION)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' GetResidualsChart(model, source = DataPartition$VALIDATION)
 #' }
 #' @md
 #' @export
 GetResidualsChart <- function(model, source = DataPartition$VALIDATION,
-                         fallbackToParentInsights = FALSE) {
-  response <- GetGeneralizedInsight("residuals", model, source = source,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+                              fallbackToParentInsights = FALSE) {
+  response <- GetGeneralizedInsight("residuals", model,
+    source = source,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   lapply(response$residuals, as.dataRobotResidualsChart)
 }
 
@@ -51,10 +61,12 @@ as.dataRobotResidualsChart <- function(inList) {
     # let's check and add it as NA if needed
     outList$data["rowNumber"] <- NA
   }
-  colnames(outList$data) <- c("actual",
-                             "predicted",
-                             "residual",
-                             "rowNumber")
+  colnames(outList$data) <- c(
+    "actual",
+    "predicted",
+    "residual",
+    "rowNumber"
+  )
   outList$data$rowNumber <- as.integer(outList$data$rowNumber)
   outList$histogram$occurrences <- as.integer(outList$histogram$occurrences)
   class(outList) <- "dataRobotResiduals"
@@ -87,14 +99,16 @@ as.dataRobotResidualsChart <- function(inList) {
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   ListResidualsCharts(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' ListResidualsCharts(model)
 #' }
 #' @export
 ListResidualsCharts <- function(model, fallbackToParentInsights = FALSE) {
-  response <- GetGeneralizedInsight("residuals", model, source = NULL,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+  response <- GetGeneralizedInsight("residuals", model,
+    source = NULL,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   lapply(response$residuals, as.dataRobotResidualsChart)
 }

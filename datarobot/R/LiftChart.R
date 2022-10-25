@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve lift chart data for a model for a data partition (see DataPartition)
 #'
 #' @param model dataRobotModel. A DataRobot model object like that returned by \code{GetModel}.
@@ -15,23 +23,18 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   GetLiftChart(model, source = DataPartition$VALIDATION)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' GetLiftChart(model, source = DataPartition$VALIDATION)
 #' }
 #' @export
 GetLiftChart <- function(model, source = DataPartition$VALIDATION,
                          fallbackToParentInsights = FALSE) {
   response <- GetGeneralizedInsight("liftChart", model, source = source,
                                     fallbackToParentInsights = fallbackToParentInsights)
-  as.dataRobotLiftChart(response$bins)
+  return(response$bins)
 }
-
-as.dataRobotLiftChart <- function(inList) {
-  ApplySchema(inList, c("binWeight", "actual", "predicted"))
-}
-
 
 #' Retrieve lift chart data for a model for all available data partitions (see DataPartition)
 #'
@@ -39,15 +42,17 @@ as.dataRobotLiftChart <- function(inList) {
 #' @inherit GetLiftChart return
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   ListLiftCharts(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' ListLiftCharts(model)
 #' }
 #' @export
 ListLiftCharts <- function(model, fallbackToParentInsights = FALSE) {
-  response <- GetGeneralizedInsight("liftChart", model, source = NULL,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+  response <- GetGeneralizedInsight("liftChart", model,
+    source = NULL,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   names(response$charts$bins) <- response$charts$source
-  lapply(response$charts$bins, as.dataRobotLiftChart)
+  return(as.list(response$charts$bins))
 }

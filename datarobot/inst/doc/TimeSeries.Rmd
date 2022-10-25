@@ -221,3 +221,15 @@ partition <- CreateDatetimePartitionSpecification(datetimePartitionColumn = "tim
                                                   featureSettings = list(list("featureName" = "sales",
                                                                               "doNotDerive" = TRUE)))
 ```
+
+
+## Datetime trend plots
+
+It is possible to retrieve Datetime Trend Plots for time series models
+to estimate the accuracy of the model. This includes Accuracy over Time and Forecast vs Actual for supervised projects,
+and Anomaly over Time for unsupervised projects. 
+
+* You can retrieve respective plots using the `GetAccuracyOverTimePlot`, `GetForecastVsActualPlot`, and `GetAnomalyOverTimePlot` functions. You can find the example for plotting the data in the each function documentation. 
+* By default, the plots would be automatically computed when accessed via retrieval methods. You can compute Datetime Trend Plots separately using a common `ComputeDatetimeTrendPlots` function. 
+* In addition, you can retrieve the respective detailed metadata for each plot type. Use the `GetAccuracyOverTimePlotsMetadata`, `GetForecastVsActualPlotsMetadata`, and `GetAnomalyOverTimePlotsMetadata` functions.
+* And the preview plots using using the `GetAccuracyOverTimePlotPreview`, `GetForecastVsActualPlotPreview`, and `GetAnomalyOverTimePlotPreview` functions.

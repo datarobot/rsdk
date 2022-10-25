@@ -1,0 +1,50 @@
+{
+    "startDate": "2014-02-01T00:00:00.000000Z",
+    "statistics": {
+        "durbinWatson": 0.2479576303709634
+    },
+    "endDate": "2014-02-05T00:00:00.000000Z",
+    "resolution": "days",
+    "bins": [
+        {
+            "startDate": "2014-02-01T00:00:00.000000Z",
+            "frequency": 10.0,
+            "actual": 56363.2,
+            "predicted": 73027.96022570778,
+            "endDate": "2014-02-02T00:00:00.000000Z"
+        },
+        {
+            "startDate": "2014-02-02T00:00:00.000000Z",
+            "frequency": 10.0,
+            "actual": 43417.9,
+            "predicted": 59347.18090009206,
+            "endDate": "2014-02-03T00:00:00.000000Z"
+        },
+        {
+            "startDate": "2014-02-03T00:00:00.000000Z",
+            "frequency": 10.0,
+            "actual": 46181.7,
+            "predicted": 60053.24163179138,
+            "endDate": "2014-02-04T00:00:00.000000Z"
+        },
+        {
+            "startDate": "2014-02-04T00:00:00.000000Z",
+            "frequency": 10.0,
+            "actual": 41722.0,
+            "predicted": 58188.00614957898,
+            "endDate": "2014-02-05T00:00:00.000000Z"
+        }
+    ],
+    "calendarEvents": [
+        {
+            "date": "2014-02-17T00:00:00.000000Z",
+            "seriesId": null,
+            "name": "Washington's Birthday"
+        },
+        {
+            "date": "2014-02-19T00:00:00.000000Z",
+            "seriesId": "Baltimore",
+            "name": "Series Test"
+        }
+    ]
+}

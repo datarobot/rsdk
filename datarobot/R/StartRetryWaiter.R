@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Creates a waiter function that can be used in a loop while trying some task many times.
 #' The waiter sleeps while waiting to try again, with sleep times determined by exponential
 #' back-off.

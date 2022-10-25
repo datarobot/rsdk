@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Function to upload new data to a DataRobot project for predictions
 #'
 #' The DataRobot prediction engine requires a CSV file containing the data to be
@@ -47,8 +55,8 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   UploadPredictionDataset(projectId, iris)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' UploadPredictionDataset(projectId, iris)
 #' }
 #' @export
 UploadPredictionDataset <- function(project, dataSource, forecastPoint = NULL,
@@ -64,16 +72,22 @@ UploadPredictionDataset <- function(project, dataSource, forecastPoint = NULL,
     dataList <- list(file = httr::upload_file(dataPath))
   }
   if (!is.null(forecastPoint) && (!is.null(predictionsStartDate) || !is.null(predictionsEndDate))) {
-    stop(sQuote("forecastPoint"), " cannot be provided along with ", sQuote("predictionsStartDate"),
-         " or ", sQuote("predictionsEndDate"), ".")
+    stop(
+      sQuote("forecastPoint"), " cannot be provided along with ", sQuote("predictionsStartDate"),
+      " or ", sQuote("predictionsEndDate"), "."
+    )
   }
   if (!is.null(predictionsStartDate) && is.null(predictionsEndDate)) {
-    stop("You must specify ", sQuote("predictionsEndDate"), " if you also specify ",
-         sQuote("predictionsStartDate"), ".")
+    stop(
+      "You must specify ", sQuote("predictionsEndDate"), " if you also specify ",
+      sQuote("predictionsStartDate"), "."
+    )
   }
   if (!is.null(predictionsEndDate) && is.null(predictionsStartDate)) {
-    stop("You must specify ", sQuote("predictionsStartDate"), " if you also specify ",
-         sQuote("predictionsEndDate"), ".")
+    stop(
+      "You must specify ", sQuote("predictionsStartDate"), " if you also specify ",
+      sQuote("predictionsEndDate"), "."
+    )
   }
   if (!is.null(forecastPoint)) {
     dataList$forecastPoint <- forecastPoint
@@ -87,8 +101,10 @@ UploadPredictionDataset <- function(project, dataSource, forecastPoint = NULL,
   if (!is.null(relaxKIAFeaturesCheck)) {
     dataList$relaxKIAFeaturesCheck <- relaxKIAFeaturesCheck
   }
-  postResponse <- DataRobotPOST(routeString, body = dataList,
-                             returnRawResponse = TRUE, timeout = maxWait)
+  postResponse <- DataRobotPOST(routeString,
+    body = dataList,
+    returnRawResponse = TRUE, timeout = maxWait
+  )
   asyncUrl <- GetRedirectFromResponse(postResponse)
   dataset <- PredictionDatasetFromAsyncUrl(asyncUrl, maxWait = maxWait)
   as.dataRobotPredictionDataset(dataset)
@@ -104,8 +120,8 @@ UploadPredictionDataset <- function(project, dataSource, forecastPoint = NULL,
 #'   The password is encrypted at server side and never saved or stored.
 #' @examples
 #' \dontrun{
-#'  dataSourceId <- "5c1303269300d900016b41a7"
-#'  TestDataStore(dataSourceId, username = "myUser", password = "mySecurePass129")
+#' dataSourceId <- "5c1303269300d900016b41a7"
+#' TestDataStore(dataSourceId, username = "myUser", password = "mySecurePass129")
 #' }
 #' @export
 UploadPredictionDatasetFromDataSource <- function(project, dataSourceId, username, password,
@@ -113,22 +129,25 @@ UploadPredictionDatasetFromDataSource <- function(project, dataSourceId, usernam
                                                   relaxKIAFeaturesCheck = NULL) {
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "predictionDatasets", "dataSourceUploads")
-  body <- list(dataSourceId = dataSourceId,
-               user = username,
-               password = password)
+  body <- list(
+    dataSourceId = dataSourceId,
+    user = username,
+    password = password
+  )
   if (!is.null(forecastPoint)) {
     body$forecastPoint <- forecastPoint
   }
   if (!is.null(relaxKIAFeaturesCheck)) {
     body$relaxKIAFeaturesCheck <- relaxKIAFeaturesCheck
   }
-  postResponse <- DataRobotPOST(routeString, body = body,
-                             returnRawResponse = TRUE, timeout = maxWait)
+  postResponse <- DataRobotPOST(routeString,
+    body = body,
+    returnRawResponse = TRUE, timeout = maxWait
+  )
   asyncUrl <- GetRedirectFromResponse(postResponse)
   dataset <- PredictionDatasetFromAsyncUrl(asyncUrl, maxWait = maxWait)
   as.dataRobotPredictionDataset(dataset)
 }
-
 
 #' Retrieve prediction dataset info from the dataset creation URL
 #'
@@ -141,93 +160,27 @@ UploadPredictionDatasetFromDataSource <- function(project, dataSourceId, usernam
 #' @export
 PredictionDatasetFromAsyncUrl <- function(asyncUrl, maxWait = 600) {
   timeoutMessage <-
-    paste(sprintf("Dataset creation did not complete before timeout (%ss).", maxWait),
-          "To query its status and (if complete) retrieve the completed dataset info, use:\n  ",
-          sprintf("%s('%s')", "PredictionDatasetFromAsyncUrl", asyncUrl))
+    paste(
+      sprintf("Dataset creation did not complete before timeout (%ss).", maxWait),
+      "To query its status and (if complete) retrieve the completed dataset info, use:\n  ",
+      sprintf("%s('%s')", "PredictionDatasetFromAsyncUrl", asyncUrl)
+    )
   datasetInfo <- tryCatch(WaitForAsyncReturn(asyncUrl,
-                                             addUrl = FALSE,
-                                             maxWait = maxWait,
-                                             failureStatuses = "ERROR"),
-                          AsyncTimeout = function(e) stop(timeoutMessage))
+    addUrl = FALSE,
+    maxWait = maxWait,
+    failureStatuses = "ERROR"
+  ),
+  AsyncTimeout = function(e) stop(timeoutMessage)
+  )
   as.dataRobotPredictionDataset(datasetInfo)
 }
 
-#' Retrieve all prediction datasets associated with a project
-#'
-#' This function returns an S3 object of class listDataRobotPredictionDataset that
-#' describes all prediction datasets
-#' available for the project specified by the project parameter.
-#' This list may be converted to a dataframe with the as.data.frame
-#' method for objects of class listDataRobotPredictionDataset.
-#'
-#' @inheritParams DeleteProject
-#' @return An S3 object of class 'listDataRobotPredictionDataset', which is a
-#' list of dataframes: each element of the list corresponds to one
-#' prediction dataset associated with the project, and each dataframe has
-#' one row and the following columns:
-#' \itemize{
-#'   \item id character. The unique alphanumeric identifier for the dataset.
-#'   \item numColumns numeric. Number of columns in dataset.
-#'   \item name character. Name of dataset file.
-#'   \item created character. time of upload.
-#'   \item projectId character. String giving the unique alphanumeric identifier for the project.
-#'   \item numRows numeric. Number of rows in dataset.
-#'   \item forecastPoint. The point relative to which predictions will be generated, based on the
-#'     forecast window of the project. Only specified in time series projects, otherwise
-#'     will be NULL.
-#' }
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   ListPredictionDatasets(projectId)
-#' }
-#' @export
-ListPredictionDatasets <- function(project) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionDatasets")
-  datasetInfo <- DataRobotGET(routeString, simplifyDataFrame = FALSE)
-  datasetInfo <- GetServerDataInRows(datasetInfo)
-  as.listOfDataRobotPredictionDatasets(datasetInfo)
-}
-
-#' Retrieve data on a prediction dataset
-#'
-#' @inheritParams DeleteProject
-#' @param datasetId character. The ID of the prediction dataset.
-#' @return Data for a particular prediction dataset:
-#' \itemize{
-#'   \item id character. The unique alphanumeric identifier for the dataset.
-#'   \item numColumns numeric. Number of columns in dataset.
-#'   \item name character. Name of dataset file.
-#'   \item created character. time of upload.
-#'   \item projectId character. String giving the unique alphanumeric identifier for the project.
-#'   \item numRows numeric. Number of rows in dataset.
-#'   \item forecastPoint. The point relative to which predictions will be generated, based on the
-#'     forecast window of the project. Only specified in time series projects, otherwise
-#'     will be NULL.
-#' }
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   datasetId <- "5cd36e6e77a90f79a28ba414"
-#'   GetPredictionDataset(projectId, datasetId)
-#' }
-#' @export
-GetPredictionDataset <- function(project, datasetId) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionDatasets", datasetId)
-  response <- DataRobotGET(routeString)
-  as.dataRobotPredictionDataset(response)
-}
-
 as.dataRobotPredictionDataset <- function(inList) {
-  elements <- c("numColumns", "name", "forecastPoint", "created", "projectId",
-                "predictionsEndDate", "predictionsStartDate", "numRows", "id",
-                "dataQualityWarnings")
-  outList <- ApplySchema(inList, elements)
+  outList <- inList
   class(outList) <- "dataRobotPredictionDataset"
   outList
 }
+
 as.listOfDataRobotPredictionDatasets <- function(inList) {
   outList <- lapply(inList, as.dataRobotPredictionDataset)
   class(outList) <- c("listOfDataRobotPredictionDatasets", "listSubclass")
@@ -242,11 +195,11 @@ as.listOfDataRobotPredictionDatasets <- function(inList) {
 #' @param datasetId The id of the dataset to delete
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   DeletePredictionDataset(projectId, datasetId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' DeletePredictionDataset(projectId, datasetId)
 #' }
 #' @export
 DeletePredictionDataset <- function(project, datasetId) {
@@ -278,18 +231,19 @@ DeletePredictionDataset <- function(project, datasetId) {
 #'   the model predictions.
 #' @examples
 #' \dontrun{
-#'   dataset <- UploadPredictionDataset(project, diamonds_small)
-#'   model <- ListModels(project)[[1]]
-#'   modelId <- model$modelId
-#'   predictJobId <- RequestPredictions(project, modelId, dataset$id)
-#'   predictions <- GetPredictions(project, predictJobId)
+#' dataset <- UploadPredictionDataset(project, diamonds_small)
+#' model <- ListModels(project)[[1]]
+#' modelId <- model$modelId
+#' predictJobId <- RequestPredictions(project, modelId, dataset$id)
+#' predictions <- GetPredictions(project, predictJobId)
 #'
-#'   # Or, if prediction intervals are desired (datetime only)
-#'   predictJobId <- RequestPredictions(datetimeProject,
-#'                                      DatetimeModelId,
-#'                                      includePredictionIntervals = TRUE,
-#'                                      predictionIntervalsSize = 100)
-#'   predictions <- GetPredictions(datetimeProject, predictJobId, type = "raw")
+#' # Or, if prediction intervals are desired (datetime only)
+#' predictJobId <- RequestPredictions(datetimeProject,
+#'   DatetimeModelId,
+#'   includePredictionIntervals = TRUE,
+#'   predictionIntervalsSize = 100
+#' )
+#' predictions <- GetPredictions(datetimeProject, predictJobId, type = "raw")
 #' }
 #' @export
 RequestPredictions <- function(project, modelId, datasetId, includePredictionIntervals = NULL,
@@ -304,8 +258,9 @@ RequestPredictions <- function(project, modelId, datasetId, includePredictionInt
     dataList$predictionIntervalsSize <- predictionIntervalsSize
   }
   postResponse <- DataRobotPOST(routeString,
-                                body = dataList,
-                                returnRawResponse = TRUE,
-                                encode = "json")
+    body = dataList,
+    returnRawResponse = TRUE,
+    encode = "json"
+  )
   JobIdFromResponse(postResponse)
 }

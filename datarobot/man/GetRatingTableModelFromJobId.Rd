@@ -7,10 +7,6 @@
 GetRatingTableModelFromJobId(project, ratingTableModelJobId, maxWait = 600)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{ratingTableModelJobId}{integer. The ID returned by \code{RequestNewRatingTableModel}.}
 
 \item{maxWait}{integer. The maximum time (in seconds) to wait for the retrieve to complete.}
@@ -24,9 +20,9 @@ Retrieve a new or updated rating table model defined by a job ID.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  ratingTableId <- "5984b4d7100d2b31c1166529"
-  ratingTableModelJobId <- RequestNewModel(projectId, ratingTableId)
-  GetRatingTableModelFromJobId(project, ratingTableModelJobId)
+projectId <- "59a5af20c80891534e3c2bde"
+ratingTableId <- "5984b4d7100d2b31c1166529"
+ratingTableModelJobId <- RequestNewModel(projectId, ratingTableId)
+GetRatingTableModelFromJobId(project, ratingTableModelJobId)
 }
 }

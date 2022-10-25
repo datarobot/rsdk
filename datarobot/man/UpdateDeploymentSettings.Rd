@@ -7,29 +7,8 @@
 UpdateDeploymentSettings(deployment, newSettings, maxWait)
 }
 \arguments{
-\item{deployment}{An S3 object representing a model deployment, or the unique ID of such a
-deployment.}
-
 \item{newSettings}{List containing the settings to be modified. Any settings
 not explicitly defined will be unprocessed.}
-}
-\value{
-List representing the various settings to be configured on a
-deployment, including:
-\describe{
-\item{associationId}{object. Information on association ID for tracking deployment accuracy.
-See \code{\link[=GetDeploymentAssociationId]{GetDeploymentAssociationId()}}}
-\item{challengerModels}{logical. Whether challenger models are enabled.}
-\item{featureDrift}{logical. Whether feature drift tracking is enabled. See
-\code{\link[=GetDeploymentDriftTrackingSettings]{GetDeploymentDriftTrackingSettings()}}}
-\item{humility}{logical. Whether humility rules are enabled.}
-\item{predictionIntervals}{object. Information on prediction intervals.}
-\item{predictionWarning}{object. Information on prediction warning settings.}
-\item{predictionsByForecastDate}{object. Information on predictions by forecast date.}
-\item{predictionsDataCollection}{logical. Whether predictions data is stored.}
-\item{targetDrift}{logical. Whether target drift tracking is enabled.}
-\item{segmentAnalysis}{object. Information on segment analysis settings.}
-}
 }
 \description{
 Updates the deployment settings and returns all settings, including those not
@@ -37,10 +16,6 @@ changed, on success.
 }
 \details{
 Marked as internal since we do not yet want to add this to the package index.
-}
-\seealso{
-Other deployment configuration functions: 
-\code{\link{GetDeploymentSettings}()}
 }
 \concept{deployment configuration functions}
 \keyword{internal}

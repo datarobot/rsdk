@@ -30,10 +30,10 @@ in the blueprint but unfortunately more user-facing information cannot be provid
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  myXGBModel <- GetModel(projectId, modelId)
-  tuningJob <- RunInteractiveTuning(myXGBModel)
-  tunedModel <- GetModelFromJobId(projectId, tuningJob)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+myXGBModel <- GetModel(projectId, modelId)
+tuningJob <- RunInteractiveTuning(myXGBModel)
+tunedModel <- GetModelFromJobId(projectId, tuningJob)
 }
 }

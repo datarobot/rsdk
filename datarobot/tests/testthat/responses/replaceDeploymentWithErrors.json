@@ -1,0 +1,46 @@
+{
+  "status": ["failing"],
+  "message": ["Unable to perform model replacement, see checks for more detail."],
+  "checks": {
+    "targetType": {
+      "status": ["passing"],
+      "message": ["Target type is compatible."]
+    },
+    "target": {
+      "status": ["passing"],
+      "message": ["Target is compatible."]
+    },
+    "notCurrentModel": {
+      "status": ["failing"],
+      "message": ["Model is already used as current model of the deployment."]
+    },
+    "permission": {
+      "status": ["passing"],
+      "message": ["User has permission to replace model."]
+    },
+    "supported": {
+      "status": ["passing"],
+      "message": ["Model replacement is supported on this deployment."]
+    },
+    "modelCanBeDeployed": {
+      "status": ["passing"],
+      "message": ["Model can be deployed."]
+    },
+    "seriesType": {
+      "status": ["passing"],
+      "message": ["Series type is compatible."]
+    },
+    "modelStatus": {
+      "status": ["passing"],
+      "message": ["Model building finished."]
+    },
+    "featureDataTypes": {
+      "status": ["passing"],
+      "message": ["Feature data types are compatible."]
+    },
+    "features": {
+      "status": ["passing"],
+      "message": ["Features are compatible."]
+    }
+  }
+}

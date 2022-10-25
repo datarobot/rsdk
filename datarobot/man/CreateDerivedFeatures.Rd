@@ -45,10 +45,6 @@ CreateDerivedFeatureIntAsCategorical(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{parentName}{The name of the parent feature.}
 
 \item{name}{The name of the new feature.}

@@ -1,0 +1,66 @@
+{
+  "model": {
+    "targetType": ["Binary"],
+    "projectId": ["5e0bf5b8033419156b6bb801"],
+    "targetName": ["target"],
+    "projectName": ["train.csv.zip"],
+    "unsupervisedMode": [false],
+    "type": ["Light Gradient Boosting on ElasticNet Predictions "],
+    "id": ["5e0bfba7243e8e283f7947f0"]
+  },
+  "defaultPredictionServer": {
+    "url": ["https://testalberrors.orm.datarobot.com"],
+    "id": ["5c9ba71a79bffe18c00c6fd6"],
+    "datarobot-key": ["7d13ed21-f277-e6cc-7f39-dfea5adeb331"]
+  },
+  "description": [""],
+  "modelHealth": {
+    "status": ["unknown"],
+    "startDate": {},
+    "message": ["Either not enough predictions (100) have been made for data drift analysis, or predictions are still being processed. Please refresh the page in 1 minute if predictions have been made."],
+    "endDate": {}
+  },
+  "predictionUsage": {
+    "dailyRates": [
+      [0],
+      [0],
+      [0],
+      [0],
+      [0],
+      [0],
+      [0]
+    ],
+    "lastTimestamp": {}
+  },
+  "capabilities": {
+    "supportsPredictionWarning": [false],
+    "supportsTargetDriftTracking": [true],
+    "supportsFeatureDriftTracking": [true],
+    "supportsModelReplacement": [true]
+  },
+  "label": ["foo"],
+  "serviceHealth": {
+    "status": ["unknown"],
+    "startDate": ["2020-01-14T15:06:08.000000Z"],
+    "endDate": ["2020-01-21T15:06:08.000000Z"]
+  },
+  "accuracyHealth": {
+    "status": ["unavailable"],
+    "startDate": {},
+    "message": ["Accuracy is unknown."],
+    "endDate": {}
+  },
+  "id": ["5e1c013e30d66c0772e38d5e"],
+  "permissions": [
+    ["CAN_SHARE_DEPLOYMENT_OWNERSHIP"],
+    ["CAN_EDIT_DEPLOYMENT"],
+    ["CAN_SHARE"],
+    ["CAN_MAKE_PREDICTIONS"],
+    ["CAN_APPROVE_REPLACEMENT_MODEL"],
+    ["CAN_UPDATE_DEPLOYMENT_THRESHOLDS"],
+    ["CAN_DELETE_DEPLOYMENT"],
+    ["CAN_REPLACE_MODEL"],
+    ["CAN_VIEW"],
+    ["CAN_SUBMIT_ACTUALS"]
+  ]
+}

@@ -1,0 +1,3719 @@
+[
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Smooth Ridit Transform",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Transform on the link function scale",
+            "Standardize",
+            "Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance)"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "trainingEndDate": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance)",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.859652,
+                "validation": 0.87233
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9164100000000002,
+                "validation": 0.96667
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.370472,
+                "validation": 0.35978
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.612394,
+                "validation": 0.63373
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9538460000000001,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.821644,
+                "validation": 0.5845
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": -0.23345,
+                "validation": 0.12327
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7193039999999999,
+                "validation": 0.74466
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.927744,
+                "validation": 0.96667
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "9e9d3448df914ad7d2844af868d649cc",
+        "supportsMonotonicConstraints": false,
+        "id": "5ade6476c2674e8b0ff688f7",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "AVG Blender",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8730779999999999,
+                "validation": 0.86443
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.955556,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35674400000000006,
+                "validation": 0.36314
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.659164,
+                "validation": 0.65534
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.41255800000000004,
+                "validation": 0.42345
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.380478,
+                "validation": 0.36483
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.746156,
+                "validation": 0.72886
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444420000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "blend",
+        "blueprintId": "087298c27e03c47dee51eeffef251971",
+        "trainingEndDate": null,
+        "id": "5ade65dbc2674eb1322f302b",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "RandomForest Classifier (Gini)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "RandomForest Classifier (Gini)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8703239999999999,
+                "validation": 0.86416
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.955556,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.362432,
+                "validation": 0.3671
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.652624,
+                "validation": 0.64967
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42721400000000004,
+                "validation": 0.43126
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.358448,
+                "validation": 0.35312
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7406480000000001,
+                "validation": 0.72832
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.93333,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "bc0b11d721aaf3eb2e0eecb4d60d7b57",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688dd",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "blend",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8724700000000001,
+                "validation": 0.86153
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.977778,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35835399999999995,
+                "validation": 0.36656
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.648564,
+                "validation": 0.63175
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.41603,
+                "validation": 0.42948
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.375266,
+                "validation": 0.35579
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7449399999999999,
+                "validation": 0.72306
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444420000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "ENET Blender",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "8008946ab3438a58b0e71064f3dd21a9",
+        "trainingEndDate": null,
+        "id": "5ade65dcc2674eb1322f3031",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Smooth Ridit Transform",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Transform on the link function scale",
+            "Standardize",
+            "Support Vector Classifier (Radial Kernel)"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "Support Vector Classifier (Radial Kernel)",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.863368,
+                "validation": 0.86126
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.36318399999999995,
+                "validation": 0.36887
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.635758,
+                "validation": 0.63004
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42966800000000005,
+                "validation": 0.43606
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.354784,
+                "validation": 0.34593
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.726736,
+                "validation": 0.72252
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444420000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "17f04950a5b3db953db663ffb473679f",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688eb",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "blend",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.87213,
+                "validation": 0.86061
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.357072,
+                "validation": 0.3658
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.654926,
+                "validation": 0.64625
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.41383000000000003,
+                "validation": 0.42769
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.378572,
+                "validation": 0.35849
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.74426,
+                "validation": 0.72122
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444419999999999,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "ENET Blender",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "5f83e0df82577f4ccf81ab5ce449931d",
+        "trainingEndDate": null,
+        "id": "5ade65dcc2674eb1322f302f",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "RandomForest Classifier (Entropy)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Category Count",
+            "Missing Values Imputed",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "RandomForest Classifier (Entropy)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8694620000000001,
+                "validation": 0.85995
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.36102400000000007,
+                "validation": 0.36289
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6632239999999999,
+                "validation": 0.66245
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42510400000000004,
+                "validation": 0.42313
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.36160400000000004,
+                "validation": 0.36531
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.738924,
+                "validation": 0.7199
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9111100000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "733085a1adad5f948598b4c961cfb157",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688e7",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Gradient Boosted Trees Classifier"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.871796,
+                "validation": 0.85922
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.955556,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35870199999999997,
+                "validation": 0.36859
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.647936,
+                "validation": 0.61897
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.416702,
+                "validation": 0.43348
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.374276,
+                "validation": 0.34979
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7435919999999999,
+                "validation": 0.71844
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9571400000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Gradient Boosted Trees Classifier",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "c5381416f1fc475127ca7b77fe342e6f",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688ed",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "blend",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.871736,
+                "validation": 0.85837
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9111119999999999,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.355068,
+                "validation": 0.36732
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6568759999999999,
+                "validation": 0.62806
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.41113,
+                "validation": 0.42988
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.382622,
+                "validation": 0.3552
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7434720000000001,
+                "validation": 0.71674
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933332,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Advanced AVG Blender",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "e1236f53e27d526de7f6d5f72a22db10",
+        "trainingEndDate": null,
+        "id": "5ade65dcc2674eb1322f302d",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Light Gradient Boosted Trees Classifier with Early Stopping"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.871414,
+                "validation": 0.8583
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9452780000000001,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35956200000000005,
+                "validation": 0.36215
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.666528,
+                "validation": 0.68432
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.418414,
+                "validation": 0.42209
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.37167200000000006,
+                "validation": 0.36687
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.742828,
+                "validation": 0.7166
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9430540000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Light Gradient Boosted Trees Classifier with Early Stopping",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "e6e6f15d2968b25d4db20754b6a08ce2",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688e1",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Univariate credibility estimates with ElasticNet",
+            "Missing Values Imputed",
+            "Search for differences",
+            "Search for ratios",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Feature Selection for dimensionality reduction",
+            "ExtraTrees Classifier (Gini)"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "ExtraTrees Classifier (Gini)",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8695419999999998,
+                "validation": 0.85758
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.955556,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.365082,
+                "validation": 0.36733
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6410899999999999,
+                "validation": 0.62609
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 1.0,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.43133,
+                "validation": 0.42799
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35224,
+                "validation": 0.35803
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.739084,
+                "validation": 0.71516
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444440000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "a6f4489d367bd4cceab7fbaaed3c4323",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688e9",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Search for differences",
+            "Standardize",
+            "One-Hot Encoding",
+            "Partial Principal Components Analysis",
+            "K-Means Clustering",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "eXtreme Gradient Boosted Trees Classifier with Unsupervised Learning Features"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "trainingEndDate": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.866214,
+                "validation": 0.85204
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.361958,
+                "validation": 0.37363
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.659548,
+                "validation": 0.64084
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42942400000000003,
+                "validation": 0.44528
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.355148,
+                "validation": 0.33209
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.732428,
+                "validation": 0.70408
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.93333,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "eXtreme Gradient Boosted Trees Classifier with Unsupervised Learning Features",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "96b9324cdc1478fc6d7bf126d77e9795",
+        "supportsMonotonicConstraints": false,
+        "id": "5ade6476c2674e8b0ff688f4",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Univariate credibility estimates with ElasticNet",
+            "Category Count",
+            "Missing Values Imputed",
+            "Search for differences",
+            "Search for ratios",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Gradient Boosted Greedy Trees Classifier"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "Gradient Boosted Greedy Trees Classifier",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8670820000000001,
+                "validation": 0.85013
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.95,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.36687,
+                "validation": 0.37381
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6373339999999998,
+                "validation": 0.63715
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.432864,
+                "validation": 0.44275
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.349988,
+                "validation": 0.3359
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.734164,
+                "validation": 0.70026
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933854,
+                "validation": 0.94737
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "178bd2694c13b437c36a4b56b50a514f",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688ef",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Matrix of word-grams occurrences",
+            "eXtreme Gradient Boosted Trees Classifier",
+            "Text fit on Residuals (L2 / Binomial Deviance)"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.854332,
+                "validation": 0.84914
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.977778,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.37750999999999996,
+                "validation": 0.37231
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.6191420000000001,
+                "validation": 0.60619
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.48044200000000004,
+                "validation": 0.44271
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.27865400000000007,
+                "validation": 0.33595
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.708664,
+                "validation": 0.69828
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.9444440000000001,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "eXtreme Gradient Boosted Trees Classifier",
+        "isFrozen": false,
+        "isStarred": true,
+        "id": "5ade6476c2674e8b0ff688f2",
+        "blueprintId": "c0c63994a0531ad3c0df63f5bc5bdb3e",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "eXtreme Gradient Boosted Trees Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Search for differences",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "eXtreme Gradient Boosted Trees Classifier"
+        ],
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.865202,
+                "validation": 0.84822
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.359878,
+                "validation": 0.37989
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.667088,
+                "validation": 0.63715
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42868399999999995,
+                "validation": 0.46175
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.35629999999999995,
+                "validation": 0.30739
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7304039999999999,
+                "validation": 0.69644
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.93333,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "6cc3050b1d4cbe988cd8eb5342c8dd4d",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688f1",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "eXtreme Gradient Boosted Trees Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "eXtreme Gradient Boosted Trees Classifier"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8692499999999999,
+                "validation": 0.84822
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.933334,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.358392,
+                "validation": 0.37989
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.669986,
+                "validation": 0.63715
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.8,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.42550600000000005,
+                "validation": 0.46175
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.361048,
+                "validation": 0.30739
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.7384999999999999,
+                "validation": 0.69644
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": 0.93333,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "937bb08a1bb8febc0b3bf498172d8341",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d8",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Elastic-Net Classifier (mixing alpha=0.5 / Binomial Deviance)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Standardize",
+            "Elastic-Net Classifier (mixing alpha=0.5 / Binomial Deviance)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84664
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38311
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62095
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.4582
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.31272
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.69328
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "f68c2208577ea488c2f198bc3b1477cf",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688e5",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "RandomForest Classifier (Gini)"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "RandomForest Classifier (Gini)",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84638
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.3835
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.59196
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.45551
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.31675
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.69276
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "e3b63a133c3428ea43add1842344385e",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688c8",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "samplePct": 79.911,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Breiman and Cutler Random Forest Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Open-Source Task"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84598
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.37939
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.6025
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.49496
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.25758
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.69196
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "id": "5ade6476c2674e8b0ff688d0",
+        "blueprintId": "b898c7bb35310b450b46d4ebc2676c9c",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Gradient Boosted Trees Classifier"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.8448
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.37699
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61159
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.4487
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.32697
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.6896
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.95238
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Gradient Boosted Trees Classifier",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "3c0a2a313c01b13c809a52f062b0b9f1",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688c9",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Smooth Ridit Transform",
+            "Regularized Logistic Regression (L2)"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Regularized Logistic Regression (L2)",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84414
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38218
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61581
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46953
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.29571
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.68828
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "id": "5ade6476c2674e8b0ff688e3",
+        "blueprintId": "e73eeb2b7d261762abe5ba54f58fd00a",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Matrix of word-grams occurrences",
+            "Generalized Additive2 Model",
+            "Text fit on Residuals (L2 / Binomial Deviance)"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Generalized Additive2 Model",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84348
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.37145
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61383
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.44727
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.32911
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.68696
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "6158d035ef1436de155acfd12af7716f",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688df",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Standardize",
+            "Partial Principal Components Analysis",
+            "K-Means Clustering",
+            "Elastic-Net Classifier (mixing alpha=0.5 / Binomial Deviance) with Unsupervised Learning Features"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Elastic-Net Classifier (mixing alpha=0.5 / Binomial Deviance) with Unsupervised Learning Features",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84321
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38419
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.60105
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.45977
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.31035
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.68642
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "02c5121519bdd5579872e7090d4bf8be",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688f5",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Gradient Boosted Trees Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Open-Source Task"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.84084
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.3818
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62266
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46175
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.30738
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.68168
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.88889
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "0e74693dd07976c962d2624c671b12cf",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688cf",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Nystroem Kernel SVM Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Standardize",
+            "Smooth Ridit Transform",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "Transform on the link function scale",
+            "Nystroem Kernel SVM Classifier"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.8386
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38284
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62266
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46327
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.30511
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.6772
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "1d7bd70194f60062240fef3308b38b4f",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688db",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "samplePct": 79.911,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Light Gradient Boosting on ElasticNet Predictions ",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Standardize",
+            "Ordinal encoding of categorical variables",
+            "Elastic-Net Classifier (L2 / Binomial Deviance)",
+            "Light Gradient Boosting on ElasticNet Predictions "
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.83768
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38517
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.5863
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46656
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.30017
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.67536
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "id": "5ade6476c2674e8b0ff688e2",
+        "blueprintId": "c287b89c8c612170cddf9bcda88fec41",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Elastic-Net Classifier (L2 / Binomial Deviance) with Binned numeric features"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "Elastic-Net Classifier (L2 / Binomial Deviance) with Binned numeric features",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.83623
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.39366
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.59025
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.53358
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.19965
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.67246
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "4128f6227e013d689f183338bc28de3c",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688e4",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Matrix of word-grams occurrences",
+            "Missing Values Imputed",
+            "Standardize",
+            "Smooth Ridit Transform",
+            "Elastic-Net Classifier (L2 / Binomial Deviance)"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.83465
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38489
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.58999
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46993
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.29512
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.6693
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Elastic-Net Classifier (L2 / Binomial Deviance)",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "98ff84498dec382ae43b2557e119281d",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d9",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "VW encoding of categorical variables",
+            "VW encoding of text variables",
+            "Missing Values Imputed",
+            "Smooth Ridit Transform",
+            "Vowpal Wabbit Classifier"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "Vowpal Wabbit Classifier",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.83333
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.3813
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.63742
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.53807
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.19292
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.66666
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "fd1da90c5c67569cd66f8e7bbaf215d0",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688de",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Auto-Tuned Word N-Gram Text Modeler using token occurrences - Name",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.82701
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38174
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.64993
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.46848
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.2973
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.65402
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.81818
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "d0a01ad8dd34b607f05ad376dfcecce2",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d1",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "RuleFit Classifier"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.81772
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.41252
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.57549
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.55641
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.1654
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.63544
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.94444
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelType": "RuleFit Classifier",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "d999b31b599abcd09d0069b622143832",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d2",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "samplePct": 79.911,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Regularized Logistic Regression (L2)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Constant Splines",
+            "One-Hot Encoding",
+            "Regularized Logistic Regression (L2)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.81752
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.4014
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61383
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.5017
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.24746
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.63504
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "id": "5ade6476c2674e8b0ff688d4",
+        "blueprintId": "42adfece0b4a816aba3643da516842f4",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Elastic-Net Classifier (L2 / Binomial Deviance)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Matrix of word-grams occurrences",
+            "Elastic-Net Classifier (L2 / Binomial Deviance)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.81476
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.88889
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.3912
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62464
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.48719
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.26923
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62952
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.8
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "a1ce8b0f3013a81acb6a4eb9536d1eb0",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d3",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "TensorFlow Neural Network Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Standardize",
+            "Converter for Text Mining",
+            "Auto-Tuned Word N-Gram Text Modeler using token occurrences",
+            "TensorFlow Neural Network Classifier",
+            "Calibrate predictions: Platt"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.80856
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.88889
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.39802
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.57378
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.49635
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.25549
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61712
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.72222
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "b1fefc9982ebaf0b3379b6c2256a6a8d",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688d6",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Standardize",
+            "Logistic Regression"
+        ],
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelCategory": "model",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.80738
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.40618
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.54137
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.50584
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.24125
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61476
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelType": "Logistic Regression",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "660f0abdf887936b9e390c75d8996831",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688cb",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "Ordinal encoding of categorical variables",
+            "Missing Values Imputed",
+            "Decision Tree Classifier (Gini)"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "trainingEndDate": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "samplePct": 79.911,
+        "modelType": "Decision Tree Classifier (Gini)",
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.80718
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.40819
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.53347
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.69768
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": -0.0465
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.61436
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.7
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "isFrozen": false,
+        "isStarred": true,
+        "blueprintId": "378f75e87e3caddbeb928b7c7b230fd2",
+        "supportsMonotonicConstraints": false,
+        "id": "5ade6476c2674e8b0ff688ca",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Standardize",
+            "Regularized Logistic Regression (L2)"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Regularized Logistic Regression (L2)",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.80435
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.40484
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.53768
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.50123
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.24817
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.6087
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 1.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "6e933674f4025b33613f82339f8a8ba6",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688cc",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "processes": [
+            "One-Hot Encoding",
+            "Bernoulli Naive Bayes classifier (scikit-learn)",
+            "Matrix of word-grams occurrences",
+            "Multinomial Naive Bayes classifier (scikit-learn)",
+            "Missing Values Imputed",
+            "Gaussian Naive Bayes classifier (scikit-learn)",
+            "Naive Bayes combiner classifier",
+            "Calibrate predictions"
+        ],
+        "trainingRowCount": 712,
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Naive Bayes combiner classifier",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.79091
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.77778
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.42259
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.54111
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.5809
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.12867
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.58182
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.83333
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "modelCategory": "model",
+        "blueprintId": "11395d5f2056c57eb45ec8ca7d92b479",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688c7",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance)",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "One-Hot Encoding",
+            "Missing Values Imputed",
+            "Standardize",
+            "Auto-tuned K-Nearest Neighbors Classifier (Minkowski Distance)"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.78564
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.91667
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.42702
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.50474
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.91667
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 2.12516
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": -2.18767
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.57128
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.76923
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "7ac1bb018ba2ae32d9a92e3e4abd4358",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688cd",
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "processes": [
+            "Category Count",
+            "Missing Values Imputed",
+            "Matrix of word-grams occurrences",
+            "Truncated Singular Value Decomposition",
+            "Isolation Forest Anomaly Detection"
+        ],
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "modelType": "Isolation Forest Anomaly Detection",
+        "samplePct": 79.911,
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.62714
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.33333
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.50442
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.27299
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.74863
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": -0.12292
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.25428
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.55556
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "id": "5ade6477c2674e8b0ff688f8",
+        "blueprintId": "b4db7a82d90181ea18d3cd0988db5d5f",
+        "supportsMonotonicConstraints": false,
+        "trainingEndDate": null,
+        "monotonicDecreasingFeaturelistId": null
+    },
+    {
+        "supportsMonotonicConstraints": false,
+        "samplePct": 79.911,
+        "featurelistId": "5ade643f1b17bdf9e5b15067",
+        "featurelistName": "Informative Features",
+        "trainingDuration": null,
+        "modelType": "Majority Class Classifier",
+        "projectId": "5ade642d4d897631a7ba64c8",
+        "processes": [
+            "Majority Class Classifier"
+        ],
+        "isFrozen": false,
+        "isStarred": true,
+        "trainingStartDate": null,
+        "metrics": {
+            "AUC": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.5
+            },
+            "Rate@Top5%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38547
+            },
+            "RMSE": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.48671
+            },
+            "Kolmogorov-Smirnov": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            },
+            "Rate@TopTenth%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.38547
+            },
+            "LogLoss": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.66669
+            },
+            "FVE Binomial": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": -1e-05
+            },
+            "Gini Norm": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            },
+            "Rate@Top10%": {
+                "backtesting": null,
+                "holdout": null,
+                "backtestingScores": null,
+                "crossValidation": null,
+                "validation": 0.0
+            }
+        },
+        "monotonicIncreasingFeaturelistId": null,
+        "trainingRowCount": 712,
+        "modelCategory": "model",
+        "blueprintId": "069f2c55b2189eaedec4cdb16a8af9b8",
+        "trainingEndDate": null,
+        "id": "5ade6476c2674e8b0ff688ce",
+        "monotonicDecreasingFeaturelistId": null
+    }
+]

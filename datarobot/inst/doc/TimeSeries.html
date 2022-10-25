@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford, Madeleine Mott" />
 
-<meta name="date" content="2022-05-06" />
+<meta name="date" content="2022-06-06" />
 
 <title>Introduction to Time Series</title>
 
@@ -334,7 +334,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to Time Series</h1>
 <h4 class="author">Peter Hurford, Madeleine Mott</h4>
-<h4 class="date">2022-05-06</h4>
+<h4 class="date">2022-06-06</h4>
 
 
 
@@ -606,6 +606,16 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;sales&quot;</span>,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                                                              <span class="st">&quot;doNotDerive&quot;</span> <span class="ot">=</span> <span class="cn">TRUE</span>)))</span></code></pre></div>
+</div>
+<div id="datetime-trend-plots" class="section level2">
+<h2>Datetime trend plots</h2>
+<p>It is possible to retrieve Datetime Trend Plots for time series models to estimate the accuracy of the model. This includes Accuracy over Time and Forecast vs Actual for supervised projects, and Anomaly over Time for unsupervised projects.</p>
+<ul>
+<li>You can retrieve respective plots using the <code>GetAccuracyOverTimePlot</code>, <code>GetForecastVsActualPlot</code>, and <code>GetAnomalyOverTimePlot</code> functions. You can find the example for plotting the data in the each function documentation.</li>
+<li>By default, the plots would be automatically computed when accessed via retrieval methods. You can compute Datetime Trend Plots separately using a common <code>ComputeDatetimeTrendPlots</code> function.</li>
+<li>In addition, you can retrieve the respective detailed metadata for each plot type. Use the <code>GetAccuracyOverTimePlotsMetadata</code>, <code>GetForecastVsActualPlotsMetadata</code>, and <code>GetAnomalyOverTimePlotsMetadata</code> functions.</li>
+<li>And the preview plots using using the <code>GetAccuracyOverTimePlotPreview</code>, <code>GetForecastVsActualPlotPreview</code>, and <code>GetAnomalyOverTimePlotPreview</code> functions.</li>
+</ul>
 </div>
 
 

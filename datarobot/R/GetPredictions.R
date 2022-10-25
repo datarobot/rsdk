@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve model predictions
 #'
 #' This function can be used to retrieve predictions from a project and either
@@ -44,15 +52,15 @@
 #' see Details.
 #' @examples
 #' \dontrun{
-#'   # Retrieve by predictJobID
-#'   dataset <- UploadPredictionDataset(project, diamonds_small)
-#'   model <- ListModels(project)[[1]]
-#'   modelId <- model$modelId
-#'   predictJobId <- RequestPredictions(project, modelId, dataset$id)
-#'   predictions <- GetPredictions(project, predictJobId)
-#'   # Retrieve by predictionID
-#'   predictions <- ListPredictions(project)
-#'   predictions <- GetPredictions(project, predictions$predictionId[[1]])
+#' # Retrieve by predictJobID
+#' dataset <- UploadPredictionDataset(project, diamonds_small)
+#' model <- ListModels(project)[[1]]
+#' modelId <- model$modelId
+#' predictJobId <- RequestPredictions(project, modelId, dataset$id)
+#' predictions <- GetPredictions(project, predictJobId)
+#' # Retrieve by predictionID
+#' predictions <- ListPredictions(project)
+#' predictions <- GetPredictions(project, predictions$predictionId[[1]])
 #' }
 #' @export
 GetPredictions <- function(project, predictId,
@@ -68,12 +76,17 @@ GetPredictions <- function(project, predictId,
   } else if (is.character(predictId) && length(predictId) == 1) { # is a predictionJobId
     predictJobRoute <- PredictJobRoute(projectId, predictId)
     timeoutMessage <-
-      paste(sprintf("Retrieving predictions did not complete before timeout (%ss).", maxWait),
-            "Try increasing the", sQuote("maxWait"), "parameter to increase the amount of time",
-            "to wait for predictions.")
-    predictionResponse <- tryCatch(WaitForAsyncReturn(predictJobRoute, maxWait = maxWait,
-                                                      failureStatuses = JobFailureStatuses),
-                                   AsyncTimeout = function(e) stop(timeoutMessage))
+      paste(
+        sprintf("Retrieving predictions did not complete before timeout (%ss).", maxWait),
+        "Try increasing the", sQuote("maxWait"), "parameter to increase the amount of time",
+        "to wait for predictions."
+      )
+    predictionResponse <- tryCatch(WaitForAsyncReturn(predictJobRoute,
+      maxWait = maxWait,
+      failureStatuses = JobFailureStatuses
+    ),
+    AsyncTimeout = function(e) stop(timeoutMessage)
+    )
   } else {
     stop("Did not pass a valid predictId or predictionJobId.")
   }
@@ -83,33 +96,55 @@ GetPredictions <- function(project, predictId,
 SelectDesiredPredictions <- function(parsedPredictionResponse, type, classPrefix = "class_") {
   predictDF <- parsedPredictionResponse$predictions
   predictDF <- Filter(function(x) !all(is.na(x)), predictDF) # Drop columns that are entirely NA
-  if (identical(type, "raw")) { return(predictDF) }
+  if (identical(type, "raw")) {
+    return(predictDF)
+  }
   task <- parsedPredictionResponse$task
   if (identical(task, "Regression")) {
     preds <- predictDF$prediction
-    if (is.list(preds)) { unlist(preds) } else { preds }
+    if (is.list(preds)) {
+      unlist(preds)
+    } else {
+      preds
+    }
   } else if (identical(task, "Multiclass")) {
     message("Multiclass with labels ", paste0(unique(predictDF$prediction), collapse = ", "))
-    if (identical(type, "response")) { predictDF$prediction }
-    else {
-      m <- do.call(rbind,
-                   lapply(predictDF$predictionValues,
-                          function(x) stats::setNames(x$value,
-                                                      paste0(classPrefix, x$label))
-                          )
-                   )
+    if (identical(type, "response")) {
+      predictDF$prediction
+    } else {
+      m <- do.call(
+        rbind,
+        lapply(
+          predictDF$predictionValues,
+          function(x) {
+            stats::setNames(
+              x$value,
+              paste0(classPrefix, x$label)
+            )
+          }
+        )
+      )
       rownames(m) <- NULL
       return(as.data.frame(m))
     }
   } else if ("forecastPoint" %in% names(predictDF)) { # Binary time series
     if (identical(type, "response")) {
       preds <- predictDF$prediction
-      if (is.list(preds)) { unlist(preds) } else { preds }
-    } else { predictDF }
+      if (is.list(preds)) {
+        unlist(preds)
+      } else {
+        preds
+      }
+    } else {
+      predictDF
+    }
   } else { # Binary classification
     message("Binary classifier with positiveClass = ", parsedPredictionResponse$positiveClass)
-    if (identical(type, "response")) { predictDF$prediction }
-    else { predictDF$positiveProbability }
+    if (identical(type, "response")) {
+      predictDF$prediction
+    } else {
+      predictDF$positiveProbability
+    }
   }
 }
 
@@ -139,20 +174,21 @@ SelectDesiredPredictions <- function(parsedPredictionResponse, type, classPrefix
 #' @inherit GetPredictions return
 #' @examples
 #' \dontrun{
-#'    trainIndex <- sample(nrow(iris) * 0.7)
-#'    trainIris <- iris[trainIndex, ]
-#'    testIris <- iris[-trainIndex, ]
-#'    project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
-#'    model <- GetRecommendedModel(project)
-#'    predictions <- Predict(model, testIris)
+#' trainIndex <- sample(nrow(iris) * 0.7)
+#' trainIris <- iris[trainIndex, ]
+#' testIris <- iris[-trainIndex, ]
+#' project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
+#' model <- GetRecommendedModel(project)
+#' predictions <- Predict(model, testIris)
 #'
-#'    # Or, if prediction intervals are desired (datetime only)
-#'    model <- GetRecommendedModel(datetimeProject)
-#'    predictions <- Predict(model,
-#'                           dataset,
-#'                           includePredictionIntervals = TRUE,
-#'                           predictionIntervalsSize = 100,
-#'                           type = "raw")
+#' # Or, if prediction intervals are desired (datetime only)
+#' model <- GetRecommendedModel(datetimeProject)
+#' predictions <- Predict(model,
+#'   dataset,
+#'   includePredictionIntervals = TRUE,
+#'   predictionIntervalsSize = 100,
+#'   type = "raw"
+#' )
 #' }
 #' @export
 Predict <- function(model,
@@ -165,22 +201,25 @@ Predict <- function(model,
                     type = "response",
                     includePredictionIntervals = FALSE,
                     predictionIntervalsSize = NULL) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   project <- model$projectId
   if (!is(predictionDataset, "dataRobotPredictionDataset")) {
     predictionDataset <- UploadPredictionDataset(project, predictionDataset,
-                                                 forecastPoint = forecastPoint,
-                                                 predictionsStartDate = predictionsStartDate,
-                                                 predictionsEndDate = predictionsEndDate,
-                                                 maxWait = maxWait)
+      forecastPoint = forecastPoint,
+      predictionsStartDate = predictionsStartDate,
+      predictionsEndDate = predictionsEndDate,
+      maxWait = maxWait
+    )
   }
   predictJobId <- RequestPredictions(project,
-                                     model$modelId,
-                                     predictionDataset$id,
-                                     includePredictionIntervals = includePredictionIntervals,
-                                     predictionIntervalsSize = predictionIntervalsSize)
+    model$modelId,
+    predictionDataset$id,
+    includePredictionIntervals = includePredictionIntervals,
+    predictionIntervalsSize = predictionIntervalsSize
+  )
   GetPredictions(project, predictJobId,
-                 type = type, classPrefix = classPrefix, maxWait = maxWait)
+    type = type, classPrefix = classPrefix, maxWait = maxWait
+  )
 }
 
 
@@ -191,12 +230,12 @@ Predict <- function(model,
 #' @param ... list. Additional arguments to pass to \code{Predict}
 #' @examples
 #' \dontrun{
-#'    trainIndex <- sample(nrow(iris) * 0.7)
-#'    trainIris <- iris[trainIndex, ]
-#'    testIris <- iris[-trainIndex, ]
-#'    project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
-#'    model <- GetRecommendedModel(project)
-#'    predictions <- predict(model, testIris)
+#' trainIndex <- sample(nrow(iris) * 0.7)
+#' trainIris <- iris[trainIndex, ]
+#' testIris <- iris[-trainIndex, ]
+#' project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
+#' model <- GetRecommendedModel(project)
+#' predictions <- predict(model, testIris)
 #' }
 #' @export
 predict.dataRobotModel <- function(object, ...) {
@@ -230,8 +269,8 @@ predict.dataRobotModel <- function(object, ...) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   predictions <- ListPredictions(projectId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' predictions <- ListPredictions(projectId)
 #' }
 #' @export
 ListPredictions <- function(project, modelId = NULL, datasetId = NULL) {
@@ -246,8 +285,7 @@ ListPredictions <- function(project, modelId = NULL, datasetId = NULL) {
 }
 
 as.dataRobotPredictionsList <- function(inList) {
-  elements <- c("projectId", "datasetId", "modelId", "predictionId",
-                "includesPredictionIntervals", "predictionIntervalsSize")
   inList$predictionId <- inList$id
-  ApplySchema(inList, elements)
+  outList <- inList
+  outList
 }

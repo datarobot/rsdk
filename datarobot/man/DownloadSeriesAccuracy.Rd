@@ -23,9 +23,9 @@ Download the series accuracy for a model, computing it if not already computed.
 }
 \examples{
 \dontrun{
-  projectId <- "5984b4d7100d2b31c1166529"
-  modelId <- "5984b4d7100d2b31c1166529"
-  model <- GetModel(projectId, modelId)
-  DownloadSeriesAccuracy(model, "seriesAccuracy.csv")
+projectId <- "5984b4d7100d2b31c1166529"
+modelId <- "5984b4d7100d2b31c1166529"
+model <- GetModel(projectId, modelId)
+DownloadSeriesAccuracy(model, "seriesAccuracy.csv")
 }
 }

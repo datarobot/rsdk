@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Refits an existing model to a different fraction of the training dataset
 #'
 #' This function requests a refit of the model defined by the model parameter
@@ -30,14 +38,14 @@
 #' function GetModelFromJobId to retrieve the updated model.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   RequestSampleSizeUpdate(model, samplePct = 100)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' RequestSampleSizeUpdate(model, samplePct = 100)
 #' }
 #' @export
 RequestSampleSizeUpdate <- function(model, samplePct = NULL, trainingRowCount = NULL) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   routeString <- UrlJoin("projects", projectId, "models")
   body <- list(blueprintId = model$blueprintId)
@@ -47,8 +55,10 @@ RequestSampleSizeUpdate <- function(model, samplePct = NULL, trainingRowCount = 
   if (!is.null(trainingRowCount)) {
     body$trainingRowCount <- trainingRowCount
   }
-  rawResponse <- DataRobotPOST(routeString, body = body,
-                             returnRawResponse = TRUE, encode = "json")
+  rawResponse <- DataRobotPOST(routeString,
+    body = body,
+    returnRawResponse = TRUE, encode = "json"
+  )
   message("Model creation request submitted - retrieve via modelJobId
           value returned")
   modelJobPath <- GetRedirectFromResponse(rawResponse)

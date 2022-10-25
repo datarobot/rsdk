@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 GetSharingPath <- function(object) {
   if (is(object, "dataRobotProject")) {
     path <- "projects"
@@ -52,9 +60,9 @@ GetDefaultSharingRole <- function(object) {
 #' @inheritParams GetServerDataInRows
 #' @examples
 #' \dontrun{
-#'  dataStoreId <- "5c1303269300d900016b41a7"
-#'  dataStore <- GetDataStore(dataStoreId)
-#'  ListSharingAccess(dataStore)
+#' dataStoreId <- "5c1303269300d900016b41a7"
+#' dataStore <- GetDataStore(dataStoreId)
+#' ListSharingAccess(dataStore)
 #' }
 #' @export
 ListSharingAccess <- function(object, batchSize = NULL) {
@@ -69,10 +77,10 @@ as.dataRobotAccessList <- function(access) {
 
 
 ValidateAccessEntry <- function(entry) {
-  if (!("username" %in% names(entry))) {
+  if ("username" %notin% names(entry)) {
     stop("Access list is malformed: Does not contain `username`.")
   }
-  if (!("role" %in% names(entry))) {
+  if ("role" %notin% names(entry)) {
     stop("Access list is malformed: Does not contain `role`.")
   }
   if (!isTRUE(IsParameterIn(entry$role, SharingRole))) {
@@ -92,7 +100,7 @@ ValidateAccessList <- function(access) {
 
 FormatAccessList <- function(object, access) {
   if ("username" %in% names(access)) { # if access is a single list...
-    access <- list(access)             # ...it needs to be coerced to list-of-lists
+    access <- list(access) # ...it needs to be coerced to list-of-lists
   }
 
   ValidateAccessList(access)
@@ -122,20 +130,23 @@ FormatAccessList <- function(object, access) {
 #'   \code{ListSharingAccess}.
 #' @examples
 #' \dontrun{
-#'  dataStoreId <- "5c1303269300d900016b41a7"
-#'  dataStore <- GetDataStore(dataStoreId)
-#'  access <- ListSharingAccess(dataStore)
-#'  # Remove access from the first user and grant it to foo@foo.com instead.
-#'  access[[1]]$username <- "foo@foo.com"
-#'  UpdateAccess(dataStore, access)
-#'  # Change access to a Read Only role.
-#'  access[[1]]$role <- SharingRole$ReadOnly
-#'  UpdateAccess(dataStore, access)
+#' dataStoreId <- "5c1303269300d900016b41a7"
+#' dataStore <- GetDataStore(dataStoreId)
+#' access <- ListSharingAccess(dataStore)
+#' # Remove access from the first user and grant it to foo@foo.com instead.
+#' access[[1]]$username <- "foo@foo.com"
+#' UpdateAccess(dataStore, access)
+#' # Change access to a Read Only role.
+#' access[[1]]$role <- SharingRole$ReadOnly
+#' UpdateAccess(dataStore, access)
 #' }
 #' @export
 UpdateAccess <- function(object, access) {
-  DataRobotPATCH(GetSharingPath(object), encode = "json",
-                 body = FormatAccessList(object, access))
+  body <- FormatAccessList(object, access)
+  DataRobotPATCH(GetSharingPath(object),
+    encode = "json",
+    body = body
+  )
   message("Access updated.")
   invisible(NULL)
 }
@@ -152,22 +163,26 @@ UpdateAccess <- function(object, access) {
 #' @param canShare logical. Is the user allowed to further reshare?
 #' @examples
 #' \dontrun{
-#'  dataStoreId <- "5c1303269300d900016b41a7"
-#'  dataStore <- GetDataStore(dataStoreId)
-#'  # Grant access to a particular user.
-#'  Share(dataStore, "foo@foo.com")
-#'  # Grant access in a Read Only role.
-#'  Share(dataStore, "foo@foo.com", role = SharingRole$ReadOnly)
-#'  # Revoke access
-#'  Share(dataStore, "foo@foo.com", role = NULL)
+#' dataStoreId <- "5c1303269300d900016b41a7"
+#' dataStore <- GetDataStore(dataStoreId)
+#' # Grant access to a particular user.
+#' Share(dataStore, "foo@foo.com")
+#' # Grant access in a Read Only role.
+#' Share(dataStore, "foo@foo.com", role = SharingRole$ReadOnly)
+#' # Revoke access
+#' Share(dataStore, "foo@foo.com", role = NULL)
 #' }
 #' @export
 Share <- function(object, username, role = "default", canShare = NULL) {
   if (length(username) > 1) {
-    stop("`Share` only supports sharing with one user at a time. Use `UpdateAccessList` or ",
-         "call `Share` iteratively.")
+    stop(
+      "`Share` only supports sharing with one user at a time. Use `UpdateAccessList` or ",
+      "call `Share` iteratively."
+    )
   }
-  if (identical(role, "default")) { role <- GetDefaultSharingRole(object) }
+  if (identical(role, "default")) {
+    role <- GetDefaultSharingRole(object)
+  }
   access <- ListSharingAccess(object)
   if (username %in% lapply(access, `[[`, "username")) {
     subAccess <- list(username = username, role = role)
@@ -180,13 +195,18 @@ Share <- function(object, username, role = "default", canShare = NULL) {
   }
   access <- as.dataRobotAccessList(access)
   tryCatch(UpdateAccess(object, access),
-           error = function(e) {
-             if (grepl("Multiple changes were specified for a single user", as.character(e))) {
-               stop("User ", username, " is already shared on this ", class(object), ". Use ",
-                    "`UpdateAccess` to change access for this user instead.")
-             } else if (grepl("The following users were not found", as.character(e))) {
-               stop("User ", username, " was not found.")
-             } else { stop(e) }
-           })
+    error = function(e) {
+      if (grepl("Multiple changes were specified for a single user", as.character(e))) {
+        stop(
+          "User ", username, " is already shared on this ", class(object), ". Use ",
+          "`UpdateAccess` to change access for this user instead."
+        )
+      } else if (grepl("The following users were not found", as.character(e))) {
+        stop("User ", username, " was not found.")
+      } else {
+        stop(e)
+      }
+    }
+  )
   invisible(NULL)
 }

@@ -1,10 +1,11 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.18.2
+Version: 2.29.0.9000
 Description: For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
-Depends: R (>= 3.2), methods, stats
-Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19)
-License: MIT + file LICENSE
+Depends: R (>= 3.3), methods, stats, datarobot.apicore
+Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19), R6 (>=
+        2.5.1)
+License: file LICENSE
 Encoding: UTF-8
 Author: 
     Ron Pearson [aut],
@@ -22,14 +23,13 @@ Author:
     Mykhailo Poliakov [ctb],
     DataRobot, Inc. [cph]
 Maintainer: AJ Alon <api-maintainer@datarobot.com>
-Suggests: lubridate, knitr, testthat, lintr, stubthat, data.table,
-        MASS, mlbench, beanplot, doBy, insuranceData, rmarkdown,
-        ggplot2, modelwordcloud, withr, memoise
-Additional_repositories:
-        https://cran.microsoft.com/snapshot/2022-04-12/
+Suggests: lubridate, testthat, stubthat, devtools (>= 2.4.1), knitr,
+        rmarkdown, lintr, data.table, MASS, mlbench, beanplot, doBy,
+        insuranceData, ggplot2, modelwordcloud, withr, memoise
 VignetteBuilder: knitr
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2022-05-06 23:31:26 UTC; aj
+Packaged: 2022-06-07 05:33:11 UTC; aj
 Language: en-US
 Config/testthat/edition: 2
+Remotes: r-lib/devtools

@@ -22,14 +22,12 @@ object of class 'dataRobotModel'.
 }
 \examples{
 \dontrun{
-  modelId <- "5996f820af07fc605e81ead4"
-  ListModelFeatures(modelId)
+modelId <- "5996f820af07fc605e81ead4"
+ListModelFeatures(modelId)
 }
 }
 \seealso{
 Other feature functions: 
-\code{\link{GetFeatureInfo}()},
-\code{\link{ListFeatureInfo}()},
 \code{\link{as.dataRobotFeatureInfo}()}
 }
 \concept{feature functions}

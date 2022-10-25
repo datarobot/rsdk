@@ -5,7 +5,7 @@
 \title{Make sure that the object has all of the keys specified. Also tests that there
 are not additional keys if \code{allowAdditional} is FALSE (default).}
 \usage{
-ExpectHasKeys(obj, keys, allowAdditional = FALSE)
+ExpectHasKeys(obj, keys, allowAdditional = TRUE)
 }
 \arguments{
 \item{obj}{object. A list, vector, or data.frame to check names.}

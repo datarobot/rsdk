@@ -29,7 +29,6 @@ are returned. e.g. 2020-01-01T05:00:00.000000Z
 Other API datetime functions: 
 \code{\link{RFC3339DateTimeFormat}},
 \code{\link{formatRFC3339Timestamp}()},
-\code{\link{parseRFC3339Timestamp}()},
 \code{\link{validateReportingPeriodTime}()}
 }
 \concept{API datetime functions}

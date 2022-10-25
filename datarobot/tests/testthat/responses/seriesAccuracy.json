@@ -1,0 +1,129 @@
+{
+  "querySeriesCount": [11],
+  "next": {},
+  "data": [
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12aa"],
+      "validationScore": [7094.7206],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Athletic Clothing"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12ab"],
+      "validationScore": [7683.6659],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Bathing Suits"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12ac"],
+      "validationScore": [2808.0338],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Beverages"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12ad"],
+      "validationScore": [5770.7611],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Bluetooth and Wireless Speakers"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12ae"],
+      "validationScore": [6470.7505],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Camera, Photo, and Video"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12af"],
+      "validationScore": [5308.7654],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Cell Phones and Accessories"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12b0"],
+      "validationScore": [5227.8372],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Computer Parts and Components"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12b1"],
+      "validationScore": [4546.4961],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Computers and Tablets"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12b2"],
+      "validationScore": [2906.5777],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Dairy, Cheese, and Eggs"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12b3"],
+      "validationScore": [5428.061],
+      "backtestingScore": {},
+      "rowCount": [579],
+      "multiseriesValues": [
+        ["Electronics"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P1Y7M0D"]
+    },
+    {
+      "multiseriesId": ["5dbca64729bfbd8e2fcc12b4"],
+      "validationScore": {},
+      "backtestingScore": {},
+      "rowCount": [210],
+      "multiseriesValues": [
+        ["Fruit and Vegetables"]
+      ],
+      "holdoutScore": {},
+      "duration": ["P0Y6M27D"]
+    }
+  ],
+  "totalSeriesCount": [11],
+  "previous": {}
+}

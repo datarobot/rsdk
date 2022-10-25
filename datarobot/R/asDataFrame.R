@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' DataRobot S3 object methods for R's generic as.data.frame function
 #'
 #' These functions extend R's generic as.data.frame function to the
@@ -45,10 +53,12 @@ as.data.frame.listOfBlueprints <- function(x, row.names = NULL,
                                            optional = FALSE, ...) {
   nList <- length(x)
   if (nList == 0) {
-    return(data.frame(projectId = character(), modelType = character(),
-                      expandedModel = character(),
-                      blueprintId = character(),
-                      stringsAsFactors = FALSE))
+    return(data.frame(
+      projectId = character(), modelType = character(),
+      expandedModel = character(),
+      blueprintId = character(),
+      stringsAsFactors = FALSE
+    ))
   }
 
   sumFrame <- NULL
@@ -58,10 +68,12 @@ as.data.frame.listOfBlueprints <- function(x, row.names = NULL,
     expandedModel <- paste(components, collapse = "::")
     blueprintId <- x[[i]]$blueprintId
     projectId <- x[[i]]$projectId
-    upFrame <- data.frame(projectId = projectId, modelType = modelType,
-                          expandedModel = expandedModel,
-                          blueprintId = blueprintId,
-                          stringsAsFactors = FALSE)
+    upFrame <- data.frame(
+      projectId = projectId, modelType = modelType,
+      expandedModel = expandedModel,
+      blueprintId = blueprintId,
+      stringsAsFactors = FALSE
+    )
     sumFrame <- rbind.data.frame(sumFrame, upFrame)
   }
   if (!is.null(row.names)) {
@@ -76,11 +88,13 @@ as.data.frame.listOfFeaturelists <- function(x, row.names = NULL,
                                              optional = FALSE, ...) {
   nList <- length(x)
   if (nList == 0) {
-    upFrame <- data.frame(featurelistId = character(),
-                          projectId = character(),
-                          features = I(list()),
-                          name = character(),
-                          stringsAsFactors = FALSE)
+    upFrame <- data.frame(
+      featurelistId = character(),
+      projectId = character(),
+      features = I(list()),
+      name = character(),
+      stringsAsFactors = FALSE
+    )
     class(upFrame$features) <- "list"
     return(upFrame)
   }
@@ -100,18 +114,22 @@ as.data.frame.listOfFeaturelists <- function(x, row.names = NULL,
 #' @export
 as.data.frame.listOfModels <- function(x, row.names = NULL,
                                        optional = FALSE, simple = TRUE, ...) {
-  if (!is.logical(simple)) { stop("simple must be TRUE or FALSE") }
+  if (!is.logical(simple)) {
+    stop("simple must be TRUE or FALSE")
+  }
   nList <- length(x)
   if (nList == 0) {
-    return(data.frame(modelType = character(),
-                      expandedModel = character(),
-                      modelId = character(),
-                      blueprintId = character(),
-                      featurelistName = character(),
-                      featurelistId = character(),
-                      samplePct = numeric(),
-                      validationMetric = numeric(),
-                      stringsAsFactors = FALSE))
+    return(data.frame(
+      modelType = character(),
+      expandedModel = character(),
+      modelId = character(),
+      blueprintId = character(),
+      featurelistName = character(),
+      featurelistId = character(),
+      samplePct = numeric(),
+      validationMetric = numeric(),
+      stringsAsFactors = FALSE
+    ))
   }
 
   outFrame <- NULL
@@ -124,11 +142,17 @@ as.data.frame.listOfModels <- function(x, row.names = NULL,
       modelId <- element$modelId
       blueprintId <- element$blueprintId
       featurelistName <- element$featurelistName
-      if (is.null(featurelistName)) { featurelistName <- "Multiple featurelists" }
+      if (is.null(featurelistName)) {
+        featurelistName <- "Multiple featurelists"
+      }
       featurelistId <- element$featurelistId
-      if (is.null(featurelistId)) { featurelistId <- "Multiple featurelist ids" }
+      if (is.null(featurelistId)) {
+        featurelistId <- "Multiple featurelist ids"
+      }
       samplePct <- element$samplePct
-      if (is.null(samplePct)) { samplePct <- NA }
+      if (is.null(samplePct)) {
+        samplePct <- NA
+      }
       metricToReturn <- element$projectMetric
       allMetrics <- element$metrics
       metricIndex <- which(names(allMetrics) == metricToReturn)
@@ -137,14 +161,16 @@ as.data.frame.listOfModels <- function(x, row.names = NULL,
       } else {
         validationMetric <- NA
       }
-      upFrame <- data.frame(modelType = modelType,
-                            expandedModel = expandedModel,
-                            modelId = modelId, blueprintId = blueprintId,
-                            featurelistName = featurelistName,
-                            featurelistId = featurelistId,
-                            samplePct = samplePct,
-                            validationMetric = validationMetric,
-                            stringsAsFactors = FALSE)
+      upFrame <- data.frame(
+        modelType = modelType,
+        expandedModel = expandedModel,
+        modelId = modelId, blueprintId = blueprintId,
+        featurelistName = featurelistName,
+        featurelistId = featurelistId,
+        samplePct = samplePct,
+        validationMetric = validationMetric,
+        stringsAsFactors = FALSE
+      )
       outFrame <- rbind.data.frame(outFrame, upFrame)
     }
     if (!is.null(row.names)) {
@@ -159,34 +185,45 @@ as.data.frame.listOfModels <- function(x, row.names = NULL,
       modelId <- element$modelId
       blueprintId <- element$blueprintId
       featurelistName <- element$featurelistName
-      if (is.null(featurelistName)) { featurelistName <- "Multiple featurelists" }
+      if (is.null(featurelistName)) {
+        featurelistName <- "Multiple featurelists"
+      }
       featurelistId <- element$featurelistId
-      if (is.null(featurelistId)) { featurelistId <- "Multiple featurelist ids" }
+      if (is.null(featurelistId)) {
+        featurelistId <- "Multiple featurelist ids"
+      }
       samplePct <- element$samplePct
-      if (is.null(samplePct)) { samplePct <- NA }
+      if (is.null(samplePct)) {
+        samplePct <- NA
+      }
       modelCategory <- element$modelCategory
       projectName <- element$projectName
       projectId <- element$projectId
       projectTarget <- element$projectTarget
       projectMetric <- element$projectMetric
-      firstFrame <- data.frame(modelType = modelType,
-                               expandedModel = expandedModel,
-                               modelId = modelId, blueprintId = blueprintId,
-                               featurelistName = featurelistName,
-                               featurelistId = featurelistId,
-                               samplePct = samplePct,
-                               modelCategory = modelCategory,
-                               projectName = projectName,
-                               projectId = projectId,
-                               projectTarget = projectTarget,
-                               projectMetric = projectMetric,
-                               stringsAsFactors = FALSE)
+      firstFrame <- data.frame(
+        modelType = modelType,
+        expandedModel = expandedModel,
+        modelId = modelId, blueprintId = blueprintId,
+        featurelistName = featurelistName,
+        featurelistId = featurelistId,
+        samplePct = samplePct,
+        modelCategory = modelCategory,
+        projectName = projectName,
+        projectId = projectId,
+        projectTarget = projectTarget,
+        projectMetric = projectMetric,
+        stringsAsFactors = FALSE
+      )
       validFrame <- BuildMetricFrame(element, "validation")
       colnames(validFrame) <- paste(colnames(validFrame), "validation",
-                                    sep = ".")
+        sep = "."
+      )
       crossFrame <- BuildMetricFrame(element, "crossValidation")
       colnames(crossFrame) <- paste(colnames(crossFrame),
-                                    "crossValidation", sep = ".")
+        "crossValidation",
+        sep = "."
+      )
       holdFrame <- BuildMetricFrame(element, "holdout")
       colnames(holdFrame) <- paste(colnames(holdFrame), "holdout", sep = ".")
       secondFrame <- cbind.data.frame(validFrame, crossFrame, holdFrame)
@@ -239,24 +276,28 @@ BuildMetricFrame <- function(model, evaluation) {
 as.data.frame.projectSummaryList <- function(x, row.names = NULL,
                                              optional = FALSE,
                                              simple = TRUE, ...) {
-  if (!is.logical(simple)) { stop("simple must be TRUE or FALSE") }
-  simpleFrame <- data.frame(projectName = x$projectName,
-                            projectId = x$projectId,
-                            created = x$created, fileName = x$fileName,
-                            target = x$target, targetType = x$targetType,
-                            positiveClass = x$positiveClass, metric = x$metric,
-                            autopilotMode = x$autopilotMode, stage = x$stage,
-                            maxTrainPct = x$maxTrainPct,
-                            holdoutUnlocked = x$holdoutUnlocked,
-                            stringsAsFactors = FALSE)
+  if (!is.logical(simple)) {
+    stop("simple must be TRUE or FALSE")
+  }
+  simpleFrame <- data.frame(
+    projectName = x$projectName,
+    projectId = x$projectId,
+    created = x$created, fileName = x$fileName,
+    target = x$target, targetType = x$targetType,
+    positiveClass = x$positiveClass, metric = x$metric,
+    autopilotMode = x$autopilotMode, stage = x$stage,
+    maxTrainPct = x$maxTrainPct,
+    holdoutUnlocked = x$holdoutUnlocked,
+    stringsAsFactors = FALSE
+  )
   if (isTRUE(simple)) {
     outFrame <- simpleFrame
   } else {
     partFrame <- x$partition
-    recFrame <- x$recommender
     advFrame <- x$advancedOptions
-    outFrame <- cbind.data.frame(simpleFrame, partFrame, recFrame, advFrame,
-                                 stringsAsFactors = FALSE)
+    outFrame <- cbind.data.frame(simpleFrame, partFrame, advFrame,
+      stringsAsFactors = FALSE
+    )
   }
   if (!is.null(row.names)) {
     rownames(outFrame) <- row.names
@@ -268,25 +309,33 @@ as.data.frame.projectSummaryList <- function(x, row.names = NULL,
 #' @rdname as.data.frame
 #' @export
 as.data.frame.listOfDataRobotPredictionDatasets <- function(x, row.names = NULL,
-                                             optional = FALSE, ...) {
+                                                            optional = FALSE, ...) {
   nList <- length(x)
   if (nList == 0) {
-    return(data.frame(numColumns = numeric(),
-                      name = character(),
-                      created = character(),
-                      projectId = character(),
-                      numRows = numeric(),
-                      id = character(),
-                      forecastPoint = numeric(),
-                      predictionStartDate = numeric(),
-                      predictionEndDate = numeric(),
-                      stringsAsFactors = FALSE))
+    return(data.frame(
+      numColumns = numeric(),
+      name = character(),
+      created = character(),
+      projectId = character(),
+      numRows = numeric(),
+      id = character(),
+      forecastPoint = numeric(),
+      predictionStartDate = numeric(),
+      predictionEndDate = numeric(),
+      stringsAsFactors = FALSE
+    ))
   }
 
   sumFrame <- NULL
   for (i in 1:nList) {
     # patch NULL values to NA to work with as.data.frame
-    dataset <- lapply(x[[1]], function(y) if (is.null(y)) { NA } else { y })
+    dataset <- lapply(x[[1]], function(y) {
+      if (is.null(y)) {
+        NA
+      } else {
+        y
+      }
+    })
     upFrame <- as.data.frame(dataset, stringsAsFactors = FALSE)
     sumFrame <- rbind.data.frame(sumFrame, upFrame)
   }

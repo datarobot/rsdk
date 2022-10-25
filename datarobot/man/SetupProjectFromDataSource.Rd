@@ -41,8 +41,10 @@ Create a project from a data source.
 }
 \examples{
 \dontrun{
- dataSourceId <- "5c1303269300d900016b41a7"
- SetupProjectFromDataSource(dataSourceId, username = "username", password = "hunter1",
-                            projectName = "My Project")
+dataSourceId <- "5c1303269300d900016b41a7"
+SetupProjectFromDataSource(dataSourceId,
+  username = "username", password = "hunter1",
+  projectName = "My Project"
+)
 }
 }

@@ -1,20 +1,11 @@
-#' Retrieve information about all training prediction datasets in a project.
-#'
-#' @inheritParams DeleteProject
-#' @return data.frame containing information about each training prediction.
-#' @examples
-#' \dontrun{
-#'  projectId <- "5984b4d7100d2b31c1166529"
-#'  ListTrainingPredictions(projectId)
-#' }
-#' @export
-ListTrainingPredictions <- function(project) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "trainingPredictions")
-  serverData <- DataRobotGET(routeString, simplifyDataFrame = FALSE)
-  rows <- GetServerDataInRows(serverData)
-  as.dataRobotTrainingPredictionList(rows)
-}
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 
 as.dataRobotTrainingPredictionList <- function(trainingPredictions) {
   elements <- c("id", "modelId", "dataSubset")
@@ -33,10 +24,10 @@ as.dataRobotTrainingPredictionList <- function(trainingPredictions) {
 #'   predictions for.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   predictions <- ListTrainingPredictions(projectId)
-#'   predictionId <- predictions[[1]]$id
-#'   trainingPredictions <- GetTrainingPredictions(projectId, predictionId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' predictions <- ListTrainingPredictions(projectId)
+#' predictionId <- predictions[[1]]$id
+#' trainingPredictions <- GetTrainingPredictions(projectId, predictionId)
 #' }
 #' @export
 GetTrainingPredictions <- function(project, predictionId) {
@@ -55,11 +46,11 @@ GetTrainingPredictions <- function(project, predictionId) {
 #' @return A dataframe with out-of-fold predictions for the training data.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestTrainingPredictions(model, dataSubset = "all")
-#'   trainingPredictions <- GetTrainingPredictionsFromJobId(projectId, jobId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestTrainingPredictions(model, dataSubset = "all")
+#' trainingPredictions <- GetTrainingPredictionsFromJobId(projectId, jobId)
 #' }
 #' @export
 GetTrainingPredictionsFromJobId <- function(project, jobId, maxWait = 600) {
@@ -67,8 +58,9 @@ GetTrainingPredictionsFromJobId <- function(project, jobId, maxWait = 600) {
   message("Training predictions request issued: awaiting response")
   routeString <- UrlJoin("projects", projectId, "jobs", jobId)
   serverData <- CleanServerData(WaitForAsyncReturn(routeString,
-                                                   maxWait = maxWait,
-                                                   failureStatuses = JobFailureStatuses))
+    maxWait = maxWait,
+    failureStatuses = JobFailureStatuses
+  ))
   rows <- GetTrainingPredictionRows(serverData)
   as.dataRobotTrainingPredictions(GetTrainingPredictionDataFrame(rows))
 }
@@ -85,10 +77,10 @@ GetTrainingPredictionsFromJobId <- function(project, jobId, maxWait = 600) {
 #' @param model dataRobotModel. The model to get training predictions for.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   trainingPredictions <- GetTrainingPredictionsFromModel(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' trainingPredictions <- GetTrainingPredictionsFromModel(model)
 #' }
 #' @export
 GetTrainingPredictionsForModel <- function(model, dataSubset = "all", maxWait = 600) {
@@ -114,11 +106,21 @@ GetTrainingPredictionRows <- function(serverData) {
 #' Simplify the training prediction rows into a tidy format dataframe.
 #' @param rows data.frame. The dataframe to tidy.
 GetTrainingPredictionDataFrame <- function(rows) {
-  if (!is.data.frame(rows)) { rows <- Reduce(rbind, rows) }
-  predictionValues <- Reduce(rbind,
-                             lapply(rows$predictionValues,
-                                    function(x) stats::setNames(x$value,
-                                                                paste0("class_", x$label))))
+  if (!is.data.frame(rows)) {
+    rows <- Reduce(rbind, rows)
+  }
+  predictionValues <- Reduce(
+    rbind,
+    lapply(
+      rows$predictionValues,
+      function(x) {
+        stats::setNames(
+          x$value,
+          paste0("class_", x$label)
+        )
+      }
+    )
+  )
   # If there is more than one column, there are multiple classes and we want to display
   # the probabilities of each. If not, we don't care, since we already have a `prediction`
   # column.
@@ -130,10 +132,6 @@ GetTrainingPredictionDataFrame <- function(rows) {
 }
 
 as.dataRobotTrainingPredictions <- function(trainingPredictions) {
-  predictionValueNames <- grep("class_", names(trainingPredictions), value = TRUE)
-  cols <- c("seriesId", "partitionId", "forecastDistance", "forecastPoint",
-            "timestamp", "prediction", "rowId", predictionValueNames)
-  trainingPredictions <- ApplySchema(trainingPredictions, cols)
   # Drop columns that are entirely NA
   Filter(function(x) !all(is.na(x)), trainingPredictions)
 }
@@ -152,14 +150,14 @@ as.dataRobotTrainingPredictions <- function(trainingPredictions) {
 #' @return job Id
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   RequestTrainingPredictions(model, dataSubset = DataSubset$All)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' RequestTrainingPredictions(model, dataSubset = DataSubset$All)
 #' }
 #' @export
 RequestTrainingPredictions <- function(model, dataSubset) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   ValidateParameterIn(dataSubset, DataSubset)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
@@ -167,8 +165,10 @@ RequestTrainingPredictions <- function(model, dataSubset) {
   routeString <- UrlJoin("projects", projectId, "trainingPredictions")
   body <- list(modelId = modelId, dataSubset = dataSubset)
   response <- DataRobotPOST(routeString, body = body, returnRawResponse = TRUE)
-  message("Training predictions requested for model ", modelName,
-                " (modelId = ", modelId, ")")
+  message(
+    "Training predictions requested for model ", modelName,
+    " (modelId = ", modelId, ")"
+  )
   JobIdFromResponse(response)
 }
 
@@ -183,14 +183,17 @@ RequestTrainingPredictions <- function(model, dataSubset) {
 #'   training data.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   predictions <- ListTrainingPredictions(projectId)
-#'   predictionId <- predictions[[1]]$predictionId
-#'   file <- file.path(tempdir(), "myTrainingPredictions.csv")
-#'   DownloadTrainingPredictions(projectId, predictionId, file)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' predictions <- ListTrainingPredictions(projectId)
+#' predictionId <- predictions[[1]]$predictionId
+#' file <- file.path(tempdir(), "myTrainingPredictions.csv")
+#' DownloadTrainingPredictions(projectId, predictionId, file)
 #' }
 #' @export
 DownloadTrainingPredictions <- function(project, predictionId, filename, encoding = "UTF-8") {
   trainingPredictions <- GetTrainingPredictions(project, predictionId)
+  # `trainingPredictions$predictionValues` is a list of data.frame, which can't be exported to csv.
+  # need transform these values into flat numeric vector
+  trainingPredictions$predictionValues <- unlist(lapply(trainingPredictions$predictionValues, "[", "value"), use.names = FALSE)
   write.csv(trainingPredictions, file = filename, row.names = FALSE, fileEncoding = encoding)
 }

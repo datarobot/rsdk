@@ -7,10 +7,6 @@
 RequestTransferableModel(project, modelId, predictionIntervalSize = NULL)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{modelId}{numeric. Unique alphanumeric identifier for the model of interest.}
 
 \item{predictionIntervalSize}{integer. Optional. Added in 2.19. For supervised
@@ -33,23 +29,16 @@ This function does not download the exported file. Use
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  jobId <- RequestTransferableModel(projectId,
-                                    modelId,
-                                    50)
-  WaitForJobToComplete(projectId, jobId)
-  file <- file.path(tempdir(), "model.drmodel")
-  DownloadTransferableModel(projectObject, modelId, file)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+jobId <- RequestTransferableModel(
+  projectId,
+  modelId,
+  50
+)
+WaitForJobToComplete(projectId, jobId)
+file <- file.path(tempdir(), "model.drmodel")
+DownloadTransferableModel(projectObject, modelId, file)
 }
-}
-\seealso{
-Other Transferable Model functions: 
-\code{\link{DeleteTransferableModel}()},
-\code{\link{DownloadTransferableModel}()},
-\code{\link{GetTransferableModel}()},
-\code{\link{ListTransferableModels}()},
-\code{\link{UpdateTransferableModel}()},
-\code{\link{UploadTransferableModel}()}
 }
 \concept{Transferable Model functions}

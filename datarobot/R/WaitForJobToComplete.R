@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Wait for specified job to complete
 #'
 #' @inheritParams DeleteProject
@@ -6,11 +14,11 @@
 #' @return NULL
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   blueprints <- ListBlueprints(projectId)
-#'   blueprint <- blueprints[[1]]
-#'   jobId <- RequestNewModel(projectId, blueprint)
-#'   WaitForJobToComplete(projectId, jobId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' blueprints <- ListBlueprints(projectId)
+#' blueprint <- blueprints[[1]]
+#' jobId <- RequestNewModel(projectId, blueprint)
+#' WaitForJobToComplete(projectId, jobId)
 #' }
 #' @export
 WaitForJobToComplete <- function(project, jobId, maxWait = 600) {

@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Compute the series accuracy for a model.
 #'
 #' Note that you can call \code{GetSeriesAccuracy} without calling this function, and the
@@ -7,15 +15,15 @@
 #' @return Job ID for the async job associated with the computation.
 #' @examples
 #' \dontrun{
-#'   projectId <- "5984b4d7100d2b31c1166529"
-#'   modelId <- "5984b4d7100d2b31c1166529"
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestSeriesAccuracy(projectId, modelId)
-#'   WaitForJobToComplete(projectId, jobId)
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' modelId <- "5984b4d7100d2b31c1166529"
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestSeriesAccuracy(projectId, modelId)
+#' WaitForJobToComplete(projectId, jobId)
 #' }
 #' @export
 RequestSeriesAccuracy <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   routeString <- UrlJoin("projects", projectId, "datetimeModels", modelId, "multiseriesScores")
@@ -44,16 +52,16 @@ RequestSeriesAccuracy <- function(model) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "5984b4d7100d2b31c1166529"
-#'   modelId <- "5984b4d7100d2b31c1166529"
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestSeriesAccuracy(projectId, modelId)
-#'   WaitForJobToComplete(projectId, jobId)
-#'   seriesAccuracy <- GetSeriesAccuracyForModel(model)
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' modelId <- "5984b4d7100d2b31c1166529"
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestSeriesAccuracy(projectId, modelId)
+#' WaitForJobToComplete(projectId, jobId)
+#' seriesAccuracy <- GetSeriesAccuracyForModel(model)
 #' }
 #' @export
 GetSeriesAccuracyForModel <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   routeString <- UrlJoin("projects", projectId, "datetimeModels", modelId, "multiseriesScores")
@@ -70,26 +78,29 @@ GetSeriesAccuracyForModel <- function(model) {
 #' @inherit GetSeriesAccuracyForModel return
 #' @examples
 #' \dontrun{
-#'   projectId <- "5984b4d7100d2b31c1166529"
-#'   modelId <- "5984b4d7100d2b31c1166529"
-#'   model <- GetModel(projectId, modelId)
-#'   seriesAccuracy <- GetSeriesAccuracy(model)
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' modelId <- "5984b4d7100d2b31c1166529"
+#' model <- GetModel(projectId, modelId)
+#' seriesAccuracy <- GetSeriesAccuracy(model)
 #' }
 #' @export
 GetSeriesAccuracy <- function(model, maxWait = 600) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
-  tryCatch({
-    GetSeriesAccuracyForModel(model)
-  }, error = function(e) { # If need to compute...
-    if (grepl("404", as.character(e))) {
-      jobId <- RequestSeriesAccuracy(model)
-      WaitForJobToComplete(projectId, jobId, maxWait = maxWait)
+  tryCatch(
+    {
       GetSeriesAccuracyForModel(model)
-    } else {
-      stop(e)
+    },
+    error = function(e) { # If need to compute...
+      if (grepl("404", as.character(e))) {
+        jobId <- RequestSeriesAccuracy(model)
+        WaitForJobToComplete(projectId, jobId, maxWait = maxWait)
+        GetSeriesAccuracyForModel(model)
+      } else {
+        stop(e)
+      }
     }
-  })
+  )
 }
 
 
@@ -100,10 +111,10 @@ GetSeriesAccuracy <- function(model, maxWait = 600) {
 #' @inherit DownloadComplianceDocumentation return
 #' @examples
 #' \dontrun{
-#'   projectId <- "5984b4d7100d2b31c1166529"
-#'   modelId <- "5984b4d7100d2b31c1166529"
-#'   model <- GetModel(projectId, modelId)
-#'   DownloadSeriesAccuracy(model, "seriesAccuracy.csv")
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' modelId <- "5984b4d7100d2b31c1166529"
+#' model <- GetModel(projectId, modelId)
+#' DownloadSeriesAccuracy(model, "seriesAccuracy.csv")
 #' }
 #' @export
 DownloadSeriesAccuracy <- function(model, filename, encoding = "UTF-8") {
@@ -114,12 +125,18 @@ DownloadSeriesAccuracy <- function(model, filename, encoding = "UTF-8") {
 
 
 as.dataRobotSeriesAccuracy <- function(inList) {
-  elements <- c("multiseriesId", "validationScore", "backtestingScore", "rowCount",
-                "multiseriesValues", "holdoutScore", "duration")
-  output <- ApplySchema(inList, elements)
+  output <- inList
   for (col in names(output)) {
-    output[[col]] <- unlist(lapply(output[[col]],
-                                   function(x) if (length(x) == 0) { NA } else { x }))
+    output[[col]] <- unlist(lapply(
+      output[[col]],
+      function(x) {
+        if (length(x) == 0) {
+          NA
+        } else {
+          x
+        }
+      }
+    ))
   }
   output
 }

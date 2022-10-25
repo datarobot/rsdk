@@ -1,0 +1,97 @@
+{
+  "positiveClass": {},
+  "task": ["Regression"],
+  "predictions": [
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [109],
+      "timestamp": ["1958-02-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [1],
+      "prediction": [332.9249]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [110],
+      "timestamp": ["1958-03-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [2],
+      "prediction": [361.8502]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [111],
+      "timestamp": ["1958-04-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [3],
+      "prediction": [369.5666]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [112],
+      "timestamp": ["1958-05-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [4],
+      "prediction": [360.9005]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [113],
+      "timestamp": ["1958-06-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [5],
+      "prediction": [425.1791]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [114],
+      "timestamp": ["1958-07-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [6],
+      "prediction": [480.2841]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [115],
+      "timestamp": ["1958-08-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [7],
+      "prediction": [456.1827]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [116],
+      "timestamp": ["1958-09-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [8],
+      "prediction": [408.1487]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [117],
+      "timestamp": ["1958-10-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [9],
+      "prediction": [338.8365]
+    },
+    {
+      "seriesId": {},
+      "forecastPoint": ["1958-01-01T00:00:00.000000Z"],
+      "rowId": [118],
+      "timestamp": ["1958-11-01T00:00:00.000000Z"],
+      "positiveProbability": {},
+      "forecastDistance": [10],
+      "prediction": [304.1852]
+    }
+  ],
+  "includesPredictionIntervals": [false]
+}

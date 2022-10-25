@@ -15,9 +15,6 @@ UpdateDeploymentAssociationId(
 )
 }
 \arguments{
-\item{deployment}{An S3 object representing a model deployment, or the unique ID of such a
-deployment.}
-
 \item{columnNames}{character. Optional. Name(s) of the column(s) in your
 dataset that will be used to map actuals to predictions and determine
 accuracy. Note: This cannot be changed after the model has served
@@ -59,7 +56,6 @@ the updated settings on success.
 \seealso{
 Other deployment accuracy functions: 
 \code{\link{GetDeploymentAccuracyOverTime}()},
-\code{\link{GetDeploymentAccuracy}()},
 \code{\link{SubmitActuals}()}
 }
 \concept{deployment accuracy functions}

@@ -1,0 +1,39 @@
+[
+{
+    "task": "Support Vector Classifier",
+    "description": "Support vector machines are a class of...",
+    "title": "Support Vector Classifier (Radial Kernel) Documentation — DataRobot Model Documentation",
+    "parameters":[
+	{
+               "type":"multi (default=’auto’)",
+                "name":"C (C)",
+                "description":" Penalty parameter C of the error term. ‘auto’ ... "
+	},
+	{
+               "type":"select (default=’rbf’)",
+                "name":"kernel (k)",
+                "description":" Specifies the kernel type to be used in the algorithm. values:..."
+	}
+	],
+    "references":[
+	{
+               "url":"http://bioinformatics.oxfordjournals.org/content/16/10/906.full.pdf",
+                "name":"[R278]Suykens, Johan AK, and Joos Vandewalle. “Least squares support vector machine classifiers.” Neural processing letters 9.3 (1999): 293-300."
+	},
+	{
+               "url":null,
+                "name":"[R277]Caputo, B., Sim, K., Furesjo, F., & Smola, A. “Appearance-based Object Recognition using SVMs: Which Kernel Should I Use?”. In Proc of NIPS workshop on Statistical methods for computational experiments in visual processing and computer vision (2002)."
+	}
+	],
+    "links":[
+	{
+               "url":"http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html",
+                "name":"SVC scikit-learn"
+	},
+	{
+               "url":"https://en.wikipedia.org/wiki/LIBSVM",
+                "name":"LIBSVM / LIBLINEAR wikipedia"
+	}
+	]
+}
+]

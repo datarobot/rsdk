@@ -12,12 +12,6 @@ GetPredictionExplanationsRowsAsDataFrame(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
-\item{predictionExplanationId}{character. Id of the prediction explanations.}
-
 \item{excludeAdjustedPredictions}{logical. Optional. Set to FALSE to include adjusted
 predictions, which are predictions adjusted by an exposure column. This is only relevant for
 projects that use an exposure column.}
@@ -76,14 +70,14 @@ explanation in the row. In both cases, the value of N will start at 1 and count 
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  datasets <- ListPredictionDatasets(projectId)
-  dataset <- datasets[[1]]
-  datasetId <- dataset$id
-  model <- GetModel(projectId, modelId)
-  jobId <- RequestPredictionExplanations(model, datasetId)
-  predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-  GetPredictionExplanationsRowsAsDataFrame(projectId, predictionExplanationId)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+datasets <- ListPredictionDatasets(projectId)
+dataset <- datasets[[1]]
+datasetId <- dataset$id
+model <- GetModel(projectId, modelId)
+jobId <- RequestPredictionExplanations(model, datasetId)
+predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+GetPredictionExplanationsRowsAsDataFrame(projectId, predictionExplanationId)
 }
 }

@@ -7,10 +7,6 @@
 GenerateDatetimePartition(project, spec)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{spec}{list. Datetime partition specification returned by
 \code{CreateDatetimePartitionSpecification}}
 }
@@ -52,8 +48,7 @@ list describing datetime partition with following components
   \item gapDuration character. The duration of the gap between training and holdout
     scoring data.
   \item gapRowCount integer. The number of rows in the gap between training and holdout scoring
-    data.
-  Only available when retrieving the partitioning after setting the target.
+    data. Only available when retrieving the partitioning after setting the target.
   \item gapEndDate character. The end date of the gap between training and holdout scoring
     data.
   \item holdoutStartDate character. The start date of holdout scoring data.
@@ -62,11 +57,11 @@ list describing datetime partition with following components
     Only available when retrieving the partitioning after setting the target.
   \item holdoutEndDate character. The end date of the holdout scoring data.
   \item numberOfBacktests integer. the number of backtests used.
-  \item backtests data.frame. A data frame of partition backtest. Each element represent one
+  \item backtests data.frame. A data frame of partition backtests. Each element represents one
     backtest and has the following components:
     index, availableTrainingStartDate, availableTrainingDuration, availableTrainingRowCount,
     availableTrainingEndDate, primaryTrainingStartDate, primaryTrainingDuration,
-    primaryTrainingRowCount, primaryTrainingEndDate, gapStartDate,  gapDuration, gapRowCount,
+    primaryTrainingRowCount, primaryTrainingEndDate, gapStartDate, gapDuration, gapRowCount,
     gapEndDate, validationStartDate, validationDuration, validationRowCount,
     validationEndDate, totalRowCount.
   \item useTimeSeries logical. Whether the project is a time series project (if TRUE) or an OTV
@@ -100,14 +95,14 @@ list describing datetime partition with following components
         only. Defaults to \code{FALSE}.
     }
   \item treatAsExponential character. Specifies whether to treat data as exponential trend
-    and apply transformations like log-transform. Uses values from from
+    and apply transformations like log-transform. Uses values from
     \code{TreatAsExponential}.
   \item differencingMethod character. Used to specify differencing method to apply if data is
     stationary. Use values from \code{DifferencingMethod}.
   \item windowsBasisUnit character. Indicates which unit is the basis for the feature derivation
    window and forecast window. Uses values from \code{TimeUnit} and the value "ROW".
   \item periodicities list. A list of periodicities for different times, specified as a list of
-   lists, where each list item specifies the `timeSteps` for a particular `timeUnit`. Will be
+   lists, where each list item specifies the \code{timeSteps} for a particular \code{timeUnit}. Will be
     "ROW" if \code{windowsBasisUnit} is "ROW".
   \item totalRowCount integer. The number of rows in the project dataset. Only available when
     retrieving the partitioning after setting the target. Thus it will be NULL for

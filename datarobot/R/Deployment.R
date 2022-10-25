@@ -1,169 +1,19 @@
-#' Create a deployment.
-#'
-#' @inheritParams RequestPredictionExplanationsInitialization
-#' @param label character. The name of the deployment.
-#' @param description character. Optional. A longer description of the deployment.
-#' @param defaultPredictionServerId character. The ID of the prediction server to connect to.
-#'   Can also be a prediction server object.
-#' @inherit GetDeployment return
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   predictionServer <- ListPredictionServers()[[1]]
-#'   CreateDeployment(model,
-#'                    label = "myDeployment",
-#'                    description = "this is my deployment",
-#'                    defaultPredictionServerId = predictionServer)
-#' }
-#' @export
-CreateDeployment <- function(model, label = "", description = "",
-                             defaultPredictionServerId = NULL) {
-  if (is(model, "dataRobotModel")) {
-    modelId <- ValidateModel(model)$modelId
-  } else {
-    modelId <- model
-  }
-  if (is(defaultPredictionServerId, "dataRobotPredictionServer")) {
-    defaultPredictionServerId <- defaultPredictionServerId$id
-  }
-  body <- list(modelId = modelId,
-               label = label,
-               description = description)
-  body$defaultPredictionServerId <- defaultPredictionServerId
-  routeString <- UrlJoin("deployments", "fromLearningModel")
-  deploymentId <- DataRobotPOST(routeString, body = body)$id
-  GetDeployment(deploymentId)
-}
-
-
-#' List all current model deployments.
-#' @param orderBy string. Optional. the order to sort the deployment list by, defaults to `label`
-#' Allowed attributes to sort by are:
-#'  * `label`
-#'  * `serviceHealth`
-#'  * `modelHealth`
-#'  * `accuracyHealth`
-#'  * `recentPredictions`
-#'  * `lastPredictionTimestamp`
-#'
-#'  If the sort attribute is preceded by a hyphen, deployments will be sorted in descending
-#'  order, otherwise in ascending order.
-#'  For health related sorting, ascending means failing, warning, passing, unknown.
-#' @param search string. Optional. Case insensitive search against deployment labels and
-#'  descriptions.
-#' @return A list of DataRobotDeployment objects containing:
-#' \itemize{
-#'  \item id character. The ID of the deployment.
-#'  \item label character. The label of the deployment.
-#'  \item description character. The description of the deployment.
-#'  \item defaultPredictionServer list. Information on the default prediction
-#'    server connected with the deployment. See \code{ListPredictionServers}
-#'    for details.
-#'  \item model dataRobotModel. The model associated with the deployment.
-#'    See \code{GetModel} for details.
-#'  \item capabilities list. Information on the capabilities of the deployment.
-#'  \item predictionUsage list. Information on the prediction usage of the deployment.
-#'  \item permissions list. User's permissions on the deployment.
-#'  \item serviceHealth list. Information on the service health of the deployment.
-#'  \item modelHealth list. Information on the model health of the deployment.
-#'  \item accuracyHealth list. Information on the accuracy health of the deployment.
-#' }
-#' @examples
-#' \dontrun{
-#'   ListDeployments()
-#' }
-#' @export
-#' @md
-ListDeployments <- function(orderBy = NULL, search = NULL) {
-  response <- DataRobotGET("deployments",
-                           simplifyDataFrame = FALSE,
-                           query = list("orderBy" = orderBy, "search" = search))
-  # TODO: Remove the default batch size after https://datarobot.atlassian.net/browse/DSX-864
-  response <- GetServerDataInRows(response, 20)
-  response <- lapply(response, as.dataRobotDeployment)
-  class(response) <- c("listOfDeployments", "listSubclass")
-  response
-}
-
-
-#' Get information on a particular deployment.
-#'
-#' @param deploymentId character. The ID of the deployment.
-#' @return A DataRobotDeployment object containing:
-#' \itemize{
-#'  \item id character. The ID of the deployment.
-#'  \item label character. The label of the deployment.
-#'  \item description character. The description of the deployment.
-#'  \item defaultPredictionServer list. Information on the default prediction
-#'    server connected with the deployment. See \code{ListPredictionServers}
-#'    for details.
-#'  \item model dataRobotModel. The model associated with the deployment.
-#'    See \code{GetModel} for details.
-#'  \item capabilities list. Information on the capabilities of the deployment.
-#'  \item predictionUsage list. Information on the prediction usage of the deployment.
-#'  \item permissions list. User's permissions on the deployment.
-#'  \item serviceHealth list. Information on the service health of the deployment.
-#'  \item modelHealth list. Information on the model health of the deployment.
-#'  \item accuracyHealth list. Information on the accuracy health of the deployment.
-#' }
-#' @examples
-#' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   GetDeployment(deploymentId)
-#' }
-#' @export
-GetDeployment <- function(deploymentId) {
-  routeString <- UrlJoin("deployments", deploymentId)
-  deployment <- DataRobotGET(routeString)
-  as.dataRobotDeployment(deployment)
-}
-
-
-#' Delete a deployment.
-#'
-#' @inheritParams GetDeployment
-#' @return NULL
-#' @examples
-#' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   DeleteDeployment(deploymentId)
-#' }
-#' @export
-DeleteDeployment <- function(deploymentId) {
-  if (is.dataRobotDeployment(deploymentId)) {
-    deploymentId <- deploymentId$id
-  }
-  routeString <- UrlJoin("deployments", deploymentId)
-  DataRobotDELETE(routeString)
-  invisible(NULL)
-}
-
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 
 as.dataRobotDeployment <- function(inList) {
-  elements <- c("defaultPredictionServer", "description",
-                "modelHealth", "predictionUsage",
-                "capabilities", "label", "id", "model",
-                "accuracyHealth", "serviceHealth", "permissions")
-  out <- ApplySchema(inList, elements)
+  out <- inList
   class(out) <- "dataRobotDeployment"
   if (!is.null(out$defaultPredictionServer)) {
     out$defaultPredictionServer <- as.dataRobotPredictionServer(out$defaultPredictionServer)
   }
   out$model <- as.dataRobotModel(out$model)
-  out$modelHealth <- ApplySchema(out$modelHealth,
-                                 c("status", "startDate", "message", "endDate"))
-  out$accuracyHealth <- ApplySchema(out$accuracyHealth,
-                                    c("status", "startDate", "message", "endDate"))
-  out$serviceHealth <- ApplySchema(out$serviceHealth,
-                                   c("status", "startDate", "message", "endDate"))
-  out$predictionUsage <- ApplySchema(out$predictionUsage,
-                                     c("dailyRates", "lastTimestamp"))
-  out$capabilities <- ApplySchema(out$capabilities,
-                                  c("supportsFeatureDriftTracking",
-                                    "supportsTargetDriftTracking",
-                                    "supportsModelReplacement"))
   out$permissions <- unlist(as.list(out$permissions))
   out
 }
@@ -189,87 +39,6 @@ HandleDeploymentErrors <- function(deploymentResponse) {
     deploymentResponseContent <- httr::content(deploymentResponse)
     stop("Model deployment failure - ", deploymentResponseContent$message)
   }
-}
-
-#' Replace a model in a deployment with another model.
-#'
-#' @inheritParams GetDeployment
-#' @param newModelId character. The ID of the model to use in the deployment. This model
-#'   will replace the old model. You can also pass a dataRobotModel object.
-#' @param replacementReason character. Optional. The reason for replacing the deployment.
-#'   See \code{ModelReplacementReason} for a list of reasons.
-#' @param maxWait integer. How long to wait (in seconds) for the computation to complete
-#'   before returning a timeout error? (Default 600 seconds)
-#' @inherit GetDeployment return
-#' @examples
-#' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   newModelId <- "5996f820af07fc605e81ead4"
-#'   ReplaceDeployedModel(deploymentId, newModelId, ModelReplacementReason$Other)
-#' }
-#' @export
-ReplaceDeployedModel <- function(deploymentId, newModelId, replacementReason, maxWait = 600) {
-  if (is.dataRobotDeployment(deploymentId)) {
-    deploymentId <- deploymentId$id
-  }
-  if (is(newModelId, "dataRobotModel")) {
-    newModelId <- ValidateModel(newModelId)$modelId
-  }
-  routeString <- UrlJoin("deployments", deploymentId, "model")
-  body <- list(modelId = newModelId, reason = replacementReason)
-  response <- DataRobotPATCH(routeString, body = body,
-                             returnRawResponse = TRUE, stopOnError = FALSE, encode = "json")
-  HandleDeploymentErrors(response)
-  response <- WaitForAsyncReturn(GetRedirectFromResponse(response),
-                                 addUrl = FALSE,
-                                 maxWait = maxWait,
-                                 failureStatuses = "ERROR")
-  as.dataRobotDeployment(response)
-}
-
-
-#' Validate a potential deployment model replacement.
-#'
-#' @inheritParams ReplaceDeployedModel
-#' @return A validation report with:
-#' \itemize{
-#'   \item status character. Either PASSED or FAILED depending on whether all checks passed
-#'     or not.
-#'   \item message character. A message explaining the status failure, if any.
-#'   \item checks list. A list of each check and the individual status.
-#' }
-#' @examples
-#' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   newModelId <- "5996f820af07fc605e81ead4"
-#'   ValidateReplaceDeployedModel(deploymentId, newModelId)
-#' }
-#' @export
-ValidateReplaceDeployedModel <- function(deploymentId, newModelId) {
-  if (is.dataRobotDeployment(deploymentId)) {
-    deploymentId <- deploymentId$id
-  }
-  if (is(newModelId, "dataRobotModel")) {
-    newModelId <- ValidateModel(newModelId)$modelId
-  }
-  routeString <- UrlJoin("deployments", deploymentId, "model", "validation")
-  body <- list(modelId = newModelId)
-  response <- DataRobotPOST(routeString, body = body, encode = "json")
-  as.dataRobotDeploymentValidation(response)
-}
-
-as.dataRobotDeploymentValidation <- function(inList) {
-  elements <- c("status", "message", "checks")
-  out <- ApplySchema(inList, elements)
-  checks <- c("targetType", "target", "notCurrentModel", "permission", "supported",
-              "modelCanBeDeployed", "seriesType", "modelStatus", "featureDataTypes",
-              "features")
-  checkSchema <- c("status", "message")
-  out$checks <- ApplySchema(out$checks, checks)
-  for (check in checks) {
-    out$checks[[check]] <- ApplySchema(out$checks[[check]], checkSchema)
-  }
-  out
 }
 
 #' Submit actuals for processing.
@@ -301,16 +70,20 @@ as.dataRobotDeploymentValidation <- function(inList) {
 #'   exceed 10000.
 #' @examples
 #' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   myActuals <- data.frame(associationId = c("439917"),
-#'                           actualValue = c("True"),
-#'                           wasActedOn = c(TRUE))
-#'   SubmitActuals(actuals = myActuals,
-#'                 deploymentId)
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' myActuals <- data.frame(
+#'   associationId = c("439917"),
+#'   actualValue = c("True"),
+#'   wasActedOn = c(TRUE)
+#' )
+#' SubmitActuals(
+#'   actuals = myActuals,
+#'   deploymentId
+#' )
 #' }
 #' @family deployment accuracy functions
 #' @export
-SubmitActuals <- function(actuals, deploymentId, batchSize=10000) {
+SubmitActuals <- function(actuals, deploymentId, batchSize = 10000) {
   # It's not you, it's R: https://developer.r-project.org/Blog/public/2020/02/16/stringsasfactors/
   # Force factor columns to character to allow for validation.
   factors <- sapply(actuals, is.factor)
@@ -325,11 +98,14 @@ SubmitActuals <- function(actuals, deploymentId, batchSize=10000) {
   routeString <- UrlJoin("deployments", deploymentId, "actuals", "fromJSON")
   for (batch in split(actuals, (seq(nrow(actuals)) - 1) %/% batchSize)) {
     payload <- list(data = batch)
-    postResponse <- DataRobotPOST(routeString, body = payload,
-                                  addUrl = TRUE, encode = "json", returnRawResponse = TRUE)
+    postResponse <- DataRobotPOST(routeString,
+      body = payload,
+      addUrl = TRUE, encode = "json", returnRawResponse = TRUE
+    )
     WaitForAsyncReturn(GetRedirectFromResponse(postResponse),
-                       addUrl = FALSE,
-                       failureStatuses = "ERROR")
+      addUrl = FALSE,
+      failureStatuses = "ERROR"
+    )
   }
 }
 
@@ -351,8 +127,8 @@ SubmitActuals <- function(actuals, deploymentId, batchSize=10000) {
 #' }
 #' @examples
 #' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   GetDeploymentDriftTrackingSettings(deploymentId)
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' GetDeploymentDriftTrackingSettings(deploymentId)
 #' }
 #' @export
 GetDeploymentDriftTrackingSettings <- function(deploymentId) {
@@ -360,15 +136,12 @@ GetDeploymentDriftTrackingSettings <- function(deploymentId) {
   as.dataRobotDeploymentDriftTrackingSettings(settings)
 }
 
+#' This function specifically narrows the Deployment Settings objects
+#' to just those related to Drift Tracking.
+#' @param inList JSON object retrieved from GetDeploymentSettings()
 as.dataRobotDeploymentDriftTrackingSettings <- function(inList) {
   elements <- c("predictionIntervals", "targetDrift", "associationId", "featureDrift")
-  out <- ApplySchema(inList, elements)
-  out$predictionIntervals <- ApplySchema(out$predictionIntervals, c("percentiles", "enabled"))
-  out$targetDrift <- ApplySchema(out$targetDrift, "enabled")
-  out$featureDrift <- ApplySchema(out$featureDrift, "enabled")
-  out$associationId <- ApplySchema(out$associationId, c("columnNames",
-                                                        "requiredInPredictionRequests"))
-  out
+  return(ApplySchema(inList, elements))
 }
 
 #' Update drift tracking settings for a deployment.
@@ -381,8 +154,8 @@ as.dataRobotDeploymentDriftTrackingSettings <- function(inList) {
 #' @inherit GetDeploymentDriftTrackingSettings return
 #' @examples
 #' \dontrun{
-#'   deploymentId <- "5e319d2e422fbd6b58a5edad"
-#'   UpdateDeploymentDriftTrackingSettings(deploymentId, targetDriftEnabled = TRUE)
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' UpdateDeploymentDriftTrackingSettings(deploymentId, targetDriftEnabled = TRUE)
 #' }
 #' @export
 UpdateDeploymentDriftTrackingSettings <- function(deploymentId, targetDriftEnabled = NULL,
@@ -405,41 +178,6 @@ UpdateDeploymentDriftTrackingSettings <- function(deploymentId, targetDriftEnabl
   }
 }
 
-#' Retrieves all settings for a deployed model.
-#'
-#' @keywords internal
-#'
-#' @param deployment An S3 object representing a model deployment, or the unique ID of such a
-#'   deployment.
-#' @return List representing the various settings to be configured on a
-#'   deployment, including:
-#' \describe{
-#'   \item{associationId}{object. Information on association ID for tracking deployment accuracy.
-#'     See [GetDeploymentAssociationId()]}
-#'   \item{challengerModels}{logical. Whether challenger models are enabled.}
-#'   \item{featureDrift}{logical. Whether feature drift tracking is enabled. See
-#'     [GetDeploymentDriftTrackingSettings()]}
-#'   \item{humility}{logical. Whether humility rules are enabled.}
-#'   \item{predictionIntervals}{object. Information on prediction intervals.}
-#'   \item{predictionWarning}{object. Information on prediction warning settings.}
-#'   \item{predictionsByForecastDate}{object. Information on predictions by forecast date.}
-#'   \item{predictionsDataCollection}{logical. Whether predictions data is stored.}
-#'   \item{targetDrift}{logical. Whether target drift tracking is enabled.}
-#'   \item{segmentAnalysis}{object. Information on segment analysis settings.}
-#' }
-#' @family deployment configuration functions
-#' @md
-#' @export
-GetDeploymentSettings <- function(deployment) {
-  if (is.dataRobotDeployment(deployment)) {
-    deployment <- deployment$id
-  }
-  routeString <- UrlJoin("deployments", deployment, "settings")
-  response <- DataRobotGET(routeString)
-  class(response) <- "dataRobotDeploymentSettings"
-  response
-}
-
 #' Updates configuration settings for a deployed model.
 #'
 #' Updates the deployment settings and returns all settings, including those not
@@ -458,22 +196,26 @@ UpdateDeploymentSettings <- function(deployment, newSettings, maxWait) {
   if (is.dataRobotDeployment(deployment)) {
     deployment <- deployment$id
   }
-  response <- PatchSettingsAndWait(deployment,
-                       newSettings,
-                       maxWait)
+  response <- PatchSettingsAndWait(
+    deployment,
+    newSettings,
+    maxWait
+  )
   as.dataRobotDeployment(response)
 }
 
 PatchSettingsAndWait <- function(deployment, payload, maxWait) {
   routeString <- UrlJoin("deployments", deployment, "settings")
   response <- DataRobotPATCH(routeString,
-                             body = payload,
-                             returnRawResponse = TRUE,
-                             encode = "json")
+    body = payload,
+    returnRawResponse = TRUE,
+    encode = "json"
+  )
   WaitForAsyncReturn(GetRedirectFromResponse(response),
-                     addUrl = FALSE,
-                     maxWait = maxWait,
-                     failureStatuses = "ERROR")
+    addUrl = FALSE,
+    maxWait = maxWait,
+    failureStatuses = "ERROR"
+  )
 }
 
 #' Deployment Association ID
@@ -556,33 +298,12 @@ as.dataRobotDeploymentAssociationIdSettings <- function(apiResponse) {
   result
 }
 
-#' List all available prediction servers.
-#'
-#' @return A list of DataRobotPredictionServer objects containing:
-#' \itemize{
-#'  \item id character. The ID of the prediction server.
-#'  \item url character. The URL of the prediction server.
-#'  \item dataRobotKey character. The key used to access the prediction server.
-#' }
-#' @examples
-#' \dontrun{
-#'   ListPredictionServers()
-#' }
-#' @export
-ListPredictionServers <- function() {
-  response <- DataRobotGET("predictionServers", simplifyDataFrame = FALSE)
-  response <- GetServerDataInRows(response)
-  response <- lapply(response, as.dataRobotPredictionServer)
-  class(response) <- c("listOfPredictionServers", "listSubclass")
-  response
-
-}
-
 as.dataRobotPredictionServer <- function(inList) {
-  elements <- c("id", "url", "dataRobotKey")
   out <- inList
-  out$dataRobotKey <- out[["datarobot-key"]]
-  out <- ApplySchema(out, elements)
+  if ("datarobot-key" %in% names(out) && "dataRobotKey" %notin% names(out)) {
+    out$dataRobotKey <- out[["datarobot-key"]]
+    out[["datarobot-key"]] <- NULL
+  }
   class(out) <- "dataRobotPredictionServer"
   out
 }

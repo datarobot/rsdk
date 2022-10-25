@@ -2,18 +2,22 @@
 % Please edit documentation in R/ApplySchema.R
 \name{ApplySchema}
 \alias{ApplySchema}
-\title{Apply a schema to DataRobot objects (lists, frames)}
+\title{Apply a schema to DataRobot objects (lists, frames).}
 \usage{
-ApplySchema(inList, schema, mask = NULL)
+ApplySchema(inList, schema)
 }
 \arguments{
 \item{inList}{object. The DataRobot object to apply the schema to.}
 
 \item{schema}{list. The schema to apply.}
-
-\item{mask}{list. Search the schema and only apply values that match this with grep.
-Defaults to NULL, or no masking.}
 }
 \description{
-Apply a schema to DataRobot objects (lists, frames)
+Attention developers! Do not apply this function to DataRobot objects UNLESS you have a specific
+need to constrain the shape of an object! This function will hide information from the end user
+and causes heartache when an endpoint is extended with new information, as we have to go in and
+update the R client schema as well.
+}
+\details{
+Generally speaking, assume that the user should receive all data from the API. Assume that the
+user knows exactly what will be returned from the API.
 }

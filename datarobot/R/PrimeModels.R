@@ -1,29 +1,11 @@
-#' Retrieve information about all DataRobot Prime models for a DataRobot project
-#'
-#' This function requests the DataRobot Prime models information for the DataRobot
-#' project specified by the project argument, described under Arguments.
-#'
-#' The function returns data.frame containing information about each DataRobot Prime model in a
-#' project (one row per Prime model)
-#'
-#' @inheritParams DeleteProject
-#' @return data.frame (classed as \code{dataRobotPrimeModels}) containing
-#'   information about each DataRobot Prime model in a project (one row per
-#'   Prime model).
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   ListPrimeModels(projectId)
-#' }
-#' @export
-ListPrimeModels <- function(project) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "primeModels")
-  primeInfo <- DataRobotGET(routeString)
-  primeInfo <- GetServerDataInRows(primeInfo)
-  as.dataRobotPrimeModels(primeInfo)
-}
-
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 
 #' Retrieve information about specified DataRobot Prime model.
 #'
@@ -37,9 +19,9 @@ ListPrimeModels <- function(project) {
 #'   about specified DataRobot Prime model.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   GetPrimeModel(projectId, modelId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetPrimeModel(projectId, modelId)
 #' }
 #' @export
 GetPrimeModel <- function(project, modelId) {
@@ -58,50 +40,31 @@ GetPrimeModel <- function(project, modelId) {
 #' @inherit GetPrimeModel return
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   initialJobs <- ListModelJobs(project)
-#'   job <- initialJobs[[1]]
-#'   modelJobId <- job$modelJobId
-#'   GetPrimeModelFromJobId(projectId, modelJobId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' initialJobs <- ListModelJobs(project)
+#' job <- initialJobs[[1]]
+#' modelJobId <- job$modelJobId
+#' GetPrimeModelFromJobId(projectId, modelJobId)
 #' }
 #' @export
 GetPrimeModelFromJobId <- function(project, jobId, maxWait = 600) {
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "jobs", jobId)
   response <- WaitForAsyncReturn(routeString, maxWait,
-                                 failureStatuses = JobFailureStatuses)
+    failureStatuses = JobFailureStatuses
+  )
   GetPrimeModel(project, response$id)
 }
 
 
-ApplyPrimeModelSchema <- function(inList) {
-  elements <- c("featurelistId",
-                "processes",
-                "featurelistName",
-                "modelType",
-                "projectId",
-                "samplePct",
-                "trainingRowCount",
-                "modelCategory",
-                "metrics",
-                "score",
-                "parentModelId",
-                "ruleCount",
-                "isFrozen",
-                "blueprintId",
-                "rulesetId",
-                "id")
-  ApplySchema(inList, elements, "metrics")
-}
-
 as.dataRobotPrimeModels <- function(inList) {
-  outList <- ApplyPrimeModelSchema(inList)
+  outList <- inList
   class(outList) <- c("dataRobotPrimeModels", "data.frame")
   outList
 }
 
 as.dataRobotPrimeModel <- function(inList) {
-  outList <- ApplyPrimeModelSchema(inList)
+  outList <- as.list(inList)
   class(outList) <- c("dataRobotPrimeModel")
   outList
 }

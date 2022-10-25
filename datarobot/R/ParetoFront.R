@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Pareto Front data for a Eureqa model
 #'
 #'  The Eureqa algorithm generates millions and millions of equations.
@@ -45,14 +53,14 @@
 #'
 #' @examples
 #' \dontrun{
-#'   projectId <- "5b2827556523cd05bd1507a5"
-#'   modelId <- "5b29406c6523cd0665685a8d"
-#'   model <- GetModel(projectId, modelId)
-#'   GetParetoFront(model)
+#' projectId <- "5b2827556523cd05bd1507a5"
+#' modelId <- "5b29406c6523cd0665685a8d"
+#' model <- GetModel(projectId, modelId)
+#' GetParetoFront(model)
 #' }
 #' @export
 GetParetoFront <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   routeString <- UrlJoin("projects", projectId, "eureqaModels", modelId)
@@ -62,44 +70,7 @@ GetParetoFront <- function(model) {
 
 as.dataRobotParetoFront <- function(inList) {
   outList <- as.list(inList)
-  outList <- ApplySchema(outList, c("projectId",
-                                    "errorMetric",
-                                    "hyperparameters",
-                                    "targetType",
-                                    "solutions"))
   outList$hyperparameters <- as.list(outList$hyperparameters)
   outList$solutions <- as.list(outList$solutions)
-  outList$solutions <- lapply(outList$solutions, ApplySchema, schema = c("eureqaSolutionId",
-                                                                         "complexity",
-                                                                         "error",
-                                                                         "expression",
-                                                                         "expressionAnnotated",
-                                                                         "bestModel"))
   outList
-}
-
-
-#' Add a Eureqa solution to the list of models for the project.
-#'
-#' Each Eureqa model contains multiple possible solutions (see \code{GetParetoFront}).
-#' However, only the best model is included in the leaderboard by default. To include
-#' other models, you can get them via \code{GetParetoFront} and then add them.
-#'
-#' @inheritParams DeleteProject
-#' @param eureqaSolutionId character. The solution ID of the Eureqa model to add.
-#' @examples
-#' \dontrun{
-#'   projectId <- "5b2827556523cd05bd1507a5"
-#'   modelId <- "5b29406c6523cd0665685a8d"
-#'   eureqaModel <- GetModel(projectId, modelId)
-#'   paretoFront <- GetParetoFront(eureqaModel)
-#' }
-#' @export
-AddEureqaSolution <- function(project, eureqaSolutionId) {
-  project <- ValidateProject(project)
-  routeString <- UrlJoin("projects", project, "eureqaModels")
-  body <- list(solutionId = eureqaSolutionId)
-  DataRobotPOST(routeString, body = body)
-  message("Solution added")
-  invisible(NULL)
 }

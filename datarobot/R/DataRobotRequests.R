@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 DefaultHTTPTimeout <- 60
 
 #' Make a HTTP request
@@ -39,25 +47,32 @@ MakeDataRobotRequest <- function(requestMethod,
   # ...Okay, deep breath. If we want to pass NULL values into the API we're going to need to do
   # some heavy work, as httr will drop NULL values by default.
   if (!is.null(body) && TryingToSubmitNull(body)) { # detect if any NULL values are present and
-                                                    # switch to alternate handling...
+    # switch to alternate handling...
     # To properly pass null values as JSON, we need to get the parameter value to be `null`.
     # Interpreting to JSON gives `{}` instead of `null`, so we hack this with find-and-replace.
     body <- structure(gsub("{}", "null",
-                           as.character(jsonlite::toJSON(body)), fixed = TRUE),
-                      class = "json")
+      as.character(jsonlite::toJSON(body)),
+      fixed = TRUE
+    ),
+    class = "json"
+    )
     # To pass raw JSON into the request, we have to encode with "raw" instead of "json"
     encode <- "raw"
     # We also have to manually set the header to JSON
-    headers <- DataRobotAddHeaders(Authorization = path$authHead,
-                                   "Content-Type" = "application/json")
+    headers <- DataRobotAddHeaders(
+      Authorization = path$authHead,
+      "Content-Type" = "application/json"
+    )
   } else {
     headers <- DataRobotAddHeaders(Authorization = path$authHead)
   }
 
   # Construct arguments for request method
-  args <- list(url = path$fullPath,
-               config = headers,
-               httr::timeout(timeout))
+  args <- list(
+    url = path$fullPath,
+    config = headers,
+    httr::timeout(timeout)
+  )
   args$body <- body
   args$query <- query
   args$encode <- encode
@@ -93,19 +108,21 @@ DataRobotGET <- function(routeString,
                          addUrl = TRUE,
                          returnRawResponse = FALSE, ...) {
   MakeDataRobotRequest(httr::GET, routeString,
-                       addUrl = addUrl,
-                       returnRawResponse = returnRawResponse,
-                       ...)
+    addUrl = addUrl,
+    returnRawResponse = returnRawResponse,
+    ...
+  )
 }
 
 DataRobotDELETE <- function(routeString,
                             addUrl = TRUE,
                             returnRawResponse = FALSE, ...) {
   MakeDataRobotRequest(httr::DELETE,
-                       routeString,
-                       addUrl = addUrl,
-                       returnRawResponse = returnRawResponse,
-                       ...)
+    routeString,
+    addUrl = addUrl,
+    returnRawResponse = returnRawResponse,
+    ...
+  )
 }
 
 DataRobotPATCH <- function(routeString,
@@ -113,10 +130,11 @@ DataRobotPATCH <- function(routeString,
                            body = NULL,
                            returnRawResponse = FALSE, ...) {
   MakeDataRobotRequest(httr::PATCH, routeString,
-                       addUrl = addUrl,
-                       returnRawResponse = returnRawResponse,
-                       body = body,
-                       ...)
+    addUrl = addUrl,
+    returnRawResponse = returnRawResponse,
+    body = body,
+    ...
+  )
 }
 
 DataRobotPOST <- function(routeString,
@@ -124,20 +142,23 @@ DataRobotPOST <- function(routeString,
                           body = NULL,
                           returnRawResponse = FALSE, ...) {
   MakeDataRobotRequest(httr::POST, routeString,
-                       addUrl = addUrl,
-                       returnRawResponse = returnRawResponse,
-                       simplifyDataFrame = TRUE,
-                       body = body,
-                       ...)
+    addUrl = addUrl,
+    returnRawResponse = returnRawResponse,
+    simplifyDataFrame = TRUE,
+    body = body,
+    ...
+  )
 }
 
 
 DataRobotGetDefaultHeader <- function() {
   platform <- as.list(Sys.info())
   platformStr <- paste(platform$sysname, platform$release, platform$machine)
-  userAgent <- sprintf("DataRobotRClient/%s (%s)",
-                       GetClientVersion(),
-                       platformStr)
+  userAgent <- sprintf(
+    "DataRobotRClient/%s (%s)",
+    GetClientVersion(),
+    platformStr
+  )
   suffix <- UserAgentSuffix()
   if (nzchar(suffix)) {
     userAgent <- paste(userAgent, suffix)
@@ -152,7 +173,7 @@ DataRobotAddHeaders <- function(...) {
 
 StopIfResponseIsError <- function(rawReturn) {
   if (is.null(rawReturn)) { # Error if the entire HTTR object is missing... probably only happens
-                            # with a bad test mock but want to be sure.
+    # with a bad test mock but want to be sure.
     stop("No HTTR response object was returned.")
   }
   returnStatus <- httr::status_code(rawReturn)
@@ -160,8 +181,10 @@ StopIfResponseIsError <- function(rawReturn) {
     parsedReturn <- ParseReturnResponse(rawReturn)
     errors <- parsedReturn$errors
     errorSummary <- parsedReturn$message
-    errorMessages <- Map(function(keyName) paste0("  ", keyName, ": ", errors[[keyName]]),
-                         names(errors))
+    errorMessages <- Map(
+      function(keyName) paste0("  ", keyName, ": ", errors[[keyName]]),
+      names(errors)
+    )
     errorMessagesCombined <- paste(errorMessages, collapse = "\n")
     statusString <- sprintf("(%s)", returnStatus)
     stop(paste(statusString, errorSummary, errorMessagesCombined, sep = "\n"), call. = FALSE)
@@ -232,7 +255,8 @@ UrlJoin <- function(...) {
 ParseReturnResponse <- function(rawReturn, ...) {
   OnError <- function(error) {
     stop(paste("Expected JSON, received:\n", textContent),
-         call. = FALSE)
+      call. = FALSE
+    )
   }
 
   textContent <- httr::content(rawReturn, as = "text", encoding = "UTF-8")
@@ -250,9 +274,13 @@ ParseReturnResponse <- function(rawReturn, ...) {
 #' Checks to see if we are trying to submit `NULL` as a value.
 #' @param body list. The body to check for NULL.
 TryingToSubmitNull <- function(body) {
-  if (is.list(body)) { any(unlist(lapply(body, TryingToSubmitNull))) }
-  else if (is.null(body)) { TRUE }
-  else { FALSE }
+  if (is.list(body)) {
+    any(unlist(lapply(body, TryingToSubmitNull)))
+  } else if (is.null(body)) {
+    TRUE
+  } else {
+    FALSE
+  }
 }
 
 

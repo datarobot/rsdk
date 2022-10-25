@@ -1,0 +1,85 @@
+{
+  "data": [
+    {
+      "className": ["com.microsoft.sqlserver.jdbc.SQLServerDriver"],
+      "baseNames": [
+        ["sqljdbc41.jar"]
+      ],
+      "id": ["5adeb2e123d2a10001133029"],
+      "canonicalName": ["Microsoft JDBC Driver 6.0"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    },
+    {
+      "className": ["com.amazon.redshift.jdbc41.Driver"],
+      "baseNames": [
+        ["RedshiftJDBC41-1.2.12.1017.jar"]
+      ],
+      "id": ["5adf9c1e15c6d20001c7c188"],
+      "canonicalName": ["Amazon Redshift for JDBC 4.1"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    },
+    {
+      "className": ["net.snowflake.client.jdbc.SnowflakeDriver"],
+      "baseNames": [
+        ["snowflake-jdbc-3.5.4.jar"]
+      ],
+      "id": ["5b1b07f9f30bc300018d064d"],
+      "canonicalName": ["Snowflake JDBC Driver 3.5.4"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    },
+    {
+      "className": ["org.postgresql.Driver"],
+      "baseNames": [
+        ["postgresql-9.4.1208.jre7.jar"]
+      ],
+      "id": ["5b4752844bf542000175dbea"],
+      "canonicalName": ["Postgres for JDBC 4.1"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    },
+    {
+      "className": ["com.microsoft.sqlserver.jdbc.SQLServerDriver"],
+      "baseNames": [
+        ["mssql-jdbc-6.4.0.jre9.jar"]
+      ],
+      "id": ["5b6dda294d89760001643055"],
+      "canonicalName": ["Microsoft JDBC Driver 6.4"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    },
+    {
+      "className": ["x-pack-sql-jdbc-6.4.0"],
+      "baseNames": [
+        ["x-pack-sql-jdbc-6.4.0.jar"]
+      ],
+      "id": ["5b800ad702f05c0001c25d43"],
+      "canonicalName": ["Elasticsearch JDBC Driver"],
+      "creator": ["57a7c978c808916f4a630f89"]
+    },
+    {
+      "className": ["com.amazon.redshift.jdbc42.Driver"],
+      "baseNames": [
+        ["RedshiftJDBC42-1.2.16.1027.jar"]
+      ],
+      "id": ["5b929b6319e43f00014898cc"],
+      "canonicalName": ["Amazon RedShift for 4.2"],
+      "creator": ["592cf0fec808912c46fb983f"]
+    },
+    {
+      "className": ["com.simba.athena.jdbc.Driver"],
+      "baseNames": [
+        ["AthenaJDBC41_2.0.5.jar"]
+      ],
+      "id": ["5b92a76f19e43f0001489945"],
+      "canonicalName": ["Amazon Athena"],
+      "creator": ["592cf0fec808912c46fb983f"]
+    },
+    {
+      "className": ["com.mysql.jdbc.Driver"],
+      "baseNames": [
+        ["mysql-connector-java-5.1.44-bin.jar"]
+      ],
+      "id": ["5bbf8fb8d134d20001064f33"],
+      "canonicalName": ["MySQL JDBC Driver 5.1.44"],
+      "creator": ["5474e68f16f4b622fb4e2ce6"]
+    }
+  ]
+}

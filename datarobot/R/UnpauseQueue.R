@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Re-start the DataRobot modeling queue
 #'
 #' This function unpauses the modeling queue for a specified
@@ -6,8 +14,8 @@
 #' @inheritParams DeleteProject
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   UnpauseQueue(projectId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' UnpauseQueue(projectId)
 #' }
 #' @export
 UnpauseQueue <- function(project) {

@@ -1,0 +1,18 @@
+{
+  "supportsEarlyStopping": true,
+  "supportsImageEmbedding": false,
+  "supportsNNVisualizations": false,
+  "reasons": {
+    "supportsImageEmbedding": "Cannot compute image insights for this model because it does not use image features",
+    "supportsImageActivationMaps": "Cannot compute image insights for this model because it does not use image features"
+  },
+  "supportsImageActivationMaps": false,
+  "supportsMonotonicConstraints": false,
+  "supportsBlending": true,
+  "supportsShap": false,
+  "supportsCodeGeneration": false,
+  "supportsModelTrainingMetrics": false,
+  "hasParameters": false,
+  "eligibleForPrime": false,
+  "hasWordCloud": false
+}

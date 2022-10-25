@@ -1,0 +1,10 @@
+{
+  "source": "validation",
+  "negativeClassPredictions": [0.0603,0.0547,0.0493,0.1073],
+  "rocPoints": [
+      {"falsePositiveRate":0,"trueNegativeScore":1392,"matthewsCorrelationCoefficient":0,"truePositiveScore":0,"trueNegativeRate":1,"falseNegativeScore":208,"threshold":1,"negativePredictiveValue":0.87,"positivePredictiveValue":0,"falsePositiveScore":0,"truePositiveRate":0,"f1Score":0,"accuracy":0.87, "fractionPredictedAsPositive":0, "fractionPredictedAsNegative":0, "liftPositive":0, "liftNegative": 0},
+      {"falsePositiveRate":0,"trueNegativeScore":1392,"matthewsCorrelationCoefficient":0,"truePositiveScore":0,"trueNegativeRate":1,"falseNegativeScore":208,"threshold":1,"negativePredictiveValue":0.87,"positivePredictiveValue":0,"falsePositiveScore":0,"truePositiveRate":0,"f1Score":0,"accuracy":0.87, "fractionPredictedAsPositive":0, "fractionPredictedAsNegative":0, "liftPositive":0, "liftNegative": 0},
+      {"falsePositiveRate":0,"trueNegativeScore":1392,"matthewsCorrelationCoefficient":0,"truePositiveScore":0,"trueNegativeRate":1,"falseNegativeScore":208,"threshold":1,"negativePredictiveValue":0.87,"positivePredictiveValue":0,"falsePositiveScore":0,"truePositiveRate":0,"f1Score":0,"accuracy":0.87, "fractionPredictedAsPositive":0, "fractionPredictedAsNegative":0, "liftPositive":0, "liftNegative": 0}
+    ],
+  "positiveClassPredictions": [0.13276937,0.69858098,0.05745772,0.76007288]
+}

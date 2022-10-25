@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 namedEnumList <- function(...) {
   list <- as.list(...)
   names(list) <- make.names(list)
@@ -18,7 +26,44 @@ namedEnumList <- function(...) {
 AutopilotMode <- list(
   FullAuto = "auto",
   Manual = "manual",
-  Quick = "quick")
+  Quick = "quick"
+)
+
+
+#' Scaleout modeling modes
+#'
+#' This is a list that contains the valid values for the \code{scaleoutModelingMode} parameter
+#' found in \code{SetTarget}. If you wish, you can specify \code{scaleoutModelingMode} using the
+#' list values here, e.g. ScaleoutModelingMode$Autopilot instead of "Autopilot".
+#'
+#' For \code{Disabled}, no scaleout models will run in autopilot or be available in blueprints.
+#'
+#' For \code{RepositoryOnly}, scaleout models will be available in blueprints and can be run
+#' manually, but will not run in autopilot.
+#'
+#' For \code{Autopilot}, scaleout models will run during autopilot and also be available in
+#' blueprints.
+#' @export
+ScaleoutModelingMode <- list(
+  Disabled = "disabled",
+  RepositoryOnly = "repositoryOnly",
+  Autopilot = "Autopilot"
+)
+
+#' Task statuses
+#'
+#' This is a list that contains the valid values when getting the status of an async task.
+#' @export
+TaskStatus <- list(
+  Expired = "EXPIRED",
+  Running = "RUNNING",
+  Completed = "COMPLETED",
+  Error = "ERROR",
+  Aborted = "ABORTED",
+  Initialized = "INITIALIZED"
+)
+
+TaskFailureStatuses <- c(TaskStatus$Error, TaskStatus$Aborted)
 
 
 #' Job statuses
@@ -33,7 +78,8 @@ JobStatus <- list(
   InProgress = "inprogress",
   Error = "error",
   Aborted = "ABORTED",
-  Completed = "COMPLETED")
+  Completed = "COMPLETED"
+)
 
 JobFailureStatuses <- c(JobStatus$Error, JobStatus$Aborted)
 
@@ -62,7 +108,8 @@ JobType <- list(
 #' @export
 PrimeLanguage <- list(
   Python = "Python",
-  Java = "Java")
+  Java = "Java"
+)
 
 
 #' PostgreSQL drivers
@@ -71,7 +118,8 @@ PrimeLanguage <- list(
 #' @export
 PostgreSQLdrivers <- list(
   Unicode = "PostgreSQL Unicode",
-  ANSI = "PostgreSQL ANSI")
+  ANSI = "PostgreSQL ANSI"
+)
 
 
 #' Blend methods
@@ -89,10 +137,9 @@ BlendMethods <- list(
   RANDOM_FOREST = "RF",
   LIGHT_GBM = "LGBM",
   TENSORFLOW = "TF",
-  FORECAST_DISTANCE = "FORECAST_DISTANCE",
   FORECAST_DISTANCE_ENET = "FORECAST_DISTANCE_ENET",
   FORECAST_DISTANCE_AVG = "FORECAST_DISTANCE_AVG"
- )
+)
 
 
 #' CV methods
@@ -105,7 +152,7 @@ cvMethods <- list(
   USER = "user",
   GROUP = "group",
   DATETIME = "datetime"
- )
+)
 
 
 #' Data Partition methods
@@ -116,7 +163,7 @@ DataPartition <- list(
   VALIDATION = "validation",
   CROSSVALIDATION = "crossValidation",
   HOLDOUT = "holdout"
- )
+)
 
 
 #' Source types
@@ -133,10 +180,10 @@ SourceType <- list(
 #'
 #' This is a list that contains the valid values for the Target Types
 #' @export
-TargetType  <- list(
-    Binary = "Binary",
-    Multiclass = "Multiclass",
-    Regression = "Regression"
+TargetType <- list(
+  Binary = "Binary",
+  Multiclass = "Multiclass",
+  Regression = "Regression"
 )
 
 
@@ -160,62 +207,68 @@ DataSubset <- list(
   All = "all",
   ValidationAndHoldout = "validationAndHoldout",
   Holdout = "holdout",
-  AllBacktests = "allBacktests")
+  AllBacktests = "allBacktests"
+)
 
 
 #' Treat as exponential
 #' @export
 TreatAsExponential <- list(
-    Always = "always",
-    Never = "never",
-    Auto = "auto"
+  Always = "always",
+  Never = "never",
+  Auto = "auto"
 )
 
 
 #' Differencing method
 #' @export
 DifferencingMethod <- list(
-    Auto = "auto",
-    Simple = "simple",
-    None = "none",
-    Seasonal = "seasonal"
+  Auto = "auto",
+  Simple = "simple",
+  None = "none",
+  Seasonal = "seasonal"
 )
 
 
 #' Time units
 #' @export
 TimeUnits <- list(
-    Second = "SECOND",
-    Minute = "MINUTE",
-    Hour = "HOUR",
-    Day = "DAY",
-    Week = "WEEK",
-    Month = "MONTH",
-    Quarter = "QUARTER",
-    Year = "YEAR")
+  Second = "SECOND",
+  Minute = "MINUTE",
+  Hour = "HOUR",
+  Day = "DAY",
+  Week = "WEEK",
+  Month = "MONTH",
+  Quarter = "QUARTER",
+  Year = "YEAR"
+)
 
 
 #' Datetime trend plots resolutions
+#' @export
 DatetimeTrendPlotsResolutions <- list(
-    Milliseconds = "milliseconds",
-    Seconds = "seconds",
-    Minutes = "minutes",
-    Hours = "hours",
-    Days = "days",
-    Weeks = "weeks",
-    Months = "months",
-    Quarters = "quarters",
-    Years = "years")
+  Milliseconds = "milliseconds",
+  Seconds = "seconds",
+  Minutes = "minutes",
+  Hours = "hours",
+  Days = "days",
+  Weeks = "weeks",
+  Months = "months",
+  Quarters = "quarters",
+  Years = "years"
+)
 
 
 #' Datetime trend plots statuses
+#' @export
 DatetimeTrendPlotsStatuses <- list(
-    Completed = "completed",
-    NotCompleted = "notCompleted",
-    InProgress = "inProgress",
-    Errored = "errored",
-    NotSupported = "notSupported",
-    InsufficientData = "insufficientData")
+  Completed = "completed",
+  NotCompleted = "notCompleted",
+  InProgress = "inProgress",
+  Errored = "errored",
+  NotSupported = "notSupported",
+  InsufficientData = "insufficientData"
+)
 
 
 #' Periodicity time units
@@ -233,10 +286,10 @@ PeriodicityMaxTimeStep <- 9223372036854775807
 #' Target leakage report values
 #' @export
 TargetLeakageType <- list(
-    SkippedDetection = "SKIPPED_DETECTION",
-    False = "FALSE",
-    ModerateRisk = "MODERATE_RISK",
-    HighRisk = "HIGH_RISK"
+  SkippedDetection = "SKIPPED_DETECTION",
+  False = "FALSE",
+  ModerateRisk = "MODERATE_RISK",
+  HighRisk = "HIGH_RISK"
 )
 
 

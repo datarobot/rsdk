@@ -1,6 +1,19 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
+`%notin%` <- Negate(`%in%`)
+
 Unbox <- function(x) {
-  if (length(x) == 1 && !is.list(x)) { jsonlite::unbox(x) }
-  else { x }
+  if (length(x) == 1 && !is.list(x)) {
+    jsonlite::unbox(x)
+  } else {
+    x
+  }
 }
 
 
@@ -15,16 +28,22 @@ fileToChar <- function(x) {
 #' @param obj object. A list, vector, or data.frame to check names.
 #' @param keys character. A vector of names of keys to check.
 #' @param allowAdditional logical. Should we allow there to be more keys than specified?
-ExpectHasKeys <- function(obj, keys, allowAdditional = FALSE) {
+ExpectHasKeys <- function(obj, keys, allowAdditional = TRUE) {
   missingKeys <- setdiff(keys, names(obj))
   testthat::expect_equal(length(missingKeys), 0,
-                         info = paste(paste0(missingKeys, collapse = ", "),
-                                      " was not found."))
+    info = paste(
+      paste0(missingKeys, collapse = ", "),
+      " was not found."
+    )
+  )
   if (identical(allowAdditional, FALSE)) {
     extraKeys <- setdiff(names(obj), keys)
     testthat::expect_equal(length(extraKeys), 0,
-                           info = paste(paste0(extraKeys, collapse = ", "),
-                                        " extra keys found."))
+      info = paste(
+        paste0(extraKeys, collapse = ", "),
+        " extra keys found."
+      )
+    )
   }
 }
 
@@ -74,18 +93,24 @@ reorderColumns <- function(df, vars) {
   var.pos <- vars
 
   # sanity checks
-  stopifnot(!any(duplicated(var.nms)),
-            !any(duplicated(var.pos)))
-  stopifnot(is.character(var.nms),
-            is.numeric(var.pos))
+  stopifnot(
+    !any(duplicated(var.nms)),
+    !any(duplicated(var.pos))
+  )
+  stopifnot(
+    is.character(var.nms),
+    is.numeric(var.pos)
+  )
   stopifnot(all(var.nms %in% data.nms))
-  stopifnot(all(var.pos > 0),
-            all(var.pos <= var.nr))
+  stopifnot(
+    all(var.pos > 0),
+    all(var.pos <= var.nr)
+  )
 
   # prepare output
   out.vec <- character(var.nr)
   out.vec[var.pos] <- var.nms
-  out.vec[-var.pos] <- data.nms[!(data.nms %in% var.nms)]
+  out.vec[-var.pos] <- data.nms[data.nms %notin% var.nms]
   stopifnot(length(out.vec) == var.nr)
 
   # re-arrange vars by position

@@ -1,0 +1,34 @@
+{
+  "metrics": {
+    "Gamma Deviance": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    },
+    "Tweedie Deviance": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    },
+    "MAE": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    },
+    "R Squared": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    },
+    "RMSE": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    }
+  },
+  "period": {
+    "start": "2021-01-09T05:00:00.000000Z",
+    "end": "2021-01-16T05:00:00.000000Z"
+  },
+  "modelId": "model-id0000000000000000"
+}

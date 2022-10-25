@@ -12,16 +12,11 @@ UpdateDeploymentDriftTrackingSettings(
 )
 }
 \arguments{
-\item{deploymentId}{character. The ID of the deployment.}
-
 \item{targetDriftEnabled}{logical. Optional. Set to TRUE to enable target drift. Set to
 FALSE to disable.}
 
 \item{featureDriftEnabled}{logical. Optional. Set to TRUE to enable feature drift. Set to
 FALSE to disable.}
-
-\item{maxWait}{integer. How long to wait (in seconds) for the computation to complete
-before returning a timeout error? (Default 600 seconds)}
 }
 \value{
 A list with the following information on drift tracking:
@@ -43,7 +38,7 @@ Update drift tracking settings for a deployment.
 }
 \examples{
 \dontrun{
-  deploymentId <- "5e319d2e422fbd6b58a5edad"
-  UpdateDeploymentDriftTrackingSettings(deploymentId, targetDriftEnabled = TRUE)
+deploymentId <- "5e319d2e422fbd6b58a5edad"
+UpdateDeploymentDriftTrackingSettings(deploymentId, targetDriftEnabled = TRUE)
 }
 }

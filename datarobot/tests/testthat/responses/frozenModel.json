@@ -1,0 +1,31 @@
+
+{
+  "featurelistId": "579a35dea07c9627b919c8b3",
+  "processes": "One-Hot Encoding",
+  "featurelistName": "Informative Features",
+  "modelType": "DataRobot Prime",
+  "projectId": "579a35d7c808910d2c73c86d",
+  "samplePct": 63.974,
+  "trainingRowCount": 53219,
+  "modelCategory": "prime",
+  "metrics": {
+    "AUC": {
+      "holdout": 0.84071,
+      "validation": 0.84680,
+      "crossValidation": 0.873926
+    },
+    "RMSE": {
+      "holdout": 0.37325,
+      "validation": 0.36540,
+      "crossValidation": 0.357470
+    }
+  },
+  "parentModelId": "579a35fea07c96282d19c901",
+  "isFrozen": true,
+  "blueprintId": "a4f61789f3b3504ba66d7b2deb716eea64bb798dbeeb96218db93b79eb848d03",
+  "modelId": "5852c678c8089128bfaaf254",
+  "modelNumber": 30,
+  "projectName": "Best_project",
+  "projectTarget": "some_target",
+  "projectMetric": "RMSE"
+}

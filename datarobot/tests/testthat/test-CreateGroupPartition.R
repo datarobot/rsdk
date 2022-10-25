@@ -1,32 +1,57 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 library(testthat)
+library(stubthat)
 
 test_that("Required parameters are present", {
   expect_error(CreateGroupPartition())
   expect_error(CreateGroupPartition(validationType = "CV"))
   expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20))
   expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20, partitionKeyCols = 5))
-  expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20,
-                                    partitionKeyCols = "tax"))
+  expect_error(CreateGroupPartition(
+    validationType = "CV", holdoutPct = 20,
+    partitionKeyCols = "tax"
+  ))
 })
 
 test_that("partitionKeyCols must be length-1 list", {
-  expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20,
-                                    partitionKeyCols = "tax",
-                                    reps = 5),
-               "Please specify partition column name as a list containing a single string.")
-  expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20,
-                                    partitionKeyCols = list("tax", "other_tax"),
-                                    reps = 5),
-               "Currently only one partition key column is supported.")
+  expect_error(
+    CreateGroupPartition(
+      validationType = "CV", holdoutPct = 20,
+      partitionKeyCols = "tax",
+      reps = 5
+    ),
+    "Please specify partition column name as a list containing a single string."
+  )
+  expect_error(
+    CreateGroupPartition(
+      validationType = "CV", holdoutPct = 20,
+      partitionKeyCols = list("tax", "other_tax"),
+      reps = 5
+    ),
+    "Currently only one partition key column is supported."
+  )
 })
 
 test_that("validationType = 'CV' option", {
-  expect_error(CreateGroupPartition(validationType = "CV", holdoutPct = 20,
-                                    partitionKeyCols = list("tax")),
-                "reps must be specified")
-  ValidCase <- CreateGroupPartition(validationType = "CV", holdoutPct = 20,
-                                    partitionKeyCols = list("tax"),
-                                     reps = 5)
+  expect_error(
+    CreateGroupPartition(
+      validationType = "CV", holdoutPct = 20,
+      partitionKeyCols = list("tax")
+    ),
+    "reps must be specified"
+  )
+  ValidCase <- CreateGroupPartition(
+    validationType = "CV", holdoutPct = 20,
+    partitionKeyCols = list("tax"),
+    reps = 5
+  )
   expect_equal(length(ValidCase), 5)
   expect_equal(ValidCase$cvMethod, "group")
   expect_equal(ValidCase$validationType, "CV")
@@ -36,12 +61,18 @@ test_that("validationType = 'CV' option", {
 })
 
 test_that("validationType = 'TVH' option", {
-  expect_error(CreateGroupPartition(validationType = "TVH", holdoutPct = 20,
-                                      partitionKeyCols = list("tax")),
-                                      "validationPct must be specified")
-  ValidCase <- CreateGroupPartition(validationType = "TVH", holdoutPct = 20,
-                                    partitionKeyCols = list("tax"),
-                                    validationPct = 16)
+  expect_error(
+    CreateGroupPartition(
+      validationType = "TVH", holdoutPct = 20,
+      partitionKeyCols = list("tax")
+    ),
+    "validationPct must be specified"
+  )
+  ValidCase <- CreateGroupPartition(
+    validationType = "TVH", holdoutPct = 20,
+    partitionKeyCols = list("tax"),
+    validationPct = 16
+  )
   expect_equal(length(ValidCase), 5)
   expect_equal(ValidCase$cvMethod, "group")
   expect_equal(ValidCase$validationType, "TVH")
@@ -52,41 +83,67 @@ test_that("validationType = 'TVH' option", {
 
 
 test_that("validationType = 'CV' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    groupPartition <- CreateGroupPartition(validationType = "CV",
-                                           holdoutPct = 20,
-                                           partitionKeyCols = list("tax"),
-                                           reps = 5)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = groupPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      groupPartition <- CreateGroupPartition(
+        validationType = "CV",
+        holdoutPct = 20,
+        partitionKeyCols = list("tax"),
+        reps = 5
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = groupPartition
+      )
+    }
+  )
 })
 
 test_that("validationType = 'TVH' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    groupPartition <- CreateGroupPartition(validationType = "TVH",
-                                           partitionKeyCols = list("tax"),
-                                           holdoutPct = 20,
-                                           validationPct = 16)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = groupPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      groupPartition <- CreateGroupPartition(
+        validationType = "TVH",
+        partitionKeyCols = list("tax"),
+        holdoutPct = 20,
+        validationPct = 16
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = groupPartition
+      )
+    }
+  )
 })
 
 
 test_that("Invalid validationType returns message", {
-  expect_error(CreateGroupPartition(validationType = "XYZ", holdoutPct = 20,
-                                    partitionKeyCols = list("tax"),
-                                     validationPct = 16),
-                                    "not valid")
+  expect_error(
+    CreateGroupPartition(
+      validationType = "XYZ", holdoutPct = 20,
+      partitionKeyCols = list("tax"),
+      validationPct = 16
+    ),
+    "not valid"
+  )
 })

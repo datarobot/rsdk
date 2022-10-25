@@ -1,17 +1,24 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Establish a connection to the DataRobot modeling engine
 #'
 #' This function initializes a DataRobot session. To use DataRobot, you must connect to
 #' your account. This can be done in three ways:
-#' \itemize{
-#'   \item by passing an \code{endpoint} and \code{token} directly to \code{ConnectToDataRobot}
-#'   \item by having a YAML config file in $HOME/.config/datarobot/drconfig.yaml
-#'   \item by setting DATAROBOT_API_ENDPOINT and DATAROBOT_API_TOKEN environment variables
-#' }
+#' 1. by passing an `endpoint` and `token` directly to [ConnectToDataRobot()]
+#' 1. by having a YAML config file in `$HOME/.config/datarobot/drconfig.yaml`
+#' 1. by setting `DATAROBOT_API_ENDPOINT` and `DATAROBOT_API_TOKEN` environment variables
+#'
 #' The three methods of authentication are given priority in that order (explicitly passing
 #' parameters to the function will trump a YAML config file, which will trump the environment
 #' variables.)
 #' If you have a YAML config file or environment variables set, you will not need to
-#' pass any parameters to \code{ConnectToDataRobot} in order to connect.
+#' pass any parameters to [ConnectToDataRobot()] in order to connect.
 #'
 #' @param endpoint character. URL specifying the DataRobot server to be used.
 #'   It depends on DataRobot modeling engine implementation (cloud-based, on-prem...) you are using.
@@ -32,18 +39,19 @@
 #' @param password character. No longer supported.
 #' @examples
 #' \dontrun{
-#'   ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
-#'   ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
+#' ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
+#' ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
 #' }
+#' @seealso [EditConfig()]
 #' @export
+#' @md
 ConnectToDataRobot <- function(endpoint = NULL,
                                token = NULL,
                                username = NULL,
                                password = NULL,
                                userAgentSuffix = NULL,
                                sslVerify = TRUE,
-                               configPath = NULL
-) {
+                               configPath = NULL) {
   #  Check environment variables
   envEndpoint <- Sys.getenv("DATAROBOT_API_ENDPOINT", unset = NA)
   envToken <- Sys.getenv("DATAROBOT_API_TOKEN", unset = NA)
@@ -79,6 +87,31 @@ GetDefaultConfigPath <- function() {
   file.path(Sys.getenv("HOME"), ".config", "datarobot", "drconfig.yaml")
 }
 
+#' Edit drconfig
+#'
+#' Opens for editing the DataRobot configuration file used to manage API client authentication.
+#' Once editing is complete, this function will optionally update the R client to use the new
+#' auth scheme.
+#'
+#' The specific editor used is system-dependent -- see [utils::file.edit()] for more details.
+#' Keep in mind that any changes to this file may impact other DataRobot API clients you have
+#' installed.
+#'
+#' @param configPath character. Defaults to the standard location of drconfig.yaml.
+#' @param reauth logical. Updates the current R session to use the updated auth scheme.
+#' @seealso [ConnectToDataRobot()], [utils::file.edit()]
+#' @export
+#' @md
+EditConfig <- function(configPath = GetDefaultConfigPath(), reauth = FALSE) {
+  utils::file.edit(configPath)
+
+  if (reauth) {
+    ConnectToDataRobot(configPath = configPath)
+  } else if (interactive()) {
+    message(sprintf('To reauthenticate after making changes, run ConnectToDataRobot(configPath = "%s")', configPath))
+  }
+}
+
 ConnectWithConfigFile <- function(configPath) {
   config <- yaml::yaml.load_file(configPath)
   # Since the options we get from the config come in snake_case, but ConnectToDataRobot()
@@ -86,12 +119,14 @@ ConnectWithConfigFile <- function(configPath) {
   # We _could_ do this programmatically, but with the small number of options we support,
   # it doesn't seem worth it.
   if (!is.null(config$ssl_verify) &&
-      (length(config$ssl_verify) != 1 || !is.logical(config$ssl_verify))) {
+    (length(config$ssl_verify) != 1 || !is.logical(config$ssl_verify))) {
     stop("ssl_verify must be either unset or set as either TRUE or FALSE.")
   }
-  ConnectToDataRobot(endpoint = config$endpoint, token = config$token, username = config$username,
-                     password = config$password, userAgentSuffix = config$user_agent_suffix,
-                     sslVerify = config$ssl_verify)
+  ConnectToDataRobot(
+    endpoint = config$endpoint, token = config$token, username = config$username,
+    password = config$password, userAgentSuffix = config$user_agent_suffix,
+    sslVerify = config$ssl_verify
+  )
 }
 
 SetSSLVerification <- function() {
@@ -110,8 +145,10 @@ ConnectWithToken <- function(endpoint, token) {
   newURL <- gsub(subUrl, "", rawReturn$url)
   StopIfDenied(rawReturn)
   if (!grepl(endpoint, rawReturn$url, fixed = TRUE)) {
-    errorMsg <- paste0("Specified endpoint ", endpoint, " is not correct.",
-                       "\nWas redirected to ", newURL)
+    errorMsg <- paste0(
+      "Specified endpoint ", endpoint, " is not correct.",
+      "\nWas redirected to ", newURL
+    )
     stop(errorMsg, call. = FALSE)
   }
   out <- SaveConnectionEnvironmentVars(endpoint, token)
@@ -162,8 +199,10 @@ VersionWarning <- function() {
   }
   if (clientVer$major != serverVer$major) {
     errMsg <-
-      paste("\n Client and server versions are incompatible. \n Server version: ",
-            serverVer$versionString, "\n Client version: ", clientVer)
+      paste(
+        "\n Client and server versions are incompatible. \n Server version: ",
+        serverVer$versionString, "\n Client version: ", clientVer
+      )
     stop(errMsg)
   }
   if (clientVer$minor > serverVer$minor) {
@@ -171,22 +210,6 @@ VersionWarning <- function() {
       paste("Client version is ahead of server version, you may have incompatibilities")
     warning(warMsg, call. = FALSE)
   }
-}
-
-GetServerVersion <- function() {
-  dataRobotUrl <- Sys.getenv("DATAROBOT_API_ENDPOINT")
-  errorMessage <-
-    paste("Server did not reply with an API version. This may indicate the endpoint ", dataRobotUrl,
-          "\n is misconfigured, or that the server API version precedes this version \n  ",
-          "of the DataRobot client package and is likely incompatible.")
-  ver <- tryCatch({routeString <- UrlJoin("version")
-  modelInfo <- DataRobotGET(routeString)
-  },
-  ConfigError = function(e) {
-    warning(errorMessage)
-    ver <- NULL
-  })
-  ver
 }
 
 GetClientVersion <- function() {

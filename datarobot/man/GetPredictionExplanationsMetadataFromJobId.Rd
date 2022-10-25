@@ -7,10 +7,6 @@
 GetPredictionExplanationsMetadataFromJobId(project, jobId, maxWait = 600)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{jobId}{integer. Unique integer identifier (return for example by
 \code{RequestPredictionExplanations}).}
 
@@ -25,13 +21,13 @@ Retrieve the prediction explanations metadata for a model using jobId
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  datasets <- ListPredictionDatasets(projectId)
-  dataset <- datasets[[1]]
-  datasetId <- dataset$id
-  model <- GetModel(projectId, modelId)
-  jobId <- RequestPredictionExplanations(model, datasetId)
-  GetPredictionExplanationsMetadataFromJobId(projectId, jobId)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+datasets <- ListPredictionDatasets(projectId)
+dataset <- datasets[[1]]
+datasetId <- dataset$id
+model <- GetModel(projectId, modelId)
+jobId <- RequestPredictionExplanations(model, datasetId)
+GetPredictionExplanationsMetadataFromJobId(projectId, jobId)
 }
 }

@@ -1,0 +1,8 @@
+{
+  "catalog": ["test"],
+  "schemas": [
+    ["information_schema"],
+    ["pg_catalog"],
+    ["public"]
+  ]
+}

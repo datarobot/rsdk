@@ -1,43 +1,103 @@
-# datarobot v2.18.2
+# datarobot v2.29.0.9000
 
-This release fixes the test suite to conditionally use the `stubthat` package, which as of 2022-04-17 is no longer available on CRAN (but is still available in the Microsoft snapshot archive.) This package is listed as a Suggests dependency, and the codebase is updated to reflect this.
+New Features:
+
+Enhancements:
 
 Bugfixes:
 
 * Fixed some tests exercising the `BuildPath` helper function.
+* Fixed `datarobot.apicore` file upload functions to properly encode the payload as "multipart"
 
-# datarobot v2.18.1
+API Changes:
 
-This release fixes a breaking change in the client around `ListProjects` due to the removal of Spark / H20 models from the DataRobot platform.
+* The functions `ListProjects` and `as.data.frame.projectSummaryList` no longer return fields related to recommender models, which were removed in v2.5.0.
 
-Enhancements:
+Deprecated and Defunct:
 
-* `GetProject` and `ListProjects` now return all available output from the API.
+Dependency Changes:
+
+Documentation Changes:
+
+# datarobot v2.27.0.9000
+
+The `datarobot` package is now dependent on the `datarobot.apicore` package. We also import `R6`.
+
+Earlier preview releases of this package were versioned `v3.0.0` but are subsumed by this one.
+
+- Generated API wrapper functions have been reorganized based on their OpenAPI tags, which were themselves redone for the entire DataRobot Public API in v2.27.
+- Package-level documentation for both packages has been updated to explain how to use package options. Try `?datarobot` and `?datarobot.apicore` in your R session!
+- The internal helper function `ValidateModel` was renamed to `ValidateAndReturnModel` and now works with model classes from the `apicore` package.
+- Removed files (code, tests, doc) representing parts of the Public API not present in v2.27.
+
+New Features:
+
+* Added the helper function `EditConfig` which allows you to interactively modify drconfig.yaml.
+* Added the DownloadDatasetAsCsv function to retrieve dataset as CSV using catalogId.
+* Added the GetFeatureDiscoveryRelationships function to get the feature discovery relationships for a project.
 
 Bugfixes:
 
 * The enum `ModelCapability` has been properly exported.
-* `library(datarobot)` no longer throws an error when executed in an RStudio session.
-* `ListProjects()` no longer throws an error about "undefined columns selected."
+
+Documentation Changes:
+
+* Compressed `extdata/Friedman1.csv` and updated vignettes dependent on that dataset.
+* Removed `extdata/anomFrame.csv` as it was unused.
+
+# datarobot v3.0.0.9002
+
+Deprecated.
+
+* Generated API wrapper functions for the `datarobot.apicore` package now use the same arguments as the corresponding "legacy" functions, to ensure we don't break existing code that calls those functions. For example, the wrapper function `ProjectsModelsRetrieve` is now called `GetModel`, since the latter is what was implemented in the R client for the endpoint `/projects/{mId}/models/{mId}`.
+* Removed some generated API wrapper functions that do not easily override legacy functions.
+
+# datarobot v3.0.0.9001
+
+Deprecated.
+
+* Generated API wrapper functions for the `datarobot.apicore` package now use camel-cased argument names, to be consistent with the rest of the package.
+* Some generated API wrapper functions have been renamed to match "legacy" functions if they invoked the same API endpoint. These renamed functions take precedence over the legacy functions.
+
+# datarobot v3.0.0.9000
+
+Deprecated.
+
+The `datarobot` package is now dependent on the `datarobot.apicore` package.
+
+# datarobot v2.18.1.9000
+
+New Features:
+
+* Added the ability to retrieve and restore features that have been reduced using the time series 
+  feature generation and reduction functionality. Discarded features can be retrieved using 
+  a `RetrieveDiscardedFeaturesInformation` and restored using `RestoreDiscardedFeatures`
+* Added the ability to create and retrieve DataEngineQueryGenerators and create a Dataset from a DataEngineQueryGenerator for time series data prep.
+* Added support to upload a prediction dataset from the AI catalog.
+* Added an ability to calculate and retrieve Datetime trend plots for datetime aware model. This includes Accuracy over Time, Forecast vs Actual, and Anomaly over Time.
+  * Plots can be calculated using a common `ComputeDatetimeTrendPlots` function.
+  * Metadata for plots can be retrieved using the `GetAccuracyOverTimePlotsMetadata`, `GetForecastVsActualPlotsMetadata`, and `GetAnomalyOverTimePlotsMetadata` functions.
+  * Plots can be retrieved using the `GetAccuracyOverTimePlot`, `GetForecastVsActualPlot`, and `GetAnomalyOverTimePlot` functions.
+  * Preview plots can be retrieved using the `GetAccuracyOverTimePlotPreview`, `GetForecastVsActualPlotPreview`, and `GetAnomalyOverTimePlotPreview` functions.
+
+Enhancements:
+
+* `GetProject` now returns all available output from the API.
+* Many functions no longer use the internal function `ApplySchema` to filter a response from the DataRobot API to a given schema. This ensures that we return all information the API provides whenever necessary. Only a handful of functions, such as `IsBlenderEligible` still use this function where it is primarily useful.
+
+Bugfixes:
+
+* The function `GetBlenderModelFromJobId` now returns an object with the field `modelId` rather than `id`, consistent with `GetBlenderModel`.
 
 API Changes:
 
-* Projects no longer reference `scaleoutModelingMode`, `scaleoutMaxTrainPct`, and `scaleoutMaxTrainRows`. These attributes had appeared in the parameters of `setTarget` and `startProject` along with the responses from `ListProjects` and `GetProject`.
-
 Deprecated and Defunct:
-
-* Any references to `scaleoutModelingMode`, `scaleoutMaxTrainPct`, and `scaleoutMaxTrainRows` are now removed.
+* The deprecated `BlendMethod$FORECAST_DISTANCE` has been removed. Use `BlendMethod$FORECAST_DISTANCE_ENET` instead.
 
 Dependency Changes:
 * Client documentation is now explicitly generated with Roxygen2 v7.1.2.
 
 Documentation Changes:
-
-* This `NEWS` file was renamed to `NEWS.md` and formatted as Markdown.
-* Removed references to scaleout.
-* Removed invalid reference to DataRobot API docs for `GetDeploymentSettings` and `UpdateDeploymentSettings`.
-* Compressed `extdata/Friedman1.csv` and updated vignettes dependent on that dataset.
-* Removed `extdata/anomFrame.csv` as it was unused.
 
 # datarobot v2.18.0
 

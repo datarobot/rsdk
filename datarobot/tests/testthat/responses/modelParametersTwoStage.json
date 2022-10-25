@@ -1,0 +1,60 @@
+{
+"derivedFeatures":
+  [
+    {
+      "coefficient":0.8382,
+      "type":"NUM",
+      "derivedFeature":"CONST_SPLINE_LOW_Age",
+      "originalFeature":"Age",
+      "transformations":
+        {
+          "name":"Constant splines",
+          "value":"(-inf, 18.0]"
+        },
+	"stageCoefficients":
+	  [
+	    {
+	      "coefficient":[-0.0438],
+	      "stage":["frequency"]
+	    },
+	    {
+	      "coefficient":[0.0551],
+	       "stage":["severity"]
+	    }
+	  ]
+    },
+    {
+      "coefficient":-0.1505,
+      "type":"NUM",
+      "derivedFeature":"CONST_SPLINE_MED-LOW_Age",
+      "originalFeature":"Age",
+      "transformations":
+        {
+          "name":"Constant splines",
+          "value":"(18.0, 24.0]"
+        },
+	"stageCoefficients":
+	  [
+	    {
+	      "coefficient":[0.1198],
+	      "stage":["frequency"]
+	    },
+	    {
+	      "coefficient":[0.2541],
+	       "stage":["severity"]
+	    }
+	  ]
+    }
+  ],
+"parameters":
+  [
+    {
+      "name":"Intercept",
+      "value":-0.192
+    },
+    {
+      "name":"Link function",
+      "value":"logit"
+    }
+  ]
+}

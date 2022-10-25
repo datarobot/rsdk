@@ -1,0 +1,48 @@
+{
+  "projectId": "5b2827556523cd05bd1507a5",
+  "errorMetric": "Log Loss Error",
+  "hyperparameters": {},
+  "targetType": "Binary",
+  "solutions": [
+       {
+            "eureqaSolutionId": "5b2940f202d5abf17ddca9f8",
+            "complexity": 1,
+            "error": 0.6568885703145153,
+            "expression": "target = 0",
+            "expressionAnnotated": "target = 0",
+            "bestModel": false
+       },
+       {
+            "eureqaSolutionId": "5b2940f202d5abf17ddca9f9",
+            "complexity": 2,
+            "error": 0.6463236186153043,
+            "expression": "target = 0",
+            "expressionAnnotated": "target = 0",
+            "bestModel": false
+       },
+       {
+            "eureqaSolutionId": "5b2940f202d5abf17ddca9fa",
+            "complexity": 3,
+            "error": 0.6369812561414678,
+            "expression": "target = 0",
+            "expressionAnnotated": "target = 0",
+            "bestModel": false
+       },
+       {
+            "eureqaSolutionId": "5b2940f202d5abf17ddca9fb",
+            "complexity": 4,
+            "error": 0.6341910672553971,
+            "expression": "target = 0",
+            "expressionAnnotated": "target = 0",
+            "bestModel": false
+       },
+       {
+            "eureqaSolutionId": "5b29406c6523cd0665685a8d",
+            "complexity": 5,
+            "error": 0.6327990044770845,
+            "expression": "target = 0",
+            "expressionAnnotated": "target = 0",
+            "bestModel": true
+       }
+  ]
+}

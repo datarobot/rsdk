@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' An internal function to help fetch insights.
 #'
 #' See \code{GetLiftChart}, \code{GetRocCurve}, \code{GetResidualsChart} for details.
@@ -6,7 +14,7 @@
 GetGeneralizedInsight <- function(method, model,
                                   source = DataPartition$VALIDATION,
                                   fallbackToParentInsights = FALSE) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   if (!is.null(source)) {
@@ -15,14 +23,17 @@ GetGeneralizedInsight <- function(method, model,
     routeString <- UrlJoin("projects", projectId, "models", modelId, method)
   }
   tryCatch(DataRobotGET(routeString),
-           error = function(e) {
-                     if (grepl("404", as.character(e)) && isTRUE(fallbackToParentInsights)) {
-                       currentModel <- GetFrozenModel(projectId, modelId)
-                       parentModel <- GetModel(currentModel$projectId, currentModel$parentModelId)
-                       GetGeneralizedInsight(method, parentModel, source = source,
-                                             fallbackToParentInsights = FALSE)
-                     } else {
-                       stop(e)
-                     }
-                   })
+    error = function(e) {
+      if (grepl("404", as.character(e)) && isTRUE(fallbackToParentInsights)) {
+        currentModel <- GetFrozenModel(projectId, modelId)
+        parentModel <- GetModel(currentModel$projectId, currentModel$parentModelId)
+        GetGeneralizedInsight(method, parentModel,
+          source = source,
+          fallbackToParentInsights = FALSE
+        )
+      } else {
+        stop(e)
+      }
+    }
+  )
 }

@@ -12,10 +12,6 @@ DownloadTrainingPredictions(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{predictionId}{character. ID of the prediction to retrieve training
 predictions for.}
 
@@ -33,10 +29,10 @@ Download training predictions on a specified data set.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  predictions <- ListTrainingPredictions(projectId)
-  predictionId <- predictions[[1]]$predictionId
-  file <- file.path(tempdir(), "myTrainingPredictions.csv")
-  DownloadTrainingPredictions(projectId, predictionId, file)
+projectId <- "59a5af20c80891534e3c2bde"
+predictions <- ListTrainingPredictions(projectId)
+predictionId <- predictions[[1]]$predictionId
+file <- file.path(tempdir(), "myTrainingPredictions.csv")
+DownloadTrainingPredictions(projectId, predictionId, file)
 }
 }

@@ -81,19 +81,20 @@ See \code{RequestPredictions} and \code{GetPredictions} for more details.
 }
 \examples{
 \dontrun{
-   trainIndex <- sample(nrow(iris) * 0.7)
-   trainIris <- iris[trainIndex, ]
-   testIris <- iris[-trainIndex, ]
-   project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
-   model <- GetRecommendedModel(project)
-   predictions <- Predict(model, testIris)
+trainIndex <- sample(nrow(iris) * 0.7)
+trainIris <- iris[trainIndex, ]
+testIris <- iris[-trainIndex, ]
+project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
+model <- GetRecommendedModel(project)
+predictions <- Predict(model, testIris)
 
-   # Or, if prediction intervals are desired (datetime only)
-   model <- GetRecommendedModel(datetimeProject)
-   predictions <- Predict(model,
-                          dataset,
-                          includePredictionIntervals = TRUE,
-                          predictionIntervalsSize = 100,
-                          type = "raw")
+# Or, if prediction intervals are desired (datetime only)
+model <- GetRecommendedModel(datetimeProject)
+predictions <- Predict(model,
+  dataset,
+  includePredictionIntervals = TRUE,
+  predictionIntervalsSize = 100,
+  type = "raw"
+)
 }
 }

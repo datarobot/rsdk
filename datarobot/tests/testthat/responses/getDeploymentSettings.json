@@ -1,0 +1,16 @@
+{
+  "predictionIntervals": {
+    "percentiles": [],
+    "enabled": [false]
+  },
+  "targetDrift": {
+    "enabled": [true]
+  },
+  "associationId": {
+    "columnNames": {},
+    "requiredInPredictionRequests": [true]
+  },
+  "featureDrift": {
+    "enabled": [true]
+  }
+}

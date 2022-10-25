@@ -19,10 +19,10 @@ series accuracy will be requested automatically.
 }
 \examples{
 \dontrun{
-  projectId <- "5984b4d7100d2b31c1166529"
-  modelId <- "5984b4d7100d2b31c1166529"
-  model <- GetModel(projectId, modelId)
-  jobId <- RequestSeriesAccuracy(projectId, modelId)
-  WaitForJobToComplete(projectId, jobId)
+projectId <- "5984b4d7100d2b31c1166529"
+modelId <- "5984b4d7100d2b31c1166529"
+model <- GetModel(projectId, modelId)
+jobId <- RequestSeriesAccuracy(projectId, modelId)
+WaitForJobToComplete(projectId, jobId)
 }
 }

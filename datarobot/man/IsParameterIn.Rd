@@ -28,6 +28,6 @@ Check if a parameter is in a list of possibilities.
 }
 \examples{
 \dontrun{
-  IsParameterIn("all", DataSubset)
+IsParameterIn("all", DataSubset)
 }
 }

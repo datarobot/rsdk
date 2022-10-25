@@ -1,0 +1,214 @@
+{
+  "sections": [
+    {
+      "contentId": ["HOW_TO_USE"],
+      "type": ["datarobot"],
+      "sections": [],
+      "title": ["How To Use This Document"]
+    },
+    {
+      "type": ["table_of_contents"],
+      "title": ["Table of Contents"]
+    },
+    {
+      "contentId": ["PREFACE"],
+      "type": ["datarobot"],
+      "sections": [],
+      "title": ["DataRobot Model Development Documentation"]
+    },
+    {
+      "contentId": ["EXECUTIVE_SUMMARY_AND_MODEL_OVERVIEW"],
+      "type": ["datarobot"],
+      "sections": [
+        {
+          "contentId": ["MODEL_STAKEHOLDERS"],
+          "title": ["Model Stakeholders"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["MODEL_DEVELOPMENT_PURPOSE_AND_INTENDED_USE"],
+          "title": ["Model Development Purpose and Intended Use"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["MODEL_DESCRIPTION_AND_OVERVIEW"],
+          "title": ["Model Description and Overview"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["OVERVIEW_OF_MODEL_RESULTS"],
+          "title": ["Overview of Model Results"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["MODEL_INTERDEPENDENCIES"],
+          "title": ["Model Interdependencies"],
+          "type": ["datarobot"],
+          "sections": []
+        }
+      ],
+      "title": ["Executive Summary and Model Overview"]
+    },
+    {
+      "contentId": ["MODEL_DATA_OVERVIEW"],
+      "type": ["datarobot"],
+      "sections": [
+        {
+          "contentId": ["DATA_SOURCE_OVERVIEW_AND_APPROPRIATENESS"],
+          "title": ["Data Source Overview and Appropriateness"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["INPUT_DATA_EXTRACTION_PREPARATION"],
+          "title": ["Input Data Extraction, Preparation, and Quality & Completeness"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["DATA_ASSUMPTIONS"],
+          "title": ["Data Assumptions"],
+          "type": ["datarobot"],
+          "sections": []
+        }
+      ],
+      "title": ["Model Data Overview"]
+    },
+    {
+      "contentId": ["MODEL_THEORETICAL_FRAMEWORK_AND_METHODOLOGY"],
+      "type": ["datarobot"],
+      "sections": [
+        {
+          "contentId": ["MODEL_DEVELOPMENT_OVERVIEW_SUB"],
+          "title": ["Model Development Overview"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["MODEL_ASSUMPTIONS"],
+          "title": ["Model Assumptions"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["MODEL_METHODOLOGY"],
+          "title": ["Model Methodology"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["LITERATURE_REVIEW_AND_REFERENCES"],
+          "title": ["Literature Review and References"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["ALTERNATIVE_MODEL_FRAMEWORKS_AND_THEORIES_CONSIDERED"],
+          "title": ["Alternative Model Frameworks and Theories Considered"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["VARIABLE_SELECTION"],
+          "title": ["Variable Selection"],
+          "type": ["datarobot"],
+          "sections": [
+            {
+              "contentId": ["QUANTITATIVE_ANALYSIS"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["DataRobot Quantitative Analysis"]
+            },
+            {
+              "contentId": ["EXPERT_JUDGEMENT_AND_VAR_SELECTION"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Expert Judgement and Variable Selection"]
+            },
+            {
+              "contentId": ["FINAL_MODEL_VARIABLES"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Final Model Variables"]
+            }
+          ]
+        }
+      ],
+      "title": ["Model Theoretical Framework and Methodology"]
+    },
+    {
+      "contentId": ["MODEL_PERFORMANCE_AND_STABILITY"],
+      "type": ["datarobot"],
+      "sections": [
+        {
+          "contentId": ["VALIDATION_STABILITY"],
+          "title": ["Model Validation Stability"],
+          "type": ["datarobot"],
+          "sections": [
+            {
+              "contentId": ["DATA_PARTITIONING_METHODOLOGY"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Data Partitioning Methodology"]
+            }
+          ]
+        },
+        {
+          "contentId": ["MODEL_PERFORMANCE"],
+          "title": ["Model Performance (out-of-sample)"],
+          "type": ["datarobot"],
+          "sections": []
+        },
+        {
+          "contentId": ["SENSITIVITY_TESTING_AND_ANALYSIS"],
+          "title": ["Sensitivity Testing and Analysis"],
+          "type": ["datarobot"],
+          "sections": [
+            {
+              "contentId": ["ACCURACY_LIFT_CHART"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Accuracy (Lift Chart)"]
+            },
+            {
+              "contentId": ["KEY_RELATIONSHIPS"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Key Relationships"]
+            },
+            {
+              "contentId": ["SENSITIVITY_ANALYSIS"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Sensitivity Analysis (Partial Dependence)"]
+            },
+            {
+              "contentId": ["ACCURACY_ROC"],
+              "sections": [],
+              "type": ["datarobot"],
+              "title": ["Accuracy (Receiver Operating Characteristic)"]
+            }
+          ]
+        }
+      ],
+      "title": ["Model Performance and Stability"]
+    },
+    {
+      "contentId": ["MODEL_IMPLEMENTATION_AND_OUTPUT_REPORTING"],
+      "type": ["datarobot"],
+      "sections": [
+        {
+          "contentId": ["MODEL_VERSION_CONTROL"],
+          "title": ["Version Control"],
+          "type": ["datarobot"],
+          "sections": []
+        }
+      ],
+      "title": ["Model Implementation and Output Reporting"]
+    }
+  ]
+}

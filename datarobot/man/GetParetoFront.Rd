@@ -54,9 +54,9 @@ The Eureqa algorithm generates millions and millions of equations.
 }
 \examples{
 \dontrun{
-  projectId <- "5b2827556523cd05bd1507a5"
-  modelId <- "5b29406c6523cd0665685a8d"
-  model <- GetModel(projectId, modelId)
-  GetParetoFront(model)
+projectId <- "5b2827556523cd05bd1507a5"
+modelId <- "5b29406c6523cd0665685a8d"
+model <- GetModel(projectId, modelId)
+GetParetoFront(model)
 }
 }

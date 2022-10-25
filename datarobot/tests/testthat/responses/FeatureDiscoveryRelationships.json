@@ -1,0 +1,286 @@
+{
+    "datasetDefinitions": [
+        {
+            "identifier": "transactions",
+            "catalogId": "620d31136e9004f0b0890de3",
+            "catalogVersionId": "620d31146e9004f0b0890de4",
+            "primaryTemporalKey": "Date",
+            "featureListId": "620d3159c2b672384603a3a7",
+            "snapshotPolicy": "latest",
+            "dataSource": null,
+            "isDeleted": false,
+            "dataSources": null,
+            "featureLists": [
+                {
+                    "id": "620d3159c2b672384603a3a5",
+                    "features": [
+                        "CustomerID",
+                        "AccountID",
+                        "Date",
+                        "Amount",
+                        "Description"
+                    ],
+                    "name": "Raw Features",
+                    "description": "System created featurelist",
+                    "datasetId": "620d31136e9004f0b0890de3",
+                    "userCreated": false,
+                    "creationDate": "2022-02-16T17:16:09.328000Z",
+                    "createdBy": "Christopher Russell-Walker",
+                    "datasetVersionId": null
+                },
+                {
+                    "id": "620d3159c2b672384603a3a6",
+                    "features": [
+                        "CustomerID",
+                        "AccountID",
+                        "Date",
+                        "Amount",
+                        "Description"
+                    ],
+                    "name": "universe",
+                    "description": "System created featurelist",
+                    "datasetId": "620d31136e9004f0b0890de3",
+                    "userCreated": false,
+                    "creationDate": "2022-02-16T17:16:09.350000Z",
+                    "createdBy": "Christopher Russell-Walker",
+                    "datasetVersionId": null
+                },
+                {
+                    "id": "620d3159c2b672384603a3a7",
+                    "features": [
+                        "CustomerID",
+                        "AccountID",
+                        "Date",
+                        "Amount",
+                        "Description"
+                    ],
+                    "name": "Informative Features",
+                    "description": "System created featurelist",
+                    "datasetId": "620d31136e9004f0b0890de3",
+                    "userCreated": false,
+                    "creationDate": "2022-02-16T17:16:09.358000Z",
+                    "createdBy": "Christopher Russell-Walker",
+                    "datasetVersionId": "620d31146e9004f0b0890de4"
+                }
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "dataset1Identifier": null,
+            "dataset2Identifier": "transactions",
+            "dataset1Keys": [
+                "CustomerID"
+            ],
+            "dataset2Keys": [
+                "CustomerID"
+            ],
+            "featureDerivationWindows": [
+                {
+                    "start": -30,
+                    "end": 0,
+                    "unit": "DAY"
+                }
+            ],
+            "predictionPointRounding": 1,
+            "predictionPointRoundingTimeUnit": "MINUTE"
+        }
+    ],
+    "snowflakePushDownCompatible": null,
+    "featureDiscoveryMode": "default",
+    "featureDiscoverySettings": [
+        {
+            "name": "enable_numeric_kurtosis",
+            "settingType": "bool",
+            "value": false,
+            "verboseName": "Kurtosis",
+            "description": "Enable numeric kurtosis aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_categorical_statistics",
+            "settingType": "bool",
+            "value": false,
+            "verboseName": "Categorical statistics",
+            "description": "Enable categorical statistics features",
+            "family": "categorical statistics"
+        },
+        {
+            "name": "enable_day",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Day of month",
+            "description": "Extracts day of month from a datetime column.",
+            "family": "date"
+        },
+        {
+            "name": "enable_pairwise_time_difference",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Pairwise time difference",
+            "description": "\n        Calculates the pairwise time difference with all other date columns in a table\n        that are not time index.\n        ",
+            "family": "date"
+        },
+        {
+            "name": "enable_entropy",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Entropy",
+            "description": "Enable the entropy feature",
+            "family": "categorical"
+        },
+        {
+            "name": "enable_token_counts",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Summarized token counts",
+            "description": "Enable summarized token counts",
+            "family": "text"
+        },
+        {
+            "name": "enable_days_from_prediction_point",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Time difference from prediction point",
+            "description": "Calculates the time difference with a prediction point.",
+            "family": "date"
+        },
+        {
+            "name": "enable_numeric_minimum",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Minimum",
+            "description": "Enable minimum value aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_numeric_standard_deviation",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Standard deviation",
+            "description": "Enable numeric standard deviation aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_numeric_maximum",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Maximum",
+            "description": "Enable maximum value aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_latest_value",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Latest",
+            "description": "Enable latest value feature",
+            "family": "general"
+        },
+        {
+            "name": "enable_numeric_skewness",
+            "settingType": "bool",
+            "value": false,
+            "verboseName": "Skewness",
+            "description": "Enable numeric skewness aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_day_of_week",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Day of week",
+            "description": "Extracts day of week from a datetime column.",
+            "family": "date"
+        },
+        {
+            "name": "enable_most_frequent",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Most frequent",
+            "description": "Enable the most frequent feature",
+            "family": "categorical"
+        },
+        {
+            "name": "enable_numeric_median",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Median",
+            "description": "Enable numeric median aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_hour",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Hour of day",
+            "description": "Extracts hour of the day from a datetime column.",
+            "family": "date"
+        },
+        {
+            "name": "enable_categorical_num_unique",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Num unique",
+            "description": "Enable features to calculate the number of unique values",
+            "family": "categorical"
+        },
+        {
+            "name": "enable_word_count",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Word count",
+            "description": "Enable word count transformation",
+            "family": "text"
+        },
+        {
+            "name": "enable_days_since_previous_event",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Days since previous event",
+            "description": "\n        Calculates the time between previous event within the feature derivation\n        window and the current event in days.\n        The whole dataset is in use when time aware feature engineering is disabled.\n        ",
+            "family": "date"
+        },
+        {
+            "name": "enable_numeric_average",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Average",
+            "description": "Enable numeric average aggregator",
+            "family": "numeric"
+        },
+        {
+            "name": "enable_summarized_counts",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Summarized counts",
+            "description": "Enable summarized counts",
+            "family": "categorical"
+        },
+        {
+            "name": "enable_missing_count",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Missing count",
+            "description": "Enable missing count",
+            "family": "general"
+        },
+        {
+            "name": "enable_record_count",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Record count",
+            "description": "Enable the record count feature",
+            "family": "general"
+        },
+        {
+            "name": "enable_numeric_sum",
+            "settingType": "bool",
+            "value": true,
+            "verboseName": "Sum",
+            "description": "Enable numeric sum aggregator",
+            "family": "numeric"
+        }
+    ],
+    "id": "620d320fddfb8cf2a45f91e3"
+}

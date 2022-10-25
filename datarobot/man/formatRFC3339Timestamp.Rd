@@ -17,7 +17,6 @@ same as ISO 8601. To be safe, use UTC as the timezone (and format it with a
 \seealso{
 Other API datetime functions: 
 \code{\link{RFC3339DateTimeFormat}},
-\code{\link{parseRFC3339Timestamp}()},
 \code{\link{transformRFC3339Period}()},
 \code{\link{validateReportingPeriodTime}()}
 }

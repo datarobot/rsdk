@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Create a calendar from an uploaded CSV.
 #'
 #' @param dataSource object. Either (a) the name of a CSV file, or (b) a dataframe.
@@ -10,16 +18,17 @@
 #' @return An S3 object of class "dataRobotCalendar"
 #' @examples
 #' \dontrun{
-#'    CreateCalendar("inst/extdata/calendar.csv", name = "intlHolidayCalendar")
+#' CreateCalendar("inst/extdata/calendar.csv", name = "intlHolidayCalendar")
 #' }
 #' \dontrun{
-#'    holidayCalendarDF <- as.data.frame(myCalendar)
-#'    CreateCalendar(holidayCalendarDF, name = "intlHolidayCalendar")
+#' holidayCalendarDF <- as.data.frame(myCalendar)
+#' CreateCalendar(holidayCalendarDF, name = "intlHolidayCalendar")
 #' }
 #' \dontrun{
-#'    CreateCalendar("inst/extdata/calendar.csv",
-#'                   name = "intlHolidayCalendar",
-#'                   multiSeriesIdColumn = "Country")
+#' CreateCalendar("inst/extdata/calendar.csv",
+#'   name = "intlHolidayCalendar",
+#'   multiSeriesIdColumn = "Country"
+#' )
 #' }
 #' @export
 CreateCalendar <- function(dataSource,
@@ -34,7 +43,9 @@ CreateCalendar <- function(dataSource,
     multiSeriesIdColumn <- multiSeriesIdColumn[[1]]
   }
 
-  if (is.null(name)) { name <- dataSource }
+  if (is.null(name)) {
+    name <- dataSource
+  }
   routeString <- UrlJoin("calendars", "fileUpload")
   body <- list(name = name, file = UploadData(dataSource))
   if (!is.null(multiSeriesIdColumn)) {
@@ -43,10 +54,10 @@ CreateCalendar <- function(dataSource,
   }
   postResponse <- DataRobotPOST(routeString, body = body, returnRawResponse = TRUE)
   calendar <- WaitForAsyncReturn(GetRedirectFromResponse(postResponse),
-                                 maxWait = maxWait,
-                                 addUrl = FALSE,
-                                 # TODO make the failureStatus check case-insensitive DSX-1228
-                                 failureStatuses = c(JobFailureStatuses, "ERROR"))
+    maxWait = maxWait,
+    addUrl = FALSE,
+    failureStatuses = TaskFailureStatuses
+  )
   as.dataRobotCalendar(calendar)
 }
 
@@ -67,8 +78,8 @@ as.dataRobotCalendar <- function(inList) {
 #' @return An S3 object of class "dataRobotCalendar"
 #' @examples
 #' \dontrun{
-#'    calendarId <- "5da75da31fb4a45b8a815a53"
-#'    GetCalendar(calendarId)
+#' calendarId <- "5da75da31fb4a45b8a815a53"
+#' GetCalendar(calendarId)
 #' }
 #' @export
 GetCalendar <- function(calendarId) {
@@ -83,66 +94,10 @@ GetCalendar <- function(calendarId) {
 #' @return An S3 object of class "dataRobotCalendar"
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'    GetCalendar(projectId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetCalendar(projectId)
 #' }
 #' @export
 GetCalendarFromProject <- function(project) {
   GetCalendar(GetDatetimePartition(project)$calendarId)
-}
-
-
-#' List all available calendars.
-#'
-#' @return A list of S3 objects of class "dataRobotCalendar"
-#' @examples
-#' \dontrun{
-#'    ListCalendars()
-#' }
-#' @export
-ListCalendars <- function() {
-  calendars <- DataRobotGET("calendars", simplifyDataFrame = FALSE)
-  calendars <- GetServerDataInRows(calendars)
-  calendars <- lapply(calendars, as.dataRobotCalendar)
-  class(calendars) <- c("listOfCalendars", "listSubclass")
-  calendars
-}
-
-
-#' Delete a calendar
-#'
-#' @inheritParams GetCalendar
-#' @return NULL
-#' @examples
-#' \dontrun{
-#'    calendarId <- "5da75da31fb4a45b8a815a53"
-#'    DeleteCalendar(calendarId)
-#' }
-#' @export
-DeleteCalendar <- function(calendarId) {
-  calendarId <- ValidateCalendar(calendarId)
-  routeString <- UrlJoin("calendars", calendarId)
-  DataRobotDELETE(routeString)
-  invisible(NULL)
-}
-
-
-#' Update a calendar
-#'
-#' Currently supports changing the name of a calendar.
-#'
-#' @inheritParams GetCalendar
-#' @param name character. The new name to name the calendar.
-#' @return An S3 object of class "dataRobotCalendar"
-#' @examples
-#' \dontrun{
-#'    calendarId <- "5da75da31fb4a45b8a815a53"
-#'    UpdateCalendar(calendarId, name = "New name for calendar")
-#' }
-#' @export
-UpdateCalendar <- function(calendarId, name = NULL) {
-  calendarId <- ValidateCalendar(calendarId)
-  routeString <- UrlJoin("calendars", calendarId)
-  DataRobotPATCH(routeString, body = list(name = name))
-  GetCalendar(calendarId)
 }

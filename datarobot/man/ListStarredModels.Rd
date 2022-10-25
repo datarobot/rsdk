@@ -7,10 +7,6 @@
 ListStarredModels(project, orderBy = NULL)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{orderBy}{character. Optional. A vector of keys to order the list by. You can
 order by \code{metric} or \code{samplePct}. If the sort attribute is preceded by a
 hyphen, models will be sorted in descending order, otherwise in ascending order.
@@ -28,7 +24,7 @@ Unstar models and remove them from this list using \code{UnstarModel} or
 }
 \examples{
 \dontrun{
-   projectId <- "59a5af20c80891534e3c2bde"
-   ListStarredModels(projectId)
+projectId <- "59a5af20c80891534e3c2bde"
+ListStarredModels(projectId)
 }
 }

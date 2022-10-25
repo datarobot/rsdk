@@ -71,14 +71,16 @@ and \code{end} parameters to adjust the reporting period.
 \dontrun{
 deploymentId <- "59a5af20c80891534e3c2bde"
 aot <- GetDeploymentAccuracyOverTime(deploymentId,
-         metrics = c(DeploymentAccuracyMetric$Gamma.Deviance,
-                     DeploymentAccuracyMetric$LogLoss,
-                     DeploymentAccuracyMetric$RMSE))
+  metrics = c(
+    DeploymentAccuracyMetric$Gamma.Deviance,
+    DeploymentAccuracyMetric$LogLoss,
+    DeploymentAccuracyMetric$RMSE
+  )
+)
 }
 }
 \seealso{
 Other deployment accuracy functions: 
-\code{\link{GetDeploymentAccuracy}()},
 \code{\link{GetDeploymentAssociationId}()},
 \code{\link{SubmitActuals}()}
 }

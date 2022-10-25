@@ -1,0 +1,20 @@
+{
+  "metrics": {
+    "totalPredictions": 0,
+    "userErrorRate": 0,
+    "cacheHitRatio": 0,
+    "executionTime": null,
+    "totalRequests": 0,
+    "serverErrorRate": 0,
+    "slowRequests": 0,
+    "medianLoad": 0,
+    "numConsumers": 0,
+    "responseTime": null,
+    "peakLoad": 0
+  },
+  "period": {
+    "start": "2021-01-05T01:00:00.000000Z",
+    "end": "2021-01-12T01:00:00.000000Z"
+  },
+  "modelId": "model-id0000000000000000"
+}

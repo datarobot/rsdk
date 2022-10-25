@@ -67,8 +67,6 @@ Information on a data feature.
 }
 \seealso{
 Other feature functions: 
-\code{\link{GetFeatureInfo}()},
-\code{\link{ListFeatureInfo}()},
 \code{\link{ListModelFeatures}()}
 }
 \concept{feature functions}

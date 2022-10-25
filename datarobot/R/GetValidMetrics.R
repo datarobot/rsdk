@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve the valid fitting metrics for a specified project and target
 #'
 #' For the response variable defined by the character string target
@@ -14,13 +22,14 @@
 #' that are valid for a subsequent call to the SetTarget function.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   GetValidMetrics(projectId, "targetFeature")
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetValidMetrics(projectId, "targetFeature")
 #' }
 #' @export
 GetValidMetrics <- function(project, target) {
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "features", "metrics")
-  response <- DataRobotGET(routeString, query = list(featureName = target))
+  query <- list(featureName = target)
+  response <- DataRobotGET(routeString, query = query)
   response$availableMetrics
 }

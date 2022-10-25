@@ -1,3 +1,12 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
+library(stubthat)
 library(testthat)
 
 # TODO: Add test that we fail appropriately when the status response includes a status
@@ -22,97 +31,123 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
   statusUrl <- datarobot:::UrlJoin(fakeEndpoint, "status", "some-status")
 
   patchStub$onCall(1)$expects(url = aimUrl)
-  patchStub$onCall(1)$returns(httr:::response(url = aimUrl,
-                                              status_code = 202L,
-                                              headers = list(location = statusUrl),
-                                              content = raw(0)))
+  patchStub$onCall(1)$returns(httr:::response(
+    url = aimUrl,
+    status_code = 202L,
+    headers = list(location = statusUrl),
+    content = raw(0)
+  ))
 
   getStub$onCall(1)$expects(url = statusUrl)
-  getStub$onCall(1)$returns(httr:::response(url = statusUrl,
-                                            status_code = 200L,
-                                            content = charToRaw('{"status": "someStatus"}')))
+  getStub$onCall(1)$returns(httr:::response(
+    url = statusUrl,
+    status_code = 200L,
+    content = charToRaw('{"status": "someStatus"}')
+  ))
 
   getStub$onCall(2)$expects(url = statusUrl)
-  getStub$onCall(2)$returns(httr:::response(url = statusUrl,
-                                            status_code = 303L,
-                                            headers = list(location = projectUrl),
-                                            content = raw(0)))
+  getStub$onCall(2)$returns(httr:::response(
+    url = statusUrl,
+    status_code = 303L,
+    headers = list(location = projectUrl),
+    content = raw(0)
+  ))
 
   if (isTRUE(multiseriesMock)) {
     getMultiseriesJson <- fileToChar("responses/GetMultiseries.json")
     getMultiseriesUrl <- UrlJoin(projectUrl, "multiseriesProperties")
-    multiseriesRequestResponse <- httr:::response(url = getMultiseriesUrl,
-                                                  status_code = 303L,
-                                                  content = charToRaw(getMultiseriesJson))
+    multiseriesRequestResponse <- httr:::response(
+      url = getMultiseriesUrl,
+      status_code = 303L,
+      content = charToRaw(getMultiseriesJson)
+    )
     getStub$onCall(3)$returns(multiseriesRequestResponse)
     getStub$onCall(4)$expects(url = statusUrl)
-    getStub$onCall(4)$returns(httr:::response(url = statusUrl,
-                                              status_code = 303L,
-                                              headers = list(location = projectUrl),
-                                              content = raw(0)))
+    getStub$onCall(4)$returns(httr:::response(
+      url = statusUrl,
+      status_code = 303L,
+      headers = list(location = projectUrl),
+      content = raw(0)
+    ))
     if (isTRUE(crossSeriesGroupByMock)) {
       getCrossSeriesJson <- fileToChar("responses/GetCrossSeries.json")
       getCrossSeriesUrl <- UrlJoin(projectUrl, "crossSeriesProperties")
-      crossSeriesRequestResponse <- httr:::response(url = getCrossSeriesUrl,
-                                                    status_code = 303L,
-                                                    content = charToRaw(getCrossSeriesJson))
+      crossSeriesRequestResponse <- httr:::response(
+        url = getCrossSeriesUrl,
+        status_code = 303L,
+        content = charToRaw(getCrossSeriesJson)
+      )
       getStub$onCall(5)$returns(crossSeriesRequestResponse)
       getStub$onCall(6)$expects(url = statusUrl)
-      getStub$onCall(6)$returns(httr:::response(url = statusUrl,
-                                                status_code = 303L,
-                                                headers = list(location = projectUrl),
-                                                content = raw(0)))
+      getStub$onCall(6)$returns(httr:::response(
+        url = statusUrl,
+        status_code = 303L,
+        headers = list(location = projectUrl),
+        content = raw(0)
+      ))
       getStub$onCall(7)$expects(url = projectUrl)
-      getStub$onCall(7)$returns(httr:::response(url = projectUrl,
-                                                status_code = 200L,
-                                                content = raw(0)))
+      getStub$onCall(7)$returns(httr:::response(
+        url = projectUrl,
+        status_code = 200L,
+        content = raw(0)
+      ))
     } else {
       getStub$onCall(5)$expects(url = projectUrl)
-      getStub$onCall(5)$returns(httr:::response(url = projectUrl,
-                                                status_code = 200L,
-                                                content = raw(0)))
+      getStub$onCall(5)$returns(httr:::response(
+        url = projectUrl,
+        status_code = 200L,
+        content = raw(0)
+      ))
     }
-  }
-  else {
+  } else {
     getStub$onCall(3)$expects(url = projectUrl)
-    getStub$onCall(3)$returns(httr:::response(url = projectUrl,
-                                              status_code = 200L,
-                                              content = raw(0)))
+    getStub$onCall(3)$returns(httr:::response(
+      url = projectUrl,
+      status_code = 200L,
+      content = raw(0)
+    ))
   }
 
   postStub <- stub(httr::POST)
   postMultiseriesModelUrl <- UrlJoin(projectUrl, "multiseriesProperties")
-  multiseriesRequestResponse <- httr:::response(url = postMultiseriesModelUrl,
-                                                status_code = 303L,
-                                                headers = list(location = statusUrl),
-                                                content = raw(0))
+  multiseriesRequestResponse <- httr:::response(
+    url = postMultiseriesModelUrl,
+    status_code = 303L,
+    headers = list(location = statusUrl),
+    content = raw(0)
+  )
   postStub$onCall(1)$returns(multiseriesRequestResponse)
   if (isTRUE(crossSeriesGroupByMock)) {
-    crossSeriesRequestResponse <- httr:::response(url = getCrossSeriesUrl,
-                                                  status_code = 303L,
-                                                  headers = list(location = statusUrl),
-                                                  content = charToRaw(getCrossSeriesJson))
+    crossSeriesRequestResponse <- httr:::response(
+      url = getCrossSeriesUrl,
+      status_code = 303L,
+      headers = list(location = statusUrl),
+      content = charToRaw(getCrossSeriesJson)
+    )
     postStub$onCall(2)$returns(crossSeriesRequestResponse)
   }
 
-  with_mock("httr::PATCH" = patchStub$f,
-            "httr::POST" = postStub$f,
-            "httr::GET" = getStub$f,
-            # Mock patch to be able to record the input so we can test against it
-            "datarobot:::DataRobotPATCH" = function(routeString,
-                                                    addUrl = TRUE,
-                                                    body = NULL,
-                                                    returnRawResponse = FALSE, ...) {
-              bodyForInspect <<- body
-              datarobot:::MakeDataRobotRequest(httr::PATCH, routeString,
-                                               addUrl = addUrl,
-                                               returnRawResponse = returnRawResponse,
-                                               body = body, ...)
-            },
-            "datarobot:::Endpoint" = function() fakeEndpoint,
-            "datarobot:::Token" = function() fakeToken,
-            GetProjectStatus = function(...) list(stage = ProjectStage$AIM),
-            ...) # Tests get injected here.
+  with_mock(
+    "httr::PATCH" = patchStub$f,
+    "httr::POST" = postStub$f,
+    "httr::GET" = getStub$f,
+    # Mock patch to be able to record the input so we can test against it
+    "datarobot:::DataRobotPATCH" = function(routeString,
+                                            addUrl = TRUE,
+                                            body = NULL,
+                                            returnRawResponse = FALSE, ...) {
+      bodyForInspect <<- body
+      datarobot:::MakeDataRobotRequest(httr::PATCH, routeString,
+        addUrl = addUrl,
+        returnRawResponse = returnRawResponse,
+        body = body, ...
+      )
+    },
+    "datarobot:::Endpoint" = function() fakeEndpoint,
+    "datarobot:::Token" = function() fakeToken,
+    GetProjectStatus = function(...) list(stage = ProjectStage$AIM),
+    ...
+  ) # Tests get injected here.
 
   expect_equal(patchStub$calledTimes(), 1)
 
@@ -139,16 +174,20 @@ test_that("Required parameters are present", {
 
 test_that("Use projectId only", {
   withSetTargetMocks({
-    expect_message(SetTarget(project = fakeProjectId, target = fakeTarget),
-    "Autopilot started")
+    expect_message(
+      SetTarget(project = fakeProjectId, target = fakeTarget),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$target), fakeTarget)
   })
 })
 
 test_that("Use full project list only", {
   withSetTargetMocks({
-    expect_message(SetTarget(project = fakeProject, target = fakeTarget),
-    "Autopilot started")
+    expect_message(
+      SetTarget(project = fakeProject, target = fakeTarget),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$target), fakeTarget)
   })
 })
@@ -157,7 +196,8 @@ test_that("Use non-null metric", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, metric = "testMetric"),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$metric), "testMetric")
   })
 })
@@ -166,7 +206,8 @@ test_that("Use non-null weights", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, weights = "testWeights"),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$weights), "testWeights")
   })
 })
@@ -175,7 +216,8 @@ test_that("Use non-null featurelistId", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, featurelistId = fakeFeaturelistId),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$featurelistId), fakeFeaturelistId)
   })
 })
@@ -184,7 +226,8 @@ test_that("Use non-null mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = "testMode"),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$mode), "testMode")
   })
 })
@@ -193,7 +236,8 @@ test_that("Use non-null seed", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, seed = 19),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.numeric(bodyForInspect$seed), 19)
   })
 })
@@ -202,7 +246,8 @@ test_that("Use non-null positiveClass", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, positiveClass = "testClass"),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$positiveClass), "testClass")
   })
 })
@@ -211,7 +256,8 @@ test_that("Use non-null blueprintThreshold", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, blueprintThreshold = 8),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.numeric(bodyForInspect$blueprintThreshold), 8)
   })
 })
@@ -220,7 +266,8 @@ test_that("Use non-null responseCap", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, responseCap = 0.8),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.numeric(bodyForInspect$responseCap), 0.8)
   })
 })
@@ -228,20 +275,42 @@ test_that("Use non-null responseCap", {
 test_that("Use non-null downsampling", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                smartDownsampled = TRUE, majorityDownsamplingRate = 0.9),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        smartDownsampled = TRUE, majorityDownsamplingRate = 0.9
+      ),
+      "Autopilot started"
+    )
     expect_true(as.logical(bodyForInspect$smartDownsampled))
     expect_equal(as.numeric(bodyForInspect$majorityDownsamplingRate), 0.9)
+  })
+})
+
+test_that("Use non-null scaleoutModelingMode", {
+  withSetTargetMocks({
+    expect_message(
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        scaleoutModelingMode = ScaleoutModelingMode$Autopilot
+      ),
+      "Autopilot started"
+    )
+    expect_equal(
+      as.character(bodyForInspect$scaleoutModelingMode),
+      ScaleoutModelingMode$Autopilot
+    )
   })
 })
 
 test_that("Use non-null accuracyOptimizedBlueprints", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                accuracyOptimizedBlueprints = TRUE),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        accuracyOptimizedBlueprints = TRUE
+      ),
+      "Autopilot started"
+    )
     expect_true(as.logical(bodyForInspect$accuracyOptimizedMb))
   })
 })
@@ -249,10 +318,13 @@ test_that("Use non-null accuracyOptimizedBlueprints", {
 test_that("Use non-null offset and exposure", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                offset = c("offset_var1", "offset_var2"),
-                exposure = "exposure_var"),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        offset = c("offset_var1", "offset_var2"),
+        exposure = "exposure_var"
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$offset), c("offset_var1", "offset_var2"))
     expect_equal(as.character(bodyForInspect$exposure), "exposure_var")
   })
@@ -261,9 +333,12 @@ test_that("Use non-null offset and exposure", {
 test_that("Use non-null eventsCount", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                eventsCount = "events_count_column"),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        eventsCount = "events_count_column"
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$eventsCount), "events_count_column")
   })
 })
@@ -271,15 +346,22 @@ test_that("Use non-null eventsCount", {
 test_that("Use monotonic constraints", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                monotonicIncreasingFeaturelistId = "monotonic-flist-up",
-                monotonicDecreasingFeaturelistId = "monotonic-flist-down",
-                onlyIncludeMonotonicBlueprints = TRUE),
-      "Autopilot started")
-    expect_equal(as.character(bodyForInspect$monotonicIncreasingFeaturelistId),
-                 "monotonic-flist-up")
-    expect_equal(as.character(bodyForInspect$monotonicDecreasingFeaturelistId),
-                 "monotonic-flist-down")
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        monotonicIncreasingFeaturelistId = "monotonic-flist-up",
+        monotonicDecreasingFeaturelistId = "monotonic-flist-down",
+        onlyIncludeMonotonicBlueprints = TRUE
+      ),
+      "Autopilot started"
+    )
+    expect_equal(
+      as.character(bodyForInspect$monotonicIncreasingFeaturelistId),
+      "monotonic-flist-up"
+    )
+    expect_equal(
+      as.character(bodyForInspect$monotonicDecreasingFeaturelistId),
+      "monotonic-flist-down"
+    )
     expect_true(as.logical(bodyForInspect$onlyIncludeMonotonicBlueprints))
   })
 })
@@ -287,15 +369,22 @@ test_that("Use monotonic constraints", {
 test_that("Use actual feature lists for monotonic constraints", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget,
-                monotonicIncreasingFeaturelistId = fakeFeaturelist,
-                monotonicDecreasingFeaturelistId = fakeFeaturelist,
-                onlyIncludeMonotonicBlueprints = TRUE),
-      "Autopilot started")
-    expect_equal(as.character(bodyForInspect$monotonicIncreasingFeaturelistId),
-                 fakeFeaturelistId)
-    expect_equal(as.character(bodyForInspect$monotonicDecreasingFeaturelistId),
-                 fakeFeaturelistId)
+      SetTarget(
+        project = fakeProject, target = fakeTarget,
+        monotonicIncreasingFeaturelistId = fakeFeaturelist,
+        monotonicDecreasingFeaturelistId = fakeFeaturelist,
+        onlyIncludeMonotonicBlueprints = TRUE
+      ),
+      "Autopilot started"
+    )
+    expect_equal(
+      as.character(bodyForInspect$monotonicIncreasingFeaturelistId),
+      fakeFeaturelistId
+    )
+    expect_equal(
+      as.character(bodyForInspect$monotonicDecreasingFeaturelistId),
+      fakeFeaturelistId
+    )
     expect_true(as.logical(bodyForInspect$onlyIncludeMonotonicBlueprints))
   })
 })
@@ -304,17 +393,23 @@ test_that("Use valid targetTypes", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, targetType = TargetType$Multiclass),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$targetType), TargetType$Multiclass)
   })
 })
 
 test_that("Fail on invalid targetTypes", {
-  expect_error(withSetTargetMocks(
-    SetTarget(project = fakeProject, target = fakeTarget, targetType = "MAGIC")),
-    paste0("Invalid ", sQuote("TargetType"), ". Must be in ", sQuote("Binary"), ", ",
-          sQuote("Multiclass"), ", ", sQuote("Regression"), " but got ", sQuote("MAGIC"),
-          " instead."))
+  expect_error(
+    withSetTargetMocks(
+      SetTarget(project = fakeProject, target = fakeTarget, targetType = "MAGIC")
+    ),
+    paste0(
+      "Invalid ", sQuote("TargetType"), ". Must be in ", sQuote("Binary"), ", ",
+      sQuote("Multiclass"), ", ", sQuote("Regression"), " but got ", sQuote("MAGIC"),
+      " instead."
+    )
+  )
 })
 
 
@@ -322,7 +417,8 @@ test_that("Use full autopilot mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$FullAuto),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$mode), AutopilotMode$FullAuto)
     expect_false(as.logical(bodyForInspect$quickrun))
   })
@@ -332,7 +428,8 @@ test_that("Use manual mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Manual),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$mode), AutopilotMode$Manual)
     expect_false(as.logical(bodyForInspect$quickrun))
   })
@@ -342,7 +439,8 @@ test_that("Use quickrun mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick),
-      "Autopilot started")
+      "Autopilot started"
+    )
     # Quickrun does full auto, but with the quickrun parameter
     expect_equal(as.character(bodyForInspect$mode), AutopilotMode$FullAuto)
     expect_true(as.logical(bodyForInspect$quickrun))
@@ -351,18 +449,20 @@ test_that("Use quickrun mode", {
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                                  autopilotDataSelectionMethod = NULL,
-                                                  validationDuration = NULL,
-                                                  holdoutStartDate = NULL,
-                                                  holdoutDuration = NULL,
-                                                  gapDuration = NULL,
-                                                  numberOfBacktests = NULL,
-                                                  backtests = NULL)
+  autopilotDataSelectionMethod = NULL,
+  validationDuration = NULL,
+  holdoutStartDate = NULL,
+  holdoutDuration = NULL,
+  gapDuration = NULL,
+  numberOfBacktests = NULL,
+  backtests = NULL
+)
 test_that("Datetime partition with empty backtests", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, partition = partition),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_false(as.logical(bodyForInspect$useTimeSeries))
@@ -372,13 +472,17 @@ test_that("Datetime partition with empty backtests", {
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                      featureSettings = list(featureName = "Product_offers",
-                                                             knownInAdvance = TRUE))
+  featureSettings = list(
+    featureName = "Product_offers",
+    knownInAdvance = TRUE
+  )
+)
 test_that("Datetime partition with feature settings", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, partition = partition),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_false(as.logical(bodyForInspect$useTimeSeries))
@@ -391,13 +495,17 @@ test_that("Datetime partition with feature settings", {
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                      featureSettings = list(featureName = "Sales",
-                                                             doNotDerive = TRUE))
+  featureSettings = list(
+    featureName = "Sales",
+    doNotDerive = TRUE
+  )
+)
 test_that("Datetime partition with doNotDerive feature setting", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, partition = partition),
-      "Autopilot started")
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_false(as.logical(bodyForInspect$useTimeSeries))
@@ -410,20 +518,32 @@ test_that("Datetime partition with doNotDerive feature setting", {
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                                  treatAsExponential = TreatAsExponential$Always,
-                                                  differencingMethod = DifferencingMethod$Seasonal,
-                                                  periodicities = list(list("timeSteps" = 10,
-                                                                            "timeUnit" = "HOUR"),
-                                                                       list("timeSteps" = 600,
-                                                                            "timeUnit" = "MINUTE"),
-                                                                       list("timeSteps" = 7,
-                                                                            "timeUnit" = "DAY")))
+  treatAsExponential = TreatAsExponential$Always,
+  differencingMethod = DifferencingMethod$Seasonal,
+  periodicities = list(
+    list(
+      "timeSteps" = 10,
+      "timeUnit" = "HOUR"
+    ),
+    list(
+      "timeSteps" = 600,
+      "timeUnit" = "MINUTE"
+    ),
+    list(
+      "timeSteps" = 7,
+      "timeUnit" = "DAY"
+    )
+  )
+)
 test_that("Datetime partition with exponential, differencing, and periodicities", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+        partition = partition
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_false(as.logical(bodyForInspect$useTimeSeries))
@@ -439,15 +559,21 @@ test_that("Datetime partition with exponential, differencing, and periodicities"
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                                  windowsBasisUnit = "ROW",
-                                                  periodicities = list(list("timeSteps" = 10,
-                                                                            "timeUnit" = "ROW")))
+  windowsBasisUnit = "ROW",
+  periodicities = list(list(
+    "timeSteps" = 10,
+    "timeUnit" = "ROW"
+  ))
+)
 test_that("Datetime partition with windowsBasisUnit", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+        partition = partition
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_false(as.logical(bodyForInspect$useTimeSeries))
@@ -459,13 +585,20 @@ test_that("Datetime partition with windowsBasisUnit", {
 })
 
 test_that("Datetime partition with invalid partition", {
-  with_mock("datarobot:::Endpoint" = function() fakeEndpoint,
-            "datarobot:::Token" = function() fakeToken,
-            GetProjectStatus = function(...) list(stage = ProjectStage$AIM), {
-    expect_error(SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = list(fakeDateColumn)),
-      "must use a valid partition object")
-  })
+  with_mock(
+    "datarobot:::Endpoint" = function() fakeEndpoint,
+    "datarobot:::Token" = function() fakeToken,
+    GetProjectStatus = function(...) list(stage = ProjectStage$AIM),
+    {
+      expect_error(
+        SetTarget(
+          project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+          partition = list(fakeDateColumn)
+        ),
+        "must use a valid partition object"
+      )
+    }
+  )
 })
 
 
@@ -473,64 +606,87 @@ partition <- CreateDatetimePartitionSpecification(fakeDateColumn, useTimeSeries 
 test_that("True time series partition", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+        partition = partition
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_true(as.logical(bodyForInspect$useTimeSeries))
     expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
   })
-})
-
-
-partition <- CreateDatetimePartitionSpecification(fakeDateColumn, useTimeSeries = TRUE,
-                                                  multiseriesIdColumns = fakeMultiIdColumn)
-test_that("Multiseries partition", {
-  withSetTargetMocks({
-    expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
-    expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
-    expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
-    expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
-    expect_true(as.logical(bodyForInspect$useTimeSeries))
-    expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
-  }, multiseriesMock = TRUE)
-})
-
-
-partition <- CreateDatetimePartitionSpecification(fakeDateColumn, useTimeSeries = TRUE,
-                                                  multiseriesIdColumns = fakeMultiIdColumn,
-                                                  useCrossSeries = TRUE,
-                                                  aggregationType = "total")
-test_that("Cross series partition", {
-  withSetTargetMocks({
-    expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
-    expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
-    expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
-    expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
-    expect_true(as.logical(bodyForInspect$useTimeSeries))
-    expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
-    expect_true(as.logical(bodyForInspect$useCrossSeriesFeatures))
-    expect_equal(as.character(bodyForInspect$aggregationType), "total")
-  }, multiseriesMock = TRUE)
 })
 
 
 partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
-                                                  useTimeSeries = TRUE,
-                                                  calendar = fakeCalendar)
+  useTimeSeries = TRUE,
+  multiseriesIdColumns = fakeMultiIdColumn
+)
+test_that("Multiseries partition", {
+  withSetTargetMocks(
+    {
+      expect_message(
+        SetTarget(
+          project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+          partition = partition
+        ),
+        "Autopilot started"
+      )
+      expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
+      expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
+      expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
+      expect_true(as.logical(bodyForInspect$useTimeSeries))
+      expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
+    },
+    multiseriesMock = TRUE
+  )
+})
+
+
+partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
+  useTimeSeries = TRUE,
+  multiseriesIdColumns = fakeMultiIdColumn,
+  useCrossSeries = TRUE,
+  aggregationType = "total"
+)
+test_that("Cross series partition", {
+  withSetTargetMocks(
+    {
+      expect_message(
+        SetTarget(
+          project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+          partition = partition
+        ),
+        "Autopilot started"
+      )
+      expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
+      expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
+      expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
+      expect_true(as.logical(bodyForInspect$useTimeSeries))
+      expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
+      expect_true(as.logical(bodyForInspect$useCrossSeriesFeatures))
+      expect_equal(as.character(bodyForInspect$aggregationType), "total")
+    },
+    multiseriesMock = TRUE
+  )
+})
+
+
+partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
+  useTimeSeries = TRUE,
+  calendar = fakeCalendar
+)
 test_that("Time series partition with calendar", {
   withSetTargetMocks({
     expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
+      SetTarget(
+        project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+        partition = partition
+      ),
+      "Autopilot started"
+    )
     expect_equal(as.character(bodyForInspect$cvMethod), "datetime")
     expect_equal(as.character(bodyForInspect$datetimePartitionColumn), fakeDateColumn)
     expect_true(as.logical(bodyForInspect$useTimeSeries))
@@ -539,20 +695,29 @@ test_that("Time series partition with calendar", {
 })
 
 
-partition <- CreateDatetimePartitionSpecification(fakeDateColumn, useTimeSeries = TRUE,
-                                                  multiseriesIdColumns = fakeMultiIdColumn,
-                                                  useCrossSeries = TRUE,
-                                                  crossSeriesGroupByColumns = fakeCrossIdColumn)
+partition <- CreateDatetimePartitionSpecification(fakeDateColumn,
+  useTimeSeries = TRUE,
+  multiseriesIdColumns = fakeMultiIdColumn,
+  useCrossSeries = TRUE,
+  crossSeriesGroupByColumns = fakeCrossIdColumn
+)
 test_that("Cross series partition with crossSeriesGroupByColumns", {
-  withSetTargetMocks({
-    expect_message(
-      SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = partition),
-      "Autopilot started")
-    expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
-    expect_true(as.logical(bodyForInspect$useTimeSeries))
-    expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
-    expect_true(as.logical(bodyForInspect$useCrossSeriesFeatures))
-    expect_equal(as.character(bodyForInspect$crossSeriesGroupByColumns), fakeCrossIdColumn)
-  }, multiseriesMock = TRUE, crossSeriesGroupByMock = TRUE)
+  withSetTargetMocks(
+    {
+      expect_message(
+        SetTarget(
+          project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+          partition = partition
+        ),
+        "Autopilot started"
+      )
+      expect_equal(bodyForInspect$multiseriesIdColumns[[1]], fakeMultiIdColumn)
+      expect_true(as.logical(bodyForInspect$useTimeSeries))
+      expect_false(as.logical(bodyForInspect$defaultToKnownInAdvance))
+      expect_true(as.logical(bodyForInspect$useCrossSeriesFeatures))
+      expect_equal(as.character(bodyForInspect$crossSeriesGroupByColumns), fakeCrossIdColumn)
+    },
+    multiseriesMock = TRUE,
+    crossSeriesGroupByMock = TRUE
+  )
 })

@@ -15,9 +15,9 @@ Cancel a running job
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  initialJobs <- ListModelJobs(project)
-  job <- initialJobs[[1]]
-  DeleteJob(job)
+projectId <- "59a5af20c80891534e3c2bde"
+initialJobs <- ListModelJobs(project)
+job <- initialJobs[[1]]
+DeleteJob(job)
 }
 }

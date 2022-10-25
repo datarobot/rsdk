@@ -23,7 +23,7 @@ This function periodically checks whether Autopilot is finished and returns only
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  WaitForAutopilot(projectId)
+projectId <- "59a5af20c80891534e3c2bde"
+WaitForAutopilot(projectId)
 }
 }

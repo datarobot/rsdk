@@ -42,20 +42,25 @@ TRUE to check (default), FALSE to not check.}
 \description{
 This function initializes a DataRobot session. To use DataRobot, you must connect to
 your account. This can be done in three ways:
-\itemize{
-  \item by passing an \code{endpoint} and \code{token} directly to \code{ConnectToDataRobot}
-  \item by having a YAML config file in $HOME/.config/datarobot/drconfig.yaml
-  \item by setting DATAROBOT_API_ENDPOINT and DATAROBOT_API_TOKEN environment variables
+\enumerate{
+\item by passing an \code{endpoint} and \code{token} directly to \code{\link[=ConnectToDataRobot]{ConnectToDataRobot()}}
+\item by having a YAML config file in \verb{$HOME/.config/datarobot/drconfig.yaml}
+\item by setting \code{DATAROBOT_API_ENDPOINT} and \code{DATAROBOT_API_TOKEN} environment variables
 }
+}
+\details{
 The three methods of authentication are given priority in that order (explicitly passing
 parameters to the function will trump a YAML config file, which will trump the environment
 variables.)
 If you have a YAML config file or environment variables set, you will not need to
-pass any parameters to \code{ConnectToDataRobot} in order to connect.
+pass any parameters to \code{\link[=ConnectToDataRobot]{ConnectToDataRobot()}} in order to connect.
 }
 \examples{
 \dontrun{
-  ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
-  ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
+ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
+ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
 }
+}
+\seealso{
+\code{\link[=EditConfig]{EditConfig()}}
 }

@@ -24,7 +24,6 @@ the deployment monitoring functions. See \code{GetDeploymentServiceStats},
 Other API datetime functions: 
 \code{\link{RFC3339DateTimeFormat}},
 \code{\link{formatRFC3339Timestamp}()},
-\code{\link{parseRFC3339Timestamp}()},
 \code{\link{transformRFC3339Period}()}
 }
 \concept{API datetime functions}

@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve data on tuning parameters for a particular model.
 #'
 #' @param model dataRobotModel. A DataRobot model object to get tuning parameters for.
@@ -18,23 +26,19 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   GetTuningParameters(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' GetTuningParameters(model)
 #' }
 #' @export
 GetTuningParameters <- function(model) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   modelId <- model$modelId
+
   projectId <- ValidateProject(model$projectId)
   routeString <- UrlJoin("projects", projectId, "models", modelId, "advancedTuning", "parameters")
   params <- DataRobotGET(routeString, simplify = FALSE)
-  params <- ApplySchema(params, c("tuningParameters", "tuningDescription"))
-  params$tuningParameters <- lapply(params$tuningParameters,
-                                    ApplySchema,
-                                    schema = c("currentValue", "defaultValue", "parameterId",
-                                               "parameterName", "taskName", "constraints"))
   class(params) <- c("listOfDataRobotTuningParameters", "listSubclass")
   params
 }
@@ -43,17 +47,25 @@ GetTuningParameters <- function(model) {
 SummarizeConstraints <- function(constraints) {
   processedConstraints <- list()
   if ("int" %in% names(constraints)) {
-    processedConstraints <- append(processedConstraints,
-                                   paste(constraints$int$min, "to", constraints$int$max))
+    processedConstraints <- append(
+      processedConstraints,
+      paste(constraints$int$min, "to", constraints$int$max)
+    )
   }
   if ("float" %in% names(constraints)) {
-    processedConstraints <- append(processedConstraints,
-                                   paste(constraints$float$min, "to", constraints$float$max))
+    processedConstraints <- append(
+      processedConstraints,
+      paste(constraints$float$min, "to", constraints$float$max)
+    )
   }
   if ("select" %in% names(constraints)) {
-    processedConstraints <- append(processedConstraints,
-                                   paste("select from:",
-                                         paste0(constraints$select$values, collapse = ", ")))
+    processedConstraints <- append(
+      processedConstraints,
+      paste(
+        "select from:",
+        paste0(constraints$select$values, collapse = ", ")
+      )
+    )
   }
   paste0(processedConstraints, collapse = " or ")
 }
@@ -71,10 +83,10 @@ SummarizeConstraints <- function(constraints) {
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   summary(GetTuningParameters(model))
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' summary(GetTuningParameters(model))
 #' }
 #' @export
 summary.listOfDataRobotTuningParameters <- function(object, ...) {
@@ -84,10 +96,12 @@ summary.listOfDataRobotTuningParameters <- function(object, ...) {
   }
   paramsSummary <- data.frame()
   for (param in params) {
-    paramSummary <- data.frame(name = as.character(param$parameterName),
-                               current = as.character(param$currentValue),
-                               default = as.character(param$defaultValue),
-                               constraint = SummarizeConstraints(param$constraints))
+    paramSummary <- data.frame(
+      name = as.character(param$parameterName),
+      current = as.character(param$currentValue),
+      default = as.character(param$defaultValue),
+      constraint = SummarizeConstraints(param$constraints)
+    )
     paramsSummary <- rbind(paramsSummary, paramSummary)
   }
   paramsSummary
@@ -109,19 +123,19 @@ summary.listOfDataRobotTuningParameters <- function(object, ...) {
 #'   to get the tuned model.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   myXGBModel <- GetModel(projectId, modelId)
-#'   RunTune <- StartTuningSession(myXGBModel)
-#'   tuningJob <- RunTune(myXGBModel, colsample_bytree = 0.4, colsample_bylevel = 0.8)
-#'   tunedModel <- GetModelFromJobId(projectId, tuningJob)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' myXGBModel <- GetModel(projectId, modelId)
+#' RunTune <- StartTuningSession(myXGBModel)
+#' tuningJob <- RunTune(myXGBModel, colsample_bytree = 0.4, colsample_bylevel = 0.8)
+#' tunedModel <- GetModelFromJobId(projectId, tuningJob)
 #' }
 #' @export
 StartTuningSession <- function(model) {
   params <- GetTuningParameters(model)$tuningParameters
   parameterNames <- unlist(lapply(params, `[[`, "parameterName"))
   defaultValues <- unlist(lapply(params, `[[`, "defaultValue"))
-  args <- alist(model =) # nolint: infix_spaces_linter.
+  args <- alist(model = ) # nolint: infix_spaces_linter, spaces_inside_linter.
   args <- append(append(args, defaultValues), "")
   names(args) <- append(append("model", parameterNames), "tuningDescription")
 
@@ -140,7 +154,9 @@ StartTuningSession <- function(model) {
           paramValue <- try(get(as.character(param), envir = parent.frame(i)), silent = TRUE)
           found <- !is(paramValue, "try-error")
           i <- i + 1
-          if (i > 10) { stop("object '", param, "' not found") }
+          if (i > 10) {
+            stop("object '", param, "' not found")
+          }
         }
       }
       paramValue
@@ -149,23 +165,33 @@ StartTuningSession <- function(model) {
 
     tuningDescription <- requestedParams$tuningDescription
     for (i in seq_along(requestedParams)) {
-      paramDetails <- Find(function(p) identical(p$parameterName, names(requestedParams)[[i]]),
-                           availableParams)
+      paramDetails <- Find(
+        function(p) identical(p$parameterName, names(requestedParams)[[i]]),
+        availableParams
+      )
       if (!is.null(paramDetails$parameterId)) {
-        sentParams <- append(sentParams,
-                             list(list("parameterId" = paramDetails$parameterId,
-                                       "value" = requestedParams[[i]])))
+        sentParams <- append(
+          sentParams,
+          list(list(
+            "parameterId" = paramDetails$parameterId,
+            "value" = requestedParams[[i]]
+          ))
+        )
       }
     }
     if (identical(tuningDescription, "") || is.null(tuningDescription)) {
       payload <- list("tuningParameters" = sentParams)
     } else {
-      payload <- list("tuningDescription" = tuningDescription,
-                      "tuningParameters" = sentParams)
+      payload <- list(
+        "tuningDescription" = tuningDescription,
+        "tuningParameters" = sentParams
+      )
     }
     routeString <- UrlJoin("projects", model$projectId, "models", model$modelId, "advancedTuning")
-    response <- DataRobotPOST(routeString, body = payload,
-                              encode = "json", returnRawResponse = TRUE)
+    response <- DataRobotPOST(routeString,
+      body = payload,
+      encode = "json", returnRawResponse = TRUE
+    )
     JobIdFromResponse(response)
   }
   formals(tuningFunction) <- args
@@ -174,8 +200,12 @@ StartTuningSession <- function(model) {
 
 
 # Convenience functions for test mocking
-GetUserInput <- function() { readLines(n = 1) }
-IsInteractiveMode <- function() { interactive() }
+GetUserInput <- function() {
+  readLines(n = 1)
+}
+IsInteractiveMode <- function() {
+  interactive()
+}
 
 #' Run an interactive model tuning session.
 #'
@@ -197,11 +227,11 @@ IsInteractiveMode <- function() { interactive() }
 #' @return A job ID that can be used to get the tuned model.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   myXGBModel <- GetModel(projectId, modelId)
-#'   tuningJob <- RunInteractiveTuning(myXGBModel)
-#'   tunedModel <- GetModelFromJobId(projectId, tuningJob)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' myXGBModel <- GetModel(projectId, modelId)
+#' tuningJob <- RunInteractiveTuning(myXGBModel)
+#' tunedModel <- GetModelFromJobId(projectId, tuningJob)
 #' }
 #' @export
 RunInteractiveTuning <- function(model) {
@@ -212,15 +242,21 @@ RunInteractiveTuning <- function(model) {
   sentParams <- list()
   for (i in seq_along(availableParams)) {
     param <- availableParams[[i]]
-    message("Would you like to set ", param$parameterName, "? Currently ",
-            param$currentValue, " (default ", param$defaultValue, "), possible values are ",
-            SummarizeConstraints(param$constraints), ". Hit RETURN to skip and keep at ",
-            "current value or enter a new value.")
+    message(
+      "Would you like to set ", param$parameterName, "? Currently ",
+      param$currentValue, " (default ", param$defaultValue, "), possible values are ",
+      SummarizeConstraints(param$constraints), ". Hit RETURN to skip and keep at ",
+      "current value or enter a new value."
+    )
     userInput <- GetUserInput()
     if (!identical(userInput, "")) {
-      sentParams <- append(sentParams,
-                           list(list("parameterId" = param$parameterId,
-                                     "value" = userInput)))
+      sentParams <- append(
+        sentParams,
+        list(list(
+          "parameterId" = param$parameterId,
+          "value" = userInput
+        ))
+      )
     }
   }
   message("Would you like to describe your tune? Enter a description or just hit RETURN to skip.")
@@ -228,11 +264,15 @@ RunInteractiveTuning <- function(model) {
   if (identical(tuningDescription, "")) {
     payload <- list("tuningParameters" = sentParams)
   } else {
-    payload <- list("tuningDescription" = tuningDescription,
-                    "tuningParameters" = sentParams)
+    payload <- list(
+      "tuningDescription" = tuningDescription,
+      "tuningParameters" = sentParams
+    )
   }
   routeString <- UrlJoin("projects", model$projectId, "models", model$modelId, "advancedTuning")
-  response <- DataRobotPOST(routeString, body = payload,
-                            encode = "json", returnRawResponse = TRUE)
+  response <- DataRobotPOST(routeString,
+    body = payload,
+    encode = "json", returnRawResponse = TRUE
+  )
   JobIdFromResponse(response)
 }

@@ -61,6 +61,8 @@ projectId <- "59a5af20c80891534e3c2bde"
 modelId <- "5996f820af07fc605e81ead4"
 model <- GetModel(projectId, modelId)
 plot <- GetAccuracyOverTimePlotPreview(model)
+
+# The code below is an example demonstration on how to plot the data
 png("accuracy_over_time_preview.png", width = 1200, height = 600, units = "px")
 par(mar = c(10, 5, 5, 5))
 plot(plot$bins$startDate, plot$bins$actual, type = "l", ylab = "Target", xaxt = "n", xlab = "")

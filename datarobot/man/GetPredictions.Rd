@@ -13,10 +13,6 @@ GetPredictions(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{predictId}{character or integer. Either can be the character id of the
 \code{predictionId} associated with the prediction or the integer \code{predictionJobId}
 that is created by the call to \code{RequestPredictions}.}
@@ -68,14 +64,14 @@ if it has not completed within \code{maxWait} seconds.
 }
 \examples{
 \dontrun{
-  # Retrieve by predictJobID
-  dataset <- UploadPredictionDataset(project, diamonds_small)
-  model <- ListModels(project)[[1]]
-  modelId <- model$modelId
-  predictJobId <- RequestPredictions(project, modelId, dataset$id)
-  predictions <- GetPredictions(project, predictJobId)
-  # Retrieve by predictionID
-  predictions <- ListPredictions(project)
-  predictions <- GetPredictions(project, predictions$predictionId[[1]])
+# Retrieve by predictJobID
+dataset <- UploadPredictionDataset(project, diamonds_small)
+model <- ListModels(project)[[1]]
+modelId <- model$modelId
+predictJobId <- RequestPredictions(project, modelId, dataset$id)
+predictions <- GetPredictions(project, predictJobId)
+# Retrieve by predictionID
+predictions <- ListPredictions(project)
+predictions <- GetPredictions(project, predictions$predictionId[[1]])
 }
 }

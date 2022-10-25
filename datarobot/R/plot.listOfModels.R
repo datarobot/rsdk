@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Plot method for DataRobot S3 objects of class listOfModels
 #'
 #' Method for R's generic plot function for DataRobot S3 objects
@@ -63,8 +71,8 @@
 #'   generating a plot.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   plot(ListModels(projectId))
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' plot(ListModels(projectId))
 #' }
 #' @export
 plot.listOfModels <- function(x, y, metric = NULL, pct = NULL,
@@ -89,7 +97,9 @@ plot.listOfModels <- function(x, y, metric = NULL, pct = NULL,
   } else {
     pctIndex <- seq(1, nrow(oFrame), 1)
   }
-  if (length(pctIndex) == 0) { stop("The requested `pct` was not found among the models.") }
+  if (length(pctIndex) == 0) {
+    stop("The requested `pct` was not found among the models.")
+  }
   if (!is.null(selectRecords)) {
     keepIndex <- intersect(selectRecords, pctIndex)
   } else {
@@ -113,7 +123,9 @@ plot.listOfModels <- function(x, y, metric = NULL, pct = NULL,
   if (is.null(xpos)) {
     xpos <- max(plotMetric, na.rm = TRUE) / 2
   }
-  mids <- barplot(plotMetric, horiz = TRUE, col = "transparent",
-                  border = borderColor, xlab = metricName, ...)
+  mids <- barplot(plotMetric,
+    horiz = TRUE, col = "transparent",
+    border = borderColor, xlab = metricName, ...
+  )
   text(xpos, mids, modelTypes, cex = textSize, col = textColor)
 }

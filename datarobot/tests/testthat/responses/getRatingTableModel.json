@@ -1,0 +1,83 @@
+{
+  "featurelistId": "59dab759197ecb0a49b3be8d",
+  "processes": [
+    "One-Hot Encoding",
+    "Ordinal encoding of categorical variables",
+    "Missing Values Imputed",
+    "Matrix of word-grams occurrences",
+    "Generalized Additive2 Model",
+    "Text fit on Residuals (L2 / Binomial Deviance)"
+  ],
+  "featurelistName": "Informative Features",
+  "trainingDuration": null,
+  "projectId": "59dab74bbd2a54035786bfc0",
+  "modelType": "Generalized Additive2 Model",
+  "samplePct": 64.041,
+  "isFrozen": false,
+  "trainingStartDate": null,
+  "metrics": {
+    "AUC": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 0.77553
+    },
+    "Rate@Top5%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 1
+    },
+    "Rate@TopTenth%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 1
+    },
+    "RMSE": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 0.41605
+    },
+    "LogLoss": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 0.49781
+    },
+    "FVE Binomial": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 0.25249
+    },
+    "Gini Norm": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 0.55106
+    },
+    "Rate@Top10%": {
+      "backtesting": null,
+      "holdout": null,
+      "backtestingScores": null,
+      "crossValidation": null,
+      "validation": 1
+    }
+  },
+  "trainingRowCount": null,
+  "modelCategory": "model",
+  "blueprintId": "52d2e8822e245b2bf72e86ba672c31f6",
+  "trainingEndDate": null,
+  "ratingTableId": "59dd0b27c0d333f951b3b1b3",
+  "id": "59dd0b01d9575702bec96e4b",
+  "modelNumber": 51
+}

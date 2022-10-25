@@ -18,8 +18,8 @@ This adds a Feature Impact job to the project queue.
 }
 \examples{
 \dontrun{
-  model <- ListModels(project)[[1]]
-  featureImpactJobId <- RequestFeatureImpact(model)
-  featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
+model <- ListModels(project)[[1]]
+featureImpactJobId <- RequestFeatureImpact(model)
+featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
 }
 }

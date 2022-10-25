@@ -27,9 +27,9 @@ Retrieve lift chart data for a model for all available data partitions (see Data
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  ListLiftCharts(model)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+ListLiftCharts(model)
 }
 }

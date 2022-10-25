@@ -1,3 +1,12 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
+
 #' Create a group-based S3 object of class partition for the SetTarget function
 #'
 #' Group partitioning constructs data partitions such that all records with each
@@ -23,10 +32,12 @@
 #' @seealso \code{\link{CreateRandomPartition}}, \code{\link{CreateStratifiedPartition}},
 #'   \code{\link{CreateUserPartition}}.
 #' @examples
-#' CreateGroupPartition(validationType = "CV",
-#'                      holdoutPct = 20,
-#'                      partitionKeyCols = list("groupId"),
-#'                      reps = 5)
+#' CreateGroupPartition(
+#'   validationType = "CV",
+#'   holdoutPct = 20,
+#'   partitionKeyCols = list("groupId"),
+#'   reps = 5
+#' )
 #' @export
 CreateGroupPartition <- function(validationType, holdoutPct, partitionKeyCols,
                                  reps = NULL, validationPct = NULL) {
@@ -36,13 +47,17 @@ CreateGroupPartition <- function(validationType, holdoutPct, partitionKeyCols,
   if (length(partitionKeyCols) > 1) {
     stop("Currently only one partition key column is supported.")
   }
-  partition <- list(cvMethod = cvMethods$GROUP, validationType = validationType,
-                    holdoutPct = holdoutPct,
-                    partitionKeyCols = partitionKeyCols)
-  ValidatePartition(validationType = validationType,
-                    partition = partition,
-                    reps = reps,
-                    validationPct = validationPct)
+  partition <- list(
+    cvMethod = cvMethods$GROUP, validationType = validationType,
+    holdoutPct = holdoutPct,
+    partitionKeyCols = partitionKeyCols
+  )
+  ValidatePartition(
+    validationType = validationType,
+    partition = partition,
+    reps = reps,
+    validationPct = validationPct
+  )
 }
 
 
@@ -71,12 +86,16 @@ CreateGroupPartition <- function(validationType, holdoutPct, partitionKeyCols,
 #' @export
 CreateRandomPartition <- function(validationType, holdoutPct, reps = NULL,
                                   validationPct = NULL) {
-  partition <- list(cvMethod = cvMethods$RANDOM, validationType = validationType,
-                    holdoutPct = holdoutPct)
-  ValidatePartition(validationType = validationType,
-                    partition = partition,
-                    reps = reps,
-                    validationPct = validationPct)
+  partition <- list(
+    cvMethod = cvMethods$RANDOM, validationType = validationType,
+    holdoutPct = holdoutPct
+  )
+  ValidatePartition(
+    validationType = validationType,
+    partition = partition,
+    reps = reps,
+    validationPct = validationPct
+  )
 }
 
 
@@ -107,12 +126,16 @@ CreateRandomPartition <- function(validationType, holdoutPct, reps = NULL,
 #' @export
 CreateStratifiedPartition <- function(validationType, holdoutPct, reps = NULL,
                                       validationPct = NULL) {
-  partition <- list(cvMethod = cvMethods$STRATIFIED, validationType = validationType,
-                    holdoutPct = holdoutPct)
-  ValidatePartition(validationType = validationType,
-                    partition = partition,
-                    reps = reps,
-                    validationPct = validationPct)
+  partition <- list(
+    cvMethod = cvMethods$STRATIFIED, validationType = validationType,
+    holdoutPct = holdoutPct
+  )
+  ValidatePartition(
+    validationType = validationType,
+    partition = partition,
+    reps = reps,
+    validationPct = validationPct
+  )
 }
 
 #' Create a class partition object for use in the SetTarget function representing a
@@ -165,8 +188,10 @@ CreateUserPartition <- function(validationType, userPartitionCol,
   if (!is.character(userPartitionCol)) {
     stop("Please specify partition column name as a character string")
   }
-  partition <- list(cvMethod = cvMethods$USER, validationType = validationType,
-                    userPartitionCol = userPartitionCol)
+  partition <- list(
+    cvMethod = cvMethods$USER, validationType = validationType,
+    userPartitionCol = userPartitionCol
+  )
   if (validationType == "CV") {
     if (is.null(cvHoldoutLevel)) {
       partition$cvHoldoutLevel <- NA
@@ -216,24 +241,30 @@ CreateUserPartition <- function(validationType, userPartitionCol,
 #' @examples
 #' zeroDayDuration <- ConstructDurationString()
 #' hundredDayDuration <- ConstructDurationString(days = 100)
-#' CreateBacktestSpecification(index = 0,
-#'                             gapDuration = zeroDayDuration,
-#'                             validationStartDate = "1989-12-01",
-#'                             validationDuration = hundredDayDuration)
+#' CreateBacktestSpecification(
+#'   index = 0,
+#'   gapDuration = zeroDayDuration,
+#'   validationStartDate = "1989-12-01",
+#'   validationDuration = hundredDayDuration
+#' )
 #' @export
 CreateBacktestSpecification <- function(index, gapDuration, validationStartDate,
                                         validationDuration) {
-  backtestSpec <- list(index = index, gapDuration = gapDuration,
-                       validationStartDate = validationStartDate,
-                       validationDuration = validationDuration)
+  backtestSpec <- list(
+    index = index, gapDuration = gapDuration,
+    validationStartDate = validationStartDate,
+    validationDuration = validationDuration
+  )
   return(backtestSpec)
 }
 
 as.dataRobotBacktestSpecification <- function(inList) {
-  elements <- c("index",
-                "gapDuration",
-                "validationStartDate",
-                "validationDuration")
+  elements <- c(
+    "index",
+    "gapDuration",
+    "validationStartDate",
+    "validationDuration"
+  )
   outList <- ApplySchema(inList, elements)
   return(outList)
 }
@@ -259,11 +290,13 @@ as.dataRobotBacktestSpecification <- function(inList) {
 ConstructDurationString <- function(years = 0, months = 0, days = 0,
                                     hours = 0, minutes = 0, seconds = 0) {
   return(paste("P", years, "Y",
-               months, "M",
-               days, "DT",
-               hours, "H",
-               minutes, "M",
-               seconds, "S", sep = ""))
+    months, "M",
+    days, "DT",
+    hours, "H",
+    minutes, "M",
+    seconds, "S",
+    sep = ""
+  ))
 }
 
 #' Create a list describing datetime partition parameters
@@ -356,18 +389,31 @@ ConstructDurationString <- function(years = 0, months = 0, days = 0,
 #' @examples
 #' CreateDatetimePartitionSpecification("date_col")
 #' CreateDatetimePartitionSpecification("date",
-#'                                      featureSettings = list(
-#'                                        list("featureName" = "Product_offers",
-#'                                             "defaultToKnownInAdvance" = TRUE)))
+#'   featureSettings = list(
+#'     list(
+#'       "featureName" = "Product_offers",
+#'       "defaultToKnownInAdvance" = TRUE
+#'     )
+#'   )
+#' )
 #' partition <- CreateDatetimePartitionSpecification("dateColumn",
-#'                                                 treatAsExponential = TreatAsExponential$Always,
-#'                                                 differencingMethod = DifferencingMethod$Seasonal,
-#'                                                 periodicities = list(list("timeSteps" = 10,
-#'                                                                           "timeUnit" = "HOUR"),
-#'                                                                      list("timeSteps" = 600,
-#'                                                                           "timeUnit" = "MINUTE"),
-#'                                                                      list("timeSteps" = 7,
-#'                                                                           "timeUnit" = "DAY")))
+#'   treatAsExponential = TreatAsExponential$Always,
+#'   differencingMethod = DifferencingMethod$Seasonal,
+#'   periodicities = list(
+#'     list(
+#'       "timeSteps" = 10,
+#'       "timeUnit" = "HOUR"
+#'     ),
+#'     list(
+#'       "timeSteps" = 600,
+#'       "timeUnit" = "MINUTE"
+#'     ),
+#'     list(
+#'       "timeSteps" = 7,
+#'       "timeUnit" = "DAY"
+#'     )
+#'   )
+#' )
 #' @export
 CreateDatetimePartitionSpecification <- function(datetimePartitionColumn,
                                                  autopilotDataSelectionMethod = NULL,
@@ -433,33 +479,35 @@ CreateDatetimePartitionSpecification <- function(datetimePartitionColumn,
 }
 
 as.dataRobotDatetimePartitionSpecification <- function(inList) {
-  elements <- c("cvMethod",
-                "datetimePartitionColumn",
-                "autopilotDataSelectionMethod",
-                "validationDuration",
-                "holdoutStartDate",
-                "holdoutDuration",
-                "disableHoldout",
-                "gapDuration",
-                "numberOfBacktests",
-                "backtests",
-                "useTimeSeries",
-                "defaultToKnownInAdvance",
-                "featureDerivationWindowStart",
-                "featureDerivationWindowEnd",
-                "featureSettings",
-                "treatAsExponential",
-                "differencingMethod",
-                "windowsBasisUnit",
-                "periodicities",
-                "forecastWindowStart",
-                "forecastWindowEnd",
-                "multiseriesIdColumns",
-                "numberOfKnownInAdvanceFeatures",
-                "useCrossSeriesFeatures",
-                "aggregationType",
-                "calendarId",
-                "crossSeriesGroupByColumns")
+  elements <- c(
+    "cvMethod",
+    "datetimePartitionColumn",
+    "autopilotDataSelectionMethod",
+    "validationDuration",
+    "holdoutStartDate",
+    "holdoutDuration",
+    "disableHoldout",
+    "gapDuration",
+    "numberOfBacktests",
+    "backtests",
+    "useTimeSeries",
+    "defaultToKnownInAdvance",
+    "featureDerivationWindowStart",
+    "featureDerivationWindowEnd",
+    "featureSettings",
+    "treatAsExponential",
+    "differencingMethod",
+    "windowsBasisUnit",
+    "periodicities",
+    "forecastWindowStart",
+    "forecastWindowEnd",
+    "multiseriesIdColumns",
+    "numberOfKnownInAdvanceFeatures",
+    "useCrossSeriesFeatures",
+    "aggregationType",
+    "calendarId",
+    "crossSeriesGroupByColumns"
+  )
   outList <- ApplySchema(inList, elements)
   featureSettings <- c("featureName", "knownInAdvance", "doNotDerive")
   if (!is.null(outList$featureSettings) && !is.null(names(outList$featureSettings))) {
@@ -468,14 +516,13 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
   outList$featureSettings <- lapply(outList$featureSettings, ApplySchema, featureSettings)
   if (!is.null(outList$backtests)) {
     if (is.list(outList$backtests)) {
-    outList$backtests <- lapply(outList$backtests, as.dataRobotBacktestSpecification)
+      outList$backtests <- lapply(outList$backtests, as.dataRobotBacktestSpecification)
     } else if (is.data.frame(outList$backtests)) {
       outList$backtests <- as.dataRobotBacktestSpecification(outList$backtests)
     }
   }
   outList
 }
-
 
 #' Preview the full partitioning determined by a DatetimePartitioningSpecification
 #'
@@ -523,8 +570,7 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
 #'   \item gapDuration character. The duration of the gap between training and holdout
 #'     scoring data.
 #'   \item gapRowCount integer. The number of rows in the gap between training and holdout scoring
-#'     data.
-#'   Only available when retrieving the partitioning after setting the target.
+#'     data. Only available when retrieving the partitioning after setting the target.
 #'   \item gapEndDate character. The end date of the gap between training and holdout scoring
 #'     data.
 #'   \item holdoutStartDate character. The start date of holdout scoring data.
@@ -533,11 +579,11 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
 #'     Only available when retrieving the partitioning after setting the target.
 #'   \item holdoutEndDate character. The end date of the holdout scoring data.
 #'   \item numberOfBacktests integer. the number of backtests used.
-#'   \item backtests data.frame. A data frame of partition backtest. Each element represent one
+#'   \item backtests data.frame. A data frame of partition backtests. Each element represents one
 #'     backtest and has the following components:
 #'     index, availableTrainingStartDate, availableTrainingDuration, availableTrainingRowCount,
 #'     availableTrainingEndDate, primaryTrainingStartDate, primaryTrainingDuration,
-#'     primaryTrainingRowCount, primaryTrainingEndDate, gapStartDate,  gapDuration, gapRowCount,
+#'     primaryTrainingRowCount, primaryTrainingEndDate, gapStartDate, gapDuration, gapRowCount,
 #'     gapEndDate, validationStartDate, validationDuration, validationRowCount,
 #'     validationEndDate, totalRowCount.
 #'   \item useTimeSeries logical. Whether the project is a time series project (if TRUE) or an OTV
@@ -571,14 +617,14 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
 #'         only. Defaults to \code{FALSE}.
 #'     }
 #'   \item treatAsExponential character. Specifies whether to treat data as exponential trend
-#'     and apply transformations like log-transform. Uses values from from
+#'     and apply transformations like log-transform. Uses values from
 #'     \code{TreatAsExponential}.
 #'   \item differencingMethod character. Used to specify differencing method to apply if data is
 #'     stationary. Use values from \code{DifferencingMethod}.
 #'   \item windowsBasisUnit character. Indicates which unit is the basis for the feature derivation
 #'    window and forecast window. Uses values from \code{TimeUnit} and the value "ROW".
 #'   \item periodicities list. A list of periodicities for different times, specified as a list of
-#'    lists, where each list item specifies the `timeSteps` for a particular `timeUnit`. Will be
+#'    lists, where each list item specifies the \code{timeSteps} for a particular \code{timeUnit}. Will be
 #'     "ROW" if \code{windowsBasisUnit} is "ROW".
 #'   \item totalRowCount integer. The number of rows in the project dataset. Only available when
 #'     retrieving the partitioning after setting the target. Thus it will be NULL for
@@ -600,6 +646,7 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
 #' }
 #' @export
 GenerateDatetimePartition <- function(project, spec) {
+  # DSX-2132 rewrite this to use apicore call directly
   projectId <- ValidateProject(project)
   spec$cvMethod <- NULL
   routeString <- UrlJoin("projects", projectId, "datetimePartitioning")
@@ -608,84 +655,66 @@ GenerateDatetimePartition <- function(project, spec) {
   as.dataRobotDatetimePartition(postResponse)
 }
 
-
-#' Retrieve the DatetimePartitioning from a project
-#'
-#' Only available if the project has already set the target as a datetime project.
-#'
-#' @inheritParams DeleteProject
-#' @inherit GenerateDatetimePartition return
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   GetDatetimePartition(projectId)
-#' }
-#' @export
-GetDatetimePartition <- function(project) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "datetimePartitioning")
-  part <- DataRobotGET(routeString)
-  part$cvMethod <- cvMethods$DATETIME
-  as.dataRobotDatetimePartition(part)
-}
-
-
 as.dataRobotDatetimePartition <- function(inList) {
-  elements <- c("cvMethod",
-                "projectId",
-                "datetimePartitionColumn",
-                "dateFormat",
-                "autopilotDataSelectionMethod",
-                "validationDuration",
-                "availableTrainingStartDate",
-                "availableTrainingDuration",
-                "availableTrainingRowCount",
-                "availableTrainingEndDate",
-                "primaryTrainingStartDate",
-                "primaryTrainingDuration",
-                "primaryTrainingRowCount",
-                "primaryTrainingEndDate",
-                "gapStartDate",
-                "gapDuration",
-                "gapRowCount",
-                "gapEndDate",
-                "holdoutStartDate",
-                "holdoutDuration",
-                "holdoutRowCount",
-                "holdoutEndDate",
-                "numberOfBacktests",
-                "backtests",
-                "useTimeSeries",
-                "defaultToKnownInAdvance",
-                "featureDerivationWindowStart",
-                "featureDerivationWindowEnd",
-                "forecastWindowStart",
-                "forecastWindowEnd",
-                "featureSettings",
-                "treatAsExponential",
-                "differencingMethod",
-                "windowsBasisUnit",
-                "periodicities",
-                "totalRowCount",
-                "validationRowCount",
-                "multiseriesIdColumns",
-                "numberOfKnownInAdvanceFeatures",
-                "useCrossSeriesFeatures",
-                "aggregationType",
-                "calendarId")
+  elements <- c(
+    "cvMethod",
+    "projectId",
+    "datetimePartitionColumn",
+    "dateFormat",
+    "autopilotDataSelectionMethod",
+    "validationDuration",
+    "availableTrainingStartDate",
+    "availableTrainingDuration",
+    "availableTrainingRowCount",
+    "availableTrainingEndDate",
+    "primaryTrainingStartDate",
+    "primaryTrainingDuration",
+    "primaryTrainingRowCount",
+    "primaryTrainingEndDate",
+    "gapStartDate",
+    "gapDuration",
+    "gapRowCount",
+    "gapEndDate",
+    "holdoutStartDate",
+    "holdoutDuration",
+    "holdoutRowCount",
+    "holdoutEndDate",
+    "numberOfBacktests",
+    "backtests",
+    "useTimeSeries",
+    "defaultToKnownInAdvance",
+    "featureDerivationWindowStart",
+    "featureDerivationWindowEnd",
+    "forecastWindowStart",
+    "forecastWindowEnd",
+    "featureSettings",
+    "treatAsExponential",
+    "differencingMethod",
+    "windowsBasisUnit",
+    "periodicities",
+    "totalRowCount",
+    "validationRowCount",
+    "multiseriesIdColumns",
+    "numberOfKnownInAdvanceFeatures",
+    "useCrossSeriesFeatures",
+    "aggregationType",
+    "calendarId"
+  )
   outList <- ApplySchema(inList, elements)
   if (!is.null(outList$featureSettings) && !is.null(names(outList$featureSettings))) {
     outList$featureSettings <- list(outList$featureSettings)
   }
   featureSettings <- c("featureName", "knownInAdvance", "doNotDerive")
   outList$featureSettings <- lapply(outList$featureSettings, ApplySchema, featureSettings)
-  backtestElements <- c("index", "validationRowCount", "primaryTrainingDuration",
-                        "primaryTrainingEndDate", "availableTrainingStartDate",
-                        "primaryTrainingStartDate", "validationEndDate",
-                        "availableTrainingDuration", "availableTrainingRowCount",
-                        "gapEndDate", "validationDuration", "gapStartDate",
-                        "availableTrainingEndDate", "primaryTrainingRowCount",
-                        "validationStartDate", "totalRowCount", "gapRowCount", "gapDuration")
+  backtestElements <- c(
+    "index", "validationRowCount", "primaryTrainingDuration",
+    "primaryTrainingEndDate", "availableTrainingStartDate",
+    "primaryTrainingStartDate", "validationEndDate",
+    "availableTrainingDuration", "availableTrainingRowCount",
+    "gapEndDate", "validationDuration", "gapStartDate",
+    "availableTrainingEndDate", "primaryTrainingRowCount",
+    "validationStartDate", "totalRowCount", "gapRowCount", "gapDuration"
+  )
   outList$backtests <- ApplySchema(outList$backtests, backtestElements)
   outList$isTimeSeries <- isTRUE(outList$useTimeSeries)
   outList$isMultiSeries <- length(outList$multiseriesIdColumns) > 0

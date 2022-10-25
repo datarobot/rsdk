@@ -1,0 +1,23 @@
+$baseline
+  sampleSize start  end Gamma Deviance
+1      12956  <NA> <NA>       2.346581
+
+$buckets
+  sampleSize Gamma Deviance               start                 end
+1          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+2          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+3          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+4          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+5          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+6          0             NA 2021-01-19 04:00:00 2021-01-20 04:00:00
+7      12096       2.338879 2021-01-19 04:00:00 2021-01-20 04:00:00
+
+$summary
+  sampleSize      start        end Gamma Deviance
+1      12096 2021-01-19 2021-01-26       2.338879
+
+$modelId
+[1] "model-id0000000000000000"
+
+attr(,"class")
+[1] "deploymentAccuracyOverTime"

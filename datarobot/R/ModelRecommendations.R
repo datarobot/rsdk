@@ -1,31 +1,11 @@
-#' Retrieve information about model recommendation made by DataRobot for your project.
-#'
-#' DataRobot will help pick out a few models from your project that meet certain criteria,
-#' such as being the most accurate model or being a model that captures a good blend of both
-#' prediction speed and model accuracy.
-#'
-#' @inheritParams DeleteProject
-#' @return A list containing information about each recommendation made by DataRobot, containing:
-#' \itemize{
-#'   \item modelId character. The model ID of the recommended model.
-#'   \item projectId character. The project ID of the project the recommendations were made for.
-#'   \item recommendationType character. The type of recommendation being made.
-#' }
-#' @examples
-#' \dontrun{
-#'  projectId <- "5984b4d7100d2b31c1166529"
-#'  ListModelRecommendations(projectId)
-#' }
-#' @export
-ListModelRecommendations <- function(project) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "recommendedModels")
-  modelRecommendations <- DataRobotGET(routeString, simplifyDataFrame = FALSE)
-  modelRecommendations <- lapply(modelRecommendations, as.dataRobotModelRecommendation)
-  class(modelRecommendations) <- c("listOfModelRecommendations", "listSubclass")
-  modelRecommendations
-}
-
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 
 #' Retrieve a model recommendation from DataRobot for your project.
 #'
@@ -50,8 +30,8 @@ ListModelRecommendations <- function(project) {
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "5984b4d7100d2b31c1166529"
-#'   GetModelRecommendation(projectId)
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' GetModelRecommendation(projectId)
 #' }
 #' @export
 GetModelRecommendation <- function(project, type = RecommendedModelType$FastAccurate) {
@@ -66,10 +46,7 @@ GetModelRecommendation <- function(project, type = RecommendedModelType$FastAccu
 }
 
 as.dataRobotModelRecommendation <- function(inList) {
-  elements <- c("projectId",
-                "recommendationType",
-                "modelId")
-  outList <- ApplySchema(inList, elements)
+  outList <- inList
   class(outList) <- "dataRobotModelRecommendation"
   outList
 }
@@ -86,8 +63,8 @@ as.dataRobotModelRecommendation <- function(inList) {
 #' @return The model object corresponding with that recommendation
 #' @examples
 #' \dontrun{
-#'  projectId <- "5984b4d7100d2b31c1166529"
-#'  GetRecommendedModel(projectId)
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' GetRecommendedModel(projectId)
 #' }
 #' @export
 GetRecommendedModel <- function(project, type = RecommendedModelType$FastAccurate) {

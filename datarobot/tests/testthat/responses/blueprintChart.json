@@ -1,0 +1,22 @@
+{
+    "nodes":[
+	{
+	"id": "0",
+	"label": "Data"
+	},
+	{
+	"id": "-1",
+	"label": "Regularized Linear Model Preprocessing v12"
+	},
+	{
+	"id": "1",
+	"label": "Support Vector Classifier (Radial Kernel)"
+	},
+	{
+	"id": "2",
+	"label": "Prediction"
+	}
+	],
+    "edges":[["0","-1"],["-1","1"],["1","2"]]
+}
+

@@ -23,12 +23,12 @@ DataRobot default selections.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  myXGBModel <- GetModel(projectId, modelId)
-  RunTune <- StartTuningSession(myXGBModel)
-  tuningJob <- RunTune(myXGBModel, colsample_bytree = 0.4, colsample_bylevel = 0.8)
-  tunedModel <- GetModelFromJobId(projectId, tuningJob)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+myXGBModel <- GetModel(projectId, modelId)
+RunTune <- StartTuningSession(myXGBModel)
+tuningJob <- RunTune(myXGBModel, colsample_bytree = 0.4, colsample_bylevel = 0.8)
+tunedModel <- GetModelFromJobId(projectId, tuningJob)
 }
 }
 \seealso{

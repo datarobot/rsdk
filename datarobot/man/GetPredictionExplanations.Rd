@@ -92,11 +92,11 @@ A streamlined workflow to both generate and retrieve prediction explanations for
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  datasets <- ListPredictionDatasets(projectId)
-  dataset <- datasets[[1]]
-  model <- GetModel(projectId, modelId)
-  GetPredictionExplanations(model, dataset)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+datasets <- ListPredictionDatasets(projectId)
+dataset <- datasets[[1]]
+model <- GetModel(projectId, modelId)
+GetPredictionExplanations(model, dataset)
 }
 }

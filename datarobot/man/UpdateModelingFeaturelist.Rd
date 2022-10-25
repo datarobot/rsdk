@@ -9,9 +9,6 @@ UpdateModelingFeaturelist(featurelist, listName = NULL, description = NULL)
 \arguments{
 \item{featurelist}{list. The modeling featurelist to delete.}
 
-\item{listName}{character. String identifying the new featurelist
-to be created.}
-
 \item{description}{character. A user-friendly description to give a featurelist.}
 }
 \description{

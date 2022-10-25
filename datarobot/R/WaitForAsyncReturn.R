@@ -1,13 +1,26 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 WaitForAsyncReturn <- function(routeString, maxWait = 600, addUrl = TRUE, failureStatuses = c()) {
-  rawStatusInfo <- httr::with_config(httr::config(followlocation = FALSE),
-                                     WaitFor303(routeString, maxWait, addUrl, failureStatuses))
+  rawStatusInfo <- httr::with_config(
+    httr::config(followlocation = FALSE),
+    WaitFor303(routeString, maxWait, addUrl, failureStatuses)
+  )
   asyncLocation <- GetRedirectFromResponse(rawStatusInfo)
   tryCatch(DataRobotGET(asyncLocation, addUrl = FALSE, timeout = maxWait),
-           error = function(e) {
-             if (grepl("Expected JSON, received", e)) {  # Allow JSON parse errors
-               NULL                                      # (happens when awaiting download jobs)
-             } else { stop(e) }
-           })
+    error = function(e) {
+      if (grepl("Expected JSON, received", e)) { # Allow JSON parse errors
+        NULL # (happens when awaiting download jobs)
+      } else {
+        stop(e)
+      }
+    }
+  )
 }
 
 
@@ -22,8 +35,10 @@ WaitFor303 <- function(routeString, maxWait, addUrl = TRUE, failureStatuses) {
       return(rawResponse)
     } else if (statusCode == 200) {
       if (parsedResponse$status %in% failureStatuses) {
-        Raise(Exceptions$PendingJobFailed(paste("\n", "status:", parsedResponse$status,
-                                                "\n", "message:", parsedResponse$message)))
+        Raise(Exceptions$PendingJobFailed(paste(
+          "\n", "status:", parsedResponse$status,
+          "\n", "message:", parsedResponse$message
+        )))
       }
     } else {
       stop(sprintf("Unexpected status code %d.", statusCode))

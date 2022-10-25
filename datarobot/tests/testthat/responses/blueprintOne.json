@@ -1,0 +1,18 @@
+{
+    "projectId": "579a35dea07c9627b919c8b3",
+    "blueprintCategory": "DataRobot",
+    "modelType": "Support Vector Classifier (Radial Kernel)",
+    "blueprintId": "579a35dea07c9627b919c8b3",
+    "processes":[
+               "One-Hot Encoding",
+                "Missing Values Imputed",
+                "Ridit Transform",
+                "Support Vector Classifier (Radial Kernel)"
+              ],
+    "supportsMonotonicConstraints": [false],
+    "monotonicIncreasingFeaturelistId": {},
+    "id": ["a7d7f670ac32056e803ae4b6ca2d8116"],
+    "monotonicDecreasingFeaturelistId": {},
+    "recommendedFeaturelistId": "12345"
+}
+

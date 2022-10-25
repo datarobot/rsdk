@@ -97,7 +97,7 @@ and selectRecords parameters.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  plot(ListModels(projectId))
+projectId <- "59a5af20c80891534e3c2bde"
+plot(ListModels(projectId))
 }
 }

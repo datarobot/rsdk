@@ -50,33 +50,33 @@ projectSummaryList.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  summary(model)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+summary(model)
 }
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  project <- GetProject(projectId)
-  summary(project)
+projectId <- "59a5af20c80891534e3c2bde"
+project <- GetProject(projectId)
+summary(project)
 }
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  blueprints <- ListBlueprints(projectId)
-  summary(blueprints)
+projectId <- "59a5af20c80891534e3c2bde"
+blueprints <- ListBlueprints(projectId)
+summary(blueprints)
 }
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
-  summary(featureList)
+projectId <- "59a5af20c80891534e3c2bde"
+featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
+summary(featureList)
 }
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  models <- ListModels(projectId)
-  summary(models)
+projectId <- "59a5af20c80891534e3c2bde"
+models <- ListModels(projectId)
+summary(models)
 }
 \dontrun{
-  projectSummary <- ListProjects()
-  summary(projectSummary)
+projectSummary <- ListProjects()
+summary(projectSummary)
 }
 }

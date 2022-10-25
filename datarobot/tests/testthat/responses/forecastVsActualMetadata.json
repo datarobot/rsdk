@@ -1,0 +1,123 @@
+{
+    "holdoutStatuses": {
+        "training": {
+            "errored": [
+                2,
+                3
+            ],
+            "completed": [
+                4,
+                5,
+                6
+            ],
+            "notCompleted": [
+                1,
+                7
+            ]
+        },
+        "validation": {
+            "completed": [
+                6
+            ],
+            "notCompleted": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+            ]
+        }
+    },
+    "holdoutMetadata": {
+        "training": {
+            "startDate": "2013-01-02T00:00:00.000000Z",
+            "endDate": "2014-04-04T00:00:00.000000Z"
+        },
+        "validation": {
+            "startDate": "2014-04-09T00:00:00.000000Z",
+            "endDate": "2014-06-15T00:00:00.000000Z"
+        }
+    },
+    "resolutions": [
+        "days",
+        "weeks",
+        "months",
+        "quarters",
+        "years"
+    ],
+    "backtestMetadata": [
+        {
+            "training": {
+                "startDate": "2012-10-25T00:00:00.000000Z",
+                "endDate": "2014-01-27T00:00:00.000000Z"
+            },
+            "validation": {
+                "startDate": "2014-02-01T00:00:00.000000Z",
+                "endDate": "2014-04-09T00:00:00.000000Z"
+            }
+        },
+        {
+            "training": {
+                "startDate": null,
+                "endDate": null
+            },
+            "validation": {
+                "startDate": null,
+                "endDate": null
+            }
+        }
+    ],
+    "backtestStatuses": [
+        {
+            "training": {
+                "completed": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ]
+            },
+            "validation": {
+                "completed": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ]
+            }
+        },
+        {
+            "training": {
+                "notCompleted": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "inProgress": [
+                    5,
+                    6,
+                    7
+                ]
+            },
+            "validation": {
+                "notCompleted": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                ]
+            }
+        }
+    ]
+}

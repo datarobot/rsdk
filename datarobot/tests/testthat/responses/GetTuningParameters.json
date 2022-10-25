@@ -1,0 +1,368 @@
+{
+  "tuningDescription": {},
+  "tuningParameters": [
+    {
+      "currentValue": ["None"],
+      "defaultValue": ["None"],
+      "parameterId": ["eyJhcmciOiJjYXJkX21heCIsInZpZCI6IjQifQ"],
+      "parameterName": ["card_max"],
+      "taskName": ["ORDCAT2"],
+      "constraints": {
+        "int": {
+          "max": [9999999],
+          "supportsGridSearch": [false],
+          "min": [1]
+        },
+        "select": {
+          "values": [
+            ["None"]
+          ]
+        }
+      }
+    },
+    {
+      "currentValue": ["freq"],
+      "defaultValue": ["freq"],
+      "parameterId": ["eyJhcmciOiJtZXRob2QiLCJ2aWQiOiI0In0"],
+      "parameterName": ["method"],
+      "taskName": ["ORDCAT2"],
+      "constraints": {
+        "select": {
+          "values": [
+            ["None"],
+            ["random"],
+            ["lex"],
+            ["freq"],
+            ["resp"]
+          ]
+        }
+      }
+    },
+    {
+      "currentValue": [5],
+      "defaultValue": [5],
+      "parameterId": ["eyJhcmciOiJtaW5fc3VwcG9ydCIsInZpZCI6IjQifQ"],
+      "parameterName": ["min_support"],
+      "taskName": ["ORDCAT2"],
+      "constraints": {
+        "int": {
+          "max": [99999],
+          "supportsGridSearch": [false],
+          "min": [1]
+        }
+      }
+    },
+    {
+      "currentValue": [-9999],
+      "defaultValue": [-9999],
+      "parameterId": ["eyJhcmciOiJhcmJpbXAiLCJ2aWQiOiI1In0"],
+      "parameterName": ["arbimp"],
+      "taskName": ["PNIA3"],
+      "constraints": {
+        "int": {
+          "max": [99999],
+          "supportsGridSearch": [false],
+          "min": [-99999]
+        }
+      }
+    },
+    {
+      "currentValue": [5],
+      "defaultValue": [5],
+      "parameterId": ["eyJhcmciOiJtaW5fY291bnRfbmEiLCJ2aWQiOiI1In0"],
+      "parameterName": ["min_count_na"],
+      "taskName": ["PNIA3"],
+      "constraints": {
+        "int": {
+          "max": [99999],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": ["False"],
+      "defaultValue": ["False"],
+      "parameterId": ["eyJhcmciOiJiYXNlX21hcmdpbl9pbml0aWFsaXplIiwidmlkIjoiNiJ9"],
+      "parameterName": ["base_margin_initialize"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "select": {
+          "values": [
+            ["False"],
+            ["True"]
+          ]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJjb2xzYW1wbGVfYnlsZXZlbCIsInZpZCI6IjYifQ"],
+      "parameterName": ["colsample_bylevel"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1],
+          "supportsGridSearch": [false],
+          "min": [0.1]
+        }
+      }
+    },
+    {
+      "currentValue": [0.3],
+      "defaultValue": [0.3],
+      "parameterId": ["eyJhcmciOiJjb2xzYW1wbGVfYnl0cmVlIiwidmlkIjoiNiJ9"],
+      "parameterName": ["colsample_bytree"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1],
+          "supportsGridSearch": [false],
+          "min": [0.03]
+        }
+      }
+    },
+    {
+      "currentValue": [10],
+      "defaultValue": [10],
+      "parameterId": ["eyJhcmciOiJpbnRlcnZhbCIsInZpZCI6IjYifQ"],
+      "parameterName": ["interval"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [500],
+          "supportsGridSearch": [false],
+          "min": [2]
+        }
+      }
+    },
+    {
+      "currentValue": [0.05],
+      "defaultValue": [0.05],
+      "parameterId": ["eyJhcmciOiJsZWFybmluZ19yYXRlIiwidmlkIjoiNiJ9"],
+      "parameterName": ["learning_rate"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1],
+          "supportsGridSearch": [false],
+          "min": [0.0005]
+        }
+      }
+    },
+    {
+      "currentValue": [256],
+      "defaultValue": [256],
+      "parameterId": ["eyJhcmciOiJtYXhfYmluIiwidmlkIjoiNiJ9"],
+      "parameterName": ["max_bin"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [2048],
+          "supportsGridSearch": [false],
+          "min": [16]
+        }
+      }
+    },
+    {
+      "currentValue": [0],
+      "defaultValue": [0],
+      "parameterId": ["eyJhcmciOiJtYXhfZGVsdGFfc3RlcCIsInZpZCI6IjYifQ"],
+      "parameterName": ["max_delta_step"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [100],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": ["[3, 5, 7]"],
+      "defaultValue": [7],
+      "parameterId": ["eyJhcmciOiJtYXhfZGVwdGgiLCJ2aWQiOiI2In0"],
+      "parameterName": ["max_depth"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [16],
+          "supportsGridSearch": [false],
+          "min": [1]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJtaW5fY2hpbGRfd2VpZ2h0IiwidmlkIjoiNiJ9"],
+      "parameterName": ["min_child_weight"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [100000],
+          "supportsGridSearch": [false],
+          "min": [0.01]
+        }
+      }
+    },
+    {
+      "currentValue": [0.01],
+      "defaultValue": [0.01],
+      "parameterId": ["eyJhcmciOiJtaW5fc3BsaXRfbG9zcyIsInZpZCI6IjYifQ"],
+      "parameterName": ["min_split_loss"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": [0],
+      "defaultValue": [0],
+      "parameterId": ["eyJhcmciOiJtaXNzaW5nX3ZhbHVlIiwidmlkIjoiNiJ9"],
+      "parameterName": ["missing_value"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [100000],
+          "supportsGridSearch": [false],
+          "min": [-100000]
+        }
+      }
+    },
+    {
+      "currentValue": [2500],
+      "defaultValue": [2500],
+      "parameterId": ["eyJhcmciOiJuX2VzdGltYXRvcnMiLCJ2aWQiOiI2In0"],
+      "parameterName": ["n_estimators"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [20000],
+          "supportsGridSearch": [false],
+          "min": [1]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJudW1fcGFyYWxsZWxfdHJlZSIsInZpZCI6IjYifQ"],
+      "parameterName": ["num_parallel_tree"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [16],
+          "supportsGridSearch": [false],
+          "min": [1]
+        }
+      }
+    },
+    {
+      "currentValue": [1234],
+      "defaultValue": [1234],
+      "parameterId": ["eyJhcmciOiJyYW5kb21fc3RhdGUiLCJ2aWQiOiI2In0"],
+      "parameterName": ["random_state"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [1000000000],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": [0],
+      "defaultValue": [0],
+      "parameterId": ["eyJhcmciOiJyZWdfYWxwaGEiLCJ2aWQiOiI2In0"],
+      "parameterName": ["reg_alpha"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1000000],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJyZWdfbGFtYmRhIiwidmlkIjoiNiJ9"],
+      "parameterName": ["reg_lambda"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1000000],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJzY2FsZV9wb3Nfd2VpZ2h0IiwidmlkIjoiNiJ9"],
+      "parameterName": ["scale_pos_weight"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1000000000],
+          "supportsGridSearch": [false],
+          "min": [0]
+        }
+      }
+    },
+    {
+      "currentValue": [200],
+      "defaultValue": [200],
+      "parameterId": ["eyJhcmciOiJzbW9vdGhfaW50ZXJ2YWwiLCJ2aWQiOiI2In0"],
+      "parameterName": ["smooth_interval"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "int": {
+          "max": [1000],
+          "supportsGridSearch": [false],
+          "min": [2]
+        }
+      }
+    },
+    {
+      "currentValue": [1],
+      "defaultValue": [1],
+      "parameterId": ["eyJhcmciOiJzdWJzYW1wbGUiLCJ2aWQiOiI2In0"],
+      "parameterName": ["subsample"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "float": {
+          "max": [1],
+          "supportsGridSearch": [false],
+          "min": [0.01]
+        }
+      }
+    },
+    {
+      "currentValue": ["hist"],
+      "defaultValue": ["hist"],
+      "parameterId": ["eyJhcmciOiJ0cmVlX21ldGhvZCIsInZpZCI6IjYifQ"],
+      "parameterName": ["tree_method"],
+      "taskName": ["eXtreme Gradient Boosted Trees Classifier with Early Stopping (Fast Feature Binning)"],
+      "constraints": {
+        "select": {
+          "values": [
+            ["auto"],
+            ["exact"],
+            ["approx"],
+            ["hist"]
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "numEvents": [5],
+  "name": ["\"calendar.csv\""],
+  "created": ["2019-10-25T08:11:11.686451Z"],
+  "multiseriesIdColumns": {},
+  "calendarStartDate": ["2018-01-01"],
+  "numEventTypes": [5],
+  "source": ["calendar.csv"],
+  "calendarEndDate": ["2018-07-04"],
+  "role": ["OWNER"],
+  "projectIds": [],
+  "Id": ["5db2ae160fb85d7a2ae78632"]
+}

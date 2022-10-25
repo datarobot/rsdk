@@ -7,56 +7,10 @@
 GetBlenderModelFromJobId(project, modelJobId, maxWait = 600)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{modelJobId}{integer. The integer returned by RequestBlender.}
 
 \item{maxWait}{integer. The maximum time (in seconds) to wait for the model job to
 complete.}
-}
-\value{
-An S3 object of class `dataRobotBlenderModel' summarizing all
-available information about the model. It is a list with the following
-components:
-\itemize{
- \item modelId. character. The unique alphanumeric blender model identifier.
- \item modelNumber. integer. The assigned model number.
- \item modelType. character. The type of model, e.g. 'AVG Blender'.
- \item modelIds. character. List of unique identifiers for the blended
-   models.
- \item blenderMethod. character. The blender method used to create this
-   model.
- \item featurelistId. character. Unique alphanumeric identifier for the
-   featurelist on which the model is based.
- \item processes. character. Components describing preprocessing; may
-   include modelType.
- \item featurelistName. character. Name of the featurelist on which
-   the model is based.
- \item blueprintId. character. The unique blueprint identifier on which the
-   model is based.
- \item samplePct. numeric. The percentage of the dataset used in training the
-   model. For projects that use datetime partitioning, this will be NA. See
-   \code{trainingRowCount} instead.
- \item trainingRowCount. integer. Number of rows of the dataset used in
-   training the model. For projects that use datetime partitioning, if
-   specified, this defines the number of rows used to train the model and
-   evaluate backtest scores; if unspecified, either \code{trainingDuration}
-   or \code{trainingStartDate} and \code{trainingEndDate} was used instead.
- \item isFrozen. logical. Was the model created with frozen tuning parameters?
- \item metrics. list. The metrics associated with this model. Each element is
-   a list with elements for each possible evaluation type (holdout,
-   validation, and crossValidation).
- \item modelCategory. character. The category of model (e.g., blend, model,
-   prime).
- \item projectId. character. Unique alphanumeric identifier for the project.
- \item projectName. character. Name of the project.
- \item projectTarget. character. The target variable predicted by all models
-   in the project.
- \item projectMetric. character. The fitting metric optimized by all project
-   models.
-}
 }
 \description{
 The function RequestBlender initiates the creation of new blender models in a

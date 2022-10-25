@@ -40,8 +40,10 @@ and the project creation time and date.
 }
 \examples{
 \dontrun{
-  SetupProjectFromHDFS(url = 'hdfs://path/to/data',
-                       port = 12345,
-                       projectName = 'dataProject')
+SetupProjectFromHDFS(
+  url = "hdfs://path/to/data",
+  port = 12345,
+  projectName = "dataProject"
+)
 }
 }

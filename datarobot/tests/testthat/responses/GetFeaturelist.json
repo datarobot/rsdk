@@ -1,0 +1,15 @@
+{
+  "description": [""],
+  "created": ["2019-05-16T05:19:38.286000Z"],
+  "projectId": ["5cdcf25fa0fa000f9ad54315"],
+  "name": ["my_featurelist"],
+  "isUserCreated": [true],
+  "numModels": [0],
+  "id": ["5cdcf2eaa0fa000facd5434a"],
+  "features": [
+    ["dates"],
+    ["groups"],
+    ["item_ids"],
+    ["num_tvh"]
+  ]
+}

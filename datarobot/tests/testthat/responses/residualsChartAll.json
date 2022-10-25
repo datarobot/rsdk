@@ -1,0 +1,64 @@
+{
+  "residuals": {
+    "validation": {
+      "residualMean": 1.234567,
+      "coefficientOfDetermination": 0.65,
+      "data": [
+        [1, 2.5, 1.5, 16],
+        [3, 4.6, 1.6, 333]
+      ],
+      "histogram": [
+        {
+          "intervalEnd": 4,
+          "intervalStart": 2,
+          "occurrences": 1
+        },
+        {
+          "intervalEnd": 6,
+          "intervalStart": 4,
+          "occurrences": 1
+        }
+      ]
+    },
+    "crossValidation": {
+      "residualMean": 1.55232,
+      "coefficientOfDetermination": 0.775,
+      "data": [
+        [51, 55.2225, 4.2225, 11],
+        [56.2, 66.9, 10.7, 31]
+      ],
+      "histogram": [
+        {
+          "intervalEnd": 60,
+          "intervalStart": 50,
+          "occurrences": 1
+        },
+        {
+          "intervalEnd": 70,
+          "intervalStart": 60,
+          "occurrences": 1
+        }
+      ]
+    },
+    "holdout": {
+      "residualMean": 3.98,
+      "coefficientOfDetermination": 0.5323,
+      "data": [
+        [33, 22.56, -10.44, 1],
+        [65, 92.25, 27.25, 16]
+      ],
+      "histogram": [
+        {
+          "intervalEnd": 60,
+          "intervalStart": 20,
+          "occurrences": 1
+        },
+        {
+          "intervalEnd": 100,
+          "intervalStart": 60,
+          "occurrences": 1
+        }
+      ]
+    }
+  }
+}

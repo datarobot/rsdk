@@ -14,8 +14,8 @@ Delete a featurelist
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
-  DeleteFeaturelist(featurelist)
+projectId <- "59a5af20c80891534e3c2bde"
+featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
+DeleteFeaturelist(featurelist)
 }
 }

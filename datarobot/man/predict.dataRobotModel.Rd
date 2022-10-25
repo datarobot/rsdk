@@ -16,12 +16,12 @@ Retrieve model predictions using R's default S3 \code{predict} method.
 }
 \examples{
 \dontrun{
-   trainIndex <- sample(nrow(iris) * 0.7)
-   trainIris <- iris[trainIndex, ]
-   testIris <- iris[-trainIndex, ]
-   project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
-   model <- GetRecommendedModel(project)
-   predictions <- predict(model, testIris)
+trainIndex <- sample(nrow(iris) * 0.7)
+trainIris <- iris[trainIndex, ]
+testIris <- iris[-trainIndex, ]
+project <- StartProject(trainIris, "iris", target = "Petal_Width", wait = TRUE)
+model <- GetRecommendedModel(project)
+predictions <- predict(model, testIris)
 }
 }
 \seealso{

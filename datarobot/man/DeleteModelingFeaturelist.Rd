@@ -14,10 +14,10 @@ Delete a modeling featurelist
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  featureList <- CreateModelingFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
-  featurelistId <- featureList$featurelistId
-  GetModelingFeaturelist(projectId, featurelistId)
-  DeleteModelingFeaturelist(projectId, featurelistId)
+projectId <- "59a5af20c80891534e3c2bde"
+featureList <- CreateModelingFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
+featurelistId <- featureList$featurelistId
+GetModelingFeaturelist(projectId, featurelistId)
+DeleteModelingFeaturelist(projectId, featurelistId)
 }
 }

@@ -17,14 +17,14 @@ Update access to a particular object.
 }
 \examples{
 \dontrun{
- dataStoreId <- "5c1303269300d900016b41a7"
- dataStore <- GetDataStore(dataStoreId)
- access <- ListSharingAccess(dataStore)
- # Remove access from the first user and grant it to foo@foo.com instead.
- access[[1]]$username <- "foo@foo.com"
- UpdateAccess(dataStore, access)
- # Change access to a Read Only role.
- access[[1]]$role <- SharingRole$ReadOnly
- UpdateAccess(dataStore, access)
+dataStoreId <- "5c1303269300d900016b41a7"
+dataStore <- GetDataStore(dataStoreId)
+access <- ListSharingAccess(dataStore)
+# Remove access from the first user and grant it to foo@foo.com instead.
+access[[1]]$username <- "foo@foo.com"
+UpdateAccess(dataStore, access)
+# Change access to a Read Only role.
+access[[1]]$role <- SharingRole$ReadOnly
+UpdateAccess(dataStore, access)
 }
 }

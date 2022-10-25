@@ -1,0 +1,21 @@
+
+{
+    "note": "bla-bla-bla",
+    "datasetName": "Titanic_train.csv",
+    "modelName": "Gradient Boosted Trees Classifier (26)",
+    "displayName": "new name",
+    "target": "Survived",
+    "projectName": "Titanic_API_1",
+    "importedByUsername": "mooo@datarobot.com",
+    "originUrl": "http://app.datarobot.com/",
+    "importedAt": "2016-10-28 19:31:46.475000",
+    "version": 1.8,
+    "projectId": "58136db4c808912fd7315104",
+    "featurelistName": "Informative Features",
+    "createdByUsername": "mooo@datarobot.com",
+    "importedById": "5278ef5a6fac65b13e8fbea2",
+    "id": "d9e9591b851944dd856a4ab8e2fe9f37",
+    "createdById" : "5278ef5a6fac65b13e8fbea2",
+    "modelId": "58136ddd68351e54afb39729"
+}
+

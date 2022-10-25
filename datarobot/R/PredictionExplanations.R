@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Request prediction explanations initialization for specified model
 #'
 #' Prediction explanations initializations are a prerequisite for computing prediction
@@ -8,22 +16,26 @@
 #' @return job Id
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   RequestPredictionExplanationsInitialization(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' RequestPredictionExplanationsInitialization(model)
 #' }
 #' @export
 RequestPredictionExplanationsInitialization <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   modelName <- validModel$modelType
-  routeString <- UrlJoin("projects", projectId, "models", modelId,
-                         "predictionExplanationsInitialization")
+  routeString <- UrlJoin(
+    "projects", projectId, "models", modelId,
+    "predictionExplanationsInitialization"
+  )
   postResponse <- DataRobotPOST(routeString, returnRawResponse = TRUE)
-  message(paste("Prediction explanations initialization requested for model", modelName,
-                "(modelId = ", modelId, ")"))
+  message(paste(
+    "Prediction explanations initialization requested for model", modelName,
+    "(modelId = ", modelId, ")"
+  ))
   JobIdFromResponse(postResponse)
 }
 
@@ -44,28 +56,21 @@ RequestPredictionExplanationsInitialization <- function(model) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   GetPredictionExplanationsInitialization(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' GetPredictionExplanationsInitialization(model)
 #' }
 #' @export
 GetPredictionExplanationsInitialization <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
-  routeString <- UrlJoin("projects", projectId, "models", modelId,
-                         "predictionExplanationsInitialization")
-  as.dataRobotPredictionExplanationsInitialization(DataRobotGET(routeString,
-                                                                simplifyDataFrame = FALSE))
-}
-
-
-as.dataRobotPredictionExplanationsInitialization <- function(inList) {
-  elements <- c("projectId",
-                "modelId",
-                "predictionExplanationsSample")
-  ApplySchema(inList, elements)
+  routeString <- UrlJoin(
+    "projects", projectId, "models", modelId,
+    "predictionExplanationsInitialization"
+  )
+  return(DataRobotGET(routeString, simplifyDataFrame = FALSE))
 }
 
 
@@ -89,21 +94,25 @@ as.dataRobotPredictionExplanationsInitialization <- function(inList) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanationsInitialization(model)
-#'   GetPredictionExplanationsInitializationFromJobId(projectId, jobId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanationsInitialization(model)
+#' GetPredictionExplanationsInitializationFromJobId(projectId, jobId)
 #' }
 #' @export
 GetPredictionExplanationsInitializationFromJobId <- function(project, jobId, maxWait = 600) {
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "jobs", jobId)
   message("Waiting for prediction explanations initialization to complete")
-  predictionExplanationDetails <- WaitForAsyncReturn(routeString, maxWait = maxWait,
-                                                     failureStatuses = JobFailureStatuses)
-  pseudoModel <- list(modelId = predictionExplanationDetails$modelId,
-                      projectId = predictionExplanationDetails$projectId)
+  predictionExplanationDetails <- WaitForAsyncReturn(routeString,
+    maxWait = maxWait,
+    failureStatuses = JobFailureStatuses
+  )
+  pseudoModel <- list(
+    modelId = predictionExplanationDetails$modelId,
+    projectId = predictionExplanationDetails$projectId
+  )
   class(pseudoModel) <- "dataRobotModel"
   GetPredictionExplanationsInitialization(pseudoModel)
 }
@@ -115,22 +124,26 @@ GetPredictionExplanationsInitializationFromJobId <- function(project, jobId, max
 #' request was successful; otherwise an error message is displayed.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   DeletePredictionExplanationsInitialization(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' DeletePredictionExplanationsInitialization(model)
 #' }
 #' @export
 DeletePredictionExplanationsInitialization <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
-  routeString <- UrlJoin("projects", projectId, "models", modelId,
-                         "predictionExplanationsInitialization")
+  routeString <- UrlJoin(
+    "projects", projectId, "models", modelId,
+    "predictionExplanationsInitialization"
+  )
   response <- DataRobotDELETE(routeString)
   modelName <- validModel$modelType
-  message(paste("Prediction explanation initialization for model", modelName,
-                "(modelId = ", modelId, ") deleted from project", projectId))
+  message(paste(
+    "Prediction explanation initialization for model", modelName,
+    "(modelId = ", modelId, ") deleted from project", projectId
+  ))
   invisible(TRUE)
 }
 
@@ -171,18 +184,18 @@ DeletePredictionExplanationsInitialization <- function(model) {
 #' @return job Id
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   RequestPredictionExplanations(model, datasetId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' RequestPredictionExplanations(model, datasetId)
 #' }
 #' @export
 RequestPredictionExplanations <- function(model, datasetId, maxExplanations = NULL,
                                           thresholdLow = NULL, thresholdHigh = NULL) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   modelName <- validModel$modelType
@@ -198,8 +211,10 @@ RequestPredictionExplanations <- function(model, datasetId, maxExplanations = NU
   }
   routeString <- UrlJoin("projects", projectId, "predictionExplanations")
   postResponse <- DataRobotPOST(routeString, body = body, returnRawResponse = TRUE)
-  message(paste("Prediction explanations requested for model", modelName,
-                "(modelId = ", modelId, ")"))
+  message(paste(
+    "Prediction explanations requested for model", modelName,
+    "(modelId = ", modelId, ")"
+  ))
   JobIdFromResponse(postResponse)
 }
 
@@ -213,125 +228,25 @@ RequestPredictionExplanations <- function(model, datasetId, maxExplanations = NU
 #'   \code{GetPredictionExplanationsMetadata}.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   GetPredictionExplanationsMetadataFromJobId(projectId, jobId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' GetPredictionExplanationsMetadataFromJobId(projectId, jobId)
 #' }
 #' @export
 GetPredictionExplanationsMetadataFromJobId <- function(project, jobId, maxWait = 600) {
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "jobs", jobId)
   message("Prediction explanations request issued: awaiting response")
-  predictionExplanationDetails <- WaitForAsyncReturn(routeString, maxWait = maxWait,
-                                          failureStatuses = JobFailureStatuses)
+  predictionExplanationDetails <- WaitForAsyncReturn(routeString,
+    maxWait = maxWait,
+    failureStatuses = JobFailureStatuses
+  )
   GetPredictionExplanationsMetadata(projectId, predictionExplanationDetails$id)
-}
-
-
-#' Retrieve metadata for specified prediction explanations
-#'
-#' @inheritParams DeleteProject
-#' @param predictionExplanationId character. Id of the prediction explanations.
-#' @return A named list which contains prediction explanation metadata:
-#' \itemize{
-#'   \item id character. ID of the record and prediction explanations computation result.
-#'   \item projectId character. ID of the project the model belongs to.
-#'   \item modelId character. ID of the model prediction explanations initialization is for.
-#'   \item datasetId character. ID of the prediction dataset prediction explanations were
-#'     computed for.
-#'   \item maxExplanations integer. Maximum number of prediction explanations to supply per row of
-#'     the dataset.
-#'   \item thresholdLow numeric. The low threshold, below which a prediction must score in order
-#'     for prediction explanations to be computed for a row in the dataset.
-#'   \item thresholdHigh numeric. The high threshold, above which a prediction must score in order
-#'     for prediction explanations to be computed for a row in the dataset.
-#'   \item numColumns integer. The number of columns prediction explanations were computed for.
-#'   \item finishTime. Numeric timestamp referencing when computation for these prediction
-#'     explanations finished.
-#'   \item predictionExplanationsLocation character. Where to retrieve the prediction
-#'     explanations.
-#' }
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-#'   GetPredictionExplanationsMetadata(projectId, predictionExplanationId)
-#' }
-#' @export
-GetPredictionExplanationsMetadata <- function(project, predictionExplanationId) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionExplanationsRecords",
-                         predictionExplanationId)
-  as.dataRobotPredictionExplanationsMetadata(DataRobotGET(routeString, simplifyDataFrame = FALSE))
-}
-
-
-as.dataRobotPredictionExplanationsMetadata <- function(inList) {
-  elements <- c("id",
-                "projectId",
-                "modelId",
-                "datasetId",
-                "maxExplanations",
-                "thresholdLow",
-                "thresholdHigh",
-                "numColumns",
-                "finishTime",
-                "predictionExplanationsLocation")
-  ApplySchema(inList, elements)
-}
-
-
-
-#' Retrieve metadata for prediction explanations in specified project
-#'
-#' @inheritParams DeleteProject
-#' @param modelId character. Optional. If specified, only prediction explanations computed
-#'   for this model will be returned.
-#' @param limit integer. Optional. At most this many results are returned, default: no limit
-#' @param offset integer. This many results will be skipped, default: 0
-#' @return List of metadata for all prediction explanations in the project.
-#'   Each element of list is metadata for one prediction explanations
-#'   (for format see \code{GetPredictionExplanationsMetadata}).
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   ListPredictionExplanationsMetadata(projectId)
-#' }
-#' @export
-ListPredictionExplanationsMetadata <- function(project, modelId = NULL, limit = NULL,
-                                               offset = NULL) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionExplanationsRecords")
-  response <- DataRobotGET(routeString, simplifyDataFrame = FALSE,
-                           body = list(modelId = modelId, limit = limit, offset = offset))
-  response <- GetServerDataInRows(response)
-  lapply(response, as.dataRobotPredictionExplanationsMetadata)
-}
-
-
-GetPredictionExplanationsPage <- function(project, predictionExplanationId, limit = NULL,
-                                          offset = 0, excludeAdjustedPredictions = TRUE) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionExplanations",
-                         predictionExplanationId)
-  excludeAdjustedPredictions <- tolower(as.character(identical(excludeAdjustedPredictions, TRUE)))
-  params <- list(offset = offset,
-                 limit = limit,
-                 excludeAdjustedPredictions = excludeAdjustedPredictions)
-  CleanServerData(DataRobotGET(routeString,
-                               simplifyDataFrame = FALSE,
-                               query = params))
 }
 
 #' Retrieve all prediction explanations rows
@@ -371,24 +286,25 @@ GetPredictionExplanationsPage <- function(project, predictionExplanationId, limi
 #'    }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-#'   GetPredictionExplanationsRows(projectId, predictionExplanationId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+#' GetPredictionExplanationsRows(projectId, predictionExplanationId)
 #' }
 #' @export
 GetPredictionExplanationsRows <- function(project, predictionExplanationId, batchSize = NULL,
                                           excludeAdjustedPredictions = TRUE) {
   page <- GetPredictionExplanationsPage(project,
-                                        predictionExplanationId,
-                                        limit = batchSize,
-                                        offset = 0,
-                                        excludeAdjustedPredictions = excludeAdjustedPredictions)
+    predictionExplanationId,
+    limit = batchSize,
+    offset = 0,
+    excludeAdjustedPredictions = excludeAdjustedPredictions
+  )
   GetServerDataInRows(page, batchSize = batchSize)
 }
 
@@ -448,28 +364,35 @@ GetPredictionExplanationsRows <- function(project, predictionExplanationId, batc
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-#'   GetPredictionExplanationsRowsAsDataFrame(projectId, predictionExplanationId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+#' GetPredictionExplanationsRowsAsDataFrame(projectId, predictionExplanationId)
 #' }
 #' @export
 GetPredictionExplanationsRowsAsDataFrame <- function(project, predictionExplanationId,
                                                      excludeAdjustedPredictions = TRUE,
                                                      batchSize = NULL) {
   explains <- GetPredictionExplanationsRows(project,
-                                            predictionExplanationId,
-                                            batchSize = batchSize,
-                                            excludeAdjustedPredictions = excludeAdjustedPredictions)
+    predictionExplanationId,
+    batchSize = batchSize,
+    excludeAdjustedPredictions = excludeAdjustedPredictions
+  )
   nExplains <- length(explains)
-  outDf <- data.frame(rowId = vapply(explains, `[[`, numeric(1), "rowId"),
-                      predictionExplanationId = rep(predictionExplanationId, nExplains))
-  predictionType <- if (is.character(explains[[1]]$prediction)) { character(1) } else { numeric(1) }
+  outDf <- data.frame(
+    rowId = vapply(explains, `[[`, numeric(1), "rowId"),
+    predictionExplanationId = rep(predictionExplanationId, nExplains)
+  )
+  predictionType <- if (is.character(explains[[1]]$prediction)) {
+    character(1)
+  } else {
+    numeric(1)
+  }
   outDf$prediction <- vapply(explains, `[[`, predictionType, "prediction")
   if (!is.null(explains[[1]]$adjustedPrediction)) {
     outDf$adjustedPrediction <- vapply(explains, `[[`, numeric(1), "adjustedPrediction")
@@ -490,7 +413,9 @@ GetPredictionExplanationsRowsAsDataFrame <- function(project, predictionExplanat
     for (m in classSequence) {
       # We can't make assumptions about the type of the label
       labels <- sapply(explains, function(x) x$predictionValues[[m]]$label)
-      if (identical(labels, list())) { labels <- character(0) }
+      if (identical(labels, list())) {
+        labels <- character(0)
+      }
       outDf[paste0("class", m, "Label")] <- labels
 
       values <- vapply(explains, function(x) x$predictionValues[[m]]$value, numeric(1))
@@ -498,47 +423,78 @@ GetPredictionExplanationsRowsAsDataFrame <- function(project, predictionExplanat
     }
   }
   if (length(explains) > 0) {
-    maxExplanations <- max(vapply(explains,
-                                  function(x) length(x$predictionExplanations),
-                                  numeric(1)))
+    maxExplanations <- max(vapply(
+      explains,
+      function(x) length(x$predictionExplanations),
+      numeric(1)
+    ))
   } else {
     maxExplanations <- 1
   }
   for (n in seq(maxExplanations)) {
     outDf[paste0("explanation", n, "FeatureName")] <-
-      vapply(explains,
-             function(x) {
-               if (length(x$predictionExplanations) > 0) {
-                 x$predictionExplanations[[n]]$feature
-               } else { "" }}, character(1))
-    featureValue <- sapply(explains,
-                             function(x) {
-                               if (length(x$predictionExplanations) > 0) {
-                                 x$predictionExplanations[[n]]$featureValue
-                               } else { "" }})
+      vapply(
+        explains,
+        function(x) {
+          if (length(x$predictionExplanations) > 0) {
+            x$predictionExplanations[[n]]$feature
+          } else {
+            ""
+          }
+        }, character(1)
+      )
+    featureValue <- sapply(
+      explains,
+      function(x) {
+        if (length(x$predictionExplanations) > 0) {
+          x$predictionExplanations[[n]]$featureValue
+        } else {
+          ""
+        }
+      }
+    )
     outDf[paste0("explanation", n, "FeatureValue")] <- if (length(featureValue) > 1) {
-                                                         featureValue
-                                                       } else { character(0) }
+      featureValue
+    } else {
+      character(0)
+    }
     outDf[paste0("explanation", n, "QualitativeStrength")] <-
-      vapply(explains,
-             function(x) {
-               if (length(x$predictionExplanations) > 0) {
-                 x$predictionExplanations[[n]]$qualitativeStrength
-               } else { "" }}, character(1))
-    strength <- sapply(explains,
-                         function(x) {
-                           if (length(x$predictionExplanations) > 0) {
-                             x$predictionExplanations[[n]]$strength
-                           } else { "" }})
+      vapply(
+        explains,
+        function(x) {
+          if (length(x$predictionExplanations) > 0) {
+            x$predictionExplanations[[n]]$qualitativeStrength
+          } else {
+            ""
+          }
+        }, character(1)
+      )
+    strength <- sapply(
+      explains,
+      function(x) {
+        if (length(x$predictionExplanations) > 0) {
+          x$predictionExplanations[[n]]$strength
+        } else {
+          ""
+        }
+      }
+    )
     outDf[paste0("explanation", n, "Strength")] <- if (length(strength) > 1) {
-                                                     strength
-                                                   } else { character(0) }
+      strength
+    } else {
+      character(0)
+    }
     outDf[paste0("explanation", n, "Label")] <-
-      vapply(explains,
-             function(x) {
-               if (length(x$predictionExplanations) > 0) {
-                 x$predictionExplanations[[n]]$label
-               } else { "" }}, character(1))
+      vapply(
+        explains,
+        function(x) {
+          if (length(x$predictionExplanations) > 0) {
+            x$predictionExplanations[[n]]$label
+          } else {
+            ""
+          }
+        }, character(1)
+      )
   }
   outDf
 }
@@ -559,19 +515,19 @@ GetPredictionExplanationsRowsAsDataFrame <- function(project, predictionExplanat
 #'   explanations for.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   model <- GetModel(projectId, modelId)
-#'   GetPredictionExplanations(model, dataset)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' model <- GetModel(projectId, modelId)
+#' GetPredictionExplanations(model, dataset)
 #' }
 #' @export
 GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
                                       thresholdLow = NULL, thresholdHigh = NULL,
                                       batchSize = NULL, maxWait = 600,
                                       excludeAdjustedPredictions = TRUE) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   projectId <- model$projectId
   if (is(dataset, "dataRobotPredictionDataset")) {
     datasetId <- dataset$id
@@ -579,7 +535,7 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
     dataset <- UploadPredictionDataset(projectId, dataset)
     datasetId <- dataset$id
   } else if (grepl(".", dataset, fixed = TRUE) ||
-             grepl("/", dataset, fixed = TRUE)) { # A URL or file
+    grepl("/", dataset, fixed = TRUE)) { # A URL or file
     dataset <- UploadPredictionDataset(projectId, dataset)
     datasetId <- dataset$id
   } else { # A datasetId
@@ -595,15 +551,18 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
   jobId <- RequestPredictionExplanationsInitialization(model)
   GetPredictionExplanationsInitializationFromJobId(projectId, jobId)
   jobId <- RequestPredictionExplanations(model, datasetId,
-                                         maxExplanations = maxExplanations,
-                                         thresholdLow = thresholdLow,
-                                         thresholdHigh = thresholdHigh)
+    maxExplanations = maxExplanations,
+    thresholdLow = thresholdLow,
+    thresholdHigh = thresholdHigh
+  )
   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId,
-                                                                        maxWait = maxWait)$id
+    maxWait = maxWait
+  )$id
   GetPredictionExplanationsRowsAsDataFrame(projectId,
-                                           predictionExplanationId,
-                                           batchSize = batchSize,
-                                           excludeAdjustedPredictions = excludeAdjustedPredictions)
+    predictionExplanationId,
+    batchSize = batchSize,
+    excludeAdjustedPredictions = excludeAdjustedPredictions
+  )
 }
 
 
@@ -617,55 +576,27 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
 #'   request was successful; otherwise an error message is displayed.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-#'   file <- file.path(tempdir(), "testPredictionExplanation.csv")
-#'   DownloadPredictionExplanations(projectId, predictionExplanationId, file)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+#' file <- file.path(tempdir(), "testPredictionExplanation.csv")
+#' DownloadPredictionExplanations(projectId, predictionExplanationId, file)
 #' }
 #' @export
 DownloadPredictionExplanations <- function(project, predictionExplanationId, filename,
                                            encoding = "UTF-8", excludeAdjustedPredictions = TRUE) {
   predictionExplanationsFrame <- GetPredictionExplanationsRowsAsDataFrame(
-                                   project,
-                                   predictionExplanationId,
-                                   excludeAdjustedPredictions = excludeAdjustedPredictions)
-  write.csv(predictionExplanationsFrame, file = filename, row.names = FALSE,
-            fileEncoding = encoding)
-}
-
-#' Function to delete prediction explanations
-#'
-#' This function deletes prediction explanations specified by project and
-#' predictionExplanationId.
-#'
-#' @inheritParams GetPredictionExplanationsMetadata
-#' @return Logical TRUE and displays a message to the user if the delete
-#' request was successful; otherwise an error message is displayed.
-#' @examples
-#' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   datasets <- ListPredictionDatasets(projectId)
-#'   dataset <- datasets[[1]]
-#'   datasetId <- dataset$id
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- RequestPredictionExplanations(model, datasetId)
-#'   predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-#'   DeletePredictionExplanations(projectId, predictionExplanationId)
-#' }
-#' @export
-DeletePredictionExplanations <- function(project, predictionExplanationId) {
-  projectId <- ValidateProject(project)
-  routeString <- UrlJoin("projects", projectId, "predictionExplanationsRecords",
-                         predictionExplanationId)
-  DataRobotDELETE(routeString)
-  message(paste("Prediction explanations ", predictionExplanationId,
-                "deleted from project", projectId))
-  invisible(TRUE)
+    project,
+    predictionExplanationId,
+    excludeAdjustedPredictions = excludeAdjustedPredictions
+  )
+  write.csv(predictionExplanationsFrame,
+    file = filename, row.names = FALSE,
+    fileEncoding = encoding
+  )
 }

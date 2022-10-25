@@ -1,0 +1,6 @@
+{
+  "warnings": [
+    "\"bad_feature\" was not generated in this project."
+  ],
+  "featuresToRestore": [ "Sales (same weekday) (21 day mean) (diff 7 day mean)"]
+}

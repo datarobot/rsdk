@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "updated": ["2018-12-14T01:09:43.586000"],
+      "creator": ["5c1302ba8cdd6dad13cc242c"],
+      "canonicalName": ["My second source 5c1302d7962d742c64ed6403"],
+      "params": {
+        "table": ["db_table"],
+        "dataStoreId": ["5c1302d79300d900016b41a5"]
+      },
+      "type": ["jdbc"],
+      "id": ["5c1302d79300d900016b41a6"]
+    }
+  ]
+}

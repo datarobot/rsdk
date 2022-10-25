@@ -39,9 +39,9 @@ Retrieve ROC curve data for a model for a particular data partition (see DataPar
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  model <- GetModel(projectId, modelId)
-  GetRocCurve(model)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+model <- GetModel(projectId, modelId)
+GetRocCurve(model)
 }
 }

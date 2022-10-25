@@ -1,0 +1,367 @@
+{
+  "featureName": "Petal_Width",
+  "metricDetails": [
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": true,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Weighted Gini Norm"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": true,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Gini Norm"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "FVE Multinomial"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Weighted FVE Multinomial"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": true,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "LogLoss"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": true,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "Weighted LogLoss"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": true,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "AUC"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": true,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Weighted AUC"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Weighted R Squared"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted RMSLE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "FVE Tweedie"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted MAPE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted Gamma Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Gamma Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "MASE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": true,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "RMSE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted MAE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Weighted FVE Gamma"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Tweedie Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "FVE Poisson"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "RMSLE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted Tweedie Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "Weighted Theil's U"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": true,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted RMSE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "FVE Gamma"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "Weighted MASE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": false,
+      "metricName": "Theil's U"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "MAPE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted Poisson Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Weighted FVE Poisson"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "R Squared"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Weighted SMAPE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "MAE"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": true,
+      "metricName": "Weighted FVE Tweedie"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "Poisson Deviance"
+    },
+    {
+      "supportsMulticlass": false,
+      "supportsTimeseries": true,
+      "supportsBinary": false,
+      "ascending": true,
+      "supportsRegression": true,
+      "metricName": "SMAPE"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Accuracy"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Weighted Balanced Accuracy"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Balanced Accuracy"
+    },
+    {
+      "supportsMulticlass": true,
+      "supportsTimeseries": false,
+      "supportsBinary": false,
+      "ascending": false,
+      "supportsRegression": false,
+      "metricName": "Weighted Accuracy"
+    }
+  ],
+  "availableMetrics": [
+    "Weighted Gini Norm",
+    "Gini Norm",
+    "FVE Multinomial",
+    "Weighted FVE Multinomial",
+    "LogLoss",
+    "Weighted LogLoss",
+    "AUC",
+    "Weighted AUC",
+    "Weighted R Squared",
+    "Weighted RMSLE",
+    "FVE Tweedie",
+    "Weighted MAPE",
+    "Weighted Gamma Deviance",
+    "Gamma Deviance",
+    "MASE",
+    "RMSE",
+    "Weighted MAE",
+    "Weighted FVE Gamma",
+    "Tweedie Deviance",
+    "FVE Poisson",
+    "RMSLE",
+    "Weighted Tweedie Deviance",
+    "Weighted Theil's U",
+    "Weighted RMSE",
+    "FVE Gamma",
+    "Weighted MASE",
+    "Theil's U",
+    "MAPE",
+    "Weighted Poisson Deviance",
+    "Weighted FVE Poisson",
+    "R Squared",
+    "Weighted SMAPE",
+    "MAE",
+    "Weighted FVE Tweedie",
+    "Poisson Deviance",
+    "SMAPE",
+    "Accuracy",
+    "Weighted Balanced Accuracy",
+    "Balanced Accuracy",
+    "Weighted Accuracy"
+  ]
+}

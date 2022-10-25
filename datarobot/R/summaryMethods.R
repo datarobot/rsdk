@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' DataRobot S3 object methods for R's generic summary function
 #'
 #' These functions extend R's generic summary function to the
@@ -22,48 +30,54 @@
 #'   modelId, blueprintId, and projectId.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   summary(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' summary(model)
 #' }
 #' @export
 summary.dataRobotModel <- function(object, ...) {
   components <- union(object$processes, object$modelType)
   expandedModel <- paste(components, collapse = "::")
-  c(modelType = object$modelType, expandedModel = expandedModel,
+  c(
+    modelType = object$modelType, expandedModel = expandedModel,
     modelId = object$modelId, blueprintId = object$blueprintId,
-    projectId = object$projectId)
+    projectId = object$projectId
+  )
 }
 
 
 #' @rdname summary.dataRobotModel
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   project <- GetProject(projectId)
-#'   summary(project)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' project <- GetProject(projectId)
+#' summary(project)
 #' }
 #' @export
 summary.dataRobotProject <- function(object, ...) {
-  c(projectName = object$projectName,
+  c(
+    projectName = object$projectName,
     projectId = object$projectId,
     created = object$created, fileName = object$fileName,
     target = object$target, targetType = object$targetType,
-    metric = object$metric)
+    metric = object$metric
+  )
 }
 
 #' @rdname summary.dataRobotModel
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   blueprints <- ListBlueprints(projectId)
-#'   summary(blueprints)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' blueprints <- ListBlueprints(projectId)
+#' summary(blueprints)
 #' }
 #' @export
 summary.listOfBlueprints <- function(object, nList = 6, ...) {
   nList <- min(nList, length(object))
-  if (nList <= 0) { return(list()) }
+  if (nList <= 0) {
+    return(list())
+  }
   #  Each element of a listOfBlueprints object has 4 components:
   #                             projectId, processes, blueprintId, and modelType
   #
@@ -85,41 +99,53 @@ summary.listOfBlueprints <- function(object, nList = 6, ...) {
     expandedModel <- paste(components, collapse = "::")
     blueprintId <- object[[i]]$blueprintId
     projectId <- object[[i]]$projectId
-    upFrame <- data.frame(projectId = projectId, modelType = modelType,
-                          expandedModel = expandedModel,
-                          blueprintId = blueprintId,
-                          stringsAsFactors = FALSE)
+    upFrame <- data.frame(
+      projectId = projectId, modelType = modelType,
+      expandedModel = expandedModel,
+      blueprintId = blueprintId,
+      stringsAsFactors = FALSE
+    )
     sumFrame <- rbind.data.frame(sumFrame, upFrame)
   }
   nBlue <- length(object)
   projectId <- object[[1]]$projectId
-  getProjectIdFunction <- function(xList) { xList$projectId }
+  getProjectIdFunction <- function(xList) {
+    xList$projectId
+  }
   nProjectId <- length(unique(unlist(lapply(object, getProjectIdFunction))))
   if (nProjectId == 1) {
-    firstElement <- paste("First", nList, "of", nBlue,
-                          "blueprints for projectId", projectId)
+    firstElement <- paste(
+      "First", nList, "of", nBlue,
+      "blueprints for projectId", projectId
+    )
     secondElement <- sumFrame[, 2:4]
   } else {
-    firstElement <- paste("First", nList, "of", nBlue,
-                          "blueprints from a mixed list of",
-                          nProjectId, "projects")
+    firstElement <- paste(
+      "First", nList, "of", nBlue,
+      "blueprints from a mixed list of",
+      nProjectId, "projects"
+    )
     secondElement <- sumFrame
   }
-  list(generalSummary = firstElement,
-       detailedSummary = secondElement)
+  list(
+    generalSummary = firstElement,
+    detailedSummary = secondElement
+  )
 }
 
 #' @rdname summary.dataRobotModel
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
-#'   summary(featureList)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
+#' summary(featureList)
 #' }
 #' @export
 summary.listOfFeaturelists <- function(object, nList = 6, ...) {
   nList <- min(nList, length(object))
-  if (nList <= 0) { return(list()) }
+  if (nList <= 0) {
+    return(list())
+  }
   #  Each element of a listOfFeaturelists object has 4 components:
   #                            featurelistId, projectId, features, and name
   #
@@ -143,64 +169,84 @@ summary.listOfFeaturelists <- function(object, nList = 6, ...) {
   }
   nf <- length(object)
   projectId <- object[[1]]$projectId
-  getProjectIdFunction <- function(xList) { xList$projectId }
+  getProjectIdFunction <- function(xList) {
+    xList$projectId
+  }
   nProjectId <- length(unique(unlist(lapply(object, getProjectIdFunction))))
   if (nProjectId == 1) {
-    firstElement <- paste("First", nList, "of", nf,
-                          "featurelists for projectId", projectId)
+    firstElement <- paste(
+      "First", nList, "of", nf,
+      "featurelists for projectId", projectId
+    )
     allNames <- colnames(sumFrame)
     keepNames <- setdiff(allNames, "projectId")
     keepCols <- which(allNames %in% keepNames)
     secondElement <- sumFrame[, keepCols]
   } else {
-    firstElement <- paste("First", nList, "of", nf,
-                          "featurelists from a mixed list of",
-                          nProjectId, "projects")
+    firstElement <- paste(
+      "First", nList, "of", nf,
+      "featurelists from a mixed list of",
+      nProjectId, "projects"
+    )
     secondElement <- sumFrame
   }
-  list(generalSummary = firstElement,
-       detailedSummary = secondElement)
+  list(
+    generalSummary = firstElement,
+    detailedSummary = secondElement
+  )
 }
 
 
 #' @rdname summary.dataRobotModel
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   models <- ListModels(projectId)
-#'   summary(models)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' models <- ListModels(projectId)
+#' summary(models)
 #' }
 #' @export
 summary.listOfModels <- function(object, nList = 6, ...) {
   nModels <- length(object)
   nList <- min(nList, nModels)
-  if (nList <= 0) { return(list()) }
+  if (nList <= 0) {
+    return(list())
+  }
   sumFrame <- as.data.frame(object, simple = TRUE)
-  firstElement <- paste("First", nList, "of", nModels, "models from:",
-                        deparse(substitute(object)),
-                        "(S3 object of class listOfModels)")
+  firstElement <- paste(
+    "First", nList, "of", nModels, "models from:",
+    deparse(substitute(object)),
+    "(S3 object of class listOfModels)"
+  )
   secondElement <- sumFrame[seq(1, nList, 1), ]
-  list(generalSummary = firstElement,
-       detailedSummary = secondElement)
+  list(
+    generalSummary = firstElement,
+    detailedSummary = secondElement
+  )
 }
 
 
 #' @rdname summary.dataRobotModel
 #' @examples
 #' \dontrun{
-#'   projectSummary <- ListProjects()
-#'   summary(projectSummary)
+#' projectSummary <- ListProjects()
+#' summary(projectSummary)
 #' }
 #' @export
 summary.projectSummaryList <- function(object, nList = 6, ...) {
   sumFrame <- as.data.frame(object, simple = TRUE)
   nProjects <- nrow(sumFrame)
   nList <- min(nList, nProjects)
-  if (nList <= 0) { return(list()) }
-  firstElement <- paste("First", nList, "of", nProjects,
-                        "projects from:", deparse(substitute(object)),
-                        "(S3 object of class projectSummaryList)")
+  if (nList <= 0) {
+    return(list())
+  }
+  firstElement <- paste(
+    "First", nList, "of", nProjects,
+    "projects from:", deparse(substitute(object)),
+    "(S3 object of class projectSummaryList)"
+  )
   secondElement <- sumFrame[seq(1, nList, 1), ]
-  list(generalSummary = firstElement,
-       detailedSummary = secondElement)
+  list(
+    generalSummary = firstElement,
+    detailedSummary = secondElement
+  )
 }

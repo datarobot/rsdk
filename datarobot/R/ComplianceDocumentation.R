@@ -1,8 +1,20 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 GetComplianceDocumentationBody <- function(templateId = NULL) {
   if (is(templateId, "dataRobotComplianceDocTemplate")) {
     templateId <- templateId$id
   }
-  if (!is.null(templateId)) { list("templateId" = templateId) } else { list() }
+  if (!is.null(templateId)) {
+    list("templateId" = templateId)
+  } else {
+    list()
+  }
 }
 
 
@@ -27,7 +39,7 @@ GetComplianceDocumentationBody <- function(templateId = NULL) {
 #' }
 #' @export
 CreateComplianceDocumentation <- function(model, templateId = NULL) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   projectId <- model$projectId
   modelId <- model$modelId
   if (is(templateId, "dataRobotComplianceDocTemplate")) {
@@ -63,7 +75,7 @@ CreateComplianceDocumentation <- function(model, templateId = NULL) {
 #' @export
 DownloadComplianceDocumentation <- function(model, filename, templateId = NULL,
                                             create = TRUE, maxWait = 600) {
-  model <- ValidateModel(model)
+  model <- ValidateAndReturnModel(model)
   projectId <- model$projectId
   modelId <- model$modelId
   if (isTRUE(create)) {
@@ -76,55 +88,24 @@ DownloadComplianceDocumentation <- function(model, filename, templateId = NULL,
   invisible(NULL)
 }
 
-
-#' Retrieve information about all compliance doc templates.
-#'
-#' @param namePart character. Return only compliance doc templates that have a name that contains
-#'   this string.
-#' @param limit integer. Return only this many compliance doc templates.
-#' @param offset integer. Skip this many compliance doc templates before returning.
-#' @return list of available compliance doc templates. Contains:
-#'  \itemize{
-#'    \item name character. The name of the compliance doc template.
-#'    \item creatorUsername character. The name of the user who created the compliance doc template.
-#'    \item orgId character. The ID of the organization of the creator user.
-#'    \item creatorId character. The ID of the creator user.
-#'    \item sections list. The list of sections that define the template.
-#'    \item id character. The ID of the template.
-#'  }
-#' @examples
-#' \dontrun{
-#'  # Get all compliance doc templates
-#'  ListComplianceDocTemplates()
-#'  Get the first three compliance doc templates with names that contain "foo".
-#'  ListComplianceDocTemplates(namePart = "foo", limit = 3)
-#' }
-#' @export
-ListComplianceDocTemplates <- function(namePart = NULL, limit = NULL, offset = NULL) {
-  query <- list()
-  query$namePart <- namePart
-  query$limit <- limit
-  query$offset <- offset
-  templates <- DataRobotGET("complianceDocTemplates", query = query, simplifyDataFrame = FALSE)
-  templates <- GetServerDataInRows(templates)
-  templates <- lapply(templates, as.dataRobotComplianceDocTemplate)
-  class(templates) <- c("listOfComplianceDocTemplates", "listSubclass")
-  templates
-}
-
-
 GetComplianceDocTemplateRoute <- function(templateId = NULL, type = NULL) {
-  type <- if (!is.null(templateId)) { templateId } else { "default" }
+  type <- if (!is.null(templateId)) {
+    templateId
+  } else {
+    "default"
+  }
   UrlJoin("complianceDocTemplates", type)
 }
 
 GetComplianceDocTemplateQuery <- function(type = NULL) {
-  if (!is.null(type)) { list("type" = type) } else { list() }
+  if (!is.null(type)) {
+    list("type" = type)
+  } else {
+    list()
+  }
 }
 
 as.dataRobotComplianceDocTemplate <- function(template) {
-  template <- ApplySchema(template,
-                          c("id", "creatorId", "creatorUsername", "orgId", "name", "sections"))
   class(template) <- "dataRobotComplianceDocTemplate"
   template
 }
@@ -165,7 +146,9 @@ GetComplianceDocTemplate <- function(templateId = NULL, type = NULL) {
   routeString <- GetComplianceDocTemplateRoute(templateId = templateId, type = type)
   query <- GetComplianceDocTemplateQuery(type)
   template <- DataRobotGET(routeString, query = query, simplifyDataFrame = FALSE)
-  if (is.null(template$name)) { template$name <- "Default" }
+  if (is.null(template$name)) {
+    template$name <- "Default"
+  }
   as.dataRobotComplianceDocTemplate(template)
 }
 
@@ -194,103 +177,5 @@ DownloadComplianceDocTemplate <- function(filename = "template.json", templateId
   routeString <- GetComplianceDocTemplateRoute(templateId = templateId, type = type)
   query <- GetComplianceDocTemplateQuery(type)
   DataRobotGET(routeString, query = query, as = "file", filename = filename)
-  invisible(NULL)
-}
-
-
-#' Upload a compliance doc template.
-#'
-#' The structure of the compliance doc template can be specified by either a file specified by
-#' \code{filename} or by specifying it with a list via \code{sections}.
-#'
-#' @param name character. A name to identify the compliance doc template by.
-#' @param filename character. Optional. Filename of file to save the compliance doc template to.
-#' @param sections list. Optional. Section definitions for the compliance template.
-#' @return Nothing returned, but uploads the compliance doc template.
-#' @examples
-#' \dontrun{
-#'  ## Create a compliance documentation template from uploading a file
-#'  DownloadComplianceDocTemplate("template.json")
-#'  # Edit template.json in your favorite editor
-#'  UploadComplianceDocTemplate("myTemplate", "template.json")
-#'
-#' ## Create a compliance documentation template from a list.
-#' sections <- list(list("title" = "Missing Values Report",
-#'                       "highlightedText" = "NOTICE",
-#'                       "regularText" = paste("This dataset had a lot of Missing Values.",
-#'                                             "See the chart below: {{missingValues}}"),
-#'                       "type" = "user"),
-#'                  list("title" = "Blueprints",
-#'                       "regularText" = "{{blueprintDiagram}} /n Blueprint for this model",
-#'                       "type" = "user"))
-#' }
-#' @export
-UploadComplianceDocTemplate <- function(name, filename = NULL, sections = NULL) {
-  if (is.null(sections) && is.null(filename)) {
-    stop("Must define template with either `filename` or `sections`.")
-  }
-  if (is.null(sections) && !is.null(filename)) {
-    templateData <- jsonlite::fromJSON(filename, simplifyDataFrame = FALSE)
-    sections <- templateData$sections
-  }
-  body <- list(name = name, sections = sections)
-  DataRobotPOST("complianceDocTemplates", body = body, encode = "json")
-  invisible(NULL)
-}
-
-
-#' Update the name or sections of an existing doc template.
-#'
-#' Note that default templates cannot be updated.
-#'
-#' @inheritParams UploadComplianceDocTemplate
-#' @param templateId character. The ID of the template to update.
-#' @param name character. Optional. A new name to identify the compliance doc template by.
-#' @return The updated compliance doc template object.
-#' @examples
-#' \dontrun{
-#' sections <- list(list("title" = "Missing Values Report",
-#'                       "highlightedText" = "NOTICE",
-#'                       "regularText" = paste("This dataset had a lot of Missing Values."
-#'                                             "See the chart below: {{missingValues}}"),
-#'                       "type" = "user"),
-#'                  list("title" = "Blueprints",
-#'                       "regularText" = "{{blueprintDiagram}} /n Blueprint for this model",
-#'                       "type" = "user"))
-#'   templateId <- "5cf85080d9436e5c310c796d"
-#'   UpdateComplianceDocTemplate(templateId, name = "newName", sections = sections)
-#' }
-#' @export
-UpdateComplianceDocTemplate <- function(templateId, name = NULL, sections = NULL) {
-  if (is(templateId, "dataRobotComplianceDocTemplate")) {
-    templateId <- templateId$id
-  }
-  routeString <- GetComplianceDocTemplateRoute(templateId = templateId, type = NULL)
-  body <- list()
-  body$name <- name
-  body$sections <- sections
-  DataRobotPATCH(routeString, body = body, encode = "json")
-  GetComplianceDocTemplate(templateId)
-}
-
-
-#' Deletes a compliance doc template.
-#'
-#' Note that default templates cannot be deleted.
-#'
-#' @inheritParams UpdateComplianceDocTemplate
-#' @return Nothing returned, but deletes the compliance doc template.
-#' @examples
-#' \dontrun{
-#'   templateId <- "5cf85080d9436e5c310c796d"
-#'   DeleteComplianceDocTemplate(templateId)
-#' }
-#' @export
-DeleteComplianceDocTemplate <- function(templateId) {
-  if (is(templateId, "dataRobotComplianceDocTemplate")) {
-    templateId <- templateId$id
-  }
-  routeString <- GetComplianceDocTemplateRoute(templateId = templateId, type = NULL)
-  DataRobotDELETE(routeString)
   invisible(NULL)
 }

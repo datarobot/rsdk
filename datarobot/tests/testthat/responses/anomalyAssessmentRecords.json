@@ -1,0 +1,55 @@
+{
+  "count": 3,
+  "next": null,
+  "data": [
+    {
+      "status": "noData",
+      "seriesId": "S1F03YZM",
+      "endDate": null,
+      "startDate": null,
+      "recordId": "607edabbe8c1f4b282d29c20",
+      "projectId": "5ece5927962d741e19c2febb",
+      "backtest": 0,
+      "source": "validation",
+      "latestExplanationsLocation": null,
+      "deleteLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607edabbe8c1f4b282d29c20/",
+      "predictionThreshold": null,
+      "statusDetails": "There is no data for specified parameters.",
+      "previewLocation": null,
+      "modelId": "607d6544823fa548132dc257"
+    },
+    {
+      "status": "completed",
+      "seriesId": "S1F0EGMT",
+      "endDate": "2015-11-02T00:00:00.000000Z",
+      "startDate": "2015-10-07T00:00:00.000000Z",
+      "recordId": "607d657551a4bef68dd29d2f",
+      "projectId": "5ece5927962d741e19c2febb",
+      "backtest": 0,
+      "source": "validation",
+      "latestExplanationsLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d657551a4bef68dd29d2f/explanations/?endDate=2015-11-02T00%3A00%3A00.000000Z&pointsCount=1000",
+      "deleteLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d657551a4bef68dd29d2f/",
+      "predictionThreshold": 0.001152261490359791,
+      "statusDetails": "insight data is available.",
+      "previewLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d657551a4bef68dd29d2f/predictionsPreview/",
+      "modelId": "607d6544823fa548132dc257"
+    },
+    {
+      "status": "completed",
+      "seriesId": "S1F0FP0C",
+      "endDate": "2015-11-02T00:00:00.000000Z",
+      "startDate": "2015-10-07T00:00:00.000000Z",
+      "recordId": "607d661951a4bef68dd29d3f",
+      "projectId": "5ece5927962d741e19c2febb",
+      "backtest": 0,
+      "source": "validation",
+      "latestExplanationsLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d661951a4bef68dd29d3f/explanations/?endDate=2015-11-02T00%3A00%3A00.000000Z&pointsCount=1000",
+      "deleteLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d661951a4bef68dd29d3f/",
+      "predictionThreshold": 0.001152261490359791,
+      "statusDetails": "insight data is available.",
+      "previewLocation": "http://10.0.10.2/api/v2/projects/5ece5927962d741e19c2febb/anomalyAssessmentRecords/607d661951a4bef68dd29d3f/predictionsPreview/",
+      "modelId": "607d6544823fa548132dc257"
+    }
+  ],
+  "previous": null
+}

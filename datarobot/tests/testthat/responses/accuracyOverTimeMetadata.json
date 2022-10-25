@@ -1,0 +1,56 @@
+{
+    "holdoutStatuses": {
+        "training": "notCompleted",
+        "validation": "completed"
+    },
+    "holdoutMetadata": {
+        "training": {
+            "startDate": null,
+            "endDate": null
+        },
+        "validation": {
+            "startDate": "2014-04-10T00:00:00.000000Z",
+            "endDate": "2014-06-15T00:00:00.000000Z"
+        }
+    },
+    "backtestMetadata": [
+        {
+            "training": {
+                "startDate": "2012-11-02T00:00:00.000000Z",
+                "endDate": "2014-01-22T00:00:00.000000Z"
+            },
+            "validation": {
+                "startDate": "2014-02-03T00:00:00.000000Z",
+                "endDate": "2014-04-10T00:00:00.000000Z"
+            }
+        },
+        {
+            "training": {
+                "startDate": null,
+                "endDate": null
+            },
+            "validation": {
+                "startDate": "2013-11-29T00:00:00.000000Z",
+                "endDate": "2014-02-03T00:00:00.000000Z"
+            }
+        }
+    ],
+    "forecastDistance": 3,
+    "backtestStatuses": [
+        {
+            "training": "completed",
+            "validation": "completed"
+        },
+        {
+            "training": "notCompleted",
+            "validation": "completed"
+        }
+    ],
+    "resolutions": [
+        "days",
+        "weeks",
+        "months",
+        "quarters",
+        "years"
+    ]
+}

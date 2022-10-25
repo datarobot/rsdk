@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Helper function for validating reporting period objects used by
 #' the deployment monitoring functions. See \code{GetDeploymentServiceStats},
 #' \code{GetDeploymentAccuracy}, \code{GetDeploymentServiceStatsOverTime}, and
@@ -7,17 +15,17 @@
 #' @param tsName character. Optional. Explanation of the timestamp for error messages.
 #' @family API datetime functions
 validateReportingPeriodTime <- function(timestamp, tsName = "timestamp") {
-    timestamp <- as.POSIXlt(timestamp)
-    if (any(
-        timestamp$min != 0,
-        timestamp$sec != 0
-    )) {
-        stop(paste(tsName, "does not support sub-hour precision"))
-    }
-    if (any(timestamp$tzone != "UTC", timestamp$gmtoff != 0)) {
-        stop(paste(tsName, "must be in UTC timezone"))
-    }
-    TRUE
+  timestamp <- as.POSIXlt(timestamp)
+  if (any(
+    timestamp$min != 0,
+    timestamp$sec != 0
+  )) {
+    stop(paste(tsName, "does not support sub-hour precision"))
+  }
+  if (any(timestamp$tzone != "UTC", timestamp$gmtoff != 0)) {
+    stop(paste(tsName, "must be in UTC timezone"))
+  }
+  TRUE
 }
 
 #' The DataRobot Monitoring APIs return dates formatted as RFC 3339
@@ -35,15 +43,15 @@ validateReportingPeriodTime <- function(timestamp, tsName = "timestamp") {
 #' }
 #' @family API datetime functions
 transformRFC3339Period <- function(periodContainer) {
-    if (!is.list(periodContainer$period) && is.na(periodContainer$period)) {
-        periodContainer$period <- list()
-        periodContainer$period$start <- NA
-        periodContainer$period$end <- NA
-    }
-    periodContainer$period <- ApplySchema(periodContainer$period, c("start", "end"))
-    periodContainer$period$start <- parseRFC3339Timestamp(periodContainer$period$start)
-    periodContainer$period$end <- parseRFC3339Timestamp(periodContainer$period$end)
-    periodContainer
+  if (!is.list(periodContainer$period) && is.na(periodContainer$period)) {
+    periodContainer$period <- list()
+    periodContainer$period$start <- NA
+    periodContainer$period$end <- NA
+  }
+  periodContainer$period <- ApplySchema(periodContainer$period, c("start", "end"))
+  periodContainer$period$start <- ParseRFC3339Timestamp(periodContainer$period$start)
+  periodContainer$period$end <- ParseRFC3339Timestamp(periodContainer$period$end)
+  periodContainer
 }
 
 #' Tidies a ServiceOverTime response object for use in a DF
@@ -58,9 +66,9 @@ transformRFC3339Period <- function(periodContainer) {
 #' }
 #' @param valueColName character. The column in df currently named 'value' will be renamed to this.
 tidyServiceOverTimeObject <- function(df, valueColName) {
-    df <- jsonlite::flatten(as.data.frame(df))
-    names(df)[names(df) == "period.start"] <- "start"
-    names(df)[names(df) == "period.end"] <- "end"
-    names(df)[names(df) == "value"] <- valueColName
-    df
+  df <- jsonlite::flatten(as.data.frame(df))
+  names(df)[names(df) == "period.start"] <- "start"
+  names(df)[names(df) == "period.end"] <- "end"
+  names(df)[names(df) == "value"] <- valueColName
+  df
 }

@@ -1,0 +1,19 @@
+{
+  "modelId": "model-id0000000000000000",
+  "period": {
+    "start": "2019-08-01T00:00:00.000000Z",
+    "end": "2019-08-10T00:00:00.000000Z"
+  },
+  "metrics": {
+    "AUC": {
+      "baselineValue": 1,
+      "value": 1.5,
+      "percentChange": 50
+    },
+    "LogLoss": {
+      "baselineValue": null,
+      "value": null,
+      "percentChange": null
+    }
+  }
+}

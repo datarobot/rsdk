@@ -1,0 +1,75 @@
+{
+  "baseline": {
+    "sampleSize": 12956,
+    "period": null,
+    "value": 2.34658083580347
+  },
+  "buckets": [
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 0,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": null
+    },
+    {
+      "sampleSize": 12096,
+      "period": {
+        "start": "2021-01-19T04:00:00.000000Z",
+        "end": "2021-01-20T04:00:00.000000Z"
+      },
+      "value": 2.33887945643112
+    }
+  ],
+  "summary": {
+    "sampleSize": 12096,
+    "period": {
+      "start": "2021-01-19T00:00:00.000000Z",
+      "end": "2021-01-26T00:00:00.000000Z"
+    },
+    "value": 2.33887945643112
+  },
+  "metric": "Gamma Deviance",
+  "modelId": "model-id0000000000000000"
+}

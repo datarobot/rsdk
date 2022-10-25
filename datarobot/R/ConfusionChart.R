@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Retrieve a model's confusion chart for a specified source.
 #'
 #' @inheritParams GetLiftChart
@@ -27,18 +35,19 @@
 #' }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   GetModel(projectId, modelId)
-#'   GetConfusionChart(modelId, source = DataPartition$VALIDATION)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetModel(projectId, modelId)
+#' GetConfusionChart(modelId, source = DataPartition$VALIDATION)
 #' }
 #' @export
 GetConfusionChart <- function(model, source = DataPartition$VALIDATION,
                               fallbackToParentInsights = FALSE) {
   response <- GetGeneralizedInsight("confusionCharts",
-                                    model,
-                                    source = source,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+    model,
+    source = source,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   as.dataRobotConfusionChart(response)
 }
 
@@ -54,15 +63,16 @@ GetConfusionChart <- function(model, source = DataPartition$VALIDATION,
 #'   found in \code{DataPartition}.
 #' @examples
 #' \dontrun{
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   ListConfusionCharts(modelId)
+#' modelId <- "5996f820af07fc605e81ead4"
+#' ListConfusionCharts(modelId)
 #' }
 #' @export
 ListConfusionCharts <- function(model, fallbackToParentInsights = FALSE) {
   response <- GetGeneralizedInsight("confusionCharts",
-                                    model,
-                                    source = NULL,
-                                    fallbackToParentInsights = fallbackToParentInsights)
+    model,
+    source = NULL,
+    fallbackToParentInsights = fallbackToParentInsights
+  )
   # Charts come back as a dataframe with each column containing a list for that column,
   # need to reformat it as a list where each entry has all the data for a given chart.
   charts <- list()
@@ -78,9 +88,7 @@ ListConfusionCharts <- function(model, fallbackToParentInsights = FALSE) {
 
 as.dataRobotConfusionChart <- function(inList) {
   outList <- as.list(inList)
-  outList <- ApplySchema(outList, c("data", "source"))
   outList$data <- as.list(outList$data)
-  outList$data <- ApplySchema(outList$data, c("classes", "classMetrics", "confusionMatrix"))
   outList$data$classMetrics <- as.list(outList$data$classMetrics)
   outList
 }

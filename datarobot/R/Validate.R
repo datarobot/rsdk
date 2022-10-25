@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Checks if an id is a valid DataRobot ID (24 character string)
 #'
 #' @param id character. An ID to test whether it is a valid DataRobot ID.
@@ -16,8 +24,10 @@ ValidateProject <- function(project) {
     projectId <- project
   }
   if (is.null(projectId)) {
-    rawMsg <- paste("Project specification does not contain a valid project in call to",
-                    capture.output(sys.calls()[[1]][[1]]))
+    rawMsg <- paste(
+      "Project specification does not contain a valid project in call to",
+      capture.output(sys.calls()[[1]][[1]])
+    )
     stop(rawMsg, call. = FALSE)
   } else {
     projectId
@@ -25,28 +35,57 @@ ValidateProject <- function(project) {
 }
 
 
-#' Validate that model belongs to class 'dataRobotModel' and includes
-#' projectId and modelId.
+#' Validate that an object is a valid DataRobot model and contains the fields projectId and modelId.
 #'
-#' @param model An S3 object of class dataRobotModel like that returned by
-#'   the function GetModel, or each element of the list returned by
-#'   the function ListModels.
-ValidateModel <- function(model) {
+#' @param model An object representing a DataRobot model like that returned by the function GetModel, or each element of the list returned by the function ListModels, or any of the related functions in the datarobot.apicore package.
+#' @returns the model object if it is valid, potentially with a new field `modelId` if it didn't previously exist; throws an error otherwise.
+ValidateAndReturnModel <- function(model) {
   errorMessage <- "Invalid model specification"
-  if (!(is(model, "dataRobotModel") | is(model, "dataRobotFrozenModel") |
-        is(model, "dataRobotDatetimeModel") | is(model, "dataRobotPrimeModel"))) {
+  if (!(is(model, "dataRobotModel") |
+    is(model, "dataRobotFrozenModel") |
+    is(model, "dataRobotDatetimeModel") |
+    is(model, "dataRobotPrimeModel") |
+    isApicoreModel(model))) {
     stop(errorMessage)
   } else {
     projectId <- model$projectId
-    modelId <- model$modelId
+    # DSX-1619
+    # Legacy model classes expect there to be a `modelId` field
+    # but the API itself does not return a `modelId` field.
+    if ("modelId" %in% names(model)) {
+      # we are dealing with a legacy class
+      modelId <- model$modelId
+    } else {
+      # we are dealing with an apicore class; add in modelId
+      model$modelId <- model$id
+      modelId <- model$id
+    }
     if (IsId(projectId) && IsId(modelId)) {
-      model
+      return(model)
     } else {
       stop(errorMessage, call. = FALSE)
     }
   }
 }
 
+#' @keywords internal
+apicoreModelClasses <- c(
+  datarobot.apicore::ModelDetailsResponse,
+  datarobot.apicore::DatetimeModelDetailsResponse,
+  datarobot.apicore::FrozenModelRetrieveResponse,
+  datarobot.apicore::PrimeModelDetailsRetrieveResponse
+)
+
+#' @returns TRUE if the input is a datarobot.apicore class, either R6 or S3 variant, by checking the classname
+#' @keywords internal
+isApicoreModel <- function(model) {
+  return(any(sapply(
+    apicoreModelClasses,
+    function(clazz) {
+      is(model, clazz$classname)
+    }
+  )))
+}
 
 #' Get a calendar id from a calendar object.
 #'
@@ -76,23 +115,29 @@ ValidateCalendar <- function(calendar) {
 #' @return TRUE if \code{paramValue} is valid, otherwise returns an error message.
 #' @examples
 #' \dontrun{
-#'   IsParameterIn("all", DataSubset)
+#' IsParameterIn("all", DataSubset)
 #' }
 IsParameterIn <- function(paramValue, paramPossibilities, allowNULL = TRUE, paramName = NULL) {
   if (is.null(paramName)) {
     paramName <- substitute(paramPossibilities)
-    if (length(paramName) > 1) { paramName <- "value" }
+    if (length(paramName) > 1) {
+      paramName <- "value"
+    }
   }
   isUnallowedNull <- is.null(paramValue) && !allowNULL
   if (isUnallowedNull ||
-      length(paramValue) > 1 ||
-      !(is.null(paramValue) ||
+    length(paramValue) > 1 ||
+    !(is.null(paramValue) ||
       any(paramValue %in% paramPossibilities))) {
-        paste0("Invalid ", sQuote(paramName), ". Must be in ",
-               paste(vapply(paramPossibilities, sQuote, character(1)), collapse = ", "),
-               " but got ",
-               sQuote(gsub("\"", "", capture.output(dput(paramValue)))), " instead.")
-  } else { TRUE }
+    paste0(
+      "Invalid ", sQuote(paramName), ". Must be in ",
+      paste(vapply(paramPossibilities, sQuote, character(1)), collapse = ", "),
+      " but got ",
+      sQuote(gsub("\"", "", capture.output(dput(paramValue)))), " instead."
+    )
+  } else {
+    TRUE
+  }
 }
 
 #' Ensure a parameter is valid
@@ -104,16 +149,23 @@ IsParameterIn <- function(paramValue, paramPossibilities, allowNULL = TRUE, para
 #' @return TRUE if \code{paramValue} is valid, otherwise it raises an error.
 #' @examples
 #' \dontrun{
-#'   ValidateParameterIn("all", DataSubset)
+#' ValidateParameterIn("all", DataSubset)
 #' }
 ValidateParameterIn <- function(paramValue, paramPossibilities, allowNULL = TRUE) {
   paramName <- substitute(paramPossibilities)
-  if (length(paramName) > 1) { paramName <- "value" }
+  if (length(paramName) > 1) {
+    paramName <- "value"
+  }
   error <- IsParameterIn(paramValue,
-                         paramPossibilities,
-                         allowNULL = allowNULL,
-                         paramName = paramName)
-  if (isTRUE(error)) { TRUE } else { stop(error) }
+    paramPossibilities,
+    allowNULL = allowNULL,
+    paramName = paramName
+  )
+  if (isTRUE(error)) {
+    TRUE
+  } else {
+    stop(error)
+  }
 }
 
 
@@ -154,27 +206,25 @@ ValidateActuals <- function(actuals, error = TRUE) {
   errorMsg <- NULL
   if (!is.data.frame(actuals)) {
     errorMsg <- "Actuals is not a dataframe."
-  }
-  else if (!"associationId" %in% names(actuals)) {
+  } else if ("associationId" %notin% names(actuals)) {
     errorMsg <- "Actuals does not contain associationId key."
-  }
-  else if (max(nchar(actuals[["associationId"]])) > 128) {
+  } else if (max(nchar(actuals[["associationId"]])) > 128) {
     errorMsg <- "Cannot have associationIds with length over max of 128 characters."
-  }
-  else if (!is.character(actuals[["associationId"]])) {
+  } else if (!is.character(actuals[["associationId"]])) {
     errorMsg <- "AssociationIds must be strings."
-  }
-  else if (!"actualValue" %in% names(actuals)) {
+  } else if ("actualValue" %notin% names(actuals)) {
     errorMsg <- "Actuals does not contain actualValue key."
-  }
-  else if ("wasActedOn" %in% names(actuals) && !is.logical(actuals[["wasActedOn"]])) {
+  } else if ("wasActedOn" %in% names(actuals) && !is.logical(actuals[["wasActedOn"]])) {
     errorMsg <- "Optional key wasActedOn must be logical."
-  }
-  else if ("timestamp" %in% names(actuals) && !inherits(actuals[["timestamp"]], "POSIXt")) {
+  } else if ("timestamp" %in% names(actuals) && !inherits(actuals[["timestamp"]], "POSIXt")) {
     errorMsg <- "Optional key timestamp must inherit from POSIXt."
   }
   if (!is.null(errorMsg)) {
-    if (isTRUE(error)) { stop(errorMsg) } else { FALSE }
+    if (isTRUE(error)) {
+      stop(errorMsg)
+    } else {
+      FALSE
+    }
   } else {
     TRUE
   }
@@ -191,23 +241,27 @@ ValidateMultiSeriesProperties <- function(properties, error = TRUE) {
   errorMsg <- NULL
   if (!is.list(properties)) {
     errorMsg <- "Properties are not a list."
-  }
-  else if (!("timeSeriesEligible" %in% names(properties))) {
+  } else if ("timeSeriesEligible" %notin% names(properties)) {
     errorMsg <- "Properties do not contain timeSeriesEligible key."
-  }
-  else if (!("crossSeriesEligible" %in% names(properties))) {
+  } else if ("crossSeriesEligible" %notin% names(properties)) {
     errorMsg <- "Properties do not contain crossSeriesEligible key."
-  }
-  else if (!isTRUE(properties$timeSeriesEligible)) {
-    errorMsg <- paste("The selected datetime partition and multiseries id columns are not eligible",
-                      "for time series modeling, i.e. they are insufficiently unique or regular.")
-  }
-  else if (!isTRUE(properties$crossSeriesEligible) && !is.null(properties$crossSeriesEligible)) {
-    errorMsg <- paste("The selected cross-series group-by column is not eligible for",
-                      "cross series modeling.")
+  } else if (!isTRUE(properties$timeSeriesEligible)) {
+    errorMsg <- paste(
+      "The selected datetime partition and multiseries id columns are not eligible",
+      "for time series modeling, i.e. they are insufficiently unique or regular."
+    )
+  } else if (!isTRUE(properties$crossSeriesEligible) && !is.null(properties$crossSeriesEligible)) {
+    errorMsg <- paste(
+      "The selected cross-series group-by column is not eligible for",
+      "cross series modeling."
+    )
   }
   if (!is.null(errorMsg)) {
-    if (isTRUE(error)) { stop(errorMsg) } else { FALSE }
+    if (isTRUE(error)) {
+      stop(errorMsg)
+    } else {
+      FALSE
+    }
   } else {
     TRUE
   }

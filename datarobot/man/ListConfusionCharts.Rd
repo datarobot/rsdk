@@ -25,7 +25,7 @@ the project.
 }
 \examples{
 \dontrun{
-  modelId <- "5996f820af07fc605e81ead4"
-  ListConfusionCharts(modelId)
+modelId <- "5996f820af07fc605e81ead4"
+ListConfusionCharts(modelId)
 }
 }

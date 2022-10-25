@@ -7,10 +7,6 @@
 GetPrimeModelFromJobId(project, jobId, maxWait = 600)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{jobId}{Unique integer identifier (return for example by RequestPrimeModel)}
 
 \item{maxWait}{maximum time to wait (in sec) before job completed}
@@ -24,10 +20,10 @@ Retrieve information about specified DataRobot Prime model using corresponding j
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  initialJobs <- ListModelJobs(project)
-  job <- initialJobs[[1]]
-  modelJobId <- job$modelJobId
-  GetPrimeModelFromJobId(projectId, modelJobId)
+projectId <- "59a5af20c80891534e3c2bde"
+initialJobs <- ListModelJobs(project)
+job <- initialJobs[[1]]
+modelJobId <- job$modelJobId
+GetPrimeModelFromJobId(projectId, modelJobId)
 }
 }

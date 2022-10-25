@@ -7,10 +7,6 @@
 GetTrainingPredictions(project, predictionId)
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
 \item{predictionId}{character. ID of the prediction to retrieve training
 predictions for.}
 }
@@ -21,9 +17,9 @@ stacked models or blenders.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  predictions <- ListTrainingPredictions(projectId)
-  predictionId <- predictions[[1]]$id
-  trainingPredictions <- GetTrainingPredictions(projectId, predictionId)
+projectId <- "59a5af20c80891534e3c2bde"
+predictions <- ListTrainingPredictions(projectId)
+predictionId <- predictions[[1]]$id
+trainingPredictions <- GetTrainingPredictions(projectId, predictionId)
 }
 }

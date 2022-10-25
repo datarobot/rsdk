@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' This function periodically checks whether Autopilot is finished and returns only after it is.
 #'
 #' @param project character. The project for which you want to wait until autopilot is finished.
@@ -9,26 +17,28 @@
 #'   Default is 1.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   WaitForAutopilot(projectId)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' WaitForAutopilot(projectId)
 #' }
 #' @export
 WaitForAutopilot <- function(project, checkInterval = 20.0, timeout = NULL, verbosity = 1) {
   GetWaitStatus <- StartRetryWaiter(timeout = timeout, maxdelay = checkInterval)
   stillTrying <- TRUE
   while (stillTrying) {
-   waitStatus <- GetWaitStatus()
-   stillTrying <- waitStatus$stillTrying
-   projectStatus <- GetProjectStatus(project)
-   if (verbosity > 0) {
-     inprogress <- ListModelJobs(project, status = 'inprogress')
-     queued <- ListModelJobs(project, status = 'queue')
-     message(sprintf("In progress: %d, queued: %d (waited: %.0fs)",
-             nrow(inprogress), nrow(queued), waitStatus$secondsWaited))
-   }
-   if (projectStatus$autopilotDone) {
-     return(invisible())
-   }
+    waitStatus <- GetWaitStatus()
+    stillTrying <- waitStatus$stillTrying
+    projectStatus <- GetProjectStatus(project)
+    if (verbosity > 0) {
+      inprogress <- ListModelJobs(project, status = "inprogress")
+      queued <- ListModelJobs(project, status = "queue")
+      message(sprintf(
+        "In progress: %d, queued: %d (waited: %.0fs)",
+        nrow(inprogress), nrow(queued), waitStatus$secondsWaited
+      ))
+    }
+    if (projectStatus$autopilotDone) {
+      return(invisible())
+    }
   }
   stop("Autopilot did not finish in the time allotted within the time specified by `timeout`")
 }

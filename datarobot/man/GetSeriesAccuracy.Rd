@@ -31,9 +31,9 @@ Get the computed series accuracy for a model, computing it if not already comput
 }
 \examples{
 \dontrun{
-  projectId <- "5984b4d7100d2b31c1166529"
-  modelId <- "5984b4d7100d2b31c1166529"
-  model <- GetModel(projectId, modelId)
-  seriesAccuracy <- GetSeriesAccuracy(model)
+projectId <- "5984b4d7100d2b31c1166529"
+modelId <- "5984b4d7100d2b31c1166529"
+model <- GetModel(projectId, modelId)
+seriesAccuracy <- GetSeriesAccuracy(model)
 }
 }

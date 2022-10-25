@@ -36,10 +36,10 @@ redundancy detection. This function will generate a warning if redundancy detect
 }
 \examples{
 \dontrun{
-  model <- ListModels(project)[[1]]
-  featureImpactJobId <- RequestFeatureImpact(model)
-  # Note: This will only work after the feature impact job has completed. Use
-  #       GetFeatureImpactFromJobId to automatically wait for the job.\
-  featureImpact <- GetFeatureImpactForModel(model)
+model <- ListModels(project)[[1]]
+featureImpactJobId <- RequestFeatureImpact(model)
+# Note: This will only work after the feature impact job has completed. Use
+#       GetFeatureImpactFromJobId to automatically wait for the job.\
+featureImpact <- GetFeatureImpactForModel(model)
 }
 }

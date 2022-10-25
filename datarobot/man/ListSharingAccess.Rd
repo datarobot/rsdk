@@ -25,8 +25,8 @@ Note that currently only data sources and data stores can be shared with this AP
 }
 \examples{
 \dontrun{
- dataStoreId <- "5c1303269300d900016b41a7"
- dataStore <- GetDataStore(dataStoreId)
- ListSharingAccess(dataStore)
+dataStoreId <- "5c1303269300d900016b41a7"
+dataStore <- GetDataStore(dataStoreId)
+ListSharingAccess(dataStore)
 }
 }

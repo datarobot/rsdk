@@ -1,0 +1,19 @@
+{
+  "bins": [
+    {
+      "binWeight": 10.0,
+      "actual": 1.23,
+      "predicted": 1.5
+    },
+    {
+      "binWeight": 10.0,
+      "actual": 2.5,
+      "predicted": 2.54
+    },
+    {
+      "binWeight": 10.0,
+      "actual": 2.7,
+      "predicted": 2.69
+    }
+  ]
+}

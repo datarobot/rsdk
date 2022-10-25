@@ -1,0 +1,70 @@
+{
+  "count": 3,
+  "data": [
+    {
+    "featurelistId": "579a35dea07c9627b919c8b3",
+    "processes": {},
+    "featurelistName": "Informative Features",
+    "blenderMethod": "ENET",
+    "projectId": "579a35d7c808910d2c73c86d",
+    "samplePct": 63.974,
+    "modelType": "ENET Blender",
+    "metrics.AUC.holdout": 0.84071,
+    "metrics.AUC.validation": 0.84680,
+    "metrics.AUC.crossValidation": 0.873926,
+    "metrics.RMSE.holdout": 0.37325,
+    "metrics.RMSE.validation": 0.36540,
+    "metrics.RMSE.crossValidation": 0.357470,
+    "modelIds": "5845897500a00e6dfd6a78fa",
+    "modelCategory": "blend",
+    "isFrozen": false,
+    "blueprintId": "a4f61789f3b3504ba66d7b2deb716eea64bb798dbeeb96218db93b79eb848d03",
+    "id": "57c86a7dc8089169beb3cd49"
+    },
+    {
+    "featurelistId": "579a35dea07c9627b919c8b3",
+    "processes": {},
+    "featurelistName": "Informative Features",
+    "blenderMethod": "ENET",
+    "projectId": "579a35d7c808910d2c73c86d",
+    "samplePct": 63.974,
+    "modelType": "ENET Blender",
+    "metrics.AUC.holdout": 0.84071,
+    "metrics.AUC.validation": 0.84680,
+    "metrics.AUC.crossValidation": 0.873926,
+    "metrics.RMSE.holdout": 0.37325,
+    "metrics.RMSE.validation": 0.36540,
+    "metrics.RMSE.crossValidation": 0.357470,
+    "modelIds": "5845897500a00e6dfd6a78fa",
+    "modelCategory": "blend",
+    "isFrozen": false,
+    "blueprintId": "a4f61789f3b3504ba66d7b2deb716eea64bb798dbeeb96218db93b79eb848d03",
+    "id": "57c86a7dc8089169beb3cd49"
+    },
+    {
+    "featurelistId": "579a35dea07c9627b919c8b3",
+    "processes": {},
+    "featurelistName": "Informative Features",
+    "blenderMethod": "ENET",
+    "projectId": "579a35d7c808910d2c73c86d",
+    "samplePct": 63.974,
+    "modelType": "ENET Blender",
+    "metrics.AUC.holdout": 0.84071,
+    "metrics.AUC.validation": 0.84680,
+    "metrics.AUC.crossValidation": 0.873926,
+    "metrics.RMSE.holdout": 0.37325,
+    "metrics.RMSE.validation": 0.36540,
+    "metrics.RMSE.crossValidation": 0.357470,
+    "modelIds": "5845897500a00e6dfd6a78fa",
+    "modelCategory": "blend",
+    "isFrozen": false,
+    "blueprintId": "a4f61789f3b3504ba66d7b2deb716eea64bb798dbeeb96218db93b79eb848d03",
+    "id": "57c86a7dc8089169beb3cd49"
+    }
+  ],
+  "previous": null,
+  "next": null
+}
+
+
+

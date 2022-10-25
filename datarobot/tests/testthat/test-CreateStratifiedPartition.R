@@ -1,4 +1,13 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 library(testthat)
+library(stubthat)
 
 test_that("Required parameters are present", {
   expect_error(CreateStratifiedPartition())
@@ -6,11 +15,17 @@ test_that("Required parameters are present", {
 })
 
 test_that("validationType = 'CV' option", {
-  expect_error(CreateStratifiedPartition(validationType = "CV",
-                                         holdoutPct = 20),
-                                         "reps must be specified")
-  ValidCase <- CreateStratifiedPartition(validationType = "CV",
-                                         holdoutPct = 20, reps = 5)
+  expect_error(
+    CreateStratifiedPartition(
+      validationType = "CV",
+      holdoutPct = 20
+    ),
+    "reps must be specified"
+  )
+  ValidCase <- CreateStratifiedPartition(
+    validationType = "CV",
+    holdoutPct = 20, reps = 5
+  )
   expect_equal(length(ValidCase), 4)
   expect_equal(ValidCase$cvMethod, "stratified")
   expect_equal(ValidCase$validationType, "CV")
@@ -19,12 +34,18 @@ test_that("validationType = 'CV' option", {
 })
 
 test_that("validationType = 'TVH' option", {
-  expect_error(CreateStratifiedPartition(validationType = "TVH",
-                                         holdoutPct = 20),
-                                         "validationPct must be specified")
-  ValidCase <- CreateStratifiedPartition(validationType = "TVH",
-                                         holdoutPct = 20,
-                                         validationPct = 16)
+  expect_error(
+    CreateStratifiedPartition(
+      validationType = "TVH",
+      holdoutPct = 20
+    ),
+    "validationPct must be specified"
+  )
+  ValidCase <- CreateStratifiedPartition(
+    validationType = "TVH",
+    holdoutPct = 20,
+    validationPct = 16
+  )
   expect_equal(length(ValidCase), 4)
   expect_equal(ValidCase$cvMethod, "stratified")
   expect_equal(ValidCase$validationType, "TVH")
@@ -34,38 +55,62 @@ test_that("validationType = 'TVH' option", {
 
 
 test_that("validationType = 'CV' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    stratifiedPartition <- CreateStratifiedPartition(validationType = "CV",
-                                                     holdoutPct = 20,
-                                                     reps = 5)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = stratifiedPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      stratifiedPartition <- CreateStratifiedPartition(
+        validationType = "CV",
+        holdoutPct = 20,
+        reps = 5
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = stratifiedPartition
+      )
+    }
+  )
 })
 
 test_that("validationType = 'TVH' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    stratifiedPartition <- CreateStratifiedPartition(validationType = "TVH",
-                                                     holdoutPct = 20,
-                                                     validationPct = 16)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = stratifiedPartition)
-  })
+  with_mock(
+    "GetProjectStatus" = function(...) {
+      list("stage" = ProjectStage$AIM)
+    },
+    "datarobot::DataRobotPATCH" = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    "datarobot::WaitForAsyncReturn" = function(...) {
+      "How about not"
+    },
+    {
+      stratifiedPartition <- CreateStratifiedPartition(
+        validationType = "TVH",
+        holdoutPct = 20,
+        validationPct = 16
+      )
+      SetTarget(
+        project = fakeProject,
+        target = fakeTarget,
+        partition = stratifiedPartition
+      )
+    }
+  )
 })
 
 
 test_that("Invalid validationType returns message", {
-  expect_error(CreateStratifiedPartition(validationType = "XYZ",
-                                         holdoutPct = 20,
-                                         validationPct = 16))
+  expect_error(CreateStratifiedPartition(
+    validationType = "XYZ",
+    holdoutPct = 20,
+    validationPct = 16
+  ))
 })

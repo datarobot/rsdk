@@ -21,13 +21,13 @@ to a user. Set \code{role} to \code{NULL} to revoke access to a particular user.
 }
 \examples{
 \dontrun{
- dataStoreId <- "5c1303269300d900016b41a7"
- dataStore <- GetDataStore(dataStoreId)
- # Grant access to a particular user.
- Share(dataStore, "foo@foo.com")
- # Grant access in a Read Only role.
- Share(dataStore, "foo@foo.com", role = SharingRole$ReadOnly)
- # Revoke access
- Share(dataStore, "foo@foo.com", role = NULL)
+dataStoreId <- "5c1303269300d900016b41a7"
+dataStore <- GetDataStore(dataStoreId)
+# Grant access to a particular user.
+Share(dataStore, "foo@foo.com")
+# Grant access in a Read Only role.
+Share(dataStore, "foo@foo.com", role = SharingRole$ReadOnly)
+# Revoke access
+Share(dataStore, "foo@foo.com", role = NULL)
 }
 }

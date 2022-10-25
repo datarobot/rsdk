@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' RFC 3339 datetime format
 #'
 #' The DataRobot API returns dates in RFC 3339 format. Since this comes from a
@@ -15,24 +23,11 @@ RFC3339DateTimeFormat <- "%Y-%m-%dT%H:%M:%OSZ"
 #' @param date POSIXt or date. The date(s) to be formatted.
 #' @family API datetime functions
 formatRFC3339Timestamp <- function(date) {
-    date <- as.POSIXct(date, tz = "UTC")
-    if (requireNamespace("lubridate", quietly = TRUE)) {
-        dateString <- lubridate::format_ISO8601(date, usetz = TRUE)
-    } else {
-        dateString <- format(date, RFC3339DateTimeFormat, tz = "UTC")
-    }
-    return(dateString)
-}
-
-#' parseRFC3339Timestamp
-#'
-#' The DataRobot APIs returns dates in RFC 3339 format.
-#'
-#' @param timestampstring character. Timestamp in RFC 3339 format.
-#' @returns The input timestamp as a POSIXt
-#' @family API datetime functions
-parseRFC3339Timestamp <- function(timestampstring) {
-    return(as.POSIXct(timestampstring,
-                      format = RFC3339DateTimeFormat,
-                      tz = "UTC"))
+  date <- as.POSIXct(date, tz = "UTC")
+  if (requireNamespace("lubridate", quietly = TRUE)) {
+    dateString <- lubridate::format_ISO8601(date, usetz = TRUE)
+  } else {
+    dateString <- format(date, RFC3339DateTimeFormat, tz = "UTC")
+  }
+  return(dateString)
 }

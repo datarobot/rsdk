@@ -1,0 +1,22 @@
+$baseline
+  sampleSize start  end     RMSE Gamma Deviance
+1      12956  <NA> <NA> 1.158194       2.346581
+
+$buckets
+  sampleSize               start                 end RMSE Gamma Deviance
+1          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+2          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+3          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+4          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+5          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+6          0 2021-01-19 04:00:00 2021-01-20 04:00:00   NA             NA
+
+$summary
+[1] sampleSize     start          end            RMSE           Gamma Deviance
+<0 rows> (or 0-length row.names)
+
+$modelId
+[1] "model-id0000000000000000"
+
+attr(,"class")
+[1] "deploymentAccuracyOverTime"

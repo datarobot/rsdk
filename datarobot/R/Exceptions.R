@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 # See http://adv-r.had.co.nz/Exceptions-Debugging.html
 
 Condition <- function(subclass, message, ...) {
@@ -5,7 +13,7 @@ Condition <- function(subclass, message, ...) {
     class = c(subclass, "condition"),
     list(message = message, call = call),
     ...
- )
+  )
 }
 
 

@@ -1,0 +1,26 @@
+{
+  "id": "59a5af20c80891534e3c2bde",
+  "query": "queryText",
+  "datasets": [
+    {
+        "datasetId": "datasetId",
+        "datasetVersionId": "datasetVersionId",
+        "alias": "datasetAlias"
+    }
+  ],
+  "generatorType": "TimeSeries",
+  "generatorSettings": {
+    "target": "y",
+    "datetimePartitionColumn": "date",
+    "multiSeriesIdColumns": ["id"],
+    "timeUnit": "DAY",
+    "timeStep": 1,
+    "defaultNumericAggregationMethod": "sum",
+    "defaultCategoricalAggregationMethod": "mostFrequent",
+    "defaultTextAggregationMethod": "concatenate",
+    "startFromSeriesMinDatetime": true,
+    "endToSeriesMaxDatetime": true
+  },
+  "generatedQuery": "queryText",
+  "inputFeatureTypes": {}
+}

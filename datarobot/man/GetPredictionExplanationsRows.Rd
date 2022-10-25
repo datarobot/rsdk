@@ -12,12 +12,6 @@ GetPredictionExplanationsRows(
 )
 }
 \arguments{
-\item{project}{character. Either (1) a character string giving the unique alphanumeric
-identifier for the project, or (2) a list containing the element projectId with this
-identifier.}
-
-\item{predictionExplanationId}{character. Id of the prediction explanations.}
-
 \item{batchSize}{integer. Optional. Maximum number of prediction explanations rows to
 retrieve per request}
 
@@ -62,14 +56,14 @@ Retrieve all prediction explanations rows
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  modelId <- "5996f820af07fc605e81ead4"
-  datasets <- ListPredictionDatasets(projectId)
-  dataset <- datasets[[1]]
-  datasetId <- dataset$id
-  model <- GetModel(projectId, modelId)
-  jobId <- RequestPredictionExplanations(model, datasetId)
-  predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
-  GetPredictionExplanationsRows(projectId, predictionExplanationId)
+projectId <- "59a5af20c80891534e3c2bde"
+modelId <- "5996f820af07fc605e81ead4"
+datasets <- ListPredictionDatasets(projectId)
+dataset <- datasets[[1]]
+datasetId <- dataset$id
+model <- GetModel(projectId, modelId)
+jobId <- RequestPredictionExplanations(model, datasetId)
+predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+GetPredictionExplanationsRows(projectId, predictionExplanationId)
 }
 }

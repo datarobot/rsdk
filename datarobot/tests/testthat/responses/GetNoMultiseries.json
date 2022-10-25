@@ -1,0 +1,4 @@
+{
+  "datetimePartitionColumn": ["timestamp"],
+  "detectedMultiseriesIdColumns": []
+}

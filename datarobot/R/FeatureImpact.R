@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Request Feature Impact to be computed.
 #'
 #' This adds a Feature Impact job to the project queue.
@@ -7,13 +15,13 @@
 #' @return A job ID (character)
 #' @examples
 #' \dontrun{
-#'   model <- ListModels(project)[[1]]
-#'   featureImpactJobId <- RequestFeatureImpact(model)
-#'   featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
+#' model <- ListModels(project)[[1]]
+#' featureImpactJobId <- RequestFeatureImpact(model)
+#' featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
 #' }
 #' @export
 RequestFeatureImpact <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   routeString <- UrlJoin("projects", projectId, "models", modelId, "featureImpact")
@@ -29,10 +37,12 @@ FeatureImpactFromResponseList <- function(response) {
   expectedKeys <- c("impactNormalized", "impactUnnormalized", "featureName", "redundantWith")
   missingKeys <- setdiff(expectedKeys, names(featureImpactDF))
   if (length(missingKeys) > 0) {
-    stop(sprintf("Expected keys were missing from Feature Impact data received: %s",
-         missingKeys))
+    stop(sprintf(
+      "Expected keys were missing from Feature Impact data received: %s",
+      missingKeys
+    ))
   }
-  as.dataRobotFeatureImpact(featureImpactDF)
+  return(featureImpactDF)
 }
 
 #' Retrieve completed Feature Impact results given a model
@@ -62,15 +72,15 @@ FeatureImpactFromResponseList <- function(response) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   model <- ListModels(project)[[1]]
-#'   featureImpactJobId <- RequestFeatureImpact(model)
-#'   # Note: This will only work after the feature impact job has completed. Use
-#'   #       GetFeatureImpactFromJobId to automatically wait for the job.\
-#'   featureImpact <- GetFeatureImpactForModel(model)
+#' model <- ListModels(project)[[1]]
+#' featureImpactJobId <- RequestFeatureImpact(model)
+#' # Note: This will only work after the feature impact job has completed. Use
+#' #       GetFeatureImpactFromJobId to automatically wait for the job.\
+#' featureImpact <- GetFeatureImpactForModel(model)
 #' }
 #' @export
 GetFeatureImpactForModel <- function(model) {
-  validModel <- ValidateModel(model)
+  validModel <- ValidateAndReturnModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
   routeString <- UrlJoin("projects", projectId, "models", modelId, "featureImpact")
@@ -97,9 +107,9 @@ GetFeatureImpactForModel <- function(model) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   model <- ListModels(project)[[1]]
-#'   featureImpactJobId <- RequestFeatureImpact(model)
-#'   featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
+#' model <- ListModels(project)[[1]]
+#' featureImpactJobId <- RequestFeatureImpact(model)
+#' featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
 #' }
 #' @export
 GetFeatureImpactForJobId <- function(project, jobId, maxWait = 600) {
@@ -109,11 +119,15 @@ GetFeatureImpactForJobId <- function(project, jobId, maxWait = 600) {
   routeString <- UrlJoin("projects", projectId, "jobs", jobId)
   job <- DataRobotGET(routeString, followLocation = FALSE)
   if (job$jobType != JobType$FeatureImpact) {
-    stop(sprintf("Job %s is of type: %s. Can only get Feature Impact for jobs of type: %s.",
-                 jobId, job$jobType, JobType$FeatureImpact))
+    stop(sprintf(
+      "Job %s is of type: %s. Can only get Feature Impact for jobs of type: %s.",
+      jobId, job$jobType, JobType$FeatureImpact
+    ))
   }
-  featureImpactResponse <- WaitForAsyncReturn(routeString, maxWait = maxWait,
-                                              failureStatuses = JobFailureStatuses)
+  featureImpactResponse <- WaitForAsyncReturn(routeString,
+    maxWait = maxWait,
+    failureStatuses = JobFailureStatuses
+  )
   FeatureImpactFromResponseList(featureImpactResponse)
 }
 
@@ -138,20 +152,13 @@ GetFeatureImpactForJobId <- function(project, jobId, maxWait = 600) {
 #' @inheritParams RequestFeatureImpact
 #' @export
 GetFeatureImpact <- function(model) {
-  tryCatch({
-    featureImpactJobId <- RequestFeatureImpact(model)
-    GetFeatureImpactForJobId(model$projectId, featureImpactJobId)
-  }, error = function(e) { # If error in calculating feature impact...
-    GetFeatureImpactForModel(model)
-  })
-}
-
-
-as.dataRobotFeatureImpact <- function(inList) {
-  elements <- c("featureName",
-                "name",
-                "impactNormalized",
-                "impactUnnormalized",
-                "redundantWith")
-  ApplySchema(inList, elements)
+  tryCatch(
+    {
+      featureImpactJobId <- RequestFeatureImpact(model)
+      GetFeatureImpactForJobId(model$projectId, featureImpactJobId)
+    },
+    error = function(e) { # If error in calculating feature impact...
+      GetFeatureImpactForModel(model)
+    }
+  )
 }

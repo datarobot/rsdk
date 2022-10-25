@@ -1,3 +1,11 @@
+# Copyright 2021 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Upload a data source.
 #'
 #' Takes either a file path or a dataframe and returns output for POST that specifies
@@ -24,8 +32,10 @@ DataPathFromDataArg <- function(dataSource, saveFile = NULL) {
     if (file.exists(dataSource)) {
       dataPath <- dataSource
     } else {
-      errorMsg <- paste("No file named", dataSource,
-                        "exists in the working directory", getwd())
+      errorMsg <- paste(
+        "No file named", dataSource,
+        "exists in the working directory", getwd()
+      )
       stop(errorMsg)
     }
   } else {
@@ -40,8 +50,10 @@ DataPathFromDataArg <- function(dataSource, saveFile = NULL) {
       }
       write.csv(dataSource, dataPath, row.names = FALSE)
     } else {
-      errorMsg <- paste(deparse(substitute(dataSource)),
-                        "is not a valid data file name or dataframe")
+      errorMsg <- paste(
+        deparse(substitute(dataSource)),
+        "is not a valid data file name or dataframe"
+      )
       stop(strwrap(errorMsg))
     }
   }

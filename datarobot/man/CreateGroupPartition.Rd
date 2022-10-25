@@ -43,10 +43,12 @@ functions are \code{CreateRandomPartition}, \code{CreateStratifiedPartition}, an
 \code{CreateUserPartition}.
 }
 \examples{
-CreateGroupPartition(validationType = "CV",
-                     holdoutPct = 20,
-                     partitionKeyCols = list("groupId"),
-                     reps = 5)
+CreateGroupPartition(
+  validationType = "CV",
+  holdoutPct = 20,
+  partitionKeyCols = list("groupId"),
+  reps = 5
+)
 }
 \seealso{
 \code{\link{CreateRandomPartition}}, \code{\link{CreateStratifiedPartition}},

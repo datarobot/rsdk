@@ -1,0 +1,71 @@
+{
+    "targetLeakage": "SKIPPED_DETECTION",
+    "stdDev": null,
+    "targetLeakageReason": "no target leakage was detected",
+    "id": 4,
+    "timeSeriesEligible": false,
+    "dateFormat": null,
+    "keySummary": [
+        {
+            "key": "phone1",
+            "summary": {
+                "pctRows": 45.107,
+                "min": 0,
+                "max": 67769,
+                "median": 0,
+                "stdDev": 1807.626,
+                "mean": 152.508
+            }
+        },
+        {
+            "key": "phone2",
+            "summary": {
+                "pctRows": 39.493,
+                "min": 0,
+                "max": 13202,
+                "median": 0,
+                "stdDev": 343.548,
+                "mean": 30.151
+            }
+        },
+        {
+            "key": " ",
+            "summary": {
+                "pctRows": 39.493,
+                "min": 0,
+                "max": 13202,
+                "median": 0,
+                "stdDev": 343.548,
+                "mean": 30.151
+            }
+        },
+        {
+            "key": "%",
+            "summary": {
+                "pctRows": 39.493,
+                "min": 0,
+                "max": 13202,
+                "median": 0,
+                "stdDev": 343.548,
+                "mean": 30.151
+            }
+        }
+    ],
+    "naCount": 29,
+    "timeSeriesEligibilityReason": "notADate",
+    "featureType": "Summarized Categorical",
+    "importance": null,
+    "max": null,
+    "timeUnit": null,
+    "dataQualities": "NO_ISSUES_FOUND",
+    "parentFeatureNames": [],
+    "uniqueCount": 1802,
+    "lowInformation": false,
+    "name": "bids[device] (counts) (by bidder_id)",
+    "timeStep": null,
+    "min": null,
+    "median": null,
+    "projectId": "project-id00000000000000",
+    "featureLineageId": null,
+    "mean": null
+}

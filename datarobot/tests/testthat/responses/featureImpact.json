@@ -1,0 +1,26 @@
+{
+  "count": 9,
+  "featureImpacts": [
+    {
+      "impactNormalized": 1.0,
+      "impactUnnormalized": 1.0,
+      "featureName": "carat",
+      "redundantWith": null
+    },
+    {
+      "impactNormalized": 1.9031227066380287,
+      "impactUnnormalized": 1.0,
+      "featureName": "x",
+      "redundantWith": null
+    },
+    {
+      "impactNormalized": 1.3676856750210127,
+      "impactUnnormalized": 1.0,
+      "featureName": "z",
+      "redundantWith": "x"
+    }
+  ],
+  "ranRedundancyDetection": true,
+  "previous": null,
+  "next": null
+}
