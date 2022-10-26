@@ -22,16 +22,16 @@ Select Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Select$new()}}
-\item \href{#method-validate}{\code{Select$validate()}}
-\item \href{#method-toJSON}{\code{Select$toJSON()}}
-\item \href{#method-fromJSON}{\code{Select$fromJSON()}}
-\item \href{#method-clone}{\code{Select$clone()}}
+\item \href{#method-Select-new}{\code{Select$new()}}
+\item \href{#method-Select-validate}{\code{Select$validate()}}
+\item \href{#method-Select-toJSON}{\code{Select$toJSON()}}
+\item \href{#method-Select-fromJSON}{\code{Select$fromJSON()}}
+\item \href{#method-Select-clone}{\code{Select$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Select-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Select-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Select-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Select-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Select$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Select-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Select-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Select-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Select-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Select-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Select-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

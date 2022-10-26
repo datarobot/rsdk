@@ -24,16 +24,16 @@ CalendarFileUpload Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CalendarFileUpload$new()}}
-\item \href{#method-validate}{\code{CalendarFileUpload$validate()}}
-\item \href{#method-toJSON}{\code{CalendarFileUpload$toJSON()}}
-\item \href{#method-fromJSON}{\code{CalendarFileUpload$fromJSON()}}
-\item \href{#method-clone}{\code{CalendarFileUpload$clone()}}
+\item \href{#method-CalendarFileUpload-new}{\code{CalendarFileUpload$new()}}
+\item \href{#method-CalendarFileUpload-validate}{\code{CalendarFileUpload$validate()}}
+\item \href{#method-CalendarFileUpload-toJSON}{\code{CalendarFileUpload$toJSON()}}
+\item \href{#method-CalendarFileUpload-fromJSON}{\code{CalendarFileUpload$fromJSON()}}
+\item \href{#method-CalendarFileUpload-clone}{\code{CalendarFileUpload$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CalendarFileUpload-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarFileUpload-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CalendarFileUpload-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarFileUpload-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CalendarFileUpload$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CalendarFileUpload-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarFileUpload-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CalendarFileUpload-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarFileUpload-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CalendarFileUpload-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarFileUpload-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

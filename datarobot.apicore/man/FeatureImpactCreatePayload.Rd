@@ -13,8 +13,6 @@ FeatureImpactCreatePayload Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{backtest}}{character \link{optional} The backtest value is used for Feature Impact computation. It is possible to re-compute Feature Impact for different backtests in datetime partitioned models.}
-
 \item{\code{rowCount}}{integer \link{optional} The sample size to use for Feature Impact computation. It is possible to re-compute Feature Impact with a different row count.}
 }
 \if{html}{\out{</div>}}
@@ -22,32 +20,25 @@ FeatureImpactCreatePayload Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FeatureImpactCreatePayload$new()}}
-\item \href{#method-validate}{\code{FeatureImpactCreatePayload$validate()}}
-\item \href{#method-toJSON}{\code{FeatureImpactCreatePayload$toJSON()}}
-\item \href{#method-fromJSON}{\code{FeatureImpactCreatePayload$fromJSON()}}
-\item \href{#method-clone}{\code{FeatureImpactCreatePayload$clone()}}
+\item \href{#method-FeatureImpactCreatePayload-new}{\code{FeatureImpactCreatePayload$new()}}
+\item \href{#method-FeatureImpactCreatePayload-validate}{\code{FeatureImpactCreatePayload$validate()}}
+\item \href{#method-FeatureImpactCreatePayload-toJSON}{\code{FeatureImpactCreatePayload$toJSON()}}
+\item \href{#method-FeatureImpactCreatePayload-fromJSON}{\code{FeatureImpactCreatePayload$fromJSON()}}
+\item \href{#method-FeatureImpactCreatePayload-clone}{\code{FeatureImpactCreatePayload$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FeatureImpactCreatePayload-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureImpactCreatePayload-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FeatureImpactCreatePayload$new(
-  backtest = NULL,
-  rowCount = NULL,
-  validateParams = FALSE,
-  ...
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FeatureImpactCreatePayload$new(rowCount = NULL, validateParams = FALSE, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{backtest}}{The backtest value is used for Feature Impact computation. It is possible to re-compute Feature Impact for different backtests in datetime partitioned models.}
-
 \item{\code{rowCount}}{The sample size to use for Feature Impact computation. It is possible to re-compute Feature Impact with a different row count.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
@@ -58,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-FeatureImpactCreatePayload-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureImpactCreatePayload-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FeatureImpactCreatePayload$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FeatureImpactCreatePayload-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureImpactCreatePayload-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FeatureImpactCreatePayload-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureImpactCreatePayload-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +93,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FeatureImpactCreatePayload-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureImpactCreatePayload-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

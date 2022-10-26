@@ -12,31 +12,17 @@ CreateChangeRequestsReviews(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create review.
 }
 \details{
 Review the Change Request.
+
+This method invokes \verb{POST /changeRequests/\{changeRequestId\}/reviews/} in the DataRobot Public API.
 }
 \seealso{
-The method ChangeRequestsReviewsCreate in [datarobot.apicore::GovernanceApi], which this function wraps.
-
-Other Governance: 
-\code{\link{CreateApprovalPolicies}()},
-\code{\link{CreateChangeRequests}()},
-\code{\link{DeleteApprovalPolicies}()},
-\code{\link{ListApprovalPoliciesShareableChangeRequests}()},
-\code{\link{ListApprovalPolicies}()},
-\code{\link{ListApprovalPolicyMatch}()},
-\code{\link{ListApprovalPolicyTriggers}()},
-\code{\link{ListChangeRequestsReviews}()},
-\code{\link{ListChangeRequestsSuggestedReviewers}()},
-\code{\link{ListChangeRequests}()},
-\code{\link{PatchChangeRequests}()},
-\code{\link{PatchManyChangeRequestsStatus}()},
-\code{\link{PutApprovalPolicies}()},
-\code{\link{RetrieveApprovalPolicies}()},
-\code{\link{RetrieveChangeRequestsReviews}()},
-\code{\link{RetrieveChangeRequests}()}
+The method ChangeRequestsReviewsCreate in \link[datarobot.apicore:GovernanceApi]{datarobot.apicore::GovernanceApi}, which invokes the same underlying API endpoint.
 }
-\concept{Governance}

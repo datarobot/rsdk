@@ -20,16 +20,16 @@ ChangeRequestUpdateStatus Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ChangeRequestUpdateStatus$new()}}
-\item \href{#method-validate}{\code{ChangeRequestUpdateStatus$validate()}}
-\item \href{#method-toJSON}{\code{ChangeRequestUpdateStatus$toJSON()}}
-\item \href{#method-fromJSON}{\code{ChangeRequestUpdateStatus$fromJSON()}}
-\item \href{#method-clone}{\code{ChangeRequestUpdateStatus$clone()}}
+\item \href{#method-ChangeRequestUpdateStatus-new}{\code{ChangeRequestUpdateStatus$new()}}
+\item \href{#method-ChangeRequestUpdateStatus-validate}{\code{ChangeRequestUpdateStatus$validate()}}
+\item \href{#method-ChangeRequestUpdateStatus-toJSON}{\code{ChangeRequestUpdateStatus$toJSON()}}
+\item \href{#method-ChangeRequestUpdateStatus-fromJSON}{\code{ChangeRequestUpdateStatus$fromJSON()}}
+\item \href{#method-ChangeRequestUpdateStatus-clone}{\code{ChangeRequestUpdateStatus$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ChangeRequestUpdateStatus-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestUpdateStatus-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ChangeRequestUpdateStatus-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestUpdateStatus-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeRequestUpdateStatus$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestUpdateStatus-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestUpdateStatus-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestUpdateStatus-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestUpdateStatus-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -92,8 +93,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ChangeRequestUpdateStatus-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestUpdateStatus-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

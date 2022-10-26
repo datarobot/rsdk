@@ -30,16 +30,16 @@ ConnectorFieldSchema Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ConnectorFieldSchema$new()}}
-\item \href{#method-validate}{\code{ConnectorFieldSchema$validate()}}
-\item \href{#method-toJSON}{\code{ConnectorFieldSchema$toJSON()}}
-\item \href{#method-fromJSON}{\code{ConnectorFieldSchema$fromJSON()}}
-\item \href{#method-clone}{\code{ConnectorFieldSchema$clone()}}
+\item \href{#method-ConnectorFieldSchema-new}{\code{ConnectorFieldSchema$new()}}
+\item \href{#method-ConnectorFieldSchema-validate}{\code{ConnectorFieldSchema$validate()}}
+\item \href{#method-ConnectorFieldSchema-toJSON}{\code{ConnectorFieldSchema$toJSON()}}
+\item \href{#method-ConnectorFieldSchema-fromJSON}{\code{ConnectorFieldSchema$fromJSON()}}
+\item \href{#method-ConnectorFieldSchema-clone}{\code{ConnectorFieldSchema$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ConnectorFieldSchema-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ConnectorFieldSchema-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ConnectorFieldSchema-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ConnectorFieldSchema-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConnectorFieldSchema$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ConnectorFieldSchema-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ConnectorFieldSchema-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ConnectorFieldSchema-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ConnectorFieldSchema-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -118,8 +119,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ConnectorFieldSchema-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ConnectorFieldSchema-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

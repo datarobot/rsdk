@@ -6,40 +6,17 @@
 \usage{
 RetrieveImageAugmentationOptions(projectId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Augmentation list of all available transformations that are supported in the system.
 }
 \details{
 Augmentation list of all available transformations that are supported in the system.
+
+This method invokes \verb{GET /imageAugmentationOptions/\{projectId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ImageAugmentationOptionsRetrieve in [datarobot.apicore::ImagesApi], which this function wraps.
-
-Other Images: 
-\code{\link{CreateImageAugmentationListsSamples}()},
-\code{\link{CreateImageAugmentationLists}()},
-\code{\link{CreateImageAugmentationSamples}()},
-\code{\link{CreateProjectsModelsImageActivationMaps}()},
-\code{\link{CreateProjectsModelsImageEmbeddings}()},
-\code{\link{DeleteImageAugmentationLists}()},
-\code{\link{ListDatasetsImagesDataQualityLogFile}()},
-\code{\link{ListDatasetsImagesDataQualityLog}()},
-\code{\link{ListImageAugmentationListsSamples}()},
-\code{\link{ListImageAugmentationLists}()},
-\code{\link{ListImageAugmentationSamples}()},
-\code{\link{ListProjectsDuplicateImages}()},
-\code{\link{ListProjectsImageActivationMaps}()},
-\code{\link{ListProjectsImageBins}()},
-\code{\link{ListProjectsImageEmbeddings}()},
-\code{\link{ListProjectsImageSamples}()},
-\code{\link{ListProjectsImagesDataQualityLogFile}()},
-\code{\link{ListProjectsImagesDataQualityLog}()},
-\code{\link{ListProjectsImagesFile}()},
-\code{\link{ListProjectsImages}()},
-\code{\link{ListProjectsModelsImageActivationMaps}()},
-\code{\link{ListProjectsModelsImageEmbeddings}()},
-\code{\link{PatchImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationLists}()},
-\code{\link{RetrieveProjectsImages}()}
+The method ImageAugmentationOptionsRetrieve in \link[datarobot.apicore:ImagesApi]{datarobot.apicore::ImagesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Images}

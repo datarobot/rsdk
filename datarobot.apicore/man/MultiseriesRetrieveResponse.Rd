@@ -22,16 +22,16 @@ MultiseriesRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MultiseriesRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{MultiseriesRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{MultiseriesRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{MultiseriesRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{MultiseriesRetrieveResponse$clone()}}
+\item \href{#method-MultiseriesRetrieveResponse-new}{\code{MultiseriesRetrieveResponse$new()}}
+\item \href{#method-MultiseriesRetrieveResponse-validate}{\code{MultiseriesRetrieveResponse$validate()}}
+\item \href{#method-MultiseriesRetrieveResponse-toJSON}{\code{MultiseriesRetrieveResponse$toJSON()}}
+\item \href{#method-MultiseriesRetrieveResponse-fromJSON}{\code{MultiseriesRetrieveResponse$fromJSON()}}
+\item \href{#method-MultiseriesRetrieveResponse-clone}{\code{MultiseriesRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MultiseriesRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-MultiseriesRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiseriesRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MultiseriesRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MultiseriesRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MultiseriesRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

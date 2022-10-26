@@ -6,18 +6,17 @@
 \usage{
 ListSsoConfigurations(orgId, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List sso configurations.
 }
 \details{
 List the sso configurations that correspond to provided conditions.
+
+This method invokes \verb{GET /ssoConfigurations/} in the DataRobot Public API.
 }
 \seealso{
-The method SsoConfigurationsList in [datarobot.apicore::SsoConfigurationApi], which this function wraps.
-
-Other SsoConfiguration: 
-\code{\link{CreateSsoConfigurations}()},
-\code{\link{PatchSsoConfigurations}()},
-\code{\link{RetrieveSsoConfigurations}()}
+The method SsoConfigurationsList in \link[datarobot.apicore:SsoConfigurationApi]{datarobot.apicore::SsoConfigurationApi}, which invokes the same underlying API endpoint.
 }
-\concept{SsoConfiguration}

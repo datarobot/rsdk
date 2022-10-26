@@ -1,4 +1,4 @@
-# Copyright 2021 DataRobot, Inc. and its affiliates.
+# Copyright 2021-2022 DataRobot, Inc. and its affiliates.
 #
 # All rights reserved.
 #
@@ -53,14 +53,15 @@
 #'
 #' A helper method to validate complex types for anyOf and oneOf properties in an R6 object.
 #'
-#' @param typeList A vector of R6 class generator names.
+#' @param typeList An object vector of R6 class generators.
 #' @param propertyData A deserialized JSON string, OR an R6 object instance.
 #' @return The R6 input object if it's one of the listed types in `typeList`, or a newly instantiated
 #' R6 object based on the input map if that map can be converted into one of the types in `typeList`, or NULL if input is NULL.
 #' @export
 #' @md
 .setComplexProperty <- function(typeList, propertyData) {
-  stopifnot(all(sapply(typeList, R6::is.R6Class)))
+  # TODO DSX-2493 convert this from an object vector to a character vector
+  stopifnot(sapply(typeList, R6::is.R6Class))
   if (is.null(propertyData)) {
     # base case: if NULL, return NULL
     return(propertyData)
@@ -79,14 +80,14 @@
       return(property)
     }
   }
-  stop("anyOf or oneOf validation failed")
+  stop(paste(quote(propertyData), "is not one of", paste0(typeList, collapse = "|")))
 }
 
 #' Validate and set primitive types
 #'
 #' A helper method to validate simple types for anyOf and oneOf properties in an R6 object.
-#' @param typeList A vector of R6 class generator names.
-#' @param propertyData A deserialized JSON string.
+#' @param typeList A character vector of primitive type names, e.g. "numeric" or "logical".
+#' @param propertyData An R object, possibly a primitive, output of `jsonlite::fromJSON()`.
 #' @return The value of `propertyData` if the value is one of the types listed in `typeList`.
 #' A helper method to validate simple types for anyOf and oneOf properties in an R6 object.
 #'
@@ -95,59 +96,77 @@
 .setPrimitiveProperty <- function(typeList, propertyData) {
   for (typeOption in typeList) {
     checkType <- switch(typeOption,
-      "numeric" = is.numeric,
-      "boolean" = is.logical,
+      "numeric" = is.numeric, # good for both doubles and integers
+      "logical" = is.logical,
       "array" = is.array,
       "character" = is.character
     )
-    property <- tryCatch(
+    isPrimitive <- tryCatch(
       checkType(propertyData),
       error = function(e) {
         NULL
       }
     )
-    if (is.null(propertyData) || property) {
+    if (is.null(propertyData) || isPrimitive) {
       return(propertyData)
     }
   }
-  stop("anyOf or oneOf validation failed")
+  stop(paste(propertyData, "is not one of", paste0(typeList, collapse = "|")))
+}
+
+.isR6ClassGeneratorName <- function(generatorName) {
+  tryCatch(R6::is.R6Class(eval(str2lang(generatorName))),
+    error = function(x) FALSE
+  )
 }
 
 #' Validate and set mixed complex and primitive types
 #'
 #' A helper method to validate mixed types for anyOf and oneOf properties in an R6 object.
 #'
-#' @param typeList A vector of R6 class generator names.
+#' @param typeList A character vector of property types. The list is guaranteed to be ordered with complex types before primitive types.
 #' @param propertyData A deserialized JSON string, OR an R6 object instance.
 #' @return If `typeOption` is a complex type, this function will return an R6 object that was provided if it's one of the listed types in `typeList`,
 #' or a newly instantiated R6 object based on the input map if that map can be converted into one of the types in `typeList`.
-#' If `typeOption` is a primitive, this function will return `propertyData` if the value is one of the types listed in `typeList`.
+#' If `typeOption` is a primitive, this function will return `propertyData` iff the value is one of the types listed in `typeList`.
 #' A helper method to validate mixed types for anyOf and oneOf properties in an R6 object.
 #'
 #' @export
 #' @md
 .setMixedProperty <- function(typeList, propertyData) {
+  stopifnot(sapply(typeList, is.character))
+  if (is.null(propertyData)) {
+    # base case: if NULL, return NULL
+    return(propertyData)
+  }
   for (typeOption in typeList) {
-    property <- tryCatch(
-      .setPrimitiveProperty(list(typeOption), propertyData),
-      error = function(e) {
-        NULL
+    # since the implicit guarantee is that complex types are first, let's test for complex properties first.
+    if (.isR6ClassGeneratorName(typeOption)) {
+      # this is probably a complex property
+      property <- tryCatch(
+        # setComplexProperty takes a vector of R6 generator classes
+        .setComplexProperty(c(eval(str2lang(typeOption))), propertyData),
+        error = function(e) {
+          NULL
+        }
+      )
+      if (!is.null(property)) {
+        return(property)
       }
-    )
-    if (!is.null(property) && property) {
-      return(propertyData)
+    } else {
+      # this is probably a primitive property
+      property <- tryCatch(
+        .setPrimitiveProperty(list(typeOption), propertyData),
+        error = function(e) {
+          NULL
+        }
+      )
+      if (!is.null(property) && property) {
+        return(propertyData)
+      }
     }
-    property <- tryCatch(
-      .setPrimitiveProperty(list(typeOption), propertyData),
-      error = function(e) {
-        NULL
-      }
-    )
   }
-  if (!is.null(property)) {
-    return(property)
-  }
-  stop("anyOf or oneOf validation failed")
+  stop(paste(quote(x), "is not one of", paste0(typeList, collapse = "|")))
 }
 
 #' RFC 3339 datetime format
@@ -185,9 +204,10 @@ ParseRFC3339Timestamp <- function(timestampstring) {
 #'
 #' @inheritParams base::isa
 #' @md
-isa <- function(x, what)
-{
-  if (isS4(x))
+isa <- function(x, what) {
+  if (isS4(x)) {
     methods::is(x, what)
-  else all(class(x) %in% what)
+  } else {
+    all(class(x) %in% what)
+  }
 }

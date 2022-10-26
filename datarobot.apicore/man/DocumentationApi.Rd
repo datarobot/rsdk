@@ -29,7 +29,7 @@ result <- api.instance$AutomatedDocumentOptionsList()
 
 \dontrun{
 library(datarobot.apicore)
-automatedDocCreate <- AutomatedDocCreate$new() # AutomatedDocCreate |
+automatedDocCreate <- AutomatedDocCreate$new() # AutomatedDocCreate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$AutomatedDocumentsCreate(automatedDocCreate=automatedDocCreate)
@@ -55,10 +55,10 @@ result <- api.instance$AutomatedDocumentsDelete(documentId)
 library(datarobot.apicore)
 offset <- 0 # integer | Number of items to skip. Defaults to 0 if not provided.
 limit <- 100 # integer | Number of items to return, defaults to 100 if not provided.
-documentType <- OneOfstringarray$new() # OneOfstringarray | Query for one or more document types.
-outputFormat <- OneOfstringarray$new() # OneOfstringarray | Query for one or more output formats.
-locale <- OneOfstringarray$new() # OneOfstringarray | Query generated documents by one or more locales.
-entityId <- OneOfstringarray$new() # OneOfstringarray | Query generated documents by one or more entity IDs. For Model Compliance docs, the entity ID is a model ID. For Autopilot Summary reports, query by project IDs.
+documentType <- list(c('documentType_example')) # OneOfstringarray | Query for one or more document types.
+outputFormat <- list(c('outputFormat_example')) # OneOfstringarray | Query for one or more output formats.
+locale <- list(c('locale_example')) # OneOfstringarray | Query generated documents by one or more locales.
+entityId <- list(c('entityId_example')) # OneOfstringarray | Query generated documents by one or more entity IDs. For Model Compliance docs, the entity ID is a model ID. For Autopilot Summary reports, query by project IDs.
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$AutomatedDocumentsList(offset, limit, documentType=documentType, outputFormat=outputFormat, locale=locale, entityId=entityId)
@@ -82,7 +82,7 @@ result <- api.instance$AutomatedDocumentsRetrieve(documentId)
 
 \dontrun{
 library(datarobot.apicore)
-complianceDocTemplateCreate <- ComplianceDocTemplateCreate$new() # ComplianceDocTemplateCreate |
+complianceDocTemplateCreate <- ComplianceDocTemplateCreate$new() # ComplianceDocTemplateCreate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesCreate(complianceDocTemplateCreate=complianceDocTemplateCreate)
@@ -136,7 +136,7 @@ result <- api.instance$ComplianceDocTemplatesList(offset=offset, limit=limit, na
 \dontrun{
 library(datarobot.apicore)
 templateId <- 'templateId_example' # character | The Id of a model compliance document template accessible by the user
-complianceDocTemplateUpdate <- ComplianceDocTemplateUpdate$new() # ComplianceDocTemplateUpdate |
+complianceDocTemplateUpdate <- ComplianceDocTemplateUpdate$new() # ComplianceDocTemplateUpdate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesPatch(templateId, complianceDocTemplateUpdate=complianceDocTemplateUpdate)
@@ -178,7 +178,7 @@ result <- api.instance$ComplianceDocTemplatesSharedRolesList(offset, limit, temp
 \dontrun{
 library(datarobot.apicore)
 templateId <- 'templateId_example' # character | The template identifier
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesSharedRolesPatchMany(templateId, sharedRolesUpdate=sharedRolesUpdate)
@@ -191,7 +191,7 @@ result <- api.instance$ComplianceDocTemplatesSharedRolesPatchMany(templateId, sh
 \dontrun{
 library(datarobot.apicore)
 entityId <- 'entityId_example' # character | The ID of the model or model package the document corresponds to.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ModelComplianceDocsInitializationsCreateOne(entityId, body=body)
@@ -219,28 +219,28 @@ result <- api.instance$ModelComplianceDocsInitializationsRetrieve(entityId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DocumentationApi$new()}}
-\item \href{#method-AutomatedDocumentOptionsList}{\code{DocumentationApi$AutomatedDocumentOptionsList()}}
-\item \href{#method-AutomatedDocumentsCreate}{\code{DocumentationApi$AutomatedDocumentsCreate()}}
-\item \href{#method-AutomatedDocumentsDelete}{\code{DocumentationApi$AutomatedDocumentsDelete()}}
-\item \href{#method-AutomatedDocumentsList}{\code{DocumentationApi$AutomatedDocumentsList()}}
-\item \href{#method-AutomatedDocumentsRetrieve}{\code{DocumentationApi$AutomatedDocumentsRetrieve()}}
-\item \href{#method-ComplianceDocTemplatesCreate}{\code{DocumentationApi$ComplianceDocTemplatesCreate()}}
-\item \href{#method-ComplianceDocTemplatesDefaultList}{\code{DocumentationApi$ComplianceDocTemplatesDefaultList()}}
-\item \href{#method-ComplianceDocTemplatesDelete}{\code{DocumentationApi$ComplianceDocTemplatesDelete()}}
-\item \href{#method-ComplianceDocTemplatesList}{\code{DocumentationApi$ComplianceDocTemplatesList()}}
-\item \href{#method-ComplianceDocTemplatesPatch}{\code{DocumentationApi$ComplianceDocTemplatesPatch()}}
-\item \href{#method-ComplianceDocTemplatesRetrieve}{\code{DocumentationApi$ComplianceDocTemplatesRetrieve()}}
-\item \href{#method-ComplianceDocTemplatesSharedRolesList}{\code{DocumentationApi$ComplianceDocTemplatesSharedRolesList()}}
-\item \href{#method-ComplianceDocTemplatesSharedRolesPatchMany}{\code{DocumentationApi$ComplianceDocTemplatesSharedRolesPatchMany()}}
-\item \href{#method-ModelComplianceDocsInitializationsCreateOne}{\code{DocumentationApi$ModelComplianceDocsInitializationsCreateOne()}}
-\item \href{#method-ModelComplianceDocsInitializationsRetrieve}{\code{DocumentationApi$ModelComplianceDocsInitializationsRetrieve()}}
-\item \href{#method-clone}{\code{DocumentationApi$clone()}}
+\item \href{#method-DocumentationApi-new}{\code{DocumentationApi$new()}}
+\item \href{#method-DocumentationApi-AutomatedDocumentOptionsList}{\code{DocumentationApi$AutomatedDocumentOptionsList()}}
+\item \href{#method-DocumentationApi-AutomatedDocumentsCreate}{\code{DocumentationApi$AutomatedDocumentsCreate()}}
+\item \href{#method-DocumentationApi-AutomatedDocumentsDelete}{\code{DocumentationApi$AutomatedDocumentsDelete()}}
+\item \href{#method-DocumentationApi-AutomatedDocumentsList}{\code{DocumentationApi$AutomatedDocumentsList()}}
+\item \href{#method-DocumentationApi-AutomatedDocumentsRetrieve}{\code{DocumentationApi$AutomatedDocumentsRetrieve()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesCreate}{\code{DocumentationApi$ComplianceDocTemplatesCreate()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesDefaultList}{\code{DocumentationApi$ComplianceDocTemplatesDefaultList()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesDelete}{\code{DocumentationApi$ComplianceDocTemplatesDelete()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesList}{\code{DocumentationApi$ComplianceDocTemplatesList()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesPatch}{\code{DocumentationApi$ComplianceDocTemplatesPatch()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesRetrieve}{\code{DocumentationApi$ComplianceDocTemplatesRetrieve()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesSharedRolesList}{\code{DocumentationApi$ComplianceDocTemplatesSharedRolesList()}}
+\item \href{#method-DocumentationApi-ComplianceDocTemplatesSharedRolesPatchMany}{\code{DocumentationApi$ComplianceDocTemplatesSharedRolesPatchMany()}}
+\item \href{#method-DocumentationApi-ModelComplianceDocsInitializationsCreateOne}{\code{DocumentationApi$ModelComplianceDocsInitializationsCreateOne()}}
+\item \href{#method-DocumentationApi-ModelComplianceDocsInitializationsRetrieve}{\code{DocumentationApi$ModelComplianceDocsInitializationsRetrieve()}}
+\item \href{#method-DocumentationApi-clone}{\code{DocumentationApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DocumentationApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -255,8 +255,8 @@ result <- api.instance$ModelComplianceDocsInitializationsRetrieve(entityId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutomatedDocumentOptionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-AutomatedDocumentOptionsList}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-AutomatedDocumentOptionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-AutomatedDocumentOptionsList}{}}}
 \subsection{Method \code{AutomatedDocumentOptionsList()}}{
 List all available document types and locales.
 Produces: "application/json"
@@ -273,6 +273,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Check which document types and locales are available for generation with your account.
+
+
+This method invokes \verb{GET /automatedDocumentOptions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -301,8 +304,8 @@ result <- api.instance$AutomatedDocumentOptionsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutomatedDocumentsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-AutomatedDocumentsCreate}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-AutomatedDocumentsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-AutomatedDocumentsCreate}{}}}
 \subsection{Method \code{AutomatedDocumentsCreate()}}{
 Request generation of automated document
 Produces: NA
@@ -320,7 +323,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Request generation of an automated document that's available for your account. Below is an example request body to generate Model Compliance documentation:  .. sourcecode:: json      {         \"documentType\": \"MODEL_COMPLIANCE\",         \"entityId\": \"507f191e810c19729de860ea\",         \"outputFormat\": \"docx\"     }  For Autopilot Summary, set a corresponding document type, ``AUTOPILOT_SUMMARY``, and assign a needed project ID to the ``entityId`` value.  After the request is sent, the jobs needed for document generation are queued. You can see the status of the generation by polling the URL in the ``Location`` headers. After the generation is complete, the status URL will automatically redirect you to the resource location to download the document.
+Request generation of an automated document that's available for your account. Below is an example request body to generate Model Compliance documentation:  ``` json {     \"documentType\": \"MODEL_COMPLIANCE\",     \"entityId\": \"507f191e810c19729de860ea\",     \"outputFormat\": \"docx\" } ```  For Autopilot Summary, set a corresponding document type, `AUTOPILOT_SUMMARY`, and assign a needed project ID to the `entityId` value.  After the request is sent, the jobs needed for document generation are queued. You can see the status of the generation by polling the URL in the `Location` headers. After the generation is complete, the status URL will automatically redirect you to the resource location to download the document.
+
+
+This method invokes \verb{POST /automatedDocuments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -339,7 +345,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-automatedDocCreate <- AutomatedDocCreate$new() # AutomatedDocCreate |
+automatedDocCreate <- AutomatedDocCreate$new() # AutomatedDocCreate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$AutomatedDocumentsCreate(automatedDocCreate=automatedDocCreate)
@@ -351,8 +357,8 @@ result <- api.instance$AutomatedDocumentsCreate(automatedDocCreate=automatedDocC
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutomatedDocumentsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-AutomatedDocumentsDelete}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-AutomatedDocumentsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-AutomatedDocumentsDelete}{}}}
 \subsection{Method \code{AutomatedDocumentsDelete()}}{
 Delete automated document.
 Produces: NA
@@ -370,7 +376,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a document using its ID. Example request:      .. code-block:: text              DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1             Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4
+Delete a document using its ID. Example request:  > ``` text > DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 > Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 > ```
+
+
+This method invokes \verb{DELETE /automatedDocuments/\{documentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -400,8 +409,8 @@ result <- api.instance$AutomatedDocumentsDelete(documentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutomatedDocumentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-AutomatedDocumentsList}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-AutomatedDocumentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-AutomatedDocumentsList}{}}}
 \subsection{Method \code{AutomatedDocumentsList()}}{
 List all generated documents.
 Produces: "application/json"
@@ -437,7 +446,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Get information about all previously generated documents available for your account. The information includes document ID and type, ID of the entity it was generated for, time of creation, and other information. If there are no matching documents, you will get a page with an empty data array.
+Get information about all previously generated documents available for your account. The information includes document ID and type, ID of the entity it was generated for, time of creation, and other information.  Example request to get a list of all documents:  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  Query for specific documents. For example, request a list of documents generated for a specific model in `docx` and `html` formats:  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments?entityId= 5ec4ea7e41054c158c5b002f&outputFormat=docx&outputFormat=html HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  In response body, you will get a page with queried documents. This is an example response with one document returned:  ``` json {     \"totalCount\": 1,     \"count\": 1,     \"previous\": null,     \"next\": null,     \"data\": \link[=         {             \\"id\\": \\"5ebdb5e911a5fb85edff2b3c\\",             \\"documentType\\": \\"MODEL_COMPLIANCE\\",             \\"entityId\\": \\"5ebbb5e7d9d7b96e3d48e3b5\\",             \\"templateId\\": \\"5bd812e5f750edd392fa880f\\",             \\"locale\\": \\"EN_US\\",             \\"outputFormat\\": \\"DOCX\\",             \\"createdAt\\": \\"2019-11-07T11:12:13.141516Z\\"         }     ]{         {             \"id\": \"5ebdb5e911a5fb85edff2b3c\",             \"documentType\": \"MODEL_COMPLIANCE\",             \"entityId\": \"5ebbb5e7d9d7b96e3d48e3b5\",             \"templateId\": \"5bd812e5f750edd392fa880f\",             \"locale\": \"EN_US\",             \"outputFormat\": \"DOCX\",             \"createdAt\": \"2019-11-07T11:12:13.141516Z\"         }     } } ```  If there are no matching documents, you will get a page with an empty data array.
+
+
+This method invokes \verb{GET /automatedDocuments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -457,10 +469,10 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 offset <- 0 # integer | Number of items to skip. Defaults to 0 if not provided.
 limit <- 100 # integer | Number of items to return, defaults to 100 if not provided.
-documentType <- OneOfstringarray$new() # OneOfstringarray | Query for one or more document types.
-outputFormat <- OneOfstringarray$new() # OneOfstringarray | Query for one or more output formats.
-locale <- OneOfstringarray$new() # OneOfstringarray | Query generated documents by one or more locales.
-entityId <- OneOfstringarray$new() # OneOfstringarray | Query generated documents by one or more entity IDs. For Model Compliance docs, the entity ID is a model ID. For Autopilot Summary reports, query by project IDs.
+documentType <- list(c('documentType_example')) # OneOfstringarray | Query for one or more document types.
+outputFormat <- list(c('outputFormat_example')) # OneOfstringarray | Query for one or more output formats.
+locale <- list(c('locale_example')) # OneOfstringarray | Query generated documents by one or more locales.
+entityId <- list(c('entityId_example')) # OneOfstringarray | Query generated documents by one or more entity IDs. For Model Compliance docs, the entity ID is a model ID. For Autopilot Summary reports, query by project IDs.
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$AutomatedDocumentsList(offset, limit, documentType=documentType, outputFormat=outputFormat, locale=locale, entityId=entityId)
@@ -472,8 +484,8 @@ result <- api.instance$AutomatedDocumentsList(offset, limit, documentType=docume
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutomatedDocumentsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-AutomatedDocumentsRetrieve}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-AutomatedDocumentsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-AutomatedDocumentsRetrieve}{}}}
 \subsection{Method \code{AutomatedDocumentsRetrieve()}}{
 Download generated document.
 Produces: NA
@@ -491,7 +503,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Download a generated Automated Documentation file.  .. code-block:: text      GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1     Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4  In response, you will get a file containing the generated documentation.
+Download a generated Automated Documentation file.  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  In response, you will get a file containing the generated documentation.
+
+
+This method invokes \verb{GET /automatedDocuments/\{documentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -523,8 +538,8 @@ result <- api.instance$AutomatedDocumentsRetrieve(documentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesCreate}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesCreate}{}}}
 \subsection{Method \code{ComplianceDocTemplatesCreate()}}{
 Create a new compliance documentation template
 Produces: "application/json"
@@ -545,7 +560,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new compliance documentation template. One can retrieve the default DataRobot template via ``GET /api/v2/complianceDocTemplates/default/`` endpoint.
+Create a new compliance documentation template. One can retrieve the default DataRobot template via `GET /api/v2/complianceDocTemplates/default/` endpoint.
+
+
+This method invokes \verb{POST /complianceDocTemplates/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -567,7 +585,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-complianceDocTemplateCreate <- ComplianceDocTemplateCreate$new() # ComplianceDocTemplateCreate |
+complianceDocTemplateCreate <- ComplianceDocTemplateCreate$new() # ComplianceDocTemplateCreate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesCreate(complianceDocTemplateCreate=complianceDocTemplateCreate)
@@ -579,8 +597,8 @@ result <- api.instance$ComplianceDocTemplatesCreate(complianceDocTemplateCreate=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesDefaultList"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesDefaultList}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesDefaultList"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesDefaultList}{}}}
 \subsection{Method \code{ComplianceDocTemplatesDefaultList()}}{
 Retrieve the default documentation template
 Produces: "application/json"
@@ -591,7 +609,7 @@ Produces: "application/json"
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{type}}{Enum < \link{normal, timeSeries} > Specifies the type of the default template to retrieve, either ``normal`` or ``timeSeries``. The ``normal`` template is applicable for all AutoML projects that are not time series. The ``timeSeries`` template is only applicable to time series projects.}
+\item{\code{type}}{Enum < \link{timeSeries, normal} > Specifies the type of the default template to retrieve, either ``normal`` or ``timeSeries``. The ``normal`` template is applicable for all AutoML projects that are not time series. The ``timeSeries`` template is only applicable to time series projects.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -599,6 +617,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the default documentation template.
+
+
+This method invokes \verb{GET /complianceDocTemplates/default/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -628,8 +649,8 @@ result <- api.instance$ComplianceDocTemplatesDefaultList(type)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesDelete}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesDelete}{}}}
 \subsection{Method \code{ComplianceDocTemplatesDelete()}}{
 Delete a compliance documentation template
 Produces: NA
@@ -648,6 +669,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a compliance documentation template. Documentation previously generated using this template will remain unchanged.
+
+
+This method invokes \verb{DELETE /complianceDocTemplates/\{templateId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -680,8 +704,8 @@ result <- api.instance$ComplianceDocTemplatesDelete(templateId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesList}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesList}{}}}
 \subsection{Method \code{ComplianceDocTemplatesList()}}{
 List compliance documentation templates
 Produces: "application/json"
@@ -720,6 +744,9 @@ Produces: "application/json"
 List user's custom-built compliance documentation templates.
 
 
+This method invokes \verb{GET /complianceDocTemplates/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Successfully returned list of templates
@@ -752,8 +779,8 @@ result <- api.instance$ComplianceDocTemplatesList(offset=offset, limit=limit, na
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesPatch}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesPatch}{}}}
 \subsection{Method \code{ComplianceDocTemplatesPatch()}}{
 Update an existing model compliance documentation template
 Produces: NA
@@ -777,7 +804,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update an existing model compliance documentation template with the given ``templateId``. The template must be accessible by the user. If the ``templateId`` is not found for the user, the update cannot be performed. For a description of the template ``sections`` object options, see the sample ``sections`` on the schema below.
+Update an existing model compliance documentation template with the given `templateId`. The template must be accessible by the user. If the `templateId` is not found for the user, the update cannot be performed. For a description of the template `sections` object options, see the sample `sections` on the schema below.
+
+
+This method invokes \verb{PATCH /complianceDocTemplates/\{templateId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -799,7 +829,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 templateId <- 'templateId_example' # character | The Id of a model compliance document template accessible by the user
-complianceDocTemplateUpdate <- ComplianceDocTemplateUpdate$new() # ComplianceDocTemplateUpdate |
+complianceDocTemplateUpdate <- ComplianceDocTemplateUpdate$new() # ComplianceDocTemplateUpdate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesPatch(templateId, complianceDocTemplateUpdate=complianceDocTemplateUpdate)
@@ -811,8 +841,8 @@ result <- api.instance$ComplianceDocTemplatesPatch(templateId, complianceDocTemp
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesRetrieve}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesRetrieve}{}}}
 \subsection{Method \code{ComplianceDocTemplatesRetrieve()}}{
 Retrieve a documentation template
 Produces: "application/json"
@@ -831,6 +861,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a JSON representation of a custom Compliance Documentation template.
+
+
+This method invokes \verb{GET /complianceDocTemplates/\{templateId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -863,8 +896,8 @@ result <- api.instance$ComplianceDocTemplatesRetrieve(templateId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesSharedRolesList}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesSharedRolesList}{}}}
 \subsection{Method \code{ComplianceDocTemplatesSharedRolesList()}}{
 Get template's access control list
 Produces: "application/json"
@@ -901,6 +934,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users, groups and organizations who have access to this template and their roles on the template.
+
+
+This method invokes \verb{GET /complianceDocTemplates/\{templateId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -941,8 +977,8 @@ result <- api.instance$ComplianceDocTemplatesSharedRolesList(offset, limit, temp
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComplianceDocTemplatesSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ComplianceDocTemplatesSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ComplianceDocTemplatesSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ComplianceDocTemplatesSharedRolesPatchMany}{}}}
 \subsection{Method \code{ComplianceDocTemplatesSharedRolesPatchMany()}}{
 Update template's access controls
 Produces: NA
@@ -969,6 +1005,9 @@ Produces: NA
 Set roles for users on this template.
 
 
+This method invokes \verb{PATCH /complianceDocTemplates/\{templateId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -988,7 +1027,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 templateId <- 'templateId_example' # character | The template identifier
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ComplianceDocTemplatesSharedRolesPatchMany(templateId, sharedRolesUpdate=sharedRolesUpdate)
@@ -1000,8 +1039,8 @@ result <- api.instance$ComplianceDocTemplatesSharedRolesPatchMany(templateId, sh
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsCreateOne"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsCreateOne}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ModelComplianceDocsInitializationsCreateOne"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ModelComplianceDocsInitializationsCreateOne}{}}}
 \subsection{Method \code{ModelComplianceDocsInitializationsCreateOne()}}{
 Initialize compliance documentation pre-processing for the model
 Produces: NA
@@ -1028,6 +1067,9 @@ Produces: NA
 Initialize compliance documentation pre-processing for the current model. This route must be called before generating documentation for a custom model.
 
 
+This method invokes \verb{POST /modelComplianceDocsInitializations/\{entityId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job to initialize compliance documentation pre-processing successfully started.
@@ -1048,7 +1090,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 entityId <- 'entityId_example' # character | The ID of the model or model package the document corresponds to.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- DocumentationApi$new()
 result <- api.instance$ModelComplianceDocsInitializationsCreateOne(entityId, body=body)
@@ -1060,8 +1102,8 @@ result <- api.instance$ModelComplianceDocsInitializationsCreateOne(entityId, bod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsRetrieve}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-ModelComplianceDocsInitializationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-ModelComplianceDocsInitializationsRetrieve}{}}}
 \subsection{Method \code{ModelComplianceDocsInitializationsRetrieve()}}{
 Check if compliance documentation pre-processing is initialized for the model
 Produces: "application/json"
@@ -1080,6 +1122,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Check if compliance documentation pre-processing is initialized for the current model. This is only required for custom models.
+
+
+This method invokes \verb{GET /modelComplianceDocsInitializations/\{entityId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1112,8 +1157,8 @@ result <- api.instance$ModelComplianceDocsInitializationsRetrieve(entityId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DocumentationApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DocumentationApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

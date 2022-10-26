@@ -25,6 +25,8 @@ ModelCapabilitiesRetrieveResponse Class
 
 \item{\code{supportsCodeGeneration}}{character `True` if the model supports export of model's source code or compiled Java executable.}
 
+\item{\code{supportsDocumentTextExtractionSampleInsight}}{character `True` if the model has document column(s) and document text extraction samples can be generated.}
+
 \item{\code{supportsEarlyStopping}}{character \link{optional} `True` if this is an early stopping tree-based model and number of trained iterations can be retrieved.}
 
 \item{\code{supportsImageActivationMaps}}{character `True` if the model has image column(s) and activation maps can be generated.}
@@ -46,16 +48,16 @@ ModelCapabilitiesRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelCapabilitiesRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{ModelCapabilitiesRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{ModelCapabilitiesRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelCapabilitiesRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ModelCapabilitiesRetrieveResponse$clone()}}
+\item \href{#method-ModelCapabilitiesRetrieveResponse-new}{\code{ModelCapabilitiesRetrieveResponse$new()}}
+\item \href{#method-ModelCapabilitiesRetrieveResponse-validate}{\code{ModelCapabilitiesRetrieveResponse$validate()}}
+\item \href{#method-ModelCapabilitiesRetrieveResponse-toJSON}{\code{ModelCapabilitiesRetrieveResponse$toJSON()}}
+\item \href{#method-ModelCapabilitiesRetrieveResponse-fromJSON}{\code{ModelCapabilitiesRetrieveResponse$fromJSON()}}
+\item \href{#method-ModelCapabilitiesRetrieveResponse-clone}{\code{ModelCapabilitiesRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelCapabilitiesRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelCapabilitiesRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -65,6 +67,7 @@ A function used to initialize an instance of this class.
   hasWordCloud = NULL,
   supportsBlending = NULL,
   supportsCodeGeneration = NULL,
+  supportsDocumentTextExtractionSampleInsight = NULL,
   supportsImageActivationMaps = NULL,
   supportsImageEmbedding = NULL,
   supportsModelTrainingMetrics = NULL,
@@ -92,6 +95,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{supportsCodeGeneration}}{`True` if the model supports export of model's source code or compiled Java executable.}
 
+\item{\code{supportsDocumentTextExtractionSampleInsight}}{`True` if the model has document column(s) and document text extraction samples can be generated.}
+
 \item{\code{supportsImageActivationMaps}}{`True` if the model has image column(s) and activation maps can be generated.}
 
 \item{\code{supportsImageEmbedding}}{`True` if the model has image column(s) and image embeddings can be generated.}
@@ -116,19 +121,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelCapabilitiesRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelCapabilitiesRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelCapabilitiesRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelCapabilitiesRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelCapabilitiesRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -137,8 +143,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelCapabilitiesRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelCapabilitiesRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -159,8 +165,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelCapabilitiesRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelCapabilitiesRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

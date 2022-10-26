@@ -6,19 +6,17 @@
 \usage{
 RetrieveComments(commentId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve a comment
 }
 \details{
 Retrieve a comment
+
+This method invokes \verb{GET /comments/\{commentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CommentsRetrieve in [datarobot.apicore::CommentsApi], which this function wraps.
-
-Other Comments: 
-\code{\link{CreateComments}()},
-\code{\link{DeleteComments}()},
-\code{\link{ListComments}()},
-\code{\link{PatchComments}()}
+The method CommentsRetrieve in \link[datarobot.apicore:CommentsApi]{datarobot.apicore::CommentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Comments}

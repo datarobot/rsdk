@@ -34,16 +34,16 @@ CustomTrainingBlueprintResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomTrainingBlueprintResponse$new()}}
-\item \href{#method-validate}{\code{CustomTrainingBlueprintResponse$validate()}}
-\item \href{#method-toJSON}{\code{CustomTrainingBlueprintResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CustomTrainingBlueprintResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CustomTrainingBlueprintResponse$clone()}}
+\item \href{#method-CustomTrainingBlueprintResponse-new}{\code{CustomTrainingBlueprintResponse$new()}}
+\item \href{#method-CustomTrainingBlueprintResponse-validate}{\code{CustomTrainingBlueprintResponse$validate()}}
+\item \href{#method-CustomTrainingBlueprintResponse-toJSON}{\code{CustomTrainingBlueprintResponse$toJSON()}}
+\item \href{#method-CustomTrainingBlueprintResponse-fromJSON}{\code{CustomTrainingBlueprintResponse$fromJSON()}}
+\item \href{#method-CustomTrainingBlueprintResponse-clone}{\code{CustomTrainingBlueprintResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomTrainingBlueprintResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -80,19 +80,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CustomTrainingBlueprintResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomTrainingBlueprintResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CustomTrainingBlueprintResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CustomTrainingBlueprintResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -123,8 +124,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomTrainingBlueprintResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

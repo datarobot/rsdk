@@ -13,45 +13,6 @@ datarobot.apicore.Applications
 \examples{
 
 ## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationTypesList`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Defaults to 0.
-limit <- 0 # integer | The number of records to return. Defaults to 0, meaning all records.
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesList(offset, limit)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationTypesRetrieve`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-applicationTypeId <- 'applicationTypeId_example' # character | The application type to retrieve
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesRetrieve(applicationTypeId)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationTypesUsecasesList`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Defaults to 0.
-limit <- 100 # integer | The number of records to return. Defaults to 100.
-applicationTypeId <- 'applicationTypeId_example' # character | The application type to retrieve
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesUsecasesList(offset, limit, applicationTypeId)
-}
-
-## ------------------------------------------------
 ## Method `ApplicationsApi$ApplicationUserRoleRetrieve`
 ## ------------------------------------------------
 
@@ -86,35 +47,10 @@ result <- api.instance$ApplicationsAccessControlList(offset, limit, applicationI
 \dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationAccessControlUpdateRequest <- ApplicationAccessControlUpdateRequest$new() # ApplicationAccessControlUpdateRequest |
+applicationAccessControlUpdateRequest <- ApplicationAccessControlUpdateRequest$new() # ApplicationAccessControlUpdateRequest | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsAccessControlPatchMany(applicationId, applicationAccessControlUpdateRequest=applicationAccessControlUpdateRequest)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationsAuthTokenPatchMany`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsAuthTokenPatchMany(applicationId)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationsBuildJobsCreate`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-body <- NULL # object |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsBuildJobsCreate(applicationId, body=body)
 }
 
 ## ------------------------------------------------
@@ -123,7 +59,7 @@ result <- api.instance$ApplicationsBuildJobsCreate(applicationId, body=body)
 
 \dontrun{
 library(datarobot.apicore)
-applicationCreate <- ApplicationCreate$new() # ApplicationCreate |
+applicationCreate <- ApplicationCreate$new() # ApplicationCreate | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsCreate(applicationCreate=applicationCreate)
@@ -136,23 +72,10 @@ result <- api.instance$ApplicationsCreate(applicationCreate=applicationCreate)
 \dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationParam <- ApplicationParam$new() # ApplicationParam |
+applicationParam <- ApplicationParam$new() # ApplicationParam | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDelete(applicationId, applicationParam=applicationParam)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationsDeploymentStatePatchMany`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDeploymentStateUpdate <- ApplicationDeploymentStateUpdate$new() # ApplicationDeploymentStateUpdate |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsDeploymentStatePatchMany(applicationId, applicationDeploymentStateUpdate=applicationDeploymentStateUpdate)
 }
 
 ## ------------------------------------------------
@@ -162,7 +85,7 @@ result <- api.instance$ApplicationsDeploymentStatePatchMany(applicationId, appli
 \dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-addDeploymentToApplication <- AddDeploymentToApplication$new() # AddDeploymentToApplication |
+addDeploymentToApplication <- AddDeploymentToApplication$new() # AddDeploymentToApplication | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDeploymentsCreate(applicationId, addDeploymentToApplication=addDeploymentToApplication)
@@ -176,7 +99,7 @@ result <- api.instance$ApplicationsDeploymentsCreate(applicationId, addDeploymen
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
 modelDeploymentId <- 'modelDeploymentId_example' # character | The ID of the model deployment
-applicationModelDeploymentParam <- ApplicationModelDeploymentParam$new() # ApplicationModelDeploymentParam |
+applicationModelDeploymentParam <- ApplicationModelDeploymentParam$new() # ApplicationModelDeploymentParam | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDeploymentsDelete(applicationId, modelDeploymentId, applicationModelDeploymentParam=applicationModelDeploymentParam)
@@ -189,7 +112,7 @@ result <- api.instance$ApplicationsDeploymentsDelete(applicationId, modelDeploym
 \dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDuplicate <- ApplicationDuplicate$new() # ApplicationDuplicate |
+applicationDuplicate <- ApplicationDuplicate$new() # ApplicationDuplicate | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDuplicateCreate(applicationId, applicationDuplicate=applicationDuplicate)
@@ -215,10 +138,10 @@ result <- api.instance$ApplicationsList(offset, limit)
 \dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDeploymentUpdate <- ApplicationDeploymentUpdate$new() # ApplicationDeploymentUpdate |
+applicationNameAndDescription <- ApplicationNameAndDescription$new() # ApplicationNameAndDescription | 
 
 api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsPatch(applicationId, applicationDeploymentUpdate=applicationDeploymentUpdate)
+result <- api.instance$ApplicationsPatch(applicationId, applicationNameAndDescription=applicationNameAndDescription)
 }
 
 ## ------------------------------------------------
@@ -245,7 +168,7 @@ offset <- 0 # integer | The number of records to skip over. Default 0.
 name <- 'name_example' # character | Only return roles for a user, group or organization with this name
 id <- 'id_example' # character | Only return roles for a user, group or organization with this id
 shareRecipientType <- 'shareRecipientType_example' # character | Specify the recipient type, one of 'user', 'group', 'organization'
-applicationSharedRolesList <- ApplicationSharedRolesList$new() # ApplicationSharedRolesList |
+applicationSharedRolesList <- ApplicationSharedRolesList$new() # ApplicationSharedRolesList | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsSharedRolesList(applicationId, limit=limit, offset=offset, name=name, id=id, shareRecipientType=shareRecipientType, applicationSharedRolesList=applicationSharedRolesList)
@@ -262,35 +185,10 @@ note <- 'note_example' # character | A note to go with the project share
 operation <- 'operation_example' # character | Name of the action being taken, only 'updateRoles' is supported
 roles <- [ApplicationSharedRolesEntryUpdate$new()] # array[ApplicationSharedRolesEntryUpdate] | Role objects, may contain up to 100 per request
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationSharingUpdateOrRemove <- ApplicationSharingUpdateOrRemove$new() # ApplicationSharingUpdateOrRemove |
+applicationSharingUpdateOrRemove <- ApplicationSharingUpdateOrRemove$new() # ApplicationSharingUpdateOrRemove | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsSharedRolesPatchMany(sendNotification, note, operation, roles, applicationId, applicationSharingUpdateOrRemove=applicationSharingUpdateOrRemove)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$ApplicationsVersionPatchMany`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-applicationUpgradeDeploymentVersion <- ApplicationUpgradeDeploymentVersion$new() # ApplicationUpgradeDeploymentVersion |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsVersionPatchMany(applicationId, applicationUpgradeDeploymentVersion=applicationUpgradeDeploymentVersion)
-}
-
-## ------------------------------------------------
-## Method `ApplicationsApi$DemoApplicationsCreate`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-demoApplication <- DemoApplication$new() # DemoApplication |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$DemoApplicationsCreate(demoApplication=demoApplication)
 }
 }
 \section{Public fields}{
@@ -303,34 +201,26 @@ result <- api.instance$DemoApplicationsCreate(demoApplication=demoApplication)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApplicationsApi$new()}}
-\item \href{#method-ApplicationTypesList}{\code{ApplicationsApi$ApplicationTypesList()}}
-\item \href{#method-ApplicationTypesRetrieve}{\code{ApplicationsApi$ApplicationTypesRetrieve()}}
-\item \href{#method-ApplicationTypesUsecasesList}{\code{ApplicationsApi$ApplicationTypesUsecasesList()}}
-\item \href{#method-ApplicationUserRoleRetrieve}{\code{ApplicationsApi$ApplicationUserRoleRetrieve()}}
-\item \href{#method-ApplicationsAccessControlList}{\code{ApplicationsApi$ApplicationsAccessControlList()}}
-\item \href{#method-ApplicationsAccessControlPatchMany}{\code{ApplicationsApi$ApplicationsAccessControlPatchMany()}}
-\item \href{#method-ApplicationsAuthTokenPatchMany}{\code{ApplicationsApi$ApplicationsAuthTokenPatchMany()}}
-\item \href{#method-ApplicationsBuildJobsCreate}{\code{ApplicationsApi$ApplicationsBuildJobsCreate()}}
-\item \href{#method-ApplicationsCreate}{\code{ApplicationsApi$ApplicationsCreate()}}
-\item \href{#method-ApplicationsDelete}{\code{ApplicationsApi$ApplicationsDelete()}}
-\item \href{#method-ApplicationsDeploymentStatePatchMany}{\code{ApplicationsApi$ApplicationsDeploymentStatePatchMany()}}
-\item \href{#method-ApplicationsDeploymentsCreate}{\code{ApplicationsApi$ApplicationsDeploymentsCreate()}}
-\item \href{#method-ApplicationsDeploymentsDelete}{\code{ApplicationsApi$ApplicationsDeploymentsDelete()}}
-\item \href{#method-ApplicationsDuplicateCreate}{\code{ApplicationsApi$ApplicationsDuplicateCreate()}}
-\item \href{#method-ApplicationsList}{\code{ApplicationsApi$ApplicationsList()}}
-\item \href{#method-ApplicationsPatch}{\code{ApplicationsApi$ApplicationsPatch()}}
-\item \href{#method-ApplicationsRetrieve}{\code{ApplicationsApi$ApplicationsRetrieve()}}
-\item \href{#method-ApplicationsSharedRolesList}{\code{ApplicationsApi$ApplicationsSharedRolesList()}}
-\item \href{#method-ApplicationsSharedRolesPatchMany}{\code{ApplicationsApi$ApplicationsSharedRolesPatchMany()}}
-\item \href{#method-ApplicationsVersionPatchMany}{\code{ApplicationsApi$ApplicationsVersionPatchMany()}}
-\item \href{#method-DemoApplicationsCreate}{\code{ApplicationsApi$DemoApplicationsCreate()}}
-\item \href{#method-clone}{\code{ApplicationsApi$clone()}}
+\item \href{#method-ApplicationsApi-new}{\code{ApplicationsApi$new()}}
+\item \href{#method-ApplicationsApi-ApplicationUserRoleRetrieve}{\code{ApplicationsApi$ApplicationUserRoleRetrieve()}}
+\item \href{#method-ApplicationsApi-ApplicationsAccessControlList}{\code{ApplicationsApi$ApplicationsAccessControlList()}}
+\item \href{#method-ApplicationsApi-ApplicationsAccessControlPatchMany}{\code{ApplicationsApi$ApplicationsAccessControlPatchMany()}}
+\item \href{#method-ApplicationsApi-ApplicationsCreate}{\code{ApplicationsApi$ApplicationsCreate()}}
+\item \href{#method-ApplicationsApi-ApplicationsDelete}{\code{ApplicationsApi$ApplicationsDelete()}}
+\item \href{#method-ApplicationsApi-ApplicationsDeploymentsCreate}{\code{ApplicationsApi$ApplicationsDeploymentsCreate()}}
+\item \href{#method-ApplicationsApi-ApplicationsDeploymentsDelete}{\code{ApplicationsApi$ApplicationsDeploymentsDelete()}}
+\item \href{#method-ApplicationsApi-ApplicationsDuplicateCreate}{\code{ApplicationsApi$ApplicationsDuplicateCreate()}}
+\item \href{#method-ApplicationsApi-ApplicationsList}{\code{ApplicationsApi$ApplicationsList()}}
+\item \href{#method-ApplicationsApi-ApplicationsPatch}{\code{ApplicationsApi$ApplicationsPatch()}}
+\item \href{#method-ApplicationsApi-ApplicationsRetrieve}{\code{ApplicationsApi$ApplicationsRetrieve()}}
+\item \href{#method-ApplicationsApi-ApplicationsSharedRolesList}{\code{ApplicationsApi$ApplicationsSharedRolesList()}}
+\item \href{#method-ApplicationsApi-ApplicationsSharedRolesPatchMany}{\code{ApplicationsApi$ApplicationsSharedRolesPatchMany()}}
+\item \href{#method-ApplicationsApi-clone}{\code{ApplicationsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -345,172 +235,8 @@ result <- api.instance$DemoApplicationsCreate(demoApplication=demoApplication)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationTypesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationTypesList}{}}}
-\subsection{Method \code{ApplicationTypesList()}}{
-List of available application types to deploy.
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationTypesList(offset, limit, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{offset}}{integer. The number of records to skip over. Defaults to 0.}
-
-\item{\code{limit}}{integer. The number of records to return. Defaults to 0, meaning all records.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-List of available application types to deploy.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{ApplicationTypeListResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Defaults to 0.
-limit <- 0 # integer | The number of records to return. Defaults to 0, meaning all records.
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesList(offset, limit)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationTypesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationTypesRetrieve}{}}}
-\subsection{Method \code{ApplicationTypesRetrieve()}}{
-Retrieve one application type
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationTypesRetrieve(applicationTypeId, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{applicationTypeId}}{character. The application type to retrieve}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Retrieve one application type
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-\item \strong{\code{404}} No app type matching the specified identifier found or user does not have permissions to access to this app type
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{ApplicationTypeRetrieveResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-applicationTypeId <- 'applicationTypeId_example' # character | The application type to retrieve
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesRetrieve(applicationTypeId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationTypesUsecasesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationTypesUsecasesList}{}}}
-\subsection{Method \code{ApplicationTypesUsecasesList()}}{
-List application type usecases
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationTypesUsecasesList(
-  offset,
-  limit,
-  applicationTypeId,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{offset}}{integer. The number of records to skip over. Defaults to 0.}
-
-\item{\code{limit}}{integer. The number of records to return. Defaults to 100.}
-
-\item{\code{applicationTypeId}}{character. The application type to retrieve}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-List of available usecases for application type.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{ApplicationTypeUsecasesListResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Defaults to 0.
-limit <- 100 # integer | The number of records to return. Defaults to 100.
-applicationTypeId <- 'applicationTypeId_example' # character | The application type to retrieve
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationTypesUsecasesList(offset, limit, applicationTypeId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationUserRoleRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationUserRoleRetrieve}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationUserRoleRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationUserRoleRetrieve}{}}}
 \subsection{Method \code{ApplicationUserRoleRetrieve()}}{
 Get application user role
 Produces: "application/json"
@@ -529,6 +255,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get application user role
+
+
+This method invokes \verb{GET /applications/\{applicationId\}/userRole/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -558,8 +287,8 @@ result <- api.instance$ApplicationUserRoleRetrieve(applicationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsAccessControlList}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsAccessControlList}{}}}
 \subsection{Method \code{ApplicationsAccessControlList()}}{
 A list of users with access to this application
 Produces: "application/json"
@@ -593,6 +322,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 A list of users who have access to this application and their roles
+
+
+This method invokes \verb{GET /applications/\{applicationId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -632,8 +364,8 @@ result <- api.instance$ApplicationsAccessControlList(offset, limit, applicationI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsAccessControlPatchMany}{}}}
 \subsection{Method \code{ApplicationsAccessControlPatchMany()}}{
 Update access control for this application.
 Produces: NA
@@ -660,6 +392,9 @@ Produces: NA
 Update access control for this application. Request is processed only if updates can be performed on all entries.
 
 
+This method invokes \verb{PATCH /applications/\{applicationId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -679,7 +414,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationAccessControlUpdateRequest <- ApplicationAccessControlUpdateRequest$new() # ApplicationAccessControlUpdateRequest |
+applicationAccessControlUpdateRequest <- ApplicationAccessControlUpdateRequest$new() # ApplicationAccessControlUpdateRequest | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsAccessControlPatchMany(applicationId, applicationAccessControlUpdateRequest=applicationAccessControlUpdateRequest)
@@ -691,109 +426,8 @@ result <- api.instance$ApplicationsAccessControlPatchMany(applicationId, applica
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsAuthTokenPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsAuthTokenPatchMany}{}}}
-\subsection{Method \code{ApplicationsAuthTokenPatchMany()}}{
-Redeploys application with refreshed auth token.
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationsAuthTokenPatchMany(applicationId, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{applicationId}}{character. The ID of the application}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Redeploys application with refreshed auth token.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-\item \strong{\code{422}} App is not deployed.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsAuthTokenPatchMany(applicationId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsBuildJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsBuildJobsCreate}{}}}
-\subsection{Method \code{ApplicationsBuildJobsCreate()}}{
-Schedules a build job
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationsBuildJobsCreate(applicationId, body = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{applicationId}}{character. The ID of the application}
-
-\item{\code{body}}{object.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Schedules a build job, which is normally automatically scheduled at the end of DataRobot autopilot. This is currently used in tests only, so this route is for internal use only.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-\item \strong{\code{202}} The job has been added to the queue. See the Location header.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-body <- NULL # object |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsBuildJobsCreate(applicationId, body=body)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsCreate}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsCreate}{}}}
 \subsection{Method \code{ApplicationsCreate()}}{
 Create an application
 Produces: "application/json"
@@ -812,6 +446,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create an application. Note that the number of active applications users can have at the same time is limited.
+
+
+This method invokes \verb{POST /applications/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -841,7 +478,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-applicationCreate <- ApplicationCreate$new() # ApplicationCreate |
+applicationCreate <- ApplicationCreate$new() # ApplicationCreate | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsCreate(applicationCreate=applicationCreate)
@@ -853,8 +490,8 @@ result <- api.instance$ApplicationsCreate(applicationCreate=applicationCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsDelete}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsDelete}{}}}
 \subsection{Method \code{ApplicationsDelete()}}{
 Delete an application
 Produces: NA
@@ -877,6 +514,9 @@ Produces: NA
 Delete an application
 
 
+This method invokes \verb{DELETE /applications/\{applicationId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -893,7 +533,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationParam <- ApplicationParam$new() # ApplicationParam |
+applicationParam <- ApplicationParam$new() # ApplicationParam | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDelete(applicationId, applicationParam=applicationParam)
@@ -905,64 +545,8 @@ result <- api.instance$ApplicationsDelete(applicationId, applicationParam=applic
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsDeploymentStatePatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsDeploymentStatePatchMany}{}}}
-\subsection{Method \code{ApplicationsDeploymentStatePatchMany()}}{
-Update the application's deployment state.
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationsDeploymentStatePatchMany(
-  applicationId,
-  applicationDeploymentStateUpdate = NULL,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{applicationId}}{character. The ID of the application}
-
-\item{\code{applicationDeploymentStateUpdate}}{\link{ApplicationDeploymentStateUpdate}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Update the application's deployment state. Transitioning the app to `deactivated` state will keep the app record in the database, but the app will not be accessible at its URL until changed back to `deployed` state again. When the limit of active apps has been reached, this API can be used to deactivate some applications to make space for new ones.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-\item \strong{\code{422}} Application could not be created with the given input.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDeploymentStateUpdate <- ApplicationDeploymentStateUpdate$new() # ApplicationDeploymentStateUpdate |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsDeploymentStatePatchMany(applicationId, applicationDeploymentStateUpdate=applicationDeploymentStateUpdate)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsDeploymentsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsDeploymentsCreate}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsDeploymentsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsDeploymentsCreate}{}}}
 \subsection{Method \code{ApplicationsDeploymentsCreate()}}{
 Links a deployment to an application
 Produces: NA
@@ -989,6 +573,9 @@ Produces: NA
 If application creates deployment during its lifetime, we want to have an API to link deployment with application.
 
 
+This method invokes \verb{POST /applications/\{applicationId\}/deployments/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1002,7 +589,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-addDeploymentToApplication <- AddDeploymentToApplication$new() # AddDeploymentToApplication |
+addDeploymentToApplication <- AddDeploymentToApplication$new() # AddDeploymentToApplication | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDeploymentsCreate(applicationId, addDeploymentToApplication=addDeploymentToApplication)
@@ -1014,8 +601,8 @@ result <- api.instance$ApplicationsDeploymentsCreate(applicationId, addDeploymen
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsDeploymentsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsDeploymentsDelete}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsDeploymentsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsDeploymentsDelete}{}}}
 \subsection{Method \code{ApplicationsDeploymentsDelete()}}{
 Delete link between application and deployment.
 Produces: NA
@@ -1045,6 +632,9 @@ Produces: NA
 Delete link between application and deployment.
 
 
+This method invokes \verb{DELETE /applications/\{applicationId\}/deployments/\{modelDeploymentId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1062,7 +652,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
 modelDeploymentId <- 'modelDeploymentId_example' # character | The ID of the model deployment
-applicationModelDeploymentParam <- ApplicationModelDeploymentParam$new() # ApplicationModelDeploymentParam |
+applicationModelDeploymentParam <- ApplicationModelDeploymentParam$new() # ApplicationModelDeploymentParam | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDeploymentsDelete(applicationId, modelDeploymentId, applicationModelDeploymentParam=applicationModelDeploymentParam)
@@ -1074,8 +664,8 @@ result <- api.instance$ApplicationsDeploymentsDelete(applicationId, modelDeploym
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsDuplicateCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsDuplicateCreate}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsDuplicateCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsDuplicateCreate}{}}}
 \subsection{Method \code{ApplicationsDuplicateCreate()}}{
 Create a duplicate of the application
 Produces: "application/json"
@@ -1100,6 +690,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a copy of App Builder application. Note that the number of active applications users can have at the same time is limited.
+
+
+This method invokes \verb{POST /applications/\{applicationId\}/duplicate/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1130,7 +723,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDuplicate <- ApplicationDuplicate$new() # ApplicationDuplicate |
+applicationDuplicate <- ApplicationDuplicate$new() # ApplicationDuplicate | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsDuplicateCreate(applicationId, applicationDuplicate=applicationDuplicate)
@@ -1142,8 +735,8 @@ result <- api.instance$ApplicationsDuplicateCreate(applicationId, applicationDup
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsList}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsList}{}}}
 \subsection{Method \code{ApplicationsList()}}{
 Paginated list of applications created by the currently authenticated user.
 Produces: "application/json"
@@ -1164,6 +757,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Paginated list of applications created by the currently authenticated user.
+
+
+This method invokes \verb{GET /applications/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1194,15 +790,15 @@ result <- api.instance$ApplicationsList(offset, limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsPatch}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsPatch}{}}}
 \subsection{Method \code{ApplicationsPatch()}}{
-Update an application's name and/or domain prefix
+Update an application's name and/or description
 Produces: NA
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationsPatch(
   applicationId,
-  applicationDeploymentUpdate = NULL,
+  applicationNameAndDescription = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1212,14 +808,17 @@ Produces: NA
 \describe{
 \item{\code{applicationId}}{character. The ID of the application}
 
-\item{\code{applicationDeploymentUpdate}}{\link{ApplicationDeploymentUpdate}.}
+\item{\code{applicationNameAndDescription}}{\link{ApplicationNameAndDescription}.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update an application's name and/or domain prefix
+Update an application's name and/or description
+
+
+This method invokes \verb{PATCH /applications/\{applicationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1238,10 +837,10 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationDeploymentUpdate <- ApplicationDeploymentUpdate$new() # ApplicationDeploymentUpdate |
+applicationNameAndDescription <- ApplicationNameAndDescription$new() # ApplicationNameAndDescription | 
 
 api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsPatch(applicationId, applicationDeploymentUpdate=applicationDeploymentUpdate)
+result <- api.instance$ApplicationsPatch(applicationId, applicationNameAndDescription=applicationNameAndDescription)
 }
 }
 \if{html}{\out{</div>}}
@@ -1250,8 +849,8 @@ result <- api.instance$ApplicationsPatch(applicationId, applicationDeploymentUpd
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsRetrieve}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsRetrieve}{}}}
 \subsection{Method \code{ApplicationsRetrieve()}}{
 Retrieve an application
 Produces: "application/json"
@@ -1270,6 +869,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve an application
+
+
+This method invokes \verb{GET /applications/\{applicationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1299,8 +901,8 @@ result <- api.instance$ApplicationsRetrieve(applicationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsSharedRolesList}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsSharedRolesList}{}}}
 \subsection{Method \code{ApplicationsSharedRolesList()}}{
 Get a list of users, groups and organizations that have an access to this application
 Produces: NA
@@ -1342,6 +944,9 @@ Produces: NA
 Get a list of users, groups and organizations that have an access to this application
 
 
+This method invokes \verb{GET /applications/\{applicationId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1360,7 +965,7 @@ offset <- 0 # integer | The number of records to skip over. Default 0.
 name <- 'name_example' # character | Only return roles for a user, group or organization with this name
 id <- 'id_example' # character | Only return roles for a user, group or organization with this id
 shareRecipientType <- 'shareRecipientType_example' # character | Specify the recipient type, one of 'user', 'group', 'organization'
-applicationSharedRolesList <- ApplicationSharedRolesList$new() # ApplicationSharedRolesList |
+applicationSharedRolesList <- ApplicationSharedRolesList$new() # ApplicationSharedRolesList | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsSharedRolesList(applicationId, limit=limit, offset=offset, name=name, id=id, shareRecipientType=shareRecipientType, applicationSharedRolesList=applicationSharedRolesList)
@@ -1372,8 +977,8 @@ result <- api.instance$ApplicationsSharedRolesList(applicationId, limit=limit, o
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-ApplicationsSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-ApplicationsSharedRolesPatchMany}{}}}
 \subsection{Method \code{ApplicationsSharedRolesPatchMany()}}{
 Share an application with a user, group, or organization
 Produces: NA
@@ -1412,6 +1017,9 @@ Produces: NA
 Share an application with a user, group, or organization
 
 
+This method invokes \verb{PATCH /applications/\{applicationId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1435,7 +1043,7 @@ note <- 'note_example' # character | A note to go with the project share
 operation <- 'operation_example' # character | Name of the action being taken, only 'updateRoles' is supported
 roles <- [ApplicationSharedRolesEntryUpdate$new()] # array[ApplicationSharedRolesEntryUpdate] | Role objects, may contain up to 100 per request
 applicationId <- 'applicationId_example' # character | The ID of the application
-applicationSharingUpdateOrRemove <- ApplicationSharingUpdateOrRemove$new() # ApplicationSharingUpdateOrRemove |
+applicationSharingUpdateOrRemove <- ApplicationSharingUpdateOrRemove$new() # ApplicationSharingUpdateOrRemove | 
 
 api.instance <- ApplicationsApi$new()
 result <- api.instance$ApplicationsSharedRolesPatchMany(sendNotification, note, operation, roles, applicationId, applicationSharingUpdateOrRemove=applicationSharingUpdateOrRemove)
@@ -1447,116 +1055,8 @@ result <- api.instance$ApplicationsSharedRolesPatchMany(sendNotification, note, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApplicationsVersionPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ApplicationsVersionPatchMany}{}}}
-\subsection{Method \code{ApplicationsVersionPatchMany()}}{
-Redeploys application with specified version.
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$ApplicationsVersionPatchMany(
-  applicationId,
-  applicationUpgradeDeploymentVersion = NULL,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{applicationId}}{character. The ID of the application}
-
-\item{\code{applicationUpgradeDeploymentVersion}}{\link{ApplicationUpgradeDeploymentVersion}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Redeploys application with specified version. If version is omitted latest available version is used.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-applicationId <- 'applicationId_example' # character | The ID of the application
-applicationUpgradeDeploymentVersion <- ApplicationUpgradeDeploymentVersion$new() # ApplicationUpgradeDeploymentVersion |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$ApplicationsVersionPatchMany(applicationId, applicationUpgradeDeploymentVersion=applicationUpgradeDeploymentVersion)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DemoApplicationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DemoApplicationsCreate}{}}}
-\subsection{Method \code{DemoApplicationsCreate()}}{
-Create a demo application
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ApplicationsApi$DemoApplicationsCreate(demoApplication = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{demoApplication}}{\link{DemoApplication}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Create a demo application. The number of active applications users can have at the same time is limited.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-}
-\item \strong{\code{202}} Creation has successfully started. See the Location header.
-\itemize{
-}
-\item \strong{\code{404}} No app type matching the specified identifier found or user does not have permissions to access to this app type.
-\itemize{
-}
-\item \strong{\code{422}} Application could not be created with the given input.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-demoApplication <- DemoApplication$new() # DemoApplication |
-
-api.instance <- ApplicationsApi$new()
-result <- api.instance$DemoApplicationsCreate(demoApplication=demoApplication)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApplicationsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

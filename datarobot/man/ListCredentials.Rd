@@ -6,21 +6,17 @@
 \usage{
 ListCredentials(types, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List credentials.
 }
 \details{
 List all sets of credentials available for given user.
+
+This method invokes \verb{GET /credentials/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsList in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{CreateCredentials}()},
-\code{\link{DeleteCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{PatchCredentials}()},
-\code{\link{PatchManyCredentialsAssociations}()},
-\code{\link{RetrieveCredentials}()}
+The method CredentialsList in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

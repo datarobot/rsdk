@@ -6,16 +6,17 @@
 \usage{
 ListMlopsPortablePredictionServerImageMetadata(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Fetches currently active PPS Docker image metadata
 }
 \details{
 Fetches currently active PPS Docker image metadata
+
+This method invokes \verb{GET /mlops/portablePredictionServerImage/metadata/} in the DataRobot Public API.
 }
 \seealso{
-The method MlopsPortablePredictionServerImageMetadataList in [datarobot.apicore::MlopsApi], which this function wraps.
-
-Other Mlops: 
-\code{\link{ListMlopsPortablePredictionServerImage}()}
+The method MlopsPortablePredictionServerImageMetadataList in \link[datarobot.apicore:MlopsApi]{datarobot.apicore::MlopsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Mlops}

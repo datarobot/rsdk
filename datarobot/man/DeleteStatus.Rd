@@ -6,17 +6,17 @@
 \usage{
 DeleteStatus(statusId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete a task
 }
 \details{
 Destroy an async status object
+
+This method invokes \verb{DELETE /status/\{statusId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method StatusDelete in [datarobot.apicore::JobsApi], which this function wraps.
-
-Other Jobs: 
-\code{\link{ListStatus}()},
-\code{\link{RetrieveStatus}()}
+The method StatusDelete in \link[datarobot.apicore:JobsApi]{datarobot.apicore::JobsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Jobs}

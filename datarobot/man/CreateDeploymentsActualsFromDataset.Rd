@@ -18,54 +18,17 @@ CreateDeploymentsActualsFromDataset(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Submit actuals values from AI Catalog
 }
 \details{
-Submit actuals values for processing using catalog item. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals * number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals * number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+Submit actuals values for processing using catalog item. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals \\* number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals \\* number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/actuals/fromDataset/} in the DataRobot Public API.
 }
 \seealso{
-The method DeploymentsActualsFromDatasetCreate in [datarobot.apicore::DeploymentsApi], which this function wraps.
-
-Other Deployments: 
-\code{\link{CreateDeploymentsChallengerPredictions}()},
-\code{\link{CreateDeploymentsChallengers}()},
-\code{\link{CreateDeploymentsFromProjectRecommendedModel}()},
-\code{\link{CreateDeploymentsOnDemandReports}()},
-\code{\link{CreateDeploymentsPredictionInputsFromDataset}()},
-\code{\link{CreateDeploymentsPredictions}()},
-\code{\link{CreateDeploymentsScoringCodeBuilds}()},
-\code{\link{CreateDeployment}()},
-\code{\link{DeleteDeploymentsChallengers}()},
-\code{\link{DeleteDeployment}()},
-\code{\link{GetDeploymentAccuracy}()},
-\code{\link{GetDeploymentServiceStats}()},
-\code{\link{GetDeploymentSettings}()},
-\code{\link{GetDeployment}()},
-\code{\link{ListDeletedDeployments}()},
-\code{\link{ListDeploymentsAccuracyOverTime}()},
-\code{\link{ListDeploymentsChallengers}()},
-\code{\link{ListDeploymentsFeatureDrift}()},
-\code{\link{ListDeploymentsFeatures}()},
-\code{\link{ListDeploymentsHumilityStatsOverTime}()},
-\code{\link{ListDeploymentsHumilityStats}()},
-\code{\link{ListDeploymentsModelSecondaryDatasetConfigurationHistory}()},
-\code{\link{ListDeploymentsModelSecondaryDatasetConfiguration}()},
-\code{\link{ListDeploymentsPredictionResults}()},
-\code{\link{ListDeploymentsScoringCode}()},
-\code{\link{ListDeploymentsServiceStatsOverTime}()},
-\code{\link{ListDeploymentsSharedRoles}()},
-\code{\link{ListDeploymentsTargetDrift}()},
-\code{\link{ListDeployments}()},
-\code{\link{ListPredictionServers}()},
-\code{\link{PatchDeploymentsChallengers}()},
-\code{\link{PatchDeployments}()},
-\code{\link{PatchManyDeletedDeployments}()},
-\code{\link{PatchManyDeploymentsModelSecondaryDatasetConfiguration}()},
-\code{\link{PatchManyDeploymentsSharedRoles}()},
-\code{\link{ReplaceDeployedModel}()},
-\code{\link{RetrieveDeploymentsChallengers}()},
-\code{\link{SubmitActuals}()},
-\code{\link{ValidateReplaceDeployedModel}()}
+The method DeploymentsActualsFromDatasetCreate in \link[datarobot.apicore:DeploymentsApi]{datarobot.apicore::DeploymentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Deployments}

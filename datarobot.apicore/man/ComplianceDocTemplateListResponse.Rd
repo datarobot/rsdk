@@ -28,16 +28,16 @@ ComplianceDocTemplateListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ComplianceDocTemplateListResponse$new()}}
-\item \href{#method-validate}{\code{ComplianceDocTemplateListResponse$validate()}}
-\item \href{#method-toJSON}{\code{ComplianceDocTemplateListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ComplianceDocTemplateListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ComplianceDocTemplateListResponse$clone()}}
+\item \href{#method-ComplianceDocTemplateListResponse-new}{\code{ComplianceDocTemplateListResponse$new()}}
+\item \href{#method-ComplianceDocTemplateListResponse-validate}{\code{ComplianceDocTemplateListResponse$validate()}}
+\item \href{#method-ComplianceDocTemplateListResponse-toJSON}{\code{ComplianceDocTemplateListResponse$toJSON()}}
+\item \href{#method-ComplianceDocTemplateListResponse-fromJSON}{\code{ComplianceDocTemplateListResponse$fromJSON()}}
+\item \href{#method-ComplianceDocTemplateListResponse-clone}{\code{ComplianceDocTemplateListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ComplianceDocTemplateListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ComplianceDocTemplateListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ComplianceDocTemplateListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ComplianceDocTemplateListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ComplianceDocTemplateListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ComplianceDocTemplateListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ComplianceDocTemplateListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ComplianceDocTemplateListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ComplianceDocTemplateListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ComplianceDocTemplateListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ComplianceDocTemplateListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

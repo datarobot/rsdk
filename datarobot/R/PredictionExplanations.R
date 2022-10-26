@@ -303,7 +303,8 @@ GetPredictionExplanationsRows <- function(project, predictionExplanationId, batc
     predictionExplanationId,
     limit = batchSize,
     offset = 0,
-    excludeAdjustedPredictions = excludeAdjustedPredictions
+    excludeAdjustedPredictions = excludeAdjustedPredictions,
+    adjustmentMethod = NULL
   )
   GetServerDataInRows(page, batchSize = batchSize)
 }
@@ -535,10 +536,12 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
     dataset <- UploadPredictionDataset(projectId, dataset)
     datasetId <- dataset$id
   } else if (grepl(".", dataset, fixed = TRUE) ||
-    grepl("/", dataset, fixed = TRUE)) { # A URL or file
+    grepl("/", dataset, fixed = TRUE)) {
+    # A URL or file
     dataset <- UploadPredictionDataset(projectId, dataset)
     datasetId <- dataset$id
-  } else { # A datasetId
+  } else {
+    # A datasetId
     datasetId <- dataset
     dataset <- GetPredictionDataset(projectId, datasetId)
   }
@@ -600,3 +603,88 @@ DownloadPredictionExplanations <- function(project, predictionExplanationId, fil
     fileEncoding = encoding
   )
 }
+
+#' @name GetPredictionExplanationsMetadata
+#' @details Retrieve metadata for specified prediction explanations
+#'
+#' @inheritParams DeleteProject
+#' @param predictionExplanationId character. Id of the prediction explanations.
+#' @return A named list which contains prediction explanation metadata:
+#' \itemize{
+#'   \item id character. ID of the record and prediction explanations computation result.
+#'   \item projectId character. ID of the project the model belongs to.
+#'   \item modelId character. ID of the model prediction explanations initialization is for.
+#'   \item datasetId character. ID of the prediction dataset prediction explanations were
+#'     computed for.
+#'   \item maxExplanations integer. Maximum number of prediction explanations to supply per row of
+#'     the dataset.
+#'   \item thresholdLow numeric. The low threshold, below which a prediction must score in order
+#'     for prediction explanations to be computed for a row in the dataset.
+#'   \item thresholdHigh numeric. The high threshold, above which a prediction must score in order
+#'     for prediction explanations to be computed for a row in the dataset.
+#'   \item numColumns integer. The number of columns prediction explanations were computed for.
+#'   \item finishTime. Numeric timestamp referencing when computation for these prediction
+#'     explanations finished.
+#'   \item predictionExplanationsLocation character. Where to retrieve the prediction
+#'     explanations.
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+#' GetPredictionExplanationsMetadata(projectId, predictionExplanationId)
+#' }
+#' @export
+#' @include insights_apiWrapper.R
+GetPredictionExplanationsMetadata
+
+#' @name ListPredictionExplanationsMetadata
+#' @details Retrieve metadata for prediction explanations in specified project
+#'
+#' @inheritParams DeleteProject
+#' @param modelId character. Optional. If specified, only prediction explanations computed
+#'   for this model will be returned.
+#' @param limit integer. Optional. At most this many results are returned, default: no limit
+#' @param offset integer. This many results will be skipped, default: 0
+#' @return List of metadata for all prediction explanations in the project.
+#'   Each element of list is metadata for one prediction explanations
+#'   (for format see \code{GetPredictionExplanationsMetadata}).
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' ListPredictionExplanationsMetadata(projectId)
+#' }
+#' @export
+#' @include insights_apiWrapper.R
+ListPredictionExplanationsMetadata
+
+#' @name DeletePredictionExplanations
+#' @details Function to delete prediction explanations
+#'
+#' This function deletes prediction explanations specified by project and
+#' predictionExplanationId.
+#'
+#' @inheritParams GetPredictionExplanationsMetadata
+#' @return Logical TRUE and displays a message to the user if the delete
+#' request was successful; otherwise an error message is displayed.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' datasets <- ListPredictionDatasets(projectId)
+#' dataset <- datasets[[1]]
+#' datasetId <- dataset$id
+#' model <- GetModel(projectId, modelId)
+#' jobId <- RequestPredictionExplanations(model, datasetId)
+#' predictionExplanationId <- GetPredictionExplanationsMetadataFromJobId(projectId, jobId)$id
+#' DeletePredictionExplanations(projectId, predictionExplanationId)
+#' }
+#' @export
+#' @include insights_apiWrapper.R
+DeletePredictionExplanations

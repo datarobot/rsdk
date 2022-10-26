@@ -23,16 +23,16 @@ UsersPermadeleteSummaryReportStatisticsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UsersPermadeleteSummaryReportStatisticsResponse$new()}}
-\item \href{#method-validate}{\code{UsersPermadeleteSummaryReportStatisticsResponse$validate()}}
-\item \href{#method-toJSON}{\code{UsersPermadeleteSummaryReportStatisticsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{UsersPermadeleteSummaryReportStatisticsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{UsersPermadeleteSummaryReportStatisticsResponse$clone()}}
+\item \href{#method-UsersPermadeleteSummaryReportStatisticsResponse-new}{\code{UsersPermadeleteSummaryReportStatisticsResponse$new()}}
+\item \href{#method-UsersPermadeleteSummaryReportStatisticsResponse-validate}{\code{UsersPermadeleteSummaryReportStatisticsResponse$validate()}}
+\item \href{#method-UsersPermadeleteSummaryReportStatisticsResponse-toJSON}{\code{UsersPermadeleteSummaryReportStatisticsResponse$toJSON()}}
+\item \href{#method-UsersPermadeleteSummaryReportStatisticsResponse-fromJSON}{\code{UsersPermadeleteSummaryReportStatisticsResponse$fromJSON()}}
+\item \href{#method-UsersPermadeleteSummaryReportStatisticsResponse-clone}{\code{UsersPermadeleteSummaryReportStatisticsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteSummaryReportStatisticsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteSummaryReportStatisticsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -57,19 +57,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteSummaryReportStatisticsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteSummaryReportStatisticsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UsersPermadeleteSummaryReportStatisticsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteSummaryReportStatisticsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteSummaryReportStatisticsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -78,8 +79,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteSummaryReportStatisticsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteSummaryReportStatisticsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -100,8 +101,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteSummaryReportStatisticsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteSummaryReportStatisticsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

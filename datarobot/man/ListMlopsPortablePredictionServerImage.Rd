@@ -6,16 +6,17 @@
 \usage{
 ListMlopsPortablePredictionServerImage(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Downloads the latest Portable Prediction Server (PPS) Docker image
 }
 \details{
 Fetches the latest Portable Prediction Server (PPS) Docker image. The resulting image can be docker-loaded. Since the image can be quite large (14GB+) consider querying its metadata to check the image size in advance and content hash to verify the downloaded image afterwards. In some environments it can HTTP redirect to some other service (like S3 or GCP) using pre-signed URLs.
+
+This method invokes \verb{GET /mlops/portablePredictionServerImage/} in the DataRobot Public API.
 }
 \seealso{
-The method MlopsPortablePredictionServerImageList in [datarobot.apicore::MlopsApi], which this function wraps.
-
-Other Mlops: 
-\code{\link{ListMlopsPortablePredictionServerImageMetadata}()}
+The method MlopsPortablePredictionServerImageList in \link[datarobot.apicore:MlopsApi]{datarobot.apicore::MlopsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Mlops}

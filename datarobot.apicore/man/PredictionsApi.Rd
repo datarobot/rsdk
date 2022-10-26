@@ -18,7 +18,7 @@ datarobot.apicore.Predictions
 
 \dontrun{
 library(datarobot.apicore)
-batchPredictionJobDefinitionsCreate <- BatchPredictionJobDefinitionsCreate$new() # BatchPredictionJobDefinitionsCreate |
+batchPredictionJobDefinitionsCreate <- BatchPredictionJobDefinitionsCreate$new() # BatchPredictionJobDefinitionsCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionJobDefinitionsCreate(batchPredictionJobDefinitionsCreate=batchPredictionJobDefinitionsCreate)
@@ -57,7 +57,7 @@ result <- api.instance$BatchPredictionJobDefinitionsList(offset, limit, deployme
 \dontrun{
 library(datarobot.apicore)
 jobDefinitionId <- 'jobDefinitionId_example' # character | ID of the Batch Prediction job definition
-batchPredictionJobDefinitionsUpdate <- BatchPredictionJobDefinitionsUpdate$new() # BatchPredictionJobDefinitionsUpdate |
+batchPredictionJobDefinitionsUpdate <- BatchPredictionJobDefinitionsUpdate$new() # BatchPredictionJobDefinitionsUpdate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionJobDefinitionsPatch(jobDefinitionId, batchPredictionJobDefinitionsUpdate=batchPredictionJobDefinitionsUpdate)
@@ -93,7 +93,7 @@ result <- api.instance$BatchPredictionJobDefinitionsRetrieve(jobDefinitionId)
 
 \dontrun{
 library(datarobot.apicore)
-batchPredictionJobCreate <- BatchPredictionJobCreate$new() # BatchPredictionJobCreate |
+batchPredictionJobCreate <- BatchPredictionJobCreate$new() # BatchPredictionJobCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCreate(batchPredictionJobCreate=batchPredictionJobCreate)
@@ -106,7 +106,7 @@ result <- api.instance$BatchPredictionsCreate(batchPredictionJobCreate=batchPred
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId, partNumber)
@@ -119,7 +119,7 @@ result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predicti
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber)
@@ -132,7 +132,7 @@ result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNum
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNumber)
@@ -145,7 +145,7 @@ result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNum
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
@@ -158,7 +158,7 @@ result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
@@ -170,7 +170,7 @@ result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
 
 \dontrun{
 library(datarobot.apicore)
-batchPredictionJobId <- BatchPredictionJobId$new() # BatchPredictionJobId |
+batchPredictionJobId <- BatchPredictionJobId$new() # BatchPredictionJobId | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsFromExistingCreate(batchPredictionJobId=batchPredictionJobId)
@@ -182,7 +182,7 @@ result <- api.instance$BatchPredictionsFromExistingCreate(batchPredictionJobId=b
 
 \dontrun{
 library(datarobot.apicore)
-batchPredictionJobDefinitionId <- BatchPredictionJobDefinitionId$new() # BatchPredictionJobDefinitionId |
+batchPredictionJobDefinitionId <- BatchPredictionJobDefinitionId$new() # BatchPredictionJobDefinitionId | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsFromJobDefinitionCreate(batchPredictionJobDefinitionId=batchPredictionJobDefinitionId)
@@ -197,21 +197,22 @@ library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped
 limit <- 100 # integer | At most this many results are returned
 allJobs <- FALSE # character | (For organization admins) Include jobs for all users in the organization.
-status <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs that have the status value that matches this flag. Repeat the parameter for filtering on multiple statuses.
-source <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs that have the source value that matches this flag. Repeat the parameter for filtering on multiple statuses.
+status <- list(c('status_example')) # OneOfstringarray | Includes only jobs that have the status value that matches this flag. Repeat the parameter for filtering on multiple statuses.
+source <- list(c('source_example')) # OneOfstringarray | Includes only jobs that have the source value that matches this flag. Repeat the parameter for filtering on multiple statuses.
 deploymentId <- 'deploymentId_example' # character | Includes only jobs for this particular deployment
+modelId <- 'modelId_example' # character | ID of leaderboard model which is used in job for processing predictions dataset
 jobId <- 'jobId_example' # character | Includes only job by specific id
 orderBy <- 'orderBy_example' # character | Sort order which will be applied to batch prediction list. Prefix the attribute name with a dash to sort in descending order, e.g. \"-created\".
 cutoffHours <- 56 # integer | Only list jobs created at most this amount of hours ago.
 startDateTime <- 'startDateTime_example' # character | ISO-formatted datetime of the earliest time the job was added (inclusive). For example \"2008-08-24T12:00:00Z\". Will ignore cutoffHours if set.
 endDateTime <- 'endDateTime_example' # character | ISO-formatted datetime of the latest time the job was added (inclusive). For example \"2008-08-24T12:00:00Z\".
 batchPredictionJobDefinitionId <- 'batchPredictionJobDefinitionId_example' # character | Includes only jobs for this particular definition
-hostname <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs for this particular prediction instance hostname
+hostname <- list(c('hostname_example')) # OneOfstringarray | Includes only jobs for this particular prediction instance hostname
 intakeType <- 'intakeType_example' # character | Includes only jobs for this particular intake type
 outputType <- 'outputType_example' # character | Includes only jobs for this particular output type
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=status, source=source, deploymentId=deploymentId, jobId=jobId, orderBy=orderBy, cutoffHours=cutoffHours, startDateTime=startDateTime, endDateTime=endDateTime, batchPredictionJobDefinitionId=batchPredictionJobDefinitionId, hostname=hostname, intakeType=intakeType, outputType=outputType)
+result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=status, source=source, deploymentId=deploymentId, modelId=modelId, jobId=jobId, orderBy=orderBy, cutoffHours=cutoffHours, startDateTime=startDateTime, endDateTime=endDateTime, batchPredictionJobDefinitionId=batchPredictionJobDefinitionId, hostname=hostname, intakeType=intakeType, outputType=outputType)
 }
 
 ## ------------------------------------------------
@@ -221,8 +222,8 @@ result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=statu
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
-batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate |
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchPredictionJobUpdate=batchPredictionJobUpdate)
@@ -235,7 +236,7 @@ result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchP
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
@@ -258,82 +259,6 @@ result <- api.instance$ComputedTrainingPredictionsList(offset, limit, projectId,
 }
 
 ## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsCreate`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-singleModelFilePayload <- SingleModelFilePayload$new() # SingleModelFilePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsCreate(singleModelFilePayload=singleModelFilePayload)
-}
-
-## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsDelete`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsDelete(importId)
-}
-
-## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsList`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Non-negative, defaults to 0
-limit <- 100 # integer | The number of records to return. Positive, defaults to 100
-query <- 'query_example' # character | A case-insensitive search term to filter returned models. The searchable fields are: `model_id`, `model_name`, `display_name`, `dataset_name`, `project_id`, `project_name`, `target`, `note`, `featurelist_name`, `created_by_id`, `created_by_username`. Search also looks at the first and last name of the user who imported the model. The partially matched models are counted, so for example the search term `train` would find models with name `TuesdayTrainingData`
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsList(offset, limit, query=query)
-}
-
-## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsPatch`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-imortedModelUpdatePayload <- ImortedModelUpdatePayload$new() # ImortedModelUpdatePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsPatch(importId, imortedModelUpdatePayload=imortedModelUpdatePayload)
-}
-
-## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsPut`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-singleModelFilePayload <- SingleModelFilePayload$new() # SingleModelFilePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsPut(importId, singleModelFilePayload=singleModelFilePayload)
-}
-
-## ------------------------------------------------
-## Method `PredictionsApi$ImportedModelsRetrieve`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsRetrieve(importId)
-}
-
-## ------------------------------------------------
 ## Method `PredictionsApi$ProjectsModelsPredictionExplanationsInitializationCreate`
 ## ------------------------------------------------
 
@@ -341,7 +266,7 @@ result <- api.instance$ImportedModelsRetrieve(importId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate |
+predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(projectId, modelId, predictionExplanationsInitializationCreate=predictionExplanationsInitializationCreate)
@@ -369,7 +294,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in the PredictionExplanationsSample response.
-predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve |
+predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(projectId, modelId, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsInitializationRetrieve=predictionExplanationsInitializationRetrieve)
@@ -421,7 +346,7 @@ result <- api.instance$ProjectsPredictJobsRetrieve(projectId, jobId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data source will be uploaded to.
-predictionDataSource <- PredictionDataSource$new() # PredictionDataSource |
+predictionDataSource <- PredictionDataSource$new() # PredictionDataSource | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsDataSourceUploadsCreate(projectId, predictionDataSource=predictionDataSource)
@@ -434,7 +359,7 @@ result <- api.instance$ProjectsPredictionDatasetsDataSourceUploadsCreate(project
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-predictionFromCatalogDataset <- PredictionFromCatalogDataset$new() # PredictionFromCatalogDataset |
+predictionFromCatalogDataset <- PredictionFromCatalogDataset$new() # PredictionFromCatalogDataset | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsDatasetUploadsCreate(projectId, predictionFromCatalogDataset=predictionFromCatalogDataset)
@@ -460,7 +385,7 @@ result <- api.instance$ProjectsPredictionDatasetsDelete(projectId, datasetId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data will be uploaded for prediction.
-predictionFileUpload <- PredictionFileUpload$new() # PredictionFileUpload |
+predictionFileUpload <- PredictionFileUpload$new() # PredictionFileUpload | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsFileUploadsCreate(projectId, predictionFileUpload=predictionFileUpload)
@@ -500,7 +425,7 @@ result <- api.instance$ProjectsPredictionDatasetsRetrieve(projectId, datasetId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data will be uploaded for prediction.
-predictionUrlUpload <- PredictionURLUpload$new() # PredictionURLUpload |
+predictionUrlUpload <- PredictionURLUpload$new() # PredictionURLUpload | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsUrlUploadsCreate(projectId, predictionUrlUpload=predictionUrlUpload)
@@ -513,7 +438,7 @@ result <- api.instance$ProjectsPredictionDatasetsUrlUploadsCreate(projectId, pre
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate |
+predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictionExplanationsCreate=predictionExplanationsCreate)
@@ -530,7 +455,7 @@ projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
 offset <- 0 # integer | This many results will be skipped.
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in PredictionExplanationsRow response.
-predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve |
+predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, predictionExplanationsId, offset=offset, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsRetrieve=predictionExplanationsRetrieve)
@@ -572,7 +497,7 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsList(projectId, offs
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
-predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord |
+predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, predictionExplanationsId, predictionExplanationsRecord=predictionExplanationsRecord)
@@ -586,7 +511,7 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, 
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to make predictions within.
 contentType <- 'contentType_example' # character | Content types available for making request. `multipart/form-data` is the legacy deprecated method to send the small file with the prediction request.
-createPredictionFromDataset <- CreatePredictionFromDataset$new() # CreatePredictionFromDataset |
+createPredictionFromDataset <- CreatePredictionFromDataset$new() # CreatePredictionFromDataset | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionsCreate(projectId, contentType, createPredictionFromDataset=createPredictionFromDataset)
@@ -659,7 +584,7 @@ result <- api.instance$ProjectsPredictionsRetrieve(predictionId, projectId, shap
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | Project ID to compute training predictions for
-createTrainingPrediction <- CreateTrainingPrediction$new() # CreateTrainingPrediction |
+createTrainingPrediction <- CreateTrainingPrediction$new() # CreateTrainingPrediction | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsTrainingPredictionsCreate(projectId, createTrainingPrediction=createTrainingPrediction)
@@ -704,7 +629,7 @@ result <- api.instance$ScheduledJobsList(offset, limit, orderBy=orderBy, search=
 \dontrun{
 library(datarobot.apicore)
 jobId <- 'jobId_example' # character | The ID of the job being requested.
-scheduledJobRunStop <- ScheduledJobRunStop$new() # ScheduledJobRunStop |
+scheduledJobRunStop <- ScheduledJobRunStop$new() # ScheduledJobRunStop | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ScheduledJobsPatch(jobId, scheduledJobRunStop=scheduledJobRunStop)
@@ -746,66 +671,60 @@ result <- api.instance$TrainingPredictionsList(offset, limit, projectId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionsApi$new()}}
-\item \href{#method-BatchPredictionJobDefinitionsCreate}{\code{PredictionsApi$BatchPredictionJobDefinitionsCreate()}}
-\item \href{#method-BatchPredictionJobDefinitionsDelete}{\code{PredictionsApi$BatchPredictionJobDefinitionsDelete()}}
-\item \href{#method-BatchPredictionJobDefinitionsList}{\code{PredictionsApi$BatchPredictionJobDefinitionsList()}}
-\item \href{#method-BatchPredictionJobDefinitionsPatch}{\code{PredictionsApi$BatchPredictionJobDefinitionsPatch()}}
-\item \href{#method-BatchPredictionJobDefinitionsPortableList}{\code{PredictionsApi$BatchPredictionJobDefinitionsPortableList()}}
-\item \href{#method-BatchPredictionJobDefinitionsRetrieve}{\code{PredictionsApi$BatchPredictionJobDefinitionsRetrieve()}}
-\item \href{#method-BatchPredictionsCreate}{\code{PredictionsApi$BatchPredictionsCreate()}}
-\item \href{#method-BatchPredictionsCsvUploadFinalizeMultipartCreate}{\code{PredictionsApi$BatchPredictionsCsvUploadFinalizeMultipartCreate()}}
-\item \href{#method-BatchPredictionsCsvUploadPartPut}{\code{PredictionsApi$BatchPredictionsCsvUploadPartPut()}}
-\item \href{#method-BatchPredictionsCsvUploadPutMany}{\code{PredictionsApi$BatchPredictionsCsvUploadPutMany()}}
-\item \href{#method-BatchPredictionsDelete}{\code{PredictionsApi$BatchPredictionsDelete()}}
-\item \href{#method-BatchPredictionsDownloadList}{\code{PredictionsApi$BatchPredictionsDownloadList()}}
-\item \href{#method-BatchPredictionsFromExistingCreate}{\code{PredictionsApi$BatchPredictionsFromExistingCreate()}}
-\item \href{#method-BatchPredictionsFromJobDefinitionCreate}{\code{PredictionsApi$BatchPredictionsFromJobDefinitionCreate()}}
-\item \href{#method-BatchPredictionsList}{\code{PredictionsApi$BatchPredictionsList()}}
-\item \href{#method-BatchPredictionsPatch}{\code{PredictionsApi$BatchPredictionsPatch()}}
-\item \href{#method-BatchPredictionsRetrieve}{\code{PredictionsApi$BatchPredictionsRetrieve()}}
-\item \href{#method-ComputedTrainingPredictionsList}{\code{PredictionsApi$ComputedTrainingPredictionsList()}}
-\item \href{#method-ImportedModelsCreate}{\code{PredictionsApi$ImportedModelsCreate()}}
-\item \href{#method-ImportedModelsDelete}{\code{PredictionsApi$ImportedModelsDelete()}}
-\item \href{#method-ImportedModelsList}{\code{PredictionsApi$ImportedModelsList()}}
-\item \href{#method-ImportedModelsPatch}{\code{PredictionsApi$ImportedModelsPatch()}}
-\item \href{#method-ImportedModelsPut}{\code{PredictionsApi$ImportedModelsPut()}}
-\item \href{#method-ImportedModelsRetrieve}{\code{PredictionsApi$ImportedModelsRetrieve()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationCreate}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationCreate()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationList}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationList()}}
-\item \href{#method-ProjectsPredictJobsDelete}{\code{PredictionsApi$ProjectsPredictJobsDelete()}}
-\item \href{#method-ProjectsPredictJobsList}{\code{PredictionsApi$ProjectsPredictJobsList()}}
-\item \href{#method-ProjectsPredictJobsRetrieve}{\code{PredictionsApi$ProjectsPredictJobsRetrieve()}}
-\item \href{#method-ProjectsPredictionDatasetsDataSourceUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsDataSourceUploadsCreate()}}
-\item \href{#method-ProjectsPredictionDatasetsDatasetUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsDatasetUploadsCreate()}}
-\item \href{#method-ProjectsPredictionDatasetsDelete}{\code{PredictionsApi$ProjectsPredictionDatasetsDelete()}}
-\item \href{#method-ProjectsPredictionDatasetsFileUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsFileUploadsCreate()}}
-\item \href{#method-ProjectsPredictionDatasetsList}{\code{PredictionsApi$ProjectsPredictionDatasetsList()}}
-\item \href{#method-ProjectsPredictionDatasetsRetrieve}{\code{PredictionsApi$ProjectsPredictionDatasetsRetrieve()}}
-\item \href{#method-ProjectsPredictionDatasetsUrlUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsUrlUploadsCreate()}}
-\item \href{#method-ProjectsPredictionExplanationsCreate}{\code{PredictionsApi$ProjectsPredictionExplanationsCreate()}}
-\item \href{#method-ProjectsPredictionExplanationsList}{\code{PredictionsApi$ProjectsPredictionExplanationsList()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsDelete}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsDelete()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsList}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsList()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsRetrieve}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsRetrieve()}}
-\item \href{#method-ProjectsPredictionsCreate}{\code{PredictionsApi$ProjectsPredictionsCreate()}}
-\item \href{#method-ProjectsPredictionsList}{\code{PredictionsApi$ProjectsPredictionsList()}}
-\item \href{#method-ProjectsPredictionsMetadataList}{\code{PredictionsApi$ProjectsPredictionsMetadataList()}}
-\item \href{#method-ProjectsPredictionsMetadataRetrieve}{\code{PredictionsApi$ProjectsPredictionsMetadataRetrieve()}}
-\item \href{#method-ProjectsPredictionsRetrieve}{\code{PredictionsApi$ProjectsPredictionsRetrieve()}}
-\item \href{#method-ProjectsTrainingPredictionsCreate}{\code{PredictionsApi$ProjectsTrainingPredictionsCreate()}}
-\item \href{#method-ScheduledJobsDelete}{\code{PredictionsApi$ScheduledJobsDelete()}}
-\item \href{#method-ScheduledJobsList}{\code{PredictionsApi$ScheduledJobsList()}}
-\item \href{#method-ScheduledJobsPatch}{\code{PredictionsApi$ScheduledJobsPatch()}}
-\item \href{#method-ScheduledJobsRetrieve}{\code{PredictionsApi$ScheduledJobsRetrieve()}}
-\item \href{#method-TrainingPredictionsList}{\code{PredictionsApi$TrainingPredictionsList()}}
-\item \href{#method-clone}{\code{PredictionsApi$clone()}}
+\item \href{#method-PredictionsApi-new}{\code{PredictionsApi$new()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsCreate}{\code{PredictionsApi$BatchPredictionJobDefinitionsCreate()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsDelete}{\code{PredictionsApi$BatchPredictionJobDefinitionsDelete()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsList}{\code{PredictionsApi$BatchPredictionJobDefinitionsList()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsPatch}{\code{PredictionsApi$BatchPredictionJobDefinitionsPatch()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsPortableList}{\code{PredictionsApi$BatchPredictionJobDefinitionsPortableList()}}
+\item \href{#method-PredictionsApi-BatchPredictionJobDefinitionsRetrieve}{\code{PredictionsApi$BatchPredictionJobDefinitionsRetrieve()}}
+\item \href{#method-PredictionsApi-BatchPredictionsCreate}{\code{PredictionsApi$BatchPredictionsCreate()}}
+\item \href{#method-PredictionsApi-BatchPredictionsCsvUploadFinalizeMultipartCreate}{\code{PredictionsApi$BatchPredictionsCsvUploadFinalizeMultipartCreate()}}
+\item \href{#method-PredictionsApi-BatchPredictionsCsvUploadPartPut}{\code{PredictionsApi$BatchPredictionsCsvUploadPartPut()}}
+\item \href{#method-PredictionsApi-BatchPredictionsCsvUploadPutMany}{\code{PredictionsApi$BatchPredictionsCsvUploadPutMany()}}
+\item \href{#method-PredictionsApi-BatchPredictionsDelete}{\code{PredictionsApi$BatchPredictionsDelete()}}
+\item \href{#method-PredictionsApi-BatchPredictionsDownloadList}{\code{PredictionsApi$BatchPredictionsDownloadList()}}
+\item \href{#method-PredictionsApi-BatchPredictionsFromExistingCreate}{\code{PredictionsApi$BatchPredictionsFromExistingCreate()}}
+\item \href{#method-PredictionsApi-BatchPredictionsFromJobDefinitionCreate}{\code{PredictionsApi$BatchPredictionsFromJobDefinitionCreate()}}
+\item \href{#method-PredictionsApi-BatchPredictionsList}{\code{PredictionsApi$BatchPredictionsList()}}
+\item \href{#method-PredictionsApi-BatchPredictionsPatch}{\code{PredictionsApi$BatchPredictionsPatch()}}
+\item \href{#method-PredictionsApi-BatchPredictionsRetrieve}{\code{PredictionsApi$BatchPredictionsRetrieve()}}
+\item \href{#method-PredictionsApi-ComputedTrainingPredictionsList}{\code{PredictionsApi$ComputedTrainingPredictionsList()}}
+\item \href{#method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationCreate}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationCreate()}}
+\item \href{#method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}
+\item \href{#method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationList}{\code{PredictionsApi$ProjectsModelsPredictionExplanationsInitializationList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictJobsDelete}{\code{PredictionsApi$ProjectsPredictJobsDelete()}}
+\item \href{#method-PredictionsApi-ProjectsPredictJobsList}{\code{PredictionsApi$ProjectsPredictJobsList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictJobsRetrieve}{\code{PredictionsApi$ProjectsPredictJobsRetrieve()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsDataSourceUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsDataSourceUploadsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsDatasetUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsDatasetUploadsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsDelete}{\code{PredictionsApi$ProjectsPredictionDatasetsDelete()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsFileUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsFileUploadsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsList}{\code{PredictionsApi$ProjectsPredictionDatasetsList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsRetrieve}{\code{PredictionsApi$ProjectsPredictionDatasetsRetrieve()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionDatasetsUrlUploadsCreate}{\code{PredictionsApi$ProjectsPredictionDatasetsUrlUploadsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionExplanationsCreate}{\code{PredictionsApi$ProjectsPredictionExplanationsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionExplanationsList}{\code{PredictionsApi$ProjectsPredictionExplanationsList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionExplanationsRecordsDelete}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsDelete()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionExplanationsRecordsList}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionExplanationsRecordsRetrieve}{\code{PredictionsApi$ProjectsPredictionExplanationsRecordsRetrieve()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionsCreate}{\code{PredictionsApi$ProjectsPredictionsCreate()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionsList}{\code{PredictionsApi$ProjectsPredictionsList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionsMetadataList}{\code{PredictionsApi$ProjectsPredictionsMetadataList()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionsMetadataRetrieve}{\code{PredictionsApi$ProjectsPredictionsMetadataRetrieve()}}
+\item \href{#method-PredictionsApi-ProjectsPredictionsRetrieve}{\code{PredictionsApi$ProjectsPredictionsRetrieve()}}
+\item \href{#method-PredictionsApi-ProjectsTrainingPredictionsCreate}{\code{PredictionsApi$ProjectsTrainingPredictionsCreate()}}
+\item \href{#method-PredictionsApi-ScheduledJobsDelete}{\code{PredictionsApi$ScheduledJobsDelete()}}
+\item \href{#method-PredictionsApi-ScheduledJobsList}{\code{PredictionsApi$ScheduledJobsList()}}
+\item \href{#method-PredictionsApi-ScheduledJobsPatch}{\code{PredictionsApi$ScheduledJobsPatch()}}
+\item \href{#method-PredictionsApi-ScheduledJobsRetrieve}{\code{PredictionsApi$ScheduledJobsRetrieve()}}
+\item \href{#method-PredictionsApi-TrainingPredictionsList}{\code{PredictionsApi$TrainingPredictionsList()}}
+\item \href{#method-PredictionsApi-clone}{\code{PredictionsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -820,8 +739,8 @@ result <- api.instance$TrainingPredictionsList(offset, limit, projectId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsCreate}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsCreate()}}{
 Creates a new Batch Prediction job definition
 Produces: "application/json"
@@ -842,7 +761,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a Batch Prediction Job definition. A configuration for a Batch Prediction job which can either be executed manually upon request or on scheduled intervals, if enabled. The API payload is the same as for `/batchPredictions` along with optional ``enabled`` and ``schedule`` items.
+Create a Batch Prediction Job definition. A configuration for a Batch Prediction job which can either be executed manually upon request or on scheduled intervals, if enabled. The API payload is the same as for /batchPredictions along with optional `enabled` and `schedule` items.
+
+
+This method invokes \verb{POST /batchPredictionJobDefinitions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -866,7 +788,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-batchPredictionJobDefinitionsCreate <- BatchPredictionJobDefinitionsCreate$new() # BatchPredictionJobDefinitionsCreate |
+batchPredictionJobDefinitionsCreate <- BatchPredictionJobDefinitionsCreate$new() # BatchPredictionJobDefinitionsCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionJobDefinitionsCreate(batchPredictionJobDefinitionsCreate=batchPredictionJobDefinitionsCreate)
@@ -878,8 +800,8 @@ result <- api.instance$BatchPredictionJobDefinitionsCreate(batchPredictionJobDef
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsDelete}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsDelete()}}{
 Delete Batch Prediction job definition
 Produces: NA
@@ -898,6 +820,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a Batch Prediction job definition
+
+
+This method invokes \verb{DELETE /batchPredictionJobDefinitions/\{jobDefinitionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -933,8 +858,8 @@ result <- api.instance$BatchPredictionJobDefinitionsDelete(jobDefinitionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsList}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsList()}}{
 List Batch Prediction job definitions
 Produces: "application/json"
@@ -962,6 +887,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Batch Prediction jobs definitions available
+
+
+This method invokes \verb{GET /batchPredictionJobDefinitions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -996,8 +924,8 @@ result <- api.instance$BatchPredictionJobDefinitionsList(offset, limit, deployme
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsPatch}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsPatch}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsPatch()}}{
 Update Batch Prediction job definition
 Produces: "application/json"
@@ -1022,6 +950,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Update a Batch Prediction job definition
+
+
+This method invokes \verb{PATCH /batchPredictionJobDefinitions/\{jobDefinitionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1049,7 +980,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 jobDefinitionId <- 'jobDefinitionId_example' # character | ID of the Batch Prediction job definition
-batchPredictionJobDefinitionsUpdate <- BatchPredictionJobDefinitionsUpdate$new() # BatchPredictionJobDefinitionsUpdate |
+batchPredictionJobDefinitionsUpdate <- BatchPredictionJobDefinitionsUpdate$new() # BatchPredictionJobDefinitionsUpdate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionJobDefinitionsPatch(jobDefinitionId, batchPredictionJobDefinitionsUpdate=batchPredictionJobDefinitionsUpdate)
@@ -1061,8 +992,8 @@ result <- api.instance$BatchPredictionJobDefinitionsPatch(jobDefinitionId, batch
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsPortableList"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsPortableList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsPortableList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsPortableList}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsPortableList()}}{
 Retrieve job definition snippet for PBP
 Produces: NA
@@ -1081,6 +1012,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve a Batch Prediction job definition for Portable Batch Predictions
+
+
+This method invokes \verb{GET /batchPredictionJobDefinitions/\{jobDefinitionId\}/portable/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1110,8 +1044,8 @@ result <- api.instance$BatchPredictionJobDefinitionsPortableList(jobDefinitionId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionJobDefinitionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionJobDefinitionsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionJobDefinitionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionJobDefinitionsRetrieve}{}}}
 \subsection{Method \code{BatchPredictionJobDefinitionsRetrieve()}}{
 Retrieve Batch Prediction job definition
 Produces: "application/json"
@@ -1130,6 +1064,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a Batch Prediction job definition
+
+
+This method invokes \verb{GET /batchPredictionJobDefinitions/\{jobDefinitionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1162,8 +1099,8 @@ result <- api.instance$BatchPredictionJobDefinitionsRetrieve(jobDefinitionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsCreate}{}}}
 \subsection{Method \code{BatchPredictionsCreate()}}{
 Creates a new Batch Prediction job
 Produces: "application/json"
@@ -1184,6 +1121,9 @@ Produces: "application/json"
 Submit the configuration for the job and it will be submitted to the queue
 
 
+This method invokes \verb{POST /batchPredictions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job details for the created Batch Prediction job
@@ -1199,7 +1139,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-batchPredictionJobCreate <- BatchPredictionJobCreate$new() # BatchPredictionJobCreate |
+batchPredictionJobCreate <- BatchPredictionJobCreate$new() # BatchPredictionJobCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCreate(batchPredictionJobCreate=batchPredictionJobCreate)
@@ -1211,8 +1151,8 @@ result <- api.instance$BatchPredictionsCreate(batchPredictionJobCreate=batchPred
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsCsvUploadFinalizeMultipartCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsCsvUploadFinalizeMultipartCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsCsvUploadFinalizeMultipartCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsCsvUploadFinalizeMultipartCreate}{}}}
 \subsection{Method \code{BatchPredictionsCsvUploadFinalizeMultipartCreate()}}{
 Finalize a multipart upload
 Produces: NA
@@ -1239,6 +1179,9 @@ Produces: NA
 Finalize a multipart upload, indicating that no further chunks will be sent
 
 
+This method invokes \verb{POST /batchPredictions/\{predictionJobId\}/csvUpload/finalizeMultipart/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Acknowledgement that the request was accepted or an error message
@@ -1261,7 +1204,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId, partNumber)
@@ -1273,8 +1216,8 @@ result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predicti
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsCsvUploadPartPut"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsCsvUploadPartPut}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsCsvUploadPartPut"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsCsvUploadPartPut}{}}}
 \subsection{Method \code{BatchPredictionsCsvUploadPartPut()}}{
 Upload CSV data in multiple parts
 Produces: NA
@@ -1301,6 +1244,9 @@ Produces: NA
 Stream CSV data to the prediction job in many parts.Only available for jobs that uses the localFile intake option.
 
 
+This method invokes \verb{PUT /batchPredictions/\{predictionJobId\}/csvUpload/part/\{partNumber\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job data was successfully submitted
@@ -1326,7 +1272,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber)
@@ -1338,8 +1284,8 @@ result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNum
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsCsvUploadPutMany"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsCsvUploadPutMany}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsCsvUploadPutMany"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsCsvUploadPutMany}{}}}
 \subsection{Method \code{BatchPredictionsCsvUploadPutMany()}}{
 Creates a new_model_id Batch Prediction job
 Produces: NA
@@ -1366,6 +1312,9 @@ Produces: NA
 Stream CSV data to the prediction job. Only available for jobs thatuses the localFile intake option.
 
 
+This method invokes \verb{PUT /batchPredictions/\{predictionJobId\}/csvUpload/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job data was successfully submitted
@@ -1391,7 +1340,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNumber)
@@ -1403,8 +1352,8 @@ result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNum
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsDelete}{}}}
 \subsection{Method \code{BatchPredictionsDelete()}}{
 Cancel a Batch Prediction job
 Produces: NA
@@ -1427,6 +1376,9 @@ Produces: NA
 If the job is running, it will be aborted. Then it will be removed, meaning all underlying data will be deleted and the job is removed from the list of jobs.
 
 
+This method invokes \verb{DELETE /batchPredictions/\{predictionJobId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job cancelled
@@ -1446,7 +1398,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
@@ -1458,8 +1410,8 @@ result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsDownloadList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsDownloadList}{}}}
 \subsection{Method \code{BatchPredictionsDownloadList()}}{
 Download the scored data set of a batch prediction job
 Produces: NA
@@ -1480,6 +1432,9 @@ Produces: NA
 }
 \subsection{Details}{
 This is only valid for jobs scored using the \"localFile\" output option
+
+
+This method invokes \verb{GET /batchPredictions/\{predictionJobId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1506,7 +1461,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
@@ -1518,8 +1473,8 @@ result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsFromExistingCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsFromExistingCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsFromExistingCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsFromExistingCreate}{}}}
 \subsection{Method \code{BatchPredictionsFromExistingCreate()}}{
 Create a new a Batch Prediction job based on an existing Batch Prediction job.
 Produces: "application/json"
@@ -1543,6 +1498,9 @@ Produces: "application/json"
 Copies an existing job and submits it to the queue.
 
 
+This method invokes \verb{POST /batchPredictions/fromExisting/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job details for the created Batch Prediction job
@@ -1558,7 +1516,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-batchPredictionJobId <- BatchPredictionJobId$new() # BatchPredictionJobId |
+batchPredictionJobId <- BatchPredictionJobId$new() # BatchPredictionJobId | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsFromExistingCreate(batchPredictionJobId=batchPredictionJobId)
@@ -1570,8 +1528,8 @@ result <- api.instance$BatchPredictionsFromExistingCreate(batchPredictionJobId=b
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsFromJobDefinitionCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsFromJobDefinitionCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsFromJobDefinitionCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsFromJobDefinitionCreate}{}}}
 \subsection{Method \code{BatchPredictionsFromJobDefinitionCreate()}}{
 Launch a Batch Prediction job for scoring
 Produces: "application/json"
@@ -1595,6 +1553,9 @@ Produces: "application/json"
 Launches a one-time batch prediction job based off of the previously supplied definition referring to the job definition ID and puts it on the queue.
 
 
+This method invokes \verb{POST /batchPredictions/fromJobDefinition/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job details for the created Batch Prediction job
@@ -1613,7 +1574,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-batchPredictionJobDefinitionId <- BatchPredictionJobDefinitionId$new() # BatchPredictionJobDefinitionId |
+batchPredictionJobDefinitionId <- BatchPredictionJobDefinitionId$new() # BatchPredictionJobDefinitionId | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsFromJobDefinitionCreate(batchPredictionJobDefinitionId=batchPredictionJobDefinitionId)
@@ -1625,8 +1586,8 @@ result <- api.instance$BatchPredictionsFromJobDefinitionCreate(batchPredictionJo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsList}{}}}
 \subsection{Method \code{BatchPredictionsList()}}{
 List batch prediction jobs
 Produces: "application/json"
@@ -1638,6 +1599,7 @@ Produces: "application/json"
   status = NULL,
   source = NULL,
   deploymentId = NULL,
+  modelId = NULL,
   jobId = NULL,
   orderBy = NULL,
   cutoffHours = NULL,
@@ -1666,6 +1628,8 @@ Produces: "application/json"
 
 \item{\code{deploymentId}}{character. Includes only jobs for this particular deployment}
 
+\item{\code{modelId}}{character. ID of leaderboard model which is used in job for processing predictions dataset}
+
 \item{\code{jobId}}{character. Includes only job by specific id}
 
 \item{\code{orderBy}}{Enum < \link{created, -created, status, -status} > Sort order which will be applied to batch prediction list. Prefix the attribute name with a dash to sort in descending order, e.g. \"-created\".}
@@ -1692,6 +1656,9 @@ Produces: "application/json"
 Get a collection of batch prediction jobs by statuses
 
 
+This method invokes \verb{GET /batchPredictions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A list of Batch Prediction job objects
@@ -1710,21 +1677,22 @@ library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped
 limit <- 100 # integer | At most this many results are returned
 allJobs <- FALSE # character | (For organization admins) Include jobs for all users in the organization.
-status <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs that have the status value that matches this flag. Repeat the parameter for filtering on multiple statuses.
-source <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs that have the source value that matches this flag. Repeat the parameter for filtering on multiple statuses.
+status <- list(c('status_example')) # OneOfstringarray | Includes only jobs that have the status value that matches this flag. Repeat the parameter for filtering on multiple statuses.
+source <- list(c('source_example')) # OneOfstringarray | Includes only jobs that have the source value that matches this flag. Repeat the parameter for filtering on multiple statuses.
 deploymentId <- 'deploymentId_example' # character | Includes only jobs for this particular deployment
+modelId <- 'modelId_example' # character | ID of leaderboard model which is used in job for processing predictions dataset
 jobId <- 'jobId_example' # character | Includes only job by specific id
 orderBy <- 'orderBy_example' # character | Sort order which will be applied to batch prediction list. Prefix the attribute name with a dash to sort in descending order, e.g. \"-created\".
 cutoffHours <- 56 # integer | Only list jobs created at most this amount of hours ago.
 startDateTime <- 'startDateTime_example' # character | ISO-formatted datetime of the earliest time the job was added (inclusive). For example \"2008-08-24T12:00:00Z\". Will ignore cutoffHours if set.
 endDateTime <- 'endDateTime_example' # character | ISO-formatted datetime of the latest time the job was added (inclusive). For example \"2008-08-24T12:00:00Z\".
 batchPredictionJobDefinitionId <- 'batchPredictionJobDefinitionId_example' # character | Includes only jobs for this particular definition
-hostname <- OneOfstringarray$new() # OneOfstringarray | Includes only jobs for this particular prediction instance hostname
+hostname <- list(c('hostname_example')) # OneOfstringarray | Includes only jobs for this particular prediction instance hostname
 intakeType <- 'intakeType_example' # character | Includes only jobs for this particular intake type
 outputType <- 'outputType_example' # character | Includes only jobs for this particular output type
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=status, source=source, deploymentId=deploymentId, jobId=jobId, orderBy=orderBy, cutoffHours=cutoffHours, startDateTime=startDateTime, endDateTime=endDateTime, batchPredictionJobDefinitionId=batchPredictionJobDefinitionId, hostname=hostname, intakeType=intakeType, outputType=outputType)
+result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=status, source=source, deploymentId=deploymentId, modelId=modelId, jobId=jobId, orderBy=orderBy, cutoffHours=cutoffHours, startDateTime=startDateTime, endDateTime=endDateTime, batchPredictionJobDefinitionId=batchPredictionJobDefinitionId, hostname=hostname, intakeType=intakeType, outputType=outputType)
 }
 }
 \if{html}{\out{</div>}}
@@ -1733,8 +1701,8 @@ result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=statu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsPatch}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsPatch}{}}}
 \subsection{Method \code{BatchPredictionsPatch()}}{
 Update a Batch Prediction job
 Produces: "application/json"
@@ -1764,6 +1732,9 @@ Produces: "application/json"
 If a job has finished execution regardless of the result, it can have parameters changed to ensure better filtering in the job list upon retrieval. Another case: updating job scoring status externally.
 
 
+This method invokes \verb{PATCH /batchPredictions/\{predictionJobId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Job updated
@@ -1786,8 +1757,8 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
-batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate |
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchPredictionJobUpdate=batchPredictionJobUpdate)
@@ -1799,8 +1770,8 @@ result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchP
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchPredictionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchPredictionsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-BatchPredictionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-BatchPredictionsRetrieve}{}}}
 \subsection{Method \code{BatchPredictionsRetrieve()}}{
 Retrieve Batch Prediction job
 Produces: "application/json"
@@ -1823,6 +1794,9 @@ Produces: "application/json"
 Retrieve a Batch Prediction job.
 
 
+This method invokes \verb{GET /batchPredictions/\{predictionJobId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Job details for the requested Batch Prediction job
@@ -1839,7 +1813,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
@@ -1851,8 +1825,8 @@ result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ComputedTrainingPredictionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ComputedTrainingPredictionsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ComputedTrainingPredictionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ComputedTrainingPredictionsList}{}}}
 \subsection{Method \code{ComputedTrainingPredictionsList()}}{
 Retrieve training predictions
 Produces: "application/json", "text/csv"
@@ -1886,6 +1860,9 @@ Produces: "application/json", "text/csv"
 }
 \subsection{Details}{
 Retrieve training predictions that have previously been computed
+
+
+This method invokes \verb{GET /projects/\{projectId\}/trainingPredictions/\{predictionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1923,350 +1900,8 @@ result <- api.instance$ComputedTrainingPredictionsList(offset, limit, projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsCreate}{}}}
-\subsection{Method \code{ImportedModelsCreate()}}{
-Import a previously exported DRX model to be served by SSE
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsCreate(singleModelFilePayload = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{singleModelFilePayload}}{\link{SingleModelFilePayload}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-This route can be used on-prem to put a given DRX model into file storage so that it can be served by a Standalone Scoring Engine (SSE). Please note however that for this to work SSE needs to be configured to use the same file storage as the main Datarbot application (namely, Public API).
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{202}} Creation has successfully started. See the Location header.
-\itemize{
-\item \strong{\code{Location}} A url that can be polled to check the status.
-}
-\item \strong{\code{400}} Submitted DRX file is missing or invalid
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-singleModelFilePayload <- SingleModelFilePayload$new() # SingleModelFilePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsCreate(singleModelFilePayload=singleModelFilePayload)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsDelete}{}}}
-\subsection{Method \code{ImportedModelsDelete()}}{
-Delete imported by from storage along with all its metadata
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsDelete(importId, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{importId}}{character. Unique identifier of the imported model}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Delete previously imported DRX models from storage along with all its metadata. This deletion is permanent and cannot be reverted, but the one can export the original model and import it again.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{204}} Empty response means the model metadata was deleted successfully
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-\item \strong{\code{404}} Model does not exist or \"ENABLE_BINARY_MODEL_IMPORT\" is not enabled
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsDelete(importId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsList}{}}}
-\subsection{Method \code{ImportedModelsList()}}{
-Lists imported models optionally filtering them by a string query
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsList(offset, limit, query = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{offset}}{integer. The number of records to skip over. Non-negative, defaults to 0}
-
-\item{\code{limit}}{integer. The number of records to return. Positive, defaults to 100}
-
-\item{\code{query}}{character. A case-insensitive search term to filter returned models. The searchable fields are: `model_id`, `model_name`, `display_name`, `dataset_name`, `project_id`, `project_name`, `target`, `note`, `featurelist_name`, `created_by_id`, `created_by_username`. Search also looks at the first and last name of the user who imported the model. The partially matched models are counted, so for example the search term `train` would find models with name `TuesdayTrainingData`}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Lists imported models optionally filtering them by a string query.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}} A list of imported models matching query (if any)
-\itemize{
-}
-\item \strong{\code{400}} Invalid argument
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-\item \strong{\code{404}} Model does not exist or \"ENABLE_BINARY_MODEL_IMPORT\" is not enabled
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{ImportedModelListResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-offset <- 0 # integer | The number of records to skip over. Non-negative, defaults to 0
-limit <- 100 # integer | The number of records to return. Positive, defaults to 100
-query <- 'query_example' # character | A case-insensitive search term to filter returned models. The searchable fields are: `model_id`, `model_name`, `display_name`, `dataset_name`, `project_id`, `project_name`, `target`, `note`, `featurelist_name`, `created_by_id`, `created_by_username`. Search also looks at the first and last name of the user who imported the model. The partially matched models are counted, so for example the search term `train` would find models with name `TuesdayTrainingData`
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsList(offset, limit, query=query)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsPatch}{}}}
-\subsection{Method \code{ImportedModelsPatch()}}{
-Allows updating some of the imported DRX model metadata fields
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsPatch(
-  importId,
-  imortedModelUpdatePayload = NULL,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{importId}}{character. Unique identifier of the imported model}
-
-\item{\code{imortedModelUpdatePayload}}{\link{ImortedModelUpdatePayload}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Update some of the imported DRX model metadata fields.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{204}} Empty response means the model metadata was updated successfully
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-\item \strong{\code{404}} Model does not exist or \"ENABLE_BINARY_MODEL_IMPORT\" is not enabled
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-imortedModelUpdatePayload <- ImortedModelUpdatePayload$new() # ImortedModelUpdatePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsPatch(importId, imortedModelUpdatePayload=imortedModelUpdatePayload)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsPut"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsPut}{}}}
-\subsection{Method \code{ImportedModelsPut()}}{
-Replace an already imported DRX model with a new one
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsPut(importId, singleModelFilePayload = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{importId}}{character. Unique identifier of the imported model}
-
-\item{\code{singleModelFilePayload}}{\link{SingleModelFilePayload}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Replace an already imported model. The model specified by `importId` will be replaced with the model binary provided and the old model will no longer be available at this location.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{202}} Creation has successfully started. See the Location header.
-\itemize{
-\item \strong{\code{Location}} A url that can be polled to check the status.
-}
-\item \strong{\code{400}} Submitted DRX file is missing or invalid
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-\item \strong{\code{404}} Model does not exist or \"ENABLE_BINARY_MODEL_IMPORT\" is not enabled
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-singleModelFilePayload <- SingleModelFilePayload$new() # SingleModelFilePayload |
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsPut(importId, singleModelFilePayload=singleModelFilePayload)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImportedModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ImportedModelsRetrieve}{}}}
-\subsection{Method \code{ImportedModelsRetrieve()}}{
-Get imported DRX model details
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$ImportedModelsRetrieve(importId, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{importId}}{character. Unique identifier of the imported model}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Retrieve imported model metadata.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}} Imported DRX details
-\itemize{
-}
-\item \strong{\code{403}} Admin permissions required
-\itemize{
-}
-\item \strong{\code{404}} Model does not exist or \"ENABLE_BINARY_MODEL_IMPORT\" is not enabled
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{ImportedModelRetrieveResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-importId <- 'importId_example' # character | Unique identifier of the imported model
-
-api.instance <- PredictionsApi$new()
-result <- api.instance$ImportedModelsRetrieve(importId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationCreate}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationCreate()}}{
 Create a new prediction explanations initialization.
 Produces: NA
@@ -2296,6 +1931,9 @@ Produces: NA
 Create a new prediction explanations initialization. This is a necessary prerequisite for generating prediction explanations.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} The request was accepted and will be worked on.
@@ -2311,7 +1949,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate |
+predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(projectId, modelId, predictionExplanationsInitializationCreate=predictionExplanationsInitializationCreate)
@@ -2323,8 +1961,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}{
 Delete an existing PredictionExplanationsInitialization.
 Produces: NA
@@ -2349,6 +1987,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete an existing PredictionExplanationsInitialization.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2376,8 +2017,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationDeleteM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsModelsPredictionExplanationsInitializationList}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationList()}}{
 Retrieve the current PredictionExplanationsInitialization.
 Produces: NA
@@ -2410,6 +2051,9 @@ Produces: NA
 Retrieve the current PredictionExplanationsInitialization. A PredictionExplanationsInitialization is a pre-requisite for successfully computing prediction explanations using a particular model, and can be used to preview the prediction explanations that would be generated for a complete dataset.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -2425,7 +2069,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in the PredictionExplanationsSample response.
-predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve |
+predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(projectId, modelId, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsInitializationRetrieve=predictionExplanationsInitializationRetrieve)
@@ -2437,8 +2081,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictJobsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictJobsDelete}{}}}
 \subsection{Method \code{ProjectsPredictJobsDelete()}}{
 Cancel a queued prediction job
 Produces: NA
@@ -2459,6 +2103,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel a queued prediction job
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/predictJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2489,8 +2136,8 @@ result <- api.instance$ProjectsPredictJobsDelete(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictJobsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictJobsList}{}}}
 \subsection{Method \code{ProjectsPredictJobsList()}}{
 List all prediction jobs for a project
 Produces: "application/json"
@@ -2511,6 +2158,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all prediction jobs for a project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2544,8 +2194,8 @@ result <- api.instance$ProjectsPredictJobsList(projectId, status=status)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictJobsRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictJobsRetrieve()}}{
 Look up a particular prediction job
 Produces: "application/json"
@@ -2566,6 +2216,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Look up a particular prediction job
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2600,8 +2253,8 @@ result <- api.instance$ProjectsPredictJobsRetrieve(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsDataSourceUploadsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsDataSourceUploadsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsDataSourceUploadsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsDataSourceUploadsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsDataSourceUploadsCreate()}}{
 Upload a dataset for predictions from a ``DataSource``.
 Produces: NA
@@ -2625,7 +2278,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Upload a dataset for predictions from a ``DataSource``.
+Upload a dataset for predictions from a `DataSource`.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/predictionDatasets/dataSourceUploads/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2642,7 +2298,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data source will be uploaded to.
-predictionDataSource <- PredictionDataSource$new() # PredictionDataSource |
+predictionDataSource <- PredictionDataSource$new() # PredictionDataSource | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsDataSourceUploadsCreate(projectId, predictionDataSource=predictionDataSource)
@@ -2654,8 +2310,8 @@ result <- api.instance$ProjectsPredictionDatasetsDataSourceUploadsCreate(project
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsDatasetUploadsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsDatasetUploadsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsDatasetUploadsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsDatasetUploadsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsDatasetUploadsCreate()}}{
 Create prediction dataset
 Produces: "application/json"
@@ -2679,7 +2335,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a prediction dataset from a Dataset Item in the catalog.
+Create a prediction dataset from a Dataset Asset referenced by AI Catalog item/version ID.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/predictionDatasets/datasetUploads/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2702,7 +2361,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-predictionFromCatalogDataset <- PredictionFromCatalogDataset$new() # PredictionFromCatalogDataset |
+predictionFromCatalogDataset <- PredictionFromCatalogDataset$new() # PredictionFromCatalogDataset | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsDatasetUploadsCreate(projectId, predictionFromCatalogDataset=predictionFromCatalogDataset)
@@ -2714,8 +2373,8 @@ result <- api.instance$ProjectsPredictionDatasetsDatasetUploadsCreate(projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsDelete}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsDelete()}}{
 Delete a dataset that was uploaded for prediction.
 Produces: NA
@@ -2736,6 +2395,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a dataset that was uploaded for prediction.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/predictionDatasets/\{datasetId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2766,8 +2428,8 @@ result <- api.instance$ProjectsPredictionDatasetsDelete(projectId, datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsFileUploadsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsFileUploadsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsFileUploadsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsFileUploadsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsFileUploadsCreate()}}{
 Upload a file for predictions from an attached file.
 Produces: NA
@@ -2794,6 +2456,9 @@ Produces: NA
 Upload a file for predictions from an attached file.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/predictionDatasets/fileUploads/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Upload successfully started. See the Location header.
@@ -2808,7 +2473,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data will be uploaded for prediction.
-predictionFileUpload <- PredictionFileUpload$new() # PredictionFileUpload |
+predictionFileUpload <- PredictionFileUpload$new() # PredictionFileUpload | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsFileUploadsCreate(projectId, predictionFileUpload=predictionFileUpload)
@@ -2820,8 +2485,8 @@ result <- api.instance$ProjectsPredictionDatasetsFileUploadsCreate(projectId, pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsList}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsList()}}{
 List predictions datasets uploaded to a project.
 Produces: "application/json"
@@ -2844,6 +2509,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List predictions datasets uploaded to a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictionDatasets/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2875,8 +2543,8 @@ result <- api.instance$ProjectsPredictionDatasetsList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsRetrieve()}}{
 Get the metadata of a specific dataset. This only works for datasets uploaded to an existing project for prediction.
 Produces: "application/json"
@@ -2897,6 +2565,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get the metadata of a specific dataset. This only works for datasets uploaded to an existing project for prediction.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictionDatasets/\{datasetId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2927,8 +2598,8 @@ result <- api.instance$ProjectsPredictionDatasetsRetrieve(projectId, datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionDatasetsUrlUploadsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionDatasetsUrlUploadsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionDatasetsUrlUploadsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionDatasetsUrlUploadsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionDatasetsUrlUploadsCreate()}}{
 Upload a file for predictions from a URL.
 Produces: NA
@@ -2955,6 +2626,9 @@ Produces: NA
 Upload a file for predictions from a URL.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/predictionDatasets/urlUploads/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Upload successfully started. See the Location header.
@@ -2969,7 +2643,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID to which the data will be uploaded for prediction.
-predictionUrlUpload <- PredictionURLUpload$new() # PredictionURLUpload |
+predictionUrlUpload <- PredictionURLUpload$new() # PredictionURLUpload | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionDatasetsUrlUploadsCreate(projectId, predictionUrlUpload=predictionUrlUpload)
@@ -2981,8 +2655,8 @@ result <- api.instance$ProjectsPredictionDatasetsUrlUploadsCreate(projectId, pre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionExplanationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionExplanationsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsCreate()}}{
 Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord).
 Produces: NA
@@ -3006,7 +2680,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord). In order to successfully create PredictionExplanations for a particular model and dataset, you must first - Compute feature impact for the model via :http:post:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/` - Compute a PredictionExplanationsInitialization for the model via :http:post:`/api/v2/projects/(projectId)/models/(modelId)/predictionExplanationsInitialization/` - Compute predictions for the model and dataset via :http:post:`/api/v2/projects/(projectId)/predictions/` `thresholdHigh` and `thresholdLow` are optional filters applied to speed up computation. When at least one is specified, only the selected outlier rows will have prediction explanations computed. Rows are considered to be outliers if their predicted value (in case of regression projects) or probability of being the positive class (in case of classification projects) isless than `thresholdLow` or greater than `thresholdHigh`. If neither is specified, prediction explanations will be computed for all rows.
+Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord). In order to successfully create PredictionExplanations for a particular model and dataset, you must first - Compute feature impact for the model via :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/ - Compute a PredictionExplanationsInitialization for the model via :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/predictionExplanationsInitialization/ - Compute predictions for the model and dataset via :<http:post>:/api/v2/projects/(projectId)/predictions/ thresholdHigh and thresholdLow are optional filters applied to speed up computation. When at least one is specified, only the selected outlier rows will have prediction explanations computed. Rows are considered to be outliers if their predicted value (in case of regression projects) or probability of being the positive class (in case of classification projects) isless than thresholdLow or greater than thresholdHigh. If neither is specified, prediction explanations will be computed for all rows.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/predictionExplanations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3023,7 +2700,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate |
+predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictionExplanationsCreate=predictionExplanationsCreate)
@@ -3035,8 +2712,8 @@ result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictio
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionExplanationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionExplanationsList}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsList()}}{
 Retrieve stored Prediction Explanations.
 Produces: NA
@@ -3075,6 +2752,9 @@ Produces: NA
 Retrieve stored Prediction Explanations. Each PredictionExplanationsRow retrieved corresponds to a row of the prediction dataset, although some rows may not have had prediction explanations computed depending on the thresholds selected.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanations/\{predictionExplanationsId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -3092,7 +2772,7 @@ projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
 offset <- 0 # integer | This many results will be skipped.
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in PredictionExplanationsRow response.
-predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve |
+predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, predictionExplanationsId, offset=offset, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsRetrieve=predictionExplanationsRetrieve)
@@ -3104,8 +2784,8 @@ result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, pred
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionExplanationsRecordsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionExplanationsRecordsDelete}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsDelete()}}{
 Delete saved Prediction Explanations.
 Produces: NA
@@ -3130,6 +2810,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete saved Prediction Explanations. Deletes both the actual prediction explanations and the corresponding PredictionExplanationsRecord.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/predictionExplanationsRecords/\{predictionExplanationsId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3157,8 +2840,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsDelete(projectId, pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionExplanationsRecordsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionExplanationsRecordsList}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsList()}}{
 List PredictionExplanationsRecord objects for a project.
 Produces: "application/json"
@@ -3191,6 +2874,9 @@ Produces: "application/json"
 List PredictionExplanationsRecord objects for a project. These contain metadata about the computed prediction explanations and the location at which the PredictionExplanations can be retrieved.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanationsRecords/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The object was found and returned successfully.
@@ -3221,8 +2907,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsList(projectId, offs
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionExplanationsRecordsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionExplanationsRecordsRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsRetrieve()}}{
 Retrieve a PredictionExplanationsRecord object.
 Produces: NA
@@ -3252,6 +2938,9 @@ Produces: NA
 Retrieve a PredictionExplanationsRecord object. A PredictionExplanationsRecord contains metadata about the computed prediction explanations and the location at which the PredictionExplanations can be retrieved.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanationsRecords/\{predictionExplanationsId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The object was found and returned successfully.
@@ -3266,7 +2955,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
-predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord |
+predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, predictionExplanationsId, predictionExplanationsRecord=predictionExplanationsRecord)
@@ -3278,8 +2967,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionsCreate()}}{
 Make new predictions.
 Produces: NA
@@ -3306,7 +2995,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-There are two ways of making predictions.  The recommended way is to first upload your dataset to the project, and then using the corresponding datasetId, predict against that dataset. To follow that pattern, send the json request body.  Note that requesting prediction intervals will automatically trigger backtesting if backtests were not already completed for this model.  The legacy method which is deprecated is to send the file directly with the predictions request.  If you need to predict against a file 10MB in size or larger, you will be required to use the above workflow for uploaded datasets. However, the following multipart/form-data can be used with small files:  :form file: a dataset to make predictions on :form modelId: the model to use to make predictions  .. note:: If using the legacy method of uploading data to this endpoint, a new dataset    will be created behind the scenes. For performance reasons, it would be much better    to utilize the workflow of creating the dataset first and using the supported method    of making predictions of this endpoint. However, to preserve the functionality of    existing workflows, the legacy method still exists.
+There are two ways of making predictions. The recommended way is to first upload your dataset to the project, and then using the corresponding datasetId, predict against that dataset. To follow that pattern, send the json request body.  Note that requesting prediction intervals will automatically trigger backtesting if backtests were not already completed for this model.  The legacy method which is deprecated is to send the file directly with the predictions request. If you need to predict against a file 10MB in size or larger, you will be required to use the above workflow for uploaded datasets. However, the following multipart/form-data can be used with small files:  form file   a dataset to make predictions on  form modelId   the model to use to make predictions  Note  If using the legacy method of uploading data to this endpoint, a new dataset will be created behind the scenes. For performance reasons, it would be much better to utilize the workflow of creating the dataset first and using the supported method of making predictions of this endpoint. However, to preserve the functionality of existing workflows, the legacy method still exists.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/predictions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3327,7 +3019,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to make predictions within.
 contentType <- 'contentType_example' # character | Content types available for making request. `multipart/form-data` is the legacy deprecated method to send the small file with the prediction request.
-createPredictionFromDataset <- CreatePredictionFromDataset$new() # CreatePredictionFromDataset |
+createPredictionFromDataset <- CreatePredictionFromDataset$new() # CreatePredictionFromDataset | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsPredictionsCreate(projectId, contentType, createPredictionFromDataset=createPredictionFromDataset)
@@ -3339,8 +3031,8 @@ result <- api.instance$ProjectsPredictionsCreate(projectId, contentType, createP
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionsList}{}}}
 \subsection{Method \code{ProjectsPredictionsList()}}{
 Get a list of prediction records.
 Produces: "application/json"
@@ -3373,7 +3065,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Get a list of prediction records.  .. deprecated:: v2.21     Use :http:get:`/api/v2/projects/(projectId)/predictionsMetadata/` instead. The only     difference is that parameter `datasetId` is renamed to `predictionDatasetId`     both in request and response.
+Get a list of prediction records.  v2.21 Use :<http:get>:/api/v2/projects/(projectId)/predictionsMetadata/ instead. The only difference is that parameter datasetId is renamed to predictionDatasetId both in request and response.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3407,8 +3102,8 @@ result <- api.instance$ProjectsPredictionsList(offset, limit, projectId, dataset
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionsMetadataList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionsMetadataList}{}}}
 \subsection{Method \code{ProjectsPredictionsMetadataList()}}{
 Get a list of prediction metadata records.
 Produces: "application/json"
@@ -3444,6 +3139,9 @@ Produces: "application/json"
 Use the ID of a metadata object to get the complete set of predictions.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionsMetadata/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The json array of prediction metadata objects.
@@ -3475,8 +3173,8 @@ result <- api.instance$ProjectsPredictionsMetadataList(offset, limit, projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionsMetadataRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionsMetadataRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionsMetadataRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionsMetadataRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictionsMetadataRetrieve()}}{
 Retrieve metadata for a set of predictions.
 Produces: "application/json"
@@ -3501,6 +3199,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Use the ID of a metadata object to get the complete set of predictions.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictionsMetadata/\{predictionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3534,8 +3235,8 @@ result <- api.instance$ProjectsPredictionsMetadataRetrieve(predictionId, project
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsPredictionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsPredictionsRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictionsRetrieve()}}{
 Get a completed set of predictions.
 Produces: "application/json"
@@ -3565,7 +3266,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve predictions that have previously been computed. Training predictions encoded either as JSON or CSV. If CSV output was requested, the returned CSV data will contain the following columns:  * For regression projects: `row_id` and `prediction`. * For binary classification projects: `row_id`, `prediction`,   `class_<positive_class_label>` and `class_<negative_class_label>`. * For multiclass projects: `row_id`, `prediction` and a   `class_<class_label>` for each class. * For multilabel projects: `row_id` and for each class   `prediction_<class_label>` and `class_<class_label>`. * For time-series, these additional columns will be added: `forecast_point`,   `forecast_distance`, `timestamp`, and `series_id`.  .. minversion:: v2.21      * If `explanationAlgorithm` = 'shap', these additional columns will be added:       triplets of (`Explanation_<i>\emph{feature_name`,       `Explanation}<i>\emph{feature_value`, and `Explanation}<i>_strength`) for `i` ranging       from 1 to `maxExplanations`, `shap_remaining_total` and `shap_base_value`. Binary       classification projects will also have `explained_class`, the class for which       positive SHAP values imply an increased probability.
+Retrieve predictions that have previously been computed. Training predictions encoded either as JSON or CSV. If CSV output was requested, the returned CSV data will contain the following columns:  - For regression projects: row_id and prediction. - For binary classification projects: row_id, prediction,   class\\\emph{\\<positive_class_label\\> and class\\}\\<negative_class_label\\>. - For multiclass projects: row_id, prediction and a   class\\\emph{\\<class_label\\> for each class. - For multilabel projects: row_id and for each class   prediction\\}\\<class_label\\> and class\\\emph{\\<class_label\\>. - For time-series, these additional columns will be added:   forecast_point, forecast_distance, timestamp, and series_id.  v2.21  - If explanationAlgorithm = 'shap', these additional columns will be   added: triplets of (Explanation\\}\\<i\\>\\\emph{feature_name,   Explanation\\}\\<i\\>\\\emph{feature_value, and Explanation\\}\\<i\\>\\_strength)   for i ranging from 1 to maxExplanations, shap_remaining_total and   shap_base_value. Binary classification projects will also have   explained_class, the class for which positive SHAP values imply an   increased probability.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/predictions/\{predictionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3602,8 +3306,8 @@ result <- api.instance$ProjectsPredictionsRetrieve(predictionId, projectId, shap
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsTrainingPredictionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsTrainingPredictionsCreate}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ProjectsTrainingPredictionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ProjectsTrainingPredictionsCreate}{}}}
 \subsection{Method \code{ProjectsTrainingPredictionsCreate()}}{
 Submits a job to compute predictions for training data
 Produces: NA
@@ -3630,6 +3334,9 @@ Produces: NA
 Create training data predictions
 
 
+This method invokes \verb{POST /projects/\{projectId\}/trainingPredictions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Submitted successfully. See Location header.
@@ -3644,7 +3351,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | Project ID to compute training predictions for
-createTrainingPrediction <- CreateTrainingPrediction$new() # CreateTrainingPrediction |
+createTrainingPrediction <- CreateTrainingPrediction$new() # CreateTrainingPrediction | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ProjectsTrainingPredictionsCreate(projectId, createTrainingPrediction=createTrainingPrediction)
@@ -3656,8 +3363,8 @@ result <- api.instance$ProjectsTrainingPredictionsCreate(projectId, createTraini
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ScheduledJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ScheduledJobsDelete}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ScheduledJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ScheduledJobsDelete}{}}}
 \subsection{Method \code{ScheduledJobsDelete()}}{
 Delete scheduled job
 Produces: NA
@@ -3676,6 +3383,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete scheduled job
+
+
+This method invokes \verb{DELETE /scheduledJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3705,8 +3415,8 @@ result <- api.instance$ScheduledJobsDelete(jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ScheduledJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ScheduledJobsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ScheduledJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ScheduledJobsList}{}}}
 \subsection{Method \code{ScheduledJobsList()}}{
 List scheduled deployment batch prediction jobs a user can view
 Produces: "application/json"
@@ -3754,6 +3464,9 @@ Produces: "application/json"
 Get a list of scheduled batch prediction jobs a user can view
 
 
+This method invokes \verb{GET /scheduledJobs/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A list of scheduled batch prediction jobs
@@ -3789,8 +3502,8 @@ result <- api.instance$ScheduledJobsList(offset, limit, orderBy=orderBy, search=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ScheduledJobsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ScheduledJobsPatch}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ScheduledJobsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ScheduledJobsPatch}{}}}
 \subsection{Method \code{ScheduledJobsPatch()}}{
 Run or stop a previously created scheduled integration job
 Produces: NA
@@ -3811,6 +3524,9 @@ Produces: NA
 }
 \subsection{Details}{
 Run or stop a previously created scheduled integration job
+
+
+This method invokes \verb{PATCH /scheduledJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3835,7 +3551,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 jobId <- 'jobId_example' # character | The ID of the job being requested.
-scheduledJobRunStop <- ScheduledJobRunStop$new() # ScheduledJobRunStop |
+scheduledJobRunStop <- ScheduledJobRunStop$new() # ScheduledJobRunStop | 
 
 api.instance <- PredictionsApi$new()
 result <- api.instance$ScheduledJobsPatch(jobId, scheduledJobRunStop=scheduledJobRunStop)
@@ -3847,8 +3563,8 @@ result <- api.instance$ScheduledJobsPatch(jobId, scheduledJobRunStop=scheduledJo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ScheduledJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ScheduledJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-ScheduledJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-ScheduledJobsRetrieve}{}}}
 \subsection{Method \code{ScheduledJobsRetrieve()}}{
 List a single deployment batch prediction job
 Produces: "application/json"
@@ -3867,6 +3583,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a scheduled batch prediction job
+
+
+This method invokes \verb{GET /scheduledJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3896,8 +3615,8 @@ result <- api.instance$ScheduledJobsRetrieve(jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TrainingPredictionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-TrainingPredictionsList}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-TrainingPredictionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-TrainingPredictionsList}{}}}
 \subsection{Method \code{TrainingPredictionsList()}}{
 List training prediction jobs
 Produces: "application/json"
@@ -3920,6 +3639,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of training prediction records
+
+
+This method invokes \verb{GET /projects/\{projectId\}/trainingPredictions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3951,8 +3673,8 @@ result <- api.instance$TrainingPredictionsList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

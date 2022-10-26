@@ -34,16 +34,16 @@ PredictionFileUpload Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionFileUpload$new()}}
-\item \href{#method-validate}{\code{PredictionFileUpload$validate()}}
-\item \href{#method-toJSON}{\code{PredictionFileUpload$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionFileUpload$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionFileUpload$clone()}}
+\item \href{#method-PredictionFileUpload-new}{\code{PredictionFileUpload$new()}}
+\item \href{#method-PredictionFileUpload-validate}{\code{PredictionFileUpload$validate()}}
+\item \href{#method-PredictionFileUpload-toJSON}{\code{PredictionFileUpload$toJSON()}}
+\item \href{#method-PredictionFileUpload-fromJSON}{\code{PredictionFileUpload$fromJSON()}}
+\item \href{#method-PredictionFileUpload-clone}{\code{PredictionFileUpload$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionFileUpload-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionFileUpload-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -88,19 +88,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionFileUpload-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionFileUpload-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionFileUpload$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionFileUpload-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionFileUpload-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -109,8 +110,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionFileUpload-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionFileUpload-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -128,8 +129,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionFileUpload-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionFileUpload-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

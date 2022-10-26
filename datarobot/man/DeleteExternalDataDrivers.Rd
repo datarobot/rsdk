@@ -6,48 +6,17 @@
 \usage{
 DeleteExternalDataDrivers(driverId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete the driver.
 }
 \details{
 Delete the driver with given ID if it is not used by any data store or data source.
+
+This method invokes \verb{DELETE /externalDataDrivers/\{driverId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ExternalDataDriversDelete in [datarobot.apicore::DataConnectivityApi], which this function wraps.
-
-Other DataConnectivity: 
-\code{\link{CreateDataSource}()},
-\code{\link{CreateDataStore}()},
-\code{\link{CreateExternalDataDriverFile}()},
-\code{\link{CreateExternalDataDrivers}()},
-\code{\link{CreateExternalDataStoresColumns}()},
-\code{\link{CreateExternalDataStoresVerifySQL}()},
-\code{\link{DeleteDataSource}()},
-\code{\link{DeleteDataStore}()},
-\code{\link{GetDataSource}()},
-\code{\link{GetDataStoreSchemas}()},
-\code{\link{GetDataStoreTables}()},
-\code{\link{GetDataStore}()},
-\code{\link{GetDriver}()},
-\code{\link{ListDataSources}()},
-\code{\link{ListDataStores}()},
-\code{\link{ListDrivers}()},
-\code{\link{ListExternalDataDriversConfiguration}()},
-\code{\link{ListExternalDataSourcesAccessControl}()},
-\code{\link{ListExternalDataSourcesPermissions}()},
-\code{\link{ListExternalDataSourcesSharedRoles}()},
-\code{\link{ListExternalDataStoresCredentials}()},
-\code{\link{ListExternalDataStoresPermissions}()},
-\code{\link{ListExternalDataStoresSharedRoles}()},
-\code{\link{ListExternalDriverConfigurations}()},
-\code{\link{PatchExternalDataDrivers}()},
-\code{\link{PatchManyExternalDataSourcesAccessControl}()},
-\code{\link{PatchManyExternalDataSourcesSharedRoles}()},
-\code{\link{PatchManyExternalDataStoresAccessControl}()},
-\code{\link{PatchManyExternalDataStoresSharedRoles}()},
-\code{\link{RetrieveExternalDriverConfigurations}()},
-\code{\link{TestDataStore}()},
-\code{\link{UpdateDataSource}()},
-\code{\link{UpdateDataStore}()}
+The method ExternalDataDriversDelete in \link[datarobot.apicore:DataConnectivityApi]{datarobot.apicore::DataConnectivityApi}, which invokes the same underlying API endpoint.
 }
-\concept{DataConnectivity}

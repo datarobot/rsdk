@@ -13,6 +13,8 @@ SegmentChampionModelUpdate Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{clone_}}{character \link{optional} Clone current combined model and assign champion to the new combined model.}
+
 \item{\code{modelId}}{character The ID of segment champion model.}
 }
 \if{html}{\out{</div>}}
@@ -20,26 +22,33 @@ SegmentChampionModelUpdate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SegmentChampionModelUpdate$new()}}
-\item \href{#method-validate}{\code{SegmentChampionModelUpdate$validate()}}
-\item \href{#method-toJSON}{\code{SegmentChampionModelUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{SegmentChampionModelUpdate$fromJSON()}}
-\item \href{#method-clone}{\code{SegmentChampionModelUpdate$clone()}}
+\item \href{#method-SegmentChampionModelUpdate-new}{\code{SegmentChampionModelUpdate$new()}}
+\item \href{#method-SegmentChampionModelUpdate-validate}{\code{SegmentChampionModelUpdate$validate()}}
+\item \href{#method-SegmentChampionModelUpdate-toJSON}{\code{SegmentChampionModelUpdate$toJSON()}}
+\item \href{#method-SegmentChampionModelUpdate-fromJSON}{\code{SegmentChampionModelUpdate$fromJSON()}}
+\item \href{#method-SegmentChampionModelUpdate-clone}{\code{SegmentChampionModelUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SegmentChampionModelUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentChampionModelUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SegmentChampionModelUpdate$new(modelId = NULL, validateParams = FALSE, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{SegmentChampionModelUpdate$new(
+  modelId = NULL,
+  clone_ = FALSE,
+  validateParams = FALSE,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{modelId}}{The ID of segment champion model.}
+
+\item{\code{clone_}}{Clone current combined model and assign champion to the new combined model.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
@@ -49,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SegmentChampionModelUpdate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentChampionModelUpdate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SegmentChampionModelUpdate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SegmentChampionModelUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentChampionModelUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SegmentChampionModelUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentChampionModelUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -92,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SegmentChampionModelUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentChampionModelUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -78,22 +78,22 @@ apiClient$deserializeCSV(example_resp)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApiClient$new()}}
-\item \href{#method-CallApi}{\code{ApiClient$CallApi()}}
-\item \href{#method-Execute}{\code{ApiClient$Execute()}}
-\item \href{#method-DataRobotDefaultHeaders}{\code{ApiClient$DataRobotDefaultHeaders()}}
-\item \href{#method-envEndpoint}{\code{ApiClient$envEndpoint()}}
-\item \href{#method-envToken}{\code{ApiClient$envToken()}}
-\item \href{#method-deserialize}{\code{ApiClient$deserialize()}}
-\item \href{#method-deserializeJSON}{\code{ApiClient$deserializeJSON()}}
-\item \href{#method-deserializeCSV}{\code{ApiClient$deserializeCSV()}}
-\item \href{#method-deserializeObj}{\code{ApiClient$deserializeObj()}}
-\item \href{#method-clone}{\code{ApiClient$clone()}}
+\item \href{#method-ApiClient-new}{\code{ApiClient$new()}}
+\item \href{#method-ApiClient-CallApi}{\code{ApiClient$CallApi()}}
+\item \href{#method-ApiClient-Execute}{\code{ApiClient$Execute()}}
+\item \href{#method-ApiClient-DataRobotDefaultHeaders}{\code{ApiClient$DataRobotDefaultHeaders()}}
+\item \href{#method-ApiClient-envEndpoint}{\code{ApiClient$envEndpoint()}}
+\item \href{#method-ApiClient-envToken}{\code{ApiClient$envToken()}}
+\item \href{#method-ApiClient-deserialize}{\code{ApiClient$deserialize()}}
+\item \href{#method-ApiClient-deserializeJSON}{\code{ApiClient$deserializeJSON()}}
+\item \href{#method-ApiClient-deserializeCSV}{\code{ApiClient$deserializeCSV()}}
+\item \href{#method-ApiClient-deserializeObj}{\code{ApiClient$deserializeObj()}}
+\item \href{#method-ApiClient-clone}{\code{ApiClient$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApiClient-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-new}{}}}
 \subsection{Method \code{new()}}{
 Create a new ApiClient object.
 \subsection{Usage}{
@@ -138,8 +138,8 @@ Create a new ApiClient object.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CallApi"></a>}}
-\if{latex}{\out{\hypertarget{method-CallApi}{}}}
+\if{html}{\out{<a id="method-ApiClient-CallApi"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
 Invokes the underlying API for this client, with automatic retry logic. All
 params are passed to \code{\link[=Execute]{Execute()}}.
@@ -176,8 +176,8 @@ params are passed to \code{\link[=Execute]{Execute()}}.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Execute"></a>}}
-\if{latex}{\out{\hypertarget{method-Execute}{}}}
+\if{html}{\out{<a id="method-ApiClient-Execute"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-Execute}{}}}
 \subsection{Method \code{Execute()}}{
 Helper function that delegates to the \link{httr} library for making HTTP requests.
 \subsection{Usage}{
@@ -213,8 +213,8 @@ Helper function that delegates to the \link{httr} library for making HTTP reques
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataRobotDefaultHeaders"></a>}}
-\if{latex}{\out{\hypertarget{method-DataRobotDefaultHeaders}{}}}
+\if{html}{\out{<a id="method-ApiClient-DataRobotDefaultHeaders"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-DataRobotDefaultHeaders}{}}}
 \subsection{Method \code{DataRobotDefaultHeaders()}}{
 Returns a list of default request headers for use with the DataRobot API.
 \subsection{Usage}{
@@ -223,8 +223,8 @@ Returns a list of default request headers for use with the DataRobot API.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-envEndpoint"></a>}}
-\if{latex}{\out{\hypertarget{method-envEndpoint}{}}}
+\if{html}{\out{<a id="method-ApiClient-envEndpoint"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-envEndpoint}{}}}
 \subsection{Method \code{envEndpoint()}}{
 Retrieves the DataRobot API endpoint from environment variables. DataRobot generally expects this env var to be set.
 \subsection{Usage}{
@@ -233,8 +233,8 @@ Retrieves the DataRobot API endpoint from environment variables. DataRobot gener
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-envToken"></a>}}
-\if{latex}{\out{\hypertarget{method-envToken}{}}}
+\if{html}{\out{<a id="method-ApiClient-envToken"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-envToken}{}}}
 \subsection{Method \code{envToken()}}{
 Retrieves the DataRobot API token from environment variables. DataRobot generally expects this env var to be set.
 \subsection{Usage}{
@@ -243,8 +243,8 @@ Retrieves the DataRobot API token from environment variables. DataRobot generall
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserialize"></a>}}
-\if{latex}{\out{\hypertarget{method-deserialize}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserialize"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserialize}{}}}
 \subsection{Method \code{deserialize()}}{
 Deserializes the content of an API response to the given type.
 \subsection{Usage}{
@@ -278,8 +278,8 @@ apiClient$deserialize(resp, "CatalogExtendedDetailsResponse", loadNamespace("dat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserializeJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-deserializeJSON}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserializeJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserializeJSON}{}}}
 \subsection{Method \code{deserializeJSON()}}{
 Deserializes the JSON content of an API response to the given type.
 \subsection{Usage}{
@@ -310,8 +310,8 @@ apiClient$deserializeJSON(resp, "CatalogExtendedDetailsResponse", loadNamespace(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserializeCSV"></a>}}
-\if{latex}{\out{\hypertarget{method-deserializeCSV}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserializeCSV"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserializeCSV}{}}}
 \subsection{Method \code{deserializeCSV()}}{
 Deserializes the CSV content of an API response.
 \subsection{Usage}{
@@ -343,8 +343,8 @@ apiClient$deserializeCSV(example_resp)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserializeObj"></a>}}
-\if{latex}{\out{\hypertarget{method-deserializeObj}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserializeObj"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserializeObj}{}}}
 \subsection{Method \code{deserializeObj()}}{
 Deserialize the response from jsonlite object based on the given type
 by handling complex and nested types by iterating recursively
@@ -366,8 +366,8 @@ Example returnTypes will be like "array\link{integer}", "map(Pet)", "array\link{
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApiClient-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

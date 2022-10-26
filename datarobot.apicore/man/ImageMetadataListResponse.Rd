@@ -28,16 +28,16 @@ ImageMetadataListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ImageMetadataListResponse$new()}}
-\item \href{#method-validate}{\code{ImageMetadataListResponse$validate()}}
-\item \href{#method-toJSON}{\code{ImageMetadataListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ImageMetadataListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ImageMetadataListResponse$clone()}}
+\item \href{#method-ImageMetadataListResponse-new}{\code{ImageMetadataListResponse$new()}}
+\item \href{#method-ImageMetadataListResponse-validate}{\code{ImageMetadataListResponse$validate()}}
+\item \href{#method-ImageMetadataListResponse-toJSON}{\code{ImageMetadataListResponse$toJSON()}}
+\item \href{#method-ImageMetadataListResponse-fromJSON}{\code{ImageMetadataListResponse$fromJSON()}}
+\item \href{#method-ImageMetadataListResponse-clone}{\code{ImageMetadataListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ImageMetadataListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageMetadataListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ImageMetadataListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageMetadataListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImageMetadataListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ImageMetadataListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageMetadataListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ImageMetadataListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageMetadataListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ImageMetadataListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageMetadataListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

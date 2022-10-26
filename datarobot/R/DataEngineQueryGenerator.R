@@ -26,7 +26,8 @@ as.dataRobotQueryGenerator <- function(inList) {
   outList
 }
 
-#' Create a DataEngineQueryGenerator for time series data prep.
+#' @name CreateDataEngineQueryGenerator
+#' @details Create a DataEngineQueryGenerator for time series data prep.
 #'
 #' @param generatorType character. The type of query generator to create. "TimeSeries" is supported.
 #' @param dataset object of class \code{queryGeneratorDataset}.
@@ -74,6 +75,7 @@ as.dataRobotQueryGenerator <- function(inList) {
 #' @family Data Engine Query Generator functions
 #' @md
 #' @export
+#' @include ai_catalog_apiWrapper.R
 CreateDataEngineQueryGenerator <- function(generatorType, dataset, generatorSettings) {
   body <- list(
     generatorType = generatorType,
@@ -152,7 +154,8 @@ as.dataRobotDataset <- function(inList) {
 }
 
 
-#' Create a Dataset from a DataEngineQueryGenerator for time series data prep.
+#' @name CreateDatasetFromDataEngineQueryGenerator
+#' @details Create a Dataset from a DataEngineQueryGenerator for time series data prep.
 #'
 #' @param generatorId character. The ID of the query generator to use.
 #' @param datasetId character. Optional. The ID of the dataset to apply the query to.
@@ -182,6 +185,7 @@ as.dataRobotDataset <- function(inList) {
 #' @family Data Engine Query Generator functions
 #' @md
 #' @export
+#' @include ai_catalog_apiWrapper.R
 CreateDatasetFromDataEngineQueryGenerator <- function(generatorId,
                                                       datasetId = NULL,
                                                       datasetVersionId = NULL) {

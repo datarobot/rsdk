@@ -6,48 +6,17 @@
 \usage{
 PatchManyExternalDataSourcesAccessControl(dataSourceId, data, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update data source's access controls
 }
 \details{
 Set roles for users on this data source. Note that when granting access to a data source, access to the corresponding data store as a \"CONSUMER\" will also be granted.
+
+This method invokes \verb{PATCH /externalDataSources/\{dataSourceId\}/accessControl/} in the DataRobot Public API.
 }
 \seealso{
-The method ExternalDataSourcesAccessControlPatchMany in [datarobot.apicore::DataConnectivityApi], which this function wraps.
-
-Other DataConnectivity: 
-\code{\link{CreateDataSource}()},
-\code{\link{CreateDataStore}()},
-\code{\link{CreateExternalDataDriverFile}()},
-\code{\link{CreateExternalDataDrivers}()},
-\code{\link{CreateExternalDataStoresColumns}()},
-\code{\link{CreateExternalDataStoresVerifySQL}()},
-\code{\link{DeleteDataSource}()},
-\code{\link{DeleteDataStore}()},
-\code{\link{DeleteExternalDataDrivers}()},
-\code{\link{GetDataSource}()},
-\code{\link{GetDataStoreSchemas}()},
-\code{\link{GetDataStoreTables}()},
-\code{\link{GetDataStore}()},
-\code{\link{GetDriver}()},
-\code{\link{ListDataSources}()},
-\code{\link{ListDataStores}()},
-\code{\link{ListDrivers}()},
-\code{\link{ListExternalDataDriversConfiguration}()},
-\code{\link{ListExternalDataSourcesAccessControl}()},
-\code{\link{ListExternalDataSourcesPermissions}()},
-\code{\link{ListExternalDataSourcesSharedRoles}()},
-\code{\link{ListExternalDataStoresCredentials}()},
-\code{\link{ListExternalDataStoresPermissions}()},
-\code{\link{ListExternalDataStoresSharedRoles}()},
-\code{\link{ListExternalDriverConfigurations}()},
-\code{\link{PatchExternalDataDrivers}()},
-\code{\link{PatchManyExternalDataSourcesSharedRoles}()},
-\code{\link{PatchManyExternalDataStoresAccessControl}()},
-\code{\link{PatchManyExternalDataStoresSharedRoles}()},
-\code{\link{RetrieveExternalDriverConfigurations}()},
-\code{\link{TestDataStore}()},
-\code{\link{UpdateDataSource}()},
-\code{\link{UpdateDataStore}()}
+The method ExternalDataSourcesAccessControlPatchMany in \link[datarobot.apicore:DataConnectivityApi]{datarobot.apicore::DataConnectivityApi}, which invokes the same underlying API endpoint.
 }
-\concept{DataConnectivity}

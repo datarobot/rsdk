@@ -30,16 +30,16 @@ PairwiseManualSelectionCreatePayload Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PairwiseManualSelectionCreatePayload$new()}}
-\item \href{#method-validate}{\code{PairwiseManualSelectionCreatePayload$validate()}}
-\item \href{#method-toJSON}{\code{PairwiseManualSelectionCreatePayload$toJSON()}}
-\item \href{#method-fromJSON}{\code{PairwiseManualSelectionCreatePayload$fromJSON()}}
-\item \href{#method-clone}{\code{PairwiseManualSelectionCreatePayload$clone()}}
+\item \href{#method-PairwiseManualSelectionCreatePayload-new}{\code{PairwiseManualSelectionCreatePayload$new()}}
+\item \href{#method-PairwiseManualSelectionCreatePayload-validate}{\code{PairwiseManualSelectionCreatePayload$validate()}}
+\item \href{#method-PairwiseManualSelectionCreatePayload-toJSON}{\code{PairwiseManualSelectionCreatePayload$toJSON()}}
+\item \href{#method-PairwiseManualSelectionCreatePayload-fromJSON}{\code{PairwiseManualSelectionCreatePayload$fromJSON()}}
+\item \href{#method-PairwiseManualSelectionCreatePayload-clone}{\code{PairwiseManualSelectionCreatePayload$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PairwiseManualSelectionCreatePayload-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PairwiseManualSelectionCreatePayload-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PairwiseManualSelectionCreatePayload-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PairwiseManualSelectionCreatePayload-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PairwiseManualSelectionCreatePayload$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PairwiseManualSelectionCreatePayload-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PairwiseManualSelectionCreatePayload-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PairwiseManualSelectionCreatePayload-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PairwiseManualSelectionCreatePayload-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -121,8 +122,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PairwiseManualSelectionCreatePayload-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PairwiseManualSelectionCreatePayload-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

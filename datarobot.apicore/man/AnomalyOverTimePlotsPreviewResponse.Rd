@@ -26,16 +26,16 @@ AnomalyOverTimePlotsPreviewResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AnomalyOverTimePlotsPreviewResponse$new()}}
-\item \href{#method-validate}{\code{AnomalyOverTimePlotsPreviewResponse$validate()}}
-\item \href{#method-toJSON}{\code{AnomalyOverTimePlotsPreviewResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{AnomalyOverTimePlotsPreviewResponse$fromJSON()}}
-\item \href{#method-clone}{\code{AnomalyOverTimePlotsPreviewResponse$clone()}}
+\item \href{#method-AnomalyOverTimePlotsPreviewResponse-new}{\code{AnomalyOverTimePlotsPreviewResponse$new()}}
+\item \href{#method-AnomalyOverTimePlotsPreviewResponse-validate}{\code{AnomalyOverTimePlotsPreviewResponse$validate()}}
+\item \href{#method-AnomalyOverTimePlotsPreviewResponse-toJSON}{\code{AnomalyOverTimePlotsPreviewResponse$toJSON()}}
+\item \href{#method-AnomalyOverTimePlotsPreviewResponse-fromJSON}{\code{AnomalyOverTimePlotsPreviewResponse$fromJSON()}}
+\item \href{#method-AnomalyOverTimePlotsPreviewResponse-clone}{\code{AnomalyOverTimePlotsPreviewResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AnomalyOverTimePlotsPreviewResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyOverTimePlotsPreviewResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AnomalyOverTimePlotsPreviewResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyOverTimePlotsPreviewResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AnomalyOverTimePlotsPreviewResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AnomalyOverTimePlotsPreviewResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyOverTimePlotsPreviewResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AnomalyOverTimePlotsPreviewResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyOverTimePlotsPreviewResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AnomalyOverTimePlotsPreviewResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyOverTimePlotsPreviewResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

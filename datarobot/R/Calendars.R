@@ -101,3 +101,48 @@ GetCalendar <- function(calendarId) {
 GetCalendarFromProject <- function(project) {
   GetCalendar(GetDatetimePartition(project)$calendarId)
 }
+
+#' @name ListCalendars
+#' @details List all available calendars.
+#'
+#' @return A list of S3 objects of class "dataRobotCalendar"
+#' @examples
+#' \dontrun{
+#' ListCalendars()
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+ListCalendars
+
+
+#' @name DeleteCalendar
+#' @details Delete a calendar
+#'
+#' @inheritParams GetCalendar
+#' @return NULL
+#' @examples
+#' \dontrun{
+#' calendarId <- "5da75da31fb4a45b8a815a53"
+#' DeleteCalendar(calendarId)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+DeleteCalendar
+
+
+#' @name UpdateCalendar
+#' @details Update a calendar
+#'
+#' Currently supports changing the name of a calendar.
+#'
+#' @inheritParams GetCalendar
+#' @param name character. The new name to name the calendar.
+#' @return An S3 object of class "dataRobotCalendar"
+#' @examples
+#' \dontrun{
+#' calendarId <- "5da75da31fb4a45b8a815a53"
+#' UpdateCalendar(calendarId, name = "New name for calendar")
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+UpdateCalendar

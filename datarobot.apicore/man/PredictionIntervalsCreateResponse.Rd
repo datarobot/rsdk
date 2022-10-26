@@ -20,16 +20,16 @@ PredictionIntervalsCreateResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionIntervalsCreateResponse$new()}}
-\item \href{#method-validate}{\code{PredictionIntervalsCreateResponse$validate()}}
-\item \href{#method-toJSON}{\code{PredictionIntervalsCreateResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionIntervalsCreateResponse$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionIntervalsCreateResponse$clone()}}
+\item \href{#method-PredictionIntervalsCreateResponse-new}{\code{PredictionIntervalsCreateResponse$new()}}
+\item \href{#method-PredictionIntervalsCreateResponse-validate}{\code{PredictionIntervalsCreateResponse$validate()}}
+\item \href{#method-PredictionIntervalsCreateResponse-toJSON}{\code{PredictionIntervalsCreateResponse$toJSON()}}
+\item \href{#method-PredictionIntervalsCreateResponse-fromJSON}{\code{PredictionIntervalsCreateResponse$fromJSON()}}
+\item \href{#method-PredictionIntervalsCreateResponse-clone}{\code{PredictionIntervalsCreateResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionIntervalsCreateResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionIntervalsCreateResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionIntervalsCreateResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionIntervalsCreateResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionIntervalsCreateResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionIntervalsCreateResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionIntervalsCreateResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionIntervalsCreateResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionIntervalsCreateResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionIntervalsCreateResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionIntervalsCreateResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -6,6 +6,11 @@
 \usage{
 UnpauseQueue(project)
 }
+\arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+}
 \description{
 This function unpauses the modeling queue for a specified
 DataRobot project.

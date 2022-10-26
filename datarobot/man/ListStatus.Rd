@@ -6,17 +6,17 @@
 \usage{
 ListStatus(offset = 0, limit = 0, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List tasks
 }
 \details{
 List the async tasks that are currently running for your account
+
+This method invokes \verb{GET /status/} in the DataRobot Public API.
 }
 \seealso{
-The method StatusList in [datarobot.apicore::JobsApi], which this function wraps.
-
-Other Jobs: 
-\code{\link{DeleteStatus}()},
-\code{\link{RetrieveStatus}()}
+The method StatusList in \link[datarobot.apicore:JobsApi]{datarobot.apicore::JobsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Jobs}

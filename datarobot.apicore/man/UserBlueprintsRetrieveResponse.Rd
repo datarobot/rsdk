@@ -68,16 +68,16 @@ UserBlueprintsRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UserBlueprintsRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{UserBlueprintsRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{UserBlueprintsRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{UserBlueprintsRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{UserBlueprintsRetrieveResponse$clone()}}
+\item \href{#method-UserBlueprintsRetrieveResponse-new}{\code{UserBlueprintsRetrieveResponse$new()}}
+\item \href{#method-UserBlueprintsRetrieveResponse-validate}{\code{UserBlueprintsRetrieveResponse$validate()}}
+\item \href{#method-UserBlueprintsRetrieveResponse-toJSON}{\code{UserBlueprintsRetrieveResponse$toJSON()}}
+\item \href{#method-UserBlueprintsRetrieveResponse-fromJSON}{\code{UserBlueprintsRetrieveResponse$fromJSON()}}
+\item \href{#method-UserBlueprintsRetrieveResponse-clone}{\code{UserBlueprintsRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UserBlueprintsRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -173,19 +173,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UserBlueprintsRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserBlueprintsRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UserBlueprintsRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -194,8 +195,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UserBlueprintsRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -216,8 +217,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UserBlueprintsRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

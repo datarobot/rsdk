@@ -28,25 +28,25 @@ OAuthCredentials Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{OAuthCredentials$new()}}
-\item \href{#method-validate}{\code{OAuthCredentials$validate()}}
-\item \href{#method-toJSON}{\code{OAuthCredentials$toJSON()}}
-\item \href{#method-fromJSON}{\code{OAuthCredentials$fromJSON()}}
-\item \href{#method-clone}{\code{OAuthCredentials$clone()}}
+\item \href{#method-OAuthCredentials-new}{\code{OAuthCredentials$new()}}
+\item \href{#method-OAuthCredentials-validate}{\code{OAuthCredentials$validate()}}
+\item \href{#method-OAuthCredentials-toJSON}{\code{OAuthCredentials$toJSON()}}
+\item \href{#method-OAuthCredentials-fromJSON}{\code{OAuthCredentials$fromJSON()}}
+\item \href{#method-OAuthCredentials-clone}{\code{OAuthCredentials$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-OAuthCredentials-new"></a>}}
+\if{latex}{\out{\hypertarget{method-OAuthCredentials-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OAuthCredentials$new(
   credentialType = NULL,
   oauthRefreshToken = NULL,
-  oauthAccessToken = "null",
-  oauthClientId = "null",
-  oauthClientSecret = "null",
+  oauthAccessToken = NULL,
+  oauthClientId = NULL,
+  oauthClientSecret = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-OAuthCredentials-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-OAuthCredentials-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OAuthCredentials$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-OAuthCredentials-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OAuthCredentials-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-OAuthCredentials-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OAuthCredentials-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -113,8 +114,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-OAuthCredentials-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-OAuthCredentials-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

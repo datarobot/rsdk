@@ -6,18 +6,17 @@
 \usage{
 CreateClusterLicenseValidation(licenseKey, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Check if a license is valid
 }
 \details{
 Check if a cluster license is valid.
+
+This method invokes \verb{POST /clusterLicenseValidation/} in the DataRobot Public API.
 }
 \seealso{
-The method ClusterLicenseValidationCreate in [datarobot.apicore::InfrastructureApi], which this function wraps.
-
-Other Infrastructure: 
-\code{\link{GetServerVersion}()},
-\code{\link{ListClusterLicense}()},
-\code{\link{PutManyClusterLicense}()}
+The method ClusterLicenseValidationCreate in \link[datarobot.apicore:InfrastructureApi]{datarobot.apicore::InfrastructureApi}, which invokes the same underlying API endpoint.
 }
-\concept{Infrastructure}

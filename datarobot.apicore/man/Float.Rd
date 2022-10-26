@@ -24,16 +24,16 @@ Float Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Float$new()}}
-\item \href{#method-validate}{\code{Float$validate()}}
-\item \href{#method-toJSON}{\code{Float$toJSON()}}
-\item \href{#method-fromJSON}{\code{Float$fromJSON()}}
-\item \href{#method-clone}{\code{Float$clone()}}
+\item \href{#method-Float-new}{\code{Float$new()}}
+\item \href{#method-Float-validate}{\code{Float$validate()}}
+\item \href{#method-Float-toJSON}{\code{Float$toJSON()}}
+\item \href{#method-Float-fromJSON}{\code{Float$fromJSON()}}
+\item \href{#method-Float-clone}{\code{Float$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Float-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Float-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Float-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Float-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Float$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Float-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Float-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Float-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Float-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Float-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Float-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

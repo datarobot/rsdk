@@ -22,16 +22,16 @@ DuplicateImageItem Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DuplicateImageItem$new()}}
-\item \href{#method-validate}{\code{DuplicateImageItem$validate()}}
-\item \href{#method-toJSON}{\code{DuplicateImageItem$toJSON()}}
-\item \href{#method-fromJSON}{\code{DuplicateImageItem$fromJSON()}}
-\item \href{#method-clone}{\code{DuplicateImageItem$clone()}}
+\item \href{#method-DuplicateImageItem-new}{\code{DuplicateImageItem$new()}}
+\item \href{#method-DuplicateImageItem-validate}{\code{DuplicateImageItem$validate()}}
+\item \href{#method-DuplicateImageItem-toJSON}{\code{DuplicateImageItem$toJSON()}}
+\item \href{#method-DuplicateImageItem-fromJSON}{\code{DuplicateImageItem$fromJSON()}}
+\item \href{#method-DuplicateImageItem-clone}{\code{DuplicateImageItem$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DuplicateImageItem-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageItem-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DuplicateImageItem-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageItem-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DuplicateImageItem$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DuplicateImageItem-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageItem-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DuplicateImageItem-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageItem-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DuplicateImageItem-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageItem-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

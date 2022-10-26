@@ -6,29 +6,17 @@
 \usage{
 RetrieveModelComplianceDocsInitializations(entityId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Check if compliance documentation pre-processing is initialized for the model
 }
 \details{
 Check if compliance documentation pre-processing is initialized for the current model. This is only required for custom models.
+
+This method invokes \verb{GET /modelComplianceDocsInitializations/\{entityId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ModelComplianceDocsInitializationsRetrieve in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method ModelComplianceDocsInitializationsRetrieve in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

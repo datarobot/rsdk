@@ -22,16 +22,16 @@ DatasetProject Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetProject$new()}}
-\item \href{#method-validate}{\code{DatasetProject$validate()}}
-\item \href{#method-toJSON}{\code{DatasetProject$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetProject$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetProject$clone()}}
+\item \href{#method-DatasetProject-new}{\code{DatasetProject$new()}}
+\item \href{#method-DatasetProject-validate}{\code{DatasetProject$validate()}}
+\item \href{#method-DatasetProject-toJSON}{\code{DatasetProject$toJSON()}}
+\item \href{#method-DatasetProject-fromJSON}{\code{DatasetProject$fromJSON()}}
+\item \href{#method-DatasetProject-clone}{\code{DatasetProject$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetProject-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetProject-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetProject-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetProject-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetProject$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetProject-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetProject-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetProject-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetProject-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -93,8 +94,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetProject-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetProject-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

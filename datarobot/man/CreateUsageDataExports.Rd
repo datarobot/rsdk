@@ -16,24 +16,17 @@ CreateUsageDataExports(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create a customer usage data artifact request. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission.
 }
 \details{
 Create a customer usage data artifact request. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission. Returns async task status URL as a \"Location\" header. Async task status should be polled in order to retrieve artifact id.
+
+This method invokes \verb{POST /usageDataExports/} in the DataRobot Public API.
 }
 \seealso{
-The method UsageDataExportsCreate in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method UsageDataExportsCreate in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

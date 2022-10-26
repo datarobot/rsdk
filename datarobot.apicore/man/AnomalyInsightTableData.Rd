@@ -24,16 +24,16 @@ AnomalyInsightTableData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AnomalyInsightTableData$new()}}
-\item \href{#method-validate}{\code{AnomalyInsightTableData$validate()}}
-\item \href{#method-toJSON}{\code{AnomalyInsightTableData$toJSON()}}
-\item \href{#method-fromJSON}{\code{AnomalyInsightTableData$fromJSON()}}
-\item \href{#method-clone}{\code{AnomalyInsightTableData$clone()}}
+\item \href{#method-AnomalyInsightTableData-new}{\code{AnomalyInsightTableData$new()}}
+\item \href{#method-AnomalyInsightTableData-validate}{\code{AnomalyInsightTableData$validate()}}
+\item \href{#method-AnomalyInsightTableData-toJSON}{\code{AnomalyInsightTableData$toJSON()}}
+\item \href{#method-AnomalyInsightTableData-fromJSON}{\code{AnomalyInsightTableData$fromJSON()}}
+\item \href{#method-AnomalyInsightTableData-clone}{\code{AnomalyInsightTableData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AnomalyInsightTableData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyInsightTableData-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AnomalyInsightTableData-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyInsightTableData-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AnomalyInsightTableData$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AnomalyInsightTableData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyInsightTableData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AnomalyInsightTableData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyInsightTableData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AnomalyInsightTableData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AnomalyInsightTableData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

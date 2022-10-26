@@ -26,16 +26,16 @@ ResourceUsage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ResourceUsage$new()}}
-\item \href{#method-validate}{\code{ResourceUsage$validate()}}
-\item \href{#method-toJSON}{\code{ResourceUsage$toJSON()}}
-\item \href{#method-fromJSON}{\code{ResourceUsage$fromJSON()}}
-\item \href{#method-clone}{\code{ResourceUsage$clone()}}
+\item \href{#method-ResourceUsage-new}{\code{ResourceUsage$new()}}
+\item \href{#method-ResourceUsage-validate}{\code{ResourceUsage$validate()}}
+\item \href{#method-ResourceUsage-toJSON}{\code{ResourceUsage$toJSON()}}
+\item \href{#method-ResourceUsage-fromJSON}{\code{ResourceUsage$fromJSON()}}
+\item \href{#method-ResourceUsage-clone}{\code{ResourceUsage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ResourceUsage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ResourceUsage-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ResourceUsage-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ResourceUsage-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResourceUsage$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ResourceUsage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ResourceUsage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ResourceUsage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ResourceUsage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -108,8 +109,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ResourceUsage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ResourceUsage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

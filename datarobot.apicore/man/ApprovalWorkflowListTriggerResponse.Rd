@@ -20,16 +20,16 @@ ApprovalWorkflowListTriggerResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApprovalWorkflowListTriggerResponse$new()}}
-\item \href{#method-validate}{\code{ApprovalWorkflowListTriggerResponse$validate()}}
-\item \href{#method-toJSON}{\code{ApprovalWorkflowListTriggerResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ApprovalWorkflowListTriggerResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ApprovalWorkflowListTriggerResponse$clone()}}
+\item \href{#method-ApprovalWorkflowListTriggerResponse-new}{\code{ApprovalWorkflowListTriggerResponse$new()}}
+\item \href{#method-ApprovalWorkflowListTriggerResponse-validate}{\code{ApprovalWorkflowListTriggerResponse$validate()}}
+\item \href{#method-ApprovalWorkflowListTriggerResponse-toJSON}{\code{ApprovalWorkflowListTriggerResponse$toJSON()}}
+\item \href{#method-ApprovalWorkflowListTriggerResponse-fromJSON}{\code{ApprovalWorkflowListTriggerResponse$fromJSON()}}
+\item \href{#method-ApprovalWorkflowListTriggerResponse-clone}{\code{ApprovalWorkflowListTriggerResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApprovalWorkflowListTriggerResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApprovalWorkflowListTriggerResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ApprovalWorkflowListTriggerResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApprovalWorkflowListTriggerResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApprovalWorkflowListTriggerResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ApprovalWorkflowListTriggerResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApprovalWorkflowListTriggerResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ApprovalWorkflowListTriggerResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApprovalWorkflowListTriggerResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApprovalWorkflowListTriggerResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApprovalWorkflowListTriggerResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

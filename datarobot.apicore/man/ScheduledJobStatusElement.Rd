@@ -20,16 +20,16 @@ ScheduledJobStatusElement Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ScheduledJobStatusElement$new()}}
-\item \href{#method-validate}{\code{ScheduledJobStatusElement$validate()}}
-\item \href{#method-toJSON}{\code{ScheduledJobStatusElement$toJSON()}}
-\item \href{#method-fromJSON}{\code{ScheduledJobStatusElement$fromJSON()}}
-\item \href{#method-clone}{\code{ScheduledJobStatusElement$clone()}}
+\item \href{#method-ScheduledJobStatusElement-new}{\code{ScheduledJobStatusElement$new()}}
+\item \href{#method-ScheduledJobStatusElement-validate}{\code{ScheduledJobStatusElement$validate()}}
+\item \href{#method-ScheduledJobStatusElement-toJSON}{\code{ScheduledJobStatusElement$toJSON()}}
+\item \href{#method-ScheduledJobStatusElement-fromJSON}{\code{ScheduledJobStatusElement$fromJSON()}}
+\item \href{#method-ScheduledJobStatusElement-clone}{\code{ScheduledJobStatusElement$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ScheduledJobStatusElement-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ScheduledJobStatusElement-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ScheduledJobStatusElement-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ScheduledJobStatusElement-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ScheduledJobStatusElement$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ScheduledJobStatusElement-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ScheduledJobStatusElement-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ScheduledJobStatusElement-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ScheduledJobStatusElement-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -92,8 +93,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ScheduledJobStatusElement-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ScheduledJobStatusElement-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

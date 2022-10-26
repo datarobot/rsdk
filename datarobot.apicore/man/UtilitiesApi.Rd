@@ -18,7 +18,7 @@ datarobot.apicore.Utilities
 
 \dontrun{
 library(datarobot.apicore)
-stringEncryption <- StringEncryption$new() # StringEncryption |
+stringEncryption <- StringEncryption$new() # StringEncryption | 
 
 api.instance <- UtilitiesApi$new()
 result <- api.instance$StringEncryptionsCreate(stringEncryption=stringEncryption)
@@ -34,14 +34,14 @@ result <- api.instance$StringEncryptionsCreate(stringEncryption=stringEncryption
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UtilitiesApi$new()}}
-\item \href{#method-StringEncryptionsCreate}{\code{UtilitiesApi$StringEncryptionsCreate()}}
-\item \href{#method-clone}{\code{UtilitiesApi$clone()}}
+\item \href{#method-UtilitiesApi-new}{\code{UtilitiesApi$new()}}
+\item \href{#method-UtilitiesApi-StringEncryptionsCreate}{\code{UtilitiesApi$StringEncryptionsCreate()}}
+\item \href{#method-UtilitiesApi-clone}{\code{UtilitiesApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UtilitiesApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UtilitiesApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UtilitiesApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ result <- api.instance$StringEncryptionsCreate(stringEncryption=stringEncryption
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StringEncryptionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-StringEncryptionsCreate}{}}}
+\if{html}{\out{<a id="method-UtilitiesApi-StringEncryptionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UtilitiesApi-StringEncryptionsCreate}{}}}
 \subsection{Method \code{StringEncryptionsCreate()}}{
 Encrypt a string which DataRobot can decrypt.
 Produces: "application/json"
@@ -78,6 +78,9 @@ Produces: "application/json"
 DataRobot does not store your credentials when accessing external data stores. Instead you first encrypt your sensitive information with DataRobot and then, when accessing those data stores, supply the encrypted credentials. DataRobot will decrypt your credentials and use them to establish a connection to your data store.
 
 
+This method invokes \verb{POST /stringEncryptions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Encryted string.
@@ -93,7 +96,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-stringEncryption <- StringEncryption$new() # StringEncryption |
+stringEncryption <- StringEncryption$new() # StringEncryption | 
 
 api.instance <- UtilitiesApi$new()
 result <- api.instance$StringEncryptionsCreate(stringEncryption=stringEncryption)
@@ -105,8 +108,8 @@ result <- api.instance$StringEncryptionsCreate(stringEncryption=stringEncryption
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UtilitiesApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UtilitiesApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

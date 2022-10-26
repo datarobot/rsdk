@@ -22,16 +22,16 @@ PerClusterNumeric Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PerClusterNumeric$new()}}
-\item \href{#method-validate}{\code{PerClusterNumeric$validate()}}
-\item \href{#method-toJSON}{\code{PerClusterNumeric$toJSON()}}
-\item \href{#method-fromJSON}{\code{PerClusterNumeric$fromJSON()}}
-\item \href{#method-clone}{\code{PerClusterNumeric$clone()}}
+\item \href{#method-PerClusterNumeric-new}{\code{PerClusterNumeric$new()}}
+\item \href{#method-PerClusterNumeric-validate}{\code{PerClusterNumeric$validate()}}
+\item \href{#method-PerClusterNumeric-toJSON}{\code{PerClusterNumeric$toJSON()}}
+\item \href{#method-PerClusterNumeric-fromJSON}{\code{PerClusterNumeric$fromJSON()}}
+\item \href{#method-PerClusterNumeric-clone}{\code{PerClusterNumeric$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PerClusterNumeric-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PerClusterNumeric-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PerClusterNumeric-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PerClusterNumeric-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PerClusterNumeric$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PerClusterNumeric-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PerClusterNumeric-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PerClusterNumeric-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PerClusterNumeric-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PerClusterNumeric-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PerClusterNumeric-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

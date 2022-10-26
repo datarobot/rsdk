@@ -20,16 +20,16 @@ StringEncryption Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{StringEncryption$new()}}
-\item \href{#method-validate}{\code{StringEncryption$validate()}}
-\item \href{#method-toJSON}{\code{StringEncryption$toJSON()}}
-\item \href{#method-fromJSON}{\code{StringEncryption$fromJSON()}}
-\item \href{#method-clone}{\code{StringEncryption$clone()}}
+\item \href{#method-StringEncryption-new}{\code{StringEncryption$new()}}
+\item \href{#method-StringEncryption-validate}{\code{StringEncryption$validate()}}
+\item \href{#method-StringEncryption-toJSON}{\code{StringEncryption$toJSON()}}
+\item \href{#method-StringEncryption-fromJSON}{\code{StringEncryption$fromJSON()}}
+\item \href{#method-StringEncryption-clone}{\code{StringEncryption$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-StringEncryption-new"></a>}}
+\if{latex}{\out{\hypertarget{method-StringEncryption-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-StringEncryption-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-StringEncryption-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StringEncryption$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-StringEncryption-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-StringEncryption-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-StringEncryption-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-StringEncryption-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-StringEncryption-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-StringEncryption-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

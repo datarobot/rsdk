@@ -24,16 +24,16 @@ FeatureAssociationList Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FeatureAssociationList$new()}}
-\item \href{#method-validate}{\code{FeatureAssociationList$validate()}}
-\item \href{#method-toJSON}{\code{FeatureAssociationList$toJSON()}}
-\item \href{#method-fromJSON}{\code{FeatureAssociationList$fromJSON()}}
-\item \href{#method-clone}{\code{FeatureAssociationList$clone()}}
+\item \href{#method-FeatureAssociationList-new}{\code{FeatureAssociationList$new()}}
+\item \href{#method-FeatureAssociationList-validate}{\code{FeatureAssociationList$validate()}}
+\item \href{#method-FeatureAssociationList-toJSON}{\code{FeatureAssociationList$toJSON()}}
+\item \href{#method-FeatureAssociationList-fromJSON}{\code{FeatureAssociationList$fromJSON()}}
+\item \href{#method-FeatureAssociationList-clone}{\code{FeatureAssociationList$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FeatureAssociationList-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureAssociationList-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-FeatureAssociationList-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureAssociationList-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FeatureAssociationList$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FeatureAssociationList-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureAssociationList-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FeatureAssociationList-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureAssociationList-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FeatureAssociationList-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureAssociationList-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

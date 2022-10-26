@@ -59,16 +59,16 @@ result <- api.instance$StatusRetrieve(statusId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{JobsApi$new()}}
-\item \href{#method-StatusDelete}{\code{JobsApi$StatusDelete()}}
-\item \href{#method-StatusList}{\code{JobsApi$StatusList()}}
-\item \href{#method-StatusRetrieve}{\code{JobsApi$StatusRetrieve()}}
-\item \href{#method-clone}{\code{JobsApi$clone()}}
+\item \href{#method-JobsApi-new}{\code{JobsApi$new()}}
+\item \href{#method-JobsApi-StatusDelete}{\code{JobsApi$StatusDelete()}}
+\item \href{#method-JobsApi-StatusList}{\code{JobsApi$StatusList()}}
+\item \href{#method-JobsApi-StatusRetrieve}{\code{JobsApi$StatusRetrieve()}}
+\item \href{#method-JobsApi-clone}{\code{JobsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-JobsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-JobsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JobsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ result <- api.instance$StatusRetrieve(statusId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StatusDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-StatusDelete}{}}}
+\if{html}{\out{<a id="method-JobsApi-StatusDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-JobsApi-StatusDelete}{}}}
 \subsection{Method \code{StatusDelete()}}{
 Delete a task
 Produces: NA
@@ -103,6 +103,9 @@ Produces: NA
 }
 \subsection{Details}{
 Destroy an async status object
+
+
+This method invokes \verb{DELETE /status/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -129,8 +132,8 @@ result <- api.instance$StatusDelete(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StatusList"></a>}}
-\if{latex}{\out{\hypertarget{method-StatusList}{}}}
+\if{html}{\out{<a id="method-JobsApi-StatusList"></a>}}
+\if{latex}{\out{\hypertarget{method-JobsApi-StatusList}{}}}
 \subsection{Method \code{StatusList()}}{
 List tasks
 Produces: "application/json"
@@ -151,6 +154,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the async tasks that are currently running for your account
+
+
+This method invokes \verb{GET /status/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -181,8 +187,8 @@ result <- api.instance$StatusList(offset, limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StatusRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-StatusRetrieve}{}}}
+\if{html}{\out{<a id="method-JobsApi-StatusRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-JobsApi-StatusRetrieve}{}}}
 \subsection{Method \code{StatusRetrieve()}}{
 Get task status
 Produces: "application/json"
@@ -201,6 +207,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Check the status of an asynchronous task such as project creation
+
+
+This method invokes \verb{GET /status/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -234,8 +243,8 @@ result <- api.instance$StatusRetrieve(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-JobsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-JobsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

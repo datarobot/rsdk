@@ -21,16 +21,16 @@ JobRunTimeBasedForecastPointPolicySettings Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{JobRunTimeBasedForecastPointPolicySettings$new()}}
-\item \href{#method-validate}{\code{JobRunTimeBasedForecastPointPolicySettings$validate()}}
-\item \href{#method-toJSON}{\code{JobRunTimeBasedForecastPointPolicySettings$toJSON()}}
-\item \href{#method-fromJSON}{\code{JobRunTimeBasedForecastPointPolicySettings$fromJSON()}}
-\item \href{#method-clone}{\code{JobRunTimeBasedForecastPointPolicySettings$clone()}}
+\item \href{#method-JobRunTimeBasedForecastPointPolicySettings-new}{\code{JobRunTimeBasedForecastPointPolicySettings$new()}}
+\item \href{#method-JobRunTimeBasedForecastPointPolicySettings-validate}{\code{JobRunTimeBasedForecastPointPolicySettings$validate()}}
+\item \href{#method-JobRunTimeBasedForecastPointPolicySettings-toJSON}{\code{JobRunTimeBasedForecastPointPolicySettings$toJSON()}}
+\item \href{#method-JobRunTimeBasedForecastPointPolicySettings-fromJSON}{\code{JobRunTimeBasedForecastPointPolicySettings$fromJSON()}}
+\item \href{#method-JobRunTimeBasedForecastPointPolicySettings-clone}{\code{JobRunTimeBasedForecastPointPolicySettings$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-JobRunTimeBasedForecastPointPolicySettings-new"></a>}}
+\if{latex}{\out{\hypertarget{method-JobRunTimeBasedForecastPointPolicySettings-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -54,19 +54,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-JobRunTimeBasedForecastPointPolicySettings-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-JobRunTimeBasedForecastPointPolicySettings-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{JobRunTimeBasedForecastPointPolicySettings$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-JobRunTimeBasedForecastPointPolicySettings-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-JobRunTimeBasedForecastPointPolicySettings-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -75,8 +76,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-JobRunTimeBasedForecastPointPolicySettings-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-JobRunTimeBasedForecastPointPolicySettings-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -97,8 +98,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-JobRunTimeBasedForecastPointPolicySettings-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-JobRunTimeBasedForecastPointPolicySettings-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

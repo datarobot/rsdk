@@ -20,16 +20,16 @@ CrossValidationRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CrossValidationRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{CrossValidationRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{CrossValidationRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CrossValidationRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CrossValidationRetrieveResponse$clone()}}
+\item \href{#method-CrossValidationRetrieveResponse-new}{\code{CrossValidationRetrieveResponse$new()}}
+\item \href{#method-CrossValidationRetrieveResponse-validate}{\code{CrossValidationRetrieveResponse$validate()}}
+\item \href{#method-CrossValidationRetrieveResponse-toJSON}{\code{CrossValidationRetrieveResponse$toJSON()}}
+\item \href{#method-CrossValidationRetrieveResponse-fromJSON}{\code{CrossValidationRetrieveResponse$fromJSON()}}
+\item \href{#method-CrossValidationRetrieveResponse-clone}{\code{CrossValidationRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CrossValidationRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CrossValidationRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CrossValidationRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CrossValidationRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CrossValidationRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CrossValidationRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CrossValidationRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CrossValidationRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CrossValidationRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CrossValidationRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CrossValidationRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

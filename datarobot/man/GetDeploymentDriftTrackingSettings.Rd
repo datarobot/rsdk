@@ -6,6 +6,9 @@
 \usage{
 GetDeploymentDriftTrackingSettings(deploymentId)
 }
+\arguments{
+\item{deploymentId}{character. The ID of the deployment.}
+}
 \value{
 A list with the following information on drift tracking:
 \itemize{

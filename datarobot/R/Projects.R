@@ -122,3 +122,111 @@ as.dataRobotProject <- function(inProject) {
   class(outProject) <- "dataRobotProject"
   outProject
 }
+
+#' @name DeleteProject
+#' @details Delete a specified element from the DataRobot project list
+#'
+#' This function deletes the project defined by project,
+#' described under Arguments. This parameter may be obtained
+#' in several ways, including: (1), as one of the projectId
+#' elements of the list returned by ListProjects; (2), as
+#' the S3 object returned by the GetProject function; or (3),
+#' as the list returned by the SetupProject function.
+#'
+#' @param project character. Either (1) a character string giving the unique alphanumeric
+#'   identifier for the project, or (2) a list containing the element projectId with this
+#'   identifier.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' DeleteProject(projectId)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+DeleteProject
+
+#' @name GetProject
+#' @details Retrieve details about a specified DataRobot modeling project
+#'
+#' Returns a list of details about the DataRobot modeling project
+#' specified by project.
+#'
+#' @inheritParams DeleteProject
+#' @return An S3 object of class 'dataRobotProject', consisting of the following elements:
+#' \itemize{
+#'   \item projectId. Character string giving the unique project identifier.
+#'   \item projectName. Character string giving the name assigned to the project.
+#'   \item fileName. Character string giving the name of the modeling dataset for the project.
+#'   \item stage. Character string describing the stage of the DataRobot Autopilot.
+#'   \item autopilotMode. Numeric: 0 for fully automatic mode; 1 for semi-automatic mode; 2 for
+#'     manual mode.
+#'   \item created. Character string representation of the project creation time and date.
+#'   \item target. Name of the target variable from fileName.
+#'   \item metric. Character string specifying the metric optimized by all project models.
+#'   \item partition. A 7-element list describing the data partitioning for model fitting
+#'     and cross validation.
+#'   \item recommender. A 3-element list with information specific to recommender models.
+#'   \item advancedOptions. A 4-element list with advanced option specifications.
+#'   \item positiveClass. Character string: name of positive class for binary response models.
+#'   \item maxTrainPct. The maximum percentage of the project dataset that can be used without going
+#'     into the validation data or being too large to submit any blueprint for training a project.
+#'   \item maxTrainRows. The maximum number of rows that can be trained on without going into the
+#'     validation data or being too large to submit any blueprint for training.
+#'   \item holdoutUnlocked. A logical flag indicating whether the holdout dataset has been used for
+#'     model evaluation.
+#'   \item targetType. Character string specifying the type of modeling problem (e.g., regression or
+#'     binary classification).
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetProject(projectId)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+GetProject
+
+#' @name GetProjectStatus
+#' @details Request Autopilot status for a specified DataRobot project
+#'
+#' This function polls the DataRobot Autopilot for the status
+#' of the project specified by the project parameter.
+#'
+#' @inheritParams DeleteProject
+#' @return List with the following three components:
+#' \describe{
+#'   \item{autopilotDone}{Logical flag indicating whether the Autopilot has completed}
+#'   \item{stage}{Character string specifying the Autopilot stage}
+#'   \item{stageDescription}{Character string interpreting the Autopilot stage value}
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetProjectStatus(projectId)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+GetProjectStatus
+
+#' @name UpdateProject
+#' @details Update parameters for an existing project
+#'
+#' This function updates parameters for the project defined by project.
+#'
+#' @inheritParams DeleteProject
+#' @param newProjectName character. Updated value for the projectName parameter
+#'   associated with the project.
+#' @param holdoutUnlocked logical. Either NULL (default) or TRUE. If TRUE, this function
+#'   requests the DataRobot Autopilot to unlock the holdout data subset.
+#' @param workerCount integer. The number of workers to run (default 2). Use \code{"max"} to set
+#'   to the maximum number of workers available.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' UpdateProject(projectId, newProjectName = "cooler Project")
+#' UpdateProject(projectId, workerCount = 20)
+#' UpdateProject(projectId, holdoutUnlocked = TRUE)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+UpdateProject

@@ -24,16 +24,16 @@ SegmentProjectModelResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SegmentProjectModelResponse$new()}}
-\item \href{#method-validate}{\code{SegmentProjectModelResponse$validate()}}
-\item \href{#method-toJSON}{\code{SegmentProjectModelResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{SegmentProjectModelResponse$fromJSON()}}
-\item \href{#method-clone}{\code{SegmentProjectModelResponse$clone()}}
+\item \href{#method-SegmentProjectModelResponse-new}{\code{SegmentProjectModelResponse$new()}}
+\item \href{#method-SegmentProjectModelResponse-validate}{\code{SegmentProjectModelResponse$validate()}}
+\item \href{#method-SegmentProjectModelResponse-toJSON}{\code{SegmentProjectModelResponse$toJSON()}}
+\item \href{#method-SegmentProjectModelResponse-fromJSON}{\code{SegmentProjectModelResponse$fromJSON()}}
+\item \href{#method-SegmentProjectModelResponse-clone}{\code{SegmentProjectModelResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SegmentProjectModelResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentProjectModelResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SegmentProjectModelResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentProjectModelResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SegmentProjectModelResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SegmentProjectModelResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentProjectModelResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SegmentProjectModelResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentProjectModelResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SegmentProjectModelResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentProjectModelResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

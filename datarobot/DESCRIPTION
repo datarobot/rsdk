@@ -1,14 +1,13 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.29.0.9000
-Description: For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
-Depends: R (>= 3.3), methods, stats, datarobot.apicore
-Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19), R6 (>=
-        2.5.1)
+Version: 2.29.0.9001
+Description: For working with the 'DataRobot' predictive modeling platform's
+    API <https://www.datarobot.com/>.
+Depends: R (>= 3.5), methods, stats, datarobot.apicore
+Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19)
 License: file LICENSE
 Encoding: UTF-8
-Author: 
-    Ron Pearson [aut],
+Author: Ron Pearson [aut],
     Zachary Deane-Mayer [aut],
     David Chudzicki [aut],
     Dallin Akagi [aut],
@@ -24,12 +23,55 @@ Author:
     DataRobot, Inc. [cph]
 Maintainer: AJ Alon <api-maintainer@datarobot.com>
 Suggests: lubridate, testthat, stubthat, devtools (>= 2.4.1), knitr,
-        rmarkdown, lintr, data.table, MASS, mlbench, beanplot, doBy,
-        insuranceData, ggplot2, modelwordcloud, withr, memoise
+        rmarkdown, lintr, data.table, AmesHousing, mlbench, beanplot,
+        doBy, insuranceData, ggplot2, modelwordcloud, withr, memoise
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 NeedsCompilation: no
-Packaged: 2022-06-07 05:33:11 UTC; aj
+Packaged: 2022-10-26 01:24:52 UTC; user
 Language: en-US
 Config/testthat/edition: 2
 Remotes: r-lib/devtools
+Collate: 'AdvancedTuning.R' 'AiCatalog.R' 'insights_apiWrapper.R'
+        'AnomalyAssessment.R' 'ApplySchema.R' 'Blenders.R'
+        'blueprints_apiWrapper.R' 'Blueprints.R'
+        'projects_apiWrapper.R' 'Calendars.R' 'CloneProject.R'
+        'documentation_apiWrapper.R' 'ComplianceDocumentation.R'
+        'ConfusionChart.R' 'ConnectToDataRobot.R' 'ConnectionViewer.R'
+        'models_apiWrapper.R' 'CreatePrimeCode.R'
+        'ai_catalog_apiWrapper.R' 'DataEngineQueryGenerator.R'
+        'DataRobotRequests.R' 'data_connectivity_apiWrapper.R'
+        'DataSources.R' 'DataStores.R' 'DatetimeTrendPlots.R'
+        'DeleteModelJob.R' 'predictions_apiWrapper.R'
+        'DeletePredictJob.R' 'deployments_apiWrapper.R' 'Deployment.R'
+        'DeploymentAccuracy.R' 'DeploymentMonitoringUtils.R'
+        'DeploymentServiceStats.R' 'Deprecated.R' 'DownloadPrimeCode.R'
+        'Drivers.R' 'Enums.R' 'Exceptions.R' 'FeatureAssociations.R'
+        'FeatureImpact.R' 'datetime_partitioning_apiWrapper.R'
+        'FeatureLogs.R' 'Featurelists.R' 'Features.R'
+        'GetPredictJobs.R' 'GetPredictions.R' 'GetPrimeEligibility.R'
+        'GetRulesets.R' 'GetValidMetrics.R' 'Insights.R' 'Jobs.R'
+        'LiftChart.R' 'ListFeaturelists.R' 'ListModelJobs.R'
+        'MissingValuesReport.R' 'ModelRecommendations.R' 'Models.R'
+        'MultiSeries.R' 'ParetoFront.R' 'Partitions.R' 'PauseQueue.R'
+        'PredictionDatasets.R' 'PredictionExplanations.R'
+        'PrimeFiles.R' 'PrimeModels.R' 'Projects.R' 'RatingTables.R'
+        'ReformatMetrics.R' 'RequestApproximation.R'
+        'RequestPrimeModel.R' 'RequestSampleSizeUpdate.R'
+        'ResidualsChart.R' 'RestoreDiscardedFeatures.R' 'RocCurve.R'
+        'SeriesAccuracy.R' 'ServerData.R' 'SetupProject.R' 'Sharing.R'
+        'StarredModels.R' 'StartAutopilot.R' 'StartRetryWaiter.R'
+        'Stringify.R' 'TimeUtils.R' 'TrainingPredictions.R'
+        'UnpauseQueue.R' 'UploadData.R' 'Validate.R' 'ViewWebModel.R'
+        'ViewWebProject.R' 'WaitForAsyncReturn.R' 'WaitForAutopilot.R'
+        'WaitForJobToComplete.R' 'WordCloud.R' 'analytics_apiWrapper.R'
+        'applications_apiWrapper.R' 'asDataFrame.R'
+        'comments_apiWrapper.R' 'credentials_apiWrapper.R'
+        'custom_tasks_apiWrapper.R' 'datarobot-package.R'
+        'governance_apiWrapper.R' 'images_apiWrapper.R'
+        'infrastructure_apiWrapper.R' 'jobs_apiWrapper.R'
+        'listSubclass.R' 'mlops_apiWrapper.R'
+        'notifications_apiWrapper.R' 'plot.listOfModels.R'
+        'sso_configuration_apiWrapper.R' 'summaryMethods.R'
+        'use_case_apiWrapper.R' 'user_management_apiWrapper.R'
+        'utilities_apiWrapper.R' 'utils.R' 'zzz.R'

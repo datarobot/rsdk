@@ -16,35 +16,17 @@ CreateCustomTasksVersionsFromRepository(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create custom task version from remote repository.
 }
 \details{
 Create a new custom task version with only files added from the specified remote repository.
+
+This method invokes \verb{POST /customTasks/\{customTaskId\}/versions/fromRepository/} in the DataRobot Public API.
 }
 \seealso{
-The method CustomTasksVersionsFromRepositoryCreate in [datarobot.apicore::CustomTasksApi], which this function wraps.
-
-Other CustomTasks: 
-\code{\link{CreateCustomTasksFromCustomTask}()},
-\code{\link{CreateCustomTasksVersionsDependencyBuild}()},
-\code{\link{CreateCustomTasksVersions}()},
-\code{\link{CreateCustomTasks}()},
-\code{\link{CreateFromLatestCustomTaskVersion}()},
-\code{\link{DeleteCustomTasks}()},
-\code{\link{DeleteManyCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksAccessControl}()},
-\code{\link{ListCustomTasksDownload}()},
-\code{\link{ListCustomTasksVersionsDependencyBuildLog}()},
-\code{\link{ListCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksVersionsDownload}()},
-\code{\link{ListCustomTasksVersions}()},
-\code{\link{ListCustomTasks}()},
-\code{\link{PatchCustomTasksVersions}()},
-\code{\link{PatchCustomTasks}()},
-\code{\link{PatchManyCustomTasksAccessControl}()},
-\code{\link{PatchManyCustomTasksVersionsFromRepository}()},
-\code{\link{RetrieveCustomTasksVersions}()},
-\code{\link{RetrieveCustomTasks}()}
+The method CustomTasksVersionsFromRepositoryCreate in \link[datarobot.apicore:CustomTasksApi]{datarobot.apicore::CustomTasksApi}, which invokes the same underlying API endpoint.
 }
-\concept{CustomTasks}

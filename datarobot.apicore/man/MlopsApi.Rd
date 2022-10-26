@@ -44,15 +44,15 @@ result <- api.instance$MlopsPortablePredictionServerImageMetadataList()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MlopsApi$new()}}
-\item \href{#method-MlopsPortablePredictionServerImageList}{\code{MlopsApi$MlopsPortablePredictionServerImageList()}}
-\item \href{#method-MlopsPortablePredictionServerImageMetadataList}{\code{MlopsApi$MlopsPortablePredictionServerImageMetadataList()}}
-\item \href{#method-clone}{\code{MlopsApi$clone()}}
+\item \href{#method-MlopsApi-new}{\code{MlopsApi$new()}}
+\item \href{#method-MlopsApi-MlopsPortablePredictionServerImageList}{\code{MlopsApi$MlopsPortablePredictionServerImageList()}}
+\item \href{#method-MlopsApi-MlopsPortablePredictionServerImageMetadataList}{\code{MlopsApi$MlopsPortablePredictionServerImageMetadataList()}}
+\item \href{#method-MlopsApi-clone}{\code{MlopsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MlopsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MlopsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MlopsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ result <- api.instance$MlopsPortablePredictionServerImageMetadataList()
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MlopsPortablePredictionServerImageList"></a>}}
-\if{latex}{\out{\hypertarget{method-MlopsPortablePredictionServerImageList}{}}}
+\if{html}{\out{<a id="method-MlopsApi-MlopsPortablePredictionServerImageList"></a>}}
+\if{latex}{\out{\hypertarget{method-MlopsApi-MlopsPortablePredictionServerImageList}{}}}
 \subsection{Method \code{MlopsPortablePredictionServerImageList()}}{
 Downloads the latest Portable Prediction Server (PPS) Docker image
 Produces: NA
@@ -85,6 +85,9 @@ Produces: NA
 }
 \subsection{Details}{
 Fetches the latest Portable Prediction Server (PPS) Docker image. The resulting image can be docker-loaded. Since the image can be quite large (14GB+) consider querying its metadata to check the image size in advance and content hash to verify the downloaded image afterwards. In some environments it can HTTP redirect to some other service (like S3 or GCP) using pre-signed URLs.
+
+
+This method invokes \verb{GET /mlops/portablePredictionServerImage/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -116,8 +119,8 @@ result <- api.instance$MlopsPortablePredictionServerImageList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MlopsPortablePredictionServerImageMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-MlopsPortablePredictionServerImageMetadataList}{}}}
+\if{html}{\out{<a id="method-MlopsApi-MlopsPortablePredictionServerImageMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-MlopsApi-MlopsPortablePredictionServerImageMetadataList}{}}}
 \subsection{Method \code{MlopsPortablePredictionServerImageMetadataList()}}{
 Fetches currently active PPS Docker image metadata
 Produces: "application/json"
@@ -134,6 +137,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Fetches currently active PPS Docker image metadata
+
+
+This method invokes \verb{GET /mlops/portablePredictionServerImage/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -165,8 +171,8 @@ result <- api.instance$MlopsPortablePredictionServerImageMetadataList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MlopsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MlopsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

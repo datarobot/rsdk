@@ -30,16 +30,16 @@ OptionalJDBCTableDataSource Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{OptionalJDBCTableDataSource$new()}}
-\item \href{#method-validate}{\code{OptionalJDBCTableDataSource$validate()}}
-\item \href{#method-toJSON}{\code{OptionalJDBCTableDataSource$toJSON()}}
-\item \href{#method-fromJSON}{\code{OptionalJDBCTableDataSource$fromJSON()}}
-\item \href{#method-clone}{\code{OptionalJDBCTableDataSource$clone()}}
+\item \href{#method-OptionalJDBCTableDataSource-new}{\code{OptionalJDBCTableDataSource$new()}}
+\item \href{#method-OptionalJDBCTableDataSource-validate}{\code{OptionalJDBCTableDataSource$validate()}}
+\item \href{#method-OptionalJDBCTableDataSource-toJSON}{\code{OptionalJDBCTableDataSource$toJSON()}}
+\item \href{#method-OptionalJDBCTableDataSource-fromJSON}{\code{OptionalJDBCTableDataSource$fromJSON()}}
+\item \href{#method-OptionalJDBCTableDataSource-clone}{\code{OptionalJDBCTableDataSource$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-OptionalJDBCTableDataSource-new"></a>}}
+\if{latex}{\out{\hypertarget{method-OptionalJDBCTableDataSource-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-OptionalJDBCTableDataSource-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-OptionalJDBCTableDataSource-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{OptionalJDBCTableDataSource$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-OptionalJDBCTableDataSource-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OptionalJDBCTableDataSource-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-OptionalJDBCTableDataSource-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-OptionalJDBCTableDataSource-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -121,8 +122,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-OptionalJDBCTableDataSource-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-OptionalJDBCTableDataSource-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

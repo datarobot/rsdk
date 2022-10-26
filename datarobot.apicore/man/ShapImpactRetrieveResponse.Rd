@@ -24,16 +24,16 @@ ShapImpactRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ShapImpactRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{ShapImpactRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{ShapImpactRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ShapImpactRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ShapImpactRetrieveResponse$clone()}}
+\item \href{#method-ShapImpactRetrieveResponse-new}{\code{ShapImpactRetrieveResponse$new()}}
+\item \href{#method-ShapImpactRetrieveResponse-validate}{\code{ShapImpactRetrieveResponse$validate()}}
+\item \href{#method-ShapImpactRetrieveResponse-toJSON}{\code{ShapImpactRetrieveResponse$toJSON()}}
+\item \href{#method-ShapImpactRetrieveResponse-fromJSON}{\code{ShapImpactRetrieveResponse$fromJSON()}}
+\item \href{#method-ShapImpactRetrieveResponse-clone}{\code{ShapImpactRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ShapImpactRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapImpactRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ShapImpactRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapImpactRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ShapImpactRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ShapImpactRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapImpactRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ShapImpactRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapImpactRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ShapImpactRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapImpactRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

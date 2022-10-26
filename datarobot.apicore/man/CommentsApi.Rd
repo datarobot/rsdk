@@ -18,7 +18,7 @@ datarobot.apicore.Comments
 
 \dontrun{
 library(datarobot.apicore)
-comment <- Comment$new() # Comment |
+comment <- Comment$new() # Comment | 
 
 api.instance <- CommentsApi$new()
 result <- api.instance$CommentsCreate(comment=comment)
@@ -59,7 +59,7 @@ result <- api.instance$CommentsList(entityId, entityType, offset=offset, limit=l
 \dontrun{
 library(datarobot.apicore)
 commentId <- 'commentId_example' # character | The ID of the comment
-commentUpdate <- CommentUpdate$new() # CommentUpdate |
+commentUpdate <- CommentUpdate$new() # CommentUpdate | 
 
 api.instance <- CommentsApi$new()
 result <- api.instance$CommentsPatch(commentId, commentUpdate=commentUpdate)
@@ -87,18 +87,18 @@ result <- api.instance$CommentsRetrieve(commentId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CommentsApi$new()}}
-\item \href{#method-CommentsCreate}{\code{CommentsApi$CommentsCreate()}}
-\item \href{#method-CommentsDelete}{\code{CommentsApi$CommentsDelete()}}
-\item \href{#method-CommentsList}{\code{CommentsApi$CommentsList()}}
-\item \href{#method-CommentsPatch}{\code{CommentsApi$CommentsPatch()}}
-\item \href{#method-CommentsRetrieve}{\code{CommentsApi$CommentsRetrieve()}}
-\item \href{#method-clone}{\code{CommentsApi$clone()}}
+\item \href{#method-CommentsApi-new}{\code{CommentsApi$new()}}
+\item \href{#method-CommentsApi-CommentsCreate}{\code{CommentsApi$CommentsCreate()}}
+\item \href{#method-CommentsApi-CommentsDelete}{\code{CommentsApi$CommentsDelete()}}
+\item \href{#method-CommentsApi-CommentsList}{\code{CommentsApi$CommentsList()}}
+\item \href{#method-CommentsApi-CommentsPatch}{\code{CommentsApi$CommentsPatch()}}
+\item \href{#method-CommentsApi-CommentsRetrieve}{\code{CommentsApi$CommentsRetrieve()}}
+\item \href{#method-CommentsApi-clone}{\code{CommentsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CommentsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommentsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -113,8 +113,8 @@ result <- api.instance$CommentsRetrieve(commentId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CommentsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CommentsCreate}{}}}
+\if{html}{\out{<a id="method-CommentsApi-CommentsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-CommentsCreate}{}}}
 \subsection{Method \code{CommentsCreate()}}{
 Post a comment
 Produces: "application/json"
@@ -133,6 +133,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Post a comment
+
+
+This method invokes \verb{POST /comments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -156,7 +159,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-comment <- Comment$new() # Comment |
+comment <- Comment$new() # Comment | 
 
 api.instance <- CommentsApi$new()
 result <- api.instance$CommentsCreate(comment=comment)
@@ -168,8 +171,8 @@ result <- api.instance$CommentsCreate(comment=comment)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CommentsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CommentsDelete}{}}}
+\if{html}{\out{<a id="method-CommentsApi-CommentsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-CommentsDelete}{}}}
 \subsection{Method \code{CommentsDelete()}}{
 Delete a comment
 Produces: NA
@@ -188,6 +191,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a comment
+
+
+This method invokes \verb{DELETE /comments/\{commentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -217,8 +223,8 @@ result <- api.instance$CommentsDelete(commentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CommentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CommentsList}{}}}
+\if{html}{\out{<a id="method-CommentsApi-CommentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-CommentsList}{}}}
 \subsection{Method \code{CommentsList()}}{
 List comments
 Produces: NA
@@ -254,6 +260,9 @@ Produces: NA
 List comments
 
 
+This method invokes \verb{GET /comments/\{entityType\}/\{entityId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -282,8 +291,8 @@ result <- api.instance$CommentsList(entityId, entityType, offset=offset, limit=l
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CommentsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CommentsPatch}{}}}
+\if{html}{\out{<a id="method-CommentsApi-CommentsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-CommentsPatch}{}}}
 \subsection{Method \code{CommentsPatch()}}{
 Update a comment
 Produces: NA
@@ -306,6 +315,9 @@ Produces: NA
 Update a comment
 
 
+This method invokes \verb{PATCH /comments/\{commentId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -325,7 +337,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 commentId <- 'commentId_example' # character | The ID of the comment
-commentUpdate <- CommentUpdate$new() # CommentUpdate |
+commentUpdate <- CommentUpdate$new() # CommentUpdate | 
 
 api.instance <- CommentsApi$new()
 result <- api.instance$CommentsPatch(commentId, commentUpdate=commentUpdate)
@@ -337,8 +349,8 @@ result <- api.instance$CommentsPatch(commentId, commentUpdate=commentUpdate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CommentsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CommentsRetrieve}{}}}
+\if{html}{\out{<a id="method-CommentsApi-CommentsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-CommentsRetrieve}{}}}
 \subsection{Method \code{CommentsRetrieve()}}{
 Retrieve a comment
 Produces: "application/json"
@@ -357,6 +369,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a comment
+
+
+This method invokes \verb{GET /comments/\{commentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -386,8 +401,8 @@ result <- api.instance$CommentsRetrieve(commentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CommentsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CommentsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

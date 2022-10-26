@@ -26,16 +26,16 @@ ExternalScoresListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ExternalScoresListResponse$new()}}
-\item \href{#method-validate}{\code{ExternalScoresListResponse$validate()}}
-\item \href{#method-toJSON}{\code{ExternalScoresListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ExternalScoresListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ExternalScoresListResponse$clone()}}
+\item \href{#method-ExternalScoresListResponse-new}{\code{ExternalScoresListResponse$new()}}
+\item \href{#method-ExternalScoresListResponse-validate}{\code{ExternalScoresListResponse$validate()}}
+\item \href{#method-ExternalScoresListResponse-toJSON}{\code{ExternalScoresListResponse$toJSON()}}
+\item \href{#method-ExternalScoresListResponse-fromJSON}{\code{ExternalScoresListResponse$fromJSON()}}
+\item \href{#method-ExternalScoresListResponse-clone}{\code{ExternalScoresListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ExternalScoresListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ExternalScoresListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ExternalScoresListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ExternalScoresListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ExternalScoresListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ExternalScoresListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ExternalScoresListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ExternalScoresListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ExternalScoresListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ExternalScoresListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ExternalScoresListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

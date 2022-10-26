@@ -74,3 +74,23 @@ as.dataRobotParetoFront <- function(inList) {
   outList$solutions <- as.list(outList$solutions)
   outList
 }
+
+#' @name AddEureqaSolution
+#' @details Add a Eureqa solution to the list of models for the project.
+#'
+#' Each Eureqa model contains multiple possible solutions (see \code{GetParetoFront}).
+#' However, only the best model is included in the leaderboard by default. To include
+#' other models, you can get them via \code{GetParetoFront} and then add them.
+#'
+#' @inheritParams DeleteProject
+#' @param eureqaSolutionId character. The solution ID of the Eureqa model to add.
+#' @examples
+#' \dontrun{
+#' projectId <- "5b2827556523cd05bd1507a5"
+#' modelId <- "5b29406c6523cd0665685a8d"
+#' eureqaModel <- GetModel(projectId, modelId)
+#' paretoFront <- GetParetoFront(eureqaModel)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+AddEureqaSolution

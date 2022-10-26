@@ -5,6 +5,7 @@
 \title{ListBatchPredictions}
 \usage{
 ListBatchPredictions(
+  modelId,
   outputType,
   orderBy,
   source,
@@ -23,60 +24,17 @@ ListBatchPredictions(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List batch prediction jobs
 }
 \details{
 Get a collection of batch prediction jobs by statuses
+
+This method invokes \verb{GET /batchPredictions/} in the DataRobot Public API.
 }
 \seealso{
-The method BatchPredictionsList in [datarobot.apicore::PredictionsApi], which this function wraps.
-
-Other Predictions: 
-\code{\link{CreateBatchPredictionJobDefinitions}()},
-\code{\link{CreateBatchPredictionsCsvUploadFinalizeMultipart}()},
-\code{\link{CreateBatchPredictionsFromExisting}()},
-\code{\link{CreateBatchPredictionsFromJobDefinition}()},
-\code{\link{CreateBatchPredictions}()},
-\code{\link{CreateProjectsPredictionDatasetsFileUploads}()},
-\code{\link{DeleteBatchPredictionJobDefinitions}()},
-\code{\link{DeleteBatchPredictions}()},
-\code{\link{DeletePredictJob}()},
-\code{\link{DeletePredictionDataset}()},
-\code{\link{DeletePredictionExplanations}()},
-\code{\link{DeleteScheduledJobs}()},
-\code{\link{DeleteTransferableModel}()},
-\code{\link{GetPredictJobs}()},
-\code{\link{GetPredictJob}()},
-\code{\link{GetPredictionDataset}()},
-\code{\link{GetPredictionExplanationsMetadata}()},
-\code{\link{GetPredictionExplanationsPage}()},
-\code{\link{GetTransferableModel}()},
-\code{\link{ListBatchPredictionJobDefinitionsPortable}()},
-\code{\link{ListBatchPredictionJobDefinitions}()},
-\code{\link{ListBatchPredictionsDownload}()},
-\code{\link{ListPredictionDatasets}()},
-\code{\link{ListPredictionExplanationsMetadata}()},
-\code{\link{ListPredictions}()},
-\code{\link{ListProjectsPredictionsMetadata}()},
-\code{\link{ListScheduledJobs}()},
-\code{\link{ListTrainingPredictions}()},
-\code{\link{ListTransferableModels}()},
-\code{\link{PatchBatchPredictionJobDefinitions}()},
-\code{\link{PatchBatchPredictions}()},
-\code{\link{PatchScheduledJobs}()},
-\code{\link{PutBatchPredictionsCsvUploadPart}()},
-\code{\link{PutImportedModels}()},
-\code{\link{PutManyBatchPredictionsCsvUpload}()},
-\code{\link{RetrieveBatchPredictionJobDefinitions}()},
-\code{\link{RetrieveBatchPredictions}()},
-\code{\link{RetrieveProjectsPredictionsMetadata}()},
-\code{\link{RetrieveProjectsPredictions}()},
-\code{\link{RetrieveScheduledJobs}()},
-\code{\link{UpdateTransferableModel}()},
-\code{\link{UploadPredictionDatasetFromCatalog}()},
-\code{\link{UploadPredictionDatasetFromDataSource}()},
-\code{\link{UploadPredictionDataset}()},
-\code{\link{UploadTransferableModel}()}
+The method BatchPredictionsList in \link[datarobot.apicore:PredictionsApi]{datarobot.apicore::PredictionsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Predictions}

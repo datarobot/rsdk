@@ -28,16 +28,16 @@ ModelResidualsChartData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelResidualsChartData$new()}}
-\item \href{#method-validate}{\code{ModelResidualsChartData$validate()}}
-\item \href{#method-toJSON}{\code{ModelResidualsChartData$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelResidualsChartData$fromJSON()}}
-\item \href{#method-clone}{\code{ModelResidualsChartData$clone()}}
+\item \href{#method-ModelResidualsChartData-new}{\code{ModelResidualsChartData$new()}}
+\item \href{#method-ModelResidualsChartData-validate}{\code{ModelResidualsChartData$validate()}}
+\item \href{#method-ModelResidualsChartData-toJSON}{\code{ModelResidualsChartData$toJSON()}}
+\item \href{#method-ModelResidualsChartData-fromJSON}{\code{ModelResidualsChartData$fromJSON()}}
+\item \href{#method-ModelResidualsChartData-clone}{\code{ModelResidualsChartData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelResidualsChartData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsChartData-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelResidualsChartData-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsChartData-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelResidualsChartData$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelResidualsChartData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsChartData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelResidualsChartData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsChartData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelResidualsChartData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsChartData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

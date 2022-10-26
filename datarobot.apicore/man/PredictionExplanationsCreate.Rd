@@ -13,11 +13,15 @@ PredictionExplanationsCreate Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{classNames}}{list( character ) \link{optional} List of class names that will be explained for each row for multiclass. Mutually exclusive with numTopClasses. If neither specified - we assume numTopClasses=1.}
+
 \item{\code{datasetId}}{character The dataset ID.}
 
 \item{\code{maxExplanations}}{integer \link{optional} The maximum number of prediction explanations to supply per row of the dataset.}
 
 \item{\code{modelId}}{character The model ID.}
+
+\item{\code{numTopClasses}}{integer \link{optional} Number of top predicted classes for each row that will be explained for multiclass. Mutually exclusive with classNames. If neither specified - we assume numTopClasses=1.}
 
 \item{\code{thresholdHigh}}{numeric \link{optional} The high threshold, above which a prediction must score in order for prediction explanations to be computed. If neither thresholdHigh nor thresholdLow is specified, prediction explanations will be computed for all rows.}
 
@@ -28,23 +32,25 @@ PredictionExplanationsCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionExplanationsCreate$new()}}
-\item \href{#method-validate}{\code{PredictionExplanationsCreate$validate()}}
-\item \href{#method-toJSON}{\code{PredictionExplanationsCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionExplanationsCreate$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionExplanationsCreate$clone()}}
+\item \href{#method-PredictionExplanationsCreate-new}{\code{PredictionExplanationsCreate$new()}}
+\item \href{#method-PredictionExplanationsCreate-validate}{\code{PredictionExplanationsCreate$validate()}}
+\item \href{#method-PredictionExplanationsCreate-toJSON}{\code{PredictionExplanationsCreate$toJSON()}}
+\item \href{#method-PredictionExplanationsCreate-fromJSON}{\code{PredictionExplanationsCreate$fromJSON()}}
+\item \href{#method-PredictionExplanationsCreate-clone}{\code{PredictionExplanationsCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionExplanationsCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionExplanationsCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionExplanationsCreate$new(
   datasetId = NULL,
   modelId = NULL,
+  classNames = NULL,
   maxExplanations = 3,
+  numTopClasses = NULL,
   thresholdHigh = NULL,
   thresholdLow = NULL,
   validateParams = FALSE,
@@ -59,7 +65,11 @@ A function used to initialize an instance of this class.
 
 \item{\code{modelId}}{The model ID.}
 
+\item{\code{classNames}}{List of class names that will be explained for each row for multiclass. Mutually exclusive with numTopClasses. If neither specified - we assume numTopClasses=1.}
+
 \item{\code{maxExplanations}}{The maximum number of prediction explanations to supply per row of the dataset.}
+
+\item{\code{numTopClasses}}{Number of top predicted classes for each row that will be explained for multiclass. Mutually exclusive with classNames. If neither specified - we assume numTopClasses=1.}
 
 \item{\code{thresholdHigh}}{The high threshold, above which a prediction must score in order for prediction explanations to be computed. If neither thresholdHigh nor thresholdLow is specified, prediction explanations will be computed for all rows.}
 
@@ -73,19 +83,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionExplanationsCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionExplanationsCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionExplanationsCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionExplanationsCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionExplanationsCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +105,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionExplanationsCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionExplanationsCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +127,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionExplanationsCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionExplanationsCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

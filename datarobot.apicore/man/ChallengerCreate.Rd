@@ -24,16 +24,16 @@ ChallengerCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ChallengerCreate$new()}}
-\item \href{#method-validate}{\code{ChallengerCreate$validate()}}
-\item \href{#method-toJSON}{\code{ChallengerCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{ChallengerCreate$fromJSON()}}
-\item \href{#method-clone}{\code{ChallengerCreate$clone()}}
+\item \href{#method-ChallengerCreate-new}{\code{ChallengerCreate$new()}}
+\item \href{#method-ChallengerCreate-validate}{\code{ChallengerCreate$validate()}}
+\item \href{#method-ChallengerCreate-toJSON}{\code{ChallengerCreate$toJSON()}}
+\item \href{#method-ChallengerCreate-fromJSON}{\code{ChallengerCreate$fromJSON()}}
+\item \href{#method-ChallengerCreate-clone}{\code{ChallengerCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ChallengerCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ChallengerCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ChallengerCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ChallengerCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChallengerCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ChallengerCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChallengerCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ChallengerCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChallengerCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ChallengerCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ChallengerCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

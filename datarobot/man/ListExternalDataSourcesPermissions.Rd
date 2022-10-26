@@ -6,48 +6,17 @@
 \usage{
 ListExternalDataSourcesPermissions(dataSourceId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Describe data source permissions.
 }
 \details{
 Describe what permissions current user has for given data source.
+
+This method invokes \verb{GET /externalDataSources/\{dataSourceId\}/permissions/} in the DataRobot Public API.
 }
 \seealso{
-The method ExternalDataSourcesPermissionsList in [datarobot.apicore::DataConnectivityApi], which this function wraps.
-
-Other DataConnectivity: 
-\code{\link{CreateDataSource}()},
-\code{\link{CreateDataStore}()},
-\code{\link{CreateExternalDataDriverFile}()},
-\code{\link{CreateExternalDataDrivers}()},
-\code{\link{CreateExternalDataStoresColumns}()},
-\code{\link{CreateExternalDataStoresVerifySQL}()},
-\code{\link{DeleteDataSource}()},
-\code{\link{DeleteDataStore}()},
-\code{\link{DeleteExternalDataDrivers}()},
-\code{\link{GetDataSource}()},
-\code{\link{GetDataStoreSchemas}()},
-\code{\link{GetDataStoreTables}()},
-\code{\link{GetDataStore}()},
-\code{\link{GetDriver}()},
-\code{\link{ListDataSources}()},
-\code{\link{ListDataStores}()},
-\code{\link{ListDrivers}()},
-\code{\link{ListExternalDataDriversConfiguration}()},
-\code{\link{ListExternalDataSourcesAccessControl}()},
-\code{\link{ListExternalDataSourcesSharedRoles}()},
-\code{\link{ListExternalDataStoresCredentials}()},
-\code{\link{ListExternalDataStoresPermissions}()},
-\code{\link{ListExternalDataStoresSharedRoles}()},
-\code{\link{ListExternalDriverConfigurations}()},
-\code{\link{PatchExternalDataDrivers}()},
-\code{\link{PatchManyExternalDataSourcesAccessControl}()},
-\code{\link{PatchManyExternalDataSourcesSharedRoles}()},
-\code{\link{PatchManyExternalDataStoresAccessControl}()},
-\code{\link{PatchManyExternalDataStoresSharedRoles}()},
-\code{\link{RetrieveExternalDriverConfigurations}()},
-\code{\link{TestDataStore}()},
-\code{\link{UpdateDataSource}()},
-\code{\link{UpdateDataStore}()}
+The method ExternalDataSourcesPermissionsList in \link[datarobot.apicore:DataConnectivityApi]{datarobot.apicore::DataConnectivityApi}, which invokes the same underlying API endpoint.
 }
-\concept{DataConnectivity}

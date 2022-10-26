@@ -28,16 +28,16 @@ ActivationMapsListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ActivationMapsListResponse$new()}}
-\item \href{#method-validate}{\code{ActivationMapsListResponse$validate()}}
-\item \href{#method-toJSON}{\code{ActivationMapsListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ActivationMapsListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ActivationMapsListResponse$clone()}}
+\item \href{#method-ActivationMapsListResponse-new}{\code{ActivationMapsListResponse$new()}}
+\item \href{#method-ActivationMapsListResponse-validate}{\code{ActivationMapsListResponse$validate()}}
+\item \href{#method-ActivationMapsListResponse-toJSON}{\code{ActivationMapsListResponse$toJSON()}}
+\item \href{#method-ActivationMapsListResponse-fromJSON}{\code{ActivationMapsListResponse$fromJSON()}}
+\item \href{#method-ActivationMapsListResponse-clone}{\code{ActivationMapsListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ActivationMapsListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivationMapsListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ActivationMapsListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivationMapsListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivationMapsListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ActivationMapsListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivationMapsListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ActivationMapsListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivationMapsListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ActivationMapsListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivationMapsListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

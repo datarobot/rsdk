@@ -34,16 +34,16 @@ FeatureEffects Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FeatureEffects$new()}}
-\item \href{#method-validate}{\code{FeatureEffects$validate()}}
-\item \href{#method-toJSON}{\code{FeatureEffects$toJSON()}}
-\item \href{#method-fromJSON}{\code{FeatureEffects$fromJSON()}}
-\item \href{#method-clone}{\code{FeatureEffects$clone()}}
+\item \href{#method-FeatureEffects-new}{\code{FeatureEffects$new()}}
+\item \href{#method-FeatureEffects-validate}{\code{FeatureEffects$validate()}}
+\item \href{#method-FeatureEffects-toJSON}{\code{FeatureEffects$toJSON()}}
+\item \href{#method-FeatureEffects-fromJSON}{\code{FeatureEffects$fromJSON()}}
+\item \href{#method-FeatureEffects-clone}{\code{FeatureEffects$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FeatureEffects-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffects-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -84,19 +84,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-FeatureEffects-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffects-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FeatureEffects$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FeatureEffects-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffects-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -105,8 +106,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FeatureEffects-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffects-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -124,8 +125,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FeatureEffects-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffects-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

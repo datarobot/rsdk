@@ -24,22 +24,22 @@ ModelPackageCreateFromLearningModel Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelPackageCreateFromLearningModel$new()}}
-\item \href{#method-validate}{\code{ModelPackageCreateFromLearningModel$validate()}}
-\item \href{#method-toJSON}{\code{ModelPackageCreateFromLearningModel$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelPackageCreateFromLearningModel$fromJSON()}}
-\item \href{#method-clone}{\code{ModelPackageCreateFromLearningModel$clone()}}
+\item \href{#method-ModelPackageCreateFromLearningModel-new}{\code{ModelPackageCreateFromLearningModel$new()}}
+\item \href{#method-ModelPackageCreateFromLearningModel-validate}{\code{ModelPackageCreateFromLearningModel$validate()}}
+\item \href{#method-ModelPackageCreateFromLearningModel-toJSON}{\code{ModelPackageCreateFromLearningModel$toJSON()}}
+\item \href{#method-ModelPackageCreateFromLearningModel-fromJSON}{\code{ModelPackageCreateFromLearningModel$fromJSON()}}
+\item \href{#method-ModelPackageCreateFromLearningModel-clone}{\code{ModelPackageCreateFromLearningModel$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelPackageCreateFromLearningModel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageCreateFromLearningModel-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelPackageCreateFromLearningModel$new(
   modelId = NULL,
-  name = "null",
+  name = NULL,
   predictionThreshold = NULL,
   validateParams = FALSE,
   ...
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelPackageCreateFromLearningModel-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageCreateFromLearningModel-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelPackageCreateFromLearningModel$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelPackageCreateFromLearningModel-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageCreateFromLearningModel-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelPackageCreateFromLearningModel-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageCreateFromLearningModel-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelPackageCreateFromLearningModel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageCreateFromLearningModel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

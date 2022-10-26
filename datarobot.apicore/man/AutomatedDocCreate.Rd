@@ -30,16 +30,16 @@ AutomatedDocCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AutomatedDocCreate$new()}}
-\item \href{#method-validate}{\code{AutomatedDocCreate$validate()}}
-\item \href{#method-toJSON}{\code{AutomatedDocCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{AutomatedDocCreate$fromJSON()}}
-\item \href{#method-clone}{\code{AutomatedDocCreate$clone()}}
+\item \href{#method-AutomatedDocCreate-new}{\code{AutomatedDocCreate$new()}}
+\item \href{#method-AutomatedDocCreate-validate}{\code{AutomatedDocCreate$validate()}}
+\item \href{#method-AutomatedDocCreate-toJSON}{\code{AutomatedDocCreate$toJSON()}}
+\item \href{#method-AutomatedDocCreate-fromJSON}{\code{AutomatedDocCreate$fromJSON()}}
+\item \href{#method-AutomatedDocCreate-clone}{\code{AutomatedDocCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AutomatedDocCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AutomatedDocCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AutomatedDocCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AutomatedDocCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AutomatedDocCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -118,8 +119,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AutomatedDocCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

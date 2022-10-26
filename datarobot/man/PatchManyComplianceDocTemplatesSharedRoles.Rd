@@ -6,29 +6,17 @@
 \usage{
 PatchManyComplianceDocTemplatesSharedRoles(roles, templateId, operation, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update template's access controls
 }
 \details{
 Set roles for users on this template.
+
+This method invokes \verb{PATCH /complianceDocTemplates/\{templateId\}/sharedRoles/} in the DataRobot Public API.
 }
 \seealso{
-The method ComplianceDocTemplatesSharedRolesPatchMany in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method ComplianceDocTemplatesSharedRolesPatchMany in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

@@ -23,16 +23,16 @@ UseCaseAttachmentDeploymentPredictionUsage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UseCaseAttachmentDeploymentPredictionUsage$new()}}
-\item \href{#method-validate}{\code{UseCaseAttachmentDeploymentPredictionUsage$validate()}}
-\item \href{#method-toJSON}{\code{UseCaseAttachmentDeploymentPredictionUsage$toJSON()}}
-\item \href{#method-fromJSON}{\code{UseCaseAttachmentDeploymentPredictionUsage$fromJSON()}}
-\item \href{#method-clone}{\code{UseCaseAttachmentDeploymentPredictionUsage$clone()}}
+\item \href{#method-UseCaseAttachmentDeploymentPredictionUsage-new}{\code{UseCaseAttachmentDeploymentPredictionUsage$new()}}
+\item \href{#method-UseCaseAttachmentDeploymentPredictionUsage-validate}{\code{UseCaseAttachmentDeploymentPredictionUsage$validate()}}
+\item \href{#method-UseCaseAttachmentDeploymentPredictionUsage-toJSON}{\code{UseCaseAttachmentDeploymentPredictionUsage$toJSON()}}
+\item \href{#method-UseCaseAttachmentDeploymentPredictionUsage-fromJSON}{\code{UseCaseAttachmentDeploymentPredictionUsage$fromJSON()}}
+\item \href{#method-UseCaseAttachmentDeploymentPredictionUsage-clone}{\code{UseCaseAttachmentDeploymentPredictionUsage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UseCaseAttachmentDeploymentPredictionUsage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseAttachmentDeploymentPredictionUsage-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -59,19 +59,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UseCaseAttachmentDeploymentPredictionUsage-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseAttachmentDeploymentPredictionUsage-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UseCaseAttachmentDeploymentPredictionUsage$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UseCaseAttachmentDeploymentPredictionUsage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseAttachmentDeploymentPredictionUsage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -80,8 +81,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UseCaseAttachmentDeploymentPredictionUsage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseAttachmentDeploymentPredictionUsage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -102,8 +103,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UseCaseAttachmentDeploymentPredictionUsage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseAttachmentDeploymentPredictionUsage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

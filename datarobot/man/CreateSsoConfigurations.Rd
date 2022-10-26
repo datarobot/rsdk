@@ -29,18 +29,17 @@ CreateSsoConfigurations(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create an SSO configuration for a specific organization
 }
 \details{
 Create an SSO configuration for a specific organization
+
+This method invokes \verb{POST /ssoConfigurations/} in the DataRobot Public API.
 }
 \seealso{
-The method SsoConfigurationsCreate in [datarobot.apicore::SsoConfigurationApi], which this function wraps.
-
-Other SsoConfiguration: 
-\code{\link{ListSsoConfigurations}()},
-\code{\link{PatchSsoConfigurations}()},
-\code{\link{RetrieveSsoConfigurations}()}
+The method SsoConfigurationsCreate in \link[datarobot.apicore:SsoConfigurationApi]{datarobot.apicore::SsoConfigurationApi}, which invokes the same underlying API endpoint.
 }
-\concept{SsoConfiguration}

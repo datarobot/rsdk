@@ -19,6 +19,8 @@ UserCreate Class
 
 \item{\code{expirationDate}}{character \link{optional} Datetime, RFC3339, at which the user should expire.}
 
+\item{\code{externalId}}{character \link{optional} User ID in external IdP.}
+
 \item{\code{firstName}}{character First name of the user being created.}
 
 \item{\code{language}}{character \link{optional} Sets the language in the app for the user, and the language of the invite email, if the user is being invited (i.e. the password is omitted). Value must be a valid ISO-639-1 language code. Available options are: `en`, `ja`, `fr`, `ko`. System's default language will be used if omitted.}
@@ -50,16 +52,16 @@ UserCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UserCreate$new()}}
-\item \href{#method-validate}{\code{UserCreate$validate()}}
-\item \href{#method-toJSON}{\code{UserCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{UserCreate$fromJSON()}}
-\item \href{#method-clone}{\code{UserCreate$clone()}}
+\item \href{#method-UserCreate-new}{\code{UserCreate$new()}}
+\item \href{#method-UserCreate-validate}{\code{UserCreate$validate()}}
+\item \href{#method-UserCreate-toJSON}{\code{UserCreate$toJSON()}}
+\item \href{#method-UserCreate-fromJSON}{\code{UserCreate$fromJSON()}}
+\item \href{#method-UserCreate-clone}{\code{UserCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UserCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UserCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -70,6 +72,7 @@ A function used to initialize an instance of this class.
   country = NULL,
   defaultCatalogDatasetSampleSize = NULL,
   expirationDate = NULL,
+  externalId = NULL,
   language = NULL,
   lastName = NULL,
   maxGpuWorkers = NULL,
@@ -97,6 +100,8 @@ A function used to initialize an instance of this class.
 \item{\code{country}}{Country where the user lives.}
 
 \item{\code{expirationDate}}{Datetime, RFC3339, at which the user should expire.}
+
+\item{\code{externalId}}{User ID in external IdP.}
 
 \item{\code{language}}{Sets the language in the app for the user, and the language of the invite email, if the user is being invited (i.e. the password is omitted). Value must be a valid ISO-639-1 language code. Available options are: `en`, `ja`, `fr`, `ko`. System's default language will be used if omitted.}
 
@@ -126,19 +131,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UserCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UserCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -147,8 +153,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UserCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -166,8 +172,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UserCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UserCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

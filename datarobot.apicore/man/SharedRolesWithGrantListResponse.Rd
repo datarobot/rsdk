@@ -28,16 +28,16 @@ SharedRolesWithGrantListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SharedRolesWithGrantListResponse$new()}}
-\item \href{#method-validate}{\code{SharedRolesWithGrantListResponse$validate()}}
-\item \href{#method-toJSON}{\code{SharedRolesWithGrantListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{SharedRolesWithGrantListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{SharedRolesWithGrantListResponse$clone()}}
+\item \href{#method-SharedRolesWithGrantListResponse-new}{\code{SharedRolesWithGrantListResponse$new()}}
+\item \href{#method-SharedRolesWithGrantListResponse-validate}{\code{SharedRolesWithGrantListResponse$validate()}}
+\item \href{#method-SharedRolesWithGrantListResponse-toJSON}{\code{SharedRolesWithGrantListResponse$toJSON()}}
+\item \href{#method-SharedRolesWithGrantListResponse-fromJSON}{\code{SharedRolesWithGrantListResponse$fromJSON()}}
+\item \href{#method-SharedRolesWithGrantListResponse-clone}{\code{SharedRolesWithGrantListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SharedRolesWithGrantListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SharedRolesWithGrantListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SharedRolesWithGrantListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SharedRolesWithGrantListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SharedRolesWithGrantListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SharedRolesWithGrantListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SharedRolesWithGrantListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SharedRolesWithGrantListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SharedRolesWithGrantListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SharedRolesWithGrantListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SharedRolesWithGrantListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

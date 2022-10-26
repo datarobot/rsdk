@@ -41,8 +41,8 @@ FullAverageDataset <- function(covarFrame, refCovar, numGrid, plotRange = NULL) 
   refIndex <- which(covars == refCovar)
   refVar <- covarFrame[, refIndex]
   if (is.null(plotRange)) {
-    start <- min(refVar)
-    end <- max(refVar)
+    start <- min(refVar, na.rm = TRUE)
+    end <- max(refVar, na.rm = TRUE)
   } else {
     start <- plotRange[1]
     end <- plotRange[2]

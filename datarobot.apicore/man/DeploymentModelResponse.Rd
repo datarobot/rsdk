@@ -23,11 +23,11 @@ DeploymentModelResponse Class
 
 \item{\code{deployedAt}}{character \link{optional} Timestamp of when current model was deployed.}
 
-\item{\code{hasAutomodel}}{character \link{optional} Whether the deployment's current model has an associated automodel.}
-
 \item{\code{hasDecisionFlow}}{character \link{optional} True if this deployment contains a Decision Flow}
 
 \item{\code{id}}{character ID of the current model.}
+
+\item{\code{isDeprecated}}{character Whether the current model is deprecated model. eg. python2 based model.}
 
 \item{\code{projectId}}{character \link{optional} Project ID of the current model.}
 
@@ -39,6 +39,8 @@ DeploymentModelResponse Class
 
 \item{\code{type}}{character Type of the current model.}
 
+\item{\code{unstructuredModelKind}}{character Whether the current model is an unstructured model.}
+
 \item{\code{unsupervisedMode}}{character Whether the current model's project is unsupervised.}
 
 \item{\code{unsupervisedType}}{character \link{optional} Only valid when unsupervisedMode is True. The type of unsupervised project, anomaly or clustering. If unsupervisedMode, defaults to 'anomaly'.}
@@ -48,32 +50,33 @@ DeploymentModelResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentModelResponse$new()}}
-\item \href{#method-validate}{\code{DeploymentModelResponse$validate()}}
-\item \href{#method-toJSON}{\code{DeploymentModelResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeploymentModelResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DeploymentModelResponse$clone()}}
+\item \href{#method-DeploymentModelResponse-new}{\code{DeploymentModelResponse$new()}}
+\item \href{#method-DeploymentModelResponse-validate}{\code{DeploymentModelResponse$validate()}}
+\item \href{#method-DeploymentModelResponse-toJSON}{\code{DeploymentModelResponse$toJSON()}}
+\item \href{#method-DeploymentModelResponse-fromJSON}{\code{DeploymentModelResponse$fromJSON()}}
+\item \href{#method-DeploymentModelResponse-clone}{\code{DeploymentModelResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentModelResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentModelResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentModelResponse$new(
   id = NULL,
+  isDeprecated = NULL,
   projectName = NULL,
   targetName = NULL,
   targetType = NULL,
   type = NULL,
+  unstructuredModelKind = NULL,
   unsupervisedMode = NULL,
   buildEnvironmentType = NULL,
   customModelImage = NULL,
   decisionFlowId = NULL,
   decisionFlowVersionId = NULL,
   deployedAt = NULL,
-  hasAutomodel = NULL,
   hasDecisionFlow = NULL,
   projectId = NULL,
   unsupervisedType = NULL,
@@ -87,6 +90,8 @@ A function used to initialize an instance of this class.
 \describe{
 \item{\code{id}}{ID of the current model.}
 
+\item{\code{isDeprecated}}{Whether the current model is deprecated model. eg. python2 based model.}
+
 \item{\code{projectName}}{Project name of the current model.}
 
 \item{\code{targetName}}{Target name of the current model.}
@@ -94,6 +99,8 @@ A function used to initialize an instance of this class.
 \item{\code{targetType}}{Target type of the current model.}
 
 \item{\code{type}}{Type of the current model.}
+
+\item{\code{unstructuredModelKind}}{Whether the current model is an unstructured model.}
 
 \item{\code{unsupervisedMode}}{Whether the current model's project is unsupervised.}
 
@@ -104,8 +111,6 @@ A function used to initialize an instance of this class.
 \item{\code{decisionFlowVersionId}}{The ID of the decision flow version if the deployment has one.}
 
 \item{\code{deployedAt}}{Timestamp of when current model was deployed.}
-
-\item{\code{hasAutomodel}}{Whether the deployment's current model has an associated automodel.}
 
 \item{\code{hasDecisionFlow}}{True if this deployment contains a Decision Flow}
 
@@ -121,19 +126,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeploymentModelResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentModelResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentModelResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentModelResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentModelResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -142,8 +148,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentModelResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentModelResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -164,8 +170,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentModelResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentModelResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

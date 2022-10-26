@@ -26,16 +26,16 @@ SecondaryDataset Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SecondaryDataset$new()}}
-\item \href{#method-validate}{\code{SecondaryDataset$validate()}}
-\item \href{#method-toJSON}{\code{SecondaryDataset$toJSON()}}
-\item \href{#method-fromJSON}{\code{SecondaryDataset$fromJSON()}}
-\item \href{#method-clone}{\code{SecondaryDataset$clone()}}
+\item \href{#method-SecondaryDataset-new}{\code{SecondaryDataset$new()}}
+\item \href{#method-SecondaryDataset-validate}{\code{SecondaryDataset$validate()}}
+\item \href{#method-SecondaryDataset-toJSON}{\code{SecondaryDataset$toJSON()}}
+\item \href{#method-SecondaryDataset-fromJSON}{\code{SecondaryDataset$fromJSON()}}
+\item \href{#method-SecondaryDataset-clone}{\code{SecondaryDataset$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SecondaryDataset-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SecondaryDataset-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SecondaryDataset-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SecondaryDataset-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SecondaryDataset$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SecondaryDataset-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SecondaryDataset-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SecondaryDataset-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SecondaryDataset-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -108,8 +109,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SecondaryDataset-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SecondaryDataset-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

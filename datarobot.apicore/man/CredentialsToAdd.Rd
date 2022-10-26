@@ -22,16 +22,16 @@ CredentialsToAdd Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CredentialsToAdd$new()}}
-\item \href{#method-validate}{\code{CredentialsToAdd$validate()}}
-\item \href{#method-toJSON}{\code{CredentialsToAdd$toJSON()}}
-\item \href{#method-fromJSON}{\code{CredentialsToAdd$fromJSON()}}
-\item \href{#method-clone}{\code{CredentialsToAdd$clone()}}
+\item \href{#method-CredentialsToAdd-new}{\code{CredentialsToAdd$new()}}
+\item \href{#method-CredentialsToAdd-validate}{\code{CredentialsToAdd$validate()}}
+\item \href{#method-CredentialsToAdd-toJSON}{\code{CredentialsToAdd$toJSON()}}
+\item \href{#method-CredentialsToAdd-fromJSON}{\code{CredentialsToAdd$fromJSON()}}
+\item \href{#method-CredentialsToAdd-clone}{\code{CredentialsToAdd$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CredentialsToAdd-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsToAdd-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CredentialsToAdd-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsToAdd-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsToAdd$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsToAdd-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsToAdd-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsToAdd-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsToAdd-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CredentialsToAdd-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsToAdd-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

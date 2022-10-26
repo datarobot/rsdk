@@ -28,16 +28,16 @@ ProjectNukeJobStatus Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectNukeJobStatus$new()}}
-\item \href{#method-validate}{\code{ProjectNukeJobStatus$validate()}}
-\item \href{#method-toJSON}{\code{ProjectNukeJobStatus$toJSON()}}
-\item \href{#method-fromJSON}{\code{ProjectNukeJobStatus$fromJSON()}}
-\item \href{#method-clone}{\code{ProjectNukeJobStatus$clone()}}
+\item \href{#method-ProjectNukeJobStatus-new}{\code{ProjectNukeJobStatus$new()}}
+\item \href{#method-ProjectNukeJobStatus-validate}{\code{ProjectNukeJobStatus$validate()}}
+\item \href{#method-ProjectNukeJobStatus-toJSON}{\code{ProjectNukeJobStatus$toJSON()}}
+\item \href{#method-ProjectNukeJobStatus-fromJSON}{\code{ProjectNukeJobStatus$fromJSON()}}
+\item \href{#method-ProjectNukeJobStatus-clone}{\code{ProjectNukeJobStatus$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectNukeJobStatus-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectNukeJobStatus-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ProjectNukeJobStatus-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectNukeJobStatus-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectNukeJobStatus$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ProjectNukeJobStatus-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectNukeJobStatus-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ProjectNukeJobStatus-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectNukeJobStatus-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -113,8 +114,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectNukeJobStatus-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectNukeJobStatus-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

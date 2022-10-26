@@ -17,6 +17,8 @@ ValidationChecks Class
 
 \item{\code{containsTrackedSegmentAttributes}}{\link{ValidationCheck} \link{optional}}
 
+\item{\code{driftTracking}}{\link{ValidationCheck} \link{optional}}
+
 \item{\code{featureDataTypes}}{\link{ValidationCheck} \link{optional}}
 
 \item{\code{features}}{\link{ValidationCheck} \link{optional}}
@@ -54,22 +56,23 @@ ValidationChecks Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ValidationChecks$new()}}
-\item \href{#method-validate}{\code{ValidationChecks$validate()}}
-\item \href{#method-toJSON}{\code{ValidationChecks$toJSON()}}
-\item \href{#method-fromJSON}{\code{ValidationChecks$fromJSON()}}
-\item \href{#method-clone}{\code{ValidationChecks$clone()}}
+\item \href{#method-ValidationChecks-new}{\code{ValidationChecks$new()}}
+\item \href{#method-ValidationChecks-validate}{\code{ValidationChecks$validate()}}
+\item \href{#method-ValidationChecks-toJSON}{\code{ValidationChecks$toJSON()}}
+\item \href{#method-ValidationChecks-fromJSON}{\code{ValidationChecks$fromJSON()}}
+\item \href{#method-ValidationChecks-clone}{\code{ValidationChecks$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ValidationChecks-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationChecks-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationChecks$new(
   combinedModelSegments = NULL,
   containsTrackedSegmentAttributes = NULL,
+  driftTracking = NULL,
   featureDataTypes = NULL,
   features = NULL,
   humilityRules = NULL,
@@ -102,19 +105,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ValidationChecks-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationChecks-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ValidationChecks$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ValidationChecks-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationChecks-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -123,8 +127,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ValidationChecks-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationChecks-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -142,8 +146,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ValidationChecks-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ValidationChecks-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

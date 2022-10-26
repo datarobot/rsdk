@@ -13,7 +13,7 @@ datarobot.apicore.Credentials
 \examples{
 
 ## ------------------------------------------------
-## Method `CredentialsApi$CredentialsAssociationsList`
+## Method `CredentialsApi$CredentialsAssociationsListForCredential`
 ## ------------------------------------------------
 
 \dontrun{
@@ -21,10 +21,10 @@ library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- CredentialsApi$new()
-result <- api.instance$CredentialsAssociationsList(credentialId, offset=offset, limit=limit, types=types)
+result <- api.instance$CredentialsAssociationsListForCredential(credentialId, offset=offset, limit=limit, types=types)
 }
 
 ## ------------------------------------------------
@@ -34,7 +34,7 @@ result <- api.instance$CredentialsAssociationsList(credentialId, offset=offset, 
 \dontrun{
 library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
-credentialsAssociationUpdate <- CredentialsAssociationUpdate$new() # CredentialsAssociationUpdate |
+credentialsAssociationUpdate <- CredentialsAssociationUpdate$new() # CredentialsAssociationUpdate | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsAssociationsPatchMany(credentialId, credentialsAssociationUpdate=credentialsAssociationUpdate)
@@ -46,7 +46,7 @@ result <- api.instance$CredentialsAssociationsPatchMany(credentialId, credential
 
 \dontrun{
 library(datarobot.apicore)
-credentialsBody <- CredentialsBody$new() # CredentialsBody |
+credentialsBody <- CredentialsBody$new() # CredentialsBody | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsCreate(credentialsBody=credentialsBody)
@@ -72,7 +72,7 @@ result <- api.instance$CredentialsDelete(credentialId)
 library(datarobot.apicore)
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsList(offset=offset, limit=limit, types=types)
@@ -85,7 +85,7 @@ result <- api.instance$CredentialsList(offset=offset, limit=limit, types=types)
 \dontrun{
 library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
-credentialsUpdate <- CredentialsUpdate$new() # CredentialsUpdate |
+credentialsUpdate <- CredentialsUpdate$new() # CredentialsUpdate | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsPatch(credentialId, credentialsUpdate=credentialsUpdate)
@@ -113,20 +113,20 @@ result <- api.instance$CredentialsRetrieve(credentialId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CredentialsApi$new()}}
-\item \href{#method-CredentialsAssociationsList}{\code{CredentialsApi$CredentialsAssociationsList()}}
-\item \href{#method-CredentialsAssociationsPatchMany}{\code{CredentialsApi$CredentialsAssociationsPatchMany()}}
-\item \href{#method-CredentialsCreate}{\code{CredentialsApi$CredentialsCreate()}}
-\item \href{#method-CredentialsDelete}{\code{CredentialsApi$CredentialsDelete()}}
-\item \href{#method-CredentialsList}{\code{CredentialsApi$CredentialsList()}}
-\item \href{#method-CredentialsPatch}{\code{CredentialsApi$CredentialsPatch()}}
-\item \href{#method-CredentialsRetrieve}{\code{CredentialsApi$CredentialsRetrieve()}}
-\item \href{#method-clone}{\code{CredentialsApi$clone()}}
+\item \href{#method-CredentialsApi-new}{\code{CredentialsApi$new()}}
+\item \href{#method-CredentialsApi-CredentialsAssociationsListForCredential}{\code{CredentialsApi$CredentialsAssociationsListForCredential()}}
+\item \href{#method-CredentialsApi-CredentialsAssociationsPatchMany}{\code{CredentialsApi$CredentialsAssociationsPatchMany()}}
+\item \href{#method-CredentialsApi-CredentialsCreate}{\code{CredentialsApi$CredentialsCreate()}}
+\item \href{#method-CredentialsApi-CredentialsDelete}{\code{CredentialsApi$CredentialsDelete()}}
+\item \href{#method-CredentialsApi-CredentialsList}{\code{CredentialsApi$CredentialsList()}}
+\item \href{#method-CredentialsApi-CredentialsPatch}{\code{CredentialsApi$CredentialsPatch()}}
+\item \href{#method-CredentialsApi-CredentialsRetrieve}{\code{CredentialsApi$CredentialsRetrieve()}}
+\item \href{#method-CredentialsApi-clone}{\code{CredentialsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -141,13 +141,13 @@ result <- api.instance$CredentialsRetrieve(credentialId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsAssociationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsAssociationsList}{}}}
-\subsection{Method \code{CredentialsAssociationsList()}}{
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsAssociationsListForCredential"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsAssociationsListForCredential}{}}}
+\subsection{Method \code{CredentialsAssociationsListForCredential()}}{
 List all objects associated with the specified credentials.
 Produces: "application/json"
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CredentialsApi$CredentialsAssociationsList(
+\if{html}{\out{<div class="r">}}\preformatted{CredentialsApi$CredentialsAssociationsListForCredential(
   credentialId,
   offset = 0,
   limit = 100,
@@ -175,6 +175,9 @@ Produces: "application/json"
 List all objects associated with specified credentials for the current user.
 
 
+This method invokes \verb{GET /credentials/\{credentialId\}/associations/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Objects associated with the specified credentials for the current user.
@@ -193,10 +196,10 @@ library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- CredentialsApi$new()
-result <- api.instance$CredentialsAssociationsList(credentialId, offset=offset, limit=limit, types=types)
+result <- api.instance$CredentialsAssociationsListForCredential(credentialId, offset=offset, limit=limit, types=types)
 }
 }
 \if{html}{\out{</div>}}
@@ -205,8 +208,8 @@ result <- api.instance$CredentialsAssociationsList(credentialId, offset=offset, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsAssociationsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsAssociationsPatchMany}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsAssociationsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsAssociationsPatchMany}{}}}
 \subsection{Method \code{CredentialsAssociationsPatchMany()}}{
 Add objects associated with credentials
 Produces: NA
@@ -231,6 +234,9 @@ Produces: NA
 }
 \subsection{Details}{
 Add objects associated with credentials
+
+
+This method invokes \verb{PATCH /credentials/\{credentialId\}/associations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -258,7 +264,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
-credentialsAssociationUpdate <- CredentialsAssociationUpdate$new() # CredentialsAssociationUpdate |
+credentialsAssociationUpdate <- CredentialsAssociationUpdate$new() # CredentialsAssociationUpdate | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsAssociationsPatchMany(credentialId, credentialsAssociationUpdate=credentialsAssociationUpdate)
@@ -270,8 +276,8 @@ result <- api.instance$CredentialsAssociationsPatchMany(credentialId, credential
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsCreate}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsCreate}{}}}
 \subsection{Method \code{CredentialsCreate()}}{
 Store a new set of credentials which can be used for data sources creation.
 Produces: "application/json"
@@ -292,6 +298,9 @@ Produces: "application/json"
 Store a new set of credentials.
 
 
+This method invokes \verb{POST /credentials/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Credentials stored successfully.
@@ -310,7 +319,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-credentialsBody <- CredentialsBody$new() # CredentialsBody |
+credentialsBody <- CredentialsBody$new() # CredentialsBody | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsCreate(credentialsBody=credentialsBody)
@@ -322,8 +331,8 @@ result <- api.instance$CredentialsCreate(credentialsBody=credentialsBody)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsDelete}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsDelete}{}}}
 \subsection{Method \code{CredentialsDelete()}}{
 Delete the credentials set.
 Produces: NA
@@ -342,6 +351,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the credential set matching the specified ID if it is not used by any data connection or batch prediction job.
+
+
+This method invokes \verb{DELETE /credentials/\{credentialId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -371,8 +383,8 @@ result <- api.instance$CredentialsDelete(credentialId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsList}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsList"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsList}{}}}
 \subsection{Method \code{CredentialsList()}}{
 List credentials.
 Produces: "application/json"
@@ -397,6 +409,9 @@ Produces: "application/json"
 List all sets of credentials available for given user.
 
 
+This method invokes \verb{GET /credentials/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of credentials.
@@ -414,7 +429,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsList(offset=offset, limit=limit, types=types)
@@ -426,8 +441,8 @@ result <- api.instance$CredentialsList(offset=offset, limit=limit, types=types)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsPatch}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsPatch}{}}}
 \subsection{Method \code{CredentialsPatch()}}{
 Update specified credentials
 Produces: NA
@@ -448,6 +463,9 @@ Produces: NA
 }
 \subsection{Details}{
 Update specified credentials
+
+
+This method invokes \verb{PATCH /credentials/\{credentialId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -472,7 +490,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 credentialId <- 'credentialId_example' # character | Credentials entity ID.
-credentialsUpdate <- CredentialsUpdate$new() # CredentialsUpdate |
+credentialsUpdate <- CredentialsUpdate$new() # CredentialsUpdate | 
 
 api.instance <- CredentialsApi$new()
 result <- api.instance$CredentialsPatch(credentialId, credentialsUpdate=credentialsUpdate)
@@ -484,8 +502,8 @@ result <- api.instance$CredentialsPatch(credentialId, credentialsUpdate=credenti
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CredentialsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CredentialsRetrieve}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-CredentialsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-CredentialsRetrieve}{}}}
 \subsection{Method \code{CredentialsRetrieve()}}{
 Retrieve the credentials set.
 Produces: "application/json"
@@ -504,6 +522,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Return the credential set matching the specified ID.
+
+
+This method invokes \verb{GET /credentials/\{credentialId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -533,8 +554,8 @@ result <- api.instance$CredentialsRetrieve(credentialId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CredentialsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

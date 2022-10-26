@@ -6,18 +6,17 @@
 \usage{
 ListClusterLicense(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve the information about cluster license
 }
 \details{
 Retrieve the information about the currently deployed cluster license.
+
+This method invokes \verb{GET /clusterLicense/} in the DataRobot Public API.
 }
 \seealso{
-The method ClusterLicenseList in [datarobot.apicore::InfrastructureApi], which this function wraps.
-
-Other Infrastructure: 
-\code{\link{CreateClusterLicenseValidation}()},
-\code{\link{GetServerVersion}()},
-\code{\link{PutManyClusterLicense}()}
+The method ClusterLicenseList in \link[datarobot.apicore:InfrastructureApi]{datarobot.apicore::InfrastructureApi}, which invokes the same underlying API endpoint.
 }
-\concept{Infrastructure}

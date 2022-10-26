@@ -18,7 +18,7 @@ datarobot.apicore.UserManagement
 
 \dontrun{
 library(datarobot.apicore)
-userGroupCreate <- UserGroupCreate$new() # UserGroupCreate |
+userGroupCreate <- UserGroupCreate$new() # UserGroupCreate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsCreate(userGroupCreate=userGroupCreate)
@@ -42,7 +42,7 @@ result <- api.instance$GroupsDelete(groupId)
 
 \dontrun{
 library(datarobot.apicore)
-userGroupBulkDelete <- UserGroupBulkDelete$new() # UserGroupBulkDelete |
+userGroupBulkDelete <- UserGroupBulkDelete$new() # UserGroupBulkDelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsDeleteMany(userGroupBulkDelete=userGroupBulkDelete)
@@ -55,7 +55,7 @@ result <- api.instance$GroupsDeleteMany(userGroupBulkDelete=userGroupBulkDelete)
 \dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-userGroupUpdate <- UserGroupUpdate$new() # UserGroupUpdate |
+userGroupUpdate <- UserGroupUpdate$new() # UserGroupUpdate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsPatch(groupId, userGroupUpdate=userGroupUpdate)
@@ -80,7 +80,7 @@ result <- api.instance$GroupsRetrieve(groupId)
 \dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup |
+modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsUsersCreate(groupId, modifyUsersInGroup=modifyUsersInGroup)
@@ -93,7 +93,7 @@ result <- api.instance$GroupsUsersCreate(groupId, modifyUsersInGroup=modifyUsers
 \dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup |
+modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsUsersDeleteMany(groupId, modifyUsersInGroup=modifyUsersInGroup)
@@ -109,10 +109,12 @@ offset <- 0 # integer | This many results will be skipped.
 limit <- 50 # integer | At most this many results are returned.
 groupId <- 'groupId_example' # character | The identifier of the user group.
 namePart <- "" # character | User groups must contain the substring.
-orderBy <- "" # character | The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-name`.
+orderBy <- 'orderBy_example' # character | The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-username`.
+isActive <- 'isActive_example' # character | If specified, filters results by account activation status.
+isAdmin <- 'isAdmin_example' # character | If specified, filters results to admin users (system and org) or non-admin users.
 
 api.instance <- UserManagementApi$new()
-result <- api.instance$GroupsUsersList(offset, limit, groupId, namePart=namePart, orderBy=orderBy)
+result <- api.instance$GroupsUsersList(offset, limit, groupId, namePart=namePart, orderBy=orderBy, isActive=isActive, isAdmin=isAdmin)
 }
 
 ## ------------------------------------------------
@@ -162,7 +164,7 @@ result <- api.instance$OrganizationsRetrieve(organizationId)
 \dontrun{
 library(datarobot.apicore)
 organizationId <- 'organizationId_example' # character | Organization ID
-organizationUser <- OrganizationUser$new() # OrganizationUser |
+organizationUser <- OrganizationUser$new() # OrganizationUser | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$OrganizationsUsersCreate(organizationId, organizationUser=organizationUser)
@@ -203,7 +205,7 @@ result <- api.instance$OrganizationsUsersList(offset, limit, organizationId)
 library(datarobot.apicore)
 organizationId <- 'organizationId_example' # character | The organization the user is in
 userId <- 'userId_example' # character | The user ID
-organizationUserPatch <- OrganizationUserPatch$new() # OrganizationUserPatch |
+organizationUserPatch <- OrganizationUserPatch$new() # OrganizationUserPatch | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$OrganizationsUsersPatch(organizationId, userId, organizationUserPatch=organizationUserPatch)
@@ -228,7 +230,7 @@ result <- api.instance$OrganizationsUsersRetrieve(organizationId, userId)
 
 \dontrun{
 library(datarobot.apicore)
-usersPermadelete <- UsersPermadelete$new() # UsersPermadelete |
+usersPermadelete <- UsersPermadelete$new() # UsersPermadelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UserCleanupJobsCreate(usersPermadelete=usersPermadelete)
@@ -264,7 +266,7 @@ result <- api.instance$UserCleanupJobsRetrieve(statusId)
 
 \dontrun{
 library(datarobot.apicore)
-usersPermadelete <- UsersPermadelete$new() # UsersPermadelete |
+usersPermadelete <- UsersPermadelete$new() # UsersPermadelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UserCleanupPreviewJobsCreate(usersPermadelete=usersPermadelete)
@@ -396,7 +398,7 @@ result <- api.instance$UserCleanupSummariesStatisticsList(reportId)
 
 \dontrun{
 library(datarobot.apicore)
-userCreate <- UserCreate$new() # UserCreate |
+userCreate <- UserCreate$new() # UserCreate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UsersCreate(userCreate=userCreate)
@@ -421,7 +423,7 @@ result <- api.instance$UsersLimitsList(userId)
 \dontrun{
 library(datarobot.apicore)
 userId <- 'userId_example' # character | The id of the user to update usage limits for
-userLimitsPatchBody <- UserLimitsPatchBody$new() # UserLimitsPatchBody |
+userLimitsPatchBody <- UserLimitsPatchBody$new() # UserLimitsPatchBody | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UsersLimitsPatchMany(userId, userLimitsPatchBody=userLimitsPatchBody)
@@ -437,46 +439,46 @@ result <- api.instance$UsersLimitsPatchMany(userId, userLimitsPatchBody=userLimi
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UserManagementApi$new()}}
-\item \href{#method-GroupsCreate}{\code{UserManagementApi$GroupsCreate()}}
-\item \href{#method-GroupsDelete}{\code{UserManagementApi$GroupsDelete()}}
-\item \href{#method-GroupsDeleteMany}{\code{UserManagementApi$GroupsDeleteMany()}}
-\item \href{#method-GroupsPatch}{\code{UserManagementApi$GroupsPatch()}}
-\item \href{#method-GroupsRetrieve}{\code{UserManagementApi$GroupsRetrieve()}}
-\item \href{#method-GroupsUsersCreate}{\code{UserManagementApi$GroupsUsersCreate()}}
-\item \href{#method-GroupsUsersDeleteMany}{\code{UserManagementApi$GroupsUsersDeleteMany()}}
-\item \href{#method-GroupsUsersList}{\code{UserManagementApi$GroupsUsersList()}}
-\item \href{#method-OrganizationsJobsList}{\code{UserManagementApi$OrganizationsJobsList()}}
-\item \href{#method-OrganizationsList}{\code{UserManagementApi$OrganizationsList()}}
-\item \href{#method-OrganizationsRetrieve}{\code{UserManagementApi$OrganizationsRetrieve()}}
-\item \href{#method-OrganizationsUsersCreate}{\code{UserManagementApi$OrganizationsUsersCreate()}}
-\item \href{#method-OrganizationsUsersDelete}{\code{UserManagementApi$OrganizationsUsersDelete()}}
-\item \href{#method-OrganizationsUsersList}{\code{UserManagementApi$OrganizationsUsersList()}}
-\item \href{#method-OrganizationsUsersPatch}{\code{UserManagementApi$OrganizationsUsersPatch()}}
-\item \href{#method-OrganizationsUsersRetrieve}{\code{UserManagementApi$OrganizationsUsersRetrieve()}}
-\item \href{#method-UserCleanupJobsCreate}{\code{UserManagementApi$UserCleanupJobsCreate()}}
-\item \href{#method-UserCleanupJobsDelete}{\code{UserManagementApi$UserCleanupJobsDelete()}}
-\item \href{#method-UserCleanupJobsRetrieve}{\code{UserManagementApi$UserCleanupJobsRetrieve()}}
-\item \href{#method-UserCleanupPreviewJobsCreate}{\code{UserManagementApi$UserCleanupPreviewJobsCreate()}}
-\item \href{#method-UserCleanupPreviewJobsDelete}{\code{UserManagementApi$UserCleanupPreviewJobsDelete()}}
-\item \href{#method-UserCleanupPreviewJobsRetrieve}{\code{UserManagementApi$UserCleanupPreviewJobsRetrieve()}}
-\item \href{#method-UserCleanupPreviewsContentList}{\code{UserManagementApi$UserCleanupPreviewsContentList()}}
-\item \href{#method-UserCleanupPreviewsDelete}{\code{UserManagementApi$UserCleanupPreviewsDelete()}}
-\item \href{#method-UserCleanupPreviewsDeleteParamsList}{\code{UserManagementApi$UserCleanupPreviewsDeleteParamsList()}}
-\item \href{#method-UserCleanupPreviewsStatisticsList}{\code{UserManagementApi$UserCleanupPreviewsStatisticsList()}}
-\item \href{#method-UserCleanupSummariesContentList}{\code{UserManagementApi$UserCleanupSummariesContentList()}}
-\item \href{#method-UserCleanupSummariesDelete}{\code{UserManagementApi$UserCleanupSummariesDelete()}}
-\item \href{#method-UserCleanupSummariesDeleteParamsList}{\code{UserManagementApi$UserCleanupSummariesDeleteParamsList()}}
-\item \href{#method-UserCleanupSummariesStatisticsList}{\code{UserManagementApi$UserCleanupSummariesStatisticsList()}}
-\item \href{#method-UsersCreate}{\code{UserManagementApi$UsersCreate()}}
-\item \href{#method-UsersLimitsList}{\code{UserManagementApi$UsersLimitsList()}}
-\item \href{#method-UsersLimitsPatchMany}{\code{UserManagementApi$UsersLimitsPatchMany()}}
-\item \href{#method-clone}{\code{UserManagementApi$clone()}}
+\item \href{#method-UserManagementApi-new}{\code{UserManagementApi$new()}}
+\item \href{#method-UserManagementApi-GroupsCreate}{\code{UserManagementApi$GroupsCreate()}}
+\item \href{#method-UserManagementApi-GroupsDelete}{\code{UserManagementApi$GroupsDelete()}}
+\item \href{#method-UserManagementApi-GroupsDeleteMany}{\code{UserManagementApi$GroupsDeleteMany()}}
+\item \href{#method-UserManagementApi-GroupsPatch}{\code{UserManagementApi$GroupsPatch()}}
+\item \href{#method-UserManagementApi-GroupsRetrieve}{\code{UserManagementApi$GroupsRetrieve()}}
+\item \href{#method-UserManagementApi-GroupsUsersCreate}{\code{UserManagementApi$GroupsUsersCreate()}}
+\item \href{#method-UserManagementApi-GroupsUsersDeleteMany}{\code{UserManagementApi$GroupsUsersDeleteMany()}}
+\item \href{#method-UserManagementApi-GroupsUsersList}{\code{UserManagementApi$GroupsUsersList()}}
+\item \href{#method-UserManagementApi-OrganizationsJobsList}{\code{UserManagementApi$OrganizationsJobsList()}}
+\item \href{#method-UserManagementApi-OrganizationsList}{\code{UserManagementApi$OrganizationsList()}}
+\item \href{#method-UserManagementApi-OrganizationsRetrieve}{\code{UserManagementApi$OrganizationsRetrieve()}}
+\item \href{#method-UserManagementApi-OrganizationsUsersCreate}{\code{UserManagementApi$OrganizationsUsersCreate()}}
+\item \href{#method-UserManagementApi-OrganizationsUsersDelete}{\code{UserManagementApi$OrganizationsUsersDelete()}}
+\item \href{#method-UserManagementApi-OrganizationsUsersList}{\code{UserManagementApi$OrganizationsUsersList()}}
+\item \href{#method-UserManagementApi-OrganizationsUsersPatch}{\code{UserManagementApi$OrganizationsUsersPatch()}}
+\item \href{#method-UserManagementApi-OrganizationsUsersRetrieve}{\code{UserManagementApi$OrganizationsUsersRetrieve()}}
+\item \href{#method-UserManagementApi-UserCleanupJobsCreate}{\code{UserManagementApi$UserCleanupJobsCreate()}}
+\item \href{#method-UserManagementApi-UserCleanupJobsDelete}{\code{UserManagementApi$UserCleanupJobsDelete()}}
+\item \href{#method-UserManagementApi-UserCleanupJobsRetrieve}{\code{UserManagementApi$UserCleanupJobsRetrieve()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewJobsCreate}{\code{UserManagementApi$UserCleanupPreviewJobsCreate()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewJobsDelete}{\code{UserManagementApi$UserCleanupPreviewJobsDelete()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewJobsRetrieve}{\code{UserManagementApi$UserCleanupPreviewJobsRetrieve()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewsContentList}{\code{UserManagementApi$UserCleanupPreviewsContentList()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewsDelete}{\code{UserManagementApi$UserCleanupPreviewsDelete()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewsDeleteParamsList}{\code{UserManagementApi$UserCleanupPreviewsDeleteParamsList()}}
+\item \href{#method-UserManagementApi-UserCleanupPreviewsStatisticsList}{\code{UserManagementApi$UserCleanupPreviewsStatisticsList()}}
+\item \href{#method-UserManagementApi-UserCleanupSummariesContentList}{\code{UserManagementApi$UserCleanupSummariesContentList()}}
+\item \href{#method-UserManagementApi-UserCleanupSummariesDelete}{\code{UserManagementApi$UserCleanupSummariesDelete()}}
+\item \href{#method-UserManagementApi-UserCleanupSummariesDeleteParamsList}{\code{UserManagementApi$UserCleanupSummariesDeleteParamsList()}}
+\item \href{#method-UserManagementApi-UserCleanupSummariesStatisticsList}{\code{UserManagementApi$UserCleanupSummariesStatisticsList()}}
+\item \href{#method-UserManagementApi-UsersCreate}{\code{UserManagementApi$UsersCreate()}}
+\item \href{#method-UserManagementApi-UsersLimitsList}{\code{UserManagementApi$UsersLimitsList()}}
+\item \href{#method-UserManagementApi-UsersLimitsPatchMany}{\code{UserManagementApi$UsersLimitsPatchMany()}}
+\item \href{#method-UserManagementApi-clone}{\code{UserManagementApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserManagementApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -491,8 +493,8 @@ result <- api.instance$UsersLimitsPatchMany(userId, userLimitsPatchBody=userLimi
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsCreate}{}}}
 \subsection{Method \code{GroupsCreate()}}{
 Create user group
 Produces: "application/json"
@@ -513,6 +515,9 @@ Produces: "application/json"
 Create a new user group.
 
 
+This method invokes \verb{POST /groups/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -531,7 +536,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userGroupCreate <- UserGroupCreate$new() # UserGroupCreate |
+userGroupCreate <- UserGroupCreate$new() # UserGroupCreate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsCreate(userGroupCreate=userGroupCreate)
@@ -543,8 +548,8 @@ result <- api.instance$GroupsCreate(userGroupCreate=userGroupCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsDelete}{}}}
 \subsection{Method \code{GroupsDelete()}}{
 Delete user group
 Produces: NA
@@ -563,6 +568,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the user group.
+
+
+This method invokes \verb{DELETE /groups/\{groupId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -592,8 +600,8 @@ result <- api.instance$GroupsDelete(groupId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsDeleteMany}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsDeleteMany}{}}}
 \subsection{Method \code{GroupsDeleteMany()}}{
 Delete multiple user groups
 Produces: NA
@@ -614,6 +622,9 @@ Produces: NA
 Delete the user groups.
 
 
+This method invokes \verb{DELETE /groups/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}}
@@ -629,7 +640,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userGroupBulkDelete <- UserGroupBulkDelete$new() # UserGroupBulkDelete |
+userGroupBulkDelete <- UserGroupBulkDelete$new() # UserGroupBulkDelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsDeleteMany(userGroupBulkDelete=userGroupBulkDelete)
@@ -641,8 +652,8 @@ result <- api.instance$GroupsDeleteMany(userGroupBulkDelete=userGroupBulkDelete)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsPatch}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsPatch}{}}}
 \subsection{Method \code{GroupsPatch()}}{
 Update user group
 Produces: "application/json"
@@ -665,6 +676,9 @@ Produces: "application/json"
 Update the user group.
 
 
+This method invokes \verb{PATCH /groups/\{groupId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -684,7 +698,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-userGroupUpdate <- UserGroupUpdate$new() # UserGroupUpdate |
+userGroupUpdate <- UserGroupUpdate$new() # UserGroupUpdate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsPatch(groupId, userGroupUpdate=userGroupUpdate)
@@ -696,8 +710,8 @@ result <- api.instance$GroupsPatch(groupId, userGroupUpdate=userGroupUpdate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsRetrieve}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsRetrieve}{}}}
 \subsection{Method \code{GroupsRetrieve()}}{
 Retrieve user group
 Produces: "application/json"
@@ -716,6 +730,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the user group.
+
+
+This method invokes \verb{GET /groups/\{groupId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -748,8 +765,8 @@ result <- api.instance$GroupsRetrieve(groupId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsUsersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsUsersCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsUsersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsUsersCreate}{}}}
 \subsection{Method \code{GroupsUsersCreate()}}{
 Add users to group
 Produces: "application/json"
@@ -772,6 +789,9 @@ Produces: "application/json"
 Add users to the group.
 
 
+This method invokes \verb{POST /groups/\{groupId\}/users/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -791,7 +811,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup |
+modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsUsersCreate(groupId, modifyUsersInGroup=modifyUsersInGroup)
@@ -803,8 +823,8 @@ result <- api.instance$GroupsUsersCreate(groupId, modifyUsersInGroup=modifyUsers
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsUsersDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsUsersDeleteMany}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsUsersDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsUsersDeleteMany}{}}}
 \subsection{Method \code{GroupsUsersDeleteMany()}}{
 Remove users from group
 Produces: NA
@@ -831,6 +851,9 @@ Produces: NA
 Remove users from the group.
 
 
+This method invokes \verb{DELETE /groups/\{groupId\}/users/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}}
@@ -847,7 +870,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 groupId <- 'groupId_example' # character | The identifier of the user group.
-modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup |
+modifyUsersInGroup <- ModifyUsersInGroup$new() # ModifyUsersInGroup | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$GroupsUsersDeleteMany(groupId, modifyUsersInGroup=modifyUsersInGroup)
@@ -859,8 +882,8 @@ result <- api.instance$GroupsUsersDeleteMany(groupId, modifyUsersInGroup=modifyU
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GroupsUsersList"></a>}}
-\if{latex}{\out{\hypertarget{method-GroupsUsersList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-GroupsUsersList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-GroupsUsersList}{}}}
 \subsection{Method \code{GroupsUsersList()}}{
 List users in group
 Produces: "application/json"
@@ -870,7 +893,9 @@ Produces: "application/json"
   limit,
   groupId,
   namePart = "",
-  orderBy = "",
+  orderBy = NULL,
+  isActive = NULL,
+  isAdmin = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -886,7 +911,11 @@ Produces: "application/json"
 
 \item{\code{namePart}}{character. User groups must contain the substring.}
 
-\item{\code{orderBy}}{character. The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-name`.}
+\item{\code{orderBy}}{Enum < \link{username, -username, userGroup, -userGroup, lastName, -lastName, firstName, -firstName, status, -status, expirationDate, -expirationDate} > The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-username`.}
+
+\item{\code{isActive}}{Enum < \link{false, False, true, True} > If specified, filters results by account activation status.}
+
+\item{\code{isAdmin}}{Enum < \link{false, False, true, True} > If specified, filters results to admin users (system and org) or non-admin users.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -894,6 +923,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List users in the group.
+
+
+This method invokes \verb{GET /groups/\{groupId\}/users/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -915,10 +947,12 @@ offset <- 0 # integer | This many results will be skipped.
 limit <- 50 # integer | At most this many results are returned.
 groupId <- 'groupId_example' # character | The identifier of the user group.
 namePart <- "" # character | User groups must contain the substring.
-orderBy <- "" # character | The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-name`.
+orderBy <- 'orderBy_example' # character | The order that the results should be retrieved in. Prefix the attribute name with a dash to sort in descending order, e.g. `orderBy=-username`.
+isActive <- 'isActive_example' # character | If specified, filters results by account activation status.
+isAdmin <- 'isAdmin_example' # character | If specified, filters results to admin users (system and org) or non-admin users.
 
 api.instance <- UserManagementApi$new()
-result <- api.instance$GroupsUsersList(offset, limit, groupId, namePart=namePart, orderBy=orderBy)
+result <- api.instance$GroupsUsersList(offset, limit, groupId, namePart=namePart, orderBy=orderBy, isActive=isActive, isAdmin=isAdmin)
 }
 }
 \if{html}{\out{</div>}}
@@ -927,8 +961,8 @@ result <- api.instance$GroupsUsersList(offset, limit, groupId, namePart=namePart
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsJobsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsJobsList}{}}}
 \subsection{Method \code{OrganizationsJobsList()}}{
 List organization jobs
 Produces: "application/json"
@@ -951,6 +985,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List currently running jobs belonging to this organization.
+
+
+This method invokes \verb{GET /organizations/\{organizationId\}/jobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -982,8 +1019,8 @@ result <- api.instance$OrganizationsJobsList(offset, limit, organizationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsList}{}}}
 \subsection{Method \code{OrganizationsList()}}{
 List organizations
 Produces: "application/json"
@@ -1006,6 +1043,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List organizations available in the system.
+
+
+This method invokes \verb{GET /organizations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1037,8 +1077,8 @@ result <- api.instance$OrganizationsList(limit, offset=offset, namePart=namePart
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsRetrieve}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsRetrieve}{}}}
 \subsection{Method \code{OrganizationsRetrieve()}}{
 Retrieve organization
 Produces: "application/json"
@@ -1057,6 +1097,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the organization details.
+
+
+This method invokes \verb{GET /organizations/\{organizationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1086,8 +1129,8 @@ result <- api.instance$OrganizationsRetrieve(organizationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsUsersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsUsersCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsUsersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsUsersCreate}{}}}
 \subsection{Method \code{OrganizationsUsersCreate()}}{
 Add user to an existing organization.
 Produces: "application/json"
@@ -1114,6 +1157,9 @@ Produces: "application/json"
 Add user to an existing organization. A user can only be part of one organization at a time
 
 
+This method invokes \verb{POST /organizations/\{organizationId\}/users/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -1133,7 +1179,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 organizationId <- 'organizationId_example' # character | Organization ID
-organizationUser <- OrganizationUser$new() # OrganizationUser |
+organizationUser <- OrganizationUser$new() # OrganizationUser | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$OrganizationsUsersCreate(organizationId, organizationUser=organizationUser)
@@ -1145,8 +1191,8 @@ result <- api.instance$OrganizationsUsersCreate(organizationId, organizationUser
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsUsersDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsUsersDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsUsersDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsUsersDelete}{}}}
 \subsection{Method \code{OrganizationsUsersDelete()}}{
 Remove user from organization
 Produces: NA
@@ -1167,6 +1213,9 @@ Produces: NA
 }
 \subsection{Details}{
 Remove the user from the organization.
+
+
+This method invokes \verb{DELETE /organizations/\{organizationId\}/users/\{userId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1194,8 +1243,8 @@ result <- api.instance$OrganizationsUsersDelete(organizationId, userId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsUsersList"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsUsersList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsUsersList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsUsersList}{}}}
 \subsection{Method \code{OrganizationsUsersList()}}{
 List organization users
 Produces: "application/json"
@@ -1218,6 +1267,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List memberships in this organization.
+
+
+This method invokes \verb{GET /organizations/\{organizationId\}/users/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1249,8 +1301,8 @@ result <- api.instance$OrganizationsUsersList(offset, limit, organizationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsUsersPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsUsersPatch}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsUsersPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsUsersPatch}{}}}
 \subsection{Method \code{OrganizationsUsersPatch()}}{
 Patch organization's user
 Produces: "application/json"
@@ -1280,6 +1332,9 @@ Produces: "application/json"
 Patch organization's user. Only system or the organization admin can perform this operation.
 
 
+This method invokes \verb{PATCH /organizations/\{organizationId\}/users/\{userId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}}
@@ -1300,7 +1355,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 organizationId <- 'organizationId_example' # character | The organization the user is in
 userId <- 'userId_example' # character | The user ID
-organizationUserPatch <- OrganizationUserPatch$new() # OrganizationUserPatch |
+organizationUserPatch <- OrganizationUserPatch$new() # OrganizationUserPatch | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$OrganizationsUsersPatch(organizationId, userId, organizationUserPatch=organizationUserPatch)
@@ -1312,8 +1367,8 @@ result <- api.instance$OrganizationsUsersPatch(organizationId, userId, organizat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-OrganizationsUsersRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-OrganizationsUsersRetrieve}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-OrganizationsUsersRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-OrganizationsUsersRetrieve}{}}}
 \subsection{Method \code{OrganizationsUsersRetrieve()}}{
 Retrieve user from organization
 Produces: "application/json"
@@ -1334,6 +1389,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the user from this organization.
+
+
+This method invokes \verb{GET /organizations/\{organizationId\}/users/\{userId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1364,8 +1422,8 @@ result <- api.instance$OrganizationsUsersRetrieve(organizationId, userId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupJobsCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupJobsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupJobsCreate}{}}}
 \subsection{Method \code{UserCleanupJobsCreate()}}{
 Users permanent delete.
 Produces: "application/json"
@@ -1384,6 +1442,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Schedules a job which permanently delete the users represented by the provided users ids or organization id. Number of users to be deleted in one go is restricted by DELETED_USERS_BATCH_LIMIT system setting.
+
+
+This method invokes \verb{POST /userCleanupJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1411,7 +1472,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-usersPermadelete <- UsersPermadelete$new() # UsersPermadelete |
+usersPermadelete <- UsersPermadelete$new() # UsersPermadelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UserCleanupJobsCreate(usersPermadelete=usersPermadelete)
@@ -1423,8 +1484,8 @@ result <- api.instance$UserCleanupJobsCreate(usersPermadelete=usersPermadelete)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupJobsDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupJobsDelete}{}}}
 \subsection{Method \code{UserCleanupJobsDelete()}}{
 Cancel users perma-deletion.
 Produces: NA
@@ -1443,6 +1504,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel permanent deletion of the selected users.
+
+
+This method invokes \verb{DELETE /userCleanupJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1472,8 +1536,8 @@ result <- api.instance$UserCleanupJobsDelete(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupJobsRetrieve}{}}}
 \subsection{Method \code{UserCleanupJobsRetrieve()}}{
 Retrieve users perma-delete job status.
 Produces: "application/json"
@@ -1492,6 +1556,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get async status of the users perma-delete job.
+
+
+This method invokes \verb{GET /userCleanupJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1521,8 +1588,8 @@ result <- api.instance$UserCleanupJobsRetrieve(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewJobsCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewJobsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewJobsCreate}{}}}
 \subsection{Method \code{UserCleanupPreviewJobsCreate()}}{
 Users permanent delete preview.
 Produces: "application/json"
@@ -1541,6 +1608,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Schedules a job for building preview for users selected for permanent deletion. Number of users to be deleted in one go is restricted by DELETED_USERS_BATCH_LIMIT system setting.
+
+
+This method invokes \verb{POST /userCleanupPreviewJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1568,7 +1638,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-usersPermadelete <- UsersPermadelete$new() # UsersPermadelete |
+usersPermadelete <- UsersPermadelete$new() # UsersPermadelete | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UserCleanupPreviewJobsCreate(usersPermadelete=usersPermadelete)
@@ -1580,8 +1650,8 @@ result <- api.instance$UserCleanupPreviewJobsCreate(usersPermadelete=usersPermad
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewJobsDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewJobsDelete}{}}}
 \subsection{Method \code{UserCleanupPreviewJobsDelete()}}{
 Cancel users perma-delete preview building.
 Produces: NA
@@ -1600,6 +1670,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel scheduled users permanent delete preview building.
+
+
+This method invokes \verb{DELETE /userCleanupPreviewJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1629,8 +1702,8 @@ result <- api.instance$UserCleanupPreviewJobsDelete(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewJobsRetrieve}{}}}
 \subsection{Method \code{UserCleanupPreviewJobsRetrieve()}}{
 Retrieve users perma-delete preview job status.
 Produces: "application/json"
@@ -1649,6 +1722,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get async status of the users perma-delete preview building job.
+
+
+This method invokes \verb{GET /userCleanupPreviewJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1678,8 +1754,8 @@ result <- api.instance$UserCleanupPreviewJobsRetrieve(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewsContentList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewsContentList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewsContentList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewsContentList}{}}}
 \subsection{Method \code{UserCleanupPreviewsContentList()}}{
 Users permanent delete extended preview.
 Produces: NA
@@ -1698,6 +1774,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve users permanent delete extended preview.
+
+
+This method invokes \verb{GET /userCleanupPreviews/\{reportId\}/content/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1729,8 +1808,8 @@ result <- api.instance$UserCleanupPreviewsContentList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewsDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewsDelete}{}}}
 \subsection{Method \code{UserCleanupPreviewsDelete()}}{
 Delete users permanent delete report.
 Produces: NA
@@ -1749,6 +1828,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete users permanent delete report.
+
+
+This method invokes \verb{DELETE /userCleanupPreviews/\{reportId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1778,8 +1860,8 @@ result <- api.instance$UserCleanupPreviewsDelete(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewsDeleteParamsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewsDeleteParamsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewsDeleteParamsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewsDeleteParamsList}{}}}
 \subsection{Method \code{UserCleanupPreviewsDeleteParamsList()}}{
 Users permanent delete report parameters.
 Produces: "application/json"
@@ -1798,6 +1880,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve users permanent delete report parameters.
+
+
+This method invokes \verb{GET /userCleanupPreviews/\{reportId\}/deleteParams/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1830,8 +1915,8 @@ result <- api.instance$UserCleanupPreviewsDeleteParamsList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupPreviewsStatisticsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupPreviewsStatisticsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupPreviewsStatisticsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupPreviewsStatisticsList}{}}}
 \subsection{Method \code{UserCleanupPreviewsStatisticsList()}}{
 Users permanent delete preview statistics.
 Produces: "application/json"
@@ -1850,6 +1935,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve users permanent delete preview statistics.
+
+
+This method invokes \verb{GET /userCleanupPreviews/\{reportId\}/statistics/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1882,8 +1970,8 @@ result <- api.instance$UserCleanupPreviewsStatisticsList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupSummariesContentList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupSummariesContentList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupSummariesContentList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupSummariesContentList}{}}}
 \subsection{Method \code{UserCleanupSummariesContentList()}}{
 Users permanent delete extended summary.
 Produces: NA
@@ -1902,6 +1990,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve users permanent delete extended summary.
+
+
+This method invokes \verb{GET /userCleanupSummaries/\{reportId\}/content/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1933,8 +2024,8 @@ result <- api.instance$UserCleanupSummariesContentList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupSummariesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupSummariesDelete}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupSummariesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupSummariesDelete}{}}}
 \subsection{Method \code{UserCleanupSummariesDelete()}}{
 Delete users permanent delete report.
 Produces: NA
@@ -1953,6 +2044,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete users permanent delete report.
+
+
+This method invokes \verb{DELETE /userCleanupSummaries/\{reportId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1982,8 +2076,8 @@ result <- api.instance$UserCleanupSummariesDelete(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupSummariesDeleteParamsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupSummariesDeleteParamsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupSummariesDeleteParamsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupSummariesDeleteParamsList}{}}}
 \subsection{Method \code{UserCleanupSummariesDeleteParamsList()}}{
 Users permanent delete report parameters.
 Produces: "application/json"
@@ -2002,6 +2096,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve users permanent delete report parameters.
+
+
+This method invokes \verb{GET /userCleanupSummaries/\{reportId\}/deleteParams/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2034,8 +2131,8 @@ result <- api.instance$UserCleanupSummariesDeleteParamsList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserCleanupSummariesStatisticsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserCleanupSummariesStatisticsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UserCleanupSummariesStatisticsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UserCleanupSummariesStatisticsList}{}}}
 \subsection{Method \code{UserCleanupSummariesStatisticsList()}}{
 Users permanent delete summary statistics.
 Produces: "application/json"
@@ -2054,6 +2151,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve users permanent delete summary statistics.
+
+
+This method invokes \verb{GET /userCleanupSummaries/\{reportId\}/statistics/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2086,8 +2186,8 @@ result <- api.instance$UserCleanupSummariesStatisticsList(reportId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersCreate}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UsersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UsersCreate}{}}}
 \subsection{Method \code{UsersCreate()}}{
 Create a User and add them to an organisation.
 Produces: "application/json"
@@ -2106,6 +2206,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a User and add them to an organisation.
+
+
+This method invokes \verb{POST /users/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2129,7 +2232,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userCreate <- UserCreate$new() # UserCreate |
+userCreate <- UserCreate$new() # UserCreate | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UsersCreate(userCreate=userCreate)
@@ -2141,8 +2244,8 @@ result <- api.instance$UsersCreate(userCreate=userCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersLimitsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersLimitsList}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UsersLimitsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UsersLimitsList}{}}}
 \subsection{Method \code{UsersLimitsList()}}{
 Get the rate limits and account limits for a user
 Produces: "application/json"
@@ -2161,6 +2264,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 User limits are those limits on an account that can be updated per-user. Rate limits that can't be modified per-user are not returned here.
+
+
+This method invokes \verb{GET /users/\{userId\}/limits/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2190,8 +2296,8 @@ result <- api.instance$UsersLimitsList(userId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersLimitsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersLimitsPatchMany}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-UsersLimitsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-UsersLimitsPatchMany}{}}}
 \subsection{Method \code{UsersLimitsPatchMany()}}{
 Update the rate limits and account limits for a user
 Produces: NA
@@ -2214,6 +2320,9 @@ Produces: NA
 User limits are those limits on an account that can be updated per-user.Rate limits that can't be modified per-user are not returned here.
 
 
+This method invokes \verb{PATCH /users/\{userId\}/limits/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Data updated successfully
@@ -2230,7 +2339,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 userId <- 'userId_example' # character | The id of the user to update usage limits for
-userLimitsPatchBody <- UserLimitsPatchBody$new() # UserLimitsPatchBody |
+userLimitsPatchBody <- UserLimitsPatchBody$new() # UserLimitsPatchBody | 
 
 api.instance <- UserManagementApi$new()
 result <- api.instance$UsersLimitsPatchMany(userId, userLimitsPatchBody=userLimitsPatchBody)
@@ -2242,8 +2351,8 @@ result <- api.instance$UsersLimitsPatchMany(userId, userLimitsPatchBody=userLimi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UserManagementApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UserManagementApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

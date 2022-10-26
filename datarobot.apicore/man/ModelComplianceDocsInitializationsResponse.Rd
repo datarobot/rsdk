@@ -23,16 +23,16 @@ ModelComplianceDocsInitializationsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelComplianceDocsInitializationsResponse$new()}}
-\item \href{#method-validate}{\code{ModelComplianceDocsInitializationsResponse$validate()}}
-\item \href{#method-toJSON}{\code{ModelComplianceDocsInitializationsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelComplianceDocsInitializationsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ModelComplianceDocsInitializationsResponse$clone()}}
+\item \href{#method-ModelComplianceDocsInitializationsResponse-new}{\code{ModelComplianceDocsInitializationsResponse$new()}}
+\item \href{#method-ModelComplianceDocsInitializationsResponse-validate}{\code{ModelComplianceDocsInitializationsResponse$validate()}}
+\item \href{#method-ModelComplianceDocsInitializationsResponse-toJSON}{\code{ModelComplianceDocsInitializationsResponse$toJSON()}}
+\item \href{#method-ModelComplianceDocsInitializationsResponse-fromJSON}{\code{ModelComplianceDocsInitializationsResponse$fromJSON()}}
+\item \href{#method-ModelComplianceDocsInitializationsResponse-clone}{\code{ModelComplianceDocsInitializationsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -59,19 +59,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelComplianceDocsInitializationsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -80,8 +81,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -102,8 +103,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelComplianceDocsInitializationsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelComplianceDocsInitializationsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

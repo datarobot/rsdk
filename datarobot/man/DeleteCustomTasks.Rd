@@ -6,35 +6,17 @@
 \usage{
 DeleteCustomTasks(customTaskId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete custom task.
 }
 \details{
-Delete a custom task. Only users who have permission to edit custom task can delete it. Only custom tasks which are not currently deployed  can be deleted. Relevant CustomTaskImage will be deleted also.
+Delete a custom task. Only users who have permission to edit custom task can delete it. Only custom tasks which are not currently deployed can be deleted. Relevant CustomTaskImage will be deleted also.
+
+This method invokes \verb{DELETE /customTasks/\{customTaskId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CustomTasksDelete in [datarobot.apicore::CustomTasksApi], which this function wraps.
-
-Other CustomTasks: 
-\code{\link{CreateCustomTasksFromCustomTask}()},
-\code{\link{CreateCustomTasksVersionsDependencyBuild}()},
-\code{\link{CreateCustomTasksVersionsFromRepository}()},
-\code{\link{CreateCustomTasksVersions}()},
-\code{\link{CreateCustomTasks}()},
-\code{\link{CreateFromLatestCustomTaskVersion}()},
-\code{\link{DeleteManyCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksAccessControl}()},
-\code{\link{ListCustomTasksDownload}()},
-\code{\link{ListCustomTasksVersionsDependencyBuildLog}()},
-\code{\link{ListCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksVersionsDownload}()},
-\code{\link{ListCustomTasksVersions}()},
-\code{\link{ListCustomTasks}()},
-\code{\link{PatchCustomTasksVersions}()},
-\code{\link{PatchCustomTasks}()},
-\code{\link{PatchManyCustomTasksAccessControl}()},
-\code{\link{PatchManyCustomTasksVersionsFromRepository}()},
-\code{\link{RetrieveCustomTasksVersions}()},
-\code{\link{RetrieveCustomTasks}()}
+The method CustomTasksDelete in \link[datarobot.apicore:CustomTasksApi]{datarobot.apicore::CustomTasksApi}, which invokes the same underlying API endpoint.
 }
-\concept{CustomTasks}

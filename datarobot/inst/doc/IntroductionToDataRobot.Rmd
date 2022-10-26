@@ -1,6 +1,6 @@
 ---
 title: "Introduction to the DataRobot R Package"
-author: "Ron Pearson, Peter Hurford"
+author: "Ron Pearson, Peter Hurford, Matt Harris"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
@@ -19,7 +19,7 @@ The name DataRobot refers to three things: a Boston-based software company, the 
 * generating predictions from any DataRobot model.
 
 
-To illustrate how the datarobot package is used, it is applied here to the `Boston` dataframe from the `MASS` package, providing simple demonstrations of all of the above steps.
+To illustrate how the datarobot package is used, it is applied here to the `Ames` dataframe from the `AmesHousing` package, providing simple demonstrations of all of the above steps.
 
 ```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
 library(datarobot)
@@ -72,59 +72,60 @@ DataRobot also supports using an offset parameter in `StartProject`. Offsets are
 DataRobot also supports using an exposure parameter in `StartProject`. Exposure is often used to model insurance premiums where strict proportionality of premiums to duration is required. You can specify the name of the column in the project dataset to be used as an exposure column.
 
 
-## The Boston housing dataframe
+## The Ames housing dataframe
 
 ```{r, echo = FALSE, message = FALSE}
-library(MASS)
-data(Boston)
+library(AmesHousing)
+Ames <- make_ames()
+Ames <- Ames[sapply(Ames,is.numeric)]
 ```
 
-To provide a specific illustration of how a new DataRobot project is created, the following discussion shows the creation of a project based on the `Boston` dataframe from the `MASS` package. This dataframe characterizes housing prices in Boston from a paper published in 1978 by Harrison and Rubinfeld ("Hedonic prices and the demand for clean air," *Journal of Environmental Economics and Management*, vol. 5, 1978, pp. 81-102). The dataframe is described in more detail in the associated help file from the `MASS` package, but the `head` function shows its basic structure:
+To provide a specific illustration of how a new DataRobot project is created, the following discussion shows the creation of a project based on the `Ames` dataframe from the `AmesHousing` package. This dataframe characterizes housing prices in Ames, Iowa from 2006 to 2010 with 2930 observations and a large number of explanatory variables (23 nominal, 23 ordinal, 14 discrete, and 20 continuous) involved in assessing home values. For this vignette, only the numeric variables are used (DataRobot can handle non-numeric, text, image and geospatial variables). See DeCock (2011) "Ames, Iowa: Alternative to the Boston Housing Data as an End of Semester Regression Project" *Journal of Statistics Education*, vol. 19, no. 3, 2011). The dataframe is described in more detail in the associated help file from the `AmesHousing` package, but the `head` function shows its basic structure: 
 
 ```{r, echo = TRUE, message = FALSE}
-head(Boston)
+head(Ames)
 ```
 
 To create the modeling project for this dataframe, we first use the `StartProject` function:
 
 ```{r, echo = TRUE, eval = FALSE}
-project <- StartProject(dataSource = Boston,
-                        projectName = "BostonVignetteProject",
-                        target = "medv",
+project <- StartProject(dataSource = Ames,
+                        projectName = "AmesVignetteProject",
+                        target = "Sale_Price",
                         wait = TRUE)
 ```
 
 `dataSource` defines the data used for predictions, `projectName` defines the name of the project, `target` defines what to predict, and `wait = TRUE` tells the function to wait until all modeling is complete before executing other computations.
 
-The list returned by this function gives the project name, the project identifier (`projectId`), the name of the temporary CSV file used to save and upload the `Boston` dataframe, and the time and date the project was created. Here, we specify `medv` (median value of owner-occupied homes) as the response variable and we elect to use the default `metric` value chosen by the DataRobot modeling engine:
+The list returned by this function gives the project name, the project identifier (`projectId`), the name of the temporary CSV file used to save and upload the `Ames` dataframe, and the time and date the project was created. Here, we specify `Sale_Price` (sale price of the home) as the response variable and we elect to use the default `metric` value chosen by the DataRobot modeling engine:
 
 ```{r, echo = FALSE}
-project <- readRDS("projectObject.rds")
+project <- readRDS("AmesprojectObject.rds")
 project
 ```
 
 
 ## Retrieving project results
 
-```{r, echo = FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(datarobot)
-listOfBostonModels <- readRDS("listOfBostonModels.rds")
-fullFrame <- as.data.frame(listOfBostonModels, simple = FALSE)
+listOfAmesModels <- readRDS("listOfAmesModels.rds")
+fullFrame <- as.data.frame(listOfAmesModels, simple = FALSE)
 ```
 
-The DataRobot project created by the command described above fits `r length(listOfBostonModels)` models to the `Boston` dataframe. Detailed information about all of these models can be obtained with the `ListModels` function, invoked with the `project` list returned by the `StartProject` function.
+The DataRobot project created by the command described above fits `r length(listOfAmesModels)` models to the `Ames` dataframe. Detailed information about all of these models can be obtained with the `ListModels` function, invoked with the `project` list returned by the `StartProject` function.
 
 ```{r, echo = TRUE, eval = FALSE}
-listOfBostonModels <- ListModels(project)
+listOfAmesModels <- ListModels(project)
 ```
 
 The `ListModels` function returns an S3 object of class 'listOfModels', with one element for each model in the project. A summary method has been implemented for this object class, and it provides the following view of the contents of this list:
 
 ```{r, echo = TRUE}
-summary(listOfBostonModels)
+summary(listOfAmesModels)
 ```
 
-The first element of this list is `generalSummary`, which lets us know that the project includes `r length(listOfBostonModels)` models, and that the second list element describes the first 6 of these models. This number is determined by the optional parameter `nList` for the `summary` method, which has the default value 6. The second list element is `detailedSummary`, which gives the first `nList` rows of the dataframe created when the `as.data.frame` method is applied to `listOfBostonModels`. Methods for the `as.data.frame` generic function are included in the datarobot package for all four 'list of' S3 model object classes: `listOfBlueprints`, `listOfFeaturelists`, `listOfModels`, and `projectSummaryList`. (Use of this function is illustrated in the following discussion; see the help files for more complete details.) This dataframe has the following eight columns:
+The first element of this list is `generalSummary`, which lets us know that the project includes `r length(listOfAmesModels)` models, and that the second list element describes the first 6 of these models. This number is determined by the optional parameter `nList` for the `summary` method, which has the default value 6. The second list element is `detailedSummary`, which gives the first `nList` rows of the dataframe created when the `as.data.frame` method is applied to `listOfAmesModels`. Methods for the `as.data.frame` generic function are included in the datarobot package for all four 'list of' S3 model object classes: `listOfBlueprints`, `listOfFeaturelists`, `listOfModels`, and `projectSummaryList`. (Use of this function is illustrated in the following discussion; see the help files for more complete details.) This dataframe has the following eight columns:
 
   1. __modelType__: character string; describes the structure of each model
   1. __expandedModel__: character string; __modelType__ with short descriptions of any preprocessing steps appended
@@ -139,22 +140,22 @@ It is possible to obtain a more complete dataframe from any object of class 'lis
 
 In addition to the summary method, a plot method has also been provided for objects of class 'listOfModels':
 
-```{r, echo = TRUE, fig.width = 7, fig.height = 6, fig.cap = "Horizontal barplot of modelType and validation set RMSE values for all project models"}
-plot(listOfBostonModels, orderDecreasing = TRUE)
+```{r, echo = TRUE, fig.width = 7, fig.height = 6, fig.cap = "Horizontal barplot of modelType and validation set Gamma Deviance values for all project models"}
+plot(listOfAmesModels, orderDecreasing = TRUE)
 ```
 
 This function generates a horizontal barplot that lists the name of each model (i.e., `modelType`) in the center of each bar, with the bar length corresponding to the value of the model fitting metric, evaluated for the validation dataset (i.e., the `validationMetric` value). The only required parameter for this function is the 'listOfModels' class S3 object to be plotted, but there are a number of optional parameters that allow the plot to be customized. In the plot shown above, the logical parameter `orderDecreasing` has been set to `TRUE` so that the plot - generated from the bottom up - shows the models in decreasing order of `validationMetric`. For a complete list of optional parameters for this function, refer to the help files.
 
-Since smaller values of `RMSE.validation` are better, this plot shows the worst model at the bottom and the best model at the top. The identities of these models are most conveniently obtained by first converting `listOfBostonModels` into a dataframe, using the `as.data.frame` generic function mentioned above:
+Since smaller values of `Gamma Deviance.validation` are better, this plot shows the worst model at the bottom and the best model at the top. The identities of these models are most conveniently obtained by first converting `listOfAmesModels` into a dataframe, using the `as.data.frame` generic function mentioned above:
 
 You can also coerce the list of models to a data.frame, which may make it easier to see specific things (such as model metrics):
 
 ```{r, echo = TRUE}
-modelFrame <- as.data.frame(listOfBostonModels)
+modelFrame <- as.data.frame(listOfAmesModels)
 head(modelFrame[, c("modelType", "validationMetric")])
 ```
 
-It is interesting to note that this single best model, which is fairly complex in structure, actually outperforms all of the blender models (the next four models in the barplot above), formed by combining the best individual project models in different ways. This behavior is unusual, since the blender models usually achieve at least a small performance advantage over the component models on which they are based. In fact, since the individual component models may be regarded as constrained versions of the blender models (e.g., as a weighted average with all of the weight concentrated on one component), the *training set* performance can never be worse for a blender than it is for its components, but this need not be true of validation set performance, as this example demonstrates. 
+It is interesting to note that this single best model, which is fairly complex in structure, actually outperforms the blender model (the second model in the barplot above), formed by averaging the best individual project models. This behavior is unusual, since the blender models usually achieve at least a small performance advantage over the component models on which they are based. In fact, since the individual component models may be regarded as constrained versions of the blender models (e.g., as a weighted average with all of the weight concentrated on one component), the *training set* performance can never be worse for a blender than it is for its components, but this need not be true of validation set performance, as this example demonstrates. 
 
 Or you can see the worst models:
 
@@ -162,17 +163,17 @@ Or you can see the worst models:
 tail(modelFrame[, c("modelType", "validationMetric")])
 ```
 
-The worst model is a trivial "intercept-only" model that assigns the mean `medv` value to every record as its predicted response. This model is included in the project as a benchmark against which to compare the other, more useful prediction models.
 
-It is also important to note that several of the models appear to be identical, based on their `modelType` values, but they exhibit different performances. This is most obvious from the four models labelled "Ridge Regressor" but it is also true of six other `modelType` values, each of which appears two or three times in the plot, generally with different values for `RMSE.validation`. In fact, these models are not identical, but differ in the preprocessing applied to them, or in other details.
+It is also important to note that several of the models appear to be identical, based on their `modelType` values, but they exhibit different performances. This is most obvious from the four models labelled "eXtreme Gradient Boosted" but it is also true of six other `modelType` values, each of which appears two or three times in the plot, generally with different values for `Gamma Deviance.validation`. In fact, these models are not identical, but differ in the preprocessing applied to them, or in other details.
 
-In most cases, these differences may be seen by examining the `expandedModel` values from `modelFrame. For example, lets get all the different models that use Ridge Regressor:
+In most cases, these differences may be seen by examining the `expandedModel` values from `modelFrame`. For example, lets get all the different models that use the Elastic-Net Regressor:
 
 ```{r, echo = TRUE}
-Filter(function(m) grepl("Ridge", m), modelFrame$expandedModel)
+Filter(function(m) grepl("Elastic-Net", m), modelFrame$expandedModel)
+
 ```
 
-In particular, note that the `modelType` value appears at the beginning of the `expandedModel` character string, which is then followed by any pre-processing applied in fitting the model. Thus, comparing elements from this list (see below), we can see that, while these are all ridge regression models, they differ in their preprocessing steps. In the case of the ENET blender models, the differences lie in the component models incorporated into the blend and are not evident from this list.
+In particular, note that the `modelType` value appears at the beginning of the `expandedModel` character string, which is then followed by any pre-processing applied in fitting the model. Thus, comparing elements from this list (see below), we can see that they differ in their preprocessing steps and primary ML model. In the case of the Light Gradient Boosting, the difference is that Elastic-Net model is a pre-processing step that is fed into a different model.
 
 
 ## Generating model predictions
@@ -180,8 +181,9 @@ In particular, note that the `modelType` value appears at the beginning of the `
 The generation of model predictions uses `Predict`:
 
 ```{r, echo = TRUE, eval = FALSE}
-bestModel <- GetRecommendedModel(project)
-bestPredictions <- Predict(bestModel, Boston)
+bestModel <- GetRecommendedModel(project,
+                                 type = RecommendedModelType$RecommendedForDeployment)
+bestPredictions <- Predict(bestModel, Ames)
 ```
 
 `GetRecommendedModel` gives us the best model without having to go through the metrics manually. We can see in this case what the model is:
@@ -191,17 +193,17 @@ bestModel$modelType
 ```
 
 ```{r, echo = FALSE, eval = TRUE}
-"Gradient Boosted Greedy Trees Regressor (Least-Squares Loss)"
+"eXtreme Gradient Boosted Trees Regressor (Gamma Loss)"
 ```
 
-How good are our predictions? The plot below shows predicted versus observed `medv` values for this model. If the predictions were perfect, all of these points would lie on the dashed red equality line. The relatively narrow scatter of most points around this reference line suggests that this model is performing reasonably well for most of the dataset, with a few significant exceptions.
+How good are our predictions? The plot below shows predicted versus observed `Sale_Price` values for this model. If the predictions were perfect, all of these points would lie on the dashed red equality line. The relatively narrow scatter of most points around this reference line suggests that this model is performing reasonably well for most of the dataset, with a few significant exceptions.
 
 
 ```{r, echo = FALSE, fig.width = 7, fig.height = 6}
-medv <- Boston$medv
-bestPredictions <- readRDS("bestPredictions.rds")
-plot(medv, bestPredictions, xlab="Observed medv value", ylab="Predicted medv value",
-     ylim = c(0, 50))
+Sale_Price <- Ames$Sale_Price
+bestPredictions <- readRDS("bestPredictionsAmes.rds")
+plot(Sale_Price, bestPredictions, xlab="Observed Sale Price", ylab="Predicted Sale Price value",
+     ylim = c(0, 800000))
 abline(a = 0, b = 1, lty = 2, lwd = 3, col = "red")
 title("Best model")
 ```
@@ -212,16 +214,16 @@ title("Best model")
 But which features most drive our predictions? Which features are most important to the model? For this, we turn to feature impact.
 
 ```{r, echo = TRUE, eval = FALSE}
-impact <- GetFeatureImpact(model)
+impact <- GetFeatureImpact(bestModel)
 head(impact)
 ```
 
 ```{r, echo = FALSE}
-impact <- readRDS("IntroFeatureImpact.RDS")
+impact <- readRDS("IntroFeatureImpactAmes.RDS")
 head(impact)
 ```
 
-We can now see that `lstat` (percent lower status of population) and `rm` (average number of rooms per dwelling) are the two best predictors of our target `medv` (median value of owner-occupied homes). Normalized impact gives us a ratio of the impact of the feature relative to the top feature, whereas unnormalized impact is the actual impact statistic.
+We can now see that `Gr_Liv_Area` (above grade living area) and `Year_Built` (the year of construction) are the two best predictors of our target `Sale_Price` (most recent home sale price). Normalized impact gives us a ratio of the impact of the feature relative to the top feature, whereas unnormalized impact is the actual impact statistic.
 
 
 ## Summary

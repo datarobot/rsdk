@@ -79,6 +79,8 @@ DatetimePartitioningResponse Class
 
 \item{\code{numberOfKnownInAdvanceFeatures}}{integer Number of features that are marked as \"known in advance\".}
 
+\item{\code{partitioningExtendedWarnings}}{list( \link{PartitioningExtendedWarning} ) \link{optional} An array of available warnings about potential problems with the chosen partitioning that could cause issues during modeling, although the partitioning may be successfully submitted.}
+
 \item{\code{partitioningWarnings}}{list( \link{PartitioningWarning} ) An array of available warnings about potential problems with the chosen partitioning that could cause issues during modeling, although the partitioning may be successfully submitted.}
 
 \item{\code{periodicities}}{list( \link{Periodicity} ) A list of periodicities for time series projects only. For classification problems periodicities are not allowed. If this is provided, parameter 'differencing_method' will default to 'seasonal' if not provided or 'auto'.}
@@ -106,16 +108,16 @@ DatetimePartitioningResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatetimePartitioningResponse$new()}}
-\item \href{#method-validate}{\code{DatetimePartitioningResponse$validate()}}
-\item \href{#method-toJSON}{\code{DatetimePartitioningResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatetimePartitioningResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DatetimePartitioningResponse$clone()}}
+\item \href{#method-DatetimePartitioningResponse-new}{\code{DatetimePartitioningResponse$new()}}
+\item \href{#method-DatetimePartitioningResponse-validate}{\code{DatetimePartitioningResponse$validate()}}
+\item \href{#method-DatetimePartitioningResponse-toJSON}{\code{DatetimePartitioningResponse$toJSON()}}
+\item \href{#method-DatetimePartitioningResponse-fromJSON}{\code{DatetimePartitioningResponse$fromJSON()}}
+\item \href{#method-DatetimePartitioningResponse-clone}{\code{DatetimePartitioningResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatetimePartitioningResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimePartitioningResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -163,6 +165,7 @@ A function used to initialize an instance of this class.
   crossSeriesGroupByColumns = NULL,
   isHoldoutModified = NULL,
   modelSplits = NULL,
+  partitioningExtendedWarnings = NULL,
   useCrossSeriesFeatures = NULL,
   validateParams = FALSE,
   ...
@@ -258,6 +261,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{modelSplits}}{Sets the cap on the number of jobs per model used when building models to control number of jobs in the queue. Higher number of modelSplits will allow for less downsampling leading to the use of more post-processed data.}
 
+\item{\code{partitioningExtendedWarnings}}{An array of available warnings about potential problems with the chosen partitioning that could cause issues during modeling, although the partitioning may be successfully submitted.}
+
 \item{\code{useCrossSeriesFeatures}}{For multiseries projects only. Indicating whether to use cross-series features.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
@@ -268,19 +273,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatetimePartitioningResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimePartitioningResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatetimePartitioningResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatetimePartitioningResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimePartitioningResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -289,8 +295,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatetimePartitioningResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimePartitioningResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -311,8 +317,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatetimePartitioningResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimePartitioningResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

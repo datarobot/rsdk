@@ -7,6 +7,10 @@
 GenerateDatetimePartition(project, spec)
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{spec}{list. Datetime partition specification returned by
 \code{CreateDatetimePartitionSpecification}}
 }
@@ -124,8 +128,8 @@ This is not intended to be passed to SetTarget.
 }
 \examples{
 \dontrun{
-  projectId <- "59a5af20c80891534e3c2bde"
-  partitionSpec <- CreateDatetimePartitionSpecification("date_col")
-  GenerateDatetimePartition(projectId, partitionSpec)
+projectId <- "59a5af20c80891534e3c2bde"
+partitionSpec <- CreateDatetimePartitionSpecification("date_col")
+GenerateDatetimePartition(projectId, partitionSpec)
 }
 }

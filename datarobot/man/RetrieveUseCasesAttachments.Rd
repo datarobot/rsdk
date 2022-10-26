@@ -6,30 +6,17 @@
 \usage{
 RetrieveUseCasesAttachments(useCaseId, attachmentId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Get a resource that is attached to a use case.
 }
 \details{
 Get a resource that is attached to a use case.
+
+This method invokes \verb{GET /useCases/\{useCaseId\}/attachments/\{attachmentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method UseCasesAttachmentsRetrieve in [datarobot.apicore::UseCaseApi], which this function wraps.
-
-Other UseCase: 
-\code{\link{CreateUseCasesAttachments}()},
-\code{\link{CreateUseCases}()},
-\code{\link{DeleteUseCasesAttachments}()},
-\code{\link{DeleteUseCases}()},
-\code{\link{ListUseCaseValueTemplatesCalculation}()},
-\code{\link{ListUseCaseValueTemplates}()},
-\code{\link{ListUseCasesActivities}()},
-\code{\link{ListUseCasesAttachments}()},
-\code{\link{ListUseCasesRealizedValueOverTime}()},
-\code{\link{ListUseCasesSharedRoles}()},
-\code{\link{ListUseCases}()},
-\code{\link{PatchManyUseCasesSharedRoles}()},
-\code{\link{PatchUseCases}()},
-\code{\link{RetrieveUseCaseValueTemplates}()},
-\code{\link{RetrieveUseCases}()}
+The method UseCasesAttachmentsRetrieve in \link[datarobot.apicore:UseCaseApi]{datarobot.apicore::UseCaseApi}, which invokes the same underlying API endpoint.
 }
-\concept{UseCase}

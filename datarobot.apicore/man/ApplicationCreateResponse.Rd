@@ -33,8 +33,6 @@ ApplicationCreateResponse Class
 
 \item{\code{permissions}}{character The list of permitted actions, which the authenticated user can perform on this application.}
 
-\item{\code{recentEvents}}{list( character ) The list of deployment events of the application.}
-
 \item{\code{updatedAt}}{character The timestamp when the application was updated}
 
 \item{\code{userId}}{character The ID of the user which created the application}
@@ -44,16 +42,16 @@ ApplicationCreateResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApplicationCreateResponse$new()}}
-\item \href{#method-validate}{\code{ApplicationCreateResponse$validate()}}
-\item \href{#method-toJSON}{\code{ApplicationCreateResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ApplicationCreateResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ApplicationCreateResponse$clone()}}
+\item \href{#method-ApplicationCreateResponse-new}{\code{ApplicationCreateResponse$new()}}
+\item \href{#method-ApplicationCreateResponse-validate}{\code{ApplicationCreateResponse$validate()}}
+\item \href{#method-ApplicationCreateResponse-toJSON}{\code{ApplicationCreateResponse$toJSON()}}
+\item \href{#method-ApplicationCreateResponse-fromJSON}{\code{ApplicationCreateResponse$fromJSON()}}
+\item \href{#method-ApplicationCreateResponse-clone}{\code{ApplicationCreateResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,7 +66,6 @@ A function used to initialize an instance of this class.
   modelDeploymentId = NULL,
   name = NULL,
   permissions = NULL,
-  recentEvents = NULL,
   updatedAt = NULL,
   userId = NULL,
   validateParams = FALSE,
@@ -99,8 +96,6 @@ A function used to initialize an instance of this class.
 
 \item{\code{permissions}}{The list of permitted actions, which the authenticated user can perform on this application.}
 
-\item{\code{recentEvents}}{The list of deployment events of the application.}
-
 \item{\code{updatedAt}}{The timestamp when the application was updated}
 
 \item{\code{userId}}{The ID of the user which created the application}
@@ -113,19 +108,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplicationCreateResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -134,8 +130,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -156,8 +152,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

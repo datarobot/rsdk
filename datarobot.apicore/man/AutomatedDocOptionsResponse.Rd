@@ -20,16 +20,16 @@ AutomatedDocOptionsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AutomatedDocOptionsResponse$new()}}
-\item \href{#method-validate}{\code{AutomatedDocOptionsResponse$validate()}}
-\item \href{#method-toJSON}{\code{AutomatedDocOptionsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{AutomatedDocOptionsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{AutomatedDocOptionsResponse$clone()}}
+\item \href{#method-AutomatedDocOptionsResponse-new}{\code{AutomatedDocOptionsResponse$new()}}
+\item \href{#method-AutomatedDocOptionsResponse-validate}{\code{AutomatedDocOptionsResponse$validate()}}
+\item \href{#method-AutomatedDocOptionsResponse-toJSON}{\code{AutomatedDocOptionsResponse$toJSON()}}
+\item \href{#method-AutomatedDocOptionsResponse-fromJSON}{\code{AutomatedDocOptionsResponse$fromJSON()}}
+\item \href{#method-AutomatedDocOptionsResponse-clone}{\code{AutomatedDocOptionsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AutomatedDocOptionsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocOptionsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AutomatedDocOptionsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocOptionsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AutomatedDocOptionsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AutomatedDocOptionsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocOptionsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AutomatedDocOptionsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocOptionsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -92,8 +93,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AutomatedDocOptionsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AutomatedDocOptionsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

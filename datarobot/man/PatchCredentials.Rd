@@ -10,6 +10,7 @@ PatchCredentials(
   oauthIssuerUrl,
   awsAccessKeyId,
   oauthIssuerType,
+  tokenName,
   description,
   oauthScopes,
   token,
@@ -17,6 +18,7 @@ PatchCredentials(
   name,
   credentialId,
   clientSecret,
+  personalAccessToken,
   snowflakeAccountName,
   user,
   azureConnectionString,
@@ -26,21 +28,17 @@ PatchCredentials(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update specified credentials
 }
 \details{
 Update specified credentials
+
+This method invokes \verb{PATCH /credentials/\{credentialId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsPatch in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{CreateCredentials}()},
-\code{\link{DeleteCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{ListCredentials}()},
-\code{\link{PatchManyCredentialsAssociations}()},
-\code{\link{RetrieveCredentials}()}
+The method CredentialsPatch in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

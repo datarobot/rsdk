@@ -31,18 +31,17 @@ PatchSsoConfigurations(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update an SSO configuration for a specific organization.
 }
 \details{
 Update an SSO configuration for a specific organization.
+
+This method invokes \verb{PATCH /ssoConfigurations/\{configurationId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method SsoConfigurationsPatch in [datarobot.apicore::SsoConfigurationApi], which this function wraps.
-
-Other SsoConfiguration: 
-\code{\link{CreateSsoConfigurations}()},
-\code{\link{ListSsoConfigurations}()},
-\code{\link{RetrieveSsoConfigurations}()}
+The method SsoConfigurationsPatch in \link[datarobot.apicore:SsoConfigurationApi]{datarobot.apicore::SsoConfigurationApi}, which invokes the same underlying API endpoint.
 }
-\concept{SsoConfiguration}

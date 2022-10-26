@@ -13,7 +13,7 @@ CredentialsBody Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{credentialType}}{character Credentials type.}
+\item{\code{credentialType}}{character \link{optional} Credentials type.}
 
 \item{\code{description}}{character \link{optional} Credentials description.}
 
@@ -24,68 +24,32 @@ CredentialsBody Class
 \item{\code{snowflakeAccountName}}{character \link{optional} Snowflake account name.}
 
 \item{\code{user}}{character Username to store for this credentials.}
-
-\item{\code{refreshToken}}{character OAUTH token.}
-
-\item{\code{token}}{character OAUTH token.}
-
-\item{\code{awsAccessKeyId}}{character \link{optional} AWS access key ID.}
-
-\item{\code{awsSecretAccessKey}}{character \link{optional} AWS secret access key.}
-
-\item{\code{awsSessionToken}}{character \link{optional} AWS session token.}
-
-\item{\code{gcpKey}}{\link{GCPKey}}
-
-\item{\code{azureConnectionString}}{character Azure connection string.}
-
-\item{\code{clientId}}{character ADLS Gen2 OAuth client ID.}
-
-\item{\code{clientSecret}}{character ADLS Gen2 OAuth client secret.}
-
-\item{\code{oauthIssuerType}}{character \link{optional} OAuth issuer type.}
-
-\item{\code{oauthIssuerUrl}}{character \link{optional} OAuth issuer URL.}
-
-\item{\code{oauthScopes}}{list( character ) ADLS Gen2 OAuth scopes.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CredentialsBody$new()}}
-\item \href{#method-validate}{\code{CredentialsBody$validate()}}
-\item \href{#method-toJSON}{\code{CredentialsBody$toJSON()}}
-\item \href{#method-fromJSON}{\code{CredentialsBody$fromJSON()}}
-\item \href{#method-clone}{\code{CredentialsBody$clone()}}
+\item \href{#method-CredentialsBody-new}{\code{CredentialsBody$new()}}
+\item \href{#method-CredentialsBody-validate}{\code{CredentialsBody$validate()}}
+\item \href{#method-CredentialsBody-toJSON}{\code{CredentialsBody$toJSON()}}
+\item \href{#method-CredentialsBody-fromJSON}{\code{CredentialsBody$fromJSON()}}
+\item \href{#method-CredentialsBody-clone}{\code{CredentialsBody$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CredentialsBody-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsBody-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsBody$new(
-  credentialType = NULL,
   name = NULL,
   password = NULL,
   user = NULL,
-  refreshToken = NULL,
-  token = NULL,
-  gcpKey = NULL,
-  azureConnectionString = NULL,
-  clientId = NULL,
-  clientSecret = NULL,
-  oauthScopes = NULL,
+  credentialType = NULL,
   description = NULL,
   snowflakeAccountName = NULL,
-  awsAccessKeyId = NULL,
-  awsSecretAccessKey = NULL,
-  awsSessionToken = NULL,
-  oauthIssuerType = NULL,
-  oauthIssuerUrl = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -94,39 +58,17 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{credentialType}}{Credentials type.}
-
 \item{\code{name}}{Credentials name.}
 
 \item{\code{password}}{Password to store for this credentials.}
 
 \item{\code{user}}{Username to store for this credentials.}
 
-\item{\code{refreshToken}}{OAUTH token.}
-
-\item{\code{token}}{OAUTH token.}
-
-\item{\code{azureConnectionString}}{Azure connection string.}
-
-\item{\code{clientId}}{ADLS Gen2 OAuth client ID.}
-
-\item{\code{clientSecret}}{ADLS Gen2 OAuth client secret.}
-
-\item{\code{oauthScopes}}{ADLS Gen2 OAuth scopes.}
+\item{\code{credentialType}}{Credentials type.}
 
 \item{\code{description}}{Credentials description.}
 
 \item{\code{snowflakeAccountName}}{Snowflake account name.}
-
-\item{\code{awsAccessKeyId}}{AWS access key ID.}
-
-\item{\code{awsSecretAccessKey}}{AWS secret access key.}
-
-\item{\code{awsSessionToken}}{AWS session token.}
-
-\item{\code{oauthIssuerType}}{OAuth issuer type.}
-
-\item{\code{oauthIssuerUrl}}{OAuth issuer URL.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
@@ -136,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CredentialsBody-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsBody-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsBody$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsBody-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsBody-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -157,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsBody-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsBody-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -176,8 +119,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CredentialsBody-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsBody-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

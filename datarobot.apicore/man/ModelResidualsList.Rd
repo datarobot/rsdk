@@ -20,16 +20,16 @@ ModelResidualsList Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelResidualsList$new()}}
-\item \href{#method-validate}{\code{ModelResidualsList$validate()}}
-\item \href{#method-toJSON}{\code{ModelResidualsList$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelResidualsList$fromJSON()}}
-\item \href{#method-clone}{\code{ModelResidualsList$clone()}}
+\item \href{#method-ModelResidualsList-new}{\code{ModelResidualsList$new()}}
+\item \href{#method-ModelResidualsList-validate}{\code{ModelResidualsList$validate()}}
+\item \href{#method-ModelResidualsList-toJSON}{\code{ModelResidualsList$toJSON()}}
+\item \href{#method-ModelResidualsList-fromJSON}{\code{ModelResidualsList$fromJSON()}}
+\item \href{#method-ModelResidualsList-clone}{\code{ModelResidualsList$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelResidualsList-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsList-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -47,19 +47,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelResidualsList-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsList-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelResidualsList$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelResidualsList-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsList-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -68,8 +69,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelResidualsList-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsList-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -87,8 +88,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelResidualsList-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResidualsList-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

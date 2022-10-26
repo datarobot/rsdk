@@ -6,30 +6,17 @@
 \usage{
 PatchManyUseCasesSharedRoles(useCaseId, roles, operation, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Share a use case with a user, group or organization.
 }
 \details{
 Share a use case with a user, group or organization.
+
+This method invokes \verb{PATCH /useCases/\{useCaseId\}/sharedRoles/} in the DataRobot Public API.
 }
 \seealso{
-The method UseCasesSharedRolesPatchMany in [datarobot.apicore::UseCaseApi], which this function wraps.
-
-Other UseCase: 
-\code{\link{CreateUseCasesAttachments}()},
-\code{\link{CreateUseCases}()},
-\code{\link{DeleteUseCasesAttachments}()},
-\code{\link{DeleteUseCases}()},
-\code{\link{ListUseCaseValueTemplatesCalculation}()},
-\code{\link{ListUseCaseValueTemplates}()},
-\code{\link{ListUseCasesActivities}()},
-\code{\link{ListUseCasesAttachments}()},
-\code{\link{ListUseCasesRealizedValueOverTime}()},
-\code{\link{ListUseCasesSharedRoles}()},
-\code{\link{ListUseCases}()},
-\code{\link{PatchUseCases}()},
-\code{\link{RetrieveUseCaseValueTemplates}()},
-\code{\link{RetrieveUseCasesAttachments}()},
-\code{\link{RetrieveUseCases}()}
+The method UseCasesSharedRolesPatchMany in \link[datarobot.apicore:UseCaseApi]{datarobot.apicore::UseCaseApi}, which invokes the same underlying API endpoint.
 }
-\concept{UseCase}

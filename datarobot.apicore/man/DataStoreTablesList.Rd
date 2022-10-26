@@ -22,16 +22,16 @@ DataStoreTablesList Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DataStoreTablesList$new()}}
-\item \href{#method-validate}{\code{DataStoreTablesList$validate()}}
-\item \href{#method-toJSON}{\code{DataStoreTablesList$toJSON()}}
-\item \href{#method-fromJSON}{\code{DataStoreTablesList$fromJSON()}}
-\item \href{#method-clone}{\code{DataStoreTablesList$clone()}}
+\item \href{#method-DataStoreTablesList-new}{\code{DataStoreTablesList$new()}}
+\item \href{#method-DataStoreTablesList-validate}{\code{DataStoreTablesList$validate()}}
+\item \href{#method-DataStoreTablesList-toJSON}{\code{DataStoreTablesList$toJSON()}}
+\item \href{#method-DataStoreTablesList-fromJSON}{\code{DataStoreTablesList$fromJSON()}}
+\item \href{#method-DataStoreTablesList-clone}{\code{DataStoreTablesList$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DataStoreTablesList-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DataStoreTablesList-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DataStoreTablesList-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataStoreTablesList-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DataStoreTablesList$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DataStoreTablesList-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DataStoreTablesList-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DataStoreTablesList-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DataStoreTablesList-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DataStoreTablesList-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DataStoreTablesList-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

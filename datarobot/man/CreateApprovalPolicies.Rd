@@ -13,31 +13,17 @@ CreateApprovalPolicies(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create a new Approval Policy.
 }
 \details{
 Create a new Approval Policy.
+
+This method invokes \verb{POST /approvalPolicies/} in the DataRobot Public API.
 }
 \seealso{
-The method ApprovalPoliciesCreate in [datarobot.apicore::GovernanceApi], which this function wraps.
-
-Other Governance: 
-\code{\link{CreateChangeRequestsReviews}()},
-\code{\link{CreateChangeRequests}()},
-\code{\link{DeleteApprovalPolicies}()},
-\code{\link{ListApprovalPoliciesShareableChangeRequests}()},
-\code{\link{ListApprovalPolicies}()},
-\code{\link{ListApprovalPolicyMatch}()},
-\code{\link{ListApprovalPolicyTriggers}()},
-\code{\link{ListChangeRequestsReviews}()},
-\code{\link{ListChangeRequestsSuggestedReviewers}()},
-\code{\link{ListChangeRequests}()},
-\code{\link{PatchChangeRequests}()},
-\code{\link{PatchManyChangeRequestsStatus}()},
-\code{\link{PutApprovalPolicies}()},
-\code{\link{RetrieveApprovalPolicies}()},
-\code{\link{RetrieveChangeRequestsReviews}()},
-\code{\link{RetrieveChangeRequests}()}
+The method ApprovalPoliciesCreate in \link[datarobot.apicore:GovernanceApi]{datarobot.apicore::GovernanceApi}, which invokes the same underlying API endpoint.
 }
-\concept{Governance}

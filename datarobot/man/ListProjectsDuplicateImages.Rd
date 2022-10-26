@@ -6,40 +6,17 @@
 \usage{
 ListProjectsDuplicateImages(column, projectId, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Get a list of duplicate images containing the number of occurrences of each image
 }
 \details{
 Get a list of duplicate images containing the number of occurrences of each image
+
+This method invokes \verb{GET /projects/\{projectId\}/duplicateImages/\{column\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsDuplicateImagesList in [datarobot.apicore::ImagesApi], which this function wraps.
-
-Other Images: 
-\code{\link{CreateImageAugmentationListsSamples}()},
-\code{\link{CreateImageAugmentationLists}()},
-\code{\link{CreateImageAugmentationSamples}()},
-\code{\link{CreateProjectsModelsImageActivationMaps}()},
-\code{\link{CreateProjectsModelsImageEmbeddings}()},
-\code{\link{DeleteImageAugmentationLists}()},
-\code{\link{ListDatasetsImagesDataQualityLogFile}()},
-\code{\link{ListDatasetsImagesDataQualityLog}()},
-\code{\link{ListImageAugmentationListsSamples}()},
-\code{\link{ListImageAugmentationLists}()},
-\code{\link{ListImageAugmentationSamples}()},
-\code{\link{ListProjectsImageActivationMaps}()},
-\code{\link{ListProjectsImageBins}()},
-\code{\link{ListProjectsImageEmbeddings}()},
-\code{\link{ListProjectsImageSamples}()},
-\code{\link{ListProjectsImagesDataQualityLogFile}()},
-\code{\link{ListProjectsImagesDataQualityLog}()},
-\code{\link{ListProjectsImagesFile}()},
-\code{\link{ListProjectsImages}()},
-\code{\link{ListProjectsModelsImageActivationMaps}()},
-\code{\link{ListProjectsModelsImageEmbeddings}()},
-\code{\link{PatchImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationOptions}()},
-\code{\link{RetrieveProjectsImages}()}
+The method ProjectsDuplicateImagesList in \link[datarobot.apicore:ImagesApi]{datarobot.apicore::ImagesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Images}

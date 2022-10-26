@@ -17,31 +17,17 @@ ListChangeRequests(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List Change Requests.
 }
 \details{
 List all Change Requests accessible by the user for the given product entity type.
+
+This method invokes \verb{GET /changeRequests/} in the DataRobot Public API.
 }
 \seealso{
-The method ChangeRequestsList in [datarobot.apicore::GovernanceApi], which this function wraps.
-
-Other Governance: 
-\code{\link{CreateApprovalPolicies}()},
-\code{\link{CreateChangeRequestsReviews}()},
-\code{\link{CreateChangeRequests}()},
-\code{\link{DeleteApprovalPolicies}()},
-\code{\link{ListApprovalPoliciesShareableChangeRequests}()},
-\code{\link{ListApprovalPolicies}()},
-\code{\link{ListApprovalPolicyMatch}()},
-\code{\link{ListApprovalPolicyTriggers}()},
-\code{\link{ListChangeRequestsReviews}()},
-\code{\link{ListChangeRequestsSuggestedReviewers}()},
-\code{\link{PatchChangeRequests}()},
-\code{\link{PatchManyChangeRequestsStatus}()},
-\code{\link{PutApprovalPolicies}()},
-\code{\link{RetrieveApprovalPolicies}()},
-\code{\link{RetrieveChangeRequestsReviews}()},
-\code{\link{RetrieveChangeRequests}()}
+The method ChangeRequestsList in \link[datarobot.apicore:GovernanceApi]{datarobot.apicore::GovernanceApi}, which invokes the same underlying API endpoint.
 }
-\concept{Governance}

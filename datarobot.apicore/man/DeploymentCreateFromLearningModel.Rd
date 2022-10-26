@@ -32,16 +32,16 @@ DeploymentCreateFromLearningModel Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentCreateFromLearningModel$new()}}
-\item \href{#method-validate}{\code{DeploymentCreateFromLearningModel$validate()}}
-\item \href{#method-toJSON}{\code{DeploymentCreateFromLearningModel$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeploymentCreateFromLearningModel$fromJSON()}}
-\item \href{#method-clone}{\code{DeploymentCreateFromLearningModel$clone()}}
+\item \href{#method-DeploymentCreateFromLearningModel-new}{\code{DeploymentCreateFromLearningModel$new()}}
+\item \href{#method-DeploymentCreateFromLearningModel-validate}{\code{DeploymentCreateFromLearningModel$validate()}}
+\item \href{#method-DeploymentCreateFromLearningModel-toJSON}{\code{DeploymentCreateFromLearningModel$toJSON()}}
+\item \href{#method-DeploymentCreateFromLearningModel-fromJSON}{\code{DeploymentCreateFromLearningModel$fromJSON()}}
+\item \href{#method-DeploymentCreateFromLearningModel-clone}{\code{DeploymentCreateFromLearningModel$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentCreateFromLearningModel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentCreateFromLearningModel-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -83,19 +83,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeploymentCreateFromLearningModel-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentCreateFromLearningModel-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentCreateFromLearningModel$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentCreateFromLearningModel-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentCreateFromLearningModel-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -104,8 +105,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentCreateFromLearningModel-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentCreateFromLearningModel-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -126,8 +127,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentCreateFromLearningModel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentCreateFromLearningModel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

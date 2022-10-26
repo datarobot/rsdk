@@ -10,21 +10,17 @@ RetrieveProjectsOptimizedDatetimePartitionings(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve optimized datetime partitioning configuration
 }
 \details{
-Retrieve optimized datetime partitioning configuration  The optimized datetime partition objects are structurally identical to the original datetime partition objects, however they are retrieved from a mongo database after creation as opposed to being calculated synchronously. The datetime partition object in the response describes the full partitioning parameters.  The available training data corresponds to all the data available for training, while the primary training data corresponds to the data that can be used to train while ensuring that all backtests are available. If a model is trained with more data than is available in the primary training data, then all backtests may not have scores available.  .. note:: All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules <time_format>`.
+Retrieve optimized datetime partitioning configuration  The optimized datetime partition objects are structurally identical to the original datetime partition objects, however they are retrieved from a mongo database after creation as opposed to being calculated synchronously. The datetime partition object in the response describes the full partitioning parameters.  The available training data corresponds to all the data available for training, while the primary training data corresponds to the data that can be used to train while ensuring that all backtests are available. If a model is trained with more data than is available in the primary training data, then all backtests may not have scores available.  Note  All durations and datetimes should be specified in accordance with the \verb{timestamp and duration formatting rules <time_format>}.
+
+This method invokes \verb{GET /projects/\{projectId\}/optimizedDatetimePartitionings/\{datetimePartitioningId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsOptimizedDatetimePartitioningsRetrieve in [datarobot.apicore::DatetimePartitioningApi], which this function wraps.
-
-Other DatetimePartitioning: 
-\code{\link{CreateProjectsDatetimePartitioning}()},
-\code{\link{CreateProjectsOptimizedDatetimePartitionings}()},
-\code{\link{DownloadTimeSeriesFeatureDerivationLog}()},
-\code{\link{GetDatetimePartition}()},
-\code{\link{GetTimeSeriesFeatureDerivationLog}()},
-\code{\link{ListProjectsOptimizedDatetimePartitionings}()}
+The method ProjectsOptimizedDatetimePartitioningsRetrieve in \link[datarobot.apicore:DatetimePartitioningApi]{datarobot.apicore::DatetimePartitioningApi}, which invokes the same underlying API endpoint.
 }
-\concept{DatetimePartitioning}

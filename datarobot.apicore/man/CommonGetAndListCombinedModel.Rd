@@ -15,6 +15,8 @@ CommonGetAndListCombinedModel Class
 \describe{
 \item{\code{combinedModelId}}{character The ID of combined model.}
 
+\item{\code{isActiveCombinedModel}}{character Indicates whether this model is the active one in segmented modeling project.}
+
 \item{\code{modelCategory}}{character Indicates what kind of model this is. Will be ``combined`` for combined models.}
 
 \item{\code{projectId}}{character The ID of the project.}
@@ -26,21 +28,22 @@ CommonGetAndListCombinedModel Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CommonGetAndListCombinedModel$new()}}
-\item \href{#method-validate}{\code{CommonGetAndListCombinedModel$validate()}}
-\item \href{#method-toJSON}{\code{CommonGetAndListCombinedModel$toJSON()}}
-\item \href{#method-fromJSON}{\code{CommonGetAndListCombinedModel$fromJSON()}}
-\item \href{#method-clone}{\code{CommonGetAndListCombinedModel$clone()}}
+\item \href{#method-CommonGetAndListCombinedModel-new}{\code{CommonGetAndListCombinedModel$new()}}
+\item \href{#method-CommonGetAndListCombinedModel-validate}{\code{CommonGetAndListCombinedModel$validate()}}
+\item \href{#method-CommonGetAndListCombinedModel-toJSON}{\code{CommonGetAndListCombinedModel$toJSON()}}
+\item \href{#method-CommonGetAndListCombinedModel-fromJSON}{\code{CommonGetAndListCombinedModel$fromJSON()}}
+\item \href{#method-CommonGetAndListCombinedModel-clone}{\code{CommonGetAndListCombinedModel$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CommonGetAndListCombinedModel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CommonGetAndListCombinedModel-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommonGetAndListCombinedModel$new(
   combinedModelId = NULL,
+  isActiveCombinedModel = NULL,
   modelCategory = NULL,
   projectId = NULL,
   segmentationTaskId = NULL,
@@ -53,6 +56,8 @@ A function used to initialize an instance of this class.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{combinedModelId}}{The ID of combined model.}
+
+\item{\code{isActiveCombinedModel}}{Indicates whether this model is the active one in segmented modeling project.}
 
 \item{\code{modelCategory}}{Indicates what kind of model this is. Will be ``combined`` for combined models.}
 
@@ -68,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CommonGetAndListCombinedModel-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CommonGetAndListCombinedModel-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CommonGetAndListCombinedModel$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CommonGetAndListCombinedModel-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CommonGetAndListCombinedModel-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CommonGetAndListCombinedModel-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CommonGetAndListCombinedModel-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CommonGetAndListCombinedModel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CommonGetAndListCombinedModel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

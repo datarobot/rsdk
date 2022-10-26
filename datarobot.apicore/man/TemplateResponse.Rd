@@ -42,16 +42,16 @@ TemplateResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TemplateResponse$new()}}
-\item \href{#method-validate}{\code{TemplateResponse$validate()}}
-\item \href{#method-toJSON}{\code{TemplateResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{TemplateResponse$fromJSON()}}
-\item \href{#method-clone}{\code{TemplateResponse$clone()}}
+\item \href{#method-TemplateResponse-new}{\code{TemplateResponse$new()}}
+\item \href{#method-TemplateResponse-validate}{\code{TemplateResponse$validate()}}
+\item \href{#method-TemplateResponse-toJSON}{\code{TemplateResponse$toJSON()}}
+\item \href{#method-TemplateResponse-fromJSON}{\code{TemplateResponse$fromJSON()}}
+\item \href{#method-TemplateResponse-clone}{\code{TemplateResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TemplateResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplateResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -106,19 +106,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TemplateResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplateResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TemplateResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TemplateResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplateResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -127,8 +128,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TemplateResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplateResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -146,8 +147,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TemplateResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplateResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

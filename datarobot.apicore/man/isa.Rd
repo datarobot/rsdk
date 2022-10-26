@@ -8,9 +8,6 @@ isa(x, what)
 }
 \arguments{
 \item{x}{a \R object}
-
-\item{what}{a character vector naming classes.  \code{value}
-    can also be \code{NULL}.}
 }
 \description{
 This function is a backport of the \code{\link[base:class]{base::isa()}} function in R 4.x to permit 3.x compatibility.

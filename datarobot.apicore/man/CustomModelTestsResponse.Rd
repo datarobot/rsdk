@@ -56,16 +56,16 @@ CustomModelTestsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomModelTestsResponse$new()}}
-\item \href{#method-validate}{\code{CustomModelTestsResponse$validate()}}
-\item \href{#method-toJSON}{\code{CustomModelTestsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CustomModelTestsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CustomModelTestsResponse$clone()}}
+\item \href{#method-CustomModelTestsResponse-new}{\code{CustomModelTestsResponse$new()}}
+\item \href{#method-CustomModelTestsResponse-validate}{\code{CustomModelTestsResponse$validate()}}
+\item \href{#method-CustomModelTestsResponse-toJSON}{\code{CustomModelTestsResponse$toJSON()}}
+\item \href{#method-CustomModelTestsResponse-fromJSON}{\code{CustomModelTestsResponse$fromJSON()}}
+\item \href{#method-CustomModelTestsResponse-clone}{\code{CustomModelTestsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomModelTestsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelTestsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -133,19 +133,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CustomModelTestsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelTestsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomModelTestsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CustomModelTestsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelTestsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -154,8 +155,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CustomModelTestsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelTestsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -176,8 +177,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomModelTestsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelTestsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

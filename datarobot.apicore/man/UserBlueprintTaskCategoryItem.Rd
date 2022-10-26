@@ -24,16 +24,16 @@ UserBlueprintTaskCategoryItem Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UserBlueprintTaskCategoryItem$new()}}
-\item \href{#method-validate}{\code{UserBlueprintTaskCategoryItem$validate()}}
-\item \href{#method-toJSON}{\code{UserBlueprintTaskCategoryItem$toJSON()}}
-\item \href{#method-fromJSON}{\code{UserBlueprintTaskCategoryItem$fromJSON()}}
-\item \href{#method-clone}{\code{UserBlueprintTaskCategoryItem$clone()}}
+\item \href{#method-UserBlueprintTaskCategoryItem-new}{\code{UserBlueprintTaskCategoryItem$new()}}
+\item \href{#method-UserBlueprintTaskCategoryItem-validate}{\code{UserBlueprintTaskCategoryItem$validate()}}
+\item \href{#method-UserBlueprintTaskCategoryItem-toJSON}{\code{UserBlueprintTaskCategoryItem$toJSON()}}
+\item \href{#method-UserBlueprintTaskCategoryItem-fromJSON}{\code{UserBlueprintTaskCategoryItem$fromJSON()}}
+\item \href{#method-UserBlueprintTaskCategoryItem-clone}{\code{UserBlueprintTaskCategoryItem$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UserBlueprintTaskCategoryItem-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintTaskCategoryItem-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UserBlueprintTaskCategoryItem-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintTaskCategoryItem-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserBlueprintTaskCategoryItem$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UserBlueprintTaskCategoryItem-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintTaskCategoryItem-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UserBlueprintTaskCategoryItem-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintTaskCategoryItem-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UserBlueprintTaskCategoryItem-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UserBlueprintTaskCategoryItem-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

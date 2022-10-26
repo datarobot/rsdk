@@ -30,16 +30,16 @@ DerivedFeatures Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DerivedFeatures$new()}}
-\item \href{#method-validate}{\code{DerivedFeatures$validate()}}
-\item \href{#method-toJSON}{\code{DerivedFeatures$toJSON()}}
-\item \href{#method-fromJSON}{\code{DerivedFeatures$fromJSON()}}
-\item \href{#method-clone}{\code{DerivedFeatures$clone()}}
+\item \href{#method-DerivedFeatures-new}{\code{DerivedFeatures$new()}}
+\item \href{#method-DerivedFeatures-validate}{\code{DerivedFeatures$validate()}}
+\item \href{#method-DerivedFeatures-toJSON}{\code{DerivedFeatures$toJSON()}}
+\item \href{#method-DerivedFeatures-fromJSON}{\code{DerivedFeatures$fromJSON()}}
+\item \href{#method-DerivedFeatures-clone}{\code{DerivedFeatures$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DerivedFeatures-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DerivedFeatures-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DerivedFeatures-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DerivedFeatures-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DerivedFeatures$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DerivedFeatures-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DerivedFeatures-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DerivedFeatures-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DerivedFeatures-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -118,8 +119,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DerivedFeatures-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DerivedFeatures-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

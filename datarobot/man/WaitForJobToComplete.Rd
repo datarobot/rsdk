@@ -7,6 +7,10 @@
 WaitForJobToComplete(project, jobId, maxWait = 600)
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{jobId}{integer identifier (returned for example by RequestPrimeModel)}
 
 \item{maxWait}{maximum time to wait (in seconds) for the job to complete}

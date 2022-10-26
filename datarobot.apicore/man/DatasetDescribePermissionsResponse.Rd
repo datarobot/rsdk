@@ -64,16 +64,16 @@ DatasetDescribePermissionsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetDescribePermissionsResponse$new()}}
-\item \href{#method-validate}{\code{DatasetDescribePermissionsResponse$validate()}}
-\item \href{#method-toJSON}{\code{DatasetDescribePermissionsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetDescribePermissionsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetDescribePermissionsResponse$clone()}}
+\item \href{#method-DatasetDescribePermissionsResponse-new}{\code{DatasetDescribePermissionsResponse$new()}}
+\item \href{#method-DatasetDescribePermissionsResponse-validate}{\code{DatasetDescribePermissionsResponse$validate()}}
+\item \href{#method-DatasetDescribePermissionsResponse-toJSON}{\code{DatasetDescribePermissionsResponse$toJSON()}}
+\item \href{#method-DatasetDescribePermissionsResponse-fromJSON}{\code{DatasetDescribePermissionsResponse$fromJSON()}}
+\item \href{#method-DatasetDescribePermissionsResponse-clone}{\code{DatasetDescribePermissionsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetDescribePermissionsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetDescribePermissionsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -163,19 +163,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetDescribePermissionsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetDescribePermissionsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetDescribePermissionsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetDescribePermissionsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetDescribePermissionsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -184,8 +185,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetDescribePermissionsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetDescribePermissionsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -206,8 +207,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetDescribePermissionsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetDescribePermissionsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

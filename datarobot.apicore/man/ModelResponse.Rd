@@ -21,6 +21,8 @@ ModelResponse Class
 
 \item{\code{id}}{character ID of the current model.}
 
+\item{\code{isDeprecated}}{character Whether the current model is deprecated model. eg. python2 based model.}
+
 \item{\code{name}}{character Name of the model.}
 
 \item{\code{projectId}}{character Project ID of the current model.}
@@ -32,16 +34,16 @@ ModelResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelResponse$new()}}
-\item \href{#method-validate}{\code{ModelResponse$validate()}}
-\item \href{#method-toJSON}{\code{ModelResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ModelResponse$clone()}}
+\item \href{#method-ModelResponse-new}{\code{ModelResponse$new()}}
+\item \href{#method-ModelResponse-validate}{\code{ModelResponse$validate()}}
+\item \href{#method-ModelResponse-toJSON}{\code{ModelResponse$toJSON()}}
+\item \href{#method-ModelResponse-fromJSON}{\code{ModelResponse$fromJSON()}}
+\item \href{#method-ModelResponse-clone}{\code{ModelResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -50,6 +52,7 @@ A function used to initialize an instance of this class.
   description = NULL,
   executionType = NULL,
   id = NULL,
+  isDeprecated = NULL,
   name = NULL,
   projectId = NULL,
   projectName = NULL,
@@ -69,6 +72,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{id}}{ID of the current model.}
 
+\item{\code{isDeprecated}}{Whether the current model is deprecated model. eg. python2 based model.}
+
 \item{\code{name}}{Name of the model.}
 
 \item{\code{projectId}}{Project ID of the current model.}
@@ -83,19 +88,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -104,8 +110,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -123,8 +129,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

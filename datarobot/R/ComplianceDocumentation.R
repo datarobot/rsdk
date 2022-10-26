@@ -30,15 +30,16 @@ GetComplianceDocumentationBody <- function(templateId = NULL) {
 #'   to \code{WaitForJobToComplete}.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   jobId <- CreateComplianceDocumentation(model) # optional step
-#'   WaitForJobToComplete(projectId, jobId)        # optional step
-#'   DownloadComplianceDocumentation(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' jobId <- CreateComplianceDocumentation(model) # optional step
+#' WaitForJobToComplete(projectId, jobId) # optional step
+#' DownloadComplianceDocumentation(model)
 #' }
 #' @export
 CreateComplianceDocumentation <- function(model, templateId = NULL) {
+  Deprecated(message = "CreateComplianceDocumentation (use CreateAutomatedDocuments instead)", deprecatedInVersion = "2.18", removedInVersion = "2.29")
   model <- ValidateAndReturnModel(model)
   projectId <- model$projectId
   modelId <- model$modelId
@@ -67,14 +68,15 @@ CreateComplianceDocumentation <- function(model, templateId = NULL) {
 #' @return Nothing returned, but downloads the file to the stated filename.
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   modelId <- "5996f820af07fc605e81ead4"
-#'   model <- GetModel(projectId, modelId)
-#'   DownloadComplianceDocumentation(model)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' DownloadComplianceDocumentation(model)
 #' }
 #' @export
 DownloadComplianceDocumentation <- function(model, filename, templateId = NULL,
                                             create = TRUE, maxWait = 600) {
+  Deprecated(message = "DownloadComplianceDocumentation (use RetrieveAutomatedDocuments instead)", deprecatedInVersion = "2.18", removedInVersion = "2.29")
   model <- ValidateAndReturnModel(model)
   projectId <- model$projectId
   modelId <- model$modelId
@@ -111,7 +113,8 @@ as.dataRobotComplianceDocTemplate <- function(template) {
 }
 
 
-#' Get a compliance doc template.
+#' @name GetComplianceDocTemplate
+#' @details Get a compliance doc template.
 #'
 #' A custom compliance doc template can be retrieved using \code{templateId}. Default compliance
 #' doc templates that are built-in to DataRobot can be retrieved by using the \code{type}
@@ -132,13 +135,14 @@ as.dataRobotComplianceDocTemplate <- function(template) {
 #'  }
 #' @examples
 #' \dontrun{
-#'   GetComplianceDocTemplate()  # get the default template
-#'   GetComplianceDocTemplate(type = "normal")  # get the default template
-#'   GetComplianceDocTemplate(type = "timeSeries")  # get the default time series template
-#'   templateId <- "5cf85080d9436e5c310c796d"
-#'   GetComplianceDocTemplate(templateId) # Get a custom template for a specific ID.
+#' GetComplianceDocTemplate() # get the default template
+#' GetComplianceDocTemplate(type = "normal") # get the default template
+#' GetComplianceDocTemplate(type = "timeSeries") # get the default time series template
+#' templateId <- "5cf85080d9436e5c310c796d"
+#' GetComplianceDocTemplate(templateId) # Get a custom template for a specific ID.
 #' }
 #' @export
+#' @include documentation_apiWrapper.R
 GetComplianceDocTemplate <- function(templateId = NULL, type = NULL) {
   if (is(templateId, "dataRobotComplianceDocTemplate")) {
     templateId <- templateId$id
@@ -160,13 +164,13 @@ GetComplianceDocTemplate <- function(templateId = NULL, type = NULL) {
 #' @return Nothing returned, but downloads the file to the stated filename.
 #' @examples
 #' \dontrun{
-#'   DownloadComplianceDocTemplate("template.json")  # download the default template
-#'   # download the default template
-#'   DownloadComplianceDocTemplate("template.json", type = "normal")
-#'   # download the default time series template
-#'   DownloadComplianceDocTemplate("template.json" type = "timeSeries")
-#'   templateId <- "5cf85080d9436e5c310c796d"
-#'   DownloadComplianceDocTemplate(templateId) # Download a custom template for a specific ID.
+#' DownloadComplianceDocTemplate("template.json") # download the default template
+#' # download the default template
+#' DownloadComplianceDocTemplate("template.json", type = "normal")
+#' # download the default time series template
+#' DownloadComplianceDocTemplate("template.json", type = "timeSeries")
+#' templateId <- "5cf85080d9436e5c310c796d"
+#' DownloadComplianceDocTemplate(templateId) # Download a custom template for a specific ID.
 #' }
 #' @export
 DownloadComplianceDocTemplate <- function(filename = "template.json", templateId = NULL,
@@ -179,3 +183,84 @@ DownloadComplianceDocTemplate <- function(filename = "template.json", templateId
   DataRobotGET(routeString, query = query, as = "file", filename = filename)
   invisible(NULL)
 }
+
+#' @name UploadComplianceDocTemplate
+#'
+#' @details The structure of the compliance doc template can be specified by either a file specified by
+#' \code{filename} or by specifying it with a list via \code{sections}.
+#'
+#' @param name character. A name to identify the compliance doc template by.
+#' @param filename character. Optional. Filename of file to save the compliance doc template to.
+#' @param sections list. Optional. Section definitions for the compliance template.
+#' @return Nothing returned, but uploads the compliance doc template.
+#' @examples
+#' \dontrun{
+#' ## Create a compliance documentation template from uploading a file
+#' DownloadComplianceDocTemplate("template.json")
+#' # Edit template.json in your favorite editor
+#' UploadComplianceDocTemplate("myTemplate", "template.json")
+#'
+#' ## Create a compliance documentation template from a list.
+#' sections <- list(
+#'   list(
+#'     "title" = "Missing Values Report",
+#'     "highlightedText" = "NOTICE",
+#'     "regularText" = paste(
+#'       "This dataset had a lot of Missing Values.",
+#'       "See the chart below: {{missingValues}}"
+#'     ),
+#'     "type" = "user"
+#'   ),
+#'   list(
+#'     "title" = "Blueprints",
+#'     "regularText" = "{{blueprintDiagram}} /n Blueprint for this model",
+#'     "type" = "user"
+#'   )
+#' )
+#' }
+#' @export
+#' @include documentation_apiWrapper.R
+UploadComplianceDocTemplate
+
+#' @name ListComplianceDocTemplates
+#' @details Retrieve information about all compliance doc templates.
+#'
+#' @param namePart character. Return only compliance doc templates that have a name that contains
+#'   this string.
+#' @param limit integer. Return only this many compliance doc templates.
+#' @param offset integer. Skip this many compliance doc templates before returning.
+#' @return list of available compliance doc templates. Contains:
+#'  \itemize{
+#'    \item name character. The name of the compliance doc template.
+#'    \item creatorUsername character. The name of the user who created the compliance doc template.
+#'    \item orgId character. The ID of the organization of the creator user.
+#'    \item creatorId character. The ID of the creator user.
+#'    \item sections list. The list of sections that define the template.
+#'    \item id character. The ID of the template.
+#'  }
+#' @examples
+#' \dontrun{
+#' # Get all compliance doc templates
+#' ListComplianceDocTemplates()
+#' # Get the first three compliance doc templates with names that contain "foo".
+#' ListComplianceDocTemplates(namePart = "foo", limit = 3)
+#' }
+#' @export
+#' @include documentation_apiWrapper.R
+ListComplianceDocTemplates
+
+#' @name DeleteComplianceDocTemplate
+#' @details Deletes a compliance doc template.
+#'
+#' Note that default templates cannot be deleted.
+#'
+#' @inheritParams UpdateComplianceDocTemplate
+#' @return Nothing returned, but deletes the compliance doc template.
+#' @examples
+#' \dontrun{
+#' templateId <- "5cf85080d9436e5c310c796d"
+#' DeleteComplianceDocTemplate(templateId)
+#' }
+#' @export
+#' @include documentation_apiWrapper.R
+DeleteComplianceDocTemplate

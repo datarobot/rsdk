@@ -18,7 +18,7 @@ datarobot.apicore.SsoConfiguration
 
 \dontrun{
 library(datarobot.apicore)
-createSsoConfiguration <- CreateSsoConfiguration$new() # CreateSsoConfiguration |
+createSsoConfiguration <- CreateSsoConfiguration$new() # CreateSsoConfiguration | 
 
 api.instance <- SsoConfigurationApi$new()
 result <- api.instance$SsoConfigurationsCreate(createSsoConfiguration=createSsoConfiguration)
@@ -45,7 +45,7 @@ result <- api.instance$SsoConfigurationsList(offset=offset, limit=limit, orgId=o
 \dontrun{
 library(datarobot.apicore)
 configurationId <- 'configurationId_example' # character | The ID of the organization to retrieve SSO config for.
-updateSsoConfiguration <- UpdateSsoConfiguration$new() # UpdateSsoConfiguration |
+updateSsoConfiguration <- UpdateSsoConfiguration$new() # UpdateSsoConfiguration | 
 
 api.instance <- SsoConfigurationApi$new()
 result <- api.instance$SsoConfigurationsPatch(configurationId, updateSsoConfiguration=updateSsoConfiguration)
@@ -73,17 +73,17 @@ result <- api.instance$SsoConfigurationsRetrieve(configurationId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SsoConfigurationApi$new()}}
-\item \href{#method-SsoConfigurationsCreate}{\code{SsoConfigurationApi$SsoConfigurationsCreate()}}
-\item \href{#method-SsoConfigurationsList}{\code{SsoConfigurationApi$SsoConfigurationsList()}}
-\item \href{#method-SsoConfigurationsPatch}{\code{SsoConfigurationApi$SsoConfigurationsPatch()}}
-\item \href{#method-SsoConfigurationsRetrieve}{\code{SsoConfigurationApi$SsoConfigurationsRetrieve()}}
-\item \href{#method-clone}{\code{SsoConfigurationApi$clone()}}
+\item \href{#method-SsoConfigurationApi-new}{\code{SsoConfigurationApi$new()}}
+\item \href{#method-SsoConfigurationApi-SsoConfigurationsCreate}{\code{SsoConfigurationApi$SsoConfigurationsCreate()}}
+\item \href{#method-SsoConfigurationApi-SsoConfigurationsList}{\code{SsoConfigurationApi$SsoConfigurationsList()}}
+\item \href{#method-SsoConfigurationApi-SsoConfigurationsPatch}{\code{SsoConfigurationApi$SsoConfigurationsPatch()}}
+\item \href{#method-SsoConfigurationApi-SsoConfigurationsRetrieve}{\code{SsoConfigurationApi$SsoConfigurationsRetrieve()}}
+\item \href{#method-SsoConfigurationApi-clone}{\code{SsoConfigurationApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SsoConfigurationApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -98,8 +98,8 @@ result <- api.instance$SsoConfigurationsRetrieve(configurationId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SsoConfigurationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-SsoConfigurationsCreate}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-SsoConfigurationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-SsoConfigurationsCreate}{}}}
 \subsection{Method \code{SsoConfigurationsCreate()}}{
 Create an SSO configuration for a specific organization
 Produces: "application/json"
@@ -120,6 +120,9 @@ Produces: "application/json"
 Create an SSO configuration for a specific organization
 
 
+This method invokes \verb{POST /ssoConfigurations/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Configuration created successfully
@@ -135,7 +138,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-createSsoConfiguration <- CreateSsoConfiguration$new() # CreateSsoConfiguration |
+createSsoConfiguration <- CreateSsoConfiguration$new() # CreateSsoConfiguration | 
 
 api.instance <- SsoConfigurationApi$new()
 result <- api.instance$SsoConfigurationsCreate(createSsoConfiguration=createSsoConfiguration)
@@ -147,8 +150,8 @@ result <- api.instance$SsoConfigurationsCreate(createSsoConfiguration=createSsoC
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SsoConfigurationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-SsoConfigurationsList}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-SsoConfigurationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-SsoConfigurationsList}{}}}
 \subsection{Method \code{SsoConfigurationsList()}}{
 List sso configurations.
 Produces: "application/json"
@@ -176,6 +179,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the sso configurations that correspond to provided conditions.
+
+
+This method invokes \verb{GET /ssoConfigurations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -207,8 +213,8 @@ result <- api.instance$SsoConfigurationsList(offset=offset, limit=limit, orgId=o
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SsoConfigurationsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-SsoConfigurationsPatch}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-SsoConfigurationsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-SsoConfigurationsPatch}{}}}
 \subsection{Method \code{SsoConfigurationsPatch()}}{
 Update an SSO configuration for a specific organization.
 Produces: NA
@@ -235,6 +241,9 @@ Produces: NA
 Update an SSO configuration for a specific organization.
 
 
+This method invokes \verb{PATCH /ssoConfigurations/\{configurationId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -248,7 +257,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 configurationId <- 'configurationId_example' # character | The ID of the organization to retrieve SSO config for.
-updateSsoConfiguration <- UpdateSsoConfiguration$new() # UpdateSsoConfiguration |
+updateSsoConfiguration <- UpdateSsoConfiguration$new() # UpdateSsoConfiguration | 
 
 api.instance <- SsoConfigurationApi$new()
 result <- api.instance$SsoConfigurationsPatch(configurationId, updateSsoConfiguration=updateSsoConfiguration)
@@ -260,8 +269,8 @@ result <- api.instance$SsoConfigurationsPatch(configurationId, updateSsoConfigur
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SsoConfigurationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-SsoConfigurationsRetrieve}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-SsoConfigurationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-SsoConfigurationsRetrieve}{}}}
 \subsection{Method \code{SsoConfigurationsRetrieve()}}{
 Retrieve SSO configuration of a specific organization.
 Produces: "application/json"
@@ -280,6 +289,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve SSO configuration of a specific organization.
+
+
+This method invokes \verb{GET /ssoConfigurations/\{configurationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -309,8 +321,8 @@ result <- api.instance$SsoConfigurationsRetrieve(configurationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SsoConfigurationApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SsoConfigurationApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

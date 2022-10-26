@@ -13,35 +13,17 @@ ListApplicationsAccessControl(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 A list of users with access to this application
 }
 \details{
 A list of users who have access to this application and their roles
+
+This method invokes \verb{GET /applications/\{applicationId\}/accessControl/} in the DataRobot Public API.
 }
 \seealso{
-The method ApplicationsAccessControlList in [datarobot.apicore::ApplicationsApi], which this function wraps.
-
-Other Applications: 
-\code{\link{CreateApplicationsBuildJobs}()},
-\code{\link{CreateApplicationsDeployments}()},
-\code{\link{CreateApplicationsDuplicate}()},
-\code{\link{CreateApplications}()},
-\code{\link{CreateDemoApplications}()},
-\code{\link{DeleteApplicationsDeployments}()},
-\code{\link{DeleteApplications}()},
-\code{\link{ListApplicationTypesUsecases}()},
-\code{\link{ListApplicationTypes}()},
-\code{\link{ListApplicationsSharedRoles}()},
-\code{\link{ListApplications}()},
-\code{\link{PatchApplications}()},
-\code{\link{PatchManyApplicationsAccessControl}()},
-\code{\link{PatchManyApplicationsAuthToken}()},
-\code{\link{PatchManyApplicationsDeploymentState}()},
-\code{\link{PatchManyApplicationsSharedRoles}()},
-\code{\link{PatchManyApplicationsVersion}()},
-\code{\link{RetrieveApplicationTypes}()},
-\code{\link{RetrieveApplicationUserRole}()},
-\code{\link{RetrieveApplications}()}
+The method ApplicationsAccessControlList in \link[datarobot.apicore:ApplicationsApi]{datarobot.apicore::ApplicationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Applications}

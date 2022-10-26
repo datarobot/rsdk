@@ -28,16 +28,16 @@ DuplicateImageTableResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DuplicateImageTableResponse$new()}}
-\item \href{#method-validate}{\code{DuplicateImageTableResponse$validate()}}
-\item \href{#method-toJSON}{\code{DuplicateImageTableResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DuplicateImageTableResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DuplicateImageTableResponse$clone()}}
+\item \href{#method-DuplicateImageTableResponse-new}{\code{DuplicateImageTableResponse$new()}}
+\item \href{#method-DuplicateImageTableResponse-validate}{\code{DuplicateImageTableResponse$validate()}}
+\item \href{#method-DuplicateImageTableResponse-toJSON}{\code{DuplicateImageTableResponse$toJSON()}}
+\item \href{#method-DuplicateImageTableResponse-fromJSON}{\code{DuplicateImageTableResponse$fromJSON()}}
+\item \href{#method-DuplicateImageTableResponse-clone}{\code{DuplicateImageTableResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DuplicateImageTableResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageTableResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DuplicateImageTableResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageTableResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DuplicateImageTableResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DuplicateImageTableResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageTableResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DuplicateImageTableResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageTableResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DuplicateImageTableResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DuplicateImageTableResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

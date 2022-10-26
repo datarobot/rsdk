@@ -24,16 +24,16 @@ SegmentationTaskMetadataResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SegmentationTaskMetadataResponse$new()}}
-\item \href{#method-validate}{\code{SegmentationTaskMetadataResponse$validate()}}
-\item \href{#method-toJSON}{\code{SegmentationTaskMetadataResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{SegmentationTaskMetadataResponse$fromJSON()}}
-\item \href{#method-clone}{\code{SegmentationTaskMetadataResponse$clone()}}
+\item \href{#method-SegmentationTaskMetadataResponse-new}{\code{SegmentationTaskMetadataResponse$new()}}
+\item \href{#method-SegmentationTaskMetadataResponse-validate}{\code{SegmentationTaskMetadataResponse$validate()}}
+\item \href{#method-SegmentationTaskMetadataResponse-toJSON}{\code{SegmentationTaskMetadataResponse$toJSON()}}
+\item \href{#method-SegmentationTaskMetadataResponse-fromJSON}{\code{SegmentationTaskMetadataResponse$fromJSON()}}
+\item \href{#method-SegmentationTaskMetadataResponse-clone}{\code{SegmentationTaskMetadataResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SegmentationTaskMetadataResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentationTaskMetadataResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SegmentationTaskMetadataResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentationTaskMetadataResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SegmentationTaskMetadataResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SegmentationTaskMetadataResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentationTaskMetadataResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SegmentationTaskMetadataResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentationTaskMetadataResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SegmentationTaskMetadataResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SegmentationTaskMetadataResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -81,7 +81,7 @@ result <- api.instance$EventLogsRetrieve(recordId, includeIdentifyingFields=incl
 
 \dontrun{
 library(datarobot.apicore)
-usageDataExport <- UsageDataExport$new() # UsageDataExport |
+usageDataExport <- UsageDataExport$new() # UsageDataExport | 
 
 api.instance <- AnalyticsApi$new()
 result <- api.instance$UsageDataExportsCreate(usageDataExport=usageDataExport)
@@ -157,23 +157,23 @@ result <- api.instance$UsersRateLimitUsageList(userId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AnalyticsApi$new()}}
-\item \href{#method-EventLogsEventsList}{\code{AnalyticsApi$EventLogsEventsList()}}
-\item \href{#method-EventLogsList}{\code{AnalyticsApi$EventLogsList()}}
-\item \href{#method-EventLogsPredictionUsageList}{\code{AnalyticsApi$EventLogsPredictionUsageList()}}
-\item \href{#method-EventLogsRetrieve}{\code{AnalyticsApi$EventLogsRetrieve()}}
-\item \href{#method-UsageDataExportsCreate}{\code{AnalyticsApi$UsageDataExportsCreate()}}
-\item \href{#method-UsageDataExportsRetrieve}{\code{AnalyticsApi$UsageDataExportsRetrieve()}}
-\item \href{#method-UsageDataExportsSupportedEventsList}{\code{AnalyticsApi$UsageDataExportsSupportedEventsList()}}
-\item \href{#method-UsersRateLimitUsageDelete}{\code{AnalyticsApi$UsersRateLimitUsageDelete()}}
-\item \href{#method-UsersRateLimitUsageDeleteMany}{\code{AnalyticsApi$UsersRateLimitUsageDeleteMany()}}
-\item \href{#method-UsersRateLimitUsageList}{\code{AnalyticsApi$UsersRateLimitUsageList()}}
-\item \href{#method-clone}{\code{AnalyticsApi$clone()}}
+\item \href{#method-AnalyticsApi-new}{\code{AnalyticsApi$new()}}
+\item \href{#method-AnalyticsApi-EventLogsEventsList}{\code{AnalyticsApi$EventLogsEventsList()}}
+\item \href{#method-AnalyticsApi-EventLogsList}{\code{AnalyticsApi$EventLogsList()}}
+\item \href{#method-AnalyticsApi-EventLogsPredictionUsageList}{\code{AnalyticsApi$EventLogsPredictionUsageList()}}
+\item \href{#method-AnalyticsApi-EventLogsRetrieve}{\code{AnalyticsApi$EventLogsRetrieve()}}
+\item \href{#method-AnalyticsApi-UsageDataExportsCreate}{\code{AnalyticsApi$UsageDataExportsCreate()}}
+\item \href{#method-AnalyticsApi-UsageDataExportsRetrieve}{\code{AnalyticsApi$UsageDataExportsRetrieve()}}
+\item \href{#method-AnalyticsApi-UsageDataExportsSupportedEventsList}{\code{AnalyticsApi$UsageDataExportsSupportedEventsList()}}
+\item \href{#method-AnalyticsApi-UsersRateLimitUsageDelete}{\code{AnalyticsApi$UsersRateLimitUsageDelete()}}
+\item \href{#method-AnalyticsApi-UsersRateLimitUsageDeleteMany}{\code{AnalyticsApi$UsersRateLimitUsageDeleteMany()}}
+\item \href{#method-AnalyticsApi-UsersRateLimitUsageList}{\code{AnalyticsApi$UsersRateLimitUsageList()}}
+\item \href{#method-AnalyticsApi-clone}{\code{AnalyticsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AnalyticsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -188,8 +188,8 @@ result <- api.instance$UsersRateLimitUsageList(userId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-EventLogsEventsList"></a>}}
-\if{latex}{\out{\hypertarget{method-EventLogsEventsList}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-EventLogsEventsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-EventLogsEventsList}{}}}
 \subsection{Method \code{EventLogsEventsList()}}{
 Retrieve all the available events. DEPRECATED API.
 Produces: "application/json"
@@ -206,6 +206,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve all the available events. DEPRECATED API.
+
+
+This method invokes \verb{GET /eventLogs/events/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -234,8 +237,8 @@ result <- api.instance$EventLogsEventsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-EventLogsList"></a>}}
-\if{latex}{\out{\hypertarget{method-EventLogsList}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-EventLogsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-EventLogsList}{}}}
 \subsection{Method \code{EventLogsList()}}{
 Retrieve one page of audit log records.
 Produces: "application/json"
@@ -264,9 +267,9 @@ Produces: "application/json"
 
 \item{\code{orgId}}{character. The organization to select log records for.}
 
-\item{\code{event}}{Enum < [Recipe Access Revoked from User, Dataset Name Modified, Automated Document Created, Clustering Cluster Names Updated, Download Model Package, Dataset Created, Deployment Deleted, Update account, Group created, Project Access Revoked from the User, Restart Autopilot, Compliance Doc Downloaded, Invitation sent, Dataset Deleted, Dataset Column Aliases Modified, Non Existent Use Case Attachment Removed, Start Autopilot, Custom inference model updated, Successful Login using OIDC token exchange, Dataset Shared, API Key Created, Models Starred, Delete SAML configuration, Dataset refresh job updated, Custom model item added, Detected Data Quality: Leading or Trailing Series, Pipeline downsampling build and run started., Data Source is created, CCM Cluster Terminated, Train Model, Retraining Policy Cancelled, Compliance Doc Previewed, Workspace Name Modified, Access request created, Users Perma-Deletion Preview Building Submitted, Dataset Download, Dataset Upload is Completed, Credential Deleted, Deployment Humility Setting Updated, Compute Cluster Added, Credential Created, Workspace Modified, Dataset relationship created, Multilabel Labelwise ROC With Missing TPR Or FPR Requested, Workspace Registered In AI Catalog, Recipe Shared, Geospatial Feature Transform Created, Project Shared, Segment Analysis Used, Bias And Fairness Cross Class Calculated, Users Perma-Deletion Preview Building Canceling, Automated Document Downloaded, Recipe Access Revoked from Organization, Project Permadelete Submitted, Notification channel updated, Dataset Tags Modified, Approval Workflow Policy Action, Dataset Reloaded, Workspace scheduled batch processing job created, Automated Document Deleted, Organization deleted, Available Forecast Points Computation Job Started, Dataset featurelist updated, aiAPI Portal Login, Automated Document Requested, Job definition updated, ADLS OAuth User Login Succeeded, Global SAML Configuration Deleted, Batch prediction job completed, Download Predictions, Approval Workflow Policy Updated, Rate limit user group changed, Decision Flow Version Deleted, Dataset featurelist deleted, Feature Over Geo Computed, Use Case Stage Changed, Data Sources Permadelete Executed, Dataset Materialized, User Agreement Accepted, Dataset refresh job created, Change Request Review Added, Challenger Model Deleted, Model Deployment Shared, Download Chart, Project Autopilot Configured, Compliance Doc Deleted, PredictionIntegrationJob Created, Custom RBAC Access Role Deleted, Child Entity Associated With Workspace In AI Catalog, Global SAML Configuration Added, Deployment Permanently Erased, Workspace Scheduled Batch Run Failed, Comment Created, SHAP Impact Computed, Retraining Policy Succeeded, Users Perma-Deletion Canceled, Created dataset version from Data Engine workspace, Segment Analysis Enabled, Custom Model Conversion Failed, Custom task added, Deploy Model To Hadoop, Users Perma-Deletion Preview Building Canceled, Data engine workspace created, User Blueprints Listed, Automated Application Shared with Organization, Deployment Humility Rule Submitted, Data engine workspace updated, Feature Discovery Relationship Quality Assessment Warnings Metrics, Approve account, Custom inference model added, Change Request Reopened, Organization Perma-Deletion Started, Workspace Scheduled Batch Run Succeeded, Project Permadelete Failed, Login Successful, Geospatial Primary Location Column Selected, Decision Flow Created, Download Model Package From Deployment, Online Conformal PI Calculation Requested, Data Connection Updated, Datasets Permadelete Submitted, Dataset Version Deleted, Multi-Factor Auth Disable, Detected Data Quality: New Series in Recent Data, Custom task updated, Datasets Permadelete Executed, Custom Task Prediction Made, User Blueprint Tasks Retrieved, Dataset relationship updated, Interaction Feature Deployment Created, Dataset Description Modified, Dataset featurelist created, Segment Attributes Specified, Prime Downloaded, Automated Application Duplicated, Detected Data Quality: Lagged Features, Batch prediction job created, Custom Task Deploy, Create account, Automated Document Previewed, Automodel Deployment Manually Replaced, Group deleted, Custom RBAC Access Role Created, Project Shared with Organization, Deployment Statistics Reset, Notification channel deleted, Add Model, Unsupervised Mode Started, Data Connection Tested, Deployment Humility Rule Deleted, Predictions by Forecast Date Settings Updated, Add New Dataset For Predictions, ADLS OAuth Token Renewal Succeeded, Data Stores Permadelete Submitted, CCM Cluster Created, Batch prediction job aborted, Number of bias mitigation jobs on Autopilot stage., Recipe Shared with Group, Project Created from Dataset, Custom RBAC Access Role Updated, SHAP Predictions Explanations Computed, Successful Decision Flow Test, Dataset transform created, Users Perma-Deletion Completed, Data engine workspace state previewed, Data Stores Permadelete Executed, ADLS OAuth User Login Started, User Blueprint Name Modified, Deployment Humility Rule Added, Comment Deleted, General Feedback Submitted, Data engine workspace deleted, Decision Flow Model Package Created, Organizations Perma-Deletion Requested, Feature Discovery Relationship Quality Assessment Inputs Metrics, Detected Data Quality: Target Leakage, Update SAML configuration, Change Request Resolved, Reset API Token For User, Deployment Deactivated, PredictionIntegrationJob Deleted, Select Model Metric, Dataset Sharing Removed, Detected Data Quality: Outliers, Geometry Over Geo Computed, Detected Data Quality: Inconsistent Gaps, Approval Workflow Policy Deleted, Project Description Updated, Automodel Deployment Created, Download Codegen From Deployment, Batch prediction job started, Automated Application Deleted, User Blueprint Added To Repository, Deployment prediction warning setting updated, Bias And Fairness Per Class Calculated, Target is set as Do-Not-Derive, Notification channel created, SHAP Matrix Computed, Project Restored, Failed Decision Flow Test, Dataset Upload, First Login After DR Account Migration, Job definition created, Users Perma-Deletion Submitted, Retraining Policy Failed, Project Access Revoked from the Organization, Base Image Built, API Key Deleted, Custom Model Conversion Succeeded, Challenger Models Disabled, Notification policy created, Add SAML configuration, Request External Insights, Notification policy deleted, Abort Autopilot, Organization Perma-Deletion Marked, Empty Catalog Item Created, Data Stores Permadelete Failed, Custom Model Conversion Files Uploaded, Use Case Attachment Removed, Default value for Do-Not-Derive is changed, Recipe Access Revoked from Group, Logout, Batch prediction job failed, Detected Data Quality: Inliers, Project Exported as Project Export File, PredictionIntegrationJob Updated, Data Connection Deleted, Compute External Insights, Organization Perma-Deletion Failed, Restore Reduced Features, Decision Flow Test Downloaded, FEAR Predict Job Started, Automated Demo Application Created, Decision Flow Version Created, Actuals Uploaded, Change password, CCM CLUSTER Reprovisioned, Detected Data Quality: Missing Images, User Append Columns Download With Predictions, User Provisioned From JWT, Project Shared with Group, Deny account, Data engine query generator created, Group Members Updated, Project Renamed, Workspace Scheduled Batch Run Started, Workspace Description Modified, Workspace Tags Modified, PredictionIntegrationJob Completed, Managed Image Built, Data Store Config Request Submitted, PredictionIntegrationJob Failed, Automated Application Shared with Group, Bias And Fairness Insights Calculated, Compliance Doc Generated, Calculation of prediction intervals is requested, Detected Data Quality: Target had infrequent negative values, Users Perma-Deletion Failed, Organization created, Batch Prediction Created from Dataset, Bulk Datasets Deleted, Custom Task Fit, Organization Perma-Deletion Completed, Data engine query generator deleted, Project Created, Bias and Fairness protected features specified., Automated Application Access Revoked from the User, Successful Login using OIDC flow, Pipeline downsampling run failed to start., User Blueprint Tags Modified, Use Case Updated, Do-Not-Derive is used, Compute Cluster Updated, User Blueprint Deleted, Activate account, Users Perma-Deletion Preview Building Completed, Compute Reason Codes, App Config Changed, Detected Data Quality: Excess Zero, Group updated, Detected Data Quality: Multicategorical Invalid Format, Data Connection Created, Use Case Created, Retraining Policy Started, Detected Data Quality: Disguised Missing Values, Completed Feature Discovery for Primary Dataset, Users Perma-Deletion Preview Building Started, Challenger Insight Generation Started, Use Case Attachment Added, Deployment Humility Rule Updated, Download Deployment Chart, Datasets Permadelete Failed, Deployment Added, Text prediction explanations computed, ADLS OAuth Token Obtained, Bias and Fairness monitoring settings updated., Deployment Activated, Bulk Datasets Tags Appended, Multi-Factor Auth Enable, SHAP Predictions Explanations Preview Computed, Invitation Accepted, Created dataset from Data Engine workspace, User Blueprint Description Modified, Prime Run, Finish Autopilot, Recipe Shared with Organization, Organization Perma-Deletion Requested, Change Request Created, Download Codegen, Approval Workflow Policy Created, Dataset for predictions with actual value column processed, Automated Application Created, Successful Login via Google Idp, No predictors are left because of Do-Not-Derive, Retraining Policy Created, Users Perma-Deletion Preview Building Failed, Advanced Tuning Requested, Users Perma-Deletion Canceling, User Blueprint Validated, Detected Data Quality: Quantile Target Sparsity, Notification policy updated, API Key Updated, Dataset Version Undeleted, Project Deleted, Download Model, Challenger Model Promoted, Automated Application Domain Prefix Changed, Custom task version added, Workspace scheduled batch processing job updated, Workspace scheduled batch processing job deleted, External Predictions Configured, Automated Application Shared, PPS Docker Image Download Request Received, Automated Application Access Revoked from the Group, Interaction Feature Created, Dataset Categories Modified, Dataset Undeleted, ADLS OAuth Failed, Documentation Request, User Agreement Declined, Credential Updated, Project Permadelete Executed, Challenger Model Created, Comment Updated, Users Perma-Deletion Started, Compute Cluster Deleted, User Blueprint Retrieved, Login Success Via SAML SSO, Data Sources Permadelete Submitted, Change Request Updated, CCM Resource Group Created, Login Succeeded Via Global SAML SSO, Detected Data Quality: Quantile Target Zero Inflation, Automated Application Access Revoked from the Organization, Global SAML Configuration Updated, Automated Application Upgraded, Download All Charts, Activated On First Login, Workspace Marked As Deleted In AI Catalog, Organization updated, User Blueprint Deleted In Bulk, User Blueprint Updated, Association ID Set, Project Access Revoked from the Group, Retraining Policy Deleted, Login Fail, Project Target Selected, Detected Data Quality: Imputation Leakage, MLOps Installer Download Request Received, Empty Cluster Status Created, Project Cloned, Data Sources Permadelete Failed, Dataset refresh job deleted, Child Entity Disassociated From Workspace In AI Catalog, Replaced Model, Project Created from Project Export File, Organization Perma-Deletion Unmarked, SHAP Training Predictions Explanations Computed, User Blueprint Created, Request Model Insights, Challenger Models Enabled, Change Request Cancelled, Completed Feature Discovery Secondary Datasets, CCM Balancer Terminated] > The event type of records.
+\item{\code{event}}{Enum < [Dataset Version Deleted, Datasets Permadelete Executed, Bias And Fairness Per Class Calculated, Custom Task Deploy, Dataset Created, Add New Dataset For Predictions, Organization Perma-Deletion Started, Create account, Project Created, Retraining Policy Started, Decision Flow Created, Experiment Container Fetched, Users Perma-Deletion Canceled, Project Created from Project Export File, Workspace Marked As Deleted In AI Catalog, Rate limit user group changed, Detected Data Quality: Lagged Features, Segment Attributes Specified, Recipe Access Revoked from Organization, User Agreement Accepted, Organization created, Group updated, Models Starred, SHAP Predictions Explanations Preview Computed, Experiment Container References Fetched, Finish Autopilot, Automated Application Shared with Group, Geospatial Feature Transform Created, Data Connection Created, Feature Discovery Relationship Quality Assessment Warnings Metrics, Automated Application Shared with Organization, Project Permadelete Executed, Automated Application Access Revoked from the Group, SHAP Predictions Explanations Computed, Custom inference model updated, Update SAML configuration, Workspace scheduled batch processing job updated, Interaction Feature Deployment Created, Custom Model Conversion Files Uploaded, Period accuracy file validation successful, Logout, User Blueprint Added To Repository, Custom task version added, Automodel Deployment Manually Replaced, Successful Login via Google Idp, Challenger Model Deleted, Comment Deleted, Deployment Permanently Erased, Automodel Deployment Created, Retraining Policy Succeeded, Login Fail, API Key Created, FEAR Predict Job Started, Batch prediction job aborted, MLOps Installer Download Request Received, Activated On First Login, Replaced Model, Invitation sent, Download Model Package, Dataset Shared, Project Access Revoked from the Group, Data Stores Permadelete Submitted, Custom task added, Users Perma-Deletion Submitted, Dataset Deleted, Created dataset version from Data Engine workspace, Child Entity Disassociated From Workspace In AI Catalog, Number of bias mitigation jobs on Autopilot stage., Multi-Factor Auth Enable, Recipe Shared with Group, PPS Docker Image Download Request Received, Workspace Tags Modified, Dataset Version Undeleted, Workspace Scheduled Batch Run Started, Notification channel updated, Detected Data Quality: Inliers, Deployment Deleted, Use Case Attachment Removed, Users Perma-Deletion Preview Building Submitted, No predictors are left because of Do-Not-Derive, Users Perma-Deletion Preview Building Completed, Completed Feature Discovery for Primary Dataset, Custom RBAC Access Role Updated, PredictionIntegrationJob Deleted, User Blueprint Tags Modified, Deployment Humility Rule Updated, Global SAML Configuration Updated, Project Cloned, User Blueprint Created, Restart Autopilot, Automated Application Created, Model Insights Job Submitted, External Predictions Configured, Dataset relationship created, Dataset Reloaded, Challenger Models Enabled, Dataset transform created, Multi-Factor Auth Disable, Project Autopilot Configured, Custom RBAC Access Role Created, Feature Discovery Relationship Quality Assessment Inputs Metrics, Download Model Package From Deployment, Automated Application Deleted, Users Perma-Deletion Failed, Deployment Deactivated, First Login After DR Account Migration, Bias and Fairness monitoring settings updated., Activate account, Approve account, Batch prediction job started, Restore Reduced Features, Users Perma-Deletion Preview Building Started, Compliance Doc Previewed, Reset API Token For User, Default value for Do-Not-Derive is changed, aiAPI Portal Login, Dataset featurelist deleted, RuleFit Code Downloaded, Data engine workspace deleted, Download Codegen From Deployment, Custom RBAC Access Role Deleted, Credential Created, Blueprint Search Executed, Job definition created, Decision Flow Test Downloaded, Recipe Access Revoked from User, Bias And Fairness Insights Calculated, Prime Run, Global SAML Configuration Deleted, Challenger Model Promoted, Project Deleted, Notification channel deleted, Deploy Model To Hadoop, PredictionIntegrationJob Created, Download Chart, Deployment Humility Rule Added, Project Access Revoked from the Organization, Data engine query generator created, Data engine workspace created, Approval Workflow Policy Action, Download Deployment Chart, Organization Perma-Deletion Requested, User Blueprint Description Modified, ADLS OAuth User Login Succeeded, Dataset Categories Modified, Update account, User Blueprint Deleted, Retraining Policy Cancelled, Automated Application Access Revoked from the Organization, Change Request Resolved, Automated Document Deleted, Available Forecast Points Computation Job Started, Data Connection Updated, Experiment Container Deleted , Project Options Retrieved, User Agreement Declined, Workspace Modified, Recipe Access Revoked from Group, Deployment prediction export created, Global SAML Configuration Added, Recipe Shared, Custom Model Conversion Failed, Retraining Policy Failed, Download All Charts, Workspace Scheduled Batch Run Failed, Organization Perma-Deletion Unmarked, Challenger Model Created, Credential Deleted, Project Access Revoked from the User, Experiment Container Entity Unlinked, Pipeline downsampling run failed to start., Download Codegen, Do-Not-Derive is used, Organization deleted, Credential Updated, Challenger Models Disabled, Data Sources Permadelete Failed, Approval Workflow Policy Created, Data Stores Permadelete Executed, API Key Deleted, Child Entity Associated With Workspace In AI Catalog, Notification policy updated, Clustering Cluster Names Updated, Experiment Container Entities Fetched, Custom model item added, Dataset refresh job deleted, Prime Downloaded, SHAP Training Predictions Explanations Computed, Project Description Updated, Dataset Name Modified, Segment Analysis Enabled, Compute Cluster Deleted, ADLS OAuth User Login Started, Automated Document Requested, Deployment Added, Detected Data Quality: Disguised Missing Values, Empty Cluster Status Created, Batch prediction job created, Data Stores Permadelete Failed, Select Model Metric, Request Model Insights, User Blueprint Tasks Retrieved, Deployment training data export created, Organization Perma-Deletion Completed, Automated Document Downloaded, Detected Data Quality: Target Leakage, Decision Flow Model Package Created, Detected Data Quality: Imputation Leakage, Detected Data Quality: Leading or Trailing Series, Data Source is created, Workspace Registered In AI Catalog, Custom Model Conversion Succeeded, Dataset Undeleted, Users Perma-Deletion Started, Actuals Uploaded, User Blueprint Deleted In Bulk, Data engine workspace state previewed, Login Succeeded Via Global SAML SSO, Abort Autopilot, Project Shared with Group, Users Perma-Deletion Completed, Project Exported as Project Export File, Managed Image Built, Dataset Download, Data engine workspace updated, Advanced Tuning Requested, Automated Document Created, Retraining Policy Created, Experiment Container Entity Linked, Compute External Insights, Compliance Doc Generated, Change Request Updated, Non Existent Use Case Attachment Removed, Project Permadelete Submitted, Automated Application Shared, ADLS OAuth Token Renewal Succeeded, Change Request Reopened, PredictionIntegrationJob Updated, Users Perma-Deletion Preview Building Canceled, Challenger Insight Generation Started, Successful Decision Flow Test, Detected Data Quality: Missing Images, PredictionIntegrationJob Completed, Detected Data Quality: Missing Documents, User Append Columns Download With Predictions, Workspace Name Modified, Data Connection Tested, User Blueprint Validated, Organizations Perma-Deletion Requested, Automated Application Duplicated, Experiment Container Updated, Calculation of prediction intervals is requested, Detected Data Quality: Quantile Target Sparsity, Change Request Cancelled, Interaction Feature Created, User Blueprint Name Modified, Data engine query generator deleted, Dataset featurelist updated, Dataset refresh job created, Automated Application Domain Prefix Changed, Failed Decision Flow Test, Completed Feature Discovery Secondary Datasets, Add SAML configuration, Dataset featurelist created, Unsupervised Mode Started, Deactivate Account, Workspace Description Modified, Use Case Updated, Approval Workflow Policy Updated, Batch prediction job completed, Dataset Sharing Removed, Users Perma-Deletion Canceling, Datasets Permadelete Submitted, Workspace Scheduled Batch Run Succeeded, SHAP Impact Computed, User Blueprint Updated, Compute Cluster Added, CCM Balancer Terminated, Train Model, Invitation Accepted, Automated Document Previewed, Successful Login using OIDC token exchange, Organization updated, Recipe Shared with Organization, Detected Data Quality: New Series in Recent Data, Created dataset from Data Engine workspace, Geometry Over Geo Computed, Batch Prediction Created from Dataset, Project Permadelete Failed, Detected Data Quality: Multicategorical Invalid Format, Decision Flow Version Deleted, Association ID Set, ADLS OAuth Token Obtained, Dataset relationship updated, Download Predictions, Dataset Materialized, Custom Task Fit, Users Perma-Deletion Preview Building Canceling, Compliance Doc Deleted, Custom inference model added, Deployment prediction warning setting updated, Detected Data Quality: Quantile Target Zero Inflation, Organization Perma-Deletion Failed, Text prediction explanations computed, Project Restored, Empty Catalog Item Created, Deny account, Deployment Humility Setting Updated, Workspace scheduled batch processing job created, Dataset Upload, User Blueprint Retrieved, Project Created from Dataset, Predictions by Forecast Date Settings Updated, Multilabel Labelwise ROC With Missing TPR Or FPR Requested, API Key Updated, Period accuracy insight computed, Project Shared, Base Image Built, Comment Created, User Blueprints Listed, Retraining Policy Deleted, App Config Changed, Use Case Stage Changed, Data Store Config Request Submitted, Data Sources Permadelete Executed, Project Options Updated, Automated Application Access Revoked from the User, Bulk Datasets Tags Appended, Bias and Fairness protected features specified., Deployment Humility Rule Deleted, Successful Login using OIDC flow, Segment Analysis Used, ADLS OAuth Failed, Dataset for predictions with actual value column processed, Detected Data Quality: Inconsistent Gaps, Download Model, Deployment Activated, Login Success Via SAML SSO, Organization Perma-Deletion Marked, Period accuracy file validation failed, Delete SAML configuration, Dataset Tags Modified, Group created, Bias And Fairness Cross Class Calculated, Compliance Doc Downloaded, Datasets Permadelete Failed, CCM CLUSTER Reprovisioned, General Feedback Submitted, Approval Workflow Policy Deleted, Dataset Upload is Completed, Automated Demo Application Created, Detected Data Quality: Outliers, Deployment Humility Rule Submitted, Dataset Column Aliases Modified, Detected Data Quality: Excess Zero, Experiment Container Created, Add Model, Job definition updated, Project Shared with Organization, Detected Data Quality: Target had infrequent negative values, Workspace scheduled batch processing job deleted, Batch prediction job failed, Use Case Attachment Added, Project Target Selected, Notification channel created, CCM Cluster Terminated, Deployment Statistics Reset, Experiment Containers Listed, Start Autopilot, Model Deployment Shared, Group Members Updated, Compute Reason Codes, Project Renamed, Data Sources Permadelete Submitted, Feature Over Geo Computed, Notification policy deleted, Geospatial Primary Location Column Selected, Group deleted, Change Request Review Added, Custom task updated, CCM Resource Group Created, Users Perma-Deletion Preview Building Failed, User Provisioned From JWT, Pipeline downsampling build and run started., PredictionIntegrationJob Failed, Online Conformal PI Calculation Requested, Bulk Datasets Deleted, Automated Application Upgraded, Access request created, Dataset Description Modified, Use Case Created, Login Successful, Decision Flow Version Created, Change Request Created, Data Connection Deleted, SHAP Matrix Computed, Request External Insights, Dataset refresh job updated, CCM Cluster Created, Comment Updated, Target is set as Do-Not-Derive, Documentation Request, Compute Cluster Updated, Notification policy created, Custom Task Prediction Made, Change password] > The event type of records.
 
-[Recipe Access Revoked from User, Dataset Name Modified, Automated Document Created, Clustering Cluster Names Updated, Download Model Package, Dataset Created, Deployment Deleted, Update account, Group created, Project Access Revoked from the User, Restart Autopilot, Compliance Doc Downloaded, Invitation sent, Dataset Deleted, Dataset Column Aliases Modified, Non Existent Use Case Attachment Removed, Start Autopilot, Custom inference model updated, Successful Login using OIDC token exchange, Dataset Shared, API Key Created, Models Starred, Delete SAML configuration, Dataset refresh job updated, Custom model item added, Detected Data Quality: Leading or Trailing Series, Pipeline downsampling build and run started., Data Source is created, CCM Cluster Terminated, Train Model, Retraining Policy Cancelled, Compliance Doc Previewed, Workspace Name Modified, Access request created, Users Perma-Deletion Preview Building Submitted, Dataset Download, Dataset Upload is Completed, Credential Dele}
+[Dataset Version Deleted, Datasets Permadelete Executed, Bias And Fairness Per Class Calculated, Custom Task Deploy, Dataset Created, Add New Dataset For Predictions, Organization Perma-Deletion Started, Create account, Project Created, Retraining Policy Started, Decision Flow Created, Experiment Container Fetched, Users Perma-Deletion Canceled, Project Created from Project Export File, Workspace Marked As Deleted In AI Catalog, Rate limit user group changed, Detected Data Quality: Lagged Features, Segment Attributes Specified, Recipe Access Revoked from Organization, User Agreement Accepted, Organization created, Group updated, Models Starred, SHAP Predictions Explanations Preview Computed, Experiment Container References Fetched, Finish Autopilot, Automated Application Shared with Group, Geospatial Feature Transform Created, Data Connection Created, Feature Discovery Relationship Quality Assessment Warnings Metrics, Automated Application Shared with Organization, Project Permadelete }
 
 \item{\code{minTimestamp}}{character. The lower bound for timestamps. E.g. '2016-12-13T11:12:13.141516Z'.}
 
@@ -286,6 +289,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve one page of audit log records.
+
+
+This method invokes \verb{GET /eventLogs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -324,8 +330,8 @@ result <- api.instance$EventLogsList(projectId=projectId, userId=userId, orgId=o
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-EventLogsPredictionUsageList"></a>}}
-\if{latex}{\out{\hypertarget{method-EventLogsPredictionUsageList}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-EventLogsPredictionUsageList"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-EventLogsPredictionUsageList}{}}}
 \subsection{Method \code{EventLogsPredictionUsageList()}}{
 Retrieve prediction usage data.
 Produces: "application/json"
@@ -364,7 +370,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve prediction usage data. ``CAN_ACCESS_USER_ACTIVITY`` permission is required.
+Retrieve prediction usage data. `CAN_ACCESS_USER_ACTIVITY` permission is required.
+
+
+This method invokes \verb{GET /eventLogs/predictionUsage/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -400,8 +409,8 @@ result <- api.instance$EventLogsPredictionUsageList(minTimestamp, maxTimestamp, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-EventLogsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-EventLogsRetrieve}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-EventLogsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-EventLogsRetrieve}{}}}
 \subsection{Method \code{EventLogsRetrieve()}}{
 Get audit record by ID.
 Produces: "application/json"
@@ -426,6 +435,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get audit record by ID.
+
+
+This method invokes \verb{GET /eventLogs/\{recordId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -456,8 +468,8 @@ result <- api.instance$EventLogsRetrieve(recordId, includeIdentifyingFields=incl
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsageDataExportsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UsageDataExportsCreate}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsageDataExportsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsageDataExportsCreate}{}}}
 \subsection{Method \code{UsageDataExportsCreate()}}{
 Create a customer usage data artifact request. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission.
 Produces: NA
@@ -478,6 +490,9 @@ Produces: NA
 Create a customer usage data artifact request. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission. Returns async task status URL as a \"Location\" header. Async task status should be polled in order to retrieve artifact id.
 
 
+This method invokes \verb{POST /usageDataExports/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Customer usage data artifact creation started. Status can be tracked at Location field in headers.
@@ -493,7 +508,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-usageDataExport <- UsageDataExport$new() # UsageDataExport |
+usageDataExport <- UsageDataExport$new() # UsageDataExport | 
 
 api.instance <- AnalyticsApi$new()
 result <- api.instance$UsageDataExportsCreate(usageDataExport=usageDataExport)
@@ -505,8 +520,8 @@ result <- api.instance$UsageDataExportsCreate(usageDataExport=usageDataExport)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsageDataExportsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UsageDataExportsRetrieve}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsageDataExportsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsageDataExportsRetrieve}{}}}
 \subsection{Method \code{UsageDataExportsRetrieve()}}{
 Retrieve a prepared customer usage data artifact.
 Produces: "application/json"
@@ -525,6 +540,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a prepared customer usage data artifact. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission.
+
+
+This method invokes \verb{GET /usageDataExports/\{artifactId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -560,8 +578,8 @@ result <- api.instance$UsageDataExportsRetrieve(artifactId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsageDataExportsSupportedEventsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UsageDataExportsSupportedEventsList}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsageDataExportsSupportedEventsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsageDataExportsSupportedEventsList}{}}}
 \subsection{Method \code{UsageDataExportsSupportedEventsList()}}{
 Describe supported available audit events with which to filter result data.
 Produces: "application/json"
@@ -578,6 +596,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Describe supported available audit events with which to filter result data.
+
+
+This method invokes \verb{GET /usageDataExports/supportedEvents/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -606,8 +627,8 @@ result <- api.instance$UsageDataExportsSupportedEventsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersRateLimitUsageDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersRateLimitUsageDelete}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsersRateLimitUsageDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsersRateLimitUsageDelete}{}}}
 \subsection{Method \code{UsersRateLimitUsageDelete()}}{
 Reset resource usage for the resource
 Produces: NA
@@ -628,6 +649,9 @@ Produces: NA
 }
 \subsection{Details}{
 Reset rate limit resource usage for a user of a specified resource to zero. This will happen automatically when windows roll over. This route can be used to reset a user's rate limits sooner.
+
+
+This method invokes \verb{DELETE /users/\{userId\}/rateLimitUsage/\{resourceName\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -655,8 +679,8 @@ result <- api.instance$UsersRateLimitUsageDelete(userId, resourceName)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersRateLimitUsageDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersRateLimitUsageDeleteMany}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsersRateLimitUsageDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsersRateLimitUsageDeleteMany}{}}}
 \subsection{Method \code{UsersRateLimitUsageDeleteMany()}}{
 Reset resource usage for all resources
 Produces: NA
@@ -675,6 +699,9 @@ Produces: NA
 }
 \subsection{Details}{
 Reset specified user's rate limit resource usage to zero for all resources. When windows roll over, all limits are automatically reset. Use this route to reset usage sooner.
+
+
+This method invokes \verb{DELETE /users/\{userId\}/rateLimitUsage/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -701,8 +728,8 @@ result <- api.instance$UsersRateLimitUsageDeleteMany(userId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UsersRateLimitUsageList"></a>}}
-\if{latex}{\out{\hypertarget{method-UsersRateLimitUsageList}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-UsersRateLimitUsageList"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-UsersRateLimitUsageList}{}}}
 \subsection{Method \code{UsersRateLimitUsageList()}}{
 List resource usage for a user
 Produces: "application/json"
@@ -721,6 +748,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the rate limit resource usage for a user. The usage array returned will have one object corresponding to each rate limit applied to the user.
+
+
+This method invokes \verb{GET /users/\{userId\}/rateLimitUsage/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -750,8 +780,8 @@ result <- api.instance$UsersRateLimitUsageList(userId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AnalyticsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AnalyticsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

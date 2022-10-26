@@ -39,6 +39,8 @@ PredictionUsageObjectResponse Class
 
 \item{\code{predictionMethod}}{character The prediction method that was used.}
 
+\item{\code{predictionRowCountPerMinute}}{list( integer ) \link{optional} List of row counts per minute.}
+
 \item{\code{predictionRowsCount}}{integer Predictions rows count during `timestamp` hour.}
 
 \item{\code{projectId}}{character \link{optional} The id of the project.}
@@ -48,6 +50,8 @@ PredictionUsageObjectResponse Class
 \item{\code{pythonVersion}}{character \link{optional} The python version used to build models in the project}
 
 \item{\code{recommendedModel}}{character \link{optional} If it is a recommended model.}
+
+\item{\code{requestCountPerMinute}}{list( integer ) \link{optional} List of requests per minute.}
 
 \item{\code{requestsCount}}{integer Request count during `timestamp` hour.}
 
@@ -68,16 +72,16 @@ PredictionUsageObjectResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionUsageObjectResponse$new()}}
-\item \href{#method-validate}{\code{PredictionUsageObjectResponse$validate()}}
-\item \href{#method-toJSON}{\code{PredictionUsageObjectResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionUsageObjectResponse$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionUsageObjectResponse$clone()}}
+\item \href{#method-PredictionUsageObjectResponse-new}{\code{PredictionUsageObjectResponse$new()}}
+\item \href{#method-PredictionUsageObjectResponse-validate}{\code{PredictionUsageObjectResponse$validate()}}
+\item \href{#method-PredictionUsageObjectResponse-toJSON}{\code{PredictionUsageObjectResponse$toJSON()}}
+\item \href{#method-PredictionUsageObjectResponse-fromJSON}{\code{PredictionUsageObjectResponse$fromJSON()}}
+\item \href{#method-PredictionUsageObjectResponse-clone}{\code{PredictionUsageObjectResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionUsageObjectResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionUsageObjectResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -101,10 +105,12 @@ A function used to initialize an instance of this class.
   modelType = NULL,
   orgId = NULL,
   orgName = NULL,
+  predictionRowCountPerMinute = NULL,
   projectId = NULL,
   projectType = NULL,
   pythonVersion = NULL,
   recommendedModel = NULL,
+  requestCountPerMinute = NULL,
   userProjectRole = NULL,
   username = NULL,
   validateParams = FALSE,
@@ -153,6 +159,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{orgName}}{The name of the organization.}
 
+\item{\code{predictionRowCountPerMinute}}{List of row counts per minute.}
+
 \item{\code{projectId}}{The id of the project.}
 
 \item{\code{projectType}}{The type of the project.}
@@ -160,6 +168,8 @@ A function used to initialize an instance of this class.
 \item{\code{pythonVersion}}{The python version used to build models in the project}
 
 \item{\code{recommendedModel}}{If it is a recommended model.}
+
+\item{\code{requestCountPerMinute}}{List of requests per minute.}
 
 \item{\code{userProjectRole}}{The role of the user to the related project.}
 
@@ -173,19 +183,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionUsageObjectResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionUsageObjectResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionUsageObjectResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionUsageObjectResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionUsageObjectResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -194,8 +205,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionUsageObjectResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionUsageObjectResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -216,8 +227,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionUsageObjectResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionUsageObjectResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

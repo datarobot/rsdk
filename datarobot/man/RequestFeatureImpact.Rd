@@ -4,11 +4,14 @@
 \alias{RequestFeatureImpact}
 \title{Request Feature Impact to be computed.}
 \usage{
-RequestFeatureImpact(model)
+RequestFeatureImpact(model, rowCount = NULL)
 }
 \arguments{
 \item{model}{character. The model for which you want to compute Feature Impact, e.g.
 from the list of models returned by \code{ListModels(project)}.}
+
+\item{rowCount}{numeric. The sample size to use for Feature Impact computation. It is
+possible to re-compute Feature Impact with a different row count.}
 }
 \value{
 A job ID (character)

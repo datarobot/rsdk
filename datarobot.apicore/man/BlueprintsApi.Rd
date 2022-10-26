@@ -121,7 +121,7 @@ result <- api.instance$ProjectsModelsTrainingArtifactList(projectId, modelId)
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest |
+userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkValidationRequest=userBlueprintBulkValidationRequest)
@@ -133,7 +133,7 @@ result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkVali
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate |
+userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCreate)
@@ -157,7 +157,7 @@ result <- api.instance$UserBlueprintsDelete(userBlueprintId)
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete |
+userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlueprintsBulkDelete)
@@ -169,7 +169,7 @@ result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlu
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId |
+userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFromBlueprintId=userBlueprintCreateFromBlueprintId)
@@ -181,7 +181,7 @@ result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFr
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload |
+userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprintCreateFromCustomTaskVersionIdPayload=userBlueprintCreateFromCustomTaskVersionIdPayload)
@@ -193,7 +193,7 @@ result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprint
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId |
+userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCreateFromUserBlueprintId=userBlueprintCreateFromUserBlueprintId)
@@ -231,7 +231,7 @@ result <- api.instance$UserBlueprintsList(offset, limit, projectId=projectId)
 \dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate |
+userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=userBlueprintUpdate)
@@ -243,7 +243,7 @@ result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu |
+userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToMenu=userBlueprintAddToMenu)
@@ -290,7 +290,7 @@ result <- api.instance$UserBlueprintsSharedRolesList(offset, limit, userBlueprin
 \dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, sharedRolesUpdate=sharedRolesUpdate)
@@ -302,7 +302,7 @@ result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, share
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation |
+userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParameterValidation=userBlueprintTaskParameterValidation)
@@ -328,7 +328,7 @@ result <- api.instance$UserBlueprintsTasksList(projectId=projectId, blueprintId=
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation |
+userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=userBlueprintValidation)
@@ -344,38 +344,38 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{BlueprintsApi$new()}}
-\item \href{#method-ProjectsBlueprintsBlueprintChartList}{\code{BlueprintsApi$ProjectsBlueprintsBlueprintChartList()}}
-\item \href{#method-ProjectsBlueprintsBlueprintDocsList}{\code{BlueprintsApi$ProjectsBlueprintsBlueprintDocsList()}}
-\item \href{#method-ProjectsBlueprintsList}{\code{BlueprintsApi$ProjectsBlueprintsList()}}
-\item \href{#method-ProjectsBlueprintsRetrieve}{\code{BlueprintsApi$ProjectsBlueprintsRetrieve()}}
-\item \href{#method-ProjectsModelsBlueprintChartList}{\code{BlueprintsApi$ProjectsModelsBlueprintChartList()}}
-\item \href{#method-ProjectsModelsBlueprintDocsList}{\code{BlueprintsApi$ProjectsModelsBlueprintDocsList()}}
-\item \href{#method-ProjectsModelsLogsList}{\code{BlueprintsApi$ProjectsModelsLogsList()}}
-\item \href{#method-ProjectsModelsTrainingArtifactList}{\code{BlueprintsApi$ProjectsModelsTrainingArtifactList()}}
-\item \href{#method-UserBlueprintsBulkValidationsCreate}{\code{BlueprintsApi$UserBlueprintsBulkValidationsCreate()}}
-\item \href{#method-UserBlueprintsCreate}{\code{BlueprintsApi$UserBlueprintsCreate()}}
-\item \href{#method-UserBlueprintsDelete}{\code{BlueprintsApi$UserBlueprintsDelete()}}
-\item \href{#method-UserBlueprintsDeleteMany}{\code{BlueprintsApi$UserBlueprintsDeleteMany()}}
-\item \href{#method-UserBlueprintsFromBlueprintIdCreate}{\code{BlueprintsApi$UserBlueprintsFromBlueprintIdCreate()}}
-\item \href{#method-UserBlueprintsFromCustomTaskVersionIdCreate}{\code{BlueprintsApi$UserBlueprintsFromCustomTaskVersionIdCreate()}}
-\item \href{#method-UserBlueprintsFromUserBlueprintIdCreate}{\code{BlueprintsApi$UserBlueprintsFromUserBlueprintIdCreate()}}
-\item \href{#method-UserBlueprintsInputTypesList}{\code{BlueprintsApi$UserBlueprintsInputTypesList()}}
-\item \href{#method-UserBlueprintsList}{\code{BlueprintsApi$UserBlueprintsList()}}
-\item \href{#method-UserBlueprintsPatch}{\code{BlueprintsApi$UserBlueprintsPatch()}}
-\item \href{#method-UserBlueprintsProjectBlueprintsCreate}{\code{BlueprintsApi$UserBlueprintsProjectBlueprintsCreate()}}
-\item \href{#method-UserBlueprintsRetrieve}{\code{BlueprintsApi$UserBlueprintsRetrieve()}}
-\item \href{#method-UserBlueprintsSharedRolesList}{\code{BlueprintsApi$UserBlueprintsSharedRolesList()}}
-\item \href{#method-UserBlueprintsSharedRolesPatchMany}{\code{BlueprintsApi$UserBlueprintsSharedRolesPatchMany()}}
-\item \href{#method-UserBlueprintsTaskParametersCreate}{\code{BlueprintsApi$UserBlueprintsTaskParametersCreate()}}
-\item \href{#method-UserBlueprintsTasksList}{\code{BlueprintsApi$UserBlueprintsTasksList()}}
-\item \href{#method-UserBlueprintsValidationsCreate}{\code{BlueprintsApi$UserBlueprintsValidationsCreate()}}
-\item \href{#method-clone}{\code{BlueprintsApi$clone()}}
+\item \href{#method-BlueprintsApi-new}{\code{BlueprintsApi$new()}}
+\item \href{#method-BlueprintsApi-ProjectsBlueprintsBlueprintChartList}{\code{BlueprintsApi$ProjectsBlueprintsBlueprintChartList()}}
+\item \href{#method-BlueprintsApi-ProjectsBlueprintsBlueprintDocsList}{\code{BlueprintsApi$ProjectsBlueprintsBlueprintDocsList()}}
+\item \href{#method-BlueprintsApi-ProjectsBlueprintsList}{\code{BlueprintsApi$ProjectsBlueprintsList()}}
+\item \href{#method-BlueprintsApi-ProjectsBlueprintsRetrieve}{\code{BlueprintsApi$ProjectsBlueprintsRetrieve()}}
+\item \href{#method-BlueprintsApi-ProjectsModelsBlueprintChartList}{\code{BlueprintsApi$ProjectsModelsBlueprintChartList()}}
+\item \href{#method-BlueprintsApi-ProjectsModelsBlueprintDocsList}{\code{BlueprintsApi$ProjectsModelsBlueprintDocsList()}}
+\item \href{#method-BlueprintsApi-ProjectsModelsLogsList}{\code{BlueprintsApi$ProjectsModelsLogsList()}}
+\item \href{#method-BlueprintsApi-ProjectsModelsTrainingArtifactList}{\code{BlueprintsApi$ProjectsModelsTrainingArtifactList()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsBulkValidationsCreate}{\code{BlueprintsApi$UserBlueprintsBulkValidationsCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsCreate}{\code{BlueprintsApi$UserBlueprintsCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsDelete}{\code{BlueprintsApi$UserBlueprintsDelete()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsDeleteMany}{\code{BlueprintsApi$UserBlueprintsDeleteMany()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsFromBlueprintIdCreate}{\code{BlueprintsApi$UserBlueprintsFromBlueprintIdCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsFromCustomTaskVersionIdCreate}{\code{BlueprintsApi$UserBlueprintsFromCustomTaskVersionIdCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsFromUserBlueprintIdCreate}{\code{BlueprintsApi$UserBlueprintsFromUserBlueprintIdCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsInputTypesList}{\code{BlueprintsApi$UserBlueprintsInputTypesList()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsList}{\code{BlueprintsApi$UserBlueprintsList()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsPatch}{\code{BlueprintsApi$UserBlueprintsPatch()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsProjectBlueprintsCreate}{\code{BlueprintsApi$UserBlueprintsProjectBlueprintsCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsRetrieve}{\code{BlueprintsApi$UserBlueprintsRetrieve()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsSharedRolesList}{\code{BlueprintsApi$UserBlueprintsSharedRolesList()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsSharedRolesPatchMany}{\code{BlueprintsApi$UserBlueprintsSharedRolesPatchMany()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsTaskParametersCreate}{\code{BlueprintsApi$UserBlueprintsTaskParametersCreate()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsTasksList}{\code{BlueprintsApi$UserBlueprintsTasksList()}}
+\item \href{#method-BlueprintsApi-UserBlueprintsValidationsCreate}{\code{BlueprintsApi$UserBlueprintsValidationsCreate()}}
+\item \href{#method-BlueprintsApi-clone}{\code{BlueprintsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BlueprintsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -390,8 +390,8 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlueprintsBlueprintChartList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlueprintsBlueprintChartList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsBlueprintsBlueprintChartList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsBlueprintsBlueprintChartList}{}}}
 \subsection{Method \code{ProjectsBlueprintsBlueprintChartList()}}{
 Retrieve a blueprint chart by blueprint id.
 Produces: "application/json"
@@ -412,6 +412,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a blueprint chart by blueprint id.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blueprints/\{blueprintId\}/blueprintChart/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -445,8 +448,8 @@ result <- api.instance$ProjectsBlueprintsBlueprintChartList(projectId, blueprint
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlueprintsBlueprintDocsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlueprintsBlueprintDocsList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsBlueprintsBlueprintDocsList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsBlueprintsBlueprintDocsList}{}}}
 \subsection{Method \code{ProjectsBlueprintsBlueprintDocsList()}}{
 Retrieve blueprint tasks documentation.
 Produces: "application/json"
@@ -467,6 +470,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve blueprint tasks documentation.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blueprints/\{blueprintId\}/blueprintDocs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -500,8 +506,8 @@ result <- api.instance$ProjectsBlueprintsBlueprintDocsList(projectId, blueprintI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlueprintsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlueprintsList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsBlueprintsList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsBlueprintsList}{}}}
 \subsection{Method \code{ProjectsBlueprintsList()}}{
 List blueprints
 Produces: "application/json"
@@ -520,6 +526,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List appropriate blueprints for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -549,8 +558,8 @@ result <- api.instance$ProjectsBlueprintsList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlueprintsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlueprintsRetrieve}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsBlueprintsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsBlueprintsRetrieve}{}}}
 \subsection{Method \code{ProjectsBlueprintsRetrieve()}}{
 Retrieve a blueprint by its ID.
 Produces: "application/json"
@@ -571,6 +580,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a blueprint by its ID.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blueprints/\{blueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -604,8 +616,8 @@ result <- api.instance$ProjectsBlueprintsRetrieve(projectId, blueprintId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsBlueprintChartList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsBlueprintChartList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsModelsBlueprintChartList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsModelsBlueprintChartList}{}}}
 \subsection{Method \code{ProjectsModelsBlueprintChartList()}}{
 Retrieve a reduced model blueprint chart by model id.
 Produces: "application/json"
@@ -626,6 +638,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a reduced model blueprint chart by model id. The model blueprint charts are reduced from the full blueprint charts to show only those sections of the blueprint that were actually used in the model, given the selected featurelist.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/blueprintChart/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -659,8 +674,8 @@ result <- api.instance$ProjectsModelsBlueprintChartList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsBlueprintDocsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsBlueprintDocsList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsModelsBlueprintDocsList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsModelsBlueprintDocsList}{}}}
 \subsection{Method \code{ProjectsModelsBlueprintDocsList()}}{
 Retrieve task documentation for a reduced model blueprint.
 Produces: "application/json"
@@ -681,6 +696,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve task documentation for a reduced model blueprint. The model blueprint is reduced from the full blueprint to show only those sections of the blueprint that were actually used in the model, given the selected featurelist.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/blueprintDocs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -714,8 +732,8 @@ result <- api.instance$ProjectsModelsBlueprintDocsList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsLogsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsLogsList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsModelsLogsList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsModelsLogsList}{}}}
 \subsection{Method \code{ProjectsModelsLogsList()}}{
 Retrieve an archive (tar.gz) of the logs produced and persisted by a model.
 Produces: "application/json"
@@ -736,6 +754,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve an archive (tar.gz) of the logs produced and persisted by a model. Note that only blueprints with custom tasks create persistent logs - this will not work with any other type of model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/logs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -772,8 +793,8 @@ result <- api.instance$ProjectsModelsLogsList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsTrainingArtifactList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsTrainingArtifactList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-ProjectsModelsTrainingArtifactList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-ProjectsModelsTrainingArtifactList}{}}}
 \subsection{Method \code{ProjectsModelsTrainingArtifactList()}}{
 Retrieve an archive (tar.gz) of the artifacts produced and persisted by a model.
 Produces: "application/json"
@@ -794,6 +815,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve an archive (tar.gz) of the artifacts produced and persisted by a model. Note that only blueprints with custom tasks create these artifacts - this will not work with any other type of model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/trainingArtifact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -830,8 +854,8 @@ result <- api.instance$ProjectsModelsTrainingArtifactList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsBulkValidationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsBulkValidationsCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsBulkValidationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsBulkValidationsCreate}{}}}
 \subsection{Method \code{UserBlueprintsBulkValidationsCreate()}}{
 Validate many user blueprints.
 Produces: "application/json"
@@ -853,6 +877,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate many user blueprints, optionally using a specific project. Any non-existent or inaccessible user blueprints will be ignored.
+
+
+This method invokes \verb{POST /userBlueprintsBulkValidations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -882,7 +909,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest |
+userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkValidationRequest=userBlueprintBulkValidationRequest)
@@ -894,8 +921,8 @@ result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkVali
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsCreate}{}}}
 \subsection{Method \code{UserBlueprintsCreate()}}{
 Create a user blueprint.
 Produces: "application/json"
@@ -914,6 +941,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a user blueprint
+
+
+This method invokes \verb{POST /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -943,7 +973,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate |
+userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCreate)
@@ -955,8 +985,8 @@ result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsDelete}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsDelete}{}}}
 \subsection{Method \code{UserBlueprintsDelete()}}{
 Delete a user blueprint.
 Produces: NA
@@ -974,7 +1004,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a user blueprint, specified by the `userBlueprintId`.
+Delete a user blueprint, specified by the userBlueprintId.
+
+
+This method invokes \verb{DELETE /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1001,8 +1034,8 @@ result <- api.instance$UserBlueprintsDelete(userBlueprintId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsDeleteMany}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsDeleteMany}{}}}
 \subsection{Method \code{UserBlueprintsDeleteMany()}}{
 Delete user blueprints.
 Produces: "application/json"
@@ -1020,7 +1053,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete user blueprints, specified by `userBlueprintIds`.
+Delete user blueprints, specified by userBlueprintIds.
+
+
+This method invokes \verb{DELETE /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1047,7 +1083,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete |
+userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlueprintsBulkDelete)
@@ -1059,8 +1095,8 @@ result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromBlueprintIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromBlueprintIdCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsFromBlueprintIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsFromBlueprintIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromBlueprintIdCreate()}}{
 Clone a blueprint from a project.
 Produces: "application/json"
@@ -1082,6 +1118,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Clone a blueprint from a project.
+
+
+This method invokes \verb{POST /userBlueprints/fromBlueprintId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1111,7 +1150,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId |
+userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFromBlueprintId=userBlueprintCreateFromBlueprintId)
@@ -1123,8 +1162,8 @@ result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromCustomTaskVersionIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromCustomTaskVersionIdCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsFromCustomTaskVersionIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsFromCustomTaskVersionIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromCustomTaskVersionIdCreate()}}{
 Create a user blueprint from a single custom task.
 Produces: "application/json"
@@ -1146,6 +1185,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a user blueprint from a single custom task.
+
+
+This method invokes \verb{POST /userBlueprints/fromCustomTaskVersionId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1175,7 +1217,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload |
+userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprintCreateFromCustomTaskVersionIdPayload=userBlueprintCreateFromCustomTaskVersionIdPayload)
@@ -1187,8 +1229,8 @@ result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprint
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromUserBlueprintIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromUserBlueprintIdCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsFromUserBlueprintIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsFromUserBlueprintIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromUserBlueprintIdCreate()}}{
 Clone a user blueprint.
 Produces: "application/json"
@@ -1210,6 +1252,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Clone a user blueprint.
+
+
+This method invokes \verb{POST /userBlueprints/fromUserBlueprintId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1239,7 +1284,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId |
+userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCreateFromUserBlueprintId=userBlueprintCreateFromUserBlueprintId)
@@ -1251,8 +1296,8 @@ result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsInputTypesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsInputTypesList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsInputTypesList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsInputTypesList}{}}}
 \subsection{Method \code{UserBlueprintsInputTypesList()}}{
 Retrieve input types.
 Produces: "application/json"
@@ -1269,6 +1314,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the input types which can be used with User Blueprints.
+
+
+This method invokes \verb{GET /userBlueprintsInputTypes/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1303,8 +1351,8 @@ result <- api.instance$UserBlueprintsInputTypesList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsList}{}}}
 \subsection{Method \code{UserBlueprintsList()}}{
 List user blueprints.
 Produces: "application/json"
@@ -1327,6 +1375,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Fetch a list of the user blueprints the current user has access to
+
+
+This method invokes \verb{GET /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1364,8 +1415,8 @@ result <- api.instance$UserBlueprintsList(offset, limit, projectId=projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsPatch}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsPatch}{}}}
 \subsection{Method \code{UserBlueprintsPatch()}}{
 Update a user blueprint.
 Produces: "application/json"
@@ -1390,6 +1441,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Update a user blueprint
+
+
+This method invokes \verb{PATCH /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1420,7 +1474,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate |
+userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=userBlueprintUpdate)
@@ -1432,8 +1486,8 @@ result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsProjectBlueprintsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsProjectBlueprintsCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsProjectBlueprintsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsProjectBlueprintsCreate}{}}}
 \subsection{Method \code{UserBlueprintsProjectBlueprintsCreate()}}{
 Add user blueprints to a project.
 Produces: "application/json"
@@ -1455,6 +1509,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Add a list of user blueprints, by id, to a specified (by id) project's repository.
+
+
+This method invokes \verb{POST /userBlueprintsProjectBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1484,7 +1541,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu |
+userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToMenu=userBlueprintAddToMenu)
@@ -1496,8 +1553,8 @@ result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieve}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsRetrieve}{}}}
 \subsection{Method \code{UserBlueprintsRetrieve()}}{
 Retrieve a user blueprint.
 Produces: "application/json"
@@ -1534,6 +1591,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a user blueprint
+
+
+This method invokes \verb{GET /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1577,8 +1637,8 @@ result <- api.instance$UserBlueprintsRetrieve(editMode, decompressedBlueprint, i
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsSharedRolesList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsSharedRolesList}{}}}
 \subsection{Method \code{UserBlueprintsSharedRolesList()}}{
 Get a list of users, groups and organizations that have an access to this user blueprint
 Produces: "application/json"
@@ -1617,6 +1677,9 @@ Produces: "application/json"
 Get a list of users, groups and organizations that have an access to this user blueprint
 
 
+This method invokes \verb{GET /userBlueprints/\{userBlueprintId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Successfully retrieved roles.
@@ -1649,8 +1712,8 @@ result <- api.instance$UserBlueprintsSharedRolesList(offset, limit, userBlueprin
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsSharedRolesPatchMany}{}}}
 \subsection{Method \code{UserBlueprintsSharedRolesPatchMany()}}{
 Share a user blueprint with a user, group, or organization
 Produces: NA
@@ -1675,6 +1738,9 @@ Produces: NA
 }
 \subsection{Details}{
 Share a user blueprint with a user, group, or organization
+
+
+This method invokes \verb{PATCH /userBlueprints/\{userBlueprintId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1705,7 +1771,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, sharedRolesUpdate=sharedRolesUpdate)
@@ -1717,8 +1783,8 @@ result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, share
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsTaskParametersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsTaskParametersCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsTaskParametersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsTaskParametersCreate}{}}}
 \subsection{Method \code{UserBlueprintsTaskParametersCreate()}}{
 Validate task parameters.
 Produces: "application/json"
@@ -1740,6 +1806,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate that each value assigned to specified task parameters are valid.
+
+
+This method invokes \verb{POST /userBlueprintsTaskParameters/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1769,7 +1838,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation |
+userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParameterValidation=userBlueprintTaskParameterValidation)
@@ -1781,8 +1850,8 @@ result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParam
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsTasksList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsTasksList}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsTasksList"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsTasksList}{}}}
 \subsection{Method \code{UserBlueprintsTasksList()}}{
 Retrieve tasks for blueprint construction.
 Produces: "application/json"
@@ -1810,6 +1879,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the available tasks, organized into categories, which can be used to create or modify User Blueprints.
+
+
+This method invokes \verb{GET /userBlueprintsTasks/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1850,8 +1922,8 @@ result <- api.instance$UserBlueprintsTasksList(projectId=projectId, blueprintId=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsValidationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsValidationsCreate}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-UserBlueprintsValidationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-UserBlueprintsValidationsCreate}{}}}
 \subsection{Method \code{UserBlueprintsValidationsCreate()}}{
 Validate a user blueprint.
 Produces: "application/json"
@@ -1873,6 +1945,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate a user blueprint
+
+
+This method invokes \verb{POST /userBlueprintsValidations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1902,7 +1977,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation |
+userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation | 
 
 api.instance <- BlueprintsApi$new()
 result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=userBlueprintValidation)
@@ -1914,8 +1989,8 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-BlueprintsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-BlueprintsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

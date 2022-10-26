@@ -6,24 +6,17 @@
 \usage{
 ListEventLogsEvents(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve all the available events. DEPRECATED API.
 }
 \details{
 Retrieve all the available events. DEPRECATED API.
+
+This method invokes \verb{GET /eventLogs/events/} in the DataRobot Public API.
 }
 \seealso{
-The method EventLogsEventsList in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method EventLogsEventsList in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

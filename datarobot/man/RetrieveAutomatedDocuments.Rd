@@ -4,31 +4,27 @@
 \alias{RetrieveAutomatedDocuments}
 \title{RetrieveAutomatedDocuments}
 \usage{
-RetrieveAutomatedDocuments(documentId, ...)
+RetrieveAutomatedDocuments(documentId, filename, ...)
+}
+\arguments{
+\item{documentId}{character. The ID of the automated documentation to download}
+
+\item{filename}{character. Filename of file to save the automated documentation to.}
+
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
+\value{
+Nothing returned, but downloads the file to the stated filename.
 }
 \description{
 Download generated document.
 }
 \details{
-Download a generated Automated Documentation file.  .. code-block:: text      GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1     Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4  In response, you will get a file containing the generated documentation.
+Download a generated Automated Documentation file.  \verb{text GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4}  In response, you will get a file containing the generated documentation.
 }
-\seealso{
-The method AutomatedDocumentsRetrieve in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+\examples{
+\dontrun{
+documentId <- "5ec4ea7e41054c158c5b002f"
+RetrieveAutomatedDocuments(documentId, filename = "documentation.docx")
 }
-\concept{Documentation}
+}

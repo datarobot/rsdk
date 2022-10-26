@@ -96,3 +96,114 @@ StartProject <- function(dataSource, projectName = NULL, target, metric = NULL, 
   }
   project
 }
+
+#' @name SetTarget
+#' @details Set the target variable (and by default, start the DataRobot Autopilot)
+#'
+#' This function sets the target variable for the project defined by
+#' project, starting the process of building models to predict the response
+#' variable target.  Both of these parameters - project and target - are
+#' required and they are sufficient to start a modeling project with
+#' DataRobot default specifications for the other optional parameters.
+#'
+#' @inheritParams DeleteProject
+#' @inheritParams GetValidMetrics
+#' @param metric character. Optional. String specifying the model fitting metric
+#'   to be optimized; a list of valid options for this parameter, which depends on
+#'   both project and target, may be obtained with the function GetValidMetrics.
+#' @param weights character. Optional. String specifying the name of the column
+#'   from the modeling dataset to be used as weights in model fitting.
+#' @param partition partition. Optional. S3 object of class 'partition' whose elements specify
+#'   a valid partitioning scheme.  See help for functions CreateGroupPartition,
+#'   CreateRandomPartition, CreateStratifiedPartition, CreateUserPartition
+#'   and CreateDatetimePartitionSpecification.
+#' @param targetType character. Optional. Used to specify the targetType to use for a project.
+#'   Valid options are "Binary", "Multiclass", "Regression". Set to "Multiclass" to enable
+#'   multiclass modeling. Otherwise, it can help to disambiguate, i.e. telling DataRobot how to
+#'   handle a numeric target with a few unique values that could be used for either multiclass
+#'   or regression. See \code{TargetType} for an easier way to keep track of the options.
+#' @param mode character. Optional. Specifies the autopilot mode used to start the
+#'   modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$Quick} is
+#'   default.
+#' @param seed integer. Optional. Seed for the random number generator used in
+#'   creating random partitions for model fitting.
+#' @param positiveClass character. Optional. Target variable value corresponding to a positive
+#'   response in binary classification problems.
+#' @param blueprintThreshold integer. Optional. The maximum time
+#'   (in hours) that any modeling blueprint is allowed to run before being
+#'   excluded from subsequent autopilot stages.
+#' @param responseCap numeric. Optional. Floating point value, between 0.5 and 1.0,
+#'   specifying a capping limit for the response variable. The default value
+#'   NULL corresponds to an uncapped response, equivalent to responseCap = 1.0.
+#' @param featurelistId numeric. Specifies which feature list to use. If NULL (default),
+#'   a default featurelist is used.
+#' @param smartDownsampled logical. Optional. Whether to use smart downsampling to throw
+#'   away excess rows of the majority class. Only applicable to classification and zero-boosted
+#'   regression projects.
+#' @param majorityDownsamplingRate numeric. Optional. Floating point value, between 0.0 and 100.0.
+#'   The percentage of the majority rows that should be kept.  Specify only if using smart
+#'   downsampling. May not cause the majority class to become smaller than the minority class.
+#' @param accuracyOptimizedBlueprints logical. Optional. When enabled, accuracy optimized
+#'  blueprints will run in autopilot for the project. These are longer-running model blueprints
+#'  that provide increased accuracy over normal blueprints that run during autopilot.
+#' @param offset character. Optional. Vector of the names of the columns containing the offset of
+#'   each row.
+#' @param exposure character. Optional. The name of a column containing the exposure of each row.
+#' @param eventsCount character. Optional. The name of a column specifying the events count.
+#' @param monotonicIncreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically increasing relationship to the
+#'   target. If \code{NULL} (default), no such constraints are enforced. When specified, this
+#'   will set a default for the project that can be overridden at model submission time if
+#'   desired. The featurelist itself can also be passed as this parameter.
+#' @param monotonicDecreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically decreasing relationship to the
+#'   target. If \code{NULL} (default), no such constraints are enforced. When specified, this
+#'   will set a default for the project that can be overridden at model submission time if
+#'   desired. The featurelist itself can also be passed as this parameter.
+#' @param onlyIncludeMonotonicBlueprints logical. Optional. When TRUE, only blueprints that
+#'   support enforcing monotonic constraints will be available in the project or selected for
+#'   the autopilot.
+#' @param maxWait integer. Specifies how many seconds to wait for the server to finish
+#'   analyzing the target and begin the modeling process. If the process takes
+#'   longer than this parameter specifies, execution will stop (but the server
+#'   will continue to process the request).
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' SetTarget(projectId, "targetFeature")
+#' SetTarget(projectId, "targetFeature", metric = "LogLoss")
+#' SetTarget(projectId, "targetFeature", mode = AutopilotMode$Manual)
+#' SetTarget(projectId, "targetFeature", targetType = TargetType$Multiclass)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+SetTarget
+
+#' @name StartNewAutoPilot
+#' @details Starts autopilot on provided featurelist.
+#
+#' Only one autopilot can be running at the time.
+#' That's why any ongoing autopilot on different featurelist will
+#' be halted - modeling jobs in queue would not
+#' be affected but new jobs would not be added to queue by
+#' halted autopilot.
+#'
+#' There is an error if autopilot is currently running on or has already
+#' finished running on the provided featurelist and also if project's target was not selected
+#' (via SetTarget).
+#'
+#' @inheritParams DeleteProject
+#' @param mode character. Optional. Specifies the autopilot mode used to start the
+#'   modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$FullAuto} is
+#'   default.
+#' @param featurelistId numeric. Specifies which feature list to use.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' featureList <- CreateFeaturelist(projectId, "myFeaturelist", c("feature1", "feature2"))
+#' featurelistId <- featureList$featurelistId
+#' StartNewAutoPilot(projectId, featurelistId)
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+StartNewAutoPilot

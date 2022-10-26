@@ -40,16 +40,16 @@ PredictionRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{PredictionRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{PredictionRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionRetrieveResponse$clone()}}
+\item \href{#method-PredictionRetrieveResponse-new}{\code{PredictionRetrieveResponse$new()}}
+\item \href{#method-PredictionRetrieveResponse-validate}{\code{PredictionRetrieveResponse$validate()}}
+\item \href{#method-PredictionRetrieveResponse-toJSON}{\code{PredictionRetrieveResponse$toJSON()}}
+\item \href{#method-PredictionRetrieveResponse-fromJSON}{\code{PredictionRetrieveResponse$fromJSON()}}
+\item \href{#method-PredictionRetrieveResponse-clone}{\code{PredictionRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -103,19 +103,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -124,8 +125,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -146,8 +147,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

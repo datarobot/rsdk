@@ -6,31 +6,17 @@
 \usage{
 ListApprovalPolicies(entityType, namePart, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List Approval Policies.
 }
 \details{
 List Approval Policies.
+
+This method invokes \verb{GET /approvalPolicies/} in the DataRobot Public API.
 }
 \seealso{
-The method ApprovalPoliciesList in [datarobot.apicore::GovernanceApi], which this function wraps.
-
-Other Governance: 
-\code{\link{CreateApprovalPolicies}()},
-\code{\link{CreateChangeRequestsReviews}()},
-\code{\link{CreateChangeRequests}()},
-\code{\link{DeleteApprovalPolicies}()},
-\code{\link{ListApprovalPoliciesShareableChangeRequests}()},
-\code{\link{ListApprovalPolicyMatch}()},
-\code{\link{ListApprovalPolicyTriggers}()},
-\code{\link{ListChangeRequestsReviews}()},
-\code{\link{ListChangeRequestsSuggestedReviewers}()},
-\code{\link{ListChangeRequests}()},
-\code{\link{PatchChangeRequests}()},
-\code{\link{PatchManyChangeRequestsStatus}()},
-\code{\link{PutApprovalPolicies}()},
-\code{\link{RetrieveApprovalPolicies}()},
-\code{\link{RetrieveChangeRequestsReviews}()},
-\code{\link{RetrieveChangeRequests}()}
+The method ApprovalPoliciesList in \link[datarobot.apicore:GovernanceApi]{datarobot.apicore::GovernanceApi}, which invokes the same underlying API endpoint.
 }
-\concept{Governance}

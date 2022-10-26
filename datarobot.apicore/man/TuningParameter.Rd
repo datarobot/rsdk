@@ -22,16 +22,16 @@ TuningParameter Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TuningParameter$new()}}
-\item \href{#method-validate}{\code{TuningParameter$validate()}}
-\item \href{#method-toJSON}{\code{TuningParameter$toJSON()}}
-\item \href{#method-fromJSON}{\code{TuningParameter$fromJSON()}}
-\item \href{#method-clone}{\code{TuningParameter$clone()}}
+\item \href{#method-TuningParameter-new}{\code{TuningParameter$new()}}
+\item \href{#method-TuningParameter-validate}{\code{TuningParameter$validate()}}
+\item \href{#method-TuningParameter-toJSON}{\code{TuningParameter$toJSON()}}
+\item \href{#method-TuningParameter-fromJSON}{\code{TuningParameter$fromJSON()}}
+\item \href{#method-TuningParameter-clone}{\code{TuningParameter$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TuningParameter-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TuningParameter-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TuningParameter-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TuningParameter-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TuningParameter$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TuningParameter-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TuningParameter-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TuningParameter-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TuningParameter-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TuningParameter-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TuningParameter-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

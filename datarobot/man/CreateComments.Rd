@@ -6,19 +6,17 @@
 \usage{
 CreateComments(entityType, mentions, entityId, content, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Post a comment
 }
 \details{
 Post a comment
+
+This method invokes \verb{POST /comments/} in the DataRobot Public API.
 }
 \seealso{
-The method CommentsCreate in [datarobot.apicore::CommentsApi], which this function wraps.
-
-Other Comments: 
-\code{\link{DeleteComments}()},
-\code{\link{ListComments}()},
-\code{\link{PatchComments}()},
-\code{\link{RetrieveComments}()}
+The method CommentsCreate in \link[datarobot.apicore:CommentsApi]{datarobot.apicore::CommentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Comments}

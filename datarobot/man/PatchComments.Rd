@@ -6,19 +6,17 @@
 \usage{
 PatchComments(mentions, commentId, content, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update a comment
 }
 \details{
 Update a comment
+
+This method invokes \verb{PATCH /comments/\{commentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CommentsPatch in [datarobot.apicore::CommentsApi], which this function wraps.
-
-Other Comments: 
-\code{\link{CreateComments}()},
-\code{\link{DeleteComments}()},
-\code{\link{ListComments}()},
-\code{\link{RetrieveComments}()}
+The method CommentsPatch in \link[datarobot.apicore:CommentsApi]{datarobot.apicore::CommentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Comments}

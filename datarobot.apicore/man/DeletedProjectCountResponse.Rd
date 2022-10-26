@@ -24,16 +24,16 @@ DeletedProjectCountResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeletedProjectCountResponse$new()}}
-\item \href{#method-validate}{\code{DeletedProjectCountResponse$validate()}}
-\item \href{#method-toJSON}{\code{DeletedProjectCountResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeletedProjectCountResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DeletedProjectCountResponse$clone()}}
+\item \href{#method-DeletedProjectCountResponse-new}{\code{DeletedProjectCountResponse$new()}}
+\item \href{#method-DeletedProjectCountResponse-validate}{\code{DeletedProjectCountResponse$validate()}}
+\item \href{#method-DeletedProjectCountResponse-toJSON}{\code{DeletedProjectCountResponse$toJSON()}}
+\item \href{#method-DeletedProjectCountResponse-fromJSON}{\code{DeletedProjectCountResponse$fromJSON()}}
+\item \href{#method-DeletedProjectCountResponse-clone}{\code{DeletedProjectCountResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeletedProjectCountResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeletedProjectCountResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeletedProjectCountResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeletedProjectCountResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeletedProjectCountResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeletedProjectCountResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeletedProjectCountResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeletedProjectCountResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeletedProjectCountResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeletedProjectCountResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeletedProjectCountResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

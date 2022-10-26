@@ -73,7 +73,7 @@ result <- api.instance$UseCasesActivitiesList(useCaseId, offset=offset, limit=li
 \dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The id of the use case
-createUseCaseAttachment <- CreateUseCaseAttachment$new() # CreateUseCaseAttachment |
+createUseCaseAttachment <- CreateUseCaseAttachment$new() # CreateUseCaseAttachment | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesAttachmentsCreate(useCaseId, createUseCaseAttachment=createUseCaseAttachment)
@@ -126,7 +126,7 @@ result <- api.instance$UseCasesAttachmentsRetrieve(useCaseId, attachmentId)
 
 \dontrun{
 library(datarobot.apicore)
-useCase <- UseCase$new() # UseCase |
+useCase <- UseCase$new() # UseCase | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesCreate(useCase=useCase)
@@ -167,7 +167,7 @@ result <- api.instance$UseCasesList(offset=offset, limit=limit, orderBy=orderBy,
 \dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The id of the use case
-useCaseUpdate <- UseCaseUpdate$new() # UseCaseUpdate |
+useCaseUpdate <- UseCaseUpdate$new() # UseCaseUpdate | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesPatch(useCaseId, useCaseUpdate=useCaseUpdate)
@@ -224,7 +224,7 @@ result <- api.instance$UseCasesSharedRolesList(offset, limit, useCaseId, id=id, 
 \dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The ID of the use case
-useCaseSharingUpdate <- UseCaseSharingUpdate$new() # UseCaseSharingUpdate |
+useCaseSharingUpdate <- UseCaseSharingUpdate$new() # UseCaseSharingUpdate | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesSharedRolesPatchMany(useCaseId, useCaseSharingUpdate=useCaseSharingUpdate)
@@ -240,29 +240,29 @@ result <- api.instance$UseCasesSharedRolesPatchMany(useCaseId, useCaseSharingUpd
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UseCaseApi$new()}}
-\item \href{#method-UseCaseValueTemplatesCalculationList}{\code{UseCaseApi$UseCaseValueTemplatesCalculationList()}}
-\item \href{#method-UseCaseValueTemplatesList}{\code{UseCaseApi$UseCaseValueTemplatesList()}}
-\item \href{#method-UseCaseValueTemplatesRetrieve}{\code{UseCaseApi$UseCaseValueTemplatesRetrieve()}}
-\item \href{#method-UseCasesActivitiesList}{\code{UseCaseApi$UseCasesActivitiesList()}}
-\item \href{#method-UseCasesAttachmentsCreate}{\code{UseCaseApi$UseCasesAttachmentsCreate()}}
-\item \href{#method-UseCasesAttachmentsDelete}{\code{UseCaseApi$UseCasesAttachmentsDelete()}}
-\item \href{#method-UseCasesAttachmentsList}{\code{UseCaseApi$UseCasesAttachmentsList()}}
-\item \href{#method-UseCasesAttachmentsRetrieve}{\code{UseCaseApi$UseCasesAttachmentsRetrieve()}}
-\item \href{#method-UseCasesCreate}{\code{UseCaseApi$UseCasesCreate()}}
-\item \href{#method-UseCasesDelete}{\code{UseCaseApi$UseCasesDelete()}}
-\item \href{#method-UseCasesList}{\code{UseCaseApi$UseCasesList()}}
-\item \href{#method-UseCasesPatch}{\code{UseCaseApi$UseCasesPatch()}}
-\item \href{#method-UseCasesRealizedValueOverTimeList}{\code{UseCaseApi$UseCasesRealizedValueOverTimeList()}}
-\item \href{#method-UseCasesRetrieve}{\code{UseCaseApi$UseCasesRetrieve()}}
-\item \href{#method-UseCasesSharedRolesList}{\code{UseCaseApi$UseCasesSharedRolesList()}}
-\item \href{#method-UseCasesSharedRolesPatchMany}{\code{UseCaseApi$UseCasesSharedRolesPatchMany()}}
-\item \href{#method-clone}{\code{UseCaseApi$clone()}}
+\item \href{#method-UseCaseApi-new}{\code{UseCaseApi$new()}}
+\item \href{#method-UseCaseApi-UseCaseValueTemplatesCalculationList}{\code{UseCaseApi$UseCaseValueTemplatesCalculationList()}}
+\item \href{#method-UseCaseApi-UseCaseValueTemplatesList}{\code{UseCaseApi$UseCaseValueTemplatesList()}}
+\item \href{#method-UseCaseApi-UseCaseValueTemplatesRetrieve}{\code{UseCaseApi$UseCaseValueTemplatesRetrieve()}}
+\item \href{#method-UseCaseApi-UseCasesActivitiesList}{\code{UseCaseApi$UseCasesActivitiesList()}}
+\item \href{#method-UseCaseApi-UseCasesAttachmentsCreate}{\code{UseCaseApi$UseCasesAttachmentsCreate()}}
+\item \href{#method-UseCaseApi-UseCasesAttachmentsDelete}{\code{UseCaseApi$UseCasesAttachmentsDelete()}}
+\item \href{#method-UseCaseApi-UseCasesAttachmentsList}{\code{UseCaseApi$UseCasesAttachmentsList()}}
+\item \href{#method-UseCaseApi-UseCasesAttachmentsRetrieve}{\code{UseCaseApi$UseCasesAttachmentsRetrieve()}}
+\item \href{#method-UseCaseApi-UseCasesCreate}{\code{UseCaseApi$UseCasesCreate()}}
+\item \href{#method-UseCaseApi-UseCasesDelete}{\code{UseCaseApi$UseCasesDelete()}}
+\item \href{#method-UseCaseApi-UseCasesList}{\code{UseCaseApi$UseCasesList()}}
+\item \href{#method-UseCaseApi-UseCasesPatch}{\code{UseCaseApi$UseCasesPatch()}}
+\item \href{#method-UseCaseApi-UseCasesRealizedValueOverTimeList}{\code{UseCaseApi$UseCasesRealizedValueOverTimeList()}}
+\item \href{#method-UseCaseApi-UseCasesRetrieve}{\code{UseCaseApi$UseCasesRetrieve()}}
+\item \href{#method-UseCaseApi-UseCasesSharedRolesList}{\code{UseCaseApi$UseCasesSharedRolesList()}}
+\item \href{#method-UseCaseApi-UseCasesSharedRolesPatchMany}{\code{UseCaseApi$UseCasesSharedRolesPatchMany()}}
+\item \href{#method-UseCaseApi-clone}{\code{UseCaseApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UseCaseApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -277,8 +277,8 @@ result <- api.instance$UseCasesSharedRolesPatchMany(useCaseId, useCaseSharingUpd
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCaseValueTemplatesCalculationList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCaseValueTemplatesCalculationList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCaseValueTemplatesCalculationList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCaseValueTemplatesCalculationList}{}}}
 \subsection{Method \code{UseCaseValueTemplatesCalculationList()}}{
 Calculate value of template with given template parameters.
 Produces: "application/json"
@@ -317,6 +317,9 @@ Produces: "application/json"
 Calculate value of template with given template parameters.
 
 
+This method invokes \verb{GET /useCaseValueTemplates/\{templateType\}/calculation/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -352,8 +355,8 @@ result <- api.instance$UseCaseValueTemplatesCalculationList(accuracyImprovement,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCaseValueTemplatesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCaseValueTemplatesList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCaseValueTemplatesList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCaseValueTemplatesList}{}}}
 \subsection{Method \code{UseCaseValueTemplatesList()}}{
 List available use cases templates.
 Produces: "application/json"
@@ -370,6 +373,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List available use cases templates.
+
+
+This method invokes \verb{GET /useCaseValueTemplates/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -398,8 +404,8 @@ result <- api.instance$UseCaseValueTemplatesList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCaseValueTemplatesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCaseValueTemplatesRetrieve}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCaseValueTemplatesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCaseValueTemplatesRetrieve}{}}}
 \subsection{Method \code{UseCaseValueTemplatesRetrieve()}}{
 Get an individual use case value template by its name.
 Produces: "application/json"
@@ -418,6 +424,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get an individual use case value template by its name.
+
+
+This method invokes \verb{GET /useCaseValueTemplates/\{templateType\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -450,8 +459,8 @@ result <- api.instance$UseCaseValueTemplatesRetrieve(templateType)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesActivitiesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesActivitiesList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesActivitiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesActivitiesList}{}}}
 \subsection{Method \code{UseCasesActivitiesList()}}{
 Retrieve the activities of a use case.
 Produces: "application/json"
@@ -474,6 +483,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the activities of a use case.
+
+
+This method invokes \verb{GET /useCases/\{useCaseId\}/activities/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -505,8 +517,8 @@ result <- api.instance$UseCasesActivitiesList(useCaseId, offset=offset, limit=li
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesAttachmentsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesAttachmentsCreate}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesAttachmentsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesAttachmentsCreate}{}}}
 \subsection{Method \code{UseCasesAttachmentsCreate()}}{
 Attach a list of resources to this use case.
 Produces: "application/json"
@@ -533,6 +545,9 @@ Produces: "application/json"
 Attach a list of resources to this use case.
 
 
+This method invokes \verb{POST /useCases/\{useCaseId\}/attachments/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -555,7 +570,7 @@ list( \link{UseCaseAttachment} )
 \preformatted{\dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The id of the use case
-createUseCaseAttachment <- CreateUseCaseAttachment$new() # CreateUseCaseAttachment |
+createUseCaseAttachment <- CreateUseCaseAttachment$new() # CreateUseCaseAttachment | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesAttachmentsCreate(useCaseId, createUseCaseAttachment=createUseCaseAttachment)
@@ -567,8 +582,8 @@ result <- api.instance$UseCasesAttachmentsCreate(useCaseId, createUseCaseAttachm
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesAttachmentsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesAttachmentsDelete}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesAttachmentsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesAttachmentsDelete}{}}}
 \subsection{Method \code{UseCasesAttachmentsDelete()}}{
 Removes a resource from a use case.
 Produces: NA
@@ -589,6 +604,9 @@ Produces: NA
 }
 \subsection{Details}{
 Removes a resource from a use case.
+
+
+This method invokes \verb{DELETE /useCases/\{useCaseId\}/attachments/\{attachmentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -625,8 +643,8 @@ result <- api.instance$UseCasesAttachmentsDelete(useCaseId, attachmentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesAttachmentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesAttachmentsList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesAttachmentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesAttachmentsList}{}}}
 \subsection{Method \code{UseCasesAttachmentsList()}}{
 Get a list of resources attached to this use case.
 Produces: "application/json"
@@ -657,6 +675,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of resources attached to this use case.
+
+
+This method invokes \verb{GET /useCases/\{useCaseId\}/attachments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -692,8 +713,8 @@ result <- api.instance$UseCasesAttachmentsList(useCaseId, offset=offset, limit=l
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesAttachmentsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesAttachmentsRetrieve}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesAttachmentsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesAttachmentsRetrieve}{}}}
 \subsection{Method \code{UseCasesAttachmentsRetrieve()}}{
 Get a resource that is attached to a use case.
 Produces: "application/json"
@@ -714,6 +735,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a resource that is attached to a use case.
+
+
+This method invokes \verb{GET /useCases/\{useCaseId\}/attachments/\{attachmentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -753,8 +777,8 @@ result <- api.instance$UseCasesAttachmentsRetrieve(useCaseId, attachmentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesCreate}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesCreate}{}}}
 \subsection{Method \code{UseCasesCreate()}}{
 Create a new use case.
 Produces: "application/json"
@@ -775,6 +799,9 @@ Produces: "application/json"
 Create a new use case.
 
 
+This method invokes \verb{POST /useCases/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -790,7 +817,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-useCase <- UseCase$new() # UseCase |
+useCase <- UseCase$new() # UseCase | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesCreate(useCase=useCase)
@@ -802,8 +829,8 @@ result <- api.instance$UseCasesCreate(useCase=useCase)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesDelete}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesDelete}{}}}
 \subsection{Method \code{UseCasesDelete()}}{
 Delete a use case
 Produces: NA
@@ -822,6 +849,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a use case
+
+
+This method invokes \verb{DELETE /useCases/\{useCaseId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -851,8 +881,8 @@ result <- api.instance$UseCasesDelete(useCaseId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesList}{}}}
 \subsection{Method \code{UseCasesList()}}{
 List use cases the requesting user has access to.
 Produces: "application/json"
@@ -888,6 +918,9 @@ Produces: "application/json"
 List use cases the requesting user has access to.
 
 
+This method invokes \verb{GET /useCases/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -919,8 +952,8 @@ result <- api.instance$UseCasesList(offset=offset, limit=limit, orderBy=orderBy,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesPatch}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesPatch}{}}}
 \subsection{Method \code{UseCasesPatch()}}{
 Update a use case.
 Produces: "application/json"
@@ -943,6 +976,9 @@ Produces: "application/json"
 Update a use case.
 
 
+This method invokes \verb{PATCH /useCases/\{useCaseId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -959,7 +995,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The id of the use case
-useCaseUpdate <- UseCaseUpdate$new() # UseCaseUpdate |
+useCaseUpdate <- UseCaseUpdate$new() # UseCaseUpdate | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesPatch(useCaseId, useCaseUpdate=useCaseUpdate)
@@ -971,8 +1007,8 @@ result <- api.instance$UseCasesPatch(useCaseId, useCaseUpdate=useCaseUpdate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesRealizedValueOverTimeList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesRealizedValueOverTimeList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesRealizedValueOverTimeList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesRealizedValueOverTimeList}{}}}
 \subsection{Method \code{UseCasesRealizedValueOverTimeList()}}{
 Retrieve realized value information for a given use case over a period of time
 Produces: "application/json"
@@ -1005,6 +1041,9 @@ Produces: "application/json"
 Retrieve realized value information for a given use case over a period of time
 
 
+This method invokes \verb{GET /useCases/\{useCaseId\}/realizedValueOverTime/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1035,8 +1074,8 @@ result <- api.instance$UseCasesRealizedValueOverTimeList(useCaseId, start=start,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesRetrieve}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesRetrieve}{}}}
 \subsection{Method \code{UseCasesRetrieve()}}{
 Retrieve a use case.
 Produces: "application/json"
@@ -1055,6 +1094,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a use case.
+
+
+This method invokes \verb{GET /useCases/\{useCaseId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1084,8 +1126,8 @@ result <- api.instance$UseCasesRetrieve(useCaseId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesSharedRolesList}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesSharedRolesList}{}}}
 \subsection{Method \code{UseCasesSharedRolesList()}}{
 Get a list of users, groups and organizations that have an access to this use case
 Produces: "application/json"
@@ -1124,6 +1166,9 @@ Produces: "application/json"
 Get a list of users, groups and organizations that have an access to this use case
 
 
+This method invokes \verb{GET /useCases/\{useCaseId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1156,8 +1201,8 @@ result <- api.instance$UseCasesSharedRolesList(offset, limit, useCaseId, id=id, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UseCasesSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UseCasesSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-UseCasesSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-UseCasesSharedRolesPatchMany}{}}}
 \subsection{Method \code{UseCasesSharedRolesPatchMany()}}{
 Share a use case with a user, group or organization.
 Produces: NA
@@ -1184,6 +1229,9 @@ Produces: NA
 Share a use case with a user, group or organization.
 
 
+This method invokes \verb{PATCH /useCases/\{useCaseId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1203,7 +1251,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 useCaseId <- 'useCaseId_example' # character | The ID of the use case
-useCaseSharingUpdate <- UseCaseSharingUpdate$new() # UseCaseSharingUpdate |
+useCaseSharingUpdate <- UseCaseSharingUpdate$new() # UseCaseSharingUpdate | 
 
 api.instance <- UseCaseApi$new()
 result <- api.instance$UseCasesSharedRolesPatchMany(useCaseId, useCaseSharingUpdate=useCaseSharingUpdate)
@@ -1215,8 +1263,8 @@ result <- api.instance$UseCasesSharedRolesPatchMany(useCaseId, useCaseSharingUpd
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UseCaseApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -6,30 +6,17 @@
 \usage{
 CreateUseCasesAttachments(useCaseId, attachedObjects, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Attach a list of resources to this use case.
 }
 \details{
 Attach a list of resources to this use case.
+
+This method invokes \verb{POST /useCases/\{useCaseId\}/attachments/} in the DataRobot Public API.
 }
 \seealso{
-The method UseCasesAttachmentsCreate in [datarobot.apicore::UseCaseApi], which this function wraps.
-
-Other UseCase: 
-\code{\link{CreateUseCases}()},
-\code{\link{DeleteUseCasesAttachments}()},
-\code{\link{DeleteUseCases}()},
-\code{\link{ListUseCaseValueTemplatesCalculation}()},
-\code{\link{ListUseCaseValueTemplates}()},
-\code{\link{ListUseCasesActivities}()},
-\code{\link{ListUseCasesAttachments}()},
-\code{\link{ListUseCasesRealizedValueOverTime}()},
-\code{\link{ListUseCasesSharedRoles}()},
-\code{\link{ListUseCases}()},
-\code{\link{PatchManyUseCasesSharedRoles}()},
-\code{\link{PatchUseCases}()},
-\code{\link{RetrieveUseCaseValueTemplates}()},
-\code{\link{RetrieveUseCasesAttachments}()},
-\code{\link{RetrieveUseCases}()}
+The method UseCasesAttachmentsCreate in \link[datarobot.apicore:UseCaseApi]{datarobot.apicore::UseCaseApi}, which invokes the same underlying API endpoint.
 }
-\concept{UseCase}

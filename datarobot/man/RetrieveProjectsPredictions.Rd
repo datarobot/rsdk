@@ -12,60 +12,17 @@ RetrieveProjectsPredictions(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Get a completed set of predictions.
 }
 \details{
-Retrieve predictions that have previously been computed. Training predictions encoded either as JSON or CSV. If CSV output was requested, the returned CSV data will contain the following columns:  * For regression projects: `row_id` and `prediction`. * For binary classification projects: `row_id`, `prediction`,   `class_<positive_class_label>` and `class_<negative_class_label>`. * For multiclass projects: `row_id`, `prediction` and a   `class_<class_label>` for each class. * For multilabel projects: `row_id` and for each class   `prediction_<class_label>` and `class_<class_label>`. * For time-series, these additional columns will be added: `forecast_point`,   `forecast_distance`, `timestamp`, and `series_id`.  .. minversion:: v2.21      * If `explanationAlgorithm` = 'shap', these additional columns will be added:       triplets of (`Explanation_<i>_feature_name`,       `Explanation_<i>_feature_value`, and `Explanation_<i>_strength`) for `i` ranging       from 1 to `maxExplanations`, `shap_remaining_total` and `shap_base_value`. Binary       classification projects will also have `explained_class`, the class for which       positive SHAP values imply an increased probability.
+Retrieve predictions that have previously been computed. Training predictions encoded either as JSON or CSV. If CSV output was requested, the returned CSV data will contain the following columns:  -   For regression projects: row_id and prediction. -   For binary classification projects: row_id, prediction,     class\\\emph{\\<positive_class_label\\> and class\\}\\<negative_class_label\\>. -   For multiclass projects: row_id, prediction and a     class\\\emph{\\<class_label\\> for each class. -   For multilabel projects: row_id and for each class     prediction\\}\\<class_label\\> and class\\\emph{\\<class_label\\>. -   For time-series, these additional columns will be added:     forecast_point, forecast_distance, timestamp, and series_id.  v2.21  -   If explanationAlgorithm = 'shap', these additional columns will be     added: triplets of (Explanation\\}\\<i\\>\\\emph{feature_name,     Explanation\\}\\<i\\>\\\emph{feature_value, and Explanation\\}\\<i\\>\\_strength)     for i ranging from 1 to maxExplanations, shap_remaining_total and     shap_base_value. Binary classification projects will also have     explained_class, the class for which positive SHAP values imply an     increased probability.
+
+This method invokes \verb{GET /projects/\{projectId\}/predictions/\{predictionId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsPredictionsRetrieve in [datarobot.apicore::PredictionsApi], which this function wraps.
-
-Other Predictions: 
-\code{\link{CreateBatchPredictionJobDefinitions}()},
-\code{\link{CreateBatchPredictionsCsvUploadFinalizeMultipart}()},
-\code{\link{CreateBatchPredictionsFromExisting}()},
-\code{\link{CreateBatchPredictionsFromJobDefinition}()},
-\code{\link{CreateBatchPredictions}()},
-\code{\link{CreateProjectsPredictionDatasetsFileUploads}()},
-\code{\link{DeleteBatchPredictionJobDefinitions}()},
-\code{\link{DeleteBatchPredictions}()},
-\code{\link{DeletePredictJob}()},
-\code{\link{DeletePredictionDataset}()},
-\code{\link{DeletePredictionExplanations}()},
-\code{\link{DeleteScheduledJobs}()},
-\code{\link{DeleteTransferableModel}()},
-\code{\link{GetPredictJobs}()},
-\code{\link{GetPredictJob}()},
-\code{\link{GetPredictionDataset}()},
-\code{\link{GetPredictionExplanationsMetadata}()},
-\code{\link{GetPredictionExplanationsPage}()},
-\code{\link{GetTransferableModel}()},
-\code{\link{ListBatchPredictionJobDefinitionsPortable}()},
-\code{\link{ListBatchPredictionJobDefinitions}()},
-\code{\link{ListBatchPredictionsDownload}()},
-\code{\link{ListBatchPredictions}()},
-\code{\link{ListPredictionDatasets}()},
-\code{\link{ListPredictionExplanationsMetadata}()},
-\code{\link{ListPredictions}()},
-\code{\link{ListProjectsPredictionsMetadata}()},
-\code{\link{ListScheduledJobs}()},
-\code{\link{ListTrainingPredictions}()},
-\code{\link{ListTransferableModels}()},
-\code{\link{PatchBatchPredictionJobDefinitions}()},
-\code{\link{PatchBatchPredictions}()},
-\code{\link{PatchScheduledJobs}()},
-\code{\link{PutBatchPredictionsCsvUploadPart}()},
-\code{\link{PutImportedModels}()},
-\code{\link{PutManyBatchPredictionsCsvUpload}()},
-\code{\link{RetrieveBatchPredictionJobDefinitions}()},
-\code{\link{RetrieveBatchPredictions}()},
-\code{\link{RetrieveProjectsPredictionsMetadata}()},
-\code{\link{RetrieveScheduledJobs}()},
-\code{\link{UpdateTransferableModel}()},
-\code{\link{UploadPredictionDatasetFromCatalog}()},
-\code{\link{UploadPredictionDatasetFromDataSource}()},
-\code{\link{UploadPredictionDataset}()},
-\code{\link{UploadTransferableModel}()}
+The method ProjectsPredictionsRetrieve in \link[datarobot.apicore:PredictionsApi]{datarobot.apicore::PredictionsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Predictions}

@@ -22,16 +22,16 @@ DeploymentPermanentDelete Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentPermanentDelete$new()}}
-\item \href{#method-validate}{\code{DeploymentPermanentDelete$validate()}}
-\item \href{#method-toJSON}{\code{DeploymentPermanentDelete$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeploymentPermanentDelete$fromJSON()}}
-\item \href{#method-clone}{\code{DeploymentPermanentDelete$clone()}}
+\item \href{#method-DeploymentPermanentDelete-new}{\code{DeploymentPermanentDelete$new()}}
+\item \href{#method-DeploymentPermanentDelete-validate}{\code{DeploymentPermanentDelete$validate()}}
+\item \href{#method-DeploymentPermanentDelete-toJSON}{\code{DeploymentPermanentDelete$toJSON()}}
+\item \href{#method-DeploymentPermanentDelete-fromJSON}{\code{DeploymentPermanentDelete$fromJSON()}}
+\item \href{#method-DeploymentPermanentDelete-clone}{\code{DeploymentPermanentDelete$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentPermanentDelete-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentPermanentDelete-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeploymentPermanentDelete-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentPermanentDelete-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentPermanentDelete$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentPermanentDelete-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentPermanentDelete-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentPermanentDelete-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentPermanentDelete-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentPermanentDelete-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentPermanentDelete-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

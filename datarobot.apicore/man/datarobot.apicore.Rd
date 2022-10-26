@@ -22,8 +22,8 @@ The \code{datarobot.apicore} package uses the following \code{\link[=options]{op
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/datarobot/public_api_R_client}
-  \item Report bugs at \url{https://github.com/datarobot/public_api_R_client/issues}
+  \item \url{https://github.com/datarobot/rsdk}
+  \item Report bugs at \url{https://github.com/datarobot/rsdk/issues}
 }
 
 }

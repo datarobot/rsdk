@@ -15,24 +15,17 @@ ListEventLogsPredictionUsage(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve prediction usage data.
 }
 \details{
-Retrieve prediction usage data. ``CAN_ACCESS_USER_ACTIVITY`` permission is required.
+Retrieve prediction usage data. \code{CAN_ACCESS_USER_ACTIVITY} permission is required.
+
+This method invokes \verb{GET /eventLogs/predictionUsage/} in the DataRobot Public API.
 }
 \seealso{
-The method EventLogsPredictionUsageList in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method EventLogsPredictionUsageList in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

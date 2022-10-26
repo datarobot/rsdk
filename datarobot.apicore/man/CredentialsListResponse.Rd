@@ -28,16 +28,16 @@ CredentialsListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CredentialsListResponse$new()}}
-\item \href{#method-validate}{\code{CredentialsListResponse$validate()}}
-\item \href{#method-toJSON}{\code{CredentialsListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CredentialsListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CredentialsListResponse$clone()}}
+\item \href{#method-CredentialsListResponse-new}{\code{CredentialsListResponse$new()}}
+\item \href{#method-CredentialsListResponse-validate}{\code{CredentialsListResponse$validate()}}
+\item \href{#method-CredentialsListResponse-toJSON}{\code{CredentialsListResponse$toJSON()}}
+\item \href{#method-CredentialsListResponse-fromJSON}{\code{CredentialsListResponse$fromJSON()}}
+\item \href{#method-CredentialsListResponse-clone}{\code{CredentialsListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CredentialsListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CredentialsListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CredentialsListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

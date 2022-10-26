@@ -39,11 +39,15 @@ CredentialsUpdate Class
 
 \item{\code{password}}{character \link{optional} Password to update for this set of credentials (applicable for credentialType `basic` only).}
 
+\item{\code{personalAccessToken}}{character \link{optional} Tableau personal access token (PAT)(applicable for Tableau AUTH connections only).}
+
 \item{\code{refreshToken}}{character \link{optional} OAUTH refresh token (applicable for credentialType `oauth` only).}
 
 \item{\code{snowflakeAccountName}}{character \link{optional} Snowflake account name (applicable for `snowflake_oauth_user_account` only).}
 
 \item{\code{token}}{character \link{optional} OAUTH token (applicable for credentialType `oauth` only).}
+
+\item{\code{tokenName}}{character \link{optional} Tableau token name(applicable for Tableau AUTH connections only).}
 
 \item{\code{user}}{character \link{optional} Username to update for this set of credentials (applicable for credentialType `basic` only).}
 }
@@ -52,16 +56,16 @@ CredentialsUpdate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CredentialsUpdate$new()}}
-\item \href{#method-validate}{\code{CredentialsUpdate$validate()}}
-\item \href{#method-toJSON}{\code{CredentialsUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{CredentialsUpdate$fromJSON()}}
-\item \href{#method-clone}{\code{CredentialsUpdate$clone()}}
+\item \href{#method-CredentialsUpdate-new}{\code{CredentialsUpdate$new()}}
+\item \href{#method-CredentialsUpdate-validate}{\code{CredentialsUpdate$validate()}}
+\item \href{#method-CredentialsUpdate-toJSON}{\code{CredentialsUpdate$toJSON()}}
+\item \href{#method-CredentialsUpdate-fromJSON}{\code{CredentialsUpdate$fromJSON()}}
+\item \href{#method-CredentialsUpdate-clone}{\code{CredentialsUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CredentialsUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -79,9 +83,11 @@ A function used to initialize an instance of this class.
   oauthIssuerUrl = NULL,
   oauthScopes = NULL,
   password = NULL,
+  personalAccessToken = NULL,
   refreshToken = NULL,
   snowflakeAccountName = NULL,
   token = NULL,
+  tokenName = NULL,
   user = NULL,
   validateParams = FALSE,
   ...
@@ -115,11 +121,15 @@ A function used to initialize an instance of this class.
 
 \item{\code{password}}{Password to update for this set of credentials (applicable for credentialType `basic` only).}
 
+\item{\code{personalAccessToken}}{Tableau personal access token (PAT)(applicable for Tableau AUTH connections only).}
+
 \item{\code{refreshToken}}{OAUTH refresh token (applicable for credentialType `oauth` only).}
 
 \item{\code{snowflakeAccountName}}{Snowflake account name (applicable for `snowflake_oauth_user_account` only).}
 
 \item{\code{token}}{OAUTH token (applicable for credentialType `oauth` only).}
+
+\item{\code{tokenName}}{Tableau token name(applicable for Tableau AUTH connections only).}
 
 \item{\code{user}}{Username to update for this set of credentials (applicable for credentialType `basic` only).}
 
@@ -131,19 +141,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CredentialsUpdate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsUpdate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CredentialsUpdate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -152,8 +163,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CredentialsUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -171,8 +182,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CredentialsUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CredentialsUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

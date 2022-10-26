@@ -6,29 +6,17 @@
 \usage{
 DeleteAutomatedDocuments(documentId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete automated document.
 }
 \details{
-Delete a document using its ID. Example request:      .. code-block:: text              DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1             Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4
+Delete a document using its ID. Example request:  > \verb{text > DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 > Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 >}
+
+This method invokes \verb{DELETE /automatedDocuments/\{documentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method AutomatedDocumentsDelete in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method AutomatedDocumentsDelete in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

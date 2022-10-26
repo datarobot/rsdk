@@ -1,3 +1,0 @@
-token: DummyToken
-endpoint: https://endpoint/api/v2
-ssl_verify: TRUE

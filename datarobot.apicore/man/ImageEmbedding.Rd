@@ -13,7 +13,7 @@ ImageEmbedding Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{actualTargetValue}}{\link{OneOfstringinteger} Actual target value of the dataset row.}
+\item{\code{actualTargetValue}}{\link{OneOfstringintegerarray} Actual target value of the dataset row.}
 
 \item{\code{imageId}}{character Id of the image. The actual image file can be retrieved with :http:get:`/api/v2/projects/(projectId)/images/(imageId)/file/`.}
 
@@ -21,23 +21,23 @@ ImageEmbedding Class
 
 \item{\code{positionY}}{numeric y coordinate of the image in the embedding space.}
 
-\item{\code{prediction}}{\link{ImageEmbeddingPrediction}}
+\item{\code{prediction}}{\link{InsightsPredictionField}}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ImageEmbedding$new()}}
-\item \href{#method-validate}{\code{ImageEmbedding$validate()}}
-\item \href{#method-toJSON}{\code{ImageEmbedding$toJSON()}}
-\item \href{#method-fromJSON}{\code{ImageEmbedding$fromJSON()}}
-\item \href{#method-clone}{\code{ImageEmbedding$clone()}}
+\item \href{#method-ImageEmbedding-new}{\code{ImageEmbedding$new()}}
+\item \href{#method-ImageEmbedding-validate}{\code{ImageEmbedding$validate()}}
+\item \href{#method-ImageEmbedding-toJSON}{\code{ImageEmbedding$toJSON()}}
+\item \href{#method-ImageEmbedding-fromJSON}{\code{ImageEmbedding$fromJSON()}}
+\item \href{#method-ImageEmbedding-clone}{\code{ImageEmbedding$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ImageEmbedding-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageEmbedding-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -71,19 +71,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ImageEmbedding-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageEmbedding-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImageEmbedding$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ImageEmbedding-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageEmbedding-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -92,8 +93,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ImageEmbedding-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageEmbedding-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ImageEmbedding-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ImageEmbedding-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

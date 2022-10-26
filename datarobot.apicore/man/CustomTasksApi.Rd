@@ -21,9 +21,9 @@ library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
-filesToDelete <- oneOf<string,array>$new() # OneOfstringarray | The IDs of the files to be deleted.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 requiredMetadata <- 'requiredMetadata_example' # character | Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment's requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
 requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additional parameters required by the execution environment. The required fieldNames are defined by the fieldNames in the base environment's requiredMetadataKeys.
@@ -53,7 +53,7 @@ result <- api.instance$CustomTasksAccessControlList(offset, limit, customTaskId)
 \dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksAccessControlPatchMany(customTaskId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -65,7 +65,7 @@ result <- api.instance$CustomTasksAccessControlPatchMany(customTaskId, sharingUp
 
 \dontrun{
 library(datarobot.apicore)
-customTaskCreate <- CustomTaskCreate$new() # CustomTaskCreate |
+customTaskCreate <- CustomTaskCreate$new() # CustomTaskCreate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksCreate(customTaskCreate=customTaskCreate)
@@ -101,7 +101,7 @@ result <- api.instance$CustomTasksDownloadList(customTaskId)
 
 \dontrun{
 library(datarobot.apicore)
-customTaskCopy <- CustomTaskCopy$new() # CustomTaskCopy |
+customTaskCopy <- CustomTaskCopy$new() # CustomTaskCopy | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksFromCustomTaskCreate(customTaskCopy=customTaskCopy)
@@ -129,7 +129,7 @@ result <- api.instance$CustomTasksList(offset, limit, orderBy=orderBy, searchFor
 \dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskUpdate <- CustomTaskUpdate$new() # CustomTaskUpdate |
+customTaskUpdate <- CustomTaskUpdate$new() # CustomTaskUpdate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksPatch(customTaskId, customTaskUpdate=customTaskUpdate)
@@ -156,8 +156,8 @@ library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 requiredMetadata <- 'requiredMetadata_example' # character | Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment's requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
 requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additional parameters required by the execution environment. The required fieldNames are defined by the fieldNames in the base environment's requiredMetadataKeys.
@@ -238,7 +238,7 @@ result <- api.instance$CustomTasksVersionsDownloadList(customTaskId, customTaskV
 \dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository |
+customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsFromRepositoryCreate(customTaskId, customTaskVersionCreateFromRepository=customTaskVersionCreateFromRepository)
@@ -251,7 +251,7 @@ result <- api.instance$CustomTasksVersionsFromRepositoryCreate(customTaskId, cus
 \dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository |
+customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsFromRepositoryPatchMany(customTaskId, customTaskVersionCreateFromRepository=customTaskVersionCreateFromRepository)
@@ -279,7 +279,7 @@ result <- api.instance$CustomTasksVersionsList(offset, limit, customTaskId)
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 customTaskVersionId <- 'customTaskVersionId_example' # character | ID of the custom task version.
-customTaskVersionMetadataUpdate <- CustomTaskVersionMetadataUpdate$new() # CustomTaskVersionMetadataUpdate |
+customTaskVersionMetadataUpdate <- CustomTaskVersionMetadataUpdate$new() # CustomTaskVersionMetadataUpdate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsPatch(customTaskId, customTaskVersionId, customTaskVersionMetadataUpdate=customTaskVersionMetadataUpdate)
@@ -308,34 +308,34 @@ result <- api.instance$CustomTasksVersionsRetrieve(customTaskId, customTaskVersi
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomTasksApi$new()}}
-\item \href{#method-CustomTaskVersionCreateFromLatest}{\code{CustomTasksApi$CustomTaskVersionCreateFromLatest()}}
-\item \href{#method-CustomTasksAccessControlList}{\code{CustomTasksApi$CustomTasksAccessControlList()}}
-\item \href{#method-CustomTasksAccessControlPatchMany}{\code{CustomTasksApi$CustomTasksAccessControlPatchMany()}}
-\item \href{#method-CustomTasksCreate}{\code{CustomTasksApi$CustomTasksCreate()}}
-\item \href{#method-CustomTasksDelete}{\code{CustomTasksApi$CustomTasksDelete()}}
-\item \href{#method-CustomTasksDownloadList}{\code{CustomTasksApi$CustomTasksDownloadList()}}
-\item \href{#method-CustomTasksFromCustomTaskCreate}{\code{CustomTasksApi$CustomTasksFromCustomTaskCreate()}}
-\item \href{#method-CustomTasksList}{\code{CustomTasksApi$CustomTasksList()}}
-\item \href{#method-CustomTasksPatch}{\code{CustomTasksApi$CustomTasksPatch()}}
-\item \href{#method-CustomTasksRetrieve}{\code{CustomTasksApi$CustomTasksRetrieve()}}
-\item \href{#method-CustomTasksVersionsCreate}{\code{CustomTasksApi$CustomTasksVersionsCreate()}}
-\item \href{#method-CustomTasksVersionsDependencyBuildCreate}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildCreate()}}
-\item \href{#method-CustomTasksVersionsDependencyBuildDeleteMany}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildDeleteMany()}}
-\item \href{#method-CustomTasksVersionsDependencyBuildList}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildList()}}
-\item \href{#method-CustomTasksVersionsDependencyBuildLogList}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildLogList()}}
-\item \href{#method-CustomTasksVersionsDownloadList}{\code{CustomTasksApi$CustomTasksVersionsDownloadList()}}
-\item \href{#method-CustomTasksVersionsFromRepositoryCreate}{\code{CustomTasksApi$CustomTasksVersionsFromRepositoryCreate()}}
-\item \href{#method-CustomTasksVersionsFromRepositoryPatchMany}{\code{CustomTasksApi$CustomTasksVersionsFromRepositoryPatchMany()}}
-\item \href{#method-CustomTasksVersionsList}{\code{CustomTasksApi$CustomTasksVersionsList()}}
-\item \href{#method-CustomTasksVersionsPatch}{\code{CustomTasksApi$CustomTasksVersionsPatch()}}
-\item \href{#method-CustomTasksVersionsRetrieve}{\code{CustomTasksApi$CustomTasksVersionsRetrieve()}}
-\item \href{#method-clone}{\code{CustomTasksApi$clone()}}
+\item \href{#method-CustomTasksApi-new}{\code{CustomTasksApi$new()}}
+\item \href{#method-CustomTasksApi-CustomTaskVersionCreateFromLatest}{\code{CustomTasksApi$CustomTaskVersionCreateFromLatest()}}
+\item \href{#method-CustomTasksApi-CustomTasksAccessControlList}{\code{CustomTasksApi$CustomTasksAccessControlList()}}
+\item \href{#method-CustomTasksApi-CustomTasksAccessControlPatchMany}{\code{CustomTasksApi$CustomTasksAccessControlPatchMany()}}
+\item \href{#method-CustomTasksApi-CustomTasksCreate}{\code{CustomTasksApi$CustomTasksCreate()}}
+\item \href{#method-CustomTasksApi-CustomTasksDelete}{\code{CustomTasksApi$CustomTasksDelete()}}
+\item \href{#method-CustomTasksApi-CustomTasksDownloadList}{\code{CustomTasksApi$CustomTasksDownloadList()}}
+\item \href{#method-CustomTasksApi-CustomTasksFromCustomTaskCreate}{\code{CustomTasksApi$CustomTasksFromCustomTaskCreate()}}
+\item \href{#method-CustomTasksApi-CustomTasksList}{\code{CustomTasksApi$CustomTasksList()}}
+\item \href{#method-CustomTasksApi-CustomTasksPatch}{\code{CustomTasksApi$CustomTasksPatch()}}
+\item \href{#method-CustomTasksApi-CustomTasksRetrieve}{\code{CustomTasksApi$CustomTasksRetrieve()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsCreate}{\code{CustomTasksApi$CustomTasksVersionsCreate()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsDependencyBuildCreate}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildCreate()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsDependencyBuildDeleteMany}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildDeleteMany()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsDependencyBuildList}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildList()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsDependencyBuildLogList}{\code{CustomTasksApi$CustomTasksVersionsDependencyBuildLogList()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsDownloadList}{\code{CustomTasksApi$CustomTasksVersionsDownloadList()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsFromRepositoryCreate}{\code{CustomTasksApi$CustomTasksVersionsFromRepositoryCreate()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsFromRepositoryPatchMany}{\code{CustomTasksApi$CustomTasksVersionsFromRepositoryPatchMany()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsList}{\code{CustomTasksApi$CustomTasksVersionsList()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsPatch}{\code{CustomTasksApi$CustomTasksVersionsPatch()}}
+\item \href{#method-CustomTasksApi-CustomTasksVersionsRetrieve}{\code{CustomTasksApi$CustomTasksVersionsRetrieve()}}
+\item \href{#method-CustomTasksApi-clone}{\code{CustomTasksApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomTasksApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -350,8 +350,8 @@ result <- api.instance$CustomTasksVersionsRetrieve(customTaskId, customTaskVersi
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTaskVersionCreateFromLatest"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTaskVersionCreateFromLatest}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTaskVersionCreateFromLatest"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTaskVersionCreateFromLatest}{}}}
 \subsection{Method \code{CustomTaskVersionCreateFromLatest()}}{
 Update custom task version files.
 Produces: "application/json"
@@ -399,6 +399,9 @@ Produces: "application/json"
 Create a new custom task version with files added, replaced or deleted. Files from the previous version of a custom task will be used as a basis.
 
 
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/versions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Item successfully created.
@@ -423,9 +426,9 @@ library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
-filesToDelete <- oneOf<string,array>$new() # OneOfstringarray | The IDs of the files to be deleted.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 requiredMetadata <- 'requiredMetadata_example' # character | Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment's requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
 requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additional parameters required by the execution environment. The required fieldNames are defined by the fieldNames in the base environment's requiredMetadataKeys.
@@ -440,8 +443,8 @@ result <- api.instance$CustomTaskVersionCreateFromLatest(customTaskId, baseEnvir
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksAccessControlList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksAccessControlList}{}}}
 \subsection{Method \code{CustomTasksAccessControlList()}}{
 Get a list of users who have access to this custom task and their roles on it.
 Produces: "application/json"
@@ -464,6 +467,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users who have access to this custom task and their roles on it.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -498,8 +504,8 @@ result <- api.instance$CustomTasksAccessControlList(offset, limit, customTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksAccessControlPatchMany}{}}}
 \subsection{Method \code{CustomTasksAccessControlPatchMany()}}{
 Grant access or update roles for users on this custom task and appropriate learning data.
 Produces: NA
@@ -526,6 +532,9 @@ Produces: NA
 Grant access or update roles for users on this custom task and appropriate learning data. Up to 100 user roles may be set in a single request.
 
 
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -545,7 +554,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksAccessControlPatchMany(customTaskId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -557,8 +566,8 @@ result <- api.instance$CustomTasksAccessControlPatchMany(customTaskId, sharingUp
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksCreate}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksCreate}{}}}
 \subsection{Method \code{CustomTasksCreate()}}{
 Create a custom task
 Produces: "application/json"
@@ -576,7 +585,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Creates a new custom task and returns the newly created metadata record for it.  A custom task may either be an estimator or a transform. Estimators must support a single target type (e.g. binaryClassification, regression). Regression and anomaly detection models are expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class.  For example, a binary classification model might return:  .. code:: Python      {         positiveClassLabel: probability,         negativeClassLabel: 1.0 - probability     }  Transforms are expected to return a dataframe or sparse matrix with the same number of rows as the input feature matrix. At this time, only numeric outputs are supported for custom transforms.
+Creates a new custom task and returns the newly created metadata record for it.  A custom task may either be an estimator or a transform. Estimators must support a single target type (e.g. binaryClassification, regression). Regression and anomaly detection models are expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class. For example, a binary classification model might return:  ``` Python {     positiveClassLabel: probability,     negativeClassLabel: 1.0 - probability } ```  Transforms are expected to return a dataframe or sparse matrix with the same number of rows as the input feature matrix. At this time, only numeric outputs are supported for custom transforms.
+
+
+This method invokes \verb{POST /customTasks/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -600,7 +612,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customTaskCreate <- CustomTaskCreate$new() # CustomTaskCreate |
+customTaskCreate <- CustomTaskCreate$new() # CustomTaskCreate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksCreate(customTaskCreate=customTaskCreate)
@@ -612,8 +624,8 @@ result <- api.instance$CustomTasksCreate(customTaskCreate=customTaskCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksDelete}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksDelete}{}}}
 \subsection{Method \code{CustomTasksDelete()}}{
 Delete custom task.
 Produces: NA
@@ -631,7 +643,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a custom task. Only users who have permission to edit custom task can delete it. Only custom tasks which are not currently deployed  can be deleted. Relevant CustomTaskImage will be deleted also.
+Delete a custom task. Only users who have permission to edit custom task can delete it. Only custom tasks which are not currently deployed can be deleted. Relevant CustomTaskImage will be deleted also.
+
+
+This method invokes \verb{DELETE /customTasks/\{customTaskId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -661,8 +676,8 @@ result <- api.instance$CustomTasksDelete(customTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksDownloadList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksDownloadList}{}}}
 \subsection{Method \code{CustomTasksDownloadList()}}{
 Download the latest custom task version content.
 Produces: NA
@@ -681,6 +696,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download the latest item bundle from a custom task as a zip compressed archive.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -708,8 +726,8 @@ result <- api.instance$CustomTasksDownloadList(customTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksFromCustomTaskCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksFromCustomTaskCreate}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksFromCustomTaskCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksFromCustomTaskCreate}{}}}
 \subsection{Method \code{CustomTasksFromCustomTaskCreate()}}{
 Clone custom task.
 Produces: "application/json"
@@ -730,6 +748,9 @@ Produces: "application/json"
 Creates a copy of the provided custom task, including metadata, versions of that task, and uploaded files. Associates the new versions with files owned by the custom task.
 
 
+This method invokes \verb{POST /customTasks/fromCustomTask/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Successfully created copy.
@@ -745,7 +766,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customTaskCopy <- CustomTaskCopy$new() # CustomTaskCopy |
+customTaskCopy <- CustomTaskCopy$new() # CustomTaskCopy | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksFromCustomTaskCreate(customTaskCopy=customTaskCopy)
@@ -757,8 +778,8 @@ result <- api.instance$CustomTasksFromCustomTaskCreate(customTaskCopy=customTask
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksList}{}}}
 \subsection{Method \code{CustomTasksList()}}{
 List custom tasks.
 Produces: "application/json"
@@ -791,6 +812,9 @@ Produces: "application/json"
 Retrieve metadata for all custom tasks the user has access to.
 
 
+This method invokes \verb{GET /customTasks/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} OK.
@@ -821,8 +845,8 @@ result <- api.instance$CustomTasksList(offset, limit, orderBy=orderBy, searchFor
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksPatch}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksPatch}{}}}
 \subsection{Method \code{CustomTasksPatch()}}{
 Update custom task.
 Produces: "application/json"
@@ -842,7 +866,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Updates metadata for an existing custom task.  All custom tasks must support one target type (e.g. binaryClassification, regression, transform).  Setting `positiveClassLabel` and `negativeClassLabel` to null will set the labels to their default values (1 and 0 for positiveClassLabel and negativeClassLabel, respectively).  Setting `positiveClassLabel`, `negativeClassLabel`, 'targetName` is disabled if task has active deployments.
+Updates metadata for an existing custom task.  All custom tasks must support one target type (e.g. binaryClassification, regression, transform).  Setting positiveClassLabel and negativeClassLabel to null will set the labels to their default values (1 and 0 for positiveClassLabel and negativeClassLabel, respectively).  Setting positiveClassLabel, negativeClassLabel, targetName is disabled if task has active deployments.
+
+
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -864,7 +891,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskUpdate <- CustomTaskUpdate$new() # CustomTaskUpdate |
+customTaskUpdate <- CustomTaskUpdate$new() # CustomTaskUpdate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksPatch(customTaskId, customTaskUpdate=customTaskUpdate)
@@ -876,8 +903,8 @@ result <- api.instance$CustomTasksPatch(customTaskId, customTaskUpdate=customTas
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksRetrieve}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksRetrieve}{}}}
 \subsection{Method \code{CustomTasksRetrieve()}}{
 Get custom task.
 Produces: "application/json"
@@ -896,6 +923,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve metadata for a custom task
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -925,8 +955,8 @@ result <- api.instance$CustomTasksRetrieve(customTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsCreate}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsCreate}{}}}
 \subsection{Method \code{CustomTasksVersionsCreate()}}{
 Create custom task version.
 Produces: "application/json"
@@ -971,6 +1001,9 @@ Produces: "application/json"
 Create a new custom task version with attached files if supplied.
 
 
+This method invokes \verb{POST /customTasks/\{customTaskId\}/versions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Item successfully created.
@@ -995,8 +1028,8 @@ library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 requiredMetadata <- 'requiredMetadata_example' # character | Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment's requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
 requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additional parameters required by the execution environment. The required fieldNames are defined by the fieldNames in the base environment's requiredMetadataKeys.
@@ -1011,8 +1044,8 @@ result <- api.instance$CustomTasksVersionsCreate(customTaskId, baseEnvironmentId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsDependencyBuildCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsDependencyBuildCreate}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsDependencyBuildCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsDependencyBuildCreate}{}}}
 \subsection{Method \code{CustomTasksVersionsDependencyBuildCreate()}}{
 Start a custom task version's dependency build.
 Produces: "application/json"
@@ -1037,6 +1070,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Start a custom task version's dependency build. This is required to test, deploy, or train custom tasks.
+
+
+This method invokes \verb{POST /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1070,8 +1106,8 @@ result <- api.instance$CustomTasksVersionsDependencyBuildCreate(customTaskId, cu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsDependencyBuildDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsDependencyBuildDeleteMany}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsDependencyBuildDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsDependencyBuildDeleteMany}{}}}
 \subsection{Method \code{CustomTasksVersionsDependencyBuildDeleteMany()}}{
 Cancel dependency build.
 Produces: NA
@@ -1096,6 +1132,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel the custom task version's dependency build.
+
+
+This method invokes \verb{DELETE /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1129,8 +1168,8 @@ result <- api.instance$CustomTasksVersionsDependencyBuildDeleteMany(customTaskId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsDependencyBuildList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsDependencyBuildList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsDependencyBuildList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsDependencyBuildList}{}}}
 \subsection{Method \code{CustomTasksVersionsDependencyBuildList()}}{
 Retrieve the custom task version's dependency build status.
 Produces: "application/json"
@@ -1155,6 +1194,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the custom task version's dependency build status.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1188,8 +1230,8 @@ result <- api.instance$CustomTasksVersionsDependencyBuildList(customTaskId, cust
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsDependencyBuildLogList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsDependencyBuildLogList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsDependencyBuildLogList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsDependencyBuildLogList}{}}}
 \subsection{Method \code{CustomTasksVersionsDependencyBuildLogList()}}{
 Retrieve the custom task version's dependency build log.
 Produces: NA
@@ -1214,6 +1256,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve the custom task version's dependency build log.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/dependencyBuildLog/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1247,8 +1292,8 @@ result <- api.instance$CustomTasksVersionsDependencyBuildLogList(customTaskId, c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsDownloadList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsDownloadList}{}}}
 \subsection{Method \code{CustomTasksVersionsDownloadList()}}{
 Download custom task version content.
 Produces: NA
@@ -1273,6 +1318,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download a specific item bundle from a custom task as a zip compressed archive.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1301,8 +1349,8 @@ result <- api.instance$CustomTasksVersionsDownloadList(customTaskId, customTaskV
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsFromRepositoryCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsFromRepositoryCreate}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsFromRepositoryCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsFromRepositoryCreate}{}}}
 \subsection{Method \code{CustomTasksVersionsFromRepositoryCreate()}}{
 Create custom task version from remote repository.
 Produces: NA
@@ -1329,6 +1377,9 @@ Produces: NA
 Create a new custom task version with only files added from the specified remote repository.
 
 
+This method invokes \verb{POST /customTasks/\{customTaskId\}/versions/fromRepository/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Accepted: request placed to a queue for processing.
@@ -1346,7 +1397,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository |
+customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsFromRepositoryCreate(customTaskId, customTaskVersionCreateFromRepository=customTaskVersionCreateFromRepository)
@@ -1358,8 +1409,8 @@ result <- api.instance$CustomTasksVersionsFromRepositoryCreate(customTaskId, cus
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsFromRepositoryPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsFromRepositoryPatchMany}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsFromRepositoryPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsFromRepositoryPatchMany}{}}}
 \subsection{Method \code{CustomTasksVersionsFromRepositoryPatchMany()}}{
 Create custom task version from remote repository with files from previous version.
 Produces: NA
@@ -1386,6 +1437,9 @@ Produces: NA
 Create a new custom task version with files added from a remote repository. Files from the previous version of a custom task will be used as a basis.
 
 
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/versions/fromRepository/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Accepted: request placed to a queue for processing.
@@ -1403,7 +1457,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
-customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository |
+customTaskVersionCreateFromRepository <- CustomTaskVersionCreateFromRepository$new() # CustomTaskVersionCreateFromRepository | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsFromRepositoryPatchMany(customTaskId, customTaskVersionCreateFromRepository=customTaskVersionCreateFromRepository)
@@ -1415,8 +1469,8 @@ result <- api.instance$CustomTasksVersionsFromRepositoryPatchMany(customTaskId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsList}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsList}{}}}
 \subsection{Method \code{CustomTasksVersionsList()}}{
 List custom task versions.
 Produces: "application/json"
@@ -1439,6 +1493,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List custom task versions.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/versions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1473,8 +1530,8 @@ result <- api.instance$CustomTasksVersionsList(offset, limit, customTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsPatch}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsPatch}{}}}
 \subsection{Method \code{CustomTasksVersionsPatch()}}{
 Update custom task version.
 Produces: "application/json"
@@ -1504,6 +1561,9 @@ Produces: "application/json"
 Edit metadata of a specific task version.
 
 
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The edit was successful.
@@ -1524,7 +1584,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 customTaskId <- 'customTaskId_example' # character | ID of the custom task.
 customTaskVersionId <- 'customTaskVersionId_example' # character | ID of the custom task version.
-customTaskVersionMetadataUpdate <- CustomTaskVersionMetadataUpdate$new() # CustomTaskVersionMetadataUpdate |
+customTaskVersionMetadataUpdate <- CustomTaskVersionMetadataUpdate$new() # CustomTaskVersionMetadataUpdate | 
 
 api.instance <- CustomTasksApi$new()
 result <- api.instance$CustomTasksVersionsPatch(customTaskId, customTaskVersionId, customTaskVersionMetadataUpdate=customTaskVersionMetadataUpdate)
@@ -1536,8 +1596,8 @@ result <- api.instance$CustomTasksVersionsPatch(customTaskId, customTaskVersionI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTasksVersionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTasksVersionsRetrieve}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-CustomTasksVersionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-CustomTasksVersionsRetrieve}{}}}
 \subsection{Method \code{CustomTasksVersionsRetrieve()}}{
 Get custom task version.
 Produces: "application/json"
@@ -1562,6 +1622,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Display a requested version of a custom task along with the files attached to it.
+
+
+This method invokes \verb{GET /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1592,8 +1655,8 @@ result <- api.instance$CustomTasksVersionsRetrieve(customTaskId, customTaskVersi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomTasksApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTasksApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

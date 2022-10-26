@@ -27,6 +27,10 @@ BatchPredictionJobCreate Class
 
 \item{\code{explanationAlgorithm}}{character \link{optional} Which algorithm will be used to calculate prediction explanations}
 
+\item{\code{explanationClassNames}}{list( character ) \link{optional} List of class names that will be explained for each row for multiclass. Mutually exclusive with explanationNumTopClasses. If neither specified - we assume explanationNumTopClasses=1}
+
+\item{\code{explanationNumTopClasses}}{integer \link{optional} Number of top predicted classes for each row that will be explained for multiclass. Mutually exclusive with explanationClassNames. If neither specified - we assume explanationNumTopClasses=1}
+
 \item{\code{includePredictionStatus}}{character Include prediction status column in the output}
 
 \item{\code{includeProbabilities}}{character Include probabilities for all classes}
@@ -68,16 +72,16 @@ BatchPredictionJobCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{BatchPredictionJobCreate$new()}}
-\item \href{#method-validate}{\code{BatchPredictionJobCreate$validate()}}
-\item \href{#method-toJSON}{\code{BatchPredictionJobCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{BatchPredictionJobCreate$fromJSON()}}
-\item \href{#method-clone}{\code{BatchPredictionJobCreate$clone()}}
+\item \href{#method-BatchPredictionJobCreate-new}{\code{BatchPredictionJobCreate$new()}}
+\item \href{#method-BatchPredictionJobCreate-validate}{\code{BatchPredictionJobCreate$validate()}}
+\item \href{#method-BatchPredictionJobCreate-toJSON}{\code{BatchPredictionJobCreate$toJSON()}}
+\item \href{#method-BatchPredictionJobCreate-fromJSON}{\code{BatchPredictionJobCreate$fromJSON()}}
+\item \href{#method-BatchPredictionJobCreate-clone}{\code{BatchPredictionJobCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-BatchPredictionJobCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-BatchPredictionJobCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -96,6 +100,8 @@ A function used to initialize an instance of this class.
   columnNamesRemapping = NULL,
   deploymentId = NULL,
   explanationAlgorithm = NULL,
+  explanationClassNames = NULL,
+  explanationNumTopClasses = NULL,
   modelId = NULL,
   modelPackageId = NULL,
   numConcurrent = NULL,
@@ -141,6 +147,10 @@ A function used to initialize an instance of this class.
 
 \item{\code{explanationAlgorithm}}{Which algorithm will be used to calculate prediction explanations}
 
+\item{\code{explanationClassNames}}{List of class names that will be explained for each row for multiclass. Mutually exclusive with explanationNumTopClasses. If neither specified - we assume explanationNumTopClasses=1}
+
+\item{\code{explanationNumTopClasses}}{Number of top predicted classes for each row that will be explained for multiclass. Mutually exclusive with explanationClassNames. If neither specified - we assume explanationNumTopClasses=1}
+
 \item{\code{modelId}}{ID of leaderboard model which is used in job for processing predictions dataset}
 
 \item{\code{modelPackageId}}{ID of model package from registry is used in job for processing predictions dataset}
@@ -169,19 +179,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-BatchPredictionJobCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-BatchPredictionJobCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BatchPredictionJobCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-BatchPredictionJobCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BatchPredictionJobCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -190,8 +201,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-BatchPredictionJobCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BatchPredictionJobCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -212,8 +223,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-BatchPredictionJobCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-BatchPredictionJobCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

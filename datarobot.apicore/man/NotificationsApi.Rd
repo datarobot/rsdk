@@ -18,7 +18,7 @@ datarobot.apicore.Notifications
 
 \dontrun{
 library(datarobot.apicore)
-notificationChannelCreate <- NotificationChannelCreate$new() # NotificationChannelCreate |
+notificationChannelCreate <- NotificationChannelCreate$new() # NotificationChannelCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationChannelsCreate(notificationChannelCreate=notificationChannelCreate)
@@ -57,7 +57,7 @@ result <- api.instance$NotificationChannelsList(offset, limit, namePart=namePart
 \dontrun{
 library(datarobot.apicore)
 channelId <- 'channelId_example' # character | The id of the notification channel.
-notificationChannelUpdate <- NotificationChannelUpdate$new() # NotificationChannelUpdate |
+notificationChannelUpdate <- NotificationChannelUpdate$new() # NotificationChannelUpdate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationChannelsPut(channelId, notificationChannelUpdate=notificationChannelUpdate)
@@ -81,7 +81,7 @@ result <- api.instance$NotificationChannelsRetrieve(channelId)
 
 \dontrun{
 library(datarobot.apicore)
-notificationEmailChannelVerification <- NotificationEmailChannelVerification$new() # NotificationEmailChannelVerification |
+notificationEmailChannelVerification <- NotificationEmailChannelVerification$new() # NotificationEmailChannelVerification | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationEmailChannelVerificationCreate(notificationEmailChannelVerification=notificationEmailChannelVerification)
@@ -93,7 +93,7 @@ result <- api.instance$NotificationEmailChannelVerificationCreate(notificationEm
 
 \dontrun{
 library(datarobot.apicore)
-notificationEmailChannelVerificationStatus <- NotificationEmailChannelVerificationStatus$new() # NotificationEmailChannelVerificationStatus |
+notificationEmailChannelVerificationStatus <- NotificationEmailChannelVerificationStatus$new() # NotificationEmailChannelVerificationStatus | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationEmailChannelVerificationStatusCreate(notificationEmailChannelVerificationStatus=notificationEmailChannelVerificationStatus)
@@ -131,7 +131,7 @@ result <- api.instance$NotificationLogsList(offset, limit, policyId=policyId, ch
 
 \dontrun{
 library(datarobot.apicore)
-notificationPolicyCreate <- NotificationPolicyCreate$new() # NotificationPolicyCreate |
+notificationPolicyCreate <- NotificationPolicyCreate$new() # NotificationPolicyCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPoliciesCreate(notificationPolicyCreate=notificationPolicyCreate)
@@ -172,7 +172,7 @@ result <- api.instance$NotificationPoliciesList(offset, limit, channelId=channel
 \dontrun{
 library(datarobot.apicore)
 policyId <- 'policyId_example' # character | The id of the notification policy
-notificationPolicyUpdate <- NotificationPolicyUpdate$new() # NotificationPolicyUpdate |
+notificationPolicyUpdate <- NotificationPolicyUpdate$new() # NotificationPolicyUpdate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPoliciesPut(policyId, notificationPolicyUpdate=notificationPolicyUpdate)
@@ -196,7 +196,7 @@ result <- api.instance$NotificationPoliciesRetrieve(policyId)
 
 \dontrun{
 library(datarobot.apicore)
-notificationPolicyMuteCreate <- NotificationPolicyMuteCreate$new() # NotificationPolicyMuteCreate |
+notificationPolicyMuteCreate <- NotificationPolicyMuteCreate$new() # NotificationPolicyMuteCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPolicyMutesCreate(notificationPolicyMuteCreate=notificationPolicyMuteCreate)
@@ -235,7 +235,7 @@ result <- api.instance$NotificationPolicyMutesList(offset, limit, entityId=entit
 
 \dontrun{
 library(datarobot.apicore)
-notificationWebhookChannelTestCreate <- NotificationWebhookChannelTestCreate$new() # NotificationWebhookChannelTestCreate |
+notificationWebhookChannelTestCreate <- NotificationWebhookChannelTestCreate$new() # NotificationWebhookChannelTestCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationWebhookChannelTestsCreate(notificationWebhookChannelTestCreate=notificationWebhookChannelTestCreate)
@@ -259,7 +259,7 @@ result <- api.instance$NotificationWebhookChannelTestsRetrieve(notificationId)
 
 \dontrun{
 library(datarobot.apicore)
-notificationResend <- NotificationResend$new() # NotificationResend |
+notificationResend <- NotificationResend$new() # NotificationResend | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationsCreate(notificationResend=notificationResend)
@@ -271,7 +271,7 @@ result <- api.instance$NotificationsCreate(notificationResend=notificationResend
 
 \dontrun{
 library(datarobot.apicore)
-remoteEventCreate <- RemoteEventCreate$new() # RemoteEventCreate |
+remoteEventCreate <- RemoteEventCreate$new() # RemoteEventCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$RemoteEventsCreate(remoteEventCreate=remoteEventCreate)
@@ -347,39 +347,39 @@ result <- api.instance$UserNotificationsPatchMany()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotificationsApi$new()}}
-\item \href{#method-NotificationChannelsCreate}{\code{NotificationsApi$NotificationChannelsCreate()}}
-\item \href{#method-NotificationChannelsDelete}{\code{NotificationsApi$NotificationChannelsDelete()}}
-\item \href{#method-NotificationChannelsList}{\code{NotificationsApi$NotificationChannelsList()}}
-\item \href{#method-NotificationChannelsPut}{\code{NotificationsApi$NotificationChannelsPut()}}
-\item \href{#method-NotificationChannelsRetrieve}{\code{NotificationsApi$NotificationChannelsRetrieve()}}
-\item \href{#method-NotificationEmailChannelVerificationCreate}{\code{NotificationsApi$NotificationEmailChannelVerificationCreate()}}
-\item \href{#method-NotificationEmailChannelVerificationStatusCreate}{\code{NotificationsApi$NotificationEmailChannelVerificationStatusCreate()}}
-\item \href{#method-NotificationEventsList}{\code{NotificationsApi$NotificationEventsList()}}
-\item \href{#method-NotificationLogsList}{\code{NotificationsApi$NotificationLogsList()}}
-\item \href{#method-NotificationPoliciesCreate}{\code{NotificationsApi$NotificationPoliciesCreate()}}
-\item \href{#method-NotificationPoliciesDelete}{\code{NotificationsApi$NotificationPoliciesDelete()}}
-\item \href{#method-NotificationPoliciesList}{\code{NotificationsApi$NotificationPoliciesList()}}
-\item \href{#method-NotificationPoliciesPut}{\code{NotificationsApi$NotificationPoliciesPut()}}
-\item \href{#method-NotificationPoliciesRetrieve}{\code{NotificationsApi$NotificationPoliciesRetrieve()}}
-\item \href{#method-NotificationPolicyMutesCreate}{\code{NotificationsApi$NotificationPolicyMutesCreate()}}
-\item \href{#method-NotificationPolicyMutesDelete}{\code{NotificationsApi$NotificationPolicyMutesDelete()}}
-\item \href{#method-NotificationPolicyMutesList}{\code{NotificationsApi$NotificationPolicyMutesList()}}
-\item \href{#method-NotificationWebhookChannelTestsCreate}{\code{NotificationsApi$NotificationWebhookChannelTestsCreate()}}
-\item \href{#method-NotificationWebhookChannelTestsRetrieve}{\code{NotificationsApi$NotificationWebhookChannelTestsRetrieve()}}
-\item \href{#method-NotificationsCreate}{\code{NotificationsApi$NotificationsCreate()}}
-\item \href{#method-RemoteEventsCreate}{\code{NotificationsApi$RemoteEventsCreate()}}
-\item \href{#method-UserNotificationsDelete}{\code{NotificationsApi$UserNotificationsDelete()}}
-\item \href{#method-UserNotificationsDeleteMany}{\code{NotificationsApi$UserNotificationsDeleteMany()}}
-\item \href{#method-UserNotificationsList}{\code{NotificationsApi$UserNotificationsList()}}
-\item \href{#method-UserNotificationsPatch}{\code{NotificationsApi$UserNotificationsPatch()}}
-\item \href{#method-UserNotificationsPatchMany}{\code{NotificationsApi$UserNotificationsPatchMany()}}
-\item \href{#method-clone}{\code{NotificationsApi$clone()}}
+\item \href{#method-NotificationsApi-new}{\code{NotificationsApi$new()}}
+\item \href{#method-NotificationsApi-NotificationChannelsCreate}{\code{NotificationsApi$NotificationChannelsCreate()}}
+\item \href{#method-NotificationsApi-NotificationChannelsDelete}{\code{NotificationsApi$NotificationChannelsDelete()}}
+\item \href{#method-NotificationsApi-NotificationChannelsList}{\code{NotificationsApi$NotificationChannelsList()}}
+\item \href{#method-NotificationsApi-NotificationChannelsPut}{\code{NotificationsApi$NotificationChannelsPut()}}
+\item \href{#method-NotificationsApi-NotificationChannelsRetrieve}{\code{NotificationsApi$NotificationChannelsRetrieve()}}
+\item \href{#method-NotificationsApi-NotificationEmailChannelVerificationCreate}{\code{NotificationsApi$NotificationEmailChannelVerificationCreate()}}
+\item \href{#method-NotificationsApi-NotificationEmailChannelVerificationStatusCreate}{\code{NotificationsApi$NotificationEmailChannelVerificationStatusCreate()}}
+\item \href{#method-NotificationsApi-NotificationEventsList}{\code{NotificationsApi$NotificationEventsList()}}
+\item \href{#method-NotificationsApi-NotificationLogsList}{\code{NotificationsApi$NotificationLogsList()}}
+\item \href{#method-NotificationsApi-NotificationPoliciesCreate}{\code{NotificationsApi$NotificationPoliciesCreate()}}
+\item \href{#method-NotificationsApi-NotificationPoliciesDelete}{\code{NotificationsApi$NotificationPoliciesDelete()}}
+\item \href{#method-NotificationsApi-NotificationPoliciesList}{\code{NotificationsApi$NotificationPoliciesList()}}
+\item \href{#method-NotificationsApi-NotificationPoliciesPut}{\code{NotificationsApi$NotificationPoliciesPut()}}
+\item \href{#method-NotificationsApi-NotificationPoliciesRetrieve}{\code{NotificationsApi$NotificationPoliciesRetrieve()}}
+\item \href{#method-NotificationsApi-NotificationPolicyMutesCreate}{\code{NotificationsApi$NotificationPolicyMutesCreate()}}
+\item \href{#method-NotificationsApi-NotificationPolicyMutesDelete}{\code{NotificationsApi$NotificationPolicyMutesDelete()}}
+\item \href{#method-NotificationsApi-NotificationPolicyMutesList}{\code{NotificationsApi$NotificationPolicyMutesList()}}
+\item \href{#method-NotificationsApi-NotificationWebhookChannelTestsCreate}{\code{NotificationsApi$NotificationWebhookChannelTestsCreate()}}
+\item \href{#method-NotificationsApi-NotificationWebhookChannelTestsRetrieve}{\code{NotificationsApi$NotificationWebhookChannelTestsRetrieve()}}
+\item \href{#method-NotificationsApi-NotificationsCreate}{\code{NotificationsApi$NotificationsCreate()}}
+\item \href{#method-NotificationsApi-RemoteEventsCreate}{\code{NotificationsApi$RemoteEventsCreate()}}
+\item \href{#method-NotificationsApi-UserNotificationsDelete}{\code{NotificationsApi$UserNotificationsDelete()}}
+\item \href{#method-NotificationsApi-UserNotificationsDeleteMany}{\code{NotificationsApi$UserNotificationsDeleteMany()}}
+\item \href{#method-NotificationsApi-UserNotificationsList}{\code{NotificationsApi$UserNotificationsList()}}
+\item \href{#method-NotificationsApi-UserNotificationsPatch}{\code{NotificationsApi$UserNotificationsPatch()}}
+\item \href{#method-NotificationsApi-UserNotificationsPatchMany}{\code{NotificationsApi$UserNotificationsPatchMany()}}
+\item \href{#method-NotificationsApi-clone}{\code{NotificationsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotificationsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -394,8 +394,8 @@ result <- api.instance$UserNotificationsPatchMany()
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationChannelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationChannelsCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationChannelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationChannelsCreate}{}}}
 \subsection{Method \code{NotificationChannelsCreate()}}{
 Create notification channel
 Produces: "application/json"
@@ -419,6 +419,9 @@ Produces: "application/json"
 Create a new notification channel.
 
 
+This method invokes \verb{POST /notificationChannels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Notification channel created successfully.
@@ -434,7 +437,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationChannelCreate <- NotificationChannelCreate$new() # NotificationChannelCreate |
+notificationChannelCreate <- NotificationChannelCreate$new() # NotificationChannelCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationChannelsCreate(notificationChannelCreate=notificationChannelCreate)
@@ -446,8 +449,8 @@ result <- api.instance$NotificationChannelsCreate(notificationChannelCreate=noti
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationChannelsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationChannelsDelete}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationChannelsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationChannelsDelete}{}}}
 \subsection{Method \code{NotificationChannelsDelete()}}{
 Delete notification channel
 Produces: NA
@@ -466,6 +469,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the notification channel.
+
+
+This method invokes \verb{DELETE /notificationChannels/\{channelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -492,8 +498,8 @@ result <- api.instance$NotificationChannelsDelete(channelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationChannelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationChannelsList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationChannelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationChannelsList}{}}}
 \subsection{Method \code{NotificationChannelsList()}}{
 List notification channels
 Produces: "application/json"
@@ -516,6 +522,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the notification channels according to the query.
+
+
+This method invokes \verb{GET /notificationChannels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -547,8 +556,8 @@ result <- api.instance$NotificationChannelsList(offset, limit, namePart=namePart
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationChannelsPut"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationChannelsPut}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationChannelsPut"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationChannelsPut}{}}}
 \subsection{Method \code{NotificationChannelsPut()}}{
 Update notification channel
 Produces: NA
@@ -575,6 +584,9 @@ Produces: NA
 Update the notification channel.
 
 
+This method invokes \verb{PUT /notificationChannels/\{channelId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Notification channel updated successfully.
@@ -591,7 +603,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 channelId <- 'channelId_example' # character | The id of the notification channel.
-notificationChannelUpdate <- NotificationChannelUpdate$new() # NotificationChannelUpdate |
+notificationChannelUpdate <- NotificationChannelUpdate$new() # NotificationChannelUpdate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationChannelsPut(channelId, notificationChannelUpdate=notificationChannelUpdate)
@@ -603,8 +615,8 @@ result <- api.instance$NotificationChannelsPut(channelId, notificationChannelUpd
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationChannelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationChannelsRetrieve}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationChannelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationChannelsRetrieve}{}}}
 \subsection{Method \code{NotificationChannelsRetrieve()}}{
 Retrieve notification channel
 Produces: "application/json"
@@ -623,6 +635,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the notification channel.
+
+
+This method invokes \verb{GET /notificationChannels/\{channelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -652,8 +667,8 @@ result <- api.instance$NotificationChannelsRetrieve(channelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationEmailChannelVerificationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationEmailChannelVerificationCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationEmailChannelVerificationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationEmailChannelVerificationCreate}{}}}
 \subsection{Method \code{NotificationEmailChannelVerificationCreate()}}{
 Sending a 6 digit verification code to user's email
 Produces: "application/json"
@@ -677,6 +692,9 @@ Produces: "application/json"
 Sending a 6 digit verification code to user's email
 
 
+This method invokes \verb{POST /notificationEmailChannelVerification/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -692,7 +710,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationEmailChannelVerification <- NotificationEmailChannelVerification$new() # NotificationEmailChannelVerification |
+notificationEmailChannelVerification <- NotificationEmailChannelVerification$new() # NotificationEmailChannelVerification | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationEmailChannelVerificationCreate(notificationEmailChannelVerification=notificationEmailChannelVerification)
@@ -704,8 +722,8 @@ result <- api.instance$NotificationEmailChannelVerificationCreate(notificationEm
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationEmailChannelVerificationStatusCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationEmailChannelVerificationStatusCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationEmailChannelVerificationStatusCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationEmailChannelVerificationStatusCreate}{}}}
 \subsection{Method \code{NotificationEmailChannelVerificationStatusCreate()}}{
 Retrieve the status of whether admin enter code correctly
 Produces: "application/json"
@@ -729,6 +747,9 @@ Produces: "application/json"
 Retrieve the status of whether admin enter code correctly
 
 
+This method invokes \verb{POST /notificationEmailChannelVerificationStatus/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -744,7 +765,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationEmailChannelVerificationStatus <- NotificationEmailChannelVerificationStatus$new() # NotificationEmailChannelVerificationStatus |
+notificationEmailChannelVerificationStatus <- NotificationEmailChannelVerificationStatus$new() # NotificationEmailChannelVerificationStatus | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationEmailChannelVerificationStatusCreate(notificationEmailChannelVerificationStatus=notificationEmailChannelVerificationStatus)
@@ -756,8 +777,8 @@ result <- api.instance$NotificationEmailChannelVerificationStatusCreate(notifica
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationEventsList"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationEventsList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationEventsList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationEventsList}{}}}
 \subsection{Method \code{NotificationEventsList()}}{
 List event types and groups the user can include in notification policies.
 Produces: "application/json"
@@ -774,6 +795,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List event types and groups the user can include in notification policies. Events and groups are filtered by user permissions and event properties. It is not a complete list of all defined events; instead, it is a list of the events available to the user.
+
+
+This method invokes \verb{GET /notificationEvents/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -802,8 +826,8 @@ result <- api.instance$NotificationEventsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationLogsList"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationLogsList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationLogsList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationLogsList}{}}}
 \subsection{Method \code{NotificationLogsList()}}{
 List the notification logs
 Produces: "application/json"
@@ -836,6 +860,9 @@ Produces: "application/json"
 List the notification logs that correspond to provided conditions. Default ordering is desc by notification log timestamp
 
 
+This method invokes \verb{GET /notificationLogs/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -866,8 +893,8 @@ result <- api.instance$NotificationLogsList(offset, limit, policyId=policyId, ch
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPoliciesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPoliciesCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPoliciesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPoliciesCreate}{}}}
 \subsection{Method \code{NotificationPoliciesCreate()}}{
 Create notification policy
 Produces: "application/json"
@@ -891,6 +918,9 @@ Produces: "application/json"
 Create a new notification policy.
 
 
+This method invokes \verb{POST /notificationPolicies/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Notification policy created successfully.
@@ -906,7 +936,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationPolicyCreate <- NotificationPolicyCreate$new() # NotificationPolicyCreate |
+notificationPolicyCreate <- NotificationPolicyCreate$new() # NotificationPolicyCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPoliciesCreate(notificationPolicyCreate=notificationPolicyCreate)
@@ -918,8 +948,8 @@ result <- api.instance$NotificationPoliciesCreate(notificationPolicyCreate=notif
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPoliciesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPoliciesDelete}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPoliciesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPoliciesDelete}{}}}
 \subsection{Method \code{NotificationPoliciesDelete()}}{
 Delete notification policy
 Produces: NA
@@ -938,6 +968,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the notification policy.
+
+
+This method invokes \verb{DELETE /notificationPolicies/\{policyId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -964,8 +997,8 @@ result <- api.instance$NotificationPoliciesDelete(policyId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPoliciesList"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPoliciesList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPoliciesList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPoliciesList}{}}}
 \subsection{Method \code{NotificationPoliciesList()}}{
 List notification policies
 Produces: "application/json"
@@ -991,7 +1024,7 @@ Produces: "application/json"
 
 \item{\code{namePart}}{character. Only return the notification channels whose names contain the given substring.}
 
-\item{\code{eventGroup}}{Enum < \link{base, applications.all, batch_predictions.all, change_requests.all, comment.all, dataset.all, model_deployments.critical_health, model_deployments.health, model_deployments.management_agent, model_deployments.management_agent_health, prediction_request.all, model_deployments.all, project.all, monitoring.all, perma_delete_project.all, remote.all, users_delete.all} > Return policies with this event group.}
+\item{\code{eventGroup}}{Enum < \link{project.all, dataset.all, model_deployments.critical_health, model_deployments.health, model_deployments.management_agent, model_deployments.management_agent_health, prediction_request.all, challenger_management.all, challenger_replay.all, model_deployments.all, comment.all, perma_delete_project.all, users_delete.all, batch_predictions.all, applications.all, change_requests.all, monitoring.all} > Return policies with this event group.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -999,6 +1032,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the notification policies that satisfy the query condition.
+
+
+This method invokes \verb{GET /notificationPolicies/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1032,8 +1068,8 @@ result <- api.instance$NotificationPoliciesList(offset, limit, channelId=channel
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPoliciesPut"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPoliciesPut}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPoliciesPut"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPoliciesPut}{}}}
 \subsection{Method \code{NotificationPoliciesPut()}}{
 Update notification policy
 Produces: NA
@@ -1060,6 +1096,9 @@ Produces: NA
 Update the notification policy.
 
 
+This method invokes \verb{PUT /notificationPolicies/\{policyId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Notification policy updated successfully.
@@ -1073,7 +1112,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 policyId <- 'policyId_example' # character | The id of the notification policy
-notificationPolicyUpdate <- NotificationPolicyUpdate$new() # NotificationPolicyUpdate |
+notificationPolicyUpdate <- NotificationPolicyUpdate$new() # NotificationPolicyUpdate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPoliciesPut(policyId, notificationPolicyUpdate=notificationPolicyUpdate)
@@ -1085,8 +1124,8 @@ result <- api.instance$NotificationPoliciesPut(policyId, notificationPolicyUpdat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPoliciesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPoliciesRetrieve}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPoliciesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPoliciesRetrieve}{}}}
 \subsection{Method \code{NotificationPoliciesRetrieve()}}{
 Retrieve notification policy
 Produces: "application/json"
@@ -1105,6 +1144,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the notification policy.
+
+
+This method invokes \verb{GET /notificationPolicies/\{policyId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1134,8 +1176,8 @@ result <- api.instance$NotificationPoliciesRetrieve(policyId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPolicyMutesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPolicyMutesCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPolicyMutesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPolicyMutesCreate}{}}}
 \subsection{Method \code{NotificationPolicyMutesCreate()}}{
 Create a new ignored notification
 Produces: "application/json"
@@ -1159,6 +1201,9 @@ Produces: "application/json"
 Create a new ignored notification
 
 
+This method invokes \verb{POST /notificationPolicyMutes/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1174,7 +1219,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationPolicyMuteCreate <- NotificationPolicyMuteCreate$new() # NotificationPolicyMuteCreate |
+notificationPolicyMuteCreate <- NotificationPolicyMuteCreate$new() # NotificationPolicyMuteCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationPolicyMutesCreate(notificationPolicyMuteCreate=notificationPolicyMuteCreate)
@@ -1186,8 +1231,8 @@ result <- api.instance$NotificationPolicyMutesCreate(notificationPolicyMuteCreat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPolicyMutesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPolicyMutesDelete}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPolicyMutesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPolicyMutesDelete}{}}}
 \subsection{Method \code{NotificationPolicyMutesDelete()}}{
 Delete the existing notification policy mute
 Produces: NA
@@ -1206,6 +1251,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the existing notification policy mute
+
+
+This method invokes \verb{DELETE /notificationPolicyMutes/\{muteId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1232,8 +1280,8 @@ result <- api.instance$NotificationPolicyMutesDelete(muteId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationPolicyMutesList"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationPolicyMutesList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationPolicyMutesList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationPolicyMutesList}{}}}
 \subsection{Method \code{NotificationPolicyMutesList()}}{
 List the ignored notifications filtered by orgId if provided
 Produces: "application/json"
@@ -1266,6 +1314,9 @@ Produces: "application/json"
 List the ignored notifications filtered by orgId if provided
 
 
+This method invokes \verb{GET /notificationPolicyMutes/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1296,8 +1347,8 @@ result <- api.instance$NotificationPolicyMutesList(offset, limit, entityId=entit
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationWebhookChannelTestsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationWebhookChannelTestsCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationWebhookChannelTestsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationWebhookChannelTestsCreate}{}}}
 \subsection{Method \code{NotificationWebhookChannelTestsCreate()}}{
 Test webhook notification channel
 Produces: "application/json"
@@ -1321,6 +1372,9 @@ Produces: "application/json"
 Test the webhook notification channel.
 
 
+This method invokes \verb{POST /notificationWebhookChannelTests/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} The test for the webhook notification channel was created.
@@ -1336,7 +1390,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationWebhookChannelTestCreate <- NotificationWebhookChannelTestCreate$new() # NotificationWebhookChannelTestCreate |
+notificationWebhookChannelTestCreate <- NotificationWebhookChannelTestCreate$new() # NotificationWebhookChannelTestCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationWebhookChannelTestsCreate(notificationWebhookChannelTestCreate=notificationWebhookChannelTestCreate)
@@ -1348,8 +1402,8 @@ result <- api.instance$NotificationWebhookChannelTestsCreate(notificationWebhook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationWebhookChannelTestsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationWebhookChannelTestsRetrieve}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationWebhookChannelTestsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationWebhookChannelTestsRetrieve}{}}}
 \subsection{Method \code{NotificationWebhookChannelTestsRetrieve()}}{
 Retrieve status of notification channel test
 Produces: "application/json"
@@ -1368,6 +1422,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the status of the notification channel test.
+
+
+This method invokes \verb{GET /notificationWebhookChannelTests/\{notificationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1397,8 +1454,8 @@ result <- api.instance$NotificationWebhookChannelTestsRetrieve(notificationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotificationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-NotificationsCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-NotificationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-NotificationsCreate}{}}}
 \subsection{Method \code{NotificationsCreate()}}{
 Resends the notification
 Produces: NA
@@ -1419,6 +1476,9 @@ Produces: NA
 Resends the notification
 
 
+This method invokes \verb{POST /notifications/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1431,7 +1491,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-notificationResend <- NotificationResend$new() # NotificationResend |
+notificationResend <- NotificationResend$new() # NotificationResend | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$NotificationsCreate(notificationResend=notificationResend)
@@ -1443,8 +1503,8 @@ result <- api.instance$NotificationsCreate(notificationResend=notificationResend
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RemoteEventsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-RemoteEventsCreate}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-RemoteEventsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-RemoteEventsCreate}{}}}
 \subsection{Method \code{RemoteEventsCreate()}}{
 Post a remote deployment event
 Produces: "application/json"
@@ -1463,6 +1523,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Post an event from a remote deployment.
+
+
+This method invokes \verb{POST /remoteEvents/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1486,7 +1549,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-remoteEventCreate <- RemoteEventCreate$new() # RemoteEventCreate |
+remoteEventCreate <- RemoteEventCreate$new() # RemoteEventCreate | 
 
 api.instance <- NotificationsApi$new()
 result <- api.instance$RemoteEventsCreate(remoteEventCreate=remoteEventCreate)
@@ -1498,8 +1561,8 @@ result <- api.instance$RemoteEventsCreate(remoteEventCreate=remoteEventCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserNotificationsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserNotificationsDelete}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-UserNotificationsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-UserNotificationsDelete}{}}}
 \subsection{Method \code{UserNotificationsDelete()}}{
 Delete user notification
 Produces: NA
@@ -1518,6 +1581,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete one notification associated with the user.
+
+
+This method invokes \verb{DELETE /userNotifications/\{userNotificationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1544,8 +1610,8 @@ result <- api.instance$UserNotificationsDelete(userNotificationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserNotificationsDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserNotificationsDeleteMany}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-UserNotificationsDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-UserNotificationsDeleteMany}{}}}
 \subsection{Method \code{UserNotificationsDeleteMany()}}{
 Delete all user notifications
 Produces: NA
@@ -1562,6 +1628,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete all notifications associated with the user.
+
+
+This method invokes \verb{DELETE /userNotifications/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1587,8 +1656,8 @@ result <- api.instance$UserNotificationsDeleteMany()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserNotificationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserNotificationsList}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-UserNotificationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-UserNotificationsList}{}}}
 \subsection{Method \code{UserNotificationsList()}}{
 List user notifications
 Produces: "application/json"
@@ -1616,6 +1685,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Returns list of user's notifications from latest to oldest.
+
+
+This method invokes \verb{GET /userNotifications/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1647,8 +1719,8 @@ result <- api.instance$UserNotificationsList(offset=offset, limit=limit, isRead=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserNotificationsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-UserNotificationsPatch}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-UserNotificationsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-UserNotificationsPatch}{}}}
 \subsection{Method \code{UserNotificationsPatch()}}{
 Mark as read
 Produces: NA
@@ -1667,6 +1739,9 @@ Produces: NA
 }
 \subsection{Details}{
 Mark one associated notification with the user as read.
+
+
+This method invokes \verb{PATCH /userNotifications/\{userNotificationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1693,8 +1768,8 @@ result <- api.instance$UserNotificationsPatch(userNotificationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserNotificationsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserNotificationsPatchMany}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-UserNotificationsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-UserNotificationsPatchMany}{}}}
 \subsection{Method \code{UserNotificationsPatchMany()}}{
 Mark all as read
 Produces: NA
@@ -1711,6 +1786,9 @@ Produces: NA
 }
 \subsection{Details}{
 Mark all associated notifications with the user as read.
+
+
+This method invokes \verb{PATCH /userNotifications/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1736,8 +1814,8 @@ result <- api.instance$UserNotificationsPatchMany()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotificationsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

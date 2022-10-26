@@ -13,35 +13,17 @@ PatchManyApplicationsSharedRoles(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Share an application with a user, group, or organization
 }
 \details{
 Share an application with a user, group, or organization
+
+This method invokes \verb{PATCH /applications/\{applicationId\}/sharedRoles/} in the DataRobot Public API.
 }
 \seealso{
-The method ApplicationsSharedRolesPatchMany in [datarobot.apicore::ApplicationsApi], which this function wraps.
-
-Other Applications: 
-\code{\link{CreateApplicationsBuildJobs}()},
-\code{\link{CreateApplicationsDeployments}()},
-\code{\link{CreateApplicationsDuplicate}()},
-\code{\link{CreateApplications}()},
-\code{\link{CreateDemoApplications}()},
-\code{\link{DeleteApplicationsDeployments}()},
-\code{\link{DeleteApplications}()},
-\code{\link{ListApplicationTypesUsecases}()},
-\code{\link{ListApplicationTypes}()},
-\code{\link{ListApplicationsAccessControl}()},
-\code{\link{ListApplicationsSharedRoles}()},
-\code{\link{ListApplications}()},
-\code{\link{PatchApplications}()},
-\code{\link{PatchManyApplicationsAccessControl}()},
-\code{\link{PatchManyApplicationsAuthToken}()},
-\code{\link{PatchManyApplicationsDeploymentState}()},
-\code{\link{PatchManyApplicationsVersion}()},
-\code{\link{RetrieveApplicationTypes}()},
-\code{\link{RetrieveApplicationUserRole}()},
-\code{\link{RetrieveApplications}()}
+The method ApplicationsSharedRolesPatchMany in \link[datarobot.apicore:ApplicationsApi]{datarobot.apicore::ApplicationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Applications}

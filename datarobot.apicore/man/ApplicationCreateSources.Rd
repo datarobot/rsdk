@@ -13,7 +13,7 @@ ApplicationCreateSources Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{info}}{\link{OneOfApplicationDatasetSourceApplicationDeploymentSource} Information about the Deployment or Dataset source.}
+\item{\code{info}}{\link{ApplicationDeploymentSource}}
 
 \item{\code{name}}{character \link{optional} The name of this source.}
 
@@ -24,16 +24,16 @@ ApplicationCreateSources Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApplicationCreateSources$new()}}
-\item \href{#method-validate}{\code{ApplicationCreateSources$validate()}}
-\item \href{#method-toJSON}{\code{ApplicationCreateSources$toJSON()}}
-\item \href{#method-fromJSON}{\code{ApplicationCreateSources$fromJSON()}}
-\item \href{#method-clone}{\code{ApplicationCreateSources$clone()}}
+\item \href{#method-ApplicationCreateSources-new}{\code{ApplicationCreateSources$new()}}
+\item \href{#method-ApplicationCreateSources-validate}{\code{ApplicationCreateSources$validate()}}
+\item \href{#method-ApplicationCreateSources-toJSON}{\code{ApplicationCreateSources$toJSON()}}
+\item \href{#method-ApplicationCreateSources-fromJSON}{\code{ApplicationCreateSources$fromJSON()}}
+\item \href{#method-ApplicationCreateSources-clone}{\code{ApplicationCreateSources$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateSources-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateSources-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,8 +49,6 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{info}}{Information about the Deployment or Dataset source.}
-
 \item{\code{source}}{Information about the source for this application.}
 
 \item{\code{name}}{The name of this source.}
@@ -63,19 +61,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateSources-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateSources-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApplicationCreateSources$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateSources-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateSources-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +83,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateSources-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateSources-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +105,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApplicationCreateSources-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApplicationCreateSources-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

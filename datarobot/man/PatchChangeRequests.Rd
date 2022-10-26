@@ -6,31 +6,17 @@
 \usage{
 PatchChangeRequests(changeRequestId, autoApply, change, comment, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update Change Request.
 }
 \details{
 Update Change Request with the given ID.
+
+This method invokes \verb{PATCH /changeRequests/\{changeRequestId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ChangeRequestsPatch in [datarobot.apicore::GovernanceApi], which this function wraps.
-
-Other Governance: 
-\code{\link{CreateApprovalPolicies}()},
-\code{\link{CreateChangeRequestsReviews}()},
-\code{\link{CreateChangeRequests}()},
-\code{\link{DeleteApprovalPolicies}()},
-\code{\link{ListApprovalPoliciesShareableChangeRequests}()},
-\code{\link{ListApprovalPolicies}()},
-\code{\link{ListApprovalPolicyMatch}()},
-\code{\link{ListApprovalPolicyTriggers}()},
-\code{\link{ListChangeRequestsReviews}()},
-\code{\link{ListChangeRequestsSuggestedReviewers}()},
-\code{\link{ListChangeRequests}()},
-\code{\link{PatchManyChangeRequestsStatus}()},
-\code{\link{PutApprovalPolicies}()},
-\code{\link{RetrieveApprovalPolicies}()},
-\code{\link{RetrieveChangeRequestsReviews}()},
-\code{\link{RetrieveChangeRequests}()}
+The method ChangeRequestsPatch in \link[datarobot.apicore:GovernanceApi]{datarobot.apicore::GovernanceApi}, which invokes the same underlying API endpoint.
 }
-\concept{Governance}

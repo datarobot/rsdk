@@ -29,7 +29,7 @@ result <- api.instance$ClusterLicenseList()
 
 \dontrun{
 library(datarobot.apicore)
-clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate |
+clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate | 
 
 api.instance <- InfrastructureApi$new()
 result <- api.instance$ClusterLicensePutMany(clusterLicenseUpdate=clusterLicenseUpdate)
@@ -41,7 +41,7 @@ result <- api.instance$ClusterLicensePutMany(clusterLicenseUpdate=clusterLicense
 
 \dontrun{
 library(datarobot.apicore)
-clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate |
+clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate | 
 
 api.instance <- InfrastructureApi$new()
 result <- api.instance$ClusterLicenseValidationCreate(clusterLicenseUpdate=clusterLicenseUpdate)
@@ -68,17 +68,17 @@ result <- api.instance$VersionList()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InfrastructureApi$new()}}
-\item \href{#method-ClusterLicenseList}{\code{InfrastructureApi$ClusterLicenseList()}}
-\item \href{#method-ClusterLicensePutMany}{\code{InfrastructureApi$ClusterLicensePutMany()}}
-\item \href{#method-ClusterLicenseValidationCreate}{\code{InfrastructureApi$ClusterLicenseValidationCreate()}}
-\item \href{#method-VersionList}{\code{InfrastructureApi$VersionList()}}
-\item \href{#method-clone}{\code{InfrastructureApi$clone()}}
+\item \href{#method-InfrastructureApi-new}{\code{InfrastructureApi$new()}}
+\item \href{#method-InfrastructureApi-ClusterLicenseList}{\code{InfrastructureApi$ClusterLicenseList()}}
+\item \href{#method-InfrastructureApi-ClusterLicensePutMany}{\code{InfrastructureApi$ClusterLicensePutMany()}}
+\item \href{#method-InfrastructureApi-ClusterLicenseValidationCreate}{\code{InfrastructureApi$ClusterLicenseValidationCreate()}}
+\item \href{#method-InfrastructureApi-VersionList}{\code{InfrastructureApi$VersionList()}}
+\item \href{#method-InfrastructureApi-clone}{\code{InfrastructureApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InfrastructureApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -93,8 +93,8 @@ result <- api.instance$VersionList()
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ClusterLicenseList"></a>}}
-\if{latex}{\out{\hypertarget{method-ClusterLicenseList}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-ClusterLicenseList"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-ClusterLicenseList}{}}}
 \subsection{Method \code{ClusterLicenseList()}}{
 Retrieve the information about cluster license
 Produces: "application/json"
@@ -111,6 +111,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the information about the currently deployed cluster license.
+
+
+This method invokes \verb{GET /clusterLicense/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -139,8 +142,8 @@ result <- api.instance$ClusterLicenseList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ClusterLicensePutMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ClusterLicensePutMany}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-ClusterLicensePutMany"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-ClusterLicensePutMany}{}}}
 \subsection{Method \code{ClusterLicensePutMany()}}{
 Create or replace license
 Produces: NA
@@ -161,6 +164,9 @@ Produces: NA
 Create or replace the cluster license.
 
 
+This method invokes \verb{PUT /clusterLicense/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -176,7 +182,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate |
+clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate | 
 
 api.instance <- InfrastructureApi$new()
 result <- api.instance$ClusterLicensePutMany(clusterLicenseUpdate=clusterLicenseUpdate)
@@ -188,8 +194,8 @@ result <- api.instance$ClusterLicensePutMany(clusterLicenseUpdate=clusterLicense
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ClusterLicenseValidationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ClusterLicenseValidationCreate}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-ClusterLicenseValidationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-ClusterLicenseValidationCreate}{}}}
 \subsection{Method \code{ClusterLicenseValidationCreate()}}{
 Check if a license is valid
 Produces: "application/json"
@@ -213,6 +219,9 @@ Produces: "application/json"
 Check if a cluster license is valid.
 
 
+This method invokes \verb{POST /clusterLicenseValidation/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -231,7 +240,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate |
+clusterLicenseUpdate <- ClusterLicenseUpdate$new() # ClusterLicenseUpdate | 
 
 api.instance <- InfrastructureApi$new()
 result <- api.instance$ClusterLicenseValidationCreate(clusterLicenseUpdate=clusterLicenseUpdate)
@@ -243,8 +252,8 @@ result <- api.instance$ClusterLicenseValidationCreate(clusterLicenseUpdate=clust
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-VersionList"></a>}}
-\if{latex}{\out{\hypertarget{method-VersionList}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-VersionList"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-VersionList}{}}}
 \subsection{Method \code{VersionList()}}{
 Retrieve version information.
 Produces: "application/json"
@@ -261,6 +270,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Provides the version information for the current version of the API.
+
+
+This method invokes \verb{GET /version/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -289,8 +301,8 @@ result <- api.instance$VersionList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InfrastructureApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InfrastructureApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -72,3 +72,26 @@ GetRecommendedModel <- function(project, type = RecommendedModelType$FastAccurat
   rec <- GetModelRecommendation(project, type = type)
   GetModel(project, rec$modelId)
 }
+
+#' @name ListModelRecommendations
+#' @details Retrieve information about model recommendation made by DataRobot for your project.
+#'
+#' DataRobot will help pick out a few models from your project that meet certain criteria,
+#' such as being the most accurate model or being a model that captures a good blend of both
+#' prediction speed and model accuracy.
+#'
+#' @inheritParams DeleteProject
+#' @return A list containing information about each recommendation made by DataRobot, containing:
+#' \itemize{
+#'   \item modelId character. The model ID of the recommended model.
+#'   \item projectId character. The project ID of the project the recommendations were made for.
+#'   \item recommendationType character. The type of recommendation being made.
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ListModelRecommendations(projectId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+ListModelRecommendations

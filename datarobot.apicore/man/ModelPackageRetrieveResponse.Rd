@@ -15,6 +15,8 @@ ModelPackageRetrieveResponse Class
 \describe{
 \item{\code{activeDeploymentCount}}{integer Number of deployments currently using this model package}
 
+\item{\code{buildStatus}}{character \link{optional} Model package build status}
+
 \item{\code{capabilities}}{\link{ModelPackageCapabilities}}
 
 \item{\code{datasets}}{\link{ModelPackageDatasets}}
@@ -24,6 +26,8 @@ ModelPackageRetrieveResponse Class
 \item{\code{importMeta}}{\link{ModelPackageImportMeta}}
 
 \item{\code{isArchived}}{character Whether the model package is permanently archived (cannot be used in deployment or replacement)}
+
+\item{\code{isDeprecated}}{character Whether the model package is deprecated. eg. python2 models are deprecated.}
 
 \item{\code{modelDescription}}{\link{ModelPackageModelDescription}}
 
@@ -42,22 +46,24 @@ ModelPackageRetrieveResponse Class
 \item{\code{target}}{\link{ModelPackageTarget}}
 
 \item{\code{timeseries}}{\link{ModelPackageTimeseries}}
+
+\item{\code{userProvidedId}}{character \link{optional} A user-provided unique ID associated with the given custom inference model.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelPackageRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{ModelPackageRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{ModelPackageRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelPackageRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ModelPackageRetrieveResponse$clone()}}
+\item \href{#method-ModelPackageRetrieveResponse-new}{\code{ModelPackageRetrieveResponse$new()}}
+\item \href{#method-ModelPackageRetrieveResponse-validate}{\code{ModelPackageRetrieveResponse$validate()}}
+\item \href{#method-ModelPackageRetrieveResponse-toJSON}{\code{ModelPackageRetrieveResponse$toJSON()}}
+\item \href{#method-ModelPackageRetrieveResponse-fromJSON}{\code{ModelPackageRetrieveResponse$fromJSON()}}
+\item \href{#method-ModelPackageRetrieveResponse-clone}{\code{ModelPackageRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelPackageRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,6 +74,7 @@ A function used to initialize an instance of this class.
   id = NULL,
   importMeta = NULL,
   isArchived = NULL,
+  isDeprecated = NULL,
   modelDescription = NULL,
   modelExecutionType = NULL,
   modelId = NULL,
@@ -77,6 +84,8 @@ A function used to initialize an instance of this class.
   sourceMeta = NULL,
   target = NULL,
   timeseries = NULL,
+  buildStatus = NULL,
+  userProvidedId = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -91,6 +100,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{isArchived}}{Whether the model package is permanently archived (cannot be used in deployment or replacement)}
 
+\item{\code{isDeprecated}}{Whether the model package is deprecated. eg. python2 models are deprecated.}
+
 \item{\code{modelExecutionType}}{Type of model package. `dedicated` (native DataRobot models) and `custom_inference_model` (user added inference models) both execute on DataRobot prediction servers, `external` do not}
 
 \item{\code{modelId}}{ID of the model}
@@ -98,6 +109,10 @@ A function used to initialize an instance of this class.
 \item{\code{name}}{Model package name}
 
 \item{\code{permissions}}{List of action permissions the user making the request has on the model package}
+
+\item{\code{buildStatus}}{Model package build status}
+
+\item{\code{userProvidedId}}{A user-provided unique ID associated with the given custom inference model.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
@@ -107,19 +122,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelPackageRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelPackageRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelPackageRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -128,8 +144,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelPackageRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -150,8 +166,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelPackageRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelPackageRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

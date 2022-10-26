@@ -6,40 +6,17 @@
 \usage{
 ListNotificationLogs(policyId, channelId, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List the notification logs
 }
 \details{
 List the notification logs that correspond to provided conditions. Default ordering is desc by notification log timestamp
+
+This method invokes \verb{GET /notificationLogs/} in the DataRobot Public API.
 }
 \seealso{
-The method NotificationLogsList in [datarobot.apicore::NotificationsApi], which this function wraps.
-
-Other Notifications: 
-\code{\link{CreateNotificationChannels}()},
-\code{\link{CreateNotificationEmailChannelVerificationStatus}()},
-\code{\link{CreateNotificationEmailChannelVerification}()},
-\code{\link{CreateNotificationPolicies}()},
-\code{\link{CreateNotificationPolicyMutes}()},
-\code{\link{CreateNotificationWebhookChannelTests}()},
-\code{\link{CreateNotifications}()},
-\code{\link{CreateRemoteEvents}()},
-\code{\link{DeleteManyUserNotifications}()},
-\code{\link{DeleteNotificationChannels}()},
-\code{\link{DeleteNotificationPolicies}()},
-\code{\link{DeleteNotificationPolicyMutes}()},
-\code{\link{DeleteUserNotifications}()},
-\code{\link{ListNotificationChannels}()},
-\code{\link{ListNotificationEvents}()},
-\code{\link{ListNotificationPolicies}()},
-\code{\link{ListNotificationPolicyMutes}()},
-\code{\link{ListUserNotifications}()},
-\code{\link{PatchManyUserNotifications}()},
-\code{\link{PatchUserNotifications}()},
-\code{\link{PutNotificationChannels}()},
-\code{\link{PutNotificationPolicies}()},
-\code{\link{RetrieveNotificationChannels}()},
-\code{\link{RetrieveNotificationPolicies}()},
-\code{\link{RetrieveNotificationWebhookChannelTests}()}
+The method NotificationLogsList in \link[datarobot.apicore:NotificationsApi]{datarobot.apicore::NotificationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Notifications}

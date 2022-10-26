@@ -4,37 +4,19 @@
 \alias{PatchApplications}
 \title{PatchApplications}
 \usage{
-PatchApplications(domain, name, description, applicationId, ...)
+PatchApplications(name, description, applicationId, ...)
+}
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
 }
 \description{
-Update an application's name and/or domain prefix
+Update an application's name and/or description
 }
 \details{
-Update an application's name and/or domain prefix
+Update an application's name and/or description
+
+This method invokes \verb{PATCH /applications/\{applicationId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ApplicationsPatch in [datarobot.apicore::ApplicationsApi], which this function wraps.
-
-Other Applications: 
-\code{\link{CreateApplicationsBuildJobs}()},
-\code{\link{CreateApplicationsDeployments}()},
-\code{\link{CreateApplicationsDuplicate}()},
-\code{\link{CreateApplications}()},
-\code{\link{CreateDemoApplications}()},
-\code{\link{DeleteApplicationsDeployments}()},
-\code{\link{DeleteApplications}()},
-\code{\link{ListApplicationTypesUsecases}()},
-\code{\link{ListApplicationTypes}()},
-\code{\link{ListApplicationsAccessControl}()},
-\code{\link{ListApplicationsSharedRoles}()},
-\code{\link{ListApplications}()},
-\code{\link{PatchManyApplicationsAccessControl}()},
-\code{\link{PatchManyApplicationsAuthToken}()},
-\code{\link{PatchManyApplicationsDeploymentState}()},
-\code{\link{PatchManyApplicationsSharedRoles}()},
-\code{\link{PatchManyApplicationsVersion}()},
-\code{\link{RetrieveApplicationTypes}()},
-\code{\link{RetrieveApplicationUserRole}()},
-\code{\link{RetrieveApplications}()}
+The method ApplicationsPatch in \link[datarobot.apicore:ApplicationsApi]{datarobot.apicore::ApplicationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Applications}

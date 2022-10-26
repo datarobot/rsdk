@@ -22,16 +22,16 @@ ChangeRequestDiff Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ChangeRequestDiff$new()}}
-\item \href{#method-validate}{\code{ChangeRequestDiff$validate()}}
-\item \href{#method-toJSON}{\code{ChangeRequestDiff$toJSON()}}
-\item \href{#method-fromJSON}{\code{ChangeRequestDiff$fromJSON()}}
-\item \href{#method-clone}{\code{ChangeRequestDiff$clone()}}
+\item \href{#method-ChangeRequestDiff-new}{\code{ChangeRequestDiff$new()}}
+\item \href{#method-ChangeRequestDiff-validate}{\code{ChangeRequestDiff$validate()}}
+\item \href{#method-ChangeRequestDiff-toJSON}{\code{ChangeRequestDiff$toJSON()}}
+\item \href{#method-ChangeRequestDiff-fromJSON}{\code{ChangeRequestDiff$fromJSON()}}
+\item \href{#method-ChangeRequestDiff-clone}{\code{ChangeRequestDiff$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ChangeRequestDiff-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestDiff-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ChangeRequestDiff-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestDiff-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeRequestDiff$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestDiff-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestDiff-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestDiff-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestDiff-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ChangeRequestDiff-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestDiff-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

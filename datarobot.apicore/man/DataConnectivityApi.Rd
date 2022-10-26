@@ -18,7 +18,7 @@ datarobot.apicore.DataConnectivity
 
 \dontrun{
 library(datarobot.apicore)
-driverUploadRequest <- DriverUploadRequest$new() # DriverUploadRequest |
+driverUploadRequest <- DriverUploadRequest$new() # DriverUploadRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriverFileCreate(driverUploadRequest=driverUploadRequest)
@@ -42,7 +42,7 @@ result <- api.instance$ExternalDataDriversConfigurationList(driverId)
 
 \dontrun{
 library(datarobot.apicore)
-createDriverRequest <- CreateDriverRequest$new() # CreateDriverRequest |
+createDriverRequest <- CreateDriverRequest$new() # CreateDriverRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriversCreate(createDriverRequest=createDriverRequest)
@@ -78,7 +78,7 @@ result <- api.instance$ExternalDataDriversList()
 \dontrun{
 library(datarobot.apicore)
 driverId <- 'driverId_example' # character | Driver ID.
-updateDriverRequest <- UpdateDriverRequest$new() # UpdateDriverRequest |
+updateDriverRequest <- UpdateDriverRequest$new() # UpdateDriverRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriversPatch(driverId, updateDriverRequest=updateDriverRequest)
@@ -119,7 +119,7 @@ result <- api.instance$ExternalDataSourcesAccessControlList(offset, limit, dataS
 \dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesAccessControlPatchMany(dataSourceId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -131,7 +131,7 @@ result <- api.instance$ExternalDataSourcesAccessControlPatchMany(dataSourceId, s
 
 \dontrun{
 library(datarobot.apicore)
-dataSourceCreate <- DataSourceCreate$new() # DataSourceCreate |
+dataSourceCreate <- DataSourceCreate$new() # DataSourceCreate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesCreate(dataSourceCreate=dataSourceCreate)
@@ -168,7 +168,7 @@ result <- api.instance$ExternalDataSourcesList(type=type)
 \dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-dataSourceUpdate <- DataSourceUpdate$new() # DataSourceUpdate |
+dataSourceUpdate <- DataSourceUpdate$new() # DataSourceUpdate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesPatch(dataSourceId, dataSourceUpdate=dataSourceUpdate)
@@ -222,7 +222,7 @@ result <- api.instance$ExternalDataSourcesSharedRolesList(offset, limit, dataSou
 \dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesSharedRolesPatchMany(dataSourceId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
@@ -235,7 +235,7 @@ result <- api.instance$ExternalDataSourcesSharedRolesPatchMany(dataSourceId, sha
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresAccessControlPatchMany(dataStoreId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -248,7 +248,7 @@ result <- api.instance$ExternalDataStoresAccessControlPatchMany(dataStoreId, sha
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreColumnsList <- DataStoreColumnsList$new() # DataStoreColumnsList |
+dataStoreColumnsList <- DataStoreColumnsList$new() # DataStoreColumnsList | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresColumnsCreate(dataStoreId, dataStoreColumnsList=dataStoreColumnsList)
@@ -260,7 +260,7 @@ result <- api.instance$ExternalDataStoresColumnsCreate(dataStoreId, dataStoreCol
 
 \dontrun{
 library(datarobot.apicore)
-dataStoreCreate <- DataStoreCreate$new() # DataStoreCreate |
+dataStoreCreate <- DataStoreCreate$new() # DataStoreCreate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresCreate(dataStoreCreate=dataStoreCreate)
@@ -275,7 +275,7 @@ library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresCredentialsList(dataStoreId, offset=offset, limit=limit, types=types)
@@ -315,7 +315,7 @@ result <- api.instance$ExternalDataStoresList(offset=offset, limit=limit, type=t
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreUpdate <- DataStoreUpdate$new() # DataStoreUpdate |
+dataStoreUpdate <- DataStoreUpdate$new() # DataStoreUpdate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresPatch(dataStoreId, dataStoreUpdate=dataStoreUpdate)
@@ -352,7 +352,7 @@ result <- api.instance$ExternalDataStoresRetrieve(dataStoreId)
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreCredentials <- DataStoreCredentials$new() # DataStoreCredentials |
+dataStoreCredentials <- DataStoreCredentials$new() # DataStoreCredentials | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresSchemasCreate(dataStoreId, dataStoreCredentials=dataStoreCredentials)
@@ -382,7 +382,7 @@ result <- api.instance$ExternalDataStoresSharedRolesList(offset, limit, dataStor
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresSharedRolesPatchMany(dataStoreId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
@@ -395,7 +395,7 @@ result <- api.instance$ExternalDataStoresSharedRolesPatchMany(dataStoreId, share
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreTables <- DataStoreTables$new() # DataStoreTables |
+dataStoreTables <- DataStoreTables$new() # DataStoreTables | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresTablesCreate(dataStoreId, dataStoreTables=dataStoreTables)
@@ -408,7 +408,7 @@ result <- api.instance$ExternalDataStoresTablesCreate(dataStoreId, dataStoreTabl
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreCredentialsWithCredentialsTypeSupport <- DataStoreCredentialsWithCredentialsTypeSupport$new() # DataStoreCredentialsWithCredentialsTypeSupport |
+dataStoreCredentialsWithCredentialsTypeSupport <- DataStoreCredentialsWithCredentialsTypeSupport$new() # DataStoreCredentialsWithCredentialsTypeSupport | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresTestCreate(dataStoreId, dataStoreCredentialsWithCredentialsTypeSupport=dataStoreCredentialsWithCredentialsTypeSupport)
@@ -421,7 +421,7 @@ result <- api.instance$ExternalDataStoresTestCreate(dataStoreId, dataStoreCreden
 \dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreSqlVerify <- DataStoreSQLVerify$new() # DataStoreSQLVerify |
+dataStoreSqlVerify <- DataStoreSQLVerify$new() # DataStoreSQLVerify | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresVerifySQLCreate(dataStoreId, dataStoreSqlVerify=dataStoreSqlVerify)
@@ -464,47 +464,47 @@ result <- api.instance$ExternalDriverConfigurationsRetrieve(configurationId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DataConnectivityApi$new()}}
-\item \href{#method-ExternalDataDriverFileCreate}{\code{DataConnectivityApi$ExternalDataDriverFileCreate()}}
-\item \href{#method-ExternalDataDriversConfigurationList}{\code{DataConnectivityApi$ExternalDataDriversConfigurationList()}}
-\item \href{#method-ExternalDataDriversCreate}{\code{DataConnectivityApi$ExternalDataDriversCreate()}}
-\item \href{#method-ExternalDataDriversDelete}{\code{DataConnectivityApi$ExternalDataDriversDelete()}}
-\item \href{#method-ExternalDataDriversList}{\code{DataConnectivityApi$ExternalDataDriversList()}}
-\item \href{#method-ExternalDataDriversPatch}{\code{DataConnectivityApi$ExternalDataDriversPatch()}}
-\item \href{#method-ExternalDataDriversRetrieve}{\code{DataConnectivityApi$ExternalDataDriversRetrieve()}}
-\item \href{#method-ExternalDataSourcesAccessControlList}{\code{DataConnectivityApi$ExternalDataSourcesAccessControlList()}}
-\item \href{#method-ExternalDataSourcesAccessControlPatchMany}{\code{DataConnectivityApi$ExternalDataSourcesAccessControlPatchMany()}}
-\item \href{#method-ExternalDataSourcesCreate}{\code{DataConnectivityApi$ExternalDataSourcesCreate()}}
-\item \href{#method-ExternalDataSourcesDelete}{\code{DataConnectivityApi$ExternalDataSourcesDelete()}}
-\item \href{#method-ExternalDataSourcesList}{\code{DataConnectivityApi$ExternalDataSourcesList()}}
-\item \href{#method-ExternalDataSourcesPatch}{\code{DataConnectivityApi$ExternalDataSourcesPatch()}}
-\item \href{#method-ExternalDataSourcesPermissionsList}{\code{DataConnectivityApi$ExternalDataSourcesPermissionsList()}}
-\item \href{#method-ExternalDataSourcesRetrieve}{\code{DataConnectivityApi$ExternalDataSourcesRetrieve()}}
-\item \href{#method-ExternalDataSourcesSharedRolesList}{\code{DataConnectivityApi$ExternalDataSourcesSharedRolesList()}}
-\item \href{#method-ExternalDataSourcesSharedRolesPatchMany}{\code{DataConnectivityApi$ExternalDataSourcesSharedRolesPatchMany()}}
-\item \href{#method-ExternalDataStoresAccessControlPatchMany}{\code{DataConnectivityApi$ExternalDataStoresAccessControlPatchMany()}}
-\item \href{#method-ExternalDataStoresColumnsCreate}{\code{DataConnectivityApi$ExternalDataStoresColumnsCreate()}}
-\item \href{#method-ExternalDataStoresCreate}{\code{DataConnectivityApi$ExternalDataStoresCreate()}}
-\item \href{#method-ExternalDataStoresCredentialsList}{\code{DataConnectivityApi$ExternalDataStoresCredentialsList()}}
-\item \href{#method-ExternalDataStoresDelete}{\code{DataConnectivityApi$ExternalDataStoresDelete()}}
-\item \href{#method-ExternalDataStoresList}{\code{DataConnectivityApi$ExternalDataStoresList()}}
-\item \href{#method-ExternalDataStoresPatch}{\code{DataConnectivityApi$ExternalDataStoresPatch()}}
-\item \href{#method-ExternalDataStoresPermissionsList}{\code{DataConnectivityApi$ExternalDataStoresPermissionsList()}}
-\item \href{#method-ExternalDataStoresRetrieve}{\code{DataConnectivityApi$ExternalDataStoresRetrieve()}}
-\item \href{#method-ExternalDataStoresSchemasCreate}{\code{DataConnectivityApi$ExternalDataStoresSchemasCreate()}}
-\item \href{#method-ExternalDataStoresSharedRolesList}{\code{DataConnectivityApi$ExternalDataStoresSharedRolesList()}}
-\item \href{#method-ExternalDataStoresSharedRolesPatchMany}{\code{DataConnectivityApi$ExternalDataStoresSharedRolesPatchMany()}}
-\item \href{#method-ExternalDataStoresTablesCreate}{\code{DataConnectivityApi$ExternalDataStoresTablesCreate()}}
-\item \href{#method-ExternalDataStoresTestCreate}{\code{DataConnectivityApi$ExternalDataStoresTestCreate()}}
-\item \href{#method-ExternalDataStoresVerifySQLCreate}{\code{DataConnectivityApi$ExternalDataStoresVerifySQLCreate()}}
-\item \href{#method-ExternalDriverConfigurationsList}{\code{DataConnectivityApi$ExternalDriverConfigurationsList()}}
-\item \href{#method-ExternalDriverConfigurationsRetrieve}{\code{DataConnectivityApi$ExternalDriverConfigurationsRetrieve()}}
-\item \href{#method-clone}{\code{DataConnectivityApi$clone()}}
+\item \href{#method-DataConnectivityApi-new}{\code{DataConnectivityApi$new()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriverFileCreate}{\code{DataConnectivityApi$ExternalDataDriverFileCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversConfigurationList}{\code{DataConnectivityApi$ExternalDataDriversConfigurationList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversCreate}{\code{DataConnectivityApi$ExternalDataDriversCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversDelete}{\code{DataConnectivityApi$ExternalDataDriversDelete()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversList}{\code{DataConnectivityApi$ExternalDataDriversList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversPatch}{\code{DataConnectivityApi$ExternalDataDriversPatch()}}
+\item \href{#method-DataConnectivityApi-ExternalDataDriversRetrieve}{\code{DataConnectivityApi$ExternalDataDriversRetrieve()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesAccessControlList}{\code{DataConnectivityApi$ExternalDataSourcesAccessControlList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesAccessControlPatchMany}{\code{DataConnectivityApi$ExternalDataSourcesAccessControlPatchMany()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesCreate}{\code{DataConnectivityApi$ExternalDataSourcesCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesDelete}{\code{DataConnectivityApi$ExternalDataSourcesDelete()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesList}{\code{DataConnectivityApi$ExternalDataSourcesList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesPatch}{\code{DataConnectivityApi$ExternalDataSourcesPatch()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesPermissionsList}{\code{DataConnectivityApi$ExternalDataSourcesPermissionsList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesRetrieve}{\code{DataConnectivityApi$ExternalDataSourcesRetrieve()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesSharedRolesList}{\code{DataConnectivityApi$ExternalDataSourcesSharedRolesList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataSourcesSharedRolesPatchMany}{\code{DataConnectivityApi$ExternalDataSourcesSharedRolesPatchMany()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresAccessControlPatchMany}{\code{DataConnectivityApi$ExternalDataStoresAccessControlPatchMany()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresColumnsCreate}{\code{DataConnectivityApi$ExternalDataStoresColumnsCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresCreate}{\code{DataConnectivityApi$ExternalDataStoresCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresCredentialsList}{\code{DataConnectivityApi$ExternalDataStoresCredentialsList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresDelete}{\code{DataConnectivityApi$ExternalDataStoresDelete()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresList}{\code{DataConnectivityApi$ExternalDataStoresList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresPatch}{\code{DataConnectivityApi$ExternalDataStoresPatch()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresPermissionsList}{\code{DataConnectivityApi$ExternalDataStoresPermissionsList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresRetrieve}{\code{DataConnectivityApi$ExternalDataStoresRetrieve()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresSchemasCreate}{\code{DataConnectivityApi$ExternalDataStoresSchemasCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresSharedRolesList}{\code{DataConnectivityApi$ExternalDataStoresSharedRolesList()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresSharedRolesPatchMany}{\code{DataConnectivityApi$ExternalDataStoresSharedRolesPatchMany()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresTablesCreate}{\code{DataConnectivityApi$ExternalDataStoresTablesCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresTestCreate}{\code{DataConnectivityApi$ExternalDataStoresTestCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDataStoresVerifySQLCreate}{\code{DataConnectivityApi$ExternalDataStoresVerifySQLCreate()}}
+\item \href{#method-DataConnectivityApi-ExternalDriverConfigurationsList}{\code{DataConnectivityApi$ExternalDriverConfigurationsList()}}
+\item \href{#method-DataConnectivityApi-ExternalDriverConfigurationsRetrieve}{\code{DataConnectivityApi$ExternalDriverConfigurationsRetrieve()}}
+\item \href{#method-DataConnectivityApi-clone}{\code{DataConnectivityApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DataConnectivityApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -519,8 +519,8 @@ result <- api.instance$ExternalDriverConfigurationsRetrieve(configurationId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriverFileCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriverFileCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriverFileCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriverFileCreate}{}}}
 \subsection{Method \code{ExternalDataDriverFileCreate()}}{
 Upload JDBC driver from file.
 Produces: "application/json"
@@ -544,6 +544,9 @@ Produces: "application/json"
 Upload JDBC driver from file. Only Java archive (.jar) files are supported.
 
 
+This method invokes \verb{POST /externalDataDriverFile/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -562,7 +565,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-driverUploadRequest <- DriverUploadRequest$new() # DriverUploadRequest |
+driverUploadRequest <- DriverUploadRequest$new() # DriverUploadRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriverFileCreate(driverUploadRequest=driverUploadRequest)
@@ -574,8 +577,8 @@ result <- api.instance$ExternalDataDriverFileCreate(driverUploadRequest=driverUp
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversConfigurationList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversConfigurationList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversConfigurationList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversConfigurationList}{}}}
 \subsection{Method \code{ExternalDataDriversConfigurationList()}}{
 Driver configuration details.
 Produces: "application/json"
@@ -594,6 +597,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the driver configuration with the specified ID.
+
+
+This method invokes \verb{GET /externalDataDrivers/\{driverId\}/configuration/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -623,8 +629,8 @@ result <- api.instance$ExternalDataDriversConfigurationList(driverId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversCreate}{}}}
 \subsection{Method \code{ExternalDataDriversCreate()}}{
 Create a new JDBC driver.
 Produces: "application/json"
@@ -645,6 +651,9 @@ Produces: "application/json"
 Create a new JDBC driver. To create connections from fields, rather than supplying a JDBC URL, use 'configurationId'. When using 'configurationId', do not include 'canonicalName' or 'className' as they are part of the driver configuration. Specifying a 'version' is required as it is used in the construction of the canonicalName.
 
 
+This method invokes \verb{POST /externalDataDrivers/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Details about new driver entity.
@@ -660,7 +669,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-createDriverRequest <- CreateDriverRequest$new() # CreateDriverRequest |
+createDriverRequest <- CreateDriverRequest$new() # CreateDriverRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriversCreate(createDriverRequest=createDriverRequest)
@@ -672,8 +681,8 @@ result <- api.instance$ExternalDataDriversCreate(createDriverRequest=createDrive
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversDelete}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversDelete}{}}}
 \subsection{Method \code{ExternalDataDriversDelete()}}{
 Delete the driver.
 Produces: NA
@@ -692,6 +701,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the driver with given ID if it is not used by any data store or data source.
+
+
+This method invokes \verb{DELETE /externalDataDrivers/\{driverId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -721,8 +733,8 @@ result <- api.instance$ExternalDataDriversDelete(driverId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversList}{}}}
 \subsection{Method \code{ExternalDataDriversList()}}{
 List drivers
 Produces: "application/json"
@@ -739,6 +751,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Fetch all drivers a user has access to.
+
+
+This method invokes \verb{GET /externalDataDrivers/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -767,8 +782,8 @@ result <- api.instance$ExternalDataDriversList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversPatch}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversPatch}{}}}
 \subsection{Method \code{ExternalDataDriversPatch()}}{
 Update properties of an existing JDBC Driver.
 Produces: "application/json"
@@ -795,6 +810,9 @@ Produces: "application/json"
 Update properties of an existing JDBC driver. To change the canonicalName and className, you must first remove the driver configuration, if it exists, as its properties will otherwise override name changes.
 
 
+This method invokes \verb{PATCH /externalDataDrivers/\{driverId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Driver properties updated successfully.
@@ -811,7 +829,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 driverId <- 'driverId_example' # character | Driver ID.
-updateDriverRequest <- UpdateDriverRequest$new() # UpdateDriverRequest |
+updateDriverRequest <- UpdateDriverRequest$new() # UpdateDriverRequest | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataDriversPatch(driverId, updateDriverRequest=updateDriverRequest)
@@ -823,8 +841,8 @@ result <- api.instance$ExternalDataDriversPatch(driverId, updateDriverRequest=up
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataDriversRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataDriversRetrieve}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataDriversRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataDriversRetrieve}{}}}
 \subsection{Method \code{ExternalDataDriversRetrieve()}}{
 Retrieve driver details.
 Produces: "application/json"
@@ -843,6 +861,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve driver details by ID.
+
+
+This method invokes \verb{GET /externalDataDrivers/\{driverId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -872,8 +893,8 @@ result <- api.instance$ExternalDataDriversRetrieve(driverId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesAccessControlList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesAccessControlList}{}}}
 \subsection{Method \code{ExternalDataSourcesAccessControlList()}}{
 Get data source's access control list
 Produces: "application/json"
@@ -907,6 +928,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users, groups and organizations who have access to this data source and their roles.
+
+
+This method invokes \verb{GET /externalDataSources/\{dataSourceId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -946,8 +970,8 @@ result <- api.instance$ExternalDataSourcesAccessControlList(offset, limit, dataS
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesAccessControlPatchMany}{}}}
 \subsection{Method \code{ExternalDataSourcesAccessControlPatchMany()}}{
 Update data source's access controls
 Produces: NA
@@ -974,6 +998,9 @@ Produces: NA
 Set roles for users on this data source. Note that when granting access to a data source, access to the corresponding data store as a \"CONSUMER\" will also be granted.
 
 
+This method invokes \verb{PATCH /externalDataSources/\{dataSourceId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -993,7 +1020,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesAccessControlPatchMany(dataSourceId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -1005,8 +1032,8 @@ result <- api.instance$ExternalDataSourcesAccessControlPatchMany(dataSourceId, s
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesCreate}{}}}
 \subsection{Method \code{ExternalDataSourcesCreate()}}{
 Create a data source.
 Produces: "application/json"
@@ -1024,7 +1051,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a fully configured source of data which could be used for datasets and projects creation.A `data source` specifies, via SQL query or selected table and schema data, which data to extract from the `data connection` (the location of data within a given endpoint) to use for modeling or predictions. A `data source` has one `data connection` and one `connector` but can have many `datasets`. To test the SQL query before creating the data source,use :http:post:`/api/v2/externalDataStores/(dataStoreId)/verifySQL/`.
+Create a fully configured source of data which could be used for datasets and projects creation.A data source specifies, via SQL query or selected table and schema data, which data to extract from the data connection (the location of data within a given endpoint) to use for modeling or predictions. A data source has one data connection and one connector but can have many datasets. To test the SQL query before creating the data source,use :<http:post>:/api/v2/externalDataStores/(dataStoreId)/verifySQL/.
+
+
+This method invokes \verb{POST /externalDataSources/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1042,7 +1072,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-dataSourceCreate <- DataSourceCreate$new() # DataSourceCreate |
+dataSourceCreate <- DataSourceCreate$new() # DataSourceCreate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesCreate(dataSourceCreate=dataSourceCreate)
@@ -1054,8 +1084,8 @@ result <- api.instance$ExternalDataSourcesCreate(dataSourceCreate=dataSourceCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesDelete}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesDelete}{}}}
 \subsection{Method \code{ExternalDataSourcesDelete()}}{
 Delete the data source.
 Produces: NA
@@ -1074,6 +1104,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the data source with given ID if it is not used by any dataset.
+
+
+This method invokes \verb{DELETE /externalDataSources/\{dataSourceId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1103,8 +1136,8 @@ result <- api.instance$ExternalDataSourcesDelete(dataSourceId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesList}{}}}
 \subsection{Method \code{ExternalDataSourcesList()}}{
 List data sources.
 Produces: "application/json"
@@ -1115,7 +1148,7 @@ Produces: "application/json"
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{type}}{Enum < \link{dr-connector-v1, all, jdbc} > Data source type to filter by.}
+\item{\code{type}}{Enum < \link{jdbc, dr-connector-v1, all} > Data source type to filter by.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1123,6 +1156,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Return detailed list of available data sources.
+
+
+This method invokes \verb{GET /externalDataSources/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1152,8 +1188,8 @@ result <- api.instance$ExternalDataSourcesList(type=type)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesPatch}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesPatch}{}}}
 \subsection{Method \code{ExternalDataSourcesPatch()}}{
 Update the data source.
 Produces: NA
@@ -1177,7 +1213,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update the data source with given ID. To test the SQL query before updating the data source,use :http:post:`/api/v2/externalDataStores/(dataStoreId)/verifySQL/`.
+Update the data source with given ID. To test the SQL query before updating the data source,use :<http:post>:/api/v2/externalDataStores/(dataStoreId)/verifySQL/.
+
+
+This method invokes \verb{PATCH /externalDataSources/\{dataSourceId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1193,7 +1232,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-dataSourceUpdate <- DataSourceUpdate$new() # DataSourceUpdate |
+dataSourceUpdate <- DataSourceUpdate$new() # DataSourceUpdate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesPatch(dataSourceId, dataSourceUpdate=dataSourceUpdate)
@@ -1205,8 +1244,8 @@ result <- api.instance$ExternalDataSourcesPatch(dataSourceId, dataSourceUpdate=d
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesPermissionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesPermissionsList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesPermissionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesPermissionsList}{}}}
 \subsection{Method \code{ExternalDataSourcesPermissionsList()}}{
 Describe data source permissions.
 Produces: "application/json"
@@ -1225,6 +1264,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Describe what permissions current user has for given data source.
+
+
+This method invokes \verb{GET /externalDataSources/\{dataSourceId\}/permissions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1254,8 +1296,8 @@ result <- api.instance$ExternalDataSourcesPermissionsList(dataSourceId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesRetrieve}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesRetrieve}{}}}
 \subsection{Method \code{ExternalDataSourcesRetrieve()}}{
 Data source details.
 Produces: "application/json"
@@ -1274,6 +1316,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Return details of the existing data source with given ID, including SQL query or selected table and schema data, which fully describe which data to extract and from which location.
+
+
+This method invokes \verb{GET /externalDataSources/\{dataSourceId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1303,8 +1348,8 @@ result <- api.instance$ExternalDataSourcesRetrieve(dataSourceId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesSharedRolesList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesSharedRolesList}{}}}
 \subsection{Method \code{ExternalDataSourcesSharedRolesList()}}{
 Get data source's access control list
 Produces: "application/json"
@@ -1343,6 +1388,9 @@ Produces: "application/json"
 Get a list of users, groups and organizations who have access to this data source and their roles.
 
 
+This method invokes \verb{GET /externalDataSources/\{dataSourceId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of user/group/organization roles.
@@ -1375,8 +1423,8 @@ result <- api.instance$ExternalDataSourcesSharedRolesList(offset, limit, dataSou
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataSourcesSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataSourcesSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataSourcesSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataSourcesSharedRolesPatchMany}{}}}
 \subsection{Method \code{ExternalDataSourcesSharedRolesPatchMany()}}{
 Modify data source shared roles.
 Produces: NA
@@ -1403,6 +1451,9 @@ Produces: NA
 Grant access, remove access or update roles for organizations, groups or users on this data source. Up to 100 roles may be set per array in a single request.
 
 
+This method invokes \verb{PATCH /externalDataSources/\{dataSourceId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -1422,7 +1473,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataSourceId <- 'dataSourceId_example' # character | The ID of the Data Source.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataSourcesSharedRolesPatchMany(dataSourceId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
@@ -1434,8 +1485,8 @@ result <- api.instance$ExternalDataSourcesSharedRolesPatchMany(dataSourceId, sha
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresAccessControlPatchMany}{}}}
 \subsection{Method \code{ExternalDataStoresAccessControlPatchMany()}}{
 Update data store's controls
 Produces: NA
@@ -1462,6 +1513,9 @@ Produces: NA
 Set roles for users on this data store.
 
 
+This method invokes \verb{PATCH /externalDataStores/\{dataStoreId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -1481,7 +1535,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresAccessControlPatchMany(dataStoreId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -1493,8 +1547,8 @@ result <- api.instance$ExternalDataStoresAccessControlPatchMany(dataStoreId, sha
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresColumnsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresColumnsCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresColumnsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresColumnsCreate}{}}}
 \subsection{Method \code{ExternalDataStoresColumnsCreate()}}{
 Retrieves a data store's data columns.
 Produces: "application/json"
@@ -1521,6 +1575,9 @@ Produces: "application/json"
 Retrieves a data store's data columns.
 
 
+This method invokes \verb{POST /externalDataStores/\{dataStoreId\}/columns/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns response with array of Column objects.
@@ -1543,7 +1600,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreColumnsList <- DataStoreColumnsList$new() # DataStoreColumnsList |
+dataStoreColumnsList <- DataStoreColumnsList$new() # DataStoreColumnsList | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresColumnsCreate(dataStoreId, dataStoreColumnsList=dataStoreColumnsList)
@@ -1555,8 +1612,8 @@ result <- api.instance$ExternalDataStoresColumnsCreate(dataStoreId, dataStoreCol
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresCreate}{}}}
 \subsection{Method \code{ExternalDataStoresCreate()}}{
 Create a data store.
 Produces: "application/json"
@@ -1577,6 +1634,9 @@ Produces: "application/json"
 Create a data store which includes a name and a driver ID or a connector ID. The driver would be configured by a JDBC URL or by jdbc fields; The connector would be configured by connection fields.
 
 
+This method invokes \verb{POST /externalDataStores/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Data store created successfully.
@@ -1592,7 +1652,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-dataStoreCreate <- DataStoreCreate$new() # DataStoreCreate |
+dataStoreCreate <- DataStoreCreate$new() # DataStoreCreate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresCreate(dataStoreCreate=dataStoreCreate)
@@ -1604,8 +1664,8 @@ result <- api.instance$ExternalDataStoresCreate(dataStoreCreate=dataStoreCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresCredentialsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresCredentialsList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresCredentialsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresCredentialsList}{}}}
 \subsection{Method \code{ExternalDataStoresCredentialsList()}}{
 List credentials associated with the specified data store.
 Produces: "application/json"
@@ -1638,6 +1698,9 @@ Produces: "application/json"
 Returns a list of credentials associated with the specified data store.
 
 
+This method invokes \verb{GET /externalDataStores/\{dataStoreId\}/credentials/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} List of credentials associated with the data store.
@@ -1656,7 +1719,7 @@ library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-types <- OneOfstringarray$new() # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
+types <- list(c('types_example')) # OneOfstringarray | Includes only credentials of the specified type. Repeat the parameter for filtering on multiple statuses.
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresCredentialsList(dataStoreId, offset=offset, limit=limit, types=types)
@@ -1668,8 +1731,8 @@ result <- api.instance$ExternalDataStoresCredentialsList(dataStoreId, offset=off
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresDelete}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresDelete}{}}}
 \subsection{Method \code{ExternalDataStoresDelete()}}{
 Delete the data store.
 Produces: NA
@@ -1688,6 +1751,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the data store with given ID if it is not used by any data source.
+
+
+This method invokes \verb{DELETE /externalDataStores/\{dataStoreId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1717,8 +1783,8 @@ result <- api.instance$ExternalDataStoresDelete(dataStoreId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresList}{}}}
 \subsection{Method \code{ExternalDataStoresList()}}{
 List data stores.
 Produces: "application/json"
@@ -1739,7 +1805,7 @@ Produces: "application/json"
 
 \item{\code{limit}}{integer. At most this many results are returned. The default may change without notice.}
 
-\item{\code{type}}{Enum < \link{dr-connector-v1, jdbc, all} > Includes only data stores of the specified type or any if set to `all`.}
+\item{\code{type}}{Enum < \link{jdbc, dr-connector-v1, all} > Includes only data stores of the specified type or any if set to `all`.}
 
 \item{\code{showHidden}}{Enum < \link{false, False, true, True} > Specifies whether non-visible OAuth fields are shown.}
 
@@ -1751,9 +1817,15 @@ Produces: "application/json"
 Return list with details of the existing data stores available for the user.
 
 
+This method invokes \verb{GET /externalDataStores/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Data stores retrieved successfully.
+\itemize{
+}
+\item \strong{\code{422}} Filtering by database type is currently not supported for dr-connector-v1 data stores
 \itemize{
 }
 }
@@ -1781,8 +1853,8 @@ result <- api.instance$ExternalDataStoresList(offset=offset, limit=limit, type=t
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresPatch}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresPatch}{}}}
 \subsection{Method \code{ExternalDataStoresPatch()}}{
 Updates a data store configuration.
 Produces: "application/json"
@@ -1809,6 +1881,9 @@ Produces: "application/json"
 Updates a data store configuration.
 
 
+This method invokes \verb{PATCH /externalDataStores/\{dataStoreId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns the updated data store entry.
@@ -1825,7 +1900,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreUpdate <- DataStoreUpdate$new() # DataStoreUpdate |
+dataStoreUpdate <- DataStoreUpdate$new() # DataStoreUpdate | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresPatch(dataStoreId, dataStoreUpdate=dataStoreUpdate)
@@ -1837,8 +1912,8 @@ result <- api.instance$ExternalDataStoresPatch(dataStoreId, dataStoreUpdate=data
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresPermissionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresPermissionsList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresPermissionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresPermissionsList}{}}}
 \subsection{Method \code{ExternalDataStoresPermissionsList()}}{
 Describe data store permissions.
 Produces: "application/json"
@@ -1857,6 +1932,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Describe what permissions current user has for given data store.
+
+
+This method invokes \verb{GET /externalDataStores/\{dataStoreId\}/permissions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1886,8 +1964,8 @@ result <- api.instance$ExternalDataStoresPermissionsList(dataStoreId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresRetrieve}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresRetrieve}{}}}
 \subsection{Method \code{ExternalDataStoresRetrieve()}}{
 Data store details.
 Produces: "application/json"
@@ -1906,6 +1984,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 A configured connection to a database - it has a name and a specified driver. The driver may be specified by a JDBC URL or connection parameters if the driver was created with the parameter configuration.
+
+
+This method invokes \verb{GET /externalDataStores/\{dataStoreId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1935,8 +2016,8 @@ result <- api.instance$ExternalDataStoresRetrieve(dataStoreId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresSchemasCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresSchemasCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresSchemasCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresSchemasCreate}{}}}
 \subsection{Method \code{ExternalDataStoresSchemasCreate()}}{
 Retrieves a data store's data schemas.
 Produces: "application/json"
@@ -1963,6 +2044,9 @@ Produces: "application/json"
 Retrieves a data store's data schemas.
 
 
+This method invokes \verb{POST /externalDataStores/\{dataStoreId\}/schemas/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns response with schemas and catalog.
@@ -1979,7 +2063,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreCredentials <- DataStoreCredentials$new() # DataStoreCredentials |
+dataStoreCredentials <- DataStoreCredentials$new() # DataStoreCredentials | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresSchemasCreate(dataStoreId, dataStoreCredentials=dataStoreCredentials)
@@ -1991,8 +2075,8 @@ result <- api.instance$ExternalDataStoresSchemasCreate(dataStoreId, dataStoreCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresSharedRolesList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresSharedRolesList}{}}}
 \subsection{Method \code{ExternalDataStoresSharedRolesList()}}{
 Get data store's access control list
 Produces: "application/json"
@@ -2029,6 +2113,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users who have access to this data store and their roles on the data store.
+
+
+This method invokes \verb{GET /externalDataStores/\{dataStoreId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2069,8 +2156,8 @@ result <- api.instance$ExternalDataStoresSharedRolesList(offset, limit, dataStor
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresSharedRolesPatchMany}{}}}
 \subsection{Method \code{ExternalDataStoresSharedRolesPatchMany()}}{
 Modify data store shared roles.
 Produces: NA
@@ -2097,6 +2184,9 @@ Produces: NA
 Grant access, remove access or update roles for organizations, groups or users on this data store. Up to 100 roles may be set per array in a single request.
 
 
+This method invokes \verb{PATCH /externalDataStores/\{dataStoreId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Successfully modified.
@@ -2116,7 +2206,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresSharedRolesPatchMany(dataStoreId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
@@ -2128,8 +2218,8 @@ result <- api.instance$ExternalDataStoresSharedRolesPatchMany(dataStoreId, share
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresTablesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresTablesCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresTablesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresTablesCreate}{}}}
 \subsection{Method \code{ExternalDataStoresTablesCreate()}}{
 Retrieves a data store's database tables (including views).
 Produces: "application/json"
@@ -2156,6 +2246,9 @@ Produces: "application/json"
 Retrieves a data store's database tables (including views).
 
 
+This method invokes \verb{POST /externalDataStores/\{dataStoreId\}/tables/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} List of tables available in the retrieved data store.
@@ -2172,7 +2265,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreTables <- DataStoreTables$new() # DataStoreTables |
+dataStoreTables <- DataStoreTables$new() # DataStoreTables | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresTablesCreate(dataStoreId, dataStoreTables=dataStoreTables)
@@ -2184,8 +2277,8 @@ result <- api.instance$ExternalDataStoresTablesCreate(dataStoreId, dataStoreTabl
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresTestCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresTestCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresTestCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresTestCreate}{}}}
 \subsection{Method \code{ExternalDataStoresTestCreate()}}{
 Tests data store connection.
 Produces: "application/json"
@@ -2212,6 +2305,9 @@ Produces: "application/json"
 Tests the ability to connect to a data store with specified authentication.
 
 
+This method invokes \verb{POST /externalDataStores/\{dataStoreId\}/test/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Outcome of the connection test.
@@ -2231,7 +2327,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreCredentialsWithCredentialsTypeSupport <- DataStoreCredentialsWithCredentialsTypeSupport$new() # DataStoreCredentialsWithCredentialsTypeSupport |
+dataStoreCredentialsWithCredentialsTypeSupport <- DataStoreCredentialsWithCredentialsTypeSupport$new() # DataStoreCredentialsWithCredentialsTypeSupport | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresTestCreate(dataStoreId, dataStoreCredentialsWithCredentialsTypeSupport=dataStoreCredentialsWithCredentialsTypeSupport)
@@ -2243,8 +2339,8 @@ result <- api.instance$ExternalDataStoresTestCreate(dataStoreId, dataStoreCreden
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDataStoresVerifySQLCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDataStoresVerifySQLCreate}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDataStoresVerifySQLCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDataStoresVerifySQLCreate}{}}}
 \subsection{Method \code{ExternalDataStoresVerifySQLCreate()}}{
 Verifies a SQL query for a data store.
 Produces: "application/json"
@@ -2271,6 +2367,9 @@ Produces: "application/json"
 Executes the SQL query on the data store, returning a small number of rows (max 999). Use this for quick query execution validation and exploring results, not for capturing an entire result set.
 
 
+This method invokes \verb{POST /externalDataStores/\{dataStoreId\}/verifySQL/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns the names of columns and a limited number of results from the SQL query.
@@ -2290,7 +2389,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 dataStoreId <- 'dataStoreId_example' # character | ID of the data store.
-dataStoreSqlVerify <- DataStoreSQLVerify$new() # DataStoreSQLVerify |
+dataStoreSqlVerify <- DataStoreSQLVerify$new() # DataStoreSQLVerify | 
 
 api.instance <- DataConnectivityApi$new()
 result <- api.instance$ExternalDataStoresVerifySQLCreate(dataStoreId, dataStoreSqlVerify=dataStoreSqlVerify)
@@ -2302,8 +2401,8 @@ result <- api.instance$ExternalDataStoresVerifySQLCreate(dataStoreId, dataStoreS
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDriverConfigurationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDriverConfigurationsList}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDriverConfigurationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDriverConfigurationsList}{}}}
 \subsection{Method \code{ExternalDriverConfigurationsList()}}{
 List available driver configurations.
 Produces: "application/json"
@@ -2324,7 +2423,7 @@ Produces: "application/json"
 
 \item{\code{limit}}{integer. At most this many results are returned. The default may change without notice.}
 
-\item{\code{type}}{Enum < \link{dr-connector-v1, jdbc, all} > Type of driver configurations to return.}
+\item{\code{type}}{Enum < \link{jdbc, dr-connector-v1, all} > Type of driver configurations to return.}
 
 \item{\code{showHidden}}{Enum < \link{false, False, true, True} > If True, include hidden configurations in response.}
 
@@ -2334,6 +2433,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve matching driver configurations based on query.
+
+
+This method invokes \verb{GET /externalDriverConfigurations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2366,8 +2468,8 @@ result <- api.instance$ExternalDriverConfigurationsList(offset=offset, limit=lim
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalDriverConfigurationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalDriverConfigurationsRetrieve}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-ExternalDriverConfigurationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-ExternalDriverConfigurationsRetrieve}{}}}
 \subsection{Method \code{ExternalDriverConfigurationsRetrieve()}}{
 Driver configuration details.
 Produces: "application/json"
@@ -2386,6 +2488,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the driver configuration with the specified ID.
+
+
+This method invokes \verb{GET /externalDriverConfigurations/\{configurationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2415,8 +2520,8 @@ result <- api.instance$ExternalDriverConfigurationsRetrieve(configurationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DataConnectivityApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DataConnectivityApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

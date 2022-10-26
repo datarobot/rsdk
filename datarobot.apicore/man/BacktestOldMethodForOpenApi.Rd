@@ -26,16 +26,16 @@ BacktestOldMethodForOpenApi Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{BacktestOldMethodForOpenApi$new()}}
-\item \href{#method-validate}{\code{BacktestOldMethodForOpenApi$validate()}}
-\item \href{#method-toJSON}{\code{BacktestOldMethodForOpenApi$toJSON()}}
-\item \href{#method-fromJSON}{\code{BacktestOldMethodForOpenApi$fromJSON()}}
-\item \href{#method-clone}{\code{BacktestOldMethodForOpenApi$clone()}}
+\item \href{#method-BacktestOldMethodForOpenApi-new}{\code{BacktestOldMethodForOpenApi$new()}}
+\item \href{#method-BacktestOldMethodForOpenApi-validate}{\code{BacktestOldMethodForOpenApi$validate()}}
+\item \href{#method-BacktestOldMethodForOpenApi-toJSON}{\code{BacktestOldMethodForOpenApi$toJSON()}}
+\item \href{#method-BacktestOldMethodForOpenApi-fromJSON}{\code{BacktestOldMethodForOpenApi$fromJSON()}}
+\item \href{#method-BacktestOldMethodForOpenApi-clone}{\code{BacktestOldMethodForOpenApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-BacktestOldMethodForOpenApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-BacktestOldMethodForOpenApi-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-BacktestOldMethodForOpenApi-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-BacktestOldMethodForOpenApi-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BacktestOldMethodForOpenApi$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-BacktestOldMethodForOpenApi-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BacktestOldMethodForOpenApi-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-BacktestOldMethodForOpenApi-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BacktestOldMethodForOpenApi-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-BacktestOldMethodForOpenApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-BacktestOldMethodForOpenApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

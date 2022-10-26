@@ -29,16 +29,16 @@ DatasetRefreshJobRetrieveExecutionResultsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$new()}}
-\item \href{#method-validate}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$validate()}}
-\item \href{#method-toJSON}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$clone()}}
+\item \href{#method-DatasetRefreshJobRetrieveExecutionResultsResponse-new}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$new()}}
+\item \href{#method-DatasetRefreshJobRetrieveExecutionResultsResponse-validate}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$validate()}}
+\item \href{#method-DatasetRefreshJobRetrieveExecutionResultsResponse-toJSON}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$toJSON()}}
+\item \href{#method-DatasetRefreshJobRetrieveExecutionResultsResponse-fromJSON}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$fromJSON()}}
+\item \href{#method-DatasetRefreshJobRetrieveExecutionResultsResponse-clone}{\code{DatasetRefreshJobRetrieveExecutionResultsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobRetrieveExecutionResultsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobRetrieveExecutionResultsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -74,19 +74,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobRetrieveExecutionResultsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobRetrieveExecutionResultsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetRefreshJobRetrieveExecutionResultsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobRetrieveExecutionResultsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobRetrieveExecutionResultsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -95,8 +96,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobRetrieveExecutionResultsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobRetrieveExecutionResultsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -117,8 +118,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobRetrieveExecutionResultsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobRetrieveExecutionResultsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

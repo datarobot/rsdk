@@ -6,18 +6,17 @@
 \usage{
 GetServerVersion(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve version information.
 }
 \details{
 Provides the version information for the current version of the API.
+
+This method invokes \verb{GET /version/} in the DataRobot Public API.
 }
 \seealso{
-The method VersionList in [datarobot.apicore::InfrastructureApi], which this function wraps.
-
-Other Infrastructure: 
-\code{\link{CreateClusterLicenseValidation}()},
-\code{\link{ListClusterLicense}()},
-\code{\link{PutManyClusterLicense}()}
+The method VersionList in \link[datarobot.apicore:InfrastructureApi]{datarobot.apicore::InfrastructureApi}, which invokes the same underlying API endpoint.
 }
-\concept{Infrastructure}

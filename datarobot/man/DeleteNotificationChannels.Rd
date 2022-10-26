@@ -6,40 +6,17 @@
 \usage{
 DeleteNotificationChannels(channelId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete notification channel
 }
 \details{
 Delete the notification channel.
+
+This method invokes \verb{DELETE /notificationChannels/\{channelId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method NotificationChannelsDelete in [datarobot.apicore::NotificationsApi], which this function wraps.
-
-Other Notifications: 
-\code{\link{CreateNotificationChannels}()},
-\code{\link{CreateNotificationEmailChannelVerificationStatus}()},
-\code{\link{CreateNotificationEmailChannelVerification}()},
-\code{\link{CreateNotificationPolicies}()},
-\code{\link{CreateNotificationPolicyMutes}()},
-\code{\link{CreateNotificationWebhookChannelTests}()},
-\code{\link{CreateNotifications}()},
-\code{\link{CreateRemoteEvents}()},
-\code{\link{DeleteManyUserNotifications}()},
-\code{\link{DeleteNotificationPolicies}()},
-\code{\link{DeleteNotificationPolicyMutes}()},
-\code{\link{DeleteUserNotifications}()},
-\code{\link{ListNotificationChannels}()},
-\code{\link{ListNotificationEvents}()},
-\code{\link{ListNotificationLogs}()},
-\code{\link{ListNotificationPolicies}()},
-\code{\link{ListNotificationPolicyMutes}()},
-\code{\link{ListUserNotifications}()},
-\code{\link{PatchManyUserNotifications}()},
-\code{\link{PatchUserNotifications}()},
-\code{\link{PutNotificationChannels}()},
-\code{\link{PutNotificationPolicies}()},
-\code{\link{RetrieveNotificationChannels}()},
-\code{\link{RetrieveNotificationPolicies}()},
-\code{\link{RetrieveNotificationWebhookChannelTests}()}
+The method NotificationChannelsDelete in \link[datarobot.apicore:NotificationsApi]{datarobot.apicore::NotificationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Notifications}

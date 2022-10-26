@@ -153,7 +153,7 @@ Aim Class
 
 \item{\code{quantileLevel}}{numeric \link{optional} The quantile level between 0.01 and 0.99 for specifying the Quantile metric.}
 
-\item{\code{quickrun}}{character \link{optional} (Deprecated): 'quick' should be used in the `mode` parameter instead of using this parameter. If set to `true`, will use a limited autopilot setting whose goal is to complete more quickly by trying a smaller number of models. Note: quickrun cannot be set to `true` when `mode` is set to 'comprehensive'.}
+\item{\code{quickrun}}{character \link{optional} (Deprecated): 'quick' should be used in the `mode` parameter instead of using this parameter. If set to `true`, autopilot mode will be set to 'quick'.Cannot be set to `true` when `mode` is set to 'comprehensive' or 'manual'.}
 
 \item{\code{rateTopPctThreshold}}{numeric \link{optional} The percentage threshold between 0.1 and 50 for specifying the Rate@Top\% metric.}
 
@@ -218,16 +218,16 @@ Aim Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Aim$new()}}
-\item \href{#method-validate}{\code{Aim$validate()}}
-\item \href{#method-toJSON}{\code{Aim$toJSON()}}
-\item \href{#method-fromJSON}{\code{Aim$fromJSON()}}
-\item \href{#method-clone}{\code{Aim$clone()}}
+\item \href{#method-Aim-new}{\code{Aim$new()}}
+\item \href{#method-Aim-validate}{\code{Aim$validate()}}
+\item \href{#method-Aim-toJSON}{\code{Aim$toJSON()}}
+\item \href{#method-Aim-fromJSON}{\code{Aim$fromJSON()}}
+\item \href{#method-Aim-clone}{\code{Aim$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Aim-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Aim-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -478,7 +478,7 @@ A function used to initialize an instance of this class.
 
 \item{\code{quantileLevel}}{The quantile level between 0.01 and 0.99 for specifying the Quantile metric.}
 
-\item{\code{quickrun}}{(Deprecated): 'quick' should be used in the `mode` parameter instead of using this parameter. If set to `true`, will use a limited autopilot setting whose goal is to complete more quickly by trying a smaller number of models. Note: quickrun cannot be set to `true` when `mode` is set to 'comprehensive'.}
+\item{\code{quickrun}}{(Deprecated): 'quick' should be used in the `mode` parameter instead of using this parameter. If set to `true`, autopilot mode will be set to 'quick'.Cannot be set to `true` when `mode` is set to 'comprehensive' or 'manual'.}
 
 \item{\code{rateTopPctThreshold}}{The percentage threshold between 0.1 and 50 for specifying the Rate@Top\% metric.}
 
@@ -546,19 +546,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Aim-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Aim-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Aim$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Aim-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Aim-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -567,8 +568,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Aim-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Aim-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -586,8 +587,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Aim-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Aim-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

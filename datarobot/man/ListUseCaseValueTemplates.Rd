@@ -6,30 +6,17 @@
 \usage{
 ListUseCaseValueTemplates(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List available use cases templates.
 }
 \details{
 List available use cases templates.
+
+This method invokes \verb{GET /useCaseValueTemplates/} in the DataRobot Public API.
 }
 \seealso{
-The method UseCaseValueTemplatesList in [datarobot.apicore::UseCaseApi], which this function wraps.
-
-Other UseCase: 
-\code{\link{CreateUseCasesAttachments}()},
-\code{\link{CreateUseCases}()},
-\code{\link{DeleteUseCasesAttachments}()},
-\code{\link{DeleteUseCases}()},
-\code{\link{ListUseCaseValueTemplatesCalculation}()},
-\code{\link{ListUseCasesActivities}()},
-\code{\link{ListUseCasesAttachments}()},
-\code{\link{ListUseCasesRealizedValueOverTime}()},
-\code{\link{ListUseCasesSharedRoles}()},
-\code{\link{ListUseCases}()},
-\code{\link{PatchManyUseCasesSharedRoles}()},
-\code{\link{PatchUseCases}()},
-\code{\link{RetrieveUseCaseValueTemplates}()},
-\code{\link{RetrieveUseCasesAttachments}()},
-\code{\link{RetrieveUseCases}()}
+The method UseCaseValueTemplatesList in \link[datarobot.apicore:UseCaseApi]{datarobot.apicore::UseCaseApi}, which invokes the same underlying API endpoint.
 }
-\concept{UseCase}

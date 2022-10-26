@@ -26,16 +26,16 @@ TransformationParam Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TransformationParam$new()}}
-\item \href{#method-validate}{\code{TransformationParam$validate()}}
-\item \href{#method-toJSON}{\code{TransformationParam$toJSON()}}
-\item \href{#method-fromJSON}{\code{TransformationParam$fromJSON()}}
-\item \href{#method-clone}{\code{TransformationParam$clone()}}
+\item \href{#method-TransformationParam-new}{\code{TransformationParam$new()}}
+\item \href{#method-TransformationParam-validate}{\code{TransformationParam$validate()}}
+\item \href{#method-TransformationParam-toJSON}{\code{TransformationParam$toJSON()}}
+\item \href{#method-TransformationParam-fromJSON}{\code{TransformationParam$fromJSON()}}
+\item \href{#method-TransformationParam-clone}{\code{TransformationParam$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TransformationParam-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TransformationParam-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TransformationParam-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TransformationParam-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TransformationParam$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TransformationParam-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TransformationParam-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TransformationParam-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TransformationParam-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -108,8 +109,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TransformationParam-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TransformationParam-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

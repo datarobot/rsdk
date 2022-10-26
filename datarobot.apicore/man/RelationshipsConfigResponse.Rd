@@ -30,16 +30,16 @@ RelationshipsConfigResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{RelationshipsConfigResponse$new()}}
-\item \href{#method-validate}{\code{RelationshipsConfigResponse$validate()}}
-\item \href{#method-toJSON}{\code{RelationshipsConfigResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{RelationshipsConfigResponse$fromJSON()}}
-\item \href{#method-clone}{\code{RelationshipsConfigResponse$clone()}}
+\item \href{#method-RelationshipsConfigResponse-new}{\code{RelationshipsConfigResponse$new()}}
+\item \href{#method-RelationshipsConfigResponse-validate}{\code{RelationshipsConfigResponse$validate()}}
+\item \href{#method-RelationshipsConfigResponse-toJSON}{\code{RelationshipsConfigResponse$toJSON()}}
+\item \href{#method-RelationshipsConfigResponse-fromJSON}{\code{RelationshipsConfigResponse$fromJSON()}}
+\item \href{#method-RelationshipsConfigResponse-clone}{\code{RelationshipsConfigResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-RelationshipsConfigResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-RelationshipsConfigResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-RelationshipsConfigResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-RelationshipsConfigResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RelationshipsConfigResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-RelationshipsConfigResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-RelationshipsConfigResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-RelationshipsConfigResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-RelationshipsConfigResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -121,8 +122,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-RelationshipsConfigResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-RelationshipsConfigResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

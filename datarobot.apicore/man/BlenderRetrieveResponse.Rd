@@ -15,75 +15,75 @@ BlenderRetrieveResponse Class
 \describe{
 \item{\code{blenderMethod}}{character Method used to blend results of underlying models.}
 
-\item{\code{blueprintId}}{character The blueprint used to construct the model - note this is not an ObjectId.}
+\item{\code{blueprintId}}{character the blueprint used to construct the model}
 
-\item{\code{featurelistId}}{character The ID of the featurelist used by the model. If null, the model was trained on multiple feature lists.}
+\item{\code{featurelistId}}{character the ID of the featurelist used by the model}
 
-\item{\code{featurelistName}}{character The name of the featurelist used by the model. If null, the model was trained on multiple feature lists.}
+\item{\code{featurelistName}}{character the name of the featurelist used by the model.If null, the model was trained on multiple feature lists.}
 
-\item{\code{id}}{character The ID of the model.}
+\item{\code{id}}{character the ID of the model}
 
-\item{\code{isFrozen}}{character Indicates whether the model is frozen, i.e. uses tuning parameters from a parent model}
+\item{\code{isFrozen}}{character indicating whether the model is frozen, i.e. uses tuning parameters from a parent model}
 
-\item{\code{isStarred}}{character Whether the model has been starred.}
+\item{\code{isStarred}}{character whether the model has been starred}
 
-\item{\code{linkFunction}}{character The link function the final modeler uses in the blueprint. If no link function exists, returns null.}
+\item{\code{linkFunction}}{character the link function the final modeler uses in the blueprint. If no link function exists, returns null}
 
-\item{\code{metrics}}{object The performance of the model according to various metrics.}
+\item{\code{metrics}}{object the performance of the model according to various metrics, where each metric has validation, crossValidation, holdout, and training scores reported, or null if they have not been computed.}
 
-\item{\code{modelCategory}}{character Indicates what kind of model it is - will be `blend` for blenders.}
+\item{\code{modelCategory}}{character indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, and `model` for all other models}
 
-\item{\code{modelFamily}}{character The family model belongs to, e.g. SVM, GMB, etc.}
+\item{\code{modelFamily}}{character the family model belongs to, e.g. SVM, GMB, etc.}
 
 \item{\code{modelIds}}{list( character ) List of models used in blender.}
 
 \item{\code{modelNumber}}{integer The model number from the leaderboard.}
 
-\item{\code{modelType}}{character Identifies the model, e.g. `ENET Blender`.}
+\item{\code{modelType}}{character identifies the model, e.g. `Nystroem Kernel SVM Regressor`}
 
-\item{\code{monotonicDecreasingFeaturelistId}}{character The ID of the featurelist that defines the set of features with a monotonically decreasing relationship to the target. If null, no such constraints are enforced.}
+\item{\code{monotonicDecreasingFeaturelistId}}{character the ID of the featurelist that defines the set of features with a monotonically decreasing relationship to the target. If null, no such constraints are enforced.}
 
-\item{\code{monotonicIncreasingFeaturelistId}}{character The ID of the featurelist that defines the set of features with a monotonically increasing relationship to the target. If null, no such constraints are enforced.}
+\item{\code{monotonicIncreasingFeaturelistId}}{character the ID of the featurelist that defines the set of features with a monotonically increasing relationship to the target. If null, no such constraints are enforced.}
 
-\item{\code{parentModelId}}{character If this model is frozen, this is the ID of the parent model. Otherwise Null.}
+\item{\code{parentModelId}}{character if this model is frozen, this is the ID of the parent model. Otherwise Null.}
 
-\item{\code{predictionThreshold}}{numeric Threshold used for binary classification in predictions.}
+\item{\code{predictionThreshold}}{numeric threshold used for binary classification in predictions.}
 
-\item{\code{predictionThresholdReadOnly}}{character Indicates whether modification of a predictions threshold is forbidden. Since v2.22 threshold modification is allowed.}
+\item{\code{predictionThresholdReadOnly}}{character indicates whether modification of a predictions threshold is forbidden. Since v2.22 threshold modification is allowed.}
 
-\item{\code{processes}}{list( character ) A list of processes used by the model.}
+\item{\code{processes}}{list( character ) list of processes used by the model}
 
-\item{\code{projectId}}{character The ID of the project to which the model belongs.}
+\item{\code{projectId}}{character the ID of the project to which the model belongs}
 
-\item{\code{samplePct}}{numeric The percentage of the dataset used in training the model.}
+\item{\code{samplePct}}{numeric the percentage of the dataset used in training the model}
 
 \item{\code{supportsComposableMl}}{character indicates whether this model is supported in Composable ML.}
 
-\item{\code{supportsMonotonicConstraints}}{character Whether this model supports enforcing montonic constraints.}
+\item{\code{supportsMonotonicConstraints}}{character whether this model supports enforcing monotonic constraints}
 
-\item{\code{trainingDuration}}{character The duration spanned by the dates in the partition column for the data used to train the model.}
+\item{\code{trainingDuration}}{character the duration spanned by the dates in the partition column for the data used to train the model}
 
-\item{\code{trainingEndDate}}{character The end date of the dates in the partition column for the data used to train the model.}
+\item{\code{trainingEndDate}}{character the end date of the dates in the partition column for the data used to train the model}
 
 \item{\code{trainingRowCount}}{integer The number of rows used to train the model.}
 
-\item{\code{trainingStartDate}}{character The start date of the dates in the partition column for the data used to train the model.}
+\item{\code{trainingStartDate}}{character the start date of the dates in the partition column for the data used to train the model}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{BlenderRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{BlenderRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{BlenderRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{BlenderRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{BlenderRetrieveResponse$clone()}}
+\item \href{#method-BlenderRetrieveResponse-new}{\code{BlenderRetrieveResponse$new()}}
+\item \href{#method-BlenderRetrieveResponse-validate}{\code{BlenderRetrieveResponse$validate()}}
+\item \href{#method-BlenderRetrieveResponse-toJSON}{\code{BlenderRetrieveResponse$toJSON()}}
+\item \href{#method-BlenderRetrieveResponse-fromJSON}{\code{BlenderRetrieveResponse$fromJSON()}}
+\item \href{#method-BlenderRetrieveResponse-clone}{\code{BlenderRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-BlenderRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-BlenderRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -126,59 +126,59 @@ A function used to initialize an instance of this class.
 \describe{
 \item{\code{blenderMethod}}{Method used to blend results of underlying models.}
 
-\item{\code{blueprintId}}{The blueprint used to construct the model - note this is not an ObjectId.}
+\item{\code{blueprintId}}{the blueprint used to construct the model}
 
-\item{\code{featurelistId}}{The ID of the featurelist used by the model. If null, the model was trained on multiple feature lists.}
+\item{\code{featurelistId}}{the ID of the featurelist used by the model}
 
-\item{\code{featurelistName}}{The name of the featurelist used by the model. If null, the model was trained on multiple feature lists.}
+\item{\code{featurelistName}}{the name of the featurelist used by the model.If null, the model was trained on multiple feature lists.}
 
-\item{\code{id}}{The ID of the model.}
+\item{\code{id}}{the ID of the model}
 
-\item{\code{isFrozen}}{Indicates whether the model is frozen, i.e. uses tuning parameters from a parent model}
+\item{\code{isFrozen}}{indicating whether the model is frozen, i.e. uses tuning parameters from a parent model}
 
-\item{\code{isStarred}}{Whether the model has been starred.}
+\item{\code{isStarred}}{whether the model has been starred}
 
-\item{\code{linkFunction}}{The link function the final modeler uses in the blueprint. If no link function exists, returns null.}
+\item{\code{linkFunction}}{the link function the final modeler uses in the blueprint. If no link function exists, returns null}
 
-\item{\code{metrics}}{The performance of the model according to various metrics.}
+\item{\code{metrics}}{the performance of the model according to various metrics, where each metric has validation, crossValidation, holdout, and training scores reported, or null if they have not been computed.}
 
-\item{\code{modelCategory}}{Indicates what kind of model it is - will be `blend` for blenders.}
+\item{\code{modelCategory}}{indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, and `model` for all other models}
 
-\item{\code{modelFamily}}{The family model belongs to, e.g. SVM, GMB, etc.}
+\item{\code{modelFamily}}{the family model belongs to, e.g. SVM, GMB, etc.}
 
 \item{\code{modelIds}}{List of models used in blender.}
 
 \item{\code{modelNumber}}{The model number from the leaderboard.}
 
-\item{\code{modelType}}{Identifies the model, e.g. `ENET Blender`.}
+\item{\code{modelType}}{identifies the model, e.g. `Nystroem Kernel SVM Regressor`}
 
-\item{\code{monotonicDecreasingFeaturelistId}}{The ID of the featurelist that defines the set of features with a monotonically decreasing relationship to the target. If null, no such constraints are enforced.}
+\item{\code{monotonicDecreasingFeaturelistId}}{the ID of the featurelist that defines the set of features with a monotonically decreasing relationship to the target. If null, no such constraints are enforced.}
 
-\item{\code{monotonicIncreasingFeaturelistId}}{The ID of the featurelist that defines the set of features with a monotonically increasing relationship to the target. If null, no such constraints are enforced.}
+\item{\code{monotonicIncreasingFeaturelistId}}{the ID of the featurelist that defines the set of features with a monotonically increasing relationship to the target. If null, no such constraints are enforced.}
 
-\item{\code{parentModelId}}{If this model is frozen, this is the ID of the parent model. Otherwise Null.}
+\item{\code{parentModelId}}{if this model is frozen, this is the ID of the parent model. Otherwise Null.}
 
-\item{\code{predictionThreshold}}{Threshold used for binary classification in predictions.}
+\item{\code{predictionThreshold}}{threshold used for binary classification in predictions.}
 
-\item{\code{predictionThresholdReadOnly}}{Indicates whether modification of a predictions threshold is forbidden. Since v2.22 threshold modification is allowed.}
+\item{\code{predictionThresholdReadOnly}}{indicates whether modification of a predictions threshold is forbidden. Since v2.22 threshold modification is allowed.}
 
-\item{\code{processes}}{A list of processes used by the model.}
+\item{\code{processes}}{list of processes used by the model}
 
-\item{\code{projectId}}{The ID of the project to which the model belongs.}
+\item{\code{projectId}}{the ID of the project to which the model belongs}
 
-\item{\code{samplePct}}{The percentage of the dataset used in training the model.}
+\item{\code{samplePct}}{the percentage of the dataset used in training the model}
 
 \item{\code{supportsComposableMl}}{indicates whether this model is supported in Composable ML.}
 
-\item{\code{supportsMonotonicConstraints}}{Whether this model supports enforcing montonic constraints.}
+\item{\code{supportsMonotonicConstraints}}{whether this model supports enforcing monotonic constraints}
 
-\item{\code{trainingDuration}}{The duration spanned by the dates in the partition column for the data used to train the model.}
+\item{\code{trainingDuration}}{the duration spanned by the dates in the partition column for the data used to train the model}
 
-\item{\code{trainingEndDate}}{The end date of the dates in the partition column for the data used to train the model.}
+\item{\code{trainingEndDate}}{the end date of the dates in the partition column for the data used to train the model}
 
 \item{\code{trainingRowCount}}{The number of rows used to train the model.}
 
-\item{\code{trainingStartDate}}{The start date of the dates in the partition column for the data used to train the model.}
+\item{\code{trainingStartDate}}{the start date of the dates in the partition column for the data used to train the model}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
@@ -188,19 +188,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-BlenderRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-BlenderRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{BlenderRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-BlenderRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BlenderRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -209,8 +210,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-BlenderRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-BlenderRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -231,8 +232,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-BlenderRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-BlenderRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

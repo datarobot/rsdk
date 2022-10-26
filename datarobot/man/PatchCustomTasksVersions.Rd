@@ -13,35 +13,17 @@ PatchCustomTasksVersions(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update custom task version.
 }
 \details{
 Edit metadata of a specific task version.
+
+This method invokes \verb{PATCH /customTasks/\{customTaskId\}/versions/\{customTaskVersionId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CustomTasksVersionsPatch in [datarobot.apicore::CustomTasksApi], which this function wraps.
-
-Other CustomTasks: 
-\code{\link{CreateCustomTasksFromCustomTask}()},
-\code{\link{CreateCustomTasksVersionsDependencyBuild}()},
-\code{\link{CreateCustomTasksVersionsFromRepository}()},
-\code{\link{CreateCustomTasksVersions}()},
-\code{\link{CreateCustomTasks}()},
-\code{\link{CreateFromLatestCustomTaskVersion}()},
-\code{\link{DeleteCustomTasks}()},
-\code{\link{DeleteManyCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksAccessControl}()},
-\code{\link{ListCustomTasksDownload}()},
-\code{\link{ListCustomTasksVersionsDependencyBuildLog}()},
-\code{\link{ListCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksVersionsDownload}()},
-\code{\link{ListCustomTasksVersions}()},
-\code{\link{ListCustomTasks}()},
-\code{\link{PatchCustomTasks}()},
-\code{\link{PatchManyCustomTasksAccessControl}()},
-\code{\link{PatchManyCustomTasksVersionsFromRepository}()},
-\code{\link{RetrieveCustomTasksVersions}()},
-\code{\link{RetrieveCustomTasks}()}
+The method CustomTasksVersionsPatch in \link[datarobot.apicore:CustomTasksApi]{datarobot.apicore::CustomTasksApi}, which invokes the same underlying API endpoint.
 }
-\concept{CustomTasks}

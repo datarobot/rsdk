@@ -6,54 +6,17 @@
 \usage{
 CreateDeploymentsOnDemandReports(deploymentId, id, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Add report to execution queue.
 }
 \details{
 Add report to execution queue.
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/onDemandReports/} in the DataRobot Public API.
 }
 \seealso{
-The method DeploymentsOnDemandReportsCreate in [datarobot.apicore::DeploymentsApi], which this function wraps.
-
-Other Deployments: 
-\code{\link{CreateDeploymentsActualsFromDataset}()},
-\code{\link{CreateDeploymentsChallengerPredictions}()},
-\code{\link{CreateDeploymentsChallengers}()},
-\code{\link{CreateDeploymentsFromProjectRecommendedModel}()},
-\code{\link{CreateDeploymentsPredictionInputsFromDataset}()},
-\code{\link{CreateDeploymentsPredictions}()},
-\code{\link{CreateDeploymentsScoringCodeBuilds}()},
-\code{\link{CreateDeployment}()},
-\code{\link{DeleteDeploymentsChallengers}()},
-\code{\link{DeleteDeployment}()},
-\code{\link{GetDeploymentAccuracy}()},
-\code{\link{GetDeploymentServiceStats}()},
-\code{\link{GetDeploymentSettings}()},
-\code{\link{GetDeployment}()},
-\code{\link{ListDeletedDeployments}()},
-\code{\link{ListDeploymentsAccuracyOverTime}()},
-\code{\link{ListDeploymentsChallengers}()},
-\code{\link{ListDeploymentsFeatureDrift}()},
-\code{\link{ListDeploymentsFeatures}()},
-\code{\link{ListDeploymentsHumilityStatsOverTime}()},
-\code{\link{ListDeploymentsHumilityStats}()},
-\code{\link{ListDeploymentsModelSecondaryDatasetConfigurationHistory}()},
-\code{\link{ListDeploymentsModelSecondaryDatasetConfiguration}()},
-\code{\link{ListDeploymentsPredictionResults}()},
-\code{\link{ListDeploymentsScoringCode}()},
-\code{\link{ListDeploymentsServiceStatsOverTime}()},
-\code{\link{ListDeploymentsSharedRoles}()},
-\code{\link{ListDeploymentsTargetDrift}()},
-\code{\link{ListDeployments}()},
-\code{\link{ListPredictionServers}()},
-\code{\link{PatchDeploymentsChallengers}()},
-\code{\link{PatchDeployments}()},
-\code{\link{PatchManyDeletedDeployments}()},
-\code{\link{PatchManyDeploymentsModelSecondaryDatasetConfiguration}()},
-\code{\link{PatchManyDeploymentsSharedRoles}()},
-\code{\link{ReplaceDeployedModel}()},
-\code{\link{RetrieveDeploymentsChallengers}()},
-\code{\link{SubmitActuals}()},
-\code{\link{ValidateReplaceDeployedModel}()}
+The method DeploymentsOnDemandReportsCreate in \link[datarobot.apicore:DeploymentsApi]{datarobot.apicore::DeploymentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Deployments}

@@ -15,6 +15,8 @@ S3Intake Class
 \describe{
 \item{\code{credentialId}}{character \link{optional} Use the specified credential to access the url}
 
+\item{\code{endpointUrl}}{character \link{optional} Endpoint URL for the S3 connection (omit to use the default)}
+
 \item{\code{format}}{character \link{optional} Type of input file format}
 
 \item{\code{type}}{character Type name for this intake type}
@@ -26,16 +28,16 @@ S3Intake Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{S3Intake$new()}}
-\item \href{#method-validate}{\code{S3Intake$validate()}}
-\item \href{#method-toJSON}{\code{S3Intake$toJSON()}}
-\item \href{#method-fromJSON}{\code{S3Intake$fromJSON()}}
-\item \href{#method-clone}{\code{S3Intake$clone()}}
+\item \href{#method-S3Intake-new}{\code{S3Intake$new()}}
+\item \href{#method-S3Intake-validate}{\code{S3Intake$validate()}}
+\item \href{#method-S3Intake-toJSON}{\code{S3Intake$toJSON()}}
+\item \href{#method-S3Intake-fromJSON}{\code{S3Intake$fromJSON()}}
+\item \href{#method-S3Intake-clone}{\code{S3Intake$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-S3Intake-new"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Intake-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -43,6 +45,7 @@ A function used to initialize an instance of this class.
   type = NULL,
   url = NULL,
   credentialId = NULL,
+  endpointUrl = NULL,
   format = "csv",
   validateParams = FALSE,
   ...
@@ -58,6 +61,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{credentialId}}{Use the specified credential to access the url}
 
+\item{\code{endpointUrl}}{Endpoint URL for the S3 connection (omit to use the default)}
+
 \item{\code{format}}{Type of input file format}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
@@ -68,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-S3Intake-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Intake-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{S3Intake$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-S3Intake-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Intake-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-S3Intake-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Intake-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -108,8 +114,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-S3Intake-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Intake-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

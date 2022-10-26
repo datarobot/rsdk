@@ -30,16 +30,16 @@ CatalogListSearchResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CatalogListSearchResponse$new()}}
-\item \href{#method-validate}{\code{CatalogListSearchResponse$validate()}}
-\item \href{#method-toJSON}{\code{CatalogListSearchResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CatalogListSearchResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CatalogListSearchResponse$clone()}}
+\item \href{#method-CatalogListSearchResponse-new}{\code{CatalogListSearchResponse$new()}}
+\item \href{#method-CatalogListSearchResponse-validate}{\code{CatalogListSearchResponse$validate()}}
+\item \href{#method-CatalogListSearchResponse-toJSON}{\code{CatalogListSearchResponse$toJSON()}}
+\item \href{#method-CatalogListSearchResponse-fromJSON}{\code{CatalogListSearchResponse$fromJSON()}}
+\item \href{#method-CatalogListSearchResponse-clone}{\code{CatalogListSearchResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CatalogListSearchResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CatalogListSearchResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CatalogListSearchResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CatalogListSearchResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CatalogListSearchResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CatalogListSearchResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CatalogListSearchResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CatalogListSearchResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CatalogListSearchResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -121,8 +122,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CatalogListSearchResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CatalogListSearchResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

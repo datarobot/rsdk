@@ -12,6 +12,12 @@ GetPredictionExplanationsRows(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
+\item{predictionExplanationId}{character. Id of the prediction explanations.}
+
 \item{batchSize}{integer. Optional. Maximum number of prediction explanations rows to
 retrieve per request}
 

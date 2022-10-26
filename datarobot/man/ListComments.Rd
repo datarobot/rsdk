@@ -6,19 +6,17 @@
 \usage{
 ListComments(entityType, orderBy, entityId, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List comments
 }
 \details{
 List comments
+
+This method invokes \verb{GET /comments/\{entityType\}/\{entityId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CommentsList in [datarobot.apicore::CommentsApi], which this function wraps.
-
-Other Comments: 
-\code{\link{CreateComments}()},
-\code{\link{DeleteComments}()},
-\code{\link{PatchComments}()},
-\code{\link{RetrieveComments}()}
+The method CommentsList in \link[datarobot.apicore:CommentsApi]{datarobot.apicore::CommentsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Comments}

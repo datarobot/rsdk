@@ -6,40 +6,17 @@
 \usage{
 ListImageAugmentationSamples(samplesId, offset = 0, limit = 100, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
-(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use `GET /imageAugmentationLists/<augmentationId>/samples` route instead.
+(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use \verb{GET /imageAugmentationLists/<augmentationId>/samples} route instead.
 }
 \details{
-(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use `GET /imageAugmentationLists/<augmentationId>/samples` route instead.
+(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use GET /imageAugmentationLists/\\<augmentationId\\>/samples route instead.
+
+This method invokes \verb{GET /imageAugmentationSamples/\{samplesId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ImageAugmentationSamplesList in [datarobot.apicore::ImagesApi], which this function wraps.
-
-Other Images: 
-\code{\link{CreateImageAugmentationListsSamples}()},
-\code{\link{CreateImageAugmentationLists}()},
-\code{\link{CreateImageAugmentationSamples}()},
-\code{\link{CreateProjectsModelsImageActivationMaps}()},
-\code{\link{CreateProjectsModelsImageEmbeddings}()},
-\code{\link{DeleteImageAugmentationLists}()},
-\code{\link{ListDatasetsImagesDataQualityLogFile}()},
-\code{\link{ListDatasetsImagesDataQualityLog}()},
-\code{\link{ListImageAugmentationListsSamples}()},
-\code{\link{ListImageAugmentationLists}()},
-\code{\link{ListProjectsDuplicateImages}()},
-\code{\link{ListProjectsImageActivationMaps}()},
-\code{\link{ListProjectsImageBins}()},
-\code{\link{ListProjectsImageEmbeddings}()},
-\code{\link{ListProjectsImageSamples}()},
-\code{\link{ListProjectsImagesDataQualityLogFile}()},
-\code{\link{ListProjectsImagesDataQualityLog}()},
-\code{\link{ListProjectsImagesFile}()},
-\code{\link{ListProjectsImages}()},
-\code{\link{ListProjectsModelsImageActivationMaps}()},
-\code{\link{ListProjectsModelsImageEmbeddings}()},
-\code{\link{PatchImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationOptions}()},
-\code{\link{RetrieveProjectsImages}()}
+The method ImageAugmentationSamplesList in \link[datarobot.apicore:ImagesApi]{datarobot.apicore::ImagesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Images}

@@ -1,4 +1,4 @@
-# Copyright 2021 DataRobot, Inc. and its affiliates.
+# Copyright 2021-2022 DataRobot, Inc. and its affiliates.
 #
 # All rights reserved.
 #
@@ -18,6 +18,42 @@ describe(".toS3", {
     lockedObject <- LockedR6Object$new()
 
     expect_error(.toS3(lockedObject))
+  })
+})
+
+describe(".setMixedProperty", {
+  # R6 class Generators
+  TestObjectOne <- R6::R6Class("TestObjectOne")
+  TestObjectTwo <- R6::R6Class("TestObjectTwo")
+  # R6 objects
+  tOne <- TestObjectOne$new()
+  tTwo <- TestObjectTwo$new()
+
+  it("should fail if typelist is empty", {
+    expect_error(.setMixedProperty(NULL, NULL))
+    expect_error(.setMixedProperty(NA, NULL))
+    expect_error(.setMixedProperty(c(), NULL))
+    expect_error(.setMixedProperty(list(), NULL))
+  })
+
+  it("should fail if typelist is not a character vector or list", {
+    expect_error(.setMixedProperty(c(1L), tOne))
+    expect_error(.setMixedProperty(c(1L, "2L"), tOne))
+    expect_error(.setMixedProperty(TestObjectOne, tOne))
+    expect_error(.setMixedProperty(c(TestObjectOne), tOne))
+    expect_error(.setMixedProperty(c(logical, "TestObjectOne"), tOne))
+    expect_error(.setMixedProperty(c("logical", TestObjectOne), tOne))
+  })
+
+  it("should passthrough NULL", {
+    expect_null(.setMixedProperty("boolean", NULL))
+    expect_null(.setMixedProperty("TestObjectOne", NULL))
+    expect_null(.setMixedProperty(c("boolean"), NULL))
+    expect_null(.setMixedProperty(c("TestObjectOne"), NULL))
+  })
+
+  it("should work if typelist is a list and not a vector", {
+    .setMixedProperty(list("logical", "character"), TRUE)
   })
 })
 
@@ -43,13 +79,16 @@ describe(".setComplexProperty", {
   })
 
   it("should passthrough R6 object if it matches an expected type", {
-    expect_identical(.setComplexProperty(c(TestObjectOne), tOne),
+    expect_identical(
+      .setComplexProperty(c(TestObjectOne), tOne),
       expected = tOne
     )
-    expect_identical(.setComplexProperty(c(TestObjectTwo, TestObjectOne), tOne),
+    expect_identical(
+      .setComplexProperty(c(TestObjectTwo, TestObjectOne), tOne),
       expected = tOne
     )
-    expect_identical(.setComplexProperty(c(TestObjectOne, TestObjectTwo), tOne),
+    expect_identical(
+      .setComplexProperty(c(TestObjectOne, TestObjectTwo), tOne),
       expected = tOne
     )
   })
@@ -65,17 +104,28 @@ describe(".setComplexProperty", {
     TestObjectFour <- R6::R6Class("TestObjectFour", inherit = TestObjectOne)
     tFour <- TestObjectFour$new()
 
-    expect_identical(.setComplexProperty(c(TestObjectFour), tFour),
+    expect_identical(
+      .setComplexProperty(c(TestObjectFour), tFour),
       expected = tFour
     )
-    expect_identical(.setComplexProperty(c(TestObjectOne), tFour),
+    expect_identical(
+      .setComplexProperty(c(TestObjectOne), tFour),
       expected = tFour
     )
-    expect_identical(.setComplexProperty(c(TestObjectOne, TestObjectFour), tFour),
+    expect_identical(
+      .setComplexProperty(c(TestObjectOne, TestObjectFour), tFour),
       expected = tFour
     )
-    expect_identical(.setComplexProperty(c(TestObjectFour, TestObjectOne), tFour),
+    expect_identical(
+      .setComplexProperty(c(TestObjectFour, TestObjectOne), tFour),
       expected = tFour
+    )
+  })
+
+  it("should succeed if typelist is a list and not a vector", {
+    expect_identical(
+      .setComplexProperty(list(TestObjectOne), tOne),
+      expected = tOne
     )
   })
 
@@ -97,15 +147,15 @@ describe(".setComplexProperty", {
 
 describe(".setPrimitiveProperty", {
   it("should return NULL", {
-    expect_null(.setPrimitiveProperty(c("boolean"), NULL))
+    expect_null(.setPrimitiveProperty(c("logical"), NULL))
     expect_null(.setPrimitiveProperty(c("character"), NULL))
     expect_null(.setPrimitiveProperty(c("numeric"), NULL))
     expect_null(.setPrimitiveProperty(c("array"), NULL))
   })
 
   it("should return boolean value", {
-    expect_true(.setPrimitiveProperty(c("boolean"), TRUE))
-    expect_false(.setPrimitiveProperty(c("boolean"), FALSE))
+    expect_equal(.setPrimitiveProperty(c("logical"), TRUE), TRUE)
+    expect_equal(.setPrimitiveProperty(c("logical"), FALSE), FALSE)
   })
 
   it("should return character", {
@@ -123,14 +173,24 @@ describe(".setPrimitiveProperty", {
   })
 
   it("should return first valid type", {
-    expect_equal(.setPrimitiveProperty(c("character", "boolean"), TRUE), TRUE)
-    expect_equal(.setPrimitiveProperty(c("boolean", "numeric"), 42), 42)
-    expect_equal(.setPrimitiveProperty(c("boolean", "numeric", "array"), TRUE), TRUE)
+    expect_equal(.setPrimitiveProperty(c("character", "logical"), TRUE), TRUE)
+    expect_equal(.setPrimitiveProperty(c("logical", "numeric"), 42), 42)
+    expect_equal(.setPrimitiveProperty(c("logical", "numeric", "array"), TRUE), TRUE)
   })
 
   it("should fail", {
     expect_error(.setPrimitiveProperty(c("character"), FALSE))
-    expect_error(.setPrimitiveProperty(c("boolean"), 42))
+    expect_error(.setPrimitiveProperty(c("logical"), 42))
+  })
+
+  it("should no longer work with 'boolean' per DSX-2437", {
+    expect_error(.setPrimitiveProperty(c("boolean"), TRUE))
+    expect_error(.setPrimitiveProperty(c("boolean"), FALSE))
+    expect_error(.setPrimitiveProperty(c("boolean", "numeric"), FALSE))
+    expect_error(.setPrimitiveProperty(c("character", "boolean"), FALSE))
+    expect_error(.setPrimitiveProperty(c("boolean", "logical"), FALSE))
+    # this next test is fine *because* we iterate on the typeList sequentially
+    expect_equal(.setPrimitiveProperty(c("logical", "boolean"), FALSE), FALSE)
   })
 })
 

@@ -13,6 +13,21 @@ GetMultiSeriesProperties(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
+\item{dateColumn}{character. The name of the column containing the date that defines the
+time series.}
+
+\item{multiseriesIdColumns}{character. Optional. The Series ID to demarcate the series. If
+not specified, DataRobot will attempt to automatically infer the series ID.}
+
+\item{crossSeriesGroupByColumns}{character. Optional. Column to split a cross series into
+further groups. For example, if every series is sales of an individual product, the cross
+series group could be e product category with values like "men's clothing", "sports
+equipment", etc. Requires multiseries with \code{useCrossSeries} enabled.}
+
 \item{maxWait}{integer. if a multiseries detection task is run, the maximum amount of time to
 wait for it to complete before giving up.}
 }
@@ -51,6 +66,8 @@ GetMultiSeriesProperties(projectId,
 }
 \seealso{
 Other MultiSeriesProject functions: 
+\code{\link{RequestCrossSeriesDetection}()},
+\code{\link{RequestMultiSeriesDetection}()},
 \code{\link{as.dataRobotMultiSeriesProperties}()}
 }
 \concept{MultiSeriesProject functions}

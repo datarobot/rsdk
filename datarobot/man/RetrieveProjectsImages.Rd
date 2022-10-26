@@ -6,40 +6,17 @@
 \usage{
 RetrieveProjectsImages(imageId, projectId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Returns a single image metadata.
 }
 \details{
 Returns a single image metadata.
+
+This method invokes \verb{GET /projects/\{projectId\}/images/\{imageId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsImagesRetrieve in [datarobot.apicore::ImagesApi], which this function wraps.
-
-Other Images: 
-\code{\link{CreateImageAugmentationListsSamples}()},
-\code{\link{CreateImageAugmentationLists}()},
-\code{\link{CreateImageAugmentationSamples}()},
-\code{\link{CreateProjectsModelsImageActivationMaps}()},
-\code{\link{CreateProjectsModelsImageEmbeddings}()},
-\code{\link{DeleteImageAugmentationLists}()},
-\code{\link{ListDatasetsImagesDataQualityLogFile}()},
-\code{\link{ListDatasetsImagesDataQualityLog}()},
-\code{\link{ListImageAugmentationListsSamples}()},
-\code{\link{ListImageAugmentationLists}()},
-\code{\link{ListImageAugmentationSamples}()},
-\code{\link{ListProjectsDuplicateImages}()},
-\code{\link{ListProjectsImageActivationMaps}()},
-\code{\link{ListProjectsImageBins}()},
-\code{\link{ListProjectsImageEmbeddings}()},
-\code{\link{ListProjectsImageSamples}()},
-\code{\link{ListProjectsImagesDataQualityLogFile}()},
-\code{\link{ListProjectsImagesDataQualityLog}()},
-\code{\link{ListProjectsImagesFile}()},
-\code{\link{ListProjectsImages}()},
-\code{\link{ListProjectsModelsImageActivationMaps}()},
-\code{\link{ListProjectsModelsImageEmbeddings}()},
-\code{\link{PatchImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationOptions}()}
+The method ProjectsImagesRetrieve in \link[datarobot.apicore:ImagesApi]{datarobot.apicore::ImagesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Images}

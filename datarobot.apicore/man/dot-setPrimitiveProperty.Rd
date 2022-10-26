@@ -7,9 +7,9 @@
 .setPrimitiveProperty(typeList, propertyData)
 }
 \arguments{
-\item{typeList}{A vector of R6 class generator names.}
+\item{typeList}{A character vector of primitive type names, e.g. "numeric" or "logical".}
 
-\item{propertyData}{A deserialized JSON string.}
+\item{propertyData}{An R object, possibly a primitive, output of \code{jsonlite::fromJSON()}.}
 }
 \value{
 The value of \code{propertyData} if the value is one of the types listed in \code{typeList}.

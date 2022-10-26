@@ -22,16 +22,16 @@ FeatureEffectsCreateDatetime Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FeatureEffectsCreateDatetime$new()}}
-\item \href{#method-validate}{\code{FeatureEffectsCreateDatetime$validate()}}
-\item \href{#method-toJSON}{\code{FeatureEffectsCreateDatetime$toJSON()}}
-\item \href{#method-fromJSON}{\code{FeatureEffectsCreateDatetime$fromJSON()}}
-\item \href{#method-clone}{\code{FeatureEffectsCreateDatetime$clone()}}
+\item \href{#method-FeatureEffectsCreateDatetime-new}{\code{FeatureEffectsCreateDatetime$new()}}
+\item \href{#method-FeatureEffectsCreateDatetime-validate}{\code{FeatureEffectsCreateDatetime$validate()}}
+\item \href{#method-FeatureEffectsCreateDatetime-toJSON}{\code{FeatureEffectsCreateDatetime$toJSON()}}
+\item \href{#method-FeatureEffectsCreateDatetime-fromJSON}{\code{FeatureEffectsCreateDatetime$fromJSON()}}
+\item \href{#method-FeatureEffectsCreateDatetime-clone}{\code{FeatureEffectsCreateDatetime$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FeatureEffectsCreateDatetime-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffectsCreateDatetime-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-FeatureEffectsCreateDatetime-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffectsCreateDatetime-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FeatureEffectsCreateDatetime$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FeatureEffectsCreateDatetime-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffectsCreateDatetime-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FeatureEffectsCreateDatetime-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffectsCreateDatetime-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FeatureEffectsCreateDatetime-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FeatureEffectsCreateDatetime-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

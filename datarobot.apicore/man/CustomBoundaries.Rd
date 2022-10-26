@@ -22,16 +22,16 @@ CustomBoundaries Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomBoundaries$new()}}
-\item \href{#method-validate}{\code{CustomBoundaries$validate()}}
-\item \href{#method-toJSON}{\code{CustomBoundaries$toJSON()}}
-\item \href{#method-fromJSON}{\code{CustomBoundaries$fromJSON()}}
-\item \href{#method-clone}{\code{CustomBoundaries$clone()}}
+\item \href{#method-CustomBoundaries-new}{\code{CustomBoundaries$new()}}
+\item \href{#method-CustomBoundaries-validate}{\code{CustomBoundaries$validate()}}
+\item \href{#method-CustomBoundaries-toJSON}{\code{CustomBoundaries$toJSON()}}
+\item \href{#method-CustomBoundaries-fromJSON}{\code{CustomBoundaries$fromJSON()}}
+\item \href{#method-CustomBoundaries-clone}{\code{CustomBoundaries$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomBoundaries-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomBoundaries-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CustomBoundaries-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomBoundaries-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomBoundaries$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CustomBoundaries-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomBoundaries-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CustomBoundaries-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomBoundaries-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -93,8 +94,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomBoundaries-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomBoundaries-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

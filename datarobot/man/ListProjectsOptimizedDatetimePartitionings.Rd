@@ -11,21 +11,17 @@ ListProjectsOptimizedDatetimePartitionings(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List all created optimized datetime partitioning configurations
 }
 \details{
 List all created optimized datetime partitioning configurations
+
+This method invokes \verb{GET /projects/\{projectId\}/optimizedDatetimePartitionings/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsOptimizedDatetimePartitioningsList in [datarobot.apicore::DatetimePartitioningApi], which this function wraps.
-
-Other DatetimePartitioning: 
-\code{\link{CreateProjectsDatetimePartitioning}()},
-\code{\link{CreateProjectsOptimizedDatetimePartitionings}()},
-\code{\link{DownloadTimeSeriesFeatureDerivationLog}()},
-\code{\link{GetDatetimePartition}()},
-\code{\link{GetTimeSeriesFeatureDerivationLog}()},
-\code{\link{RetrieveProjectsOptimizedDatetimePartitionings}()}
+The method ProjectsOptimizedDatetimePartitioningsList in \link[datarobot.apicore:DatetimePartitioningApi]{datarobot.apicore::DatetimePartitioningApi}, which invokes the same underlying API endpoint.
 }
-\concept{DatetimePartitioning}

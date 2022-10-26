@@ -22,47 +22,17 @@ PatchGroups(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update user group
 }
 \details{
 Update the user group.
+
+This method invokes \verb{PATCH /groups/\{groupId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method GroupsPatch in [datarobot.apicore::UserManagementApi], which this function wraps.
-
-Other UserManagement: 
-\code{\link{CreateGroupsUsers}()},
-\code{\link{CreateGroups}()},
-\code{\link{CreateOrganizationsUsers}()},
-\code{\link{CreateUserCleanupJobs}()},
-\code{\link{CreateUserCleanupPreviewJobs}()},
-\code{\link{CreateUsers}()},
-\code{\link{DeleteGroups}()},
-\code{\link{DeleteManyGroupsUsers}()},
-\code{\link{DeleteManyGroups}()},
-\code{\link{DeleteOrganizationsUsers}()},
-\code{\link{DeleteUserCleanupJobs}()},
-\code{\link{DeleteUserCleanupPreviewJobs}()},
-\code{\link{DeleteUserCleanupPreviews}()},
-\code{\link{DeleteUserCleanupSummaries}()},
-\code{\link{ListGroupsUsers}()},
-\code{\link{ListOrganizationsJobs}()},
-\code{\link{ListOrganizationsUsers}()},
-\code{\link{ListOrganizations}()},
-\code{\link{ListUserCleanupPreviewsContent}()},
-\code{\link{ListUserCleanupPreviewsDeleteParams}()},
-\code{\link{ListUserCleanupPreviewsStatistics}()},
-\code{\link{ListUserCleanupSummariesContent}()},
-\code{\link{ListUserCleanupSummariesDeleteParams}()},
-\code{\link{ListUserCleanupSummariesStatistics}()},
-\code{\link{ListUsersLimits}()},
-\code{\link{PatchManyUsersLimits}()},
-\code{\link{PatchOrganizationsUsers}()},
-\code{\link{RetrieveGroups}()},
-\code{\link{RetrieveOrganizationsUsers}()},
-\code{\link{RetrieveOrganizations}()},
-\code{\link{RetrieveUserCleanupJobs}()},
-\code{\link{RetrieveUserCleanupPreviewJobs}()}
+The method GroupsPatch in \link[datarobot.apicore:UserManagementApi]{datarobot.apicore::UserManagementApi}, which invokes the same underlying API endpoint.
 }
-\concept{UserManagement}

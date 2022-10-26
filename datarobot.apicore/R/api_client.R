@@ -24,7 +24,7 @@ ApiClient <- R6::R6Class(
     #' @field basePath Base path for all requests. May be set by environment variable.
     basePath = "https://app.datarobot.com/api/v2",
     #' @field userAgent Default user agent in the HTTP request.
-    userAgent = "DataRobotRClientAPICore/0.1.0.9000",
+    userAgent = "DataRobotRClientAPICore/0.4.0.9000",
     #' @field defaultHeaders Default HTTP headers to use with all API requests.
     defaultHeaders = NULL,
     #' @field username Username for HTTP basic authentication. Unused.
@@ -114,6 +114,11 @@ ApiClient <- R6::R6Class(
     #' @param ... Further named parameters that may be passed on to the `httr` library. See [httr::VERB()] for more information.
     CallApi = function(url, method, queryParams, headerParams, body, encode = "raw", ...) {
       resp <- self$Execute(url, method, queryParams, headerParams, body, encode, ...)
+      if (private$ResponseHasDeprecationHeader(resp)) {
+        # DSX-2384 warn about deprecated/disabled resources that have the Deprecation header set
+        private$DeprecatedHeaderMessage(resp)
+      }
+
       statusCode <- httr::status_code(resp)
 
       if (is.null(self$maxRetryAttempts)) {
@@ -312,6 +317,66 @@ ApiClient <- R6::R6Class(
         returnObj <- obj
       }
       returnObj
+    }
+  ),
+  private = list(
+    #' @return The URL for the DataRobot platform docs on Python 3 migration / Python 2 deprecation.
+    Py2DeprecationUrl = function() {
+      dataRobotUrl <- strsplit(self$basePath, "/api/v2")[[1]][1]
+      return(paste0(dataRobotUrl, "/docs/release/deprecations-and-migrations/python2.html"))
+    },
+    #' @description
+    #' Helpful warning related to DataRobot deprecation messages.
+    ##' @param rawResponse An httr response object.
+    DeprecatedHeaderMessage = function(rawResponse) {
+      # This assumes that the mere existence of a Deprecation: true header in a response from the
+      # DataRobot Public API indicates a resource has been deprecated. We will use the string
+      # returned from the server in the header unless that string is either empty of "true" in
+      # which case we use a default message.
+      # It does not use .Deprecated() as this marker is specific to deprecated R code.
+
+      headers <- httr::headers(rawResponse)
+      headerDeprecationMessage <- headers$Deprecation
+
+      defaultWarningMsg <- paste(
+        sep = "\"",
+        "The resource you are trying to access will be or is deprecated. For additional guidance, run `browseURL(",
+        private$Py2DeprecationUrl(),
+        ")` or login to the DataRobot app for this project."
+      )
+
+      if (tolower(headerDeprecationMessage) == "true" || headerDeprecationMessage == "") {
+        warningMessage <- defaultWarningMsg
+      } else {
+        warningMessage <- headerDeprecationMessage
+      }
+
+      warning(
+        strwrap(
+          warningMessage,
+          prefix = " ", initial = ""
+        ),
+        call. = FALSE
+      )
+    },
+
+    #' @param rawResponse An httr response object.
+    #' @return TRUE if the 'Deprecation' responder header is set, FALSE otherwise.
+    ResponseHasDeprecationHeader = function(rawResponse) {
+      tryCatch(
+        {
+          headers <- httr::headers(rawResponse)
+          if (is.null(headers) || is.null(headers$Deprecation)) {
+            return(FALSE)
+          }
+          return(TRUE)
+        },
+        error = function(e) {
+          # This code really only catches errors with poor test mocks that
+          # don't set up a full httr:::response properly
+          return(FALSE)
+        }
+      )
     }
   )
 )

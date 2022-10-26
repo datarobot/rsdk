@@ -14,6 +14,48 @@ Deprecated <- function(message, deprecatedInVersion, removedInVersion) {
 }
 
 DeprecatedByGeneratedCode <- function() {
-  .Defunct(package = "datarobot",
-           msg = "This function definition will be removed shortly; it is superceded by an API wrapper function with the same name. It will be removed shortly");
+  .Defunct(
+    package = "datarobot",
+    msg = "This function definition will be removed shortly; it is superseded by an API wrapper function with the same name. It will be removed shortly"
+  )
+}
+
+#' @keywords internal
+Py2DeprecationUrl <- function() {
+  dataRobotUrl <- strsplit(Endpoint(), "/api/v2")[[1]]
+  return(paste0(dataRobotUrl, "/docs/release/deprecations-and-migrations/python2.html"))
+}
+
+#' @param rawResponse An httr response object.
+#' @keywords internal
+DeprecatedHeaderMessage <- function(rawResponse) {
+  # This assumes that the mere existence of a Deprecation: true header in a response from the
+  # DataRobot Public API indicates a resource has been deprecated. We will use the string
+  # returned from the server in the header unless that string is either empty of "true" in
+  # which case we use a default message.
+  # It does not use .Deprecated() as this marker is specific to deprecated R code.
+
+  headers <- httr::headers(rawResponse)
+  headerDeprecationMessage <- headers$Deprecation
+
+  defaultWarningMsg <- paste(
+    sep = "\"",
+    "The resource you are trying to access will be or is deprecated. For additional guidance, run `browseURL(",
+    Py2DeprecationUrl(),
+    ")` or login to the DataRobot app for this project."
+  )
+
+  if (tolower(headerDeprecationMessage) == "true" || headerDeprecationMessage == "") {
+    warningMessage <- defaultWarningMsg
+  } else {
+    warningMessage <- headerDeprecationMessage
+  }
+
+  warning(
+    strwrap(
+      warningMessage,
+      prefix = " ", initial = ""
+    ),
+    call. = FALSE
+  )
 }

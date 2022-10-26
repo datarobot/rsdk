@@ -22,16 +22,16 @@ AdvancedTuningArgumentsRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AdvancedTuningArgumentsRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{AdvancedTuningArgumentsRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{AdvancedTuningArgumentsRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{AdvancedTuningArgumentsRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{AdvancedTuningArgumentsRetrieveResponse$clone()}}
+\item \href{#method-AdvancedTuningArgumentsRetrieveResponse-new}{\code{AdvancedTuningArgumentsRetrieveResponse$new()}}
+\item \href{#method-AdvancedTuningArgumentsRetrieveResponse-validate}{\code{AdvancedTuningArgumentsRetrieveResponse$validate()}}
+\item \href{#method-AdvancedTuningArgumentsRetrieveResponse-toJSON}{\code{AdvancedTuningArgumentsRetrieveResponse$toJSON()}}
+\item \href{#method-AdvancedTuningArgumentsRetrieveResponse-fromJSON}{\code{AdvancedTuningArgumentsRetrieveResponse$fromJSON()}}
+\item \href{#method-AdvancedTuningArgumentsRetrieveResponse-clone}{\code{AdvancedTuningArgumentsRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AdvancedTuningArgumentsRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AdvancedTuningArgumentsRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AdvancedTuningArgumentsRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AdvancedTuningArgumentsRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AdvancedTuningArgumentsRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AdvancedTuningArgumentsRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AdvancedTuningArgumentsRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AdvancedTuningArgumentsRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AdvancedTuningArgumentsRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AdvancedTuningArgumentsRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AdvancedTuningArgumentsRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

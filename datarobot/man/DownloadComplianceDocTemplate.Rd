@@ -27,12 +27,12 @@ Download a compliance doc template (in JSON format).
 }
 \examples{
 \dontrun{
-  DownloadComplianceDocTemplate("template.json")  # download the default template
-  # download the default template
-  DownloadComplianceDocTemplate("template.json", type = "normal")
-  # download the default time series template
-  DownloadComplianceDocTemplate("template.json" type = "timeSeries")
-  templateId <- "5cf85080d9436e5c310c796d"
-  DownloadComplianceDocTemplate(templateId) # Download a custom template for a specific ID.
+DownloadComplianceDocTemplate("template.json") # download the default template
+# download the default template
+DownloadComplianceDocTemplate("template.json", type = "normal")
+# download the default time series template
+DownloadComplianceDocTemplate("template.json", type = "timeSeries")
+templateId <- "5cf85080d9436e5c310c796d"
+DownloadComplianceDocTemplate(templateId) # Download a custom template for a specific ID.
 }
 }

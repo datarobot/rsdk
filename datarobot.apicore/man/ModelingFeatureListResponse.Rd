@@ -26,16 +26,16 @@ ModelingFeatureListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelingFeatureListResponse$new()}}
-\item \href{#method-validate}{\code{ModelingFeatureListResponse$validate()}}
-\item \href{#method-toJSON}{\code{ModelingFeatureListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ModelingFeatureListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ModelingFeatureListResponse$clone()}}
+\item \href{#method-ModelingFeatureListResponse-new}{\code{ModelingFeatureListResponse$new()}}
+\item \href{#method-ModelingFeatureListResponse-validate}{\code{ModelingFeatureListResponse$validate()}}
+\item \href{#method-ModelingFeatureListResponse-toJSON}{\code{ModelingFeatureListResponse$toJSON()}}
+\item \href{#method-ModelingFeatureListResponse-fromJSON}{\code{ModelingFeatureListResponse$fromJSON()}}
+\item \href{#method-ModelingFeatureListResponse-clone}{\code{ModelingFeatureListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelingFeatureListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelingFeatureListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ModelingFeatureListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelingFeatureListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelingFeatureListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ModelingFeatureListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelingFeatureListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ModelingFeatureListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelingFeatureListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelingFeatureListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelingFeatureListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

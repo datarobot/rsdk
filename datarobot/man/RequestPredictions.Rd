@@ -13,6 +13,10 @@ RequestPredictions(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{modelId}{numeric. The ID of the model to use to make predictions}
 
 \item{datasetId}{numeric. The ID of the dataset to make predictions against (as uploaded from

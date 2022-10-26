@@ -24,13 +24,13 @@ initialCacheSize <- 500 # integer | The initial cache size, for Mongo search onl
 useCache <- "false" # character | Sets whether to use the cache, for Mongo search only.
 orderBy <- 'orderBy_example' # character | The attribute sort order applied to the returned catalog list: 'catalogName', 'originalName', 'description', 'created', or 'relevance'. For all options other than 'relevance', prefix the attribute name with a dash to sort in descending order. e.g., orderBy='-catalogName'. Defaults to '-created'.
 searchFor <- 'searchFor_example' # character | A value to search for in the dataset's name, description, tags, column names, categories, and latest errors. The search is case insensitive. If no value is provided, or if the empty string is used, or if the string contains only whitespace, no filtering occurs. Partial matching is performed on the dataset name and description fields; all other fields require an exact match.
-tag <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only items with the specified catalog item tags, in lower case, with no spaces.
+tag <- list(c('tag_example')) # OneOfstringarray | Filter results to display only items with the specified catalog item tags, in lower case, with no spaces.
 accessType <- "any" # character | Access type used to filter returned results. Valid options are 'owner', 'shared', 'created', and 'any' (the default): 'owner' items are owned by the requester, 'shared' items have been shared with the requester, 'created' items have been created by the requester, and 'any' items matches all.
-datasourceType <- OneOfstringarray$new() # OneOfstringarray | Data source types used for filtering.
-category <- OneOfstringarray$new() # OneOfstringarray | Category type(s) used for filtering. Searches are case sensitive and support '&' and 'OR' operators.
+datasourceType <- list(c('datasourceType_example')) # OneOfstringarray | Data source types used for filtering.
+category <- list(c('category_example')) # OneOfstringarray | Category type(s) used for filtering. Searches are case sensitive and support '&' and 'OR' operators.
 filterFailed <- "false" # character | Sets whether to exclude from the search results all catalog items that failed during import. If True, invalid catalog items will be excluded; default is False.
-ownerUserId <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified UID.
-ownerUsername <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified username.
+ownerUserId <- list(c('ownerUserId_example')) # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified UID.
+ownerUsername <- list(c('ownerUsername_example')) # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified username.
 type <- 'type_example' # character | Filter results by catalog type. The 'dataset' option matches both 'snapshot_dataset' and 'remote_dataset'.
 
 api.instance <- AiCatalogApi$new()
@@ -44,7 +44,7 @@ result <- api.instance$CatalogItemsList(offset, limit, initialCacheSize, useCach
 \dontrun{
 library(datarobot.apicore)
 catalogId <- 'catalogId_example' # character | Catalog item ID.
-updateCatalogMetadata <- UpdateCatalogMetadata$new() # UpdateCatalogMetadata |
+updateCatalogMetadata <- UpdateCatalogMetadata$new() # UpdateCatalogMetadata | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$CatalogItemsPatch(catalogId, updateCatalogMetadata=updateCatalogMetadata)
@@ -68,7 +68,7 @@ result <- api.instance$CatalogItemsRetrieve(catalogId)
 
 \dontrun{
 library(datarobot.apicore)
-createDataEngineQueryGenerator <- CreateDataEngineQueryGenerator$new() # CreateDataEngineQueryGenerator |
+createDataEngineQueryGenerator <- CreateDataEngineQueryGenerator$new() # CreateDataEngineQueryGenerator | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineQueryGeneratorsCreate(createDataEngineQueryGenerator=createDataEngineQueryGenerator)
@@ -92,7 +92,7 @@ result <- api.instance$DataEngineQueryGeneratorsRetrieve(dataEngineQueryGenerato
 
 \dontrun{
 library(datarobot.apicore)
-createWorkspaceState <- CreateWorkspaceState$new() # CreateWorkspaceState |
+createWorkspaceState <- CreateWorkspaceState$new() # CreateWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineWorkspaceStatesCreate(createWorkspaceState=createWorkspaceState)
@@ -104,7 +104,7 @@ result <- api.instance$DataEngineWorkspaceStatesCreate(createWorkspaceState=crea
 
 \dontrun{
 library(datarobot.apicore)
-createWorkspaceStateFromQueryGenerator <- CreateWorkspaceStateFromQueryGenerator$new() # CreateWorkspaceStateFromQueryGenerator |
+createWorkspaceStateFromQueryGenerator <- CreateWorkspaceStateFromQueryGenerator$new() # CreateWorkspaceStateFromQueryGenerator | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate(createWorkspaceStateFromQueryGenerator=createWorkspaceStateFromQueryGenerator)
@@ -145,7 +145,7 @@ result <- api.instance$DatasetsAccessControlList(offset, limit, datasetId, userI
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetAccessSet <- DatasetAccessSet$new() # DatasetAccessSet |
+datasetAccessSet <- DatasetAccessSet$new() # DatasetAccessSet | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsAccessControlPatchMany(datasetId, datasetAccessSet=datasetAccessSet)
@@ -185,7 +185,7 @@ result <- api.instance$DatasetsDelete(datasetId)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsDeletedPatchMany(datasetId, body=body)
@@ -213,7 +213,7 @@ result <- api.instance$DatasetsFeatureHistogramsRetrieve(binLimit, datasetId, fe
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-featureTransform <- FeatureTransform$new() # FeatureTransform |
+featureTransform <- FeatureTransform$new() # FeatureTransform | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeatureTransformsCreate(datasetId, featureTransform=featureTransform)
@@ -253,7 +253,7 @@ result <- api.instance$DatasetsFeatureTransformsRetrieve(datasetId, featureName)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-featureListCreate <- FeatureListCreate$new() # FeatureListCreate |
+featureListCreate <- FeatureListCreate$new() # FeatureListCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeaturelistsCreate(datasetId, featureListCreate=featureListCreate)
@@ -295,7 +295,7 @@ result <- api.instance$DatasetsFeaturelistsList(limit, offset, orderBy, datasetI
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
 featurelistId <- 'featurelistId_example' # character | The ID of the featurelist.
-featureListModify <- FeatureListModify$new() # FeatureListModify |
+featureListModify <- FeatureListModify$new() # FeatureListModify | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeaturelistsPatch(datasetId, featurelistId, featureListModify=featureListModify)
@@ -332,7 +332,7 @@ result <- api.instance$DatasetsFileList(datasetId)
 
 \dontrun{
 library(datarobot.apicore)
-datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState |
+datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromDataEngineWorkspaceStateCreate(datasetCreateFromWorkspaceState=datasetCreateFromWorkspaceState)
@@ -344,7 +344,7 @@ result <- api.instance$DatasetsFromDataEngineWorkspaceStateCreate(datasetCreateF
 
 \dontrun{
 library(datarobot.apicore)
-datasource <- Datasource$new() # Datasource |
+datasource <- Datasource$new() # Datasource | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromDataSourceCreate(datasource=datasource)
@@ -356,8 +356,8 @@ result <- api.instance$DatasetsFromDataSourceCreate(datasource=datasource)
 
 \dontrun{
 library(datarobot.apicore)
-file <- File.new('/path/to/file') # data.frame | The data to be used for the creation.
-categories <- oneOf<string,array>$new() # OneOfstringarray | An array of strings describing the intended use of the dataset.
+file <- '/path/to/file.csv' # data.frame | The data to be used for the creation.
+categories <- list(c('categories_example')) # OneOfstringarray | An array of strings describing the intended use of the dataset.
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromFileCreate(file, categories=categories)
@@ -369,7 +369,7 @@ result <- api.instance$DatasetsFromFileCreate(file, categories=categories)
 
 \dontrun{
 library(datarobot.apicore)
-hdfs <- Hdfs$new() # Hdfs |
+hdfs <- Hdfs$new() # Hdfs | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromHDFSCreate(hdfs=hdfs)
@@ -381,7 +381,7 @@ result <- api.instance$DatasetsFromHDFSCreate(hdfs=hdfs)
 
 \dontrun{
 library(datarobot.apicore)
-url <- Url$new() # Url |
+url <- Url$new() # Url | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromURLCreate(url=url)
@@ -398,7 +398,7 @@ offset <- 0 # integer | This many results will be skipped.
 category <- 'category_example' # character | If specified, only dataset versions that have the specified category will be included in the results. Categories identify the intended use of the dataset.
 orderBy <- 'orderBy_example' # character | Sorting order which will be applied to catalog list.
 filterFailed <- "false" # character | Whether datasets that failed during import should be excluded from the results. If True invalid datasets will be excluded.
-datasetVersionIds <- OneOfstringarray$new() # OneOfstringarray | If specified will only return datasets that are associated with specified dataset versions.
+datasetVersionIds <- list(c('datasetVersionIds_example')) # OneOfstringarray | If specified will only return datasets that are associated with specified dataset versions.
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsList(limit, offset, category=category, orderBy=orderBy, filterFailed=filterFailed, datasetVersionIds=datasetVersionIds)
@@ -411,7 +411,7 @@ result <- api.instance$DatasetsList(limit, offset, category=category, orderBy=or
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-patchDataset <- PatchDataset$new() # PatchDataset |
+patchDataset <- PatchDataset$new() # PatchDataset | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsPatch(datasetId, patchDataset=patchDataset)
@@ -423,7 +423,7 @@ result <- api.instance$DatasetsPatch(datasetId, patchDataset=patchDataset)
 
 \dontrun{
 library(datarobot.apicore)
-bulkDatasetAction <- BulkDatasetAction$new() # BulkDatasetAction |
+bulkDatasetAction <- BulkDatasetAction$new() # BulkDatasetAction | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsPatchMany(bulkDatasetAction=bulkDatasetAction)
@@ -462,7 +462,7 @@ result <- api.instance$DatasetsProjectsList(limit, offset, datasetId)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetRefreshJobCreate <- DatasetRefreshJobCreate$new() # DatasetRefreshJobCreate |
+datasetRefreshJobCreate <- DatasetRefreshJobCreate$new() # DatasetRefreshJobCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRefreshJobsCreate(datasetId, datasetRefreshJobCreate=datasetRefreshJobCreate)
@@ -518,7 +518,7 @@ result <- api.instance$DatasetsRefreshJobsList(limit, offset, datasetId)
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The dataset associated with the scheduled refresh job.
 jobId <- 'jobId_example' # character | ID of the user scheduled dataset refresh job.
-datasetRefreshJobUpdate <- DatasetRefreshJobUpdate$new() # DatasetRefreshJobUpdate |
+datasetRefreshJobUpdate <- DatasetRefreshJobUpdate$new() # DatasetRefreshJobUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRefreshJobsPatch(datasetId, jobId, datasetRefreshJobUpdate=datasetRefreshJobUpdate)
@@ -544,7 +544,7 @@ result <- api.instance$DatasetsRefreshJobsRetrieve(datasetId, jobId)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetRelationshipCreate <- DatasetRelationshipCreate$new() # DatasetRelationshipCreate |
+datasetRelationshipCreate <- DatasetRelationshipCreate$new() # DatasetRelationshipCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRelationshipsCreate(datasetId, datasetRelationshipCreate=datasetRelationshipCreate)
@@ -586,7 +586,7 @@ result <- api.instance$DatasetsRelationshipsList(limit, offset, datasetId, linke
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
 datasetRelationshipId <- 'datasetRelationshipId_example' # character | The ID of the dataset relationship to delete.
-datasetRelationshipUpdate <- DatasetRelationshipUpdate$new() # DatasetRelationshipUpdate |
+datasetRelationshipUpdate <- DatasetRelationshipUpdate$new() # DatasetRelationshipUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRelationshipsPatch(datasetId, datasetRelationshipId, datasetRelationshipUpdate=datasetRelationshipUpdate)
@@ -628,7 +628,7 @@ result <- api.instance$DatasetsSharedRolesList(offset, limit, datasetId, id=id, 
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetSharedRoles <- DatasetSharedRoles$new() # DatasetSharedRoles |
+datasetSharedRoles <- DatasetSharedRoles$new() # DatasetSharedRoles | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsSharedRolesPatchMany(datasetId, datasetSharedRoles=datasetSharedRoles)
@@ -671,7 +671,7 @@ result <- api.instance$DatasetsVersionsDelete(datasetId, datasetVersionId)
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset entry.
 datasetVersionId <- 'datasetVersionId_example' # character | The ID of the dataset version.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsDeletedPatchMany(datasetId, datasetVersionId, body=body)
@@ -743,7 +743,7 @@ result <- api.instance$DatasetsVersionsFileList(datasetId, datasetVersionId)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState |
+datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromDataEngineWorkspaceStateCreate(datasetId, datasetCreateFromWorkspaceState=datasetCreateFromWorkspaceState)
@@ -756,7 +756,7 @@ result <- api.instance$DatasetsVersionsFromDataEngineWorkspaceStateCreate(datase
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasource <- Datasource$new() # Datasource |
+datasource <- Datasource$new() # Datasource | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromDataSourceCreate(datasetId, datasource=datasource)
@@ -769,7 +769,7 @@ result <- api.instance$DatasetsVersionsFromDataSourceCreate(datasetId, datasourc
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetFromFile <- DatasetFromFile$new() # DatasetFromFile |
+datasetFromFile <- DatasetFromFile$new() # DatasetFromFile | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromFileCreate(datasetId, datasetFromFile=datasetFromFile)
@@ -782,7 +782,7 @@ result <- api.instance$DatasetsVersionsFromFileCreate(datasetId, datasetFromFile
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-hdfs <- Hdfs$new() # Hdfs |
+hdfs <- Hdfs$new() # Hdfs | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromHDFSCreate(datasetId, hdfs=hdfs)
@@ -795,7 +795,7 @@ result <- api.instance$DatasetsVersionsFromHDFSCreate(datasetId, hdfs=hdfs)
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-fromLatest <- FromLatest$new() # FromLatest |
+fromLatest <- FromLatest$new() # FromLatest | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromLatestVersionCreate(datasetId, fromLatest=fromLatest)
@@ -808,7 +808,7 @@ result <- api.instance$DatasetsVersionsFromLatestVersionCreate(datasetId, fromLa
 \dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-url <- Url$new() # Url |
+url <- Url$new() # Url | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromURLCreate(datasetId, url=url)
@@ -822,7 +822,7 @@ result <- api.instance$DatasetsVersionsFromURLCreate(datasetId, url=url)
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset entry.
 datasetVersionId <- 'datasetVersionId_example' # character | The ID of the dataset version.
-fromSpecific <- FromSpecific$new() # FromSpecific |
+fromSpecific <- FromSpecific$new() # FromSpecific | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromVersionCreate(datasetId, datasetVersionId, fromSpecific=fromSpecific)
@@ -879,7 +879,7 @@ result <- api.instance$DatasetsVersionsRetrieve(datasetId, datasetVersionId)
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest |
+userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkValidationRequest=userBlueprintBulkValidationRequest)
@@ -891,7 +891,7 @@ result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkVali
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate |
+userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCreate)
@@ -915,7 +915,7 @@ result <- api.instance$UserBlueprintsDelete(userBlueprintId)
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete |
+userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlueprintsBulkDelete)
@@ -927,7 +927,7 @@ result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlu
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId |
+userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFromBlueprintId=userBlueprintCreateFromBlueprintId)
@@ -939,7 +939,7 @@ result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFr
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload |
+userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprintCreateFromCustomTaskVersionIdPayload=userBlueprintCreateFromCustomTaskVersionIdPayload)
@@ -951,7 +951,7 @@ result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprint
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId |
+userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCreateFromUserBlueprintId=userBlueprintCreateFromUserBlueprintId)
@@ -989,7 +989,7 @@ result <- api.instance$UserBlueprintsList(offset, limit, projectId=projectId)
 \dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate |
+userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=userBlueprintUpdate)
@@ -1001,7 +1001,7 @@ result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu |
+userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToMenu=userBlueprintAddToMenu)
@@ -1048,7 +1048,7 @@ result <- api.instance$UserBlueprintsSharedRolesList(offset, limit, userBlueprin
 \dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, sharedRolesUpdate=sharedRolesUpdate)
@@ -1060,7 +1060,7 @@ result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, share
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation |
+userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParameterValidation=userBlueprintTaskParameterValidation)
@@ -1086,7 +1086,7 @@ result <- api.instance$UserBlueprintsTasksList(projectId=projectId, blueprintId=
 
 \dontrun{
 library(datarobot.apicore)
-userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation |
+userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=userBlueprintValidation)
@@ -1102,93 +1102,93 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AiCatalogApi$new()}}
-\item \href{#method-CatalogItemsList}{\code{AiCatalogApi$CatalogItemsList()}}
-\item \href{#method-CatalogItemsPatch}{\code{AiCatalogApi$CatalogItemsPatch()}}
-\item \href{#method-CatalogItemsRetrieve}{\code{AiCatalogApi$CatalogItemsRetrieve()}}
-\item \href{#method-DataEngineQueryGeneratorsCreate}{\code{AiCatalogApi$DataEngineQueryGeneratorsCreate()}}
-\item \href{#method-DataEngineQueryGeneratorsRetrieve}{\code{AiCatalogApi$DataEngineQueryGeneratorsRetrieve()}}
-\item \href{#method-DataEngineWorkspaceStatesCreate}{\code{AiCatalogApi$DataEngineWorkspaceStatesCreate()}}
-\item \href{#method-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate}{\code{AiCatalogApi$DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate()}}
-\item \href{#method-DataEngineWorkspaceStatesRetrieve}{\code{AiCatalogApi$DataEngineWorkspaceStatesRetrieve()}}
-\item \href{#method-DatasetsAccessControlList}{\code{AiCatalogApi$DatasetsAccessControlList()}}
-\item \href{#method-DatasetsAccessControlPatchMany}{\code{AiCatalogApi$DatasetsAccessControlPatchMany()}}
-\item \href{#method-DatasetsAllFeaturesDetailsList}{\code{AiCatalogApi$DatasetsAllFeaturesDetailsList()}}
-\item \href{#method-DatasetsDelete}{\code{AiCatalogApi$DatasetsDelete()}}
-\item \href{#method-DatasetsDeletedPatchMany}{\code{AiCatalogApi$DatasetsDeletedPatchMany()}}
-\item \href{#method-DatasetsFeatureHistogramsRetrieve}{\code{AiCatalogApi$DatasetsFeatureHistogramsRetrieve()}}
-\item \href{#method-DatasetsFeatureTransformsCreate}{\code{AiCatalogApi$DatasetsFeatureTransformsCreate()}}
-\item \href{#method-DatasetsFeatureTransformsList}{\code{AiCatalogApi$DatasetsFeatureTransformsList()}}
-\item \href{#method-DatasetsFeatureTransformsRetrieve}{\code{AiCatalogApi$DatasetsFeatureTransformsRetrieve()}}
-\item \href{#method-DatasetsFeaturelistsCreate}{\code{AiCatalogApi$DatasetsFeaturelistsCreate()}}
-\item \href{#method-DatasetsFeaturelistsDelete}{\code{AiCatalogApi$DatasetsFeaturelistsDelete()}}
-\item \href{#method-DatasetsFeaturelistsList}{\code{AiCatalogApi$DatasetsFeaturelistsList()}}
-\item \href{#method-DatasetsFeaturelistsPatch}{\code{AiCatalogApi$DatasetsFeaturelistsPatch()}}
-\item \href{#method-DatasetsFeaturelistsRetrieve}{\code{AiCatalogApi$DatasetsFeaturelistsRetrieve()}}
-\item \href{#method-DatasetsFileList}{\code{AiCatalogApi$DatasetsFileList()}}
-\item \href{#method-DatasetsFromDataEngineWorkspaceStateCreate}{\code{AiCatalogApi$DatasetsFromDataEngineWorkspaceStateCreate()}}
-\item \href{#method-DatasetsFromDataSourceCreate}{\code{AiCatalogApi$DatasetsFromDataSourceCreate()}}
-\item \href{#method-DatasetsFromFileCreate}{\code{AiCatalogApi$DatasetsFromFileCreate()}}
-\item \href{#method-DatasetsFromHDFSCreate}{\code{AiCatalogApi$DatasetsFromHDFSCreate()}}
-\item \href{#method-DatasetsFromURLCreate}{\code{AiCatalogApi$DatasetsFromURLCreate()}}
-\item \href{#method-DatasetsList}{\code{AiCatalogApi$DatasetsList()}}
-\item \href{#method-DatasetsPatch}{\code{AiCatalogApi$DatasetsPatch()}}
-\item \href{#method-DatasetsPatchMany}{\code{AiCatalogApi$DatasetsPatchMany()}}
-\item \href{#method-DatasetsPermissionsList}{\code{AiCatalogApi$DatasetsPermissionsList()}}
-\item \href{#method-DatasetsProjectsList}{\code{AiCatalogApi$DatasetsProjectsList()}}
-\item \href{#method-DatasetsRefreshJobsCreate}{\code{AiCatalogApi$DatasetsRefreshJobsCreate()}}
-\item \href{#method-DatasetsRefreshJobsDelete}{\code{AiCatalogApi$DatasetsRefreshJobsDelete()}}
-\item \href{#method-DatasetsRefreshJobsExecutionResultsList}{\code{AiCatalogApi$DatasetsRefreshJobsExecutionResultsList()}}
-\item \href{#method-DatasetsRefreshJobsList}{\code{AiCatalogApi$DatasetsRefreshJobsList()}}
-\item \href{#method-DatasetsRefreshJobsPatch}{\code{AiCatalogApi$DatasetsRefreshJobsPatch()}}
-\item \href{#method-DatasetsRefreshJobsRetrieve}{\code{AiCatalogApi$DatasetsRefreshJobsRetrieve()}}
-\item \href{#method-DatasetsRelationshipsCreate}{\code{AiCatalogApi$DatasetsRelationshipsCreate()}}
-\item \href{#method-DatasetsRelationshipsDelete}{\code{AiCatalogApi$DatasetsRelationshipsDelete()}}
-\item \href{#method-DatasetsRelationshipsList}{\code{AiCatalogApi$DatasetsRelationshipsList()}}
-\item \href{#method-DatasetsRelationshipsPatch}{\code{AiCatalogApi$DatasetsRelationshipsPatch()}}
-\item \href{#method-DatasetsRetrieve}{\code{AiCatalogApi$DatasetsRetrieve()}}
-\item \href{#method-DatasetsSharedRolesList}{\code{AiCatalogApi$DatasetsSharedRolesList()}}
-\item \href{#method-DatasetsSharedRolesPatchMany}{\code{AiCatalogApi$DatasetsSharedRolesPatchMany()}}
-\item \href{#method-DatasetsVersionsAllFeaturesDetailsList}{\code{AiCatalogApi$DatasetsVersionsAllFeaturesDetailsList()}}
-\item \href{#method-DatasetsVersionsDelete}{\code{AiCatalogApi$DatasetsVersionsDelete()}}
-\item \href{#method-DatasetsVersionsDeletedPatchMany}{\code{AiCatalogApi$DatasetsVersionsDeletedPatchMany()}}
-\item \href{#method-DatasetsVersionsFeatureHistogramsRetrieve}{\code{AiCatalogApi$DatasetsVersionsFeatureHistogramsRetrieve()}}
-\item \href{#method-DatasetsVersionsFeaturelistsList}{\code{AiCatalogApi$DatasetsVersionsFeaturelistsList()}}
-\item \href{#method-DatasetsVersionsFeaturelistsRetrieve}{\code{AiCatalogApi$DatasetsVersionsFeaturelistsRetrieve()}}
-\item \href{#method-DatasetsVersionsFileList}{\code{AiCatalogApi$DatasetsVersionsFileList()}}
-\item \href{#method-DatasetsVersionsFromDataEngineWorkspaceStateCreate}{\code{AiCatalogApi$DatasetsVersionsFromDataEngineWorkspaceStateCreate()}}
-\item \href{#method-DatasetsVersionsFromDataSourceCreate}{\code{AiCatalogApi$DatasetsVersionsFromDataSourceCreate()}}
-\item \href{#method-DatasetsVersionsFromFileCreate}{\code{AiCatalogApi$DatasetsVersionsFromFileCreate()}}
-\item \href{#method-DatasetsVersionsFromHDFSCreate}{\code{AiCatalogApi$DatasetsVersionsFromHDFSCreate()}}
-\item \href{#method-DatasetsVersionsFromLatestVersionCreate}{\code{AiCatalogApi$DatasetsVersionsFromLatestVersionCreate()}}
-\item \href{#method-DatasetsVersionsFromURLCreate}{\code{AiCatalogApi$DatasetsVersionsFromURLCreate()}}
-\item \href{#method-DatasetsVersionsFromVersionCreate}{\code{AiCatalogApi$DatasetsVersionsFromVersionCreate()}}
-\item \href{#method-DatasetsVersionsList}{\code{AiCatalogApi$DatasetsVersionsList()}}
-\item \href{#method-DatasetsVersionsProjectsList}{\code{AiCatalogApi$DatasetsVersionsProjectsList()}}
-\item \href{#method-DatasetsVersionsRetrieve}{\code{AiCatalogApi$DatasetsVersionsRetrieve()}}
-\item \href{#method-UserBlueprintsBulkValidationsCreate}{\code{AiCatalogApi$UserBlueprintsBulkValidationsCreate()}}
-\item \href{#method-UserBlueprintsCreate}{\code{AiCatalogApi$UserBlueprintsCreate()}}
-\item \href{#method-UserBlueprintsDelete}{\code{AiCatalogApi$UserBlueprintsDelete()}}
-\item \href{#method-UserBlueprintsDeleteMany}{\code{AiCatalogApi$UserBlueprintsDeleteMany()}}
-\item \href{#method-UserBlueprintsFromBlueprintIdCreate}{\code{AiCatalogApi$UserBlueprintsFromBlueprintIdCreate()}}
-\item \href{#method-UserBlueprintsFromCustomTaskVersionIdCreate}{\code{AiCatalogApi$UserBlueprintsFromCustomTaskVersionIdCreate()}}
-\item \href{#method-UserBlueprintsFromUserBlueprintIdCreate}{\code{AiCatalogApi$UserBlueprintsFromUserBlueprintIdCreate()}}
-\item \href{#method-UserBlueprintsInputTypesList}{\code{AiCatalogApi$UserBlueprintsInputTypesList()}}
-\item \href{#method-UserBlueprintsList}{\code{AiCatalogApi$UserBlueprintsList()}}
-\item \href{#method-UserBlueprintsPatch}{\code{AiCatalogApi$UserBlueprintsPatch()}}
-\item \href{#method-UserBlueprintsProjectBlueprintsCreate}{\code{AiCatalogApi$UserBlueprintsProjectBlueprintsCreate()}}
-\item \href{#method-UserBlueprintsRetrieve}{\code{AiCatalogApi$UserBlueprintsRetrieve()}}
-\item \href{#method-UserBlueprintsSharedRolesList}{\code{AiCatalogApi$UserBlueprintsSharedRolesList()}}
-\item \href{#method-UserBlueprintsSharedRolesPatchMany}{\code{AiCatalogApi$UserBlueprintsSharedRolesPatchMany()}}
-\item \href{#method-UserBlueprintsTaskParametersCreate}{\code{AiCatalogApi$UserBlueprintsTaskParametersCreate()}}
-\item \href{#method-UserBlueprintsTasksList}{\code{AiCatalogApi$UserBlueprintsTasksList()}}
-\item \href{#method-UserBlueprintsValidationsCreate}{\code{AiCatalogApi$UserBlueprintsValidationsCreate()}}
-\item \href{#method-clone}{\code{AiCatalogApi$clone()}}
+\item \href{#method-AiCatalogApi-new}{\code{AiCatalogApi$new()}}
+\item \href{#method-AiCatalogApi-CatalogItemsList}{\code{AiCatalogApi$CatalogItemsList()}}
+\item \href{#method-AiCatalogApi-CatalogItemsPatch}{\code{AiCatalogApi$CatalogItemsPatch()}}
+\item \href{#method-AiCatalogApi-CatalogItemsRetrieve}{\code{AiCatalogApi$CatalogItemsRetrieve()}}
+\item \href{#method-AiCatalogApi-DataEngineQueryGeneratorsCreate}{\code{AiCatalogApi$DataEngineQueryGeneratorsCreate()}}
+\item \href{#method-AiCatalogApi-DataEngineQueryGeneratorsRetrieve}{\code{AiCatalogApi$DataEngineQueryGeneratorsRetrieve()}}
+\item \href{#method-AiCatalogApi-DataEngineWorkspaceStatesCreate}{\code{AiCatalogApi$DataEngineWorkspaceStatesCreate()}}
+\item \href{#method-AiCatalogApi-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate}{\code{AiCatalogApi$DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate()}}
+\item \href{#method-AiCatalogApi-DataEngineWorkspaceStatesRetrieve}{\code{AiCatalogApi$DataEngineWorkspaceStatesRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsAccessControlList}{\code{AiCatalogApi$DatasetsAccessControlList()}}
+\item \href{#method-AiCatalogApi-DatasetsAccessControlPatchMany}{\code{AiCatalogApi$DatasetsAccessControlPatchMany()}}
+\item \href{#method-AiCatalogApi-DatasetsAllFeaturesDetailsList}{\code{AiCatalogApi$DatasetsAllFeaturesDetailsList()}}
+\item \href{#method-AiCatalogApi-DatasetsDelete}{\code{AiCatalogApi$DatasetsDelete()}}
+\item \href{#method-AiCatalogApi-DatasetsDeletedPatchMany}{\code{AiCatalogApi$DatasetsDeletedPatchMany()}}
+\item \href{#method-AiCatalogApi-DatasetsFeatureHistogramsRetrieve}{\code{AiCatalogApi$DatasetsFeatureHistogramsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsFeatureTransformsCreate}{\code{AiCatalogApi$DatasetsFeatureTransformsCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFeatureTransformsList}{\code{AiCatalogApi$DatasetsFeatureTransformsList()}}
+\item \href{#method-AiCatalogApi-DatasetsFeatureTransformsRetrieve}{\code{AiCatalogApi$DatasetsFeatureTransformsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsFeaturelistsCreate}{\code{AiCatalogApi$DatasetsFeaturelistsCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFeaturelistsDelete}{\code{AiCatalogApi$DatasetsFeaturelistsDelete()}}
+\item \href{#method-AiCatalogApi-DatasetsFeaturelistsList}{\code{AiCatalogApi$DatasetsFeaturelistsList()}}
+\item \href{#method-AiCatalogApi-DatasetsFeaturelistsPatch}{\code{AiCatalogApi$DatasetsFeaturelistsPatch()}}
+\item \href{#method-AiCatalogApi-DatasetsFeaturelistsRetrieve}{\code{AiCatalogApi$DatasetsFeaturelistsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsFileList}{\code{AiCatalogApi$DatasetsFileList()}}
+\item \href{#method-AiCatalogApi-DatasetsFromDataEngineWorkspaceStateCreate}{\code{AiCatalogApi$DatasetsFromDataEngineWorkspaceStateCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFromDataSourceCreate}{\code{AiCatalogApi$DatasetsFromDataSourceCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFromFileCreate}{\code{AiCatalogApi$DatasetsFromFileCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFromHDFSCreate}{\code{AiCatalogApi$DatasetsFromHDFSCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsFromURLCreate}{\code{AiCatalogApi$DatasetsFromURLCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsList}{\code{AiCatalogApi$DatasetsList()}}
+\item \href{#method-AiCatalogApi-DatasetsPatch}{\code{AiCatalogApi$DatasetsPatch()}}
+\item \href{#method-AiCatalogApi-DatasetsPatchMany}{\code{AiCatalogApi$DatasetsPatchMany()}}
+\item \href{#method-AiCatalogApi-DatasetsPermissionsList}{\code{AiCatalogApi$DatasetsPermissionsList()}}
+\item \href{#method-AiCatalogApi-DatasetsProjectsList}{\code{AiCatalogApi$DatasetsProjectsList()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsCreate}{\code{AiCatalogApi$DatasetsRefreshJobsCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsDelete}{\code{AiCatalogApi$DatasetsRefreshJobsDelete()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsExecutionResultsList}{\code{AiCatalogApi$DatasetsRefreshJobsExecutionResultsList()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsList}{\code{AiCatalogApi$DatasetsRefreshJobsList()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsPatch}{\code{AiCatalogApi$DatasetsRefreshJobsPatch()}}
+\item \href{#method-AiCatalogApi-DatasetsRefreshJobsRetrieve}{\code{AiCatalogApi$DatasetsRefreshJobsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsRelationshipsCreate}{\code{AiCatalogApi$DatasetsRelationshipsCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsRelationshipsDelete}{\code{AiCatalogApi$DatasetsRelationshipsDelete()}}
+\item \href{#method-AiCatalogApi-DatasetsRelationshipsList}{\code{AiCatalogApi$DatasetsRelationshipsList()}}
+\item \href{#method-AiCatalogApi-DatasetsRelationshipsPatch}{\code{AiCatalogApi$DatasetsRelationshipsPatch()}}
+\item \href{#method-AiCatalogApi-DatasetsRetrieve}{\code{AiCatalogApi$DatasetsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsSharedRolesList}{\code{AiCatalogApi$DatasetsSharedRolesList()}}
+\item \href{#method-AiCatalogApi-DatasetsSharedRolesPatchMany}{\code{AiCatalogApi$DatasetsSharedRolesPatchMany()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsAllFeaturesDetailsList}{\code{AiCatalogApi$DatasetsVersionsAllFeaturesDetailsList()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsDelete}{\code{AiCatalogApi$DatasetsVersionsDelete()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsDeletedPatchMany}{\code{AiCatalogApi$DatasetsVersionsDeletedPatchMany()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFeatureHistogramsRetrieve}{\code{AiCatalogApi$DatasetsVersionsFeatureHistogramsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFeaturelistsList}{\code{AiCatalogApi$DatasetsVersionsFeaturelistsList()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFeaturelistsRetrieve}{\code{AiCatalogApi$DatasetsVersionsFeaturelistsRetrieve()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFileList}{\code{AiCatalogApi$DatasetsVersionsFileList()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromDataEngineWorkspaceStateCreate}{\code{AiCatalogApi$DatasetsVersionsFromDataEngineWorkspaceStateCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromDataSourceCreate}{\code{AiCatalogApi$DatasetsVersionsFromDataSourceCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromFileCreate}{\code{AiCatalogApi$DatasetsVersionsFromFileCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromHDFSCreate}{\code{AiCatalogApi$DatasetsVersionsFromHDFSCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromLatestVersionCreate}{\code{AiCatalogApi$DatasetsVersionsFromLatestVersionCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromURLCreate}{\code{AiCatalogApi$DatasetsVersionsFromURLCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsFromVersionCreate}{\code{AiCatalogApi$DatasetsVersionsFromVersionCreate()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsList}{\code{AiCatalogApi$DatasetsVersionsList()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsProjectsList}{\code{AiCatalogApi$DatasetsVersionsProjectsList()}}
+\item \href{#method-AiCatalogApi-DatasetsVersionsRetrieve}{\code{AiCatalogApi$DatasetsVersionsRetrieve()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsBulkValidationsCreate}{\code{AiCatalogApi$UserBlueprintsBulkValidationsCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsCreate}{\code{AiCatalogApi$UserBlueprintsCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsDelete}{\code{AiCatalogApi$UserBlueprintsDelete()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsDeleteMany}{\code{AiCatalogApi$UserBlueprintsDeleteMany()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsFromBlueprintIdCreate}{\code{AiCatalogApi$UserBlueprintsFromBlueprintIdCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsFromCustomTaskVersionIdCreate}{\code{AiCatalogApi$UserBlueprintsFromCustomTaskVersionIdCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsFromUserBlueprintIdCreate}{\code{AiCatalogApi$UserBlueprintsFromUserBlueprintIdCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsInputTypesList}{\code{AiCatalogApi$UserBlueprintsInputTypesList()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsList}{\code{AiCatalogApi$UserBlueprintsList()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsPatch}{\code{AiCatalogApi$UserBlueprintsPatch()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsProjectBlueprintsCreate}{\code{AiCatalogApi$UserBlueprintsProjectBlueprintsCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsRetrieve}{\code{AiCatalogApi$UserBlueprintsRetrieve()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsSharedRolesList}{\code{AiCatalogApi$UserBlueprintsSharedRolesList()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsSharedRolesPatchMany}{\code{AiCatalogApi$UserBlueprintsSharedRolesPatchMany()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsTaskParametersCreate}{\code{AiCatalogApi$UserBlueprintsTaskParametersCreate()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsTasksList}{\code{AiCatalogApi$UserBlueprintsTasksList()}}
+\item \href{#method-AiCatalogApi-UserBlueprintsValidationsCreate}{\code{AiCatalogApi$UserBlueprintsValidationsCreate()}}
+\item \href{#method-AiCatalogApi-clone}{\code{AiCatalogApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AiCatalogApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1203,8 +1203,8 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CatalogItemsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CatalogItemsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-CatalogItemsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-CatalogItemsList}{}}}
 \subsection{Method \code{CatalogItemsList()}}{
 List all catalog items accessible by the user.
 Produces: "application/json"
@@ -1257,7 +1257,7 @@ Produces: "application/json"
 
 \item{\code{ownerUsername}}{\link{OneOfstringarray}. Filter results to display only those owned by user(s) identified by the specified username.}
 
-\item{\code{type}}{Enum < \link{user_blueprint, snapshot_dataset, remote_dataset, data_mesh_workspace, dataset} > Filter results by catalog type. The 'dataset' option matches both 'snapshot_dataset' and 'remote_dataset'.}
+\item{\code{type}}{Enum < \link{data_mesh_workspace, snapshot_dataset, user_blueprint, remote_dataset, dataset} > Filter results by catalog type. The 'dataset' option matches both 'snapshot_dataset' and 'remote_dataset'.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1265,6 +1265,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all catalog items accessible by the user.
+
+
+This method invokes \verb{GET /catalogItems/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1288,13 +1291,13 @@ initialCacheSize <- 500 # integer | The initial cache size, for Mongo search onl
 useCache <- "false" # character | Sets whether to use the cache, for Mongo search only.
 orderBy <- 'orderBy_example' # character | The attribute sort order applied to the returned catalog list: 'catalogName', 'originalName', 'description', 'created', or 'relevance'. For all options other than 'relevance', prefix the attribute name with a dash to sort in descending order. e.g., orderBy='-catalogName'. Defaults to '-created'.
 searchFor <- 'searchFor_example' # character | A value to search for in the dataset's name, description, tags, column names, categories, and latest errors. The search is case insensitive. If no value is provided, or if the empty string is used, or if the string contains only whitespace, no filtering occurs. Partial matching is performed on the dataset name and description fields; all other fields require an exact match.
-tag <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only items with the specified catalog item tags, in lower case, with no spaces.
+tag <- list(c('tag_example')) # OneOfstringarray | Filter results to display only items with the specified catalog item tags, in lower case, with no spaces.
 accessType <- "any" # character | Access type used to filter returned results. Valid options are 'owner', 'shared', 'created', and 'any' (the default): 'owner' items are owned by the requester, 'shared' items have been shared with the requester, 'created' items have been created by the requester, and 'any' items matches all.
-datasourceType <- OneOfstringarray$new() # OneOfstringarray | Data source types used for filtering.
-category <- OneOfstringarray$new() # OneOfstringarray | Category type(s) used for filtering. Searches are case sensitive and support '&' and 'OR' operators.
+datasourceType <- list(c('datasourceType_example')) # OneOfstringarray | Data source types used for filtering.
+category <- list(c('category_example')) # OneOfstringarray | Category type(s) used for filtering. Searches are case sensitive and support '&' and 'OR' operators.
 filterFailed <- "false" # character | Sets whether to exclude from the search results all catalog items that failed during import. If True, invalid catalog items will be excluded; default is False.
-ownerUserId <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified UID.
-ownerUsername <- OneOfstringarray$new() # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified username.
+ownerUserId <- list(c('ownerUserId_example')) # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified UID.
+ownerUsername <- list(c('ownerUsername_example')) # OneOfstringarray | Filter results to display only those owned by user(s) identified by the specified username.
 type <- 'type_example' # character | Filter results by catalog type. The 'dataset' option matches both 'snapshot_dataset' and 'remote_dataset'.
 
 api.instance <- AiCatalogApi$new()
@@ -1307,8 +1310,8 @@ result <- api.instance$CatalogItemsList(offset, limit, initialCacheSize, useCach
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CatalogItemsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CatalogItemsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-CatalogItemsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-CatalogItemsPatch}{}}}
 \subsection{Method \code{CatalogItemsPatch()}}{
 Update the name, description, or tags for the requested catalog item.
 Produces: "application/json"
@@ -1329,6 +1332,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Update the name, description, or tags for the requested catalog item.
+
+
+This method invokes \verb{PATCH /catalogItems/\{catalogId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1353,7 +1359,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 catalogId <- 'catalogId_example' # character | Catalog item ID.
-updateCatalogMetadata <- UpdateCatalogMetadata$new() # UpdateCatalogMetadata |
+updateCatalogMetadata <- UpdateCatalogMetadata$new() # UpdateCatalogMetadata | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$CatalogItemsPatch(catalogId, updateCatalogMetadata=updateCatalogMetadata)
@@ -1365,8 +1371,8 @@ result <- api.instance$CatalogItemsPatch(catalogId, updateCatalogMetadata=update
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CatalogItemsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CatalogItemsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-CatalogItemsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-CatalogItemsRetrieve}{}}}
 \subsection{Method \code{CatalogItemsRetrieve()}}{
 Retrieves latest version information, by ID, for catalog items.
 Produces: "application/json"
@@ -1385,6 +1391,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves latest version information, by ID, for catalog items.
+
+
+This method invokes \verb{GET /catalogItems/\{catalogId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1414,8 +1423,8 @@ result <- api.instance$CatalogItemsRetrieve(catalogId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataEngineQueryGeneratorsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DataEngineQueryGeneratorsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DataEngineQueryGeneratorsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DataEngineQueryGeneratorsCreate}{}}}
 \subsection{Method \code{DataEngineQueryGeneratorsCreate()}}{
 Create a data engine query generator
 Produces: NA
@@ -1439,6 +1448,9 @@ Produces: NA
 Create a data engine query generator.
 
 
+This method invokes \verb{POST /dataEngineQueryGenerators/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -1458,7 +1470,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-createDataEngineQueryGenerator <- CreateDataEngineQueryGenerator$new() # CreateDataEngineQueryGenerator |
+createDataEngineQueryGenerator <- CreateDataEngineQueryGenerator$new() # CreateDataEngineQueryGenerator | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineQueryGeneratorsCreate(createDataEngineQueryGenerator=createDataEngineQueryGenerator)
@@ -1470,8 +1482,8 @@ result <- api.instance$DataEngineQueryGeneratorsCreate(createDataEngineQueryGene
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataEngineQueryGeneratorsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DataEngineQueryGeneratorsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DataEngineQueryGeneratorsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DataEngineQueryGeneratorsRetrieve}{}}}
 \subsection{Method \code{DataEngineQueryGeneratorsRetrieve()}}{
 Retrieve a data engine query generator given ID.
 Produces: "application/json"
@@ -1490,6 +1502,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a data engine query generator
+
+
+This method invokes \verb{GET /dataEngineQueryGenerators/\{dataEngineQueryGeneratorId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1525,8 +1540,8 @@ result <- api.instance$DataEngineQueryGeneratorsRetrieve(dataEngineQueryGenerato
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataEngineWorkspaceStatesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DataEngineWorkspaceStatesCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DataEngineWorkspaceStatesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DataEngineWorkspaceStatesCreate}{}}}
 \subsection{Method \code{DataEngineWorkspaceStatesCreate()}}{
 Create Data Engine workspace state
 Produces: "application/json"
@@ -1547,6 +1562,9 @@ Produces: "application/json"
 Create Data Engine workspace state in database.
 
 
+This method invokes \verb{POST /dataEngineWorkspaceStates/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The Data Engine Workspace state
@@ -1565,7 +1583,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-createWorkspaceState <- CreateWorkspaceState$new() # CreateWorkspaceState |
+createWorkspaceState <- CreateWorkspaceState$new() # CreateWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineWorkspaceStatesCreate(createWorkspaceState=createWorkspaceState)
@@ -1577,8 +1595,8 @@ result <- api.instance$DataEngineWorkspaceStatesCreate(createWorkspaceState=crea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate}{}}}
 \subsection{Method \code{DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate()}}{
 Create Data Engine workspace state from a query generator
 Produces: "application/json"
@@ -1602,6 +1620,9 @@ Produces: "application/json"
 Create Data Engine workspace state in database from a query generator.
 
 
+This method invokes \verb{POST /dataEngineWorkspaceStates/fromDataEngineQueryGenerator/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} The Data Engine Workspace state
@@ -1617,7 +1638,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-createWorkspaceStateFromQueryGenerator <- CreateWorkspaceStateFromQueryGenerator$new() # CreateWorkspaceStateFromQueryGenerator |
+createWorkspaceStateFromQueryGenerator <- CreateWorkspaceStateFromQueryGenerator$new() # CreateWorkspaceStateFromQueryGenerator | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCreate(createWorkspaceStateFromQueryGenerator=createWorkspaceStateFromQueryGenerator)
@@ -1629,8 +1650,8 @@ result <- api.instance$DataEngineWorkspaceStatesFromDataEngineQueryGeneratorCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DataEngineWorkspaceStatesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DataEngineWorkspaceStatesRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DataEngineWorkspaceStatesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DataEngineWorkspaceStatesRetrieve}{}}}
 \subsection{Method \code{DataEngineWorkspaceStatesRetrieve()}}{
 Read Data Engine workspace state
 Produces: "application/json"
@@ -1649,6 +1670,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Read and return previously stored Data Engine workspace state.
+
+
+This method invokes \verb{GET /dataEngineWorkspaceStates/\{workspaceStateId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1681,8 +1705,8 @@ result <- api.instance$DataEngineWorkspaceStatesRetrieve(workspaceStateId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsAccessControlList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsAccessControlList}{}}}
 \subsection{Method \code{DatasetsAccessControlList()}}{
 List dataset access
 Produces: "application/json"
@@ -1718,6 +1742,9 @@ Produces: "application/json"
 List the users and their associated roles for the specified dataset.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of user permissions
@@ -1749,8 +1776,8 @@ result <- api.instance$DatasetsAccessControlList(offset, limit, datasetId, userI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsAccessControlPatchMany}{}}}
 \subsection{Method \code{DatasetsAccessControlPatchMany()}}{
 Modify dataset access
 Produces: NA
@@ -1777,6 +1804,9 @@ Produces: NA
 Grant access to the dataset at the specified role level, or remove access to the dataset.
 
 
+This method invokes \verb{PATCH /datasets/\{datasetId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Successfully modified
@@ -1793,7 +1823,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetAccessSet <- DatasetAccessSet$new() # DatasetAccessSet |
+datasetAccessSet <- DatasetAccessSet$new() # DatasetAccessSet | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsAccessControlPatchMany(datasetId, datasetAccessSet=datasetAccessSet)
@@ -1805,8 +1835,8 @@ result <- api.instance$DatasetsAccessControlPatchMany(datasetId, datasetAccessSe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsAllFeaturesDetailsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsAllFeaturesDetailsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsAllFeaturesDetailsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsAllFeaturesDetailsList}{}}}
 \subsection{Method \code{DatasetsAllFeaturesDetailsList()}}{
 Get dataset features
 Produces: "application/json"
@@ -1839,6 +1869,9 @@ Produces: "application/json"
 Return detailed information on all the features and transforms for this dataset.If the Dataset Item has attribute snapshot = True, all optional fields also appear
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/allFeaturesDetails/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of feature info
@@ -1869,8 +1902,8 @@ result <- api.instance$DatasetsAllFeaturesDetailsList(limit, offset, orderBy, da
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsDelete}{}}}
 \subsection{Method \code{DatasetsDelete()}}{
 Delete dataset
 Produces: NA
@@ -1889,6 +1922,9 @@ Produces: NA
 }
 \subsection{Details}{
 Marks the dataset with the given ID as deleted.
+
+
+This method invokes \verb{DELETE /datasets/\{datasetId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1918,8 +1954,8 @@ result <- api.instance$DatasetsDelete(datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsDeletedPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsDeletedPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsDeletedPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsDeletedPatchMany}{}}}
 \subsection{Method \code{DatasetsDeletedPatchMany()}}{
 Recover deleted dataset
 Produces: NA
@@ -1939,7 +1975,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Recover the dataset item with given datasetId from `deleted`.
+Recover the dataset item with given datasetId from deleted.
+
+
+This method invokes \verb{PATCH /datasets/\{datasetId\}/deleted/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1958,7 +1997,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsDeletedPatchMany(datasetId, body=body)
@@ -1970,8 +2009,8 @@ result <- api.instance$DatasetsDeletedPatchMany(datasetId, body=body)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeatureHistogramsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeatureHistogramsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeatureHistogramsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeatureHistogramsRetrieve}{}}}
 \subsection{Method \code{DatasetsFeatureHistogramsRetrieve()}}{
 Get dataset feature histogram
 Produces: "application/json"
@@ -2004,6 +2043,9 @@ Produces: "application/json"
 Get histogram chart data for a specific feature in the specified dataset.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/featureHistograms/\{featureName\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The feature histogram
@@ -2034,8 +2076,8 @@ result <- api.instance$DatasetsFeatureHistogramsRetrieve(binLimit, datasetId, fe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeatureTransformsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeatureTransformsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeatureTransformsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeatureTransformsCreate}{}}}
 \subsection{Method \code{DatasetsFeatureTransformsCreate()}}{
 Create dataset feature transform
 Produces: NA
@@ -2062,6 +2104,9 @@ Produces: NA
 Create a new feature by changing the type of an existing one.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/featureTransforms/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2085,7 +2130,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-featureTransform <- FeatureTransform$new() # FeatureTransform |
+featureTransform <- FeatureTransform$new() # FeatureTransform | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeatureTransformsCreate(datasetId, featureTransform=featureTransform)
@@ -2097,8 +2142,8 @@ result <- api.instance$DatasetsFeatureTransformsCreate(datasetId, featureTransfo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeatureTransformsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeatureTransformsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeatureTransformsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeatureTransformsList}{}}}
 \subsection{Method \code{DatasetsFeatureTransformsList()}}{
 List dataset feature transforms
 Produces: "application/json"
@@ -2121,6 +2166,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the transforms of the dataset with given ID.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/featureTransforms/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2155,8 +2203,8 @@ result <- api.instance$DatasetsFeatureTransformsList(limit, offset, datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeatureTransformsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeatureTransformsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeatureTransformsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeatureTransformsRetrieve}{}}}
 \subsection{Method \code{DatasetsFeatureTransformsRetrieve()}}{
 Get dataset feature transform
 Produces: "application/json"
@@ -2177,6 +2225,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the specified feature with descriptive information.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/featureTransforms/\{featureName\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2210,8 +2261,8 @@ result <- api.instance$DatasetsFeatureTransformsRetrieve(datasetId, featureName)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeaturelistsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeaturelistsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeaturelistsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeaturelistsCreate}{}}}
 \subsection{Method \code{DatasetsFeaturelistsCreate()}}{
 Create dataset featurelist
 Produces: "application/json"
@@ -2238,6 +2289,9 @@ Produces: "application/json"
 Create featurelist for specified dataset.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/featurelists/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Successfully created
@@ -2260,7 +2314,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-featureListCreate <- FeatureListCreate$new() # FeatureListCreate |
+featureListCreate <- FeatureListCreate$new() # FeatureListCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeaturelistsCreate(datasetId, featureListCreate=featureListCreate)
@@ -2272,8 +2326,8 @@ result <- api.instance$DatasetsFeaturelistsCreate(datasetId, featureListCreate=f
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeaturelistsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeaturelistsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeaturelistsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeaturelistsDelete}{}}}
 \subsection{Method \code{DatasetsFeaturelistsDelete()}}{
 Delete dataset featurelist
 Produces: NA
@@ -2294,6 +2348,9 @@ Produces: NA
 }
 \subsection{Details}{
 Deletes the indicated featurelist of the dataset with given ID.
+
+
+This method invokes \verb{DELETE /datasets/\{datasetId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2321,8 +2378,8 @@ result <- api.instance$DatasetsFeaturelistsDelete(datasetId, featurelistId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeaturelistsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeaturelistsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeaturelistsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeaturelistsList}{}}}
 \subsection{Method \code{DatasetsFeaturelistsList()}}{
 Retrieve dataset featurelists
 Produces: "application/json"
@@ -2347,6 +2404,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the featurelists of the dataset with given ID and the latest dataset version.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/featurelists/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2379,8 +2439,8 @@ result <- api.instance$DatasetsFeaturelistsList(limit, offset, orderBy, datasetI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeaturelistsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeaturelistsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeaturelistsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeaturelistsPatch}{}}}
 \subsection{Method \code{DatasetsFeaturelistsPatch()}}{
 Update dataset featurelist
 Produces: NA
@@ -2410,6 +2470,9 @@ Produces: NA
 Modifies the indicated featurelist of the dataset with given ID.
 
 
+This method invokes \verb{PATCH /datasets/\{datasetId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Successfully modified
@@ -2424,7 +2487,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
 featurelistId <- 'featurelistId_example' # character | The ID of the featurelist.
-featureListModify <- FeatureListModify$new() # FeatureListModify |
+featureListModify <- FeatureListModify$new() # FeatureListModify | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFeaturelistsPatch(datasetId, featurelistId, featureListModify=featureListModify)
@@ -2436,8 +2499,8 @@ result <- api.instance$DatasetsFeaturelistsPatch(datasetId, featurelistId, featu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFeaturelistsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFeaturelistsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFeaturelistsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFeaturelistsRetrieve}{}}}
 \subsection{Method \code{DatasetsFeaturelistsRetrieve()}}{
 Get dataset featurelist
 Produces: "application/json"
@@ -2458,6 +2521,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the specified featurelist of the dataset with given ID and the latest dataset version.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2488,8 +2554,8 @@ result <- api.instance$DatasetsFeaturelistsRetrieve(datasetId, featurelistId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFileList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFileList}{}}}
 \subsection{Method \code{DatasetsFileList()}}{
 Retrieve original dataset data
 Produces: "text/csv"
@@ -2508,6 +2574,9 @@ Produces: "text/csv"
 }
 \subsection{Details}{
 Retrieve all the originally uploaded data, in CSV form.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2540,8 +2609,8 @@ result <- api.instance$DatasetsFileList(datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFromDataEngineWorkspaceStateCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFromDataEngineWorkspaceStateCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFromDataEngineWorkspaceStateCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFromDataEngineWorkspaceStateCreate}{}}}
 \subsection{Method \code{DatasetsFromDataEngineWorkspaceStateCreate()}}{
 Create dataset from Data Engine workspace
 Produces: "application/json"
@@ -2565,6 +2634,9 @@ Produces: "application/json"
 Create a dataset from a Data Engine workspace state.
 
 
+This method invokes \verb{POST /datasets/fromDataEngineWorkspaceState/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2584,7 +2656,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState |
+datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromDataEngineWorkspaceStateCreate(datasetCreateFromWorkspaceState=datasetCreateFromWorkspaceState)
@@ -2596,8 +2668,8 @@ result <- api.instance$DatasetsFromDataEngineWorkspaceStateCreate(datasetCreateF
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFromDataSourceCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFromDataSourceCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFromDataSourceCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFromDataSourceCreate}{}}}
 \subsection{Method \code{DatasetsFromDataSourceCreate()}}{
 Create dataset from data source
 Produces: "application/json"
@@ -2618,6 +2690,9 @@ Produces: "application/json"
 Create a Dataset Item from a data source.
 
 
+This method invokes \verb{POST /datasets/fromDataSource/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2634,7 +2709,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-datasource <- Datasource$new() # Datasource |
+datasource <- Datasource$new() # Datasource | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromDataSourceCreate(datasource=datasource)
@@ -2646,8 +2721,8 @@ result <- api.instance$DatasetsFromDataSourceCreate(datasource=datasource)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFromFileCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFromFileCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFromFileCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFromFileCreate}{}}}
 \subsection{Method \code{DatasetsFromFileCreate()}}{
 Create dataset from file
 Produces: "application/json"
@@ -2670,6 +2745,9 @@ Produces: "application/json"
 Create a dataset from a file.
 
 
+This method invokes \verb{POST /datasets/fromFile/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2689,8 +2767,8 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-file <- File.new('/path/to/file') # data.frame | The data to be used for the creation.
-categories <- oneOf<string,array>$new() # OneOfstringarray | An array of strings describing the intended use of the dataset.
+file <- '/path/to/file.csv' # data.frame | The data to be used for the creation.
+categories <- list(c('categories_example')) # OneOfstringarray | An array of strings describing the intended use of the dataset.
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromFileCreate(file, categories=categories)
@@ -2702,8 +2780,8 @@ result <- api.instance$DatasetsFromFileCreate(file, categories=categories)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFromHDFSCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFromHDFSCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFromHDFSCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFromHDFSCreate}{}}}
 \subsection{Method \code{DatasetsFromHDFSCreate()}}{
 Create dataset from HDFS URL
 Produces: "application/json"
@@ -2724,6 +2802,9 @@ Produces: "application/json"
 Create a Dataset Item from an HDFS URL.
 
 
+This method invokes \verb{POST /datasets/fromHDFS/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2740,7 +2821,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-hdfs <- Hdfs$new() # Hdfs |
+hdfs <- Hdfs$new() # Hdfs | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromHDFSCreate(hdfs=hdfs)
@@ -2752,8 +2833,8 @@ result <- api.instance$DatasetsFromHDFSCreate(hdfs=hdfs)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsFromURLCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsFromURLCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsFromURLCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsFromURLCreate}{}}}
 \subsection{Method \code{DatasetsFromURLCreate()}}{
 Create dataset from URL
 Produces: "application/json"
@@ -2774,6 +2855,9 @@ Produces: "application/json"
 Create a Dataset Item from a URL.
 
 
+This method invokes \verb{POST /datasets/fromURL/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -2790,7 +2874,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-url <- Url$new() # Url |
+url <- Url$new() # Url | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsFromURLCreate(url=url)
@@ -2802,8 +2886,8 @@ result <- api.instance$DatasetsFromURLCreate(url=url)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsList}{}}}
 \subsection{Method \code{DatasetsList()}}{
 List datasets
 Produces: "application/json"
@@ -2842,6 +2926,9 @@ Produces: "application/json"
 List all datasets accessible by the user.
 
 
+This method invokes \verb{GET /datasets/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of datasets
@@ -2862,7 +2949,7 @@ offset <- 0 # integer | This many results will be skipped.
 category <- 'category_example' # character | If specified, only dataset versions that have the specified category will be included in the results. Categories identify the intended use of the dataset.
 orderBy <- 'orderBy_example' # character | Sorting order which will be applied to catalog list.
 filterFailed <- "false" # character | Whether datasets that failed during import should be excluded from the results. If True invalid datasets will be excluded.
-datasetVersionIds <- OneOfstringarray$new() # OneOfstringarray | If specified will only return datasets that are associated with specified dataset versions.
+datasetVersionIds <- list(c('datasetVersionIds_example')) # OneOfstringarray | If specified will only return datasets that are associated with specified dataset versions.
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsList(limit, offset, category=category, orderBy=orderBy, filterFailed=filterFailed, datasetVersionIds=datasetVersionIds)
@@ -2874,8 +2961,8 @@ result <- api.instance$DatasetsList(limit, offset, category=category, orderBy=or
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsPatch}{}}}
 \subsection{Method \code{DatasetsPatch()}}{
 Modify dataset
 Produces: "application/json"
@@ -2898,6 +2985,9 @@ Produces: "application/json"
 Modifies the specified dataset.
 
 
+This method invokes \verb{PATCH /datasets/\{datasetId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Dataset successfully modified
@@ -2917,7 +3007,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-patchDataset <- PatchDataset$new() # PatchDataset |
+patchDataset <- PatchDataset$new() # PatchDataset | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsPatch(datasetId, patchDataset=patchDataset)
@@ -2929,8 +3019,8 @@ result <- api.instance$DatasetsPatch(datasetId, patchDataset=patchDataset)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsPatchMany}{}}}
 \subsection{Method \code{DatasetsPatchMany()}}{
 Execute bulk dataset action
 Produces: NA
@@ -2951,6 +3041,9 @@ Produces: NA
 Execute the specified bulk action on multiple datasets.
 
 
+This method invokes \verb{PATCH /datasets/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Successfully executed
@@ -2966,7 +3059,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-bulkDatasetAction <- BulkDatasetAction$new() # BulkDatasetAction |
+bulkDatasetAction <- BulkDatasetAction$new() # BulkDatasetAction | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsPatchMany(bulkDatasetAction=bulkDatasetAction)
@@ -2978,8 +3071,8 @@ result <- api.instance$DatasetsPatchMany(bulkDatasetAction=bulkDatasetAction)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsPermissionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsPermissionsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsPermissionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsPermissionsList}{}}}
 \subsection{Method \code{DatasetsPermissionsList()}}{
 Describe dataset permissions
 Produces: "application/json"
@@ -2998,6 +3091,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Describe what permissions current user has for given dataset.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/permissions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3027,8 +3123,8 @@ result <- api.instance$DatasetsPermissionsList(datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsProjectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsProjectsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsProjectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsProjectsList}{}}}
 \subsection{Method \code{DatasetsProjectsList()}}{
 Get dataset projects
 Produces: "application/json"
@@ -3051,6 +3147,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves a dataset's projects by dataset ID.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/projects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3082,8 +3181,8 @@ result <- api.instance$DatasetsProjectsList(limit, offset, datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsCreate}{}}}
 \subsection{Method \code{DatasetsRefreshJobsCreate()}}{
 Schedule dataset refresh
 Produces: "application/json"
@@ -3107,7 +3206,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a dataset refresh job that will automatically create dataset snapshots on a schedule.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  - \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have at least one enabled job. - \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error that happened, possible values include (but are not limited to): ``Generic Limit Reached``, ``Max Job Limit Reached for Dataset``, and ``Max Job Limit Reached for User``.
+Create a dataset refresh job that will automatically create dataset snapshots on a schedule.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  - \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have at   least one enabled job. - \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error   that happened, possible values include (but are not limited to):   `Generic Limit Reached`, `Max Job Limit Reached for Dataset`, and   `Max Job Limit Reached for User`.
+
+
+This method invokes \verb{POST /datasets/\{datasetId\}/refreshJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3132,7 +3234,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetRefreshJobCreate <- DatasetRefreshJobCreate$new() # DatasetRefreshJobCreate |
+datasetRefreshJobCreate <- DatasetRefreshJobCreate$new() # DatasetRefreshJobCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRefreshJobsCreate(datasetId, datasetRefreshJobCreate=datasetRefreshJobCreate)
@@ -3144,8 +3246,8 @@ result <- api.instance$DatasetsRefreshJobsCreate(datasetId, datasetRefreshJobCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsDelete}{}}}
 \subsection{Method \code{DatasetsRefreshJobsDelete()}}{
 Deletes an existing dataset refresh job
 Produces: NA
@@ -3166,6 +3268,9 @@ Produces: NA
 }
 \subsection{Details}{
 Deletes an existing dataset refresh job.
+
+
+This method invokes \verb{DELETE /datasets/\{datasetId\}/refreshJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3196,8 +3301,8 @@ result <- api.instance$DatasetsRefreshJobsDelete(datasetId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsExecutionResultsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsExecutionResultsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsExecutionResultsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsExecutionResultsList}{}}}
 \subsection{Method \code{DatasetsRefreshJobsExecutionResultsList()}}{
 Results of dataset refresh job.
 Produces: "application/json"
@@ -3230,6 +3335,9 @@ Produces: "application/json"
 Paginated list of execution results for refresh job with the given ID and dataset with the given ID, sorted from newest to oldest.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/refreshJobs/\{jobId\}/executionResults/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Paginated list of dataset refresh job results, sorted from latest to oldest.
@@ -3260,8 +3368,8 @@ result <- api.instance$DatasetsRefreshJobsExecutionResultsList(datasetId, jobId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsList}{}}}
 \subsection{Method \code{DatasetsRefreshJobsList()}}{
 Information about scheduled jobs for given dataset.
 Produces: "application/json"
@@ -3284,6 +3392,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Paginated list of scheduled jobs descriptions for a specific dataset with given dataset ID, sorted by time of the last update.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/refreshJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3315,8 +3426,8 @@ result <- api.instance$DatasetsRefreshJobsList(limit, offset, datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsPatch}{}}}
 \subsection{Method \code{DatasetsRefreshJobsPatch()}}{
 Update a dataset refresh job
 Produces: "application/json"
@@ -3343,7 +3454,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update a dataset refresh job.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  - \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have at least one enabled job. - \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error that happened, possible values include (but are not limited to): ``Generic Limit Reached``, ``Max Job Limit Reached for Dataset``, and ``Max Job Limit Reached for User``.
+Update a dataset refresh job.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  - \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have at   least one enabled job. - \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error   that happened, possible values include (but are not limited to):   `Generic Limit Reached`, `Max Job Limit Reached for Dataset`, and   `Max Job Limit Reached for User`.
+
+
+This method invokes \verb{PATCH /datasets/\{datasetId\}/refreshJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3369,7 +3483,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The dataset associated with the scheduled refresh job.
 jobId <- 'jobId_example' # character | ID of the user scheduled dataset refresh job.
-datasetRefreshJobUpdate <- DatasetRefreshJobUpdate$new() # DatasetRefreshJobUpdate |
+datasetRefreshJobUpdate <- DatasetRefreshJobUpdate$new() # DatasetRefreshJobUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRefreshJobsPatch(datasetId, jobId, datasetRefreshJobUpdate=datasetRefreshJobUpdate)
@@ -3381,8 +3495,8 @@ result <- api.instance$DatasetsRefreshJobsPatch(datasetId, jobId, datasetRefresh
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRefreshJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRefreshJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRefreshJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRefreshJobsRetrieve}{}}}
 \subsection{Method \code{DatasetsRefreshJobsRetrieve()}}{
 Gets configuration of a user scheduled dataset refresh job by job ID
 Produces: "application/json"
@@ -3403,6 +3517,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Gets configuration of a user scheduled dataset refresh job by job ID.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/refreshJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3433,8 +3550,8 @@ result <- api.instance$DatasetsRefreshJobsRetrieve(datasetId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRelationshipsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRelationshipsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRelationshipsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRelationshipsCreate}{}}}
 \subsection{Method \code{DatasetsRelationshipsCreate()}}{
 Create dataset relationship.
 Produces: "application/json"
@@ -3459,6 +3576,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a dataset relationship.
+
+
+This method invokes \verb{POST /datasets/\{datasetId\}/relationships/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3486,7 +3606,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetRelationshipCreate <- DatasetRelationshipCreate$new() # DatasetRelationshipCreate |
+datasetRelationshipCreate <- DatasetRelationshipCreate$new() # DatasetRelationshipCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRelationshipsCreate(datasetId, datasetRelationshipCreate=datasetRelationshipCreate)
@@ -3498,8 +3618,8 @@ result <- api.instance$DatasetsRelationshipsCreate(datasetId, datasetRelationshi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRelationshipsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRelationshipsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRelationshipsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRelationshipsDelete}{}}}
 \subsection{Method \code{DatasetsRelationshipsDelete()}}{
 Delete dataset relationship.
 Produces: NA
@@ -3520,6 +3640,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a dataset relationship.
+
+
+This method invokes \verb{DELETE /datasets/\{datasetId\}/relationships/\{datasetRelationshipId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3550,8 +3673,8 @@ result <- api.instance$DatasetsRelationshipsDelete(datasetId, datasetRelationshi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRelationshipsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRelationshipsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRelationshipsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRelationshipsList}{}}}
 \subsection{Method \code{DatasetsRelationshipsList()}}{
 List related datasets
 Produces: "application/json"
@@ -3582,6 +3705,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a list of the dataset relationships for a specific dataset.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/relationships/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3617,8 +3743,8 @@ result <- api.instance$DatasetsRelationshipsList(limit, offset, datasetId, linke
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRelationshipsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRelationshipsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRelationshipsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRelationshipsPatch}{}}}
 \subsection{Method \code{DatasetsRelationshipsPatch()}}{
 Update dataset relationship.
 Produces: "application/json"
@@ -3648,6 +3774,9 @@ Produces: "application/json"
 Update a dataset relationship.
 
 
+This method invokes \verb{PATCH /datasets/\{datasetId\}/relationships/\{datasetRelationshipId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Successfully updated
@@ -3674,7 +3803,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
 datasetRelationshipId <- 'datasetRelationshipId_example' # character | The ID of the dataset relationship to delete.
-datasetRelationshipUpdate <- DatasetRelationshipUpdate$new() # DatasetRelationshipUpdate |
+datasetRelationshipUpdate <- DatasetRelationshipUpdate$new() # DatasetRelationshipUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsRelationshipsPatch(datasetId, datasetRelationshipId, datasetRelationshipUpdate=datasetRelationshipUpdate)
@@ -3686,8 +3815,8 @@ result <- api.instance$DatasetsRelationshipsPatch(datasetId, datasetRelationship
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsRetrieve}{}}}
 \subsection{Method \code{DatasetsRetrieve()}}{
 Get dataset details
 Produces: "application/json"
@@ -3706,6 +3835,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the details of the dataset with given ID.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3735,8 +3867,8 @@ result <- api.instance$DatasetsRetrieve(datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsSharedRolesList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsSharedRolesList}{}}}
 \subsection{Method \code{DatasetsSharedRolesList()}}{
 List dataset shared roles
 Produces: "application/json"
@@ -3775,6 +3907,9 @@ Produces: "application/json"
 Get a list of users, groups and organizations who have access to this dataset and their roles.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of user permissions
@@ -3807,8 +3942,8 @@ result <- api.instance$DatasetsSharedRolesList(offset, limit, datasetId, id=id, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsSharedRolesPatchMany}{}}}
 \subsection{Method \code{DatasetsSharedRolesPatchMany()}}{
 Modify dataset shared roles
 Produces: NA
@@ -3835,6 +3970,9 @@ Produces: NA
 Grant access, remove access or update roles for organizations, groups or users on this dataset. Up to 100 roles may be set per array in a single request.
 
 
+This method invokes \verb{PATCH /datasets/\{datasetId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Successfully modified
@@ -3854,7 +3992,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetSharedRoles <- DatasetSharedRoles$new() # DatasetSharedRoles |
+datasetSharedRoles <- DatasetSharedRoles$new() # DatasetSharedRoles | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsSharedRolesPatchMany(datasetId, datasetSharedRoles=datasetSharedRoles)
@@ -3866,8 +4004,8 @@ result <- api.instance$DatasetsSharedRolesPatchMany(datasetId, datasetSharedRole
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsAllFeaturesDetailsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsAllFeaturesDetailsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsAllFeaturesDetailsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsAllFeaturesDetailsList}{}}}
 \subsection{Method \code{DatasetsVersionsAllFeaturesDetailsList()}}{
 Get dataset features
 Produces: "application/json"
@@ -3903,6 +4041,9 @@ Produces: "application/json"
 Return detailed information on all the features and transforms for this dataset.If the Dataset Item has attribute snapshot = True, all optional fields also appear
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/allFeaturesDetails/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of feature info
@@ -3934,8 +4075,8 @@ result <- api.instance$DatasetsVersionsAllFeaturesDetailsList(limit, offset, ord
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsDelete}{}}}
 \subsection{Method \code{DatasetsVersionsDelete()}}{
 Delete dataset version
 Produces: NA
@@ -3956,6 +4097,9 @@ Produces: NA
 }
 \subsection{Details}{
 Marks the dataset version with the given ID as deleted.
+
+
+This method invokes \verb{DELETE /datasets/\{datasetId\}/versions/\{datasetVersionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3983,8 +4127,8 @@ result <- api.instance$DatasetsVersionsDelete(datasetId, datasetVersionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsDeletedPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsDeletedPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsDeletedPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsDeletedPatchMany}{}}}
 \subsection{Method \code{DatasetsVersionsDeletedPatchMany()}}{
 Recover deleted dataset version
 Produces: NA
@@ -4011,7 +4155,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Recover the dataset version item with given datasetId and datasetVersionId from `deleted`.
+Recover the dataset version item with given datasetId and datasetVersionId from deleted.
+
+
+This method invokes \verb{PATCH /datasets/\{datasetId\}/versions/\{datasetVersionId\}/deleted/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4031,7 +4178,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset entry.
 datasetVersionId <- 'datasetVersionId_example' # character | The ID of the dataset version.
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsDeletedPatchMany(datasetId, datasetVersionId, body=body)
@@ -4043,8 +4190,8 @@ result <- api.instance$DatasetsVersionsDeletedPatchMany(datasetId, datasetVersio
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFeatureHistogramsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFeatureHistogramsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFeatureHistogramsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFeatureHistogramsRetrieve}{}}}
 \subsection{Method \code{DatasetsVersionsFeatureHistogramsRetrieve()}}{
 Get dataset feature histogram
 Produces: "application/json"
@@ -4080,6 +4227,9 @@ Produces: "application/json"
 Get histogram chart data for a specific feature in the specified dataset.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/featureHistograms/\{featureName\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The feature histogram
@@ -4111,8 +4261,8 @@ result <- api.instance$DatasetsVersionsFeatureHistogramsRetrieve(binLimit, datas
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFeaturelistsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFeaturelistsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFeaturelistsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFeaturelistsList}{}}}
 \subsection{Method \code{DatasetsVersionsFeaturelistsList()}}{
 Retrieve dataset featurelists
 Produces: "application/json"
@@ -4148,6 +4298,9 @@ Produces: "application/json"
 Retrieves the featurelists of the dataset with given ID and the latest dataset version.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/featurelists/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of featurelists
@@ -4179,8 +4332,8 @@ result <- api.instance$DatasetsVersionsFeaturelistsList(limit, offset, orderBy, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFeaturelistsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFeaturelistsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFeaturelistsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFeaturelistsRetrieve}{}}}
 \subsection{Method \code{DatasetsVersionsFeaturelistsRetrieve()}}{
 Get dataset featurelist
 Produces: "application/json"
@@ -4208,6 +4361,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the specified featurelist of the dataset with given ID and the latest dataset version.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4239,8 +4395,8 @@ result <- api.instance$DatasetsVersionsFeaturelistsRetrieve(datasetId, datasetVe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFileList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFileList}{}}}
 \subsection{Method \code{DatasetsVersionsFileList()}}{
 Retrieve original dataset data
 Produces: "text/csv"
@@ -4261,6 +4417,9 @@ Produces: "text/csv"
 }
 \subsection{Details}{
 Retrieve all the originally uploaded data, in CSV form.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4294,8 +4453,8 @@ result <- api.instance$DatasetsVersionsFileList(datasetId, datasetVersionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromDataEngineWorkspaceStateCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromDataEngineWorkspaceStateCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromDataEngineWorkspaceStateCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromDataEngineWorkspaceStateCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromDataEngineWorkspaceStateCreate()}}{
 Create dataset version from Data Engine workspace
 Produces: "application/json"
@@ -4322,6 +4481,9 @@ Produces: "application/json"
 Create a new dataset version for a specified dataset from a Data Engine workspace state. The new dataset version should have the same schema as the specified dataset.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromDataEngineWorkspaceState/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4345,7 +4507,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState |
+datasetCreateFromWorkspaceState <- DatasetCreateFromWorkspaceState$new() # DatasetCreateFromWorkspaceState | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromDataEngineWorkspaceStateCreate(datasetId, datasetCreateFromWorkspaceState=datasetCreateFromWorkspaceState)
@@ -4357,8 +4519,8 @@ result <- api.instance$DatasetsVersionsFromDataEngineWorkspaceStateCreate(datase
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromDataSourceCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromDataSourceCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromDataSourceCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromDataSourceCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromDataSourceCreate()}}{
 Create dataset version from Data Source
 Produces: "application/json"
@@ -4385,6 +4547,9 @@ Produces: "application/json"
 Create a new version for the specified dataset from specified Data Source. The dataset must have been created from a compatible data source originally.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromDataSource/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4402,7 +4567,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasource <- Datasource$new() # Datasource |
+datasource <- Datasource$new() # Datasource | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromDataSourceCreate(datasetId, datasource=datasource)
@@ -4414,8 +4579,8 @@ result <- api.instance$DatasetsVersionsFromDataSourceCreate(datasetId, datasourc
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromFileCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromFileCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromFileCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromFileCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromFileCreate()}}{
 Create dataset version from file
 Produces: "application/json"
@@ -4442,6 +4607,9 @@ Produces: "application/json"
 Create a new version for the specified dataset from a file.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromFile/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4459,7 +4627,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-datasetFromFile <- DatasetFromFile$new() # DatasetFromFile |
+datasetFromFile <- DatasetFromFile$new() # DatasetFromFile | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromFileCreate(datasetId, datasetFromFile=datasetFromFile)
@@ -4471,8 +4639,8 @@ result <- api.instance$DatasetsVersionsFromFileCreate(datasetId, datasetFromFile
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromHDFSCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromHDFSCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromHDFSCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromHDFSCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromHDFSCreate()}}{
 Create dataset version from HDFS URL
 Produces: "application/json"
@@ -4495,6 +4663,9 @@ Produces: "application/json"
 Create a new version for the specified dataset from a HDFS URL. The dataset must have been created from the same HDFS URL originally.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromHDFS/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4512,7 +4683,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-hdfs <- Hdfs$new() # Hdfs |
+hdfs <- Hdfs$new() # Hdfs | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromHDFSCreate(datasetId, hdfs=hdfs)
@@ -4524,8 +4695,8 @@ result <- api.instance$DatasetsVersionsFromHDFSCreate(datasetId, hdfs=hdfs)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromLatestVersionCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromLatestVersionCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromLatestVersionCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromLatestVersionCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromLatestVersionCreate()}}{
 Create dataset version from data source
 Produces: "application/json"
@@ -4549,7 +4720,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new version of the specified dataset from the latest dataset version. This will reuse the same source of the data that was previously used. Not supported for datasets that were previously loaded from an uploaded file. If the dataset is currently a remote dataset, it will be converted to a snapshot dataset. NOTE:  if the current version uses a Data Source, the `user` and `password` must be specified so the data can be accessed.
+Create a new version of the specified dataset from the latest dataset version. This will reuse the same source of the data that was previously used. Not supported for datasets that were previously loaded from an uploaded file. If the dataset is currently a remote dataset, it will be converted to a snapshot dataset. NOTE: if the current version uses a Data Source, the user and password must be specified so the data can be accessed.
+
+
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromLatestVersion/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4572,7 +4746,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-fromLatest <- FromLatest$new() # FromLatest |
+fromLatest <- FromLatest$new() # FromLatest | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromLatestVersionCreate(datasetId, fromLatest=fromLatest)
@@ -4584,8 +4758,8 @@ result <- api.instance$DatasetsVersionsFromLatestVersionCreate(datasetId, fromLa
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromURLCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromURLCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromURLCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromURLCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromURLCreate()}}{
 Create dataset version from URL
 Produces: "application/json"
@@ -4608,6 +4782,9 @@ Produces: "application/json"
 Create a new version for the specified dataset from specified URL. The dataset must have been created from the same URL originally.
 
 
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/fromURL/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4625,7 +4802,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset.
-url <- Url$new() # Url |
+url <- Url$new() # Url | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromURLCreate(datasetId, url=url)
@@ -4637,8 +4814,8 @@ result <- api.instance$DatasetsVersionsFromURLCreate(datasetId, url=url)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsFromVersionCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsFromVersionCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsFromVersionCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsFromVersionCreate}{}}}
 \subsection{Method \code{DatasetsVersionsFromVersionCreate()}}{
 Create dataset version from previous version
 Produces: "application/json"
@@ -4665,7 +4842,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new version of the specified dataset from the specified dataset version. This will reuse the same source of the data that was previously used. Not supported for datasets that were previously loaded from an uploaded file. If the dataset is currently a remote dataset, it will be converted to a snapshot dataset. NOTE: If the specified version uses a Data Source, the `user` and `password` must be specified so the data can be accessed.
+Create a new version of the specified dataset from the specified dataset version. This will reuse the same source of the data that was previously used. Not supported for datasets that were previously loaded from an uploaded file. If the dataset is currently a remote dataset, it will be converted to a snapshot dataset. NOTE: If the specified version uses a Data Source, the user and password must be specified so the data can be accessed.
+
+
+This method invokes \verb{POST /datasets/\{datasetId\}/versions/\{datasetVersionId\}/fromVersion/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4689,7 +4869,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 datasetId <- 'datasetId_example' # character | The ID of the dataset entry.
 datasetVersionId <- 'datasetVersionId_example' # character | The ID of the dataset version.
-fromSpecific <- FromSpecific$new() # FromSpecific |
+fromSpecific <- FromSpecific$new() # FromSpecific | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$DatasetsVersionsFromVersionCreate(datasetId, datasetVersionId, fromSpecific=fromSpecific)
@@ -4701,8 +4881,8 @@ result <- api.instance$DatasetsVersionsFromVersionCreate(datasetId, datasetVersi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsList}{}}}
 \subsection{Method \code{DatasetsVersionsList()}}{
 List dataset versions
 Produces: "application/json"
@@ -4741,6 +4921,9 @@ Produces: "application/json"
 List all versions associated with given datasetId and which match the specified query parameters.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of dataset versions
@@ -4773,8 +4956,8 @@ result <- api.instance$DatasetsVersionsList(limit, offset, datasetId, category=c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsProjectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsProjectsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsProjectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsProjectsList}{}}}
 \subsection{Method \code{DatasetsVersionsProjectsList()}}{
 Get dataset projects by version
 Produces: "application/json"
@@ -4807,6 +4990,9 @@ Produces: "application/json"
 Retrieves a dataset's projects for the specified catalog dataset and dataset version id.
 
 
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/projects/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A paginated list of projects
@@ -4837,8 +5023,8 @@ result <- api.instance$DatasetsVersionsProjectsList(limit, offset, datasetId, da
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsVersionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsVersionsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-DatasetsVersionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-DatasetsVersionsRetrieve}{}}}
 \subsection{Method \code{DatasetsVersionsRetrieve()}}{
 Get dataset details by version
 Produces: "application/json"
@@ -4859,6 +5045,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves the details of the dataset with given ID and version ID.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/versions/\{datasetVersionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4889,8 +5078,8 @@ result <- api.instance$DatasetsVersionsRetrieve(datasetId, datasetVersionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsBulkValidationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsBulkValidationsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsBulkValidationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsBulkValidationsCreate}{}}}
 \subsection{Method \code{UserBlueprintsBulkValidationsCreate()}}{
 Validate many user blueprints.
 Produces: "application/json"
@@ -4912,6 +5101,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate many user blueprints, optionally using a specific project. Any non-existent or inaccessible user blueprints will be ignored.
+
+
+This method invokes \verb{POST /userBlueprintsBulkValidations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4941,7 +5133,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest |
+userBlueprintBulkValidationRequest <- UserBlueprintBulkValidationRequest$new() # UserBlueprintBulkValidationRequest | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkValidationRequest=userBlueprintBulkValidationRequest)
@@ -4953,8 +5145,8 @@ result <- api.instance$UserBlueprintsBulkValidationsCreate(userBlueprintBulkVali
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsCreate}{}}}
 \subsection{Method \code{UserBlueprintsCreate()}}{
 Create a user blueprint.
 Produces: "application/json"
@@ -4973,6 +5165,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a user blueprint
+
+
+This method invokes \verb{POST /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5002,7 +5197,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate |
+userBlueprintCreate <- UserBlueprintCreate$new() # UserBlueprintCreate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCreate)
@@ -5014,8 +5209,8 @@ result <- api.instance$UserBlueprintsCreate(userBlueprintCreate=userBlueprintCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsDelete}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsDelete}{}}}
 \subsection{Method \code{UserBlueprintsDelete()}}{
 Delete a user blueprint.
 Produces: NA
@@ -5033,7 +5228,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a user blueprint, specified by the `userBlueprintId`.
+Delete a user blueprint, specified by the userBlueprintId.
+
+
+This method invokes \verb{DELETE /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5060,8 +5258,8 @@ result <- api.instance$UserBlueprintsDelete(userBlueprintId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsDeleteMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsDeleteMany}{}}}
 \subsection{Method \code{UserBlueprintsDeleteMany()}}{
 Delete user blueprints.
 Produces: "application/json"
@@ -5079,7 +5277,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete user blueprints, specified by `userBlueprintIds`.
+Delete user blueprints, specified by userBlueprintIds.
+
+
+This method invokes \verb{DELETE /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5106,7 +5307,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete |
+userBlueprintsBulkDelete <- UserBlueprintsBulkDelete$new() # UserBlueprintsBulkDelete | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlueprintsBulkDelete)
@@ -5118,8 +5319,8 @@ result <- api.instance$UserBlueprintsDeleteMany(userBlueprintsBulkDelete=userBlu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromBlueprintIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromBlueprintIdCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsFromBlueprintIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsFromBlueprintIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromBlueprintIdCreate()}}{
 Clone a blueprint from a project.
 Produces: "application/json"
@@ -5141,6 +5342,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Clone a blueprint from a project.
+
+
+This method invokes \verb{POST /userBlueprints/fromBlueprintId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5170,7 +5374,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId |
+userBlueprintCreateFromBlueprintId <- UserBlueprintCreateFromBlueprintId$new() # UserBlueprintCreateFromBlueprintId | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFromBlueprintId=userBlueprintCreateFromBlueprintId)
@@ -5182,8 +5386,8 @@ result <- api.instance$UserBlueprintsFromBlueprintIdCreate(userBlueprintCreateFr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromCustomTaskVersionIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromCustomTaskVersionIdCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsFromCustomTaskVersionIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsFromCustomTaskVersionIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromCustomTaskVersionIdCreate()}}{
 Create a user blueprint from a single custom task.
 Produces: "application/json"
@@ -5205,6 +5409,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a user blueprint from a single custom task.
+
+
+This method invokes \verb{POST /userBlueprints/fromCustomTaskVersionId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5234,7 +5441,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload |
+userBlueprintCreateFromCustomTaskVersionIdPayload <- UserBlueprintCreateFromCustomTaskVersionIdPayload$new() # UserBlueprintCreateFromCustomTaskVersionIdPayload | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprintCreateFromCustomTaskVersionIdPayload=userBlueprintCreateFromCustomTaskVersionIdPayload)
@@ -5246,8 +5453,8 @@ result <- api.instance$UserBlueprintsFromCustomTaskVersionIdCreate(userBlueprint
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsFromUserBlueprintIdCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsFromUserBlueprintIdCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsFromUserBlueprintIdCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsFromUserBlueprintIdCreate}{}}}
 \subsection{Method \code{UserBlueprintsFromUserBlueprintIdCreate()}}{
 Clone a user blueprint.
 Produces: "application/json"
@@ -5269,6 +5476,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Clone a user blueprint.
+
+
+This method invokes \verb{POST /userBlueprints/fromUserBlueprintId/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5298,7 +5508,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId |
+userBlueprintCreateFromUserBlueprintId <- UserBlueprintCreateFromUserBlueprintId$new() # UserBlueprintCreateFromUserBlueprintId | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCreateFromUserBlueprintId=userBlueprintCreateFromUserBlueprintId)
@@ -5310,8 +5520,8 @@ result <- api.instance$UserBlueprintsFromUserBlueprintIdCreate(userBlueprintCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsInputTypesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsInputTypesList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsInputTypesList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsInputTypesList}{}}}
 \subsection{Method \code{UserBlueprintsInputTypesList()}}{
 Retrieve input types.
 Produces: "application/json"
@@ -5328,6 +5538,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the input types which can be used with User Blueprints.
+
+
+This method invokes \verb{GET /userBlueprintsInputTypes/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5362,8 +5575,8 @@ result <- api.instance$UserBlueprintsInputTypesList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsList}{}}}
 \subsection{Method \code{UserBlueprintsList()}}{
 List user blueprints.
 Produces: "application/json"
@@ -5386,6 +5599,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Fetch a list of the user blueprints the current user has access to
+
+
+This method invokes \verb{GET /userBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5423,8 +5639,8 @@ result <- api.instance$UserBlueprintsList(offset, limit, projectId=projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsPatch}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsPatch}{}}}
 \subsection{Method \code{UserBlueprintsPatch()}}{
 Update a user blueprint.
 Produces: "application/json"
@@ -5449,6 +5665,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Update a user blueprint
+
+
+This method invokes \verb{PATCH /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5479,7 +5698,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate |
+userBlueprintUpdate <- UserBlueprintUpdate$new() # UserBlueprintUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=userBlueprintUpdate)
@@ -5491,8 +5710,8 @@ result <- api.instance$UserBlueprintsPatch(userBlueprintId, userBlueprintUpdate=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsProjectBlueprintsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsProjectBlueprintsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsProjectBlueprintsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsProjectBlueprintsCreate}{}}}
 \subsection{Method \code{UserBlueprintsProjectBlueprintsCreate()}}{
 Add user blueprints to a project.
 Produces: "application/json"
@@ -5514,6 +5733,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Add a list of user blueprints, by id, to a specified (by id) project's repository.
+
+
+This method invokes \verb{POST /userBlueprintsProjectBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5543,7 +5765,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu |
+userBlueprintAddToMenu <- UserBlueprintAddToMenu$new() # UserBlueprintAddToMenu | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToMenu=userBlueprintAddToMenu)
@@ -5555,8 +5777,8 @@ result <- api.instance$UserBlueprintsProjectBlueprintsCreate(userBlueprintAddToM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsRetrieve}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsRetrieve}{}}}
 \subsection{Method \code{UserBlueprintsRetrieve()}}{
 Retrieve a user blueprint.
 Produces: "application/json"
@@ -5593,6 +5815,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a user blueprint
+
+
+This method invokes \verb{GET /userBlueprints/\{userBlueprintId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5636,8 +5861,8 @@ result <- api.instance$UserBlueprintsRetrieve(editMode, decompressedBlueprint, i
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsSharedRolesList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsSharedRolesList}{}}}
 \subsection{Method \code{UserBlueprintsSharedRolesList()}}{
 Get a list of users, groups and organizations that have an access to this user blueprint
 Produces: "application/json"
@@ -5676,6 +5901,9 @@ Produces: "application/json"
 Get a list of users, groups and organizations that have an access to this user blueprint
 
 
+This method invokes \verb{GET /userBlueprints/\{userBlueprintId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Successfully retrieved roles.
@@ -5708,8 +5936,8 @@ result <- api.instance$UserBlueprintsSharedRolesList(offset, limit, userBlueprin
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsSharedRolesPatchMany}{}}}
 \subsection{Method \code{UserBlueprintsSharedRolesPatchMany()}}{
 Share a user blueprint with a user, group, or organization
 Produces: NA
@@ -5734,6 +5962,9 @@ Produces: NA
 }
 \subsection{Details}{
 Share a user blueprint with a user, group, or organization
+
+
+This method invokes \verb{PATCH /userBlueprints/\{userBlueprintId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5764,7 +5995,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 userBlueprintId <- 'userBlueprintId_example' # character | Used to identify a specific user-owned blueprint.
-sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate |
+sharedRolesUpdate <- SharedRolesUpdate$new() # SharedRolesUpdate | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, sharedRolesUpdate=sharedRolesUpdate)
@@ -5776,8 +6007,8 @@ result <- api.instance$UserBlueprintsSharedRolesPatchMany(userBlueprintId, share
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsTaskParametersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsTaskParametersCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsTaskParametersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsTaskParametersCreate}{}}}
 \subsection{Method \code{UserBlueprintsTaskParametersCreate()}}{
 Validate task parameters.
 Produces: "application/json"
@@ -5799,6 +6030,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate that each value assigned to specified task parameters are valid.
+
+
+This method invokes \verb{POST /userBlueprintsTaskParameters/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5828,7 +6062,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation |
+userBlueprintTaskParameterValidation <- UserBlueprintTaskParameterValidation$new() # UserBlueprintTaskParameterValidation | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParameterValidation=userBlueprintTaskParameterValidation)
@@ -5840,8 +6074,8 @@ result <- api.instance$UserBlueprintsTaskParametersCreate(userBlueprintTaskParam
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsTasksList"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsTasksList}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsTasksList"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsTasksList}{}}}
 \subsection{Method \code{UserBlueprintsTasksList()}}{
 Retrieve tasks for blueprint construction.
 Produces: "application/json"
@@ -5869,6 +6103,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the available tasks, organized into categories, which can be used to create or modify User Blueprints.
+
+
+This method invokes \verb{GET /userBlueprintsTasks/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5909,8 +6146,8 @@ result <- api.instance$UserBlueprintsTasksList(projectId=projectId, blueprintId=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UserBlueprintsValidationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-UserBlueprintsValidationsCreate}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-UserBlueprintsValidationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-UserBlueprintsValidationsCreate}{}}}
 \subsection{Method \code{UserBlueprintsValidationsCreate()}}{
 Validate a user blueprint.
 Produces: "application/json"
@@ -5932,6 +6169,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Validate a user blueprint
+
+
+This method invokes \verb{POST /userBlueprintsValidations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5961,7 +6201,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation |
+userBlueprintValidation <- UserBlueprintValidation$new() # UserBlueprintValidation | 
 
 api.instance <- AiCatalogApi$new()
 result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=userBlueprintValidation)
@@ -5973,8 +6213,8 @@ result <- api.instance$UserBlueprintsValidationsCreate(userBlueprintValidation=u
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AiCatalogApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AiCatalogApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

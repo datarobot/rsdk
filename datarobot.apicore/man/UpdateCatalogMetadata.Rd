@@ -24,16 +24,16 @@ UpdateCatalogMetadata Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UpdateCatalogMetadata$new()}}
-\item \href{#method-validate}{\code{UpdateCatalogMetadata$validate()}}
-\item \href{#method-toJSON}{\code{UpdateCatalogMetadata$toJSON()}}
-\item \href{#method-fromJSON}{\code{UpdateCatalogMetadata$fromJSON()}}
-\item \href{#method-clone}{\code{UpdateCatalogMetadata$clone()}}
+\item \href{#method-UpdateCatalogMetadata-new}{\code{UpdateCatalogMetadata$new()}}
+\item \href{#method-UpdateCatalogMetadata-validate}{\code{UpdateCatalogMetadata$validate()}}
+\item \href{#method-UpdateCatalogMetadata-toJSON}{\code{UpdateCatalogMetadata$toJSON()}}
+\item \href{#method-UpdateCatalogMetadata-fromJSON}{\code{UpdateCatalogMetadata$fromJSON()}}
+\item \href{#method-UpdateCatalogMetadata-clone}{\code{UpdateCatalogMetadata$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UpdateCatalogMetadata-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateCatalogMetadata-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UpdateCatalogMetadata-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateCatalogMetadata-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UpdateCatalogMetadata$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UpdateCatalogMetadata-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateCatalogMetadata-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UpdateCatalogMetadata-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateCatalogMetadata-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -106,8 +107,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UpdateCatalogMetadata-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateCatalogMetadata-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

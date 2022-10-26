@@ -6,24 +6,17 @@
 \usage{
 RetrieveUsageDataExports(artifactId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve a prepared customer usage data artifact.
 }
 \details{
 Retrieve a prepared customer usage data artifact. Requires \"CAN_ACCESS_USER_ACTIVITY\" permission.
+
+This method invokes \verb{GET /usageDataExports/\{artifactId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method UsageDataExportsRetrieve in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()}
+The method UsageDataExportsRetrieve in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

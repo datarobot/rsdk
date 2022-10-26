@@ -44,7 +44,7 @@ result <- api.instance$DatasetsImagesDataQualityLogList(datasetId, offset=offset
 
 \dontrun{
 library(datarobot.apicore)
-imageAugmentationCreateList <- ImageAugmentationCreateList$new() # ImageAugmentationCreateList |
+imageAugmentationCreateList <- ImageAugmentationCreateList$new() # ImageAugmentationCreateList | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsCreate(imageAugmentationCreateList=imageAugmentationCreateList)
@@ -84,7 +84,7 @@ result <- api.instance$ImageAugmentationListsList(projectId, offset, limit, feat
 \dontrun{
 library(datarobot.apicore)
 augmentationId <- 'augmentationId_example' # character | The id of the augmentation list to fetch
-imageAugmentationListPatchParam <- ImageAugmentationListPatchParam$new() # ImageAugmentationListPatchParam |
+imageAugmentationListPatchParam <- ImageAugmentationListPatchParam$new() # ImageAugmentationListPatchParam | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsPatch(augmentationId, imageAugmentationListPatchParam=imageAugmentationListPatchParam)
@@ -109,7 +109,7 @@ result <- api.instance$ImageAugmentationListsRetrieve(augmentationId)
 \dontrun{
 library(datarobot.apicore)
 augmentationId <- 'augmentationId_example' # character | The id of the augmentation list
-imageAugmentationListsCreateSamples <- ImageAugmentationListsCreateSamples$new() # ImageAugmentationListsCreateSamples |
+imageAugmentationListsCreateSamples <- ImageAugmentationListsCreateSamples$new() # ImageAugmentationListsCreateSamples | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsSamplesCreate(augmentationId, imageAugmentationListsCreateSamples=imageAugmentationListsCreateSamples)
@@ -147,7 +147,7 @@ result <- api.instance$ImageAugmentationOptionsRetrieve(projectId)
 
 \dontrun{
 library(datarobot.apicore)
-imageAugmentationSamplesRequest <- ImageAugmentationSamplesRequest$new() # ImageAugmentationSamplesRequest |
+imageAugmentationSamplesRequest <- ImageAugmentationSamplesRequest$new() # ImageAugmentationSamplesRequest | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationSamplesCreate(imageAugmentationSamplesRequest=imageAugmentationSamplesRequest)
@@ -289,9 +289,9 @@ offset <- 0 # integer | This many results will be skipped
 limit <- 100 # integer | At most this many results are returned
 projectId <- 'projectId_example' # character | The project ID
 column <- 'column_example' # character | Name of the column to query
-targetValue <- AnyOfnumberstring$new() # AnyOfnumberstring | For classification projects - when specified, only images corresponding to this target value will be returned. Mutually exclusive with targetBinStart/targetBinEnd.
-targetBinStart <- AnyOfnumberstring$new() # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values above this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinEnd.
-targetBinEnd <- AnyOfnumberstring$new() # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values below this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinStart.
+targetValue <- 'targetValue_example' # AnyOfnumberstring | For classification projects - when specified, only images corresponding to this target value will be returned. Mutually exclusive with targetBinStart/targetBinEnd.
+targetBinStart <- 'targetBinStart_example' # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values above this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinEnd.
+targetBinEnd <- 'targetBinEnd_example' # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values below this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinStart.
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ProjectsImagesList(offset, limit, projectId, column=column, targetValue=targetValue, targetBinStart=targetBinStart, targetBinEnd=targetBinEnd)
@@ -374,39 +374,39 @@ result <- api.instance$ProjectsModelsImageEmbeddingsList(featureName, projectId,
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ImagesApi$new()}}
-\item \href{#method-DatasetsImagesDataQualityLogFileList}{\code{ImagesApi$DatasetsImagesDataQualityLogFileList()}}
-\item \href{#method-DatasetsImagesDataQualityLogList}{\code{ImagesApi$DatasetsImagesDataQualityLogList()}}
-\item \href{#method-ImageAugmentationListsCreate}{\code{ImagesApi$ImageAugmentationListsCreate()}}
-\item \href{#method-ImageAugmentationListsDelete}{\code{ImagesApi$ImageAugmentationListsDelete()}}
-\item \href{#method-ImageAugmentationListsList}{\code{ImagesApi$ImageAugmentationListsList()}}
-\item \href{#method-ImageAugmentationListsPatch}{\code{ImagesApi$ImageAugmentationListsPatch()}}
-\item \href{#method-ImageAugmentationListsRetrieve}{\code{ImagesApi$ImageAugmentationListsRetrieve()}}
-\item \href{#method-ImageAugmentationListsSamplesCreate}{\code{ImagesApi$ImageAugmentationListsSamplesCreate()}}
-\item \href{#method-ImageAugmentationListsSamplesList}{\code{ImagesApi$ImageAugmentationListsSamplesList()}}
-\item \href{#method-ImageAugmentationOptionsRetrieve}{\code{ImagesApi$ImageAugmentationOptionsRetrieve()}}
-\item \href{#method-ImageAugmentationSamplesCreate}{\code{ImagesApi$ImageAugmentationSamplesCreate()}}
-\item \href{#method-ImageAugmentationSamplesList}{\code{ImagesApi$ImageAugmentationSamplesList()}}
-\item \href{#method-ProjectsDuplicateImagesList}{\code{ImagesApi$ProjectsDuplicateImagesList()}}
-\item \href{#method-ProjectsImageActivationMapsList}{\code{ImagesApi$ProjectsImageActivationMapsList()}}
-\item \href{#method-ProjectsImageBinsList}{\code{ImagesApi$ProjectsImageBinsList()}}
-\item \href{#method-ProjectsImageEmbeddingsList}{\code{ImagesApi$ProjectsImageEmbeddingsList()}}
-\item \href{#method-ProjectsImageSamplesList}{\code{ImagesApi$ProjectsImageSamplesList()}}
-\item \href{#method-ProjectsImagesDataQualityLogFileList}{\code{ImagesApi$ProjectsImagesDataQualityLogFileList()}}
-\item \href{#method-ProjectsImagesDataQualityLogList}{\code{ImagesApi$ProjectsImagesDataQualityLogList()}}
-\item \href{#method-ProjectsImagesFileList}{\code{ImagesApi$ProjectsImagesFileList()}}
-\item \href{#method-ProjectsImagesList}{\code{ImagesApi$ProjectsImagesList()}}
-\item \href{#method-ProjectsImagesRetrieve}{\code{ImagesApi$ProjectsImagesRetrieve()}}
-\item \href{#method-ProjectsModelsImageActivationMapsCreate}{\code{ImagesApi$ProjectsModelsImageActivationMapsCreate()}}
-\item \href{#method-ProjectsModelsImageActivationMapsList}{\code{ImagesApi$ProjectsModelsImageActivationMapsList()}}
-\item \href{#method-ProjectsModelsImageEmbeddingsCreate}{\code{ImagesApi$ProjectsModelsImageEmbeddingsCreate()}}
-\item \href{#method-ProjectsModelsImageEmbeddingsList}{\code{ImagesApi$ProjectsModelsImageEmbeddingsList()}}
-\item \href{#method-clone}{\code{ImagesApi$clone()}}
+\item \href{#method-ImagesApi-new}{\code{ImagesApi$new()}}
+\item \href{#method-ImagesApi-DatasetsImagesDataQualityLogFileList}{\code{ImagesApi$DatasetsImagesDataQualityLogFileList()}}
+\item \href{#method-ImagesApi-DatasetsImagesDataQualityLogList}{\code{ImagesApi$DatasetsImagesDataQualityLogList()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsCreate}{\code{ImagesApi$ImageAugmentationListsCreate()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsDelete}{\code{ImagesApi$ImageAugmentationListsDelete()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsList}{\code{ImagesApi$ImageAugmentationListsList()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsPatch}{\code{ImagesApi$ImageAugmentationListsPatch()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsRetrieve}{\code{ImagesApi$ImageAugmentationListsRetrieve()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsSamplesCreate}{\code{ImagesApi$ImageAugmentationListsSamplesCreate()}}
+\item \href{#method-ImagesApi-ImageAugmentationListsSamplesList}{\code{ImagesApi$ImageAugmentationListsSamplesList()}}
+\item \href{#method-ImagesApi-ImageAugmentationOptionsRetrieve}{\code{ImagesApi$ImageAugmentationOptionsRetrieve()}}
+\item \href{#method-ImagesApi-ImageAugmentationSamplesCreate}{\code{ImagesApi$ImageAugmentationSamplesCreate()}}
+\item \href{#method-ImagesApi-ImageAugmentationSamplesList}{\code{ImagesApi$ImageAugmentationSamplesList()}}
+\item \href{#method-ImagesApi-ProjectsDuplicateImagesList}{\code{ImagesApi$ProjectsDuplicateImagesList()}}
+\item \href{#method-ImagesApi-ProjectsImageActivationMapsList}{\code{ImagesApi$ProjectsImageActivationMapsList()}}
+\item \href{#method-ImagesApi-ProjectsImageBinsList}{\code{ImagesApi$ProjectsImageBinsList()}}
+\item \href{#method-ImagesApi-ProjectsImageEmbeddingsList}{\code{ImagesApi$ProjectsImageEmbeddingsList()}}
+\item \href{#method-ImagesApi-ProjectsImageSamplesList}{\code{ImagesApi$ProjectsImageSamplesList()}}
+\item \href{#method-ImagesApi-ProjectsImagesDataQualityLogFileList}{\code{ImagesApi$ProjectsImagesDataQualityLogFileList()}}
+\item \href{#method-ImagesApi-ProjectsImagesDataQualityLogList}{\code{ImagesApi$ProjectsImagesDataQualityLogList()}}
+\item \href{#method-ImagesApi-ProjectsImagesFileList}{\code{ImagesApi$ProjectsImagesFileList()}}
+\item \href{#method-ImagesApi-ProjectsImagesList}{\code{ImagesApi$ProjectsImagesList()}}
+\item \href{#method-ImagesApi-ProjectsImagesRetrieve}{\code{ImagesApi$ProjectsImagesRetrieve()}}
+\item \href{#method-ImagesApi-ProjectsModelsImageActivationMapsCreate}{\code{ImagesApi$ProjectsModelsImageActivationMapsCreate()}}
+\item \href{#method-ImagesApi-ProjectsModelsImageActivationMapsList}{\code{ImagesApi$ProjectsModelsImageActivationMapsList()}}
+\item \href{#method-ImagesApi-ProjectsModelsImageEmbeddingsCreate}{\code{ImagesApi$ProjectsModelsImageEmbeddingsCreate()}}
+\item \href{#method-ImagesApi-ProjectsModelsImageEmbeddingsList}{\code{ImagesApi$ProjectsModelsImageEmbeddingsList()}}
+\item \href{#method-ImagesApi-clone}{\code{ImagesApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ImagesApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ImagesApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -421,8 +421,8 @@ result <- api.instance$ProjectsModelsImageEmbeddingsList(featureName, projectId,
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsImagesDataQualityLogFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsImagesDataQualityLogFileList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-DatasetsImagesDataQualityLogFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-DatasetsImagesDataQualityLogFileList}{}}}
 \subsection{Method \code{DatasetsImagesDataQualityLogFileList()}}{
 Retrieve a text file containing the images data quality log.
 Produces: NA
@@ -441,6 +441,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve a text file containing the images data quality log.
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/imagesDataQualityLog/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -469,8 +472,8 @@ result <- api.instance$DatasetsImagesDataQualityLogFileList(datasetId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DatasetsImagesDataQualityLogList"></a>}}
-\if{latex}{\out{\hypertarget{method-DatasetsImagesDataQualityLogList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-DatasetsImagesDataQualityLogList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-DatasetsImagesDataQualityLogList}{}}}
 \subsection{Method \code{DatasetsImagesDataQualityLogList()}}{
 Retrieve the images data quality log content and log length as JSON
 Produces: "application/json"
@@ -498,6 +501,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the images data quality log content and log length as JSON
+
+
+This method invokes \verb{GET /datasets/\{datasetId\}/imagesDataQualityLog/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -529,8 +535,8 @@ result <- api.instance$DatasetsImagesDataQualityLogList(datasetId, offset=offset
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsCreate}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsCreate}{}}}
 \subsection{Method \code{ImageAugmentationListsCreate()}}{
 Creates a new augmentation list based on the posted payload data.
 Produces: "application/json"
@@ -551,6 +557,9 @@ Produces: "application/json"
 Creates a new augmentation list based on the posted payload data.
 
 
+This method invokes \verb{POST /imageAugmentationLists/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Augmentation list id
@@ -569,7 +578,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-imageAugmentationCreateList <- ImageAugmentationCreateList$new() # ImageAugmentationCreateList |
+imageAugmentationCreateList <- ImageAugmentationCreateList$new() # ImageAugmentationCreateList | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsCreate(imageAugmentationCreateList=imageAugmentationCreateList)
@@ -581,8 +590,8 @@ result <- api.instance$ImageAugmentationListsCreate(imageAugmentationCreateList=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsDelete}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsDelete}{}}}
 \subsection{Method \code{ImageAugmentationListsDelete()}}{
 Delete an existing augmentation lists by id
 Produces: NA
@@ -601,6 +610,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete an existing augmentation lists by id
+
+
+This method invokes \verb{DELETE /imageAugmentationLists/\{augmentationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -630,8 +642,8 @@ result <- api.instance$ImageAugmentationListsDelete(augmentationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsList}{}}}
 \subsection{Method \code{ImageAugmentationListsList()}}{
 List of augmentation lists that match the specified query.
 Produces: "application/json"
@@ -664,6 +676,9 @@ Produces: "application/json"
 List of augmentation lists that match the specified query.
 
 
+This method invokes \verb{GET /imageAugmentationLists/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Image Augmentation Lists
@@ -694,8 +709,8 @@ result <- api.instance$ImageAugmentationListsList(projectId, offset, limit, feat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsPatch}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsPatch}{}}}
 \subsection{Method \code{ImageAugmentationListsPatch()}}{
 Update and existing augmentation list, with passed in values.
 Produces: NA
@@ -722,6 +737,9 @@ Produces: NA
 Update and existing augmentation list, with passed in values.
 
 
+This method invokes \verb{PATCH /imageAugmentationLists/\{augmentationId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} The successful response is empty
@@ -735,7 +753,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 augmentationId <- 'augmentationId_example' # character | The id of the augmentation list to fetch
-imageAugmentationListPatchParam <- ImageAugmentationListPatchParam$new() # ImageAugmentationListPatchParam |
+imageAugmentationListPatchParam <- ImageAugmentationListPatchParam$new() # ImageAugmentationListPatchParam | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsPatch(augmentationId, imageAugmentationListPatchParam=imageAugmentationListPatchParam)
@@ -747,8 +765,8 @@ result <- api.instance$ImageAugmentationListsPatch(augmentationId, imageAugmenta
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsRetrieve}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsRetrieve}{}}}
 \subsection{Method \code{ImageAugmentationListsRetrieve()}}{
 Returns a single augmentation list with the specified id.
 Produces: "application/json"
@@ -767,6 +785,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Returns a single augmentation list with the specified id.
+
+
+This method invokes \verb{GET /imageAugmentationLists/\{augmentationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -796,8 +817,8 @@ result <- api.instance$ImageAugmentationListsRetrieve(augmentationId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsSamplesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsSamplesCreate}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsSamplesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsSamplesCreate}{}}}
 \subsection{Method \code{ImageAugmentationListsSamplesCreate()}}{
 Requests the creation of sample augmentations based on the augmentation list passed in.
 Produces: "application/json"
@@ -824,6 +845,9 @@ Produces: "application/json"
 This endpoint will schedule a job to augment the specified images from a project's dataset and return a link to monitor the status of the job, as well as a link to retrieve the resulting augmented images.
 
 
+This method invokes \verb{POST /imageAugmentationLists/\{augmentationId\}/samples/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Image Augmentation Samples generation has been successfully requested
@@ -841,7 +865,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 augmentationId <- 'augmentationId_example' # character | The id of the augmentation list
-imageAugmentationListsCreateSamples <- ImageAugmentationListsCreateSamples$new() # ImageAugmentationListsCreateSamples |
+imageAugmentationListsCreateSamples <- ImageAugmentationListsCreateSamples$new() # ImageAugmentationListsCreateSamples | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationListsSamplesCreate(augmentationId, imageAugmentationListsCreateSamples=imageAugmentationListsCreateSamples)
@@ -853,8 +877,8 @@ result <- api.instance$ImageAugmentationListsSamplesCreate(augmentationId, image
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationListsSamplesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationListsSamplesList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationListsSamplesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationListsSamplesList}{}}}
 \subsection{Method \code{ImageAugmentationListsSamplesList()}}{
 Retrieve latest Augmentation Samples generated for list
 Produces: "application/json"
@@ -882,6 +906,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve latest Augmentation Samples generated for list
+
+
+This method invokes \verb{GET /imageAugmentationLists/\{augmentationId\}/samples/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -916,8 +943,8 @@ result <- api.instance$ImageAugmentationListsSamplesList(augmentationId, offset=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationOptionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationOptionsRetrieve}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationOptionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationOptionsRetrieve}{}}}
 \subsection{Method \code{ImageAugmentationOptionsRetrieve()}}{
 Augmentation list of all available transformations that are supported in the system.
 Produces: "application/json"
@@ -936,6 +963,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Augmentation list of all available transformations that are supported in the system.
+
+
+This method invokes \verb{GET /imageAugmentationOptions/\{projectId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -965,8 +995,8 @@ result <- api.instance$ImageAugmentationOptionsRetrieve(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationSamplesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationSamplesCreate}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationSamplesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationSamplesCreate}{}}}
 \subsection{Method \code{ImageAugmentationSamplesCreate()}}{
 (Deprecated in v2.28) Requests the creation of sample augmentations based on the augmentation list parameters passed in. This route is being deprecated please use `POST /imageAugmentationLists/<augmentationId>/samples` route instead.
 Produces: "application/json"
@@ -990,6 +1020,9 @@ Produces: "application/json"
 (Deprecated in v2.28) This endpoint will schedule a job to augment the specified images from a project's dataset and return a link to monitor the status of the job, as well as a link to retrieve the resulting augmented images.
 
 
+This method invokes \verb{POST /imageAugmentationSamples/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Image Augmentation Samples generation has been successfully requested
@@ -1006,7 +1039,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-imageAugmentationSamplesRequest <- ImageAugmentationSamplesRequest$new() # ImageAugmentationSamplesRequest |
+imageAugmentationSamplesRequest <- ImageAugmentationSamplesRequest$new() # ImageAugmentationSamplesRequest | 
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ImageAugmentationSamplesCreate(imageAugmentationSamplesRequest=imageAugmentationSamplesRequest)
@@ -1018,8 +1051,8 @@ result <- api.instance$ImageAugmentationSamplesCreate(imageAugmentationSamplesRe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ImageAugmentationSamplesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ImageAugmentationSamplesList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ImageAugmentationSamplesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ImageAugmentationSamplesList}{}}}
 \subsection{Method \code{ImageAugmentationSamplesList()}}{
 (Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use `GET /imageAugmentationLists/<augmentationId>/samples` route instead.
 Produces: "application/json"
@@ -1041,7 +1074,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use `GET /imageAugmentationLists/<augmentationId>/samples` route instead.
+(Deprecated in v2.28) Retrieve previously generated Augmentation Samples. This route is being deprecated please use GET /imageAugmentationLists/\\<augmentationId\\>/samples route instead.
+
+
+This method invokes \verb{GET /imageAugmentationSamples/\{samplesId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1076,8 +1112,8 @@ result <- api.instance$ImageAugmentationSamplesList(samplesId, offset=offset, li
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDuplicateImagesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDuplicateImagesList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsDuplicateImagesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsDuplicateImagesList}{}}}
 \subsection{Method \code{ProjectsDuplicateImagesList()}}{
 Get a list of duplicate images containing the number of occurrences of each image
 Produces: "application/json"
@@ -1110,6 +1146,9 @@ Produces: "application/json"
 Get a list of duplicate images containing the number of occurrences of each image
 
 
+This method invokes \verb{GET /projects/\{projectId\}/duplicateImages/\{column\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} List of image metadata
@@ -1140,8 +1179,8 @@ result <- api.instance$ProjectsDuplicateImagesList(projectId, column, offset=off
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageActivationMapsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageActivationMapsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImageActivationMapsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImageActivationMapsList}{}}}
 \subsection{Method \code{ProjectsImageActivationMapsList()}}{
 List all Image Activation Maps for the project.
 Produces: "application/json"
@@ -1169,6 +1208,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Image Activation Maps for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1200,8 +1242,8 @@ result <- api.instance$ProjectsImageActivationMapsList(projectId, offset=offset,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageBinsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageBinsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImageBinsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImageBinsList}{}}}
 \subsection{Method \code{ProjectsImageBinsList()}}{
 List image bins and covers for every target value or range.
 Produces: "application/json"
@@ -1232,6 +1274,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List image bins and covers for every target value or range.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageBins/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1267,8 +1312,8 @@ result <- api.instance$ProjectsImageBinsList(featureName, projectId, offset=offs
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageEmbeddingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageEmbeddingsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImageEmbeddingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImageEmbeddingsList}{}}}
 \subsection{Method \code{ProjectsImageEmbeddingsList()}}{
 List all Image Embeddings for the project.
 Produces: "application/json"
@@ -1291,6 +1336,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Image Embeddings for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1322,8 +1370,8 @@ result <- api.instance$ProjectsImageEmbeddingsList(projectId, offset=offset, lim
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageSamplesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageSamplesList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImageSamplesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImageSamplesList}{}}}
 \subsection{Method \code{ProjectsImageSamplesList()}}{
 List all metadata for images in the EDA sample
 Produces: "application/json"
@@ -1354,6 +1402,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all metadata for images in the EDA sample
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageSamples/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1389,8 +1440,8 @@ result <- api.instance$ProjectsImageSamplesList(featureName, projectId, offset=o
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImagesDataQualityLogFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImagesDataQualityLogFileList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImagesDataQualityLogFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImagesDataQualityLogFileList}{}}}
 \subsection{Method \code{ProjectsImagesDataQualityLogFileList()}}{
 Retrieve a text file containing the images data quality log
 Produces: NA
@@ -1409,6 +1460,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve a text file containing the images data quality log
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imagesDataQualityLog/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1437,8 +1491,8 @@ result <- api.instance$ProjectsImagesDataQualityLogFileList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImagesDataQualityLogList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImagesDataQualityLogList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImagesDataQualityLogList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImagesDataQualityLogList}{}}}
 \subsection{Method \code{ProjectsImagesDataQualityLogList()}}{
 Retrieve the images data quality log content and log length as JSON
 Produces: "application/json"
@@ -1466,6 +1520,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the images data quality log content and log length as JSON
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imagesDataQualityLog/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1500,8 +1557,8 @@ result <- api.instance$ProjectsImagesDataQualityLogList(projectId, offset=offset
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImagesFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImagesFileList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImagesFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImagesFileList}{}}}
 \subsection{Method \code{ProjectsImagesFileList()}}{
 Returns a file for a single image
 Produces: NA
@@ -1522,6 +1579,9 @@ Produces: NA
 }
 \subsection{Details}{
 Returns a file for a single image
+
+
+This method invokes \verb{GET /projects/\{projectId\}/images/\{imageId\}/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1552,8 +1612,8 @@ result <- api.instance$ProjectsImagesFileList(projectId, imageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImagesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImagesList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImagesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImagesList}{}}}
 \subsection{Method \code{ProjectsImagesList()}}{
 Returns a list of image metadata elements.
 Produces: "application/json"
@@ -1595,6 +1655,9 @@ Produces: "application/json"
 Returns a list of image metadata elements.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/images/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns a list of image metadata elements.
@@ -1617,9 +1680,9 @@ offset <- 0 # integer | This many results will be skipped
 limit <- 100 # integer | At most this many results are returned
 projectId <- 'projectId_example' # character | The project ID
 column <- 'column_example' # character | Name of the column to query
-targetValue <- AnyOfnumberstring$new() # AnyOfnumberstring | For classification projects - when specified, only images corresponding to this target value will be returned. Mutually exclusive with targetBinStart/targetBinEnd.
-targetBinStart <- AnyOfnumberstring$new() # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values above this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinEnd.
-targetBinEnd <- AnyOfnumberstring$new() # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values below this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinStart.
+targetValue <- 'targetValue_example' # AnyOfnumberstring | For classification projects - when specified, only images corresponding to this target value will be returned. Mutually exclusive with targetBinStart/targetBinEnd.
+targetBinStart <- 'targetBinStart_example' # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values above this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinEnd.
+targetBinEnd <- 'targetBinEnd_example' # AnyOfnumberstring | For regression projects - when specified, only images corresponding to the target values below this will be returned. Mutually exclusive with targetValue. Must be specified with targetBinStart.
 
 api.instance <- ImagesApi$new()
 result <- api.instance$ProjectsImagesList(offset, limit, projectId, column=column, targetValue=targetValue, targetBinStart=targetBinStart, targetBinEnd=targetBinEnd)
@@ -1631,8 +1694,8 @@ result <- api.instance$ProjectsImagesList(offset, limit, projectId, column=colum
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImagesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImagesRetrieve}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsImagesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsImagesRetrieve}{}}}
 \subsection{Method \code{ProjectsImagesRetrieve()}}{
 Returns a single image metadata.
 Produces: "application/json"
@@ -1653,6 +1716,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Returns a single image metadata.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/images/\{imageId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1686,8 +1752,8 @@ result <- api.instance$ProjectsImagesRetrieve(projectId, imageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageActivationMapsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageActivationMapsCreate}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsModelsImageActivationMapsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsModelsImageActivationMapsCreate}{}}}
 \subsection{Method \code{ProjectsModelsImageActivationMapsCreate()}}{
 Request the computation of image activation maps for the specified model.
 Produces: "application/json"
@@ -1708,6 +1774,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Request the computation of image activation maps for the specified model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1742,8 +1811,8 @@ result <- api.instance$ProjectsModelsImageActivationMapsCreate(projectId, modelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageActivationMapsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageActivationMapsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsModelsImageActivationMapsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsModelsImageActivationMapsList}{}}}
 \subsection{Method \code{ProjectsModelsImageActivationMapsList()}}{
 Retrieve Image Activation Maps for a feature of a model.
 Produces: "application/json"
@@ -1770,7 +1839,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Image Activation Maps for a feature of a model. Image Activation maps are a technique to get the discriminative image regions used by a CNN to identify a specific class in the image. In other words, an image activation map lets us see which regions in the image were relevant to this class.  The higher the value in the activation map the greater the effect the region had on the prediction.
+Retrieve Image Activation Maps for a feature of a model. Image Activation maps are a technique to get the discriminative image regions used by a CNN to identify a specific class in the image. In other words, an image activation map lets us see which regions in the image were relevant to this class. The higher the value in the activation map the greater the effect the region had on the prediction.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1805,8 +1877,8 @@ result <- api.instance$ProjectsModelsImageActivationMapsList(featureName, projec
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageEmbeddingsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageEmbeddingsCreate}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsModelsImageEmbeddingsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsModelsImageEmbeddingsCreate}{}}}
 \subsection{Method \code{ProjectsModelsImageEmbeddingsCreate()}}{
 Request the computation of image embeddings for the specified model.
 Produces: "application/json"
@@ -1827,6 +1899,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Request the computation of image embeddings for the specified model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1861,8 +1936,8 @@ result <- api.instance$ProjectsModelsImageEmbeddingsCreate(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageEmbeddingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageEmbeddingsList}{}}}
+\if{html}{\out{<a id="method-ImagesApi-ProjectsModelsImageEmbeddingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-ProjectsModelsImageEmbeddingsList}{}}}
 \subsection{Method \code{ProjectsModelsImageEmbeddingsList()}}{
 Retrieve ImageEmbeddings for a feature of a model.
 Produces: "application/json"
@@ -1890,6 +1965,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve ImageEmbeddings for a feature of a model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1924,8 +2002,8 @@ result <- api.instance$ProjectsModelsImageEmbeddingsList(featureName, projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ImagesApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ImagesApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -6,29 +6,17 @@
 \usage{
 UpdateComplianceDocTemplate(templateId, name = NULL, sections = NULL, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Update an existing model compliance documentation template
 }
 \details{
-Update an existing model compliance documentation template with the given ``templateId``. The template must be accessible by the user. If the ``templateId`` is not found for the user, the update cannot be performed. For a description of the template ``sections`` object options, see the sample ``sections`` on the schema below.
+Update an existing model compliance documentation template with the given \code{templateId}. The template must be accessible by the user. If the \code{templateId} is not found for the user, the update cannot be performed. For a description of the template \code{sections} object options, see the sample \code{sections} on the schema below.
+
+This method invokes \verb{PATCH /complianceDocTemplates/\{templateId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ComplianceDocTemplatesPatch in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method ComplianceDocTemplatesPatch in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

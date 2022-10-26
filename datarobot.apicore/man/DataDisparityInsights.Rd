@@ -26,16 +26,16 @@ DataDisparityInsights Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DataDisparityInsights$new()}}
-\item \href{#method-validate}{\code{DataDisparityInsights$validate()}}
-\item \href{#method-toJSON}{\code{DataDisparityInsights$toJSON()}}
-\item \href{#method-fromJSON}{\code{DataDisparityInsights$fromJSON()}}
-\item \href{#method-clone}{\code{DataDisparityInsights$clone()}}
+\item \href{#method-DataDisparityInsights-new}{\code{DataDisparityInsights$new()}}
+\item \href{#method-DataDisparityInsights-validate}{\code{DataDisparityInsights$validate()}}
+\item \href{#method-DataDisparityInsights-toJSON}{\code{DataDisparityInsights$toJSON()}}
+\item \href{#method-DataDisparityInsights-fromJSON}{\code{DataDisparityInsights$fromJSON()}}
+\item \href{#method-DataDisparityInsights-clone}{\code{DataDisparityInsights$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DataDisparityInsights-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DataDisparityInsights-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DataDisparityInsights-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DataDisparityInsights-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DataDisparityInsights$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DataDisparityInsights-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DataDisparityInsights-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DataDisparityInsights-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DataDisparityInsights-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DataDisparityInsights-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DataDisparityInsights-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

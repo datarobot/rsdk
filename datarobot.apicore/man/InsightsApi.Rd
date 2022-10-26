@@ -31,7 +31,7 @@ result <- api.instance$MultilabelInsightsHistogramList(multilabelInsightsKey)
 \dontrun{
 library(datarobot.apicore)
 multilabelInsightsKey <- 'multilabelInsightsKey_example' # character | Key for multilabel insights, unique per project, feature, and EDA stage. The most recent key can be retrieved via :http:get:`/api/v2/projects/(projectId)/features/` or :http:get:`/api/v2/projects/(projectId)/features/(featurename:featureName)/`
-pairwiseManualSelectionCreatePayload <- PairwiseManualSelectionCreatePayload$new() # PairwiseManualSelectionCreatePayload |
+pairwiseManualSelectionCreatePayload <- PairwiseManualSelectionCreatePayload$new() # PairwiseManualSelectionCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$MultilabelInsightsPairwiseManualSelectionsCreate(multilabelInsightsKey, pairwiseManualSelectionCreatePayload=pairwiseManualSelectionCreatePayload)
@@ -70,7 +70,7 @@ result <- api.instance$MultilabelInsightsPairwiseManualSelectionsList(multilabel
 library(datarobot.apicore)
 multilabelInsightsKey <- 'multilabelInsightsKey_example' # character | Key for multilabel insights, unique per project, feature, and EDA stage. The most recent key can be retrieved via :http:get:`/api/v2/projects/(projectId)/features/` or :http:get:`/api/v2/projects/(projectId)/features/(featurename:featureName)/`
 manualSelectionListId <- 'manualSelectionListId_example' # character | ID of the label set.
-pairwiseManualSelectionUpdateRequest <- PairwiseManualSelectionUpdateRequest$new() # PairwiseManualSelectionUpdateRequest |
+pairwiseManualSelectionUpdateRequest <- PairwiseManualSelectionUpdateRequest$new() # PairwiseManualSelectionUpdateRequest | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$MultilabelInsightsPairwiseManualSelectionsPatch(multilabelInsightsKey, manualSelectionListId, pairwiseManualSelectionUpdateRequest=pairwiseManualSelectionUpdateRequest)
@@ -128,7 +128,7 @@ projectId <- 'projectId_example' # character | The project ID
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
 modelId <- 'modelId_example' # character | The model ID to filter records by.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | The backtest to filter records by.
+backtest <- 'backtest_example' # OneOfintegerstring | The backtest to filter records by.
 source <- 'source_example' # character | The source of the data to filter records by.
 seriesId <- 'seriesId_example' # character | Can be specified for multiseries projects. The series id to filter records by.
 
@@ -157,8 +157,8 @@ result <- api.instance$ProjectsAnomalyAssessmentRecordsPredictionsPreviewList(pr
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 accuracyMetric <- 'accuracyMetric_example' # character | The metric to return model accuracy scores. Defaults to the optimization metric configured in project options.
-protectedFeature <- OneOfstringarray$new() # OneOfstringarray | Name of the protected feature.
-fairnessMetric <- OneOfstringarray$new() # OneOfstringarray | The fairness metric used to calculate the fairness scores.
+protectedFeature <- list(c('protectedFeature_example')) # OneOfstringarray | Name of the protected feature.
+fairnessMetric <- list(c('fairnessMetric_example')) # OneOfstringarray | The fairness metric used to calculate the fairness scores.
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsBiasVsAccuracyInsightsList(projectId, accuracyMetric=accuracyMetric, protectedFeature=protectedFeature, fairnessMetric=fairnessMetric)
@@ -173,7 +173,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 forecastDistance <- 56 # integer | Forecast distance to retrieve the data for. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
@@ -209,7 +209,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 forecastDistance <- 56 # integer | Forecast distance to retrieve the data for. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
 
@@ -226,7 +226,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
 maxBinSize <- 500 # integer | Specifies the maximum number of bins for the retrieval.
@@ -260,7 +260,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 predictionThreshold <- 0.5 # numeric | Only bins with predictions exceeding this threshold will be returned in the response.
 
@@ -337,7 +337,7 @@ result <- api.instance$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetriev
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-datetimeTrendPlotsCreate <- DatetimeTrendPlotsCreate$new() # DatetimeTrendPlotsCreate |
+datetimeTrendPlotsCreate <- DatetimeTrendPlotsCreate$new() # DatetimeTrendPlotsCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsDatetimeTrendPlotsCreate(projectId, modelId, datetimeTrendPlotsCreate=datetimeTrendPlotsCreate)
@@ -351,7 +351,7 @@ result <- api.instance$ProjectsDatetimeModelsDatetimeTrendPlotsCreate(projectId,
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureEffectsCreateDatetime <- FeatureEffectsCreateDatetime$new() # FeatureEffectsCreateDatetime |
+featureEffectsCreateDatetime <- FeatureEffectsCreateDatetime$new() # FeatureEffectsCreateDatetime | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFeatureEffectsCreate(projectId, modelId, featureEffectsCreateDatetime=featureEffectsCreateDatetime)
@@ -394,7 +394,7 @@ result <- api.instance$ProjectsDatetimeModelsFeatureEffectsMetadataList(projectI
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelXrayCreateDatetime <- ModelXrayCreateDatetime$new() # ModelXrayCreateDatetime |
+modelXrayCreateDatetime <- ModelXrayCreateDatetime$new() # ModelXrayCreateDatetime | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFeatureFitCreate(projectId, modelId, modelXrayCreateDatetime=modelXrayCreateDatetime)
@@ -452,7 +452,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
 forecastDistanceStart <- 56 # integer | The start of forecast distance range (forecast window) to retrieve. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
@@ -488,7 +488,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 
 api.instance <- InsightsApi$new()
@@ -503,7 +503,7 @@ result <- api.instance$ProjectsDatetimeModelsForecastVsActualPlotsPreviewList(pr
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-multiclassFeatureEffectDatetimeCreate <- MulticlassFeatureEffectDatetimeCreate$new() # MulticlassFeatureEffectDatetimeCreate |
+multiclassFeatureEffectDatetimeCreate <- MulticlassFeatureEffectDatetimeCreate$new() # MulticlassFeatureEffectDatetimeCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsMulticlassFeatureEffectsCreate(projectId, modelId, multiclassFeatureEffectDatetimeCreate=multiclassFeatureEffectDatetimeCreate)
@@ -552,7 +552,7 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesHistogramsList(attribute
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-seriesAccuracyCompute <- SeriesAccuracyCompute$new() # SeriesAccuracyCompute |
+seriesAccuracyCompute <- SeriesAccuracyCompute$new() # SeriesAccuracyCompute | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresCreate(projectId, modelId, seriesAccuracyCompute=seriesAccuracyCompute)
@@ -589,9 +589,10 @@ orderBy <- 'orderBy_example' # character | Used for sorting the series. Supporte
 filterBy <- 'filterBy_example' # character | Used to specify on which attribute values to filter the series.Supported attributes for filtering include: \"rowCount\", \"startDate\", \"endDate\", \"targetAverage\", \"validationScore\", \"holdoutScore\", and \"backtestingScore\".`filterByBins` and `numberOfBins` are required if this parameter is used.
 numberOfBins <- 'numberOfBins_example' # character | Used to specify the number of bins in the histogram on which to filter the series.Can be 10, 20 or 50.`filterBy` and `filterByBins` are required if this parameter is used.
 filterByBins <- 'filterByBins_example' # character | Used to specify the multiseries histogram bins on which to filter the series.`filterBy` and `numberOfBins` are required if this parameter is used.
+clusterNames <- 'clusterNames_example' # character | Used to specify the specific cluster on which to filter the series.`filterBy` is required if this parameter is used.Only valid for unsupervised clustering projects.
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit, projectId, modelId, multiseriesValue=multiseriesValue, metric=metric, orderBy=orderBy, filterBy=filterBy, numberOfBins=numberOfBins, filterByBins=filterByBins)
+result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit, projectId, modelId, multiseriesValue=multiseriesValue, metric=metric, orderBy=orderBy, filterBy=filterBy, numberOfBins=numberOfBins, filterByBins=filterByBins, clusterNames=clusterNames)
 }
 
 ## ------------------------------------------------
@@ -601,7 +602,7 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-externalScoresCreate <- ExternalScoresCreate$new() # ExternalScoresCreate |
+externalScoresCreate <- ExternalScoresCreate$new() # ExternalScoresCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsExternalScoresCreate(projectId, externalScoresCreate=externalScoresCreate)
@@ -642,7 +643,7 @@ result <- api.instance$ProjectsFeatureAssociationFeaturelistsList(projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-featureAssociationCreatePayload <- FeatureAssociationCreatePayload$new() # FeatureAssociationCreatePayload |
+featureAssociationCreatePayload <- FeatureAssociationCreatePayload$new() # FeatureAssociationCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsFeatureAssociationMatrixCreate(projectId, featureAssociationCreatePayload=featureAssociationCreatePayload)
@@ -698,7 +699,7 @@ result <- api.instance$ProjectsFeaturesFrequentValuesList(projectId, featureName
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | Project Id. It is the project to select the location feature from.
-geometryFeaturePLotCreatePayload <- GeometryFeaturePLotCreatePayload$new() # GeometryFeaturePLotCreatePayload |
+geometryFeaturePLotCreatePayload <- GeometryFeaturePLotCreatePayload$new() # GeometryFeaturePLotCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsGeometryFeaturePlotsCreate(projectId, geometryFeaturePLotCreatePayload=geometryFeaturePLotCreatePayload)
@@ -753,7 +754,7 @@ result <- api.instance$ProjectsImageEmbeddingsList(projectId, offset=offset, lim
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-anomalyAssessmentInitialize <- AnomalyAssessmentInitialize$new() # AnomalyAssessmentInitialize |
+anomalyAssessmentInitialize <- AnomalyAssessmentInitialize$new() # AnomalyAssessmentInitialize | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsAnomalyAssessmentInitializationCreate(projectId, modelId, anomalyAssessmentInitialize=anomalyAssessmentInitialize)
@@ -795,7 +796,7 @@ result <- api.instance$ProjectsModelsAnomalyInsightsTableList(projectId, modelId
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsClusterInsightsCreate(projectId, modelId, body=body)
@@ -810,9 +811,10 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 format <- "CSV" # character | A format to use.
+featurelistId <- 'featurelistId_example' # character | The ID of the featurelist to download data for. If not specified all columns will be downloaded.
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsModelsClusterInsightsDownloadList(projectId, modelId, format=format)
+result <- api.instance$ProjectsModelsClusterInsightsDownloadList(projectId, modelId, format=format, featurelistId=featurelistId)
 }
 
 ## ------------------------------------------------
@@ -933,7 +935,7 @@ result <- api.instance$ProjectsModelsCrossClassAccuracyScoresList(projectId, mod
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-dataDisparityCreatePayload <- DataDisparityCreatePayload$new() # DataDisparityCreatePayload |
+dataDisparityCreatePayload <- DataDisparityCreatePayload$new() # DataDisparityCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsDataDisparityInsightsCreate(projectId, modelId, dataDisparityCreatePayload=dataDisparityCreatePayload)
@@ -1103,7 +1105,7 @@ result <- api.instance$ProjectsModelsDatasetRocCurvesList(projectId, modelId, of
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-fairnessInsightsStartCalculationPayload <- FairnessInsightsStartCalculationPayload$new() # FairnessInsightsStartCalculationPayload |
+fairnessInsightsStartCalculationPayload <- FairnessInsightsStartCalculationPayload$new() # FairnessInsightsStartCalculationPayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFairnessInsightsCreate(projectId, modelId, fairnessInsightsStartCalculationPayload=fairnessInsightsStartCalculationPayload)
@@ -1133,7 +1135,7 @@ result <- api.instance$ProjectsModelsFairnessInsightsList(projectId, modelId, of
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureEffectCreate <- FeatureEffectCreate$new() # FeatureEffectCreate |
+featureEffectCreate <- FeatureEffectCreate$new() # FeatureEffectCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFeatureEffectsCreate(projectId, modelId, featureEffectCreate=featureEffectCreate)
@@ -1216,10 +1218,10 @@ result <- api.instance$ProjectsModelsFeatureFitMetadataList(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+permutationFeatureImpactCreatePayload <- PermutationFeatureImpactCreatePayload$new() # PermutationFeatureImpactCreatePayload | 
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, featureImpactCreatePayload=featureImpactCreatePayload)
+result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, permutationFeatureImpactCreatePayload=permutationFeatureImpactCreatePayload)
 }
 
 ## ------------------------------------------------
@@ -1230,7 +1232,7 @@ result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, fea
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-backtest <- 'backtest_example' # character | The backtest value is used for Feature Impact computation. It is possible to re-compute Feature Impact for different backtests in datetime partitioned models.
+backtest <- 'backtest_example' # OneOfintegerstring | The backtest value used for Feature Impact computation. Applicable for datetime aware models.
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFeatureImpactList(projectId, modelId, backtest=backtest)
@@ -1365,7 +1367,7 @@ result <- api.instance$ProjectsModelsLiftChartRetrieve(projectId, modelId, sourc
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-multiclassFeatureEffectCreate <- MulticlassFeatureEffectCreate$new() # MulticlassFeatureEffectCreate |
+multiclassFeatureEffectCreate <- MulticlassFeatureEffectCreate$new() # MulticlassFeatureEffectCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsMulticlassFeatureEffectsCreate(projectId, modelId, multiclassFeatureEffectCreate=multiclassFeatureEffectCreate)
@@ -1452,7 +1454,7 @@ result <- api.instance$ProjectsModelsMultilabelLiftChartsRetrieve(projectId, mod
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate |
+predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(projectId, modelId, predictionExplanationsInitializationCreate=predictionExplanationsInitializationCreate)
@@ -1480,7 +1482,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in the PredictionExplanationsSample response.
-predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve |
+predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(projectId, modelId, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsInitializationRetrieve=predictionExplanationsInitializationRetrieve)
@@ -1548,7 +1550,7 @@ result <- api.instance$ProjectsModelsRocCurveRetrieve(projectId, modelId, source
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsShapImpactCreate(projectId, modelId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -1612,7 +1614,7 @@ result <- api.instance$ProjectsMulticategoricalInvalidFormatList(projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate |
+payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPayoffMatricesCreate(projectId, payoffMatricesCreate=payoffMatricesCreate)
@@ -1653,7 +1655,7 @@ result <- api.instance$ProjectsPayoffMatricesList(offset, limit, projectId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 payoffMatrixId <- 'payoffMatrixId_example' # character | ObjectId of the payoff matrix.
-payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate |
+payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPayoffMatricesPut(projectId, payoffMatrixId, payoffMatricesCreate=payoffMatricesCreate)
@@ -1666,7 +1668,7 @@ result <- api.instance$ProjectsPayoffMatricesPut(projectId, payoffMatrixId, payo
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate |
+predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictionExplanationsCreate=predictionExplanationsCreate)
@@ -1683,7 +1685,7 @@ projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
 offset <- 0 # integer | This many results will be skipped.
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in PredictionExplanationsRow response.
-predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve |
+predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, predictionExplanationsId, offset=offset, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsRetrieve=predictionExplanationsRetrieve)
@@ -1725,7 +1727,7 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsList(projectId, offs
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
-predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord |
+predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, predictionExplanationsId, predictionExplanationsRecord=predictionExplanationsRecord)
@@ -1738,7 +1740,7 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, 
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createShapMatrixPayload <- CreateShapMatrixPayload$new() # CreateShapMatrixPayload |
+createShapMatrixPayload <- CreateShapMatrixPayload$new() # CreateShapMatrixPayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsShapMatricesCreate(projectId, createShapMatrixPayload=createShapMatrixPayload)
@@ -1781,132 +1783,132 @@ result <- api.instance$ProjectsShapMatricesRetrieve(projectId, shapMatrixId)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InsightsApi$new()}}
-\item \href{#method-MultilabelInsightsHistogramList}{\code{InsightsApi$MultilabelInsightsHistogramList()}}
-\item \href{#method-MultilabelInsightsPairwiseManualSelectionsCreate}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsCreate()}}
-\item \href{#method-MultilabelInsightsPairwiseManualSelectionsDelete}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsDelete()}}
-\item \href{#method-MultilabelInsightsPairwiseManualSelectionsList}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsList()}}
-\item \href{#method-MultilabelInsightsPairwiseManualSelectionsPatch}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsPatch()}}
-\item \href{#method-MultilabelInsightsPairwiseStatisticsList}{\code{InsightsApi$MultilabelInsightsPairwiseStatisticsList()}}
-\item \href{#method-ProjectsAnomalyAssessmentRecordsDelete}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsDelete()}}
-\item \href{#method-ProjectsAnomalyAssessmentRecordsExplanationsList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsExplanationsList()}}
-\item \href{#method-ProjectsAnomalyAssessmentRecordsList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsList()}}
-\item \href{#method-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsPredictionsPreviewList()}}
-\item \href{#method-ProjectsBiasVsAccuracyInsightsList}{\code{InsightsApi$ProjectsBiasVsAccuracyInsightsList()}}
-\item \href{#method-ProjectsDatetimeModelsAccuracyOverTimePlotsList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsList()}}
-\item \href{#method-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList()}}
-\item \href{#method-ProjectsDatetimeModelsAnomalyOverTimePlotsList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsList()}}
-\item \href{#method-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList()}}
-\item \href{#method-ProjectsDatetimeModelsBacktestStabilityPlotList}{\code{InsightsApi$ProjectsDatetimeModelsBacktestStabilityPlotList()}}
-\item \href{#method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList()}}
-\item \href{#method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve()}}
-\item \href{#method-ProjectsDatetimeModelsDatetimeTrendPlotsCreate}{\code{InsightsApi$ProjectsDatetimeModelsDatetimeTrendPlotsCreate()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureEffectsCreate}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsCreate()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureEffectsList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsList()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureEffectsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureFitCreate}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitCreate()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureFitList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitList()}}
-\item \href{#method-ProjectsDatetimeModelsFeatureFitMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsForecastDistanceStabilityPlotList}{\code{InsightsApi$ProjectsDatetimeModelsForecastDistanceStabilityPlotList()}}
-\item \href{#method-ProjectsDatetimeModelsForecastVsActualPlotsList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsList()}}
-\item \href{#method-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsMetadataList()}}
-\item \href{#method-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsPreviewList()}}
-\item \href{#method-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate}{\code{InsightsApi$ProjectsDatetimeModelsMulticlassFeatureEffectsCreate()}}
-\item \href{#method-ProjectsDatetimeModelsMulticlassFeatureEffectsList}{\code{InsightsApi$ProjectsDatetimeModelsMulticlassFeatureEffectsList()}}
-\item \href{#method-ProjectsDatetimeModelsMultiseriesHistogramsList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesHistogramsList()}}
-\item \href{#method-ProjectsDatetimeModelsMultiseriesScoresCreate}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresCreate()}}
-\item \href{#method-ProjectsDatetimeModelsMultiseriesScoresFileList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresFileList()}}
-\item \href{#method-ProjectsDatetimeModelsMultiseriesScoresList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresList()}}
-\item \href{#method-ProjectsExternalScoresCreate}{\code{InsightsApi$ProjectsExternalScoresCreate()}}
-\item \href{#method-ProjectsExternalScoresList}{\code{InsightsApi$ProjectsExternalScoresList()}}
-\item \href{#method-ProjectsFeatureAssociationFeaturelistsList}{\code{InsightsApi$ProjectsFeatureAssociationFeaturelistsList()}}
-\item \href{#method-ProjectsFeatureAssociationMatrixCreate}{\code{InsightsApi$ProjectsFeatureAssociationMatrixCreate()}}
-\item \href{#method-ProjectsFeatureAssociationMatrixDetailsList}{\code{InsightsApi$ProjectsFeatureAssociationMatrixDetailsList()}}
-\item \href{#method-ProjectsFeatureAssociationMatrixList}{\code{InsightsApi$ProjectsFeatureAssociationMatrixList()}}
-\item \href{#method-ProjectsFeaturesFrequentValuesList}{\code{InsightsApi$ProjectsFeaturesFrequentValuesList()}}
-\item \href{#method-ProjectsGeometryFeaturePlotsCreate}{\code{InsightsApi$ProjectsGeometryFeaturePlotsCreate()}}
-\item \href{#method-ProjectsGeometryFeaturePlotsRetrieve}{\code{InsightsApi$ProjectsGeometryFeaturePlotsRetrieve()}}
-\item \href{#method-ProjectsImageActivationMapsList}{\code{InsightsApi$ProjectsImageActivationMapsList()}}
-\item \href{#method-ProjectsImageEmbeddingsList}{\code{InsightsApi$ProjectsImageEmbeddingsList()}}
-\item \href{#method-ProjectsModelsAnomalyAssessmentInitializationCreate}{\code{InsightsApi$ProjectsModelsAnomalyAssessmentInitializationCreate()}}
-\item \href{#method-ProjectsModelsAnomalyInsightsFileList}{\code{InsightsApi$ProjectsModelsAnomalyInsightsFileList()}}
-\item \href{#method-ProjectsModelsAnomalyInsightsTableList}{\code{InsightsApi$ProjectsModelsAnomalyInsightsTableList()}}
-\item \href{#method-ProjectsModelsClusterInsightsCreate}{\code{InsightsApi$ProjectsModelsClusterInsightsCreate()}}
-\item \href{#method-ProjectsModelsClusterInsightsDownloadList}{\code{InsightsApi$ProjectsModelsClusterInsightsDownloadList()}}
-\item \href{#method-ProjectsModelsClusterInsightsList}{\code{InsightsApi$ProjectsModelsClusterInsightsList()}}
-\item \href{#method-ProjectsModelsConfusionChartsClassDetailsList}{\code{InsightsApi$ProjectsModelsConfusionChartsClassDetailsList()}}
-\item \href{#method-ProjectsModelsConfusionChartsList}{\code{InsightsApi$ProjectsModelsConfusionChartsList()}}
-\item \href{#method-ProjectsModelsConfusionChartsMetadataList}{\code{InsightsApi$ProjectsModelsConfusionChartsMetadataList()}}
-\item \href{#method-ProjectsModelsConfusionChartsRetrieve}{\code{InsightsApi$ProjectsModelsConfusionChartsRetrieve()}}
-\item \href{#method-ProjectsModelsCrossClassAccuracyScoresCreate}{\code{InsightsApi$ProjectsModelsCrossClassAccuracyScoresCreate()}}
-\item \href{#method-ProjectsModelsCrossClassAccuracyScoresList}{\code{InsightsApi$ProjectsModelsCrossClassAccuracyScoresList()}}
-\item \href{#method-ProjectsModelsDataDisparityInsightsCreate}{\code{InsightsApi$ProjectsModelsDataDisparityInsightsCreate()}}
-\item \href{#method-ProjectsModelsDataDisparityInsightsList}{\code{InsightsApi$ProjectsModelsDataDisparityInsightsList()}}
-\item \href{#method-ProjectsModelsDatasetConfusionChartsClassDetailsList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsClassDetailsList()}}
-\item \href{#method-ProjectsModelsDatasetConfusionChartsList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsList()}}
-\item \href{#method-ProjectsModelsDatasetConfusionChartsMetadataList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsMetadataList()}}
-\item \href{#method-ProjectsModelsDatasetConfusionChartsRetrieve}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsRetrieve()}}
-\item \href{#method-ProjectsModelsDatasetLiftChartsList}{\code{InsightsApi$ProjectsModelsDatasetLiftChartsList()}}
-\item \href{#method-ProjectsModelsDatasetMulticlassLiftChartsList}{\code{InsightsApi$ProjectsModelsDatasetMulticlassLiftChartsList()}}
-\item \href{#method-ProjectsModelsDatasetResidualsChartsList}{\code{InsightsApi$ProjectsModelsDatasetResidualsChartsList()}}
-\item \href{#method-ProjectsModelsDatasetRocCurvesList}{\code{InsightsApi$ProjectsModelsDatasetRocCurvesList()}}
-\item \href{#method-ProjectsModelsFairnessInsightsCreate}{\code{InsightsApi$ProjectsModelsFairnessInsightsCreate()}}
-\item \href{#method-ProjectsModelsFairnessInsightsList}{\code{InsightsApi$ProjectsModelsFairnessInsightsList()}}
-\item \href{#method-ProjectsModelsFeatureEffectsCreate}{\code{InsightsApi$ProjectsModelsFeatureEffectsCreate()}}
-\item \href{#method-ProjectsModelsFeatureEffectsList}{\code{InsightsApi$ProjectsModelsFeatureEffectsList()}}
-\item \href{#method-ProjectsModelsFeatureEffectsMetadataList}{\code{InsightsApi$ProjectsModelsFeatureEffectsMetadataList()}}
-\item \href{#method-ProjectsModelsFeatureFitCreate}{\code{InsightsApi$ProjectsModelsFeatureFitCreate()}}
-\item \href{#method-ProjectsModelsFeatureFitList}{\code{InsightsApi$ProjectsModelsFeatureFitList()}}
-\item \href{#method-ProjectsModelsFeatureFitMetadataList}{\code{InsightsApi$ProjectsModelsFeatureFitMetadataList()}}
-\item \href{#method-ProjectsModelsFeatureImpactCreate}{\code{InsightsApi$ProjectsModelsFeatureImpactCreate()}}
-\item \href{#method-ProjectsModelsFeatureImpactList}{\code{InsightsApi$ProjectsModelsFeatureImpactList()}}
-\item \href{#method-ProjectsModelsFeatureListsClusterInsightsList}{\code{InsightsApi$ProjectsModelsFeatureListsClusterInsightsList()}}
-\item \href{#method-ProjectsModelsImageActivationMapsCreate}{\code{InsightsApi$ProjectsModelsImageActivationMapsCreate()}}
-\item \href{#method-ProjectsModelsImageActivationMapsList}{\code{InsightsApi$ProjectsModelsImageActivationMapsList()}}
-\item \href{#method-ProjectsModelsImageEmbeddingsCreate}{\code{InsightsApi$ProjectsModelsImageEmbeddingsCreate()}}
-\item \href{#method-ProjectsModelsImageEmbeddingsList}{\code{InsightsApi$ProjectsModelsImageEmbeddingsList()}}
-\item \href{#method-ProjectsModelsLabelwiseRocCurvesList}{\code{InsightsApi$ProjectsModelsLabelwiseRocCurvesList()}}
-\item \href{#method-ProjectsModelsLiftChartList}{\code{InsightsApi$ProjectsModelsLiftChartList()}}
-\item \href{#method-ProjectsModelsLiftChartRetrieve}{\code{InsightsApi$ProjectsModelsLiftChartRetrieve()}}
-\item \href{#method-ProjectsModelsMulticlassFeatureEffectsCreate}{\code{InsightsApi$ProjectsModelsMulticlassFeatureEffectsCreate()}}
-\item \href{#method-ProjectsModelsMulticlassFeatureEffectsList}{\code{InsightsApi$ProjectsModelsMulticlassFeatureEffectsList()}}
-\item \href{#method-ProjectsModelsMulticlassFeatureImpactList}{\code{InsightsApi$ProjectsModelsMulticlassFeatureImpactList()}}
-\item \href{#method-ProjectsModelsMulticlassLiftChartList}{\code{InsightsApi$ProjectsModelsMulticlassLiftChartList()}}
-\item \href{#method-ProjectsModelsMulticlassLiftChartRetrieve}{\code{InsightsApi$ProjectsModelsMulticlassLiftChartRetrieve()}}
-\item \href{#method-ProjectsModelsMultilabelLiftChartsRetrieve}{\code{InsightsApi$ProjectsModelsMultilabelLiftChartsRetrieve()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationCreate}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationCreate()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}
-\item \href{#method-ProjectsModelsPredictionExplanationsInitializationList}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationList()}}
-\item \href{#method-ProjectsModelsResidualsList}{\code{InsightsApi$ProjectsModelsResidualsList()}}
-\item \href{#method-ProjectsModelsResidualsRetrieve}{\code{InsightsApi$ProjectsModelsResidualsRetrieve()}}
-\item \href{#method-ProjectsModelsRocCurveList}{\code{InsightsApi$ProjectsModelsRocCurveList()}}
-\item \href{#method-ProjectsModelsRocCurveRetrieve}{\code{InsightsApi$ProjectsModelsRocCurveRetrieve()}}
-\item \href{#method-ProjectsModelsShapImpactCreate}{\code{InsightsApi$ProjectsModelsShapImpactCreate()}}
-\item \href{#method-ProjectsModelsShapImpactList}{\code{InsightsApi$ProjectsModelsShapImpactList()}}
-\item \href{#method-ProjectsModelsWordCloudList}{\code{InsightsApi$ProjectsModelsWordCloudList()}}
-\item \href{#method-ProjectsMulticategoricalInvalidFormatFileList}{\code{InsightsApi$ProjectsMulticategoricalInvalidFormatFileList()}}
-\item \href{#method-ProjectsMulticategoricalInvalidFormatList}{\code{InsightsApi$ProjectsMulticategoricalInvalidFormatList()}}
-\item \href{#method-ProjectsPayoffMatricesCreate}{\code{InsightsApi$ProjectsPayoffMatricesCreate()}}
-\item \href{#method-ProjectsPayoffMatricesDelete}{\code{InsightsApi$ProjectsPayoffMatricesDelete()}}
-\item \href{#method-ProjectsPayoffMatricesList}{\code{InsightsApi$ProjectsPayoffMatricesList()}}
-\item \href{#method-ProjectsPayoffMatricesPut}{\code{InsightsApi$ProjectsPayoffMatricesPut()}}
-\item \href{#method-ProjectsPredictionExplanationsCreate}{\code{InsightsApi$ProjectsPredictionExplanationsCreate()}}
-\item \href{#method-ProjectsPredictionExplanationsList}{\code{InsightsApi$ProjectsPredictionExplanationsList()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsDelete}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsDelete()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsList}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsList()}}
-\item \href{#method-ProjectsPredictionExplanationsRecordsRetrieve}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsRetrieve()}}
-\item \href{#method-ProjectsShapMatricesCreate}{\code{InsightsApi$ProjectsShapMatricesCreate()}}
-\item \href{#method-ProjectsShapMatricesList}{\code{InsightsApi$ProjectsShapMatricesList()}}
-\item \href{#method-ProjectsShapMatricesRetrieve}{\code{InsightsApi$ProjectsShapMatricesRetrieve()}}
-\item \href{#method-clone}{\code{InsightsApi$clone()}}
+\item \href{#method-InsightsApi-new}{\code{InsightsApi$new()}}
+\item \href{#method-InsightsApi-MultilabelInsightsHistogramList}{\code{InsightsApi$MultilabelInsightsHistogramList()}}
+\item \href{#method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsCreate}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsCreate()}}
+\item \href{#method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsDelete}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsDelete()}}
+\item \href{#method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsList}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsList()}}
+\item \href{#method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsPatch}{\code{InsightsApi$MultilabelInsightsPairwiseManualSelectionsPatch()}}
+\item \href{#method-InsightsApi-MultilabelInsightsPairwiseStatisticsList}{\code{InsightsApi$MultilabelInsightsPairwiseStatisticsList()}}
+\item \href{#method-InsightsApi-ProjectsAnomalyAssessmentRecordsDelete}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsDelete()}}
+\item \href{#method-InsightsApi-ProjectsAnomalyAssessmentRecordsExplanationsList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsExplanationsList()}}
+\item \href{#method-InsightsApi-ProjectsAnomalyAssessmentRecordsList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsList()}}
+\item \href{#method-InsightsApi-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList}{\code{InsightsApi$ProjectsAnomalyAssessmentRecordsPredictionsPreviewList()}}
+\item \href{#method-InsightsApi-ProjectsBiasVsAccuracyInsightsList}{\code{InsightsApi$ProjectsBiasVsAccuracyInsightsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsBacktestStabilityPlotList}{\code{InsightsApi$ProjectsDatetimeModelsBacktestStabilityPlotList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve}{\code{InsightsApi$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsDatetimeTrendPlotsCreate}{\code{InsightsApi$ProjectsDatetimeModelsDatetimeTrendPlotsCreate()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsCreate}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsCreate()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureEffectsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureFitCreate}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitCreate()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureFitList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsFeatureFitMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsFeatureFitMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsForecastDistanceStabilityPlotList}{\code{InsightsApi$ProjectsDatetimeModelsForecastDistanceStabilityPlotList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList}{\code{InsightsApi$ProjectsDatetimeModelsForecastVsActualPlotsPreviewList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate}{\code{InsightsApi$ProjectsDatetimeModelsMulticlassFeatureEffectsCreate()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsList}{\code{InsightsApi$ProjectsDatetimeModelsMulticlassFeatureEffectsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMultiseriesHistogramsList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesHistogramsList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresCreate}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresCreate()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresFileList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresFileList()}}
+\item \href{#method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresList}{\code{InsightsApi$ProjectsDatetimeModelsMultiseriesScoresList()}}
+\item \href{#method-InsightsApi-ProjectsExternalScoresCreate}{\code{InsightsApi$ProjectsExternalScoresCreate()}}
+\item \href{#method-InsightsApi-ProjectsExternalScoresList}{\code{InsightsApi$ProjectsExternalScoresList()}}
+\item \href{#method-InsightsApi-ProjectsFeatureAssociationFeaturelistsList}{\code{InsightsApi$ProjectsFeatureAssociationFeaturelistsList()}}
+\item \href{#method-InsightsApi-ProjectsFeatureAssociationMatrixCreate}{\code{InsightsApi$ProjectsFeatureAssociationMatrixCreate()}}
+\item \href{#method-InsightsApi-ProjectsFeatureAssociationMatrixDetailsList}{\code{InsightsApi$ProjectsFeatureAssociationMatrixDetailsList()}}
+\item \href{#method-InsightsApi-ProjectsFeatureAssociationMatrixList}{\code{InsightsApi$ProjectsFeatureAssociationMatrixList()}}
+\item \href{#method-InsightsApi-ProjectsFeaturesFrequentValuesList}{\code{InsightsApi$ProjectsFeaturesFrequentValuesList()}}
+\item \href{#method-InsightsApi-ProjectsGeometryFeaturePlotsCreate}{\code{InsightsApi$ProjectsGeometryFeaturePlotsCreate()}}
+\item \href{#method-InsightsApi-ProjectsGeometryFeaturePlotsRetrieve}{\code{InsightsApi$ProjectsGeometryFeaturePlotsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsImageActivationMapsList}{\code{InsightsApi$ProjectsImageActivationMapsList()}}
+\item \href{#method-InsightsApi-ProjectsImageEmbeddingsList}{\code{InsightsApi$ProjectsImageEmbeddingsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsAnomalyAssessmentInitializationCreate}{\code{InsightsApi$ProjectsModelsAnomalyAssessmentInitializationCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsAnomalyInsightsFileList}{\code{InsightsApi$ProjectsModelsAnomalyInsightsFileList()}}
+\item \href{#method-InsightsApi-ProjectsModelsAnomalyInsightsTableList}{\code{InsightsApi$ProjectsModelsAnomalyInsightsTableList()}}
+\item \href{#method-InsightsApi-ProjectsModelsClusterInsightsCreate}{\code{InsightsApi$ProjectsModelsClusterInsightsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsClusterInsightsDownloadList}{\code{InsightsApi$ProjectsModelsClusterInsightsDownloadList()}}
+\item \href{#method-InsightsApi-ProjectsModelsClusterInsightsList}{\code{InsightsApi$ProjectsModelsClusterInsightsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsConfusionChartsClassDetailsList}{\code{InsightsApi$ProjectsModelsConfusionChartsClassDetailsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsConfusionChartsList}{\code{InsightsApi$ProjectsModelsConfusionChartsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsConfusionChartsMetadataList}{\code{InsightsApi$ProjectsModelsConfusionChartsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsModelsConfusionChartsRetrieve}{\code{InsightsApi$ProjectsModelsConfusionChartsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresCreate}{\code{InsightsApi$ProjectsModelsCrossClassAccuracyScoresCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresList}{\code{InsightsApi$ProjectsModelsCrossClassAccuracyScoresList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDataDisparityInsightsCreate}{\code{InsightsApi$ProjectsModelsDataDisparityInsightsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsDataDisparityInsightsList}{\code{InsightsApi$ProjectsModelsDataDisparityInsightsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetConfusionChartsClassDetailsList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsClassDetailsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetConfusionChartsList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetConfusionChartsMetadataList}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetConfusionChartsRetrieve}{\code{InsightsApi$ProjectsModelsDatasetConfusionChartsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetLiftChartsList}{\code{InsightsApi$ProjectsModelsDatasetLiftChartsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetMulticlassLiftChartsList}{\code{InsightsApi$ProjectsModelsDatasetMulticlassLiftChartsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetResidualsChartsList}{\code{InsightsApi$ProjectsModelsDatasetResidualsChartsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsDatasetRocCurvesList}{\code{InsightsApi$ProjectsModelsDatasetRocCurvesList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFairnessInsightsCreate}{\code{InsightsApi$ProjectsModelsFairnessInsightsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsFairnessInsightsList}{\code{InsightsApi$ProjectsModelsFairnessInsightsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureEffectsCreate}{\code{InsightsApi$ProjectsModelsFeatureEffectsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureEffectsList}{\code{InsightsApi$ProjectsModelsFeatureEffectsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureEffectsMetadataList}{\code{InsightsApi$ProjectsModelsFeatureEffectsMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureFitCreate}{\code{InsightsApi$ProjectsModelsFeatureFitCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureFitList}{\code{InsightsApi$ProjectsModelsFeatureFitList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureFitMetadataList}{\code{InsightsApi$ProjectsModelsFeatureFitMetadataList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureImpactCreate}{\code{InsightsApi$ProjectsModelsFeatureImpactCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureImpactList}{\code{InsightsApi$ProjectsModelsFeatureImpactList()}}
+\item \href{#method-InsightsApi-ProjectsModelsFeatureListsClusterInsightsList}{\code{InsightsApi$ProjectsModelsFeatureListsClusterInsightsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsImageActivationMapsCreate}{\code{InsightsApi$ProjectsModelsImageActivationMapsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsImageActivationMapsList}{\code{InsightsApi$ProjectsModelsImageActivationMapsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsImageEmbeddingsCreate}{\code{InsightsApi$ProjectsModelsImageEmbeddingsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsImageEmbeddingsList}{\code{InsightsApi$ProjectsModelsImageEmbeddingsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsLabelwiseRocCurvesList}{\code{InsightsApi$ProjectsModelsLabelwiseRocCurvesList()}}
+\item \href{#method-InsightsApi-ProjectsModelsLiftChartList}{\code{InsightsApi$ProjectsModelsLiftChartList()}}
+\item \href{#method-InsightsApi-ProjectsModelsLiftChartRetrieve}{\code{InsightsApi$ProjectsModelsLiftChartRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsCreate}{\code{InsightsApi$ProjectsModelsMulticlassFeatureEffectsCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsList}{\code{InsightsApi$ProjectsModelsMulticlassFeatureEffectsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsMulticlassFeatureImpactList}{\code{InsightsApi$ProjectsModelsMulticlassFeatureImpactList()}}
+\item \href{#method-InsightsApi-ProjectsModelsMulticlassLiftChartList}{\code{InsightsApi$ProjectsModelsMulticlassLiftChartList()}}
+\item \href{#method-InsightsApi-ProjectsModelsMulticlassLiftChartRetrieve}{\code{InsightsApi$ProjectsModelsMulticlassLiftChartRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsMultilabelLiftChartsRetrieve}{\code{InsightsApi$ProjectsModelsMultilabelLiftChartsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationCreate}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}
+\item \href{#method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationList}{\code{InsightsApi$ProjectsModelsPredictionExplanationsInitializationList()}}
+\item \href{#method-InsightsApi-ProjectsModelsResidualsList}{\code{InsightsApi$ProjectsModelsResidualsList()}}
+\item \href{#method-InsightsApi-ProjectsModelsResidualsRetrieve}{\code{InsightsApi$ProjectsModelsResidualsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsRocCurveList}{\code{InsightsApi$ProjectsModelsRocCurveList()}}
+\item \href{#method-InsightsApi-ProjectsModelsRocCurveRetrieve}{\code{InsightsApi$ProjectsModelsRocCurveRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsModelsShapImpactCreate}{\code{InsightsApi$ProjectsModelsShapImpactCreate()}}
+\item \href{#method-InsightsApi-ProjectsModelsShapImpactList}{\code{InsightsApi$ProjectsModelsShapImpactList()}}
+\item \href{#method-InsightsApi-ProjectsModelsWordCloudList}{\code{InsightsApi$ProjectsModelsWordCloudList()}}
+\item \href{#method-InsightsApi-ProjectsMulticategoricalInvalidFormatFileList}{\code{InsightsApi$ProjectsMulticategoricalInvalidFormatFileList()}}
+\item \href{#method-InsightsApi-ProjectsMulticategoricalInvalidFormatList}{\code{InsightsApi$ProjectsMulticategoricalInvalidFormatList()}}
+\item \href{#method-InsightsApi-ProjectsPayoffMatricesCreate}{\code{InsightsApi$ProjectsPayoffMatricesCreate()}}
+\item \href{#method-InsightsApi-ProjectsPayoffMatricesDelete}{\code{InsightsApi$ProjectsPayoffMatricesDelete()}}
+\item \href{#method-InsightsApi-ProjectsPayoffMatricesList}{\code{InsightsApi$ProjectsPayoffMatricesList()}}
+\item \href{#method-InsightsApi-ProjectsPayoffMatricesPut}{\code{InsightsApi$ProjectsPayoffMatricesPut()}}
+\item \href{#method-InsightsApi-ProjectsPredictionExplanationsCreate}{\code{InsightsApi$ProjectsPredictionExplanationsCreate()}}
+\item \href{#method-InsightsApi-ProjectsPredictionExplanationsList}{\code{InsightsApi$ProjectsPredictionExplanationsList()}}
+\item \href{#method-InsightsApi-ProjectsPredictionExplanationsRecordsDelete}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsDelete()}}
+\item \href{#method-InsightsApi-ProjectsPredictionExplanationsRecordsList}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsList()}}
+\item \href{#method-InsightsApi-ProjectsPredictionExplanationsRecordsRetrieve}{\code{InsightsApi$ProjectsPredictionExplanationsRecordsRetrieve()}}
+\item \href{#method-InsightsApi-ProjectsShapMatricesCreate}{\code{InsightsApi$ProjectsShapMatricesCreate()}}
+\item \href{#method-InsightsApi-ProjectsShapMatricesList}{\code{InsightsApi$ProjectsShapMatricesList()}}
+\item \href{#method-InsightsApi-ProjectsShapMatricesRetrieve}{\code{InsightsApi$ProjectsShapMatricesRetrieve()}}
+\item \href{#method-InsightsApi-clone}{\code{InsightsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InsightsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InsightsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1921,8 +1923,8 @@ result <- api.instance$ProjectsShapMatricesRetrieve(projectId, shapMatrixId)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsHistogramList"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsHistogramList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsHistogramList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsHistogramList}{}}}
 \subsection{Method \code{MultilabelInsightsHistogramList()}}{
 Retrieve multicategorical feature histogram.
 Produces: "application/json"
@@ -1941,6 +1943,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve multicategorical feature histogram.
+
+
+This method invokes \verb{GET /multilabelInsights/\{multilabelInsightsKey\}/histogram/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1970,8 +1975,8 @@ result <- api.instance$MultilabelInsightsHistogramList(multilabelInsightsKey)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsPairwiseManualSelectionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsPairwiseManualSelectionsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsCreate}{}}}
 \subsection{Method \code{MultilabelInsightsPairwiseManualSelectionsCreate()}}{
 Save a list of manually selected labels for Feature Statistics matrix.
 Produces: "application/json"
@@ -1998,6 +2003,9 @@ Produces: "application/json"
 Save a list of manually selected labels for Feature Statistics matrix.
 
 
+This method invokes \verb{POST /multilabelInsights/\{multilabelInsightsKey\}/pairwiseManualSelections/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Whether manually selected labels were saved successfully.
@@ -2017,7 +2025,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 multilabelInsightsKey <- 'multilabelInsightsKey_example' # character | Key for multilabel insights, unique per project, feature, and EDA stage. The most recent key can be retrieved via :http:get:`/api/v2/projects/(projectId)/features/` or :http:get:`/api/v2/projects/(projectId)/features/(featurename:featureName)/`
-pairwiseManualSelectionCreatePayload <- PairwiseManualSelectionCreatePayload$new() # PairwiseManualSelectionCreatePayload |
+pairwiseManualSelectionCreatePayload <- PairwiseManualSelectionCreatePayload$new() # PairwiseManualSelectionCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$MultilabelInsightsPairwiseManualSelectionsCreate(multilabelInsightsKey, pairwiseManualSelectionCreatePayload=pairwiseManualSelectionCreatePayload)
@@ -2029,8 +2037,8 @@ result <- api.instance$MultilabelInsightsPairwiseManualSelectionsCreate(multilab
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsPairwiseManualSelectionsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsPairwiseManualSelectionsDelete}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsDelete}{}}}
 \subsection{Method \code{MultilabelInsightsPairwiseManualSelectionsDelete()}}{
 Delete label list.
 Produces: "application/json"
@@ -2055,6 +2063,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Delete label list.
+
+
+This method invokes \verb{DELETE /multilabelInsights/\{multilabelInsightsKey\}/pairwiseManualSelections/\{manualSelectionListId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2085,8 +2096,8 @@ result <- api.instance$MultilabelInsightsPairwiseManualSelectionsDelete(multilab
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsPairwiseManualSelectionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsPairwiseManualSelectionsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsList}{}}}
 \subsection{Method \code{MultilabelInsightsPairwiseManualSelectionsList()}}{
 Get all label lists.
 Produces: "application/json"
@@ -2108,6 +2119,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get all label lists.
+
+
+This method invokes \verb{GET /multilabelInsights/\{multilabelInsightsKey\}/pairwiseManualSelections/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2137,8 +2151,8 @@ result <- api.instance$MultilabelInsightsPairwiseManualSelectionsList(multilabel
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsPairwiseManualSelectionsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsPairwiseManualSelectionsPatch}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsPairwiseManualSelectionsPatch}{}}}
 \subsection{Method \code{MultilabelInsightsPairwiseManualSelectionsPatch()}}{
 Update label list's name.
 Produces: "application/json"
@@ -2168,6 +2182,9 @@ Produces: "application/json"
 Update label list's name.
 
 
+This method invokes \verb{PATCH /multilabelInsights/\{multilabelInsightsKey\}/pairwiseManualSelections/\{manualSelectionListId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} ID of the updated label list.
@@ -2185,7 +2202,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 multilabelInsightsKey <- 'multilabelInsightsKey_example' # character | Key for multilabel insights, unique per project, feature, and EDA stage. The most recent key can be retrieved via :http:get:`/api/v2/projects/(projectId)/features/` or :http:get:`/api/v2/projects/(projectId)/features/(featurename:featureName)/`
 manualSelectionListId <- 'manualSelectionListId_example' # character | ID of the label set.
-pairwiseManualSelectionUpdateRequest <- PairwiseManualSelectionUpdateRequest$new() # PairwiseManualSelectionUpdateRequest |
+pairwiseManualSelectionUpdateRequest <- PairwiseManualSelectionUpdateRequest$new() # PairwiseManualSelectionUpdateRequest | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$MultilabelInsightsPairwiseManualSelectionsPatch(multilabelInsightsKey, manualSelectionListId, pairwiseManualSelectionUpdateRequest=pairwiseManualSelectionUpdateRequest)
@@ -2197,8 +2214,8 @@ result <- api.instance$MultilabelInsightsPairwiseManualSelectionsPatch(multilabe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultilabelInsightsPairwiseStatisticsList"></a>}}
-\if{latex}{\out{\hypertarget{method-MultilabelInsightsPairwiseStatisticsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-MultilabelInsightsPairwiseStatisticsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-MultilabelInsightsPairwiseStatisticsList}{}}}
 \subsection{Method \code{MultilabelInsightsPairwiseStatisticsList()}}{
 Retrieve pairwise statistics for the given multilabel insights key.
 Produces: "application/json"
@@ -2223,6 +2240,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve multilabel specific pairwise label statistics for the given multilabel insights key: correlation, joint probability and conditional probability.
+
+
+This method invokes \verb{GET /multilabelInsights/\{multilabelInsightsKey\}/pairwiseStatistics/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2253,8 +2273,8 @@ result <- api.instance$MultilabelInsightsPairwiseStatisticsList(statisticType, m
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsAnomalyAssessmentRecordsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsAnomalyAssessmentRecordsDelete}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsAnomalyAssessmentRecordsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsAnomalyAssessmentRecordsDelete}{}}}
 \subsection{Method \code{ProjectsAnomalyAssessmentRecordsDelete()}}{
 Delete the anomaly assessment record.
 Produces: NA
@@ -2275,6 +2295,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the anomaly assessment record.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/anomalyAssessmentRecords/\{recordId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2305,8 +2328,8 @@ result <- api.instance$ProjectsAnomalyAssessmentRecordsDelete(projectId, recordI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsAnomalyAssessmentRecordsExplanationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsAnomalyAssessmentRecordsExplanationsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsAnomalyAssessmentRecordsExplanationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsAnomalyAssessmentRecordsExplanationsList}{}}}
 \subsection{Method \code{ProjectsAnomalyAssessmentRecordsExplanationsList()}}{
 Retrieve anomaly assessment record.
 Produces: "application/json"
@@ -2339,7 +2362,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve anomaly assessment record. Two out of three parameters: `startDate`, `endDate` or `pointsCount` must be specified.
+Retrieve anomaly assessment record. Two out of three parameters: startDate, endDate or pointsCount must be specified.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/anomalyAssessmentRecords/\{recordId\}/explanations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2379,8 +2405,8 @@ result <- api.instance$ProjectsAnomalyAssessmentRecordsExplanationsList(projectI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsAnomalyAssessmentRecordsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsAnomalyAssessmentRecordsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsAnomalyAssessmentRecordsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsAnomalyAssessmentRecordsList}{}}}
 \subsection{Method \code{ProjectsAnomalyAssessmentRecordsList()}}{
 Retrieve anomaly assessment records.
 Produces: "application/json"
@@ -2422,6 +2448,9 @@ Produces: "application/json"
 Retrieve anomaly assessment records.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/anomalyAssessmentRecords/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Retrieve anomaly assessment records.
@@ -2447,7 +2476,7 @@ projectId <- 'projectId_example' # character | The project ID
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
 modelId <- 'modelId_example' # character | The model ID to filter records by.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | The backtest to filter records by.
+backtest <- 'backtest_example' # OneOfintegerstring | The backtest to filter records by.
 source <- 'source_example' # character | The source of the data to filter records by.
 seriesId <- 'seriesId_example' # character | Can be specified for multiseries projects. The series id to filter records by.
 
@@ -2461,8 +2490,8 @@ result <- api.instance$ProjectsAnomalyAssessmentRecordsList(projectId, offset=of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsAnomalyAssessmentRecordsPredictionsPreviewList}{}}}
 \subsection{Method \code{ProjectsAnomalyAssessmentRecordsPredictionsPreviewList()}}{
 Retrieve predictions preview for the anomaly assessment record.
 Produces: "application/json"
@@ -2487,6 +2516,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve predictions preview for the anomaly assessment record.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/anomalyAssessmentRecords/\{recordId\}/predictionsPreview/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2523,8 +2555,8 @@ result <- api.instance$ProjectsAnomalyAssessmentRecordsPredictionsPreviewList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBiasVsAccuracyInsightsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBiasVsAccuracyInsightsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsBiasVsAccuracyInsightsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsBiasVsAccuracyInsightsList}{}}}
 \subsection{Method \code{ProjectsBiasVsAccuracyInsightsList()}}{
 List Bias vs Accuracy insights.
 Produces: "application/json"
@@ -2557,6 +2589,9 @@ Produces: "application/json"
 Retrieve a list of Bias vs Accuracy insights for the model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/biasVsAccuracyInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns Bias vs Accuracy results.
@@ -2574,8 +2609,8 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 accuracyMetric <- 'accuracyMetric_example' # character | The metric to return model accuracy scores. Defaults to the optimization metric configured in project options.
-protectedFeature <- OneOfstringarray$new() # OneOfstringarray | Name of the protected feature.
-fairnessMetric <- OneOfstringarray$new() # OneOfstringarray | The fairness metric used to calculate the fairness scores.
+protectedFeature <- list(c('protectedFeature_example')) # OneOfstringarray | Name of the protected feature.
+fairnessMetric <- list(c('fairnessMetric_example')) # OneOfstringarray | The fairness metric used to calculate the fairness scores.
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsBiasVsAccuracyInsightsList(projectId, accuracyMetric=accuracyMetric, protectedFeature=protectedFeature, fairnessMetric=fairnessMetric)
@@ -2587,8 +2622,8 @@ result <- api.instance$ProjectsBiasVsAccuracyInsightsList(projectId, accuracyMet
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAccuracyOverTimePlotsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAccuracyOverTimePlotsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAccuracyOverTimePlotsList()}}{
 Retrieve the data for the Accuracy over Time plots.
 Produces: "application/json"
@@ -2639,6 +2674,9 @@ Produces: "application/json"
 Retrieve the data for the Accuracy over Time plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/accuracyOverTimePlots/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Accuracy over Time plots data
@@ -2663,7 +2701,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 forecastDistance <- 56 # integer | Forecast distance to retrieve the data for. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
@@ -2681,8 +2719,8 @@ result <- api.instance$ProjectsDatetimeModelsAccuracyOverTimePlotsList(projectId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList()}}{
 Retrieve the metadata for the Accuracy over Time plots.
 Produces: "application/json"
@@ -2713,6 +2751,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the metadata for the Accuracy over Time plots.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/accuracyOverTimePlots/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2751,8 +2792,8 @@ result <- api.instance$ProjectsDatetimeModelsAccuracyOverTimePlotsMetadataList(p
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList()}}{
 Retrieve the preview for the Accuracy over Time plots.
 Produces: "application/json"
@@ -2791,6 +2832,9 @@ Produces: "application/json"
 Retrieve the preview for the Accuracy over Time plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/accuracyOverTimePlots/preview/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Accuracy over Time plots preview
@@ -2815,7 +2859,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 forecastDistance <- 56 # integer | Forecast distance to retrieve the data for. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
 
@@ -2829,8 +2873,8 @@ result <- api.instance$ProjectsDatetimeModelsAccuracyOverTimePlotsPreviewList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAnomalyOverTimePlotsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAnomalyOverTimePlotsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAnomalyOverTimePlotsList()}}{
 Retrieve the data for the Anomaly over Time plots.
 Produces: "application/json"
@@ -2878,6 +2922,9 @@ Produces: "application/json"
 Retrieve the data for the Anomaly over Time plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/anomalyOverTimePlots/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Anomaly over Time plots data
@@ -2902,7 +2949,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
 maxBinSize <- 500 # integer | Specifies the maximum number of bins for the retrieval.
@@ -2919,8 +2966,8 @@ result <- api.instance$ProjectsDatetimeModelsAnomalyOverTimePlotsList(projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList()}}{
 Retrieve the metadata for the Anomaly over Time plots.
 Produces: "application/json"
@@ -2948,6 +2995,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the metadata for the Anomaly over Time plots.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/anomalyOverTimePlots/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2985,8 +3035,8 @@ result <- api.instance$ProjectsDatetimeModelsAnomalyOverTimePlotsMetadataList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList()}}{
 Retrieve the preview for the Anomaly over Time plots.
 Produces: "application/json"
@@ -3025,6 +3075,9 @@ Produces: "application/json"
 Retrieve the preview for the Anomaly over Time plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/anomalyOverTimePlots/preview/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Anomaly over Time plots preview
@@ -3049,7 +3102,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 predictionThreshold <- 0.5 # numeric | Only bins with predictions exceeding this threshold will be returned in the response.
 
@@ -3063,8 +3116,8 @@ result <- api.instance$ProjectsDatetimeModelsAnomalyOverTimePlotsPreviewList(pro
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsBacktestStabilityPlotList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsBacktestStabilityPlotList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsBacktestStabilityPlotList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsBacktestStabilityPlotList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsBacktestStabilityPlotList()}}{
 Retrieve a plot displaying the stability of the datetime model across different backtests.
 Produces: "application/json"
@@ -3094,7 +3147,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a plot displaying the stability of the datetime model across different backtests.  All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules<time_format>`.
+Retrieve a plot displaying the stability of the datetime model across different backtests.  All durations and datetimes should be specified in accordance with the `timestamp and duration formatting rules<time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/backtestStabilityPlot/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3130,8 +3186,8 @@ result <- api.instance$ProjectsDatetimeModelsBacktestStabilityPlotList(projectId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadataList()}}{
 Retrieve the metadata of the Accuracy Over Time (AOT) chart for an external dataset.
 Produces: "application/json"
@@ -3158,7 +3214,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve the metadata of the Accuracy Over Time (AOT) chart for an external dataset. Datetimes are specified in accordance with :ref:`timestamp and duration formatting rules <time_format>`.
+Retrieve the metadata of the Accuracy Over Time (AOT) chart for an external dataset. Datetimes are specified in accordance with `timestamp and duration formatting rules <time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/datasetAccuracyOverTimePlots/\{datasetId\}/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3193,8 +3252,8 @@ result <- api.instance$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsMetadat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreviewList()}}{
 Retrieve a preview of the Accuracy Over Time (AOT) chart for an external dataset.
 Produces: "application/json"
@@ -3221,7 +3280,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a preview of the Accuracy Over Time (AOT) chart for an external dataset. Datetimes are specified in accordance with :ref:`timestamp and duration formatting rules <time_format>`.
+Retrieve a preview of the Accuracy Over Time (AOT) chart for an external dataset. Datetimes are specified in accordance with `timestamp and duration formatting rules <time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/datasetAccuracyOverTimePlots/\{datasetId\}/preview/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3256,8 +3318,8 @@ result <- api.instance$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsPreview
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetrieve()}}{
 Retrieve the Accuracy Over Time (AOT) chart data for an external dataset for a project.
 Produces: "application/json"
@@ -3296,7 +3358,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve the Accuracy Over Time (AOT) chart data for an external dataset for a project. Datetimes are specified in accordance with :ref:`timestamp and duration formatting rules <time_format>`.
+Retrieve the Accuracy Over Time (AOT) chart data for an external dataset for a project. Datetimes are specified in accordance with `timestamp and duration formatting rules <time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/datasetAccuracyOverTimePlots/\{datasetId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3335,8 +3400,8 @@ result <- api.instance$ProjectsDatetimeModelsDatasetAccuracyOverTimePlotsRetriev
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsDatetimeTrendPlotsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsDatetimeTrendPlotsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsDatetimeTrendPlotsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsDatetimeTrendPlotsCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsDatetimeTrendPlotsCreate()}}{
 Computes Datetime Trend plots for time series and OTV projects.
 Produces: "application/json"
@@ -3363,7 +3428,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Computes Datetime Trend plots for time series and OTV projects: * For OTV projects, computes Accuracy over Time plots. * For time series supervised projects, computes both Accuracy over Time plots and Forecast vs Actual plots. .. minversion:: v2.25    * For unsupervised time series and OTV models, computes Anomaly Over Time plots. .. note::    For the multiseries time series projects only first 1000 series in alphabetical order    and an average plot for them will be computed. .. note::    Maximum 100 forecast distances can be requested for calculation in time series supervised projects.
+Computes Datetime Trend plots for time series and OTV projects: \\* For OTV projects, computes Accuracy over Time plots. \\* For time series supervised projects, computes both Accuracy over Time plots and Forecast vs Actual plots. .. minversion:: v2.25 \\* For unsupervised time series and OTV models, computes Anomaly Over Time plots. .. note:: For the multiseries time series projects only first 1000 series in alphabetical order and an average plot for them will be computed. .. note:: Maximum 100 forecast distances can be requested for calculation in time series supervised projects.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/datetimeTrendPlots/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3387,7 +3455,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-datetimeTrendPlotsCreate <- DatetimeTrendPlotsCreate$new() # DatetimeTrendPlotsCreate |
+datetimeTrendPlotsCreate <- DatetimeTrendPlotsCreate$new() # DatetimeTrendPlotsCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsDatetimeTrendPlotsCreate(projectId, modelId, datetimeTrendPlotsCreate=datetimeTrendPlotsCreate)
@@ -3399,8 +3467,8 @@ result <- api.instance$ProjectsDatetimeModelsDatetimeTrendPlotsCreate(projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureEffectsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureEffectsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureEffectsCreate()}}{
 Add a request to the queue to calculate Feature Effects for a backtest.
 Produces: NA
@@ -3427,7 +3495,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Add a request to the queue to calculate Feature Effects for a backtest. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job.
+Add a request to the queue to calculate Feature Effects for a backtest. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/featureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3454,7 +3525,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureEffectsCreateDatetime <- FeatureEffectsCreateDatetime$new() # FeatureEffectsCreateDatetime |
+featureEffectsCreateDatetime <- FeatureEffectsCreateDatetime$new() # FeatureEffectsCreateDatetime | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFeatureEffectsCreate(projectId, modelId, featureEffectsCreateDatetime=featureEffectsCreateDatetime)
@@ -3466,8 +3537,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureEffectsCreate(projectId, mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureEffectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureEffectsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureEffectsList()}}{
 Retrieve Feature Effects for a model backtest.
 Produces: "application/json"
@@ -3500,7 +3571,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Feature Effects for a model backtest. Feature Effects provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature impact score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Effects job was previously submitted for a given backtest, this endpoint will return a response structured as {\"message\": <message>, \"jobId\": <jobId>} where `jobId` is the ID of the job. Retrieve the job with :http:get:`/api/v2/projects/(projectId)/jobs/(jobId)/`
+Retrieve Feature Effects for a model backtest. Feature Effects provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature impact score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Effects job was previously submitted for a given backtest, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/featureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3540,8 +3614,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureEffectsList(backtestIndex, p
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureEffectsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureEffectsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureEffectsMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureEffectsMetadataList()}}{
 Retrieve Feature Effects metadata for each backtest. Response contains status and available sources for each backtest of the model.
 Produces: "application/json"
@@ -3565,7 +3639,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Feature Effects metadata for each backtest. Response contains status and available sources for each backtest of the model. One of the provided `backtestIndex` indexes used for submitting the compute request and retrieving Feature Effects. * Start/stop models contain a single `backtestIndex` response value of `startstop`. * Other models contain `backtestIndex` of `0`, `1`, ..., `holdout`. One of the provided `source` parameters used for retrieving Feature Effects. * Each backtest source can be, at a minimum, `training` or `validation`. If holdout is configured for the project, `backtestIndex` also includes `holdout` with sources `training` and `holdout`. * Source value of `training` is always available. (versions prior to v2.17 support `validation` only) * When a start/stop model is trained into `validation` or `holdout` without stacked predictions (i.e., no out-of-sample predictions in `validation` or `holdout`), `validation` and `holdout` sources are not available. * Source `holdout` is not available when there is no holdout configured for the project.
+Retrieve Feature Effects metadata for each backtest. Response contains status and available sources for each backtest of the model. One of the provided backtestIndex indexes used for submitting the compute request and retrieving Feature Effects. \\* Start/stop models contain a single backtestIndex response value of startstop. \\* Other models contain backtestIndex of 0, 1, ..., holdout. One of the provided source parameters used for retrieving Feature Effects. \\* Each backtest source can be, at a minimum, training or validation. If holdout is configured for the project, backtestIndex also includes holdout with sources training and holdout. \\* Source value of training is always available. (versions prior to v2.17 support validation only) \\* When a start/stop model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available. \\* Source holdout is not available when there is no holdout configured for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/featureEffectsMetadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3605,8 +3682,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureEffectsMetadataList(projectI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureFitCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureFitCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureFitCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureFitCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureFitCreate()}}{
 Add a request to the queue to calculate Feature Fit for a backtest.
 Produces: NA
@@ -3633,7 +3710,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit for a backtest. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job.
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit for a backtest. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/featureFit/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3660,7 +3740,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelXrayCreateDatetime <- ModelXrayCreateDatetime$new() # ModelXrayCreateDatetime |
+modelXrayCreateDatetime <- ModelXrayCreateDatetime$new() # ModelXrayCreateDatetime | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFeatureFitCreate(projectId, modelId, modelXrayCreateDatetime=modelXrayCreateDatetime)
@@ -3672,8 +3752,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureFitCreate(projectId, modelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureFitList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureFitList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureFitList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureFitList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureFitList()}}{
 Retrieve Feature Fit for a model backtest.
 Produces: "application/json"
@@ -3706,7 +3786,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for a model backtest. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted for a given backtest, this endpoint will return a response structured as {\"message\": <message>, \"jobId\": <jobId>} where jobId is the ID of the job. Retrieve the job with :http:get:`/api/v2/projects/(projectId)/jobs/(jobId)/`
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for a model backtest. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted for a given backtest, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/featureFit/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3746,8 +3829,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureFitList(backtestIndex, proje
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFeatureFitMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFeatureFitMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsFeatureFitMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsFeatureFitMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFeatureFitMetadataList()}}{
 Retrieve Feature Fit metadata for each backtest. Response contains status and available sources for each backtest of the model.
 Produces: "application/json"
@@ -3771,7 +3854,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata for each backtest. Response contains status and available sources for each backtest of the model. One of the provided `backtestIndex` indexes used for submitting the compute request and retrieving Feature Fit. * Start/stop models contain a single `backtestIndex` response value of `startstop`. * Other models contain `backtestIndex` of `0`, `1`, ..., `holdout`. One of the provided `source` parameters used for retrieving Feature Fit. * Each backtest source can be, at a minimum, `training` or `validation`. If holdout is configured for the project, `backtestIndex` also includes `holdout` with sources `training` and `holdout`. * Source value of `training` is always available. (versions prior to v2.17 support `validation` only) * When a start/stop model is trained into `validation` or `holdout` without stacked predictions (i.e., no out-of-sample predictions in `validation` or `holdout`), `validation` and `holdout` sources are not available. * Source `holdout` is not available when there is no holdout configured for the project.
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata for each backtest. Response contains status and available sources for each backtest of the model. One of the provided backtestIndex indexes used for submitting the compute request and retrieving Feature Fit. \\* Start/stop models contain a single backtestIndex response value of startstop. \\* Other models contain backtestIndex of 0, 1, ..., holdout. One of the provided source parameters used for retrieving Feature Fit. \\* Each backtest source can be, at a minimum, training or validation. If holdout is configured for the project, backtestIndex also includes holdout with sources training and holdout. \\* Source value of training is always available. (versions prior to v2.17 support validation only) \\* When a start/stop model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available. \\* Source holdout is not available when there is no holdout configured for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/featureFitMetadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3811,8 +3897,8 @@ result <- api.instance$ProjectsDatetimeModelsFeatureFitMetadataList(projectId, m
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsForecastDistanceStabilityPlotList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsForecastDistanceStabilityPlotList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsForecastDistanceStabilityPlotList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsForecastDistanceStabilityPlotList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsForecastDistanceStabilityPlotList()}}{
 Retrieve a plot displaying the stability of the time series model across different forecast distances.
 Produces: "application/json"
@@ -3839,7 +3925,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a plot displaying the stability of the time series model across different forecast distances. .. note::    All durations and datetimes are specified in accordance with the   :ref:`timestamp and duration formatting rules <time_format>`.
+Retrieve a plot displaying the stability of the time series model across different forecast distances. .. note:: All durations and datetimes are specified in accordance with the `timestamp and duration formatting rules <time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/forecastDistanceStabilityPlot/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3874,8 +3963,8 @@ result <- api.instance$ProjectsDatetimeModelsForecastDistanceStabilityPlotList(p
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsForecastVsActualPlotsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsForecastVsActualPlotsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsForecastVsActualPlotsList()}}{
 Retrieve the data for the Forecast vs Actual plots.
 Produces: "application/json"
@@ -3929,6 +4018,9 @@ Produces: "application/json"
 Retrieve the data for the Forecast vs Actual plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/forecastVsActualPlots/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Forecast vs Actual plots data
@@ -3953,7 +4045,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 resolution <- 'resolution_example' # character | Specifying at which resolution the data should be binned. If not specified, optimal resolution will be used to build chart data with number of bins <= `maxBinSize`
 forecastDistanceStart <- 56 # integer | The start of forecast distance range (forecast window) to retrieve. If not specified, the first forecast distance for this project will be used. Forecast distance specifies the number of time steps between the predicted point and the origin point. Only available for time series supervised projects.
@@ -3972,8 +4064,8 @@ result <- api.instance$ProjectsDatetimeModelsForecastVsActualPlotsList(projectId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsMetadataList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsForecastVsActualPlotsMetadataList()}}{
 Retrieve the metadata for the Forecast vs Actual plots.
 Produces: "application/json"
@@ -4001,6 +4093,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the metadata for the Forecast vs Actual plots.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/forecastVsActualPlots/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4038,8 +4133,8 @@ result <- api.instance$ProjectsDatetimeModelsForecastVsActualPlotsMetadataList(p
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsForecastVsActualPlotsPreviewList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsForecastVsActualPlotsPreviewList()}}{
 Retrieve the preview for the Forecast vs Actual plots.
 Produces: "application/json"
@@ -4075,6 +4170,9 @@ Produces: "application/json"
 Retrieve the preview for the Forecast vs Actual plots.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/forecastVsActualPlots/preview/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Forecast vs Actual plots preview
@@ -4099,7 +4197,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 seriesId <- 'seriesId_example' # character | The name of the series to retrieve. Only available for time series multiseries projects. If not provided an average plot for the first 1000 series will be retrieved.
-backtest <- OneOfintegerstring$new() # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
+backtest <- 'backtest_example' # OneOfintegerstring | Retrieve plots for a specific backtest (use the backtest index starting from zero) or `holdout`. If not specified the first backtest (backtest index 0) will be used.
 source <- "validation" # character | The source of the data for the backtest/holdout.
 
 api.instance <- InsightsApi$new()
@@ -4112,8 +4210,8 @@ result <- api.instance$ProjectsDatetimeModelsForecastVsActualPlotsPreviewList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMulticlassFeatureEffectsCreate()}}{
 Compute feature effects for a multiclass datetime model.
 Produces: NA
@@ -4140,7 +4238,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Compute feature effects for a multiclass datetime model. If the job has been previously submitted, the request fails, returning the ``jobId`` of the previously submitted job. Use this ``jobId`` to check status of the previously submitted job. NOTE: feature effects are computed for top 100 classes.
+Compute feature effects for a multiclass datetime model. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job. NOTE: feature effects are computed for top 100 classes.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/multiclassFeatureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4167,7 +4268,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-multiclassFeatureEffectDatetimeCreate <- MulticlassFeatureEffectDatetimeCreate$new() # MulticlassFeatureEffectDatetimeCreate |
+multiclassFeatureEffectDatetimeCreate <- MulticlassFeatureEffectDatetimeCreate$new() # MulticlassFeatureEffectDatetimeCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsMulticlassFeatureEffectsCreate(projectId, modelId, multiclassFeatureEffectDatetimeCreate=multiclassFeatureEffectDatetimeCreate)
@@ -4179,8 +4280,8 @@ result <- api.instance$ProjectsDatetimeModelsMulticlassFeatureEffectsCreate(proj
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMulticlassFeatureEffectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMulticlassFeatureEffectsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMulticlassFeatureEffectsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMulticlassFeatureEffectsList()}}{
 Retrieve feature effects for each class in a multiclass datetime model.
 Produces: "application/json"
@@ -4225,6 +4326,9 @@ Produces: "application/json"
 Retrieve feature effects for each class in a multiclass datetime model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/multiclassFeatureEffects/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -4265,8 +4369,8 @@ result <- api.instance$ProjectsDatetimeModelsMulticlassFeatureEffectsList(backte
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMultiseriesHistogramsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMultiseriesHistogramsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMultiseriesHistogramsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMultiseriesHistogramsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMultiseriesHistogramsList()}}{
 Retrieve the histograms for series insights.
 Produces: "application/json"
@@ -4284,7 +4388,7 @@ Produces: "application/json"
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{attribute}}{Enum < \link{rowCount, duration, startDate, endDate, targetAverage, validationScore, backtestingScore, holdoutScore} > The series attribute to build a histogram for.}
+\item{\code{attribute}}{Enum < \link{rowCount, duration, startDate, endDate, targetAverage, validationScore, backtestingScore, holdoutScore, rowPercent, clusterCount, clustering} > The series attribute to build a histogram for.}
 
 \item{\code{bins}}{Enum < \link{10, 20, 50} > The number of bins in a histogram. Can be 10, 20 or 50. The default is 10.}
 
@@ -4300,6 +4404,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the histograms for series insights.  Histogram is computed only for first 1000 series (ordered by name).
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/multiseriesHistograms/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4342,8 +4449,8 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesHistogramsList(attribute
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMultiseriesScoresCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMultiseriesScoresCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMultiseriesScoresCreate()}}{
 Request the computation of per-series scores for a multiseries model.
 Produces: NA
@@ -4370,7 +4477,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Request the computation of per-series scores for a multiseries model. .. note::    Computation uses available partitions only. This endpoint will not compute backtesting   scores if no backtesting scores exist prior to this request.
+Request the computation of per-series scores for a multiseries model. .. note:: Computation uses available partitions only. This endpoint will not compute backtesting scores if no backtesting scores exist prior to this request.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/multiseriesScores/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4388,7 +4498,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-seriesAccuracyCompute <- SeriesAccuracyCompute$new() # SeriesAccuracyCompute |
+seriesAccuracyCompute <- SeriesAccuracyCompute$new() # SeriesAccuracyCompute | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresCreate(projectId, modelId, seriesAccuracyCompute=seriesAccuracyCompute)
@@ -4400,8 +4510,8 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresCreate(projectId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMultiseriesScoresFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMultiseriesScoresFileList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresFileList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMultiseriesScoresFileList()}}{
 Retrieve the CSV file for the series accuracy.
 Produces: NA
@@ -4432,6 +4542,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve the CSV file for the series accuracy.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/multiseriesScores/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4472,8 +4585,8 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresFileList(projectId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsMultiseriesScoresList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsMultiseriesScoresList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsDatetimeModelsMultiseriesScoresList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsMultiseriesScoresList()}}{
 List the scores per individual series for the specified multiseries model.
 Produces: "application/json"
@@ -4489,6 +4602,7 @@ Produces: "application/json"
   filterBy = NULL,
   numberOfBins = NULL,
   filterByBins = NULL,
+  clusterNames = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -4508,13 +4622,15 @@ Produces: "application/json"
 
 \item{\code{metric}}{character. The name of the metric to retrieve the scores for.If omitted, the default project metric will be used.}
 
-\item{\code{orderBy}}{Enum < \link{multiseriesValue, -multiseriesValue, rowCount, -rowCount, startDate, -startDate, endDate, -endDate, targetAverage, -targetAverage, validationScore, -validationScore, backtestingScore, -backtestingScore, holdoutScore, -holdoutScore} > Used for sorting the series. Supported attributes for ordering include: \"multiseriesValue\", \"rowCount\", \"validationScore\", \"holdoutScore\"  and \"backtestingScore\", \"startDate\", \"endDate\", and \"targetAverage\".Prefix the attribute name with a dash to sort in descending order,e.g. `orderBy=-rowCount`. If multiple series with equal values of the ordering attributeexist, ties will be broken arbitrarily.}
+\item{\code{orderBy}}{Enum < \link{multiseriesValue, -multiseriesValue, rowCount, -rowCount, startDate, -startDate, endDate, -endDate, targetAverage, -targetAverage, validationScore, -validationScore, backtestingScore, -backtestingScore, holdoutScore, -holdoutScore, cluster, -cluster} > Used for sorting the series. Supported attributes for ordering include: \"multiseriesValue\", \"rowCount\", \"validationScore\", \"holdoutScore\"  and \"backtestingScore\", \"startDate\", \"endDate\", and \"targetAverage\".Prefix the attribute name with a dash to sort in descending order,e.g. `orderBy=-rowCount`. If multiple series with equal values of the ordering attributeexist, ties will be broken arbitrarily.}
 
-\item{\code{filterBy}}{Enum < \link{rowCount, startDate, endDate, targetAverage, validationScore, backtestingScore, holdoutScore} > Used to specify on which attribute values to filter the series.Supported attributes for filtering include: \"rowCount\", \"startDate\", \"endDate\", \"targetAverage\", \"validationScore\", \"holdoutScore\", and \"backtestingScore\".`filterByBins` and `numberOfBins` are required if this parameter is used.}
+\item{\code{filterBy}}{Enum < \link{rowCount, startDate, endDate, targetAverage, validationScore, backtestingScore, holdoutScore, cluster} > Used to specify on which attribute values to filter the series.Supported attributes for filtering include: \"rowCount\", \"startDate\", \"endDate\", \"targetAverage\", \"validationScore\", \"holdoutScore\", and \"backtestingScore\".`filterByBins` and `numberOfBins` are required if this parameter is used.}
 
 \item{\code{numberOfBins}}{Enum < \link{10, 20, 50} > Used to specify the number of bins in the histogram on which to filter the series.Can be 10, 20 or 50.`filterBy` and `filterByBins` are required if this parameter is used.}
 
 \item{\code{filterByBins}}{character. Used to specify the multiseries histogram bins on which to filter the series.`filterBy` and `numberOfBins` are required if this parameter is used.}
+
+\item{\code{clusterNames}}{character. Used to specify the specific cluster on which to filter the series.`filterBy` is required if this parameter is used.Only valid for unsupervised clustering projects.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -4522,6 +4638,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the scores per individual series for the specified multiseries model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/multiseriesScores/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4558,9 +4677,10 @@ orderBy <- 'orderBy_example' # character | Used for sorting the series. Supporte
 filterBy <- 'filterBy_example' # character | Used to specify on which attribute values to filter the series.Supported attributes for filtering include: \"rowCount\", \"startDate\", \"endDate\", \"targetAverage\", \"validationScore\", \"holdoutScore\", and \"backtestingScore\".`filterByBins` and `numberOfBins` are required if this parameter is used.
 numberOfBins <- 'numberOfBins_example' # character | Used to specify the number of bins in the histogram on which to filter the series.Can be 10, 20 or 50.`filterBy` and `filterByBins` are required if this parameter is used.
 filterByBins <- 'filterByBins_example' # character | Used to specify the multiseries histogram bins on which to filter the series.`filterBy` and `numberOfBins` are required if this parameter is used.
+clusterNames <- 'clusterNames_example' # character | Used to specify the specific cluster on which to filter the series.`filterBy` is required if this parameter is used.Only valid for unsupervised clustering projects.
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit, projectId, modelId, multiseriesValue=multiseriesValue, metric=metric, orderBy=orderBy, filterBy=filterBy, numberOfBins=numberOfBins, filterByBins=filterByBins)
+result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit, projectId, modelId, multiseriesValue=multiseriesValue, metric=metric, orderBy=orderBy, filterBy=filterBy, numberOfBins=numberOfBins, filterByBins=filterByBins, clusterNames=clusterNames)
 }
 }
 \if{html}{\out{</div>}}
@@ -4569,8 +4689,8 @@ result <- api.instance$ProjectsDatetimeModelsMultiseriesScoresList(offset, limit
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsExternalScoresCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsExternalScoresCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsExternalScoresCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsExternalScoresCreate}{}}}
 \subsection{Method \code{ProjectsExternalScoresCreate()}}{
 Compute model scores for external dataset.
 Produces: NA
@@ -4597,6 +4717,9 @@ Produces: NA
 Compute model scores for external dataset, first upload your dataset to the project, and then using the corresponding datasetId, compute scores against that dataset. Computing external scores and insights depends on computed prediction, predictions will be computed if they are not available for this dataset. In order to compute scores and insights, uploaded dataset should contain actual value column. This api is not available in time series projects.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/externalScores/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}}
@@ -4613,7 +4736,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-externalScoresCreate <- ExternalScoresCreate$new() # ExternalScoresCreate |
+externalScoresCreate <- ExternalScoresCreate$new() # ExternalScoresCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsExternalScoresCreate(projectId, externalScoresCreate=externalScoresCreate)
@@ -4625,8 +4748,8 @@ result <- api.instance$ProjectsExternalScoresCreate(projectId, externalScoresCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsExternalScoresList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsExternalScoresList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsExternalScoresList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsExternalScoresList}{}}}
 \subsection{Method \code{ProjectsExternalScoresList()}}{
 List of scores on prediction datasets for a project.
 Produces: "application/json"
@@ -4660,6 +4783,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List of scores on prediction datasets for a project with filtering option by dataset or model or both of them. Prediction dataset may have scores if it contained a column with actual values and predictions were computed on this dataset.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/externalScores/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4696,8 +4822,8 @@ result <- api.instance$ProjectsExternalScoresList(projectId, offset=offset, limi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFeatureAssociationFeaturelistsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFeatureAssociationFeaturelistsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsFeatureAssociationFeaturelistsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsFeatureAssociationFeaturelistsList}{}}}
 \subsection{Method \code{ProjectsFeatureAssociationFeaturelistsList()}}{
 List all featurelists with feature association matrix availability flags for a project.
 Produces: "application/json"
@@ -4716,6 +4842,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all featurelists with feature association matrix availability flags for a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureAssociationFeaturelists/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4748,8 +4877,8 @@ result <- api.instance$ProjectsFeatureAssociationFeaturelistsList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFeatureAssociationMatrixCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFeatureAssociationMatrixCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsFeatureAssociationMatrixCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsFeatureAssociationMatrixCreate}{}}}
 \subsection{Method \code{ProjectsFeatureAssociationMatrixCreate()}}{
 Compute feature association matrix.
 Produces: NA
@@ -4776,6 +4905,9 @@ Produces: NA
 Compute feature association matrix for given featurelist.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/featureAssociationMatrix/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}}
@@ -4795,7 +4927,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-featureAssociationCreatePayload <- FeatureAssociationCreatePayload$new() # FeatureAssociationCreatePayload |
+featureAssociationCreatePayload <- FeatureAssociationCreatePayload$new() # FeatureAssociationCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsFeatureAssociationMatrixCreate(projectId, featureAssociationCreatePayload=featureAssociationCreatePayload)
@@ -4807,8 +4939,8 @@ result <- api.instance$ProjectsFeatureAssociationMatrixCreate(projectId, feature
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFeatureAssociationMatrixDetailsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFeatureAssociationMatrixDetailsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsFeatureAssociationMatrixDetailsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsFeatureAssociationMatrixDetailsList}{}}}
 \subsection{Method \code{ProjectsFeatureAssociationMatrixDetailsList()}}{
 Retrieval for feature association plotting between a pair of features.
 Produces: "application/json"
@@ -4838,7 +4970,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieval for feature association plotting between a pair of features.         Projects created prior to v2.17 are not supported by this feature.
+Retrieval for feature association plotting between a pair of features.   Projects created prior to v2.17 are not supported by this feature.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureAssociationMatrixDetails/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4877,8 +5012,8 @@ result <- api.instance$ProjectsFeatureAssociationMatrixDetailsList(feature1, fea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFeatureAssociationMatrixList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFeatureAssociationMatrixList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsFeatureAssociationMatrixList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsFeatureAssociationMatrixList}{}}}
 \subsection{Method \code{ProjectsFeatureAssociationMatrixList()}}{
 Retrieval for pairwise feature association statistics.
 Produces: "application/json"
@@ -4908,7 +5043,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieval for pairwise feature association statistics.         Projects created prior to v2.17 are not supported by this feature.
+> Retrieval for pairwise feature association statistics.   > Projects created prior to v2.17 are not supported by this feature.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureAssociationMatrix/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4947,8 +5085,8 @@ result <- api.instance$ProjectsFeatureAssociationMatrixList(type, metric, projec
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFeaturesFrequentValuesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFeaturesFrequentValuesList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsFeaturesFrequentValuesList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsFeaturesFrequentValuesList}{}}}
 \subsection{Method \code{ProjectsFeaturesFrequentValuesList()}}{
 Retrieve the frequent values information for a particular feature.
 Produces: "application/json"
@@ -4968,7 +5106,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve the frequent values information for a particular feature.         Only valid for numeric features.         This route returns information about the frequent values seen for a particular feature,         based on the EDA sample of the dataset. Up to 60 values will be returned,         and when more values are present, they will be bucketed into a level called \"==All Other==\"         at the end of the response.
+Retrieve the frequent values information for a particular feature.   Only valid for numeric features. This route returns information about the frequent values seen for a particular feature, based on the EDA sample of the dataset. Up to 60 values will be returned, and when more values are present, they will be bucketed into a level called \"==All Other==\" at the end of the response.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/features/\{featureName\}/frequentValues/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5005,8 +5146,8 @@ result <- api.instance$ProjectsFeaturesFrequentValuesList(projectId, featureName
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsGeometryFeaturePlotsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsGeometryFeaturePlotsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsGeometryFeaturePlotsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsGeometryFeaturePlotsCreate}{}}}
 \subsection{Method \code{ProjectsGeometryFeaturePlotsCreate()}}{
 Create a map of one location feature
 Produces: NA
@@ -5033,6 +5174,9 @@ Produces: NA
 Create a map of one location feature
 
 
+This method invokes \verb{POST /projects/\{projectId\}/geometryFeaturePlots/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Create a map of one location feature
@@ -5050,7 +5194,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | Project Id. It is the project to select the location feature from.
-geometryFeaturePLotCreatePayload <- GeometryFeaturePLotCreatePayload$new() # GeometryFeaturePLotCreatePayload |
+geometryFeaturePLotCreatePayload <- GeometryFeaturePLotCreatePayload$new() # GeometryFeaturePLotCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsGeometryFeaturePlotsCreate(projectId, geometryFeaturePLotCreatePayload=geometryFeaturePLotCreatePayload)
@@ -5062,8 +5206,8 @@ result <- api.instance$ProjectsGeometryFeaturePlotsCreate(projectId, geometryFea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsGeometryFeaturePlotsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsGeometryFeaturePlotsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsGeometryFeaturePlotsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsGeometryFeaturePlotsRetrieve}{}}}
 \subsection{Method \code{ProjectsGeometryFeaturePlotsRetrieve()}}{
 Retrieve a map of one location feature
 Produces: "application/json"
@@ -5084,6 +5228,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a map of one location feature
+
+
+This method invokes \verb{GET /projects/\{projectId\}/geometryFeaturePlots/\{featureName\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5117,8 +5264,8 @@ result <- api.instance$ProjectsGeometryFeaturePlotsRetrieve(projectId, featureNa
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageActivationMapsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageActivationMapsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsImageActivationMapsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsImageActivationMapsList}{}}}
 \subsection{Method \code{ProjectsImageActivationMapsList()}}{
 List all Image Activation Maps for the project.
 Produces: "application/json"
@@ -5146,6 +5293,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Image Activation Maps for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5177,8 +5327,8 @@ result <- api.instance$ProjectsImageActivationMapsList(projectId, offset=offset,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsImageEmbeddingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsImageEmbeddingsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsImageEmbeddingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsImageEmbeddingsList}{}}}
 \subsection{Method \code{ProjectsImageEmbeddingsList()}}{
 List all Image Embeddings for the project.
 Produces: "application/json"
@@ -5206,6 +5356,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Image Embeddings for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5237,8 +5390,8 @@ result <- api.instance$ProjectsImageEmbeddingsList(projectId, offset=offset, lim
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsAnomalyAssessmentInitializationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsAnomalyAssessmentInitializationCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsAnomalyAssessmentInitializationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsAnomalyAssessmentInitializationCreate}{}}}
 \subsection{Method \code{ProjectsModelsAnomalyAssessmentInitializationCreate()}}{
 Calculate the anomaly assessment insight.
 Produces: NA
@@ -5268,6 +5421,9 @@ Produces: NA
 Initialize the anomaly assessment insight and calculate Shapley explanations for the most anomalous points in the subset. The insight is available for anomaly detection models in time series unsupervised projects which also support calculation of Shapley values.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/anomalyAssessmentInitialization/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -5283,7 +5439,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-anomalyAssessmentInitialize <- AnomalyAssessmentInitialize$new() # AnomalyAssessmentInitialize |
+anomalyAssessmentInitialize <- AnomalyAssessmentInitialize$new() # AnomalyAssessmentInitialize | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsAnomalyAssessmentInitializationCreate(projectId, modelId, anomalyAssessmentInitialize=anomalyAssessmentInitialize)
@@ -5295,8 +5451,8 @@ result <- api.instance$ProjectsModelsAnomalyAssessmentInitializationCreate(proje
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsAnomalyInsightsFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsAnomalyInsightsFileList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsAnomalyInsightsFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsAnomalyInsightsFileList}{}}}
 \subsection{Method \code{ProjectsModelsAnomalyInsightsFileList()}}{
 Retrieve a CSV file of the raw data displayed with the anomaly score from the model.
 Produces: NA
@@ -5324,6 +5480,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve a CSV file of the raw data displayed with the anomaly score from the specific model. The number of rows included will be set by the expected outlier fraction but up to a maximum of 1000 rows. Only models built from anomaly detection blueprints have those insights.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/anomalyInsightsFile/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5355,8 +5514,8 @@ result <- api.instance$ProjectsModelsAnomalyInsightsFileList(projectId, modelId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsAnomalyInsightsTableList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsAnomalyInsightsTableList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsAnomalyInsightsTableList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsAnomalyInsightsTableList}{}}}
 \subsection{Method \code{ProjectsModelsAnomalyInsightsTableList()}}{
 Retrieve a table of the raw data displayed with the anomaly score from the specific model.
 Produces: "application/json"
@@ -5384,6 +5543,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a table of the raw data displayed with the anomaly score from the specific model. The number of rows displayed is limited to 100 rows by the ANOMALY_INSIGHT_SAMPLE_ROW_COUNT configuration setting. Additionally, feature column count and the size of data in text fields is also limited. Only models built from anomaly detection blueprints have those insights.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/anomalyInsightsTable/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5418,8 +5580,8 @@ result <- api.instance$ProjectsModelsAnomalyInsightsTableList(projectId, modelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsClusterInsightsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsClusterInsightsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsClusterInsightsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsClusterInsightsCreate}{}}}
 \subsection{Method \code{ProjectsModelsClusterInsightsCreate()}}{
 Compute Cluster Insights.
 Produces: "application/json"
@@ -5449,6 +5611,9 @@ Produces: "application/json"
 Compute Cluster Insights for a clustering project model.The number of features computed for cluster insights are capped at 100, starting with the features used to train the model sorted by feature impact (high to low), and then the remaining features in the dataset alphabetically.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/clusterInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} A URI of the newly submitted job in the \"Location\" header.
@@ -5469,7 +5634,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsClusterInsightsCreate(projectId, modelId, body=body)
@@ -5481,8 +5646,8 @@ result <- api.instance$ProjectsModelsClusterInsightsCreate(projectId, modelId, b
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsClusterInsightsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsClusterInsightsDownloadList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsClusterInsightsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsClusterInsightsDownloadList}{}}}
 \subsection{Method \code{ProjectsModelsClusterInsightsDownloadList()}}{
 Download Cluster Insights result.
 Produces: NA
@@ -5491,6 +5656,7 @@ Produces: NA
   projectId,
   modelId,
   format = "CSV",
+  featurelistId = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -5504,12 +5670,17 @@ Produces: NA
 
 \item{\code{format}}{Enum < \link{CSV} > A format to use.}
 
+\item{\code{featurelistId}}{character. The ID of the featurelist to download data for. If not specified all columns will be downloaded.}
+
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 Download all computed Cluster Insights for a clustering project model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/clusterInsights/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5534,9 +5705,10 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 format <- "CSV" # character | A format to use.
+featurelistId <- 'featurelistId_example' # character | The ID of the featurelist to download data for. If not specified all columns will be downloaded.
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsModelsClusterInsightsDownloadList(projectId, modelId, format=format)
+result <- api.instance$ProjectsModelsClusterInsightsDownloadList(projectId, modelId, format=format, featurelistId=featurelistId)
 }
 }
 \if{html}{\out{</div>}}
@@ -5545,8 +5717,8 @@ result <- api.instance$ProjectsModelsClusterInsightsDownloadList(projectId, mode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsClusterInsightsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsClusterInsightsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsClusterInsightsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsClusterInsightsList}{}}}
 \subsection{Method \code{ProjectsModelsClusterInsightsList()}}{
 Retrieve Cluster Insights for all features.
 Produces: "application/json"
@@ -5583,6 +5755,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve all computed Cluster Insights for a clustering project model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/clusterInsights/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5623,8 +5798,8 @@ result <- api.instance$ProjectsModelsClusterInsightsList(limit, projectId, model
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsConfusionChartsClassDetailsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsConfusionChartsClassDetailsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsConfusionChartsClassDetailsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsConfusionChartsClassDetailsList}{}}}
 \subsection{Method \code{ProjectsModelsConfusionChartsClassDetailsList()}}{
 Calculates and sends frequency of class in distributed among other classes for actual and predicted data.
 Produces: "application/json"
@@ -5647,15 +5822,17 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{source}}{Enum < \link{backtest_9, backtest_3, backtest_20, crossValidation, backtest_6, backtest_17, backtest_18, backtest_12, backtest_11, validation, backtest_10, backtest_16, backtest_15, backtest_8, backtest_19, backtest_5, backtest_13, backtest_2, backtest_4, backtest_14, holdout, backtest_7} > Source of the data}
+\item{\code{source}}{Enum < \link{backtest_18, backtest_10, backtest_11, backtest_14, backtest_3, backtest_15, holdout, backtest_5, backtest_16, crossValidation, backtest_2, backtest_12, backtest_20, backtest_17, validation, backtest_6, backtest_4, backtest_13, backtest_9, backtest_19, backtest_8, backtest_7} > Source of the data}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Calculates and sends frequency of class in distributed among other         classes for actual and predicted data. A confusion chart class details for given class gives         stats of misclassification done by model for given class for actual and predicted data.         .. note:: Available for multiclass projects only.
-}
+> Calculates and sends frequency of class in distributed among other > classes for actual and predicted data. A confusion chart class details > for given class gives stats of misclassification done by model for > given class for actual and predicted data. .. note:: Available for > multiclass projects only.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/confusionCharts/\{source\}/classDetails/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5691,8 +5868,8 @@ result <- api.instance$ProjectsModelsConfusionChartsClassDetailsList(className, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsConfusionChartsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsConfusionChartsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsConfusionChartsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsConfusionChartsList}{}}}
 \subsection{Method \code{ProjectsModelsConfusionChartsList()}}{
 Retrieve all available confusion charts for model.
 Produces: "application/json"
@@ -5712,8 +5889,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Retrieve all available confusion charts for model. The response will         include a json array of all available confusion charts, in the same format as the response         from :http:get:&#x60;/api/v2/projects/(projectId)/models/(modelId)/confusionCharts/(source)/&#x60;.         .. note:: Available for multiclass projects only.
-}
+> Retrieve all available confusion charts for model. The response will > include a json array of all available confusion charts, in the same > format as the response from > :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/confusionCharts/(source)/. > .. note:: Available for multiclass projects only.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/confusionCharts/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5747,8 +5926,8 @@ result <- api.instance$ProjectsModelsConfusionChartsList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsConfusionChartsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsConfusionChartsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsConfusionChartsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsConfusionChartsMetadataList}{}}}
 \subsection{Method \code{ProjectsModelsConfusionChartsMetadataList()}}{
 Retrieve metadata for the confusion chart of a model.
 Produces: "application/json"
@@ -5771,7 +5950,7 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{source}}{Enum < \link{backtest_9, backtest_3, backtest_20, crossValidation, backtest_6, backtest_17, backtest_18, backtest_12, backtest_11, validation, backtest_10, backtest_16, backtest_15, backtest_8, backtest_19, backtest_5, backtest_13, backtest_2, backtest_4, backtest_14, holdout, backtest_7} > Source of the data}
+\item{\code{source}}{Enum < \link{backtest_18, backtest_10, backtest_11, backtest_14, backtest_3, backtest_15, holdout, backtest_5, backtest_16, crossValidation, backtest_2, backtest_12, backtest_20, backtest_17, validation, backtest_6, backtest_4, backtest_13, backtest_9, backtest_19, backtest_8, backtest_7} > Source of the data}
 
 \item{\code{orderBy}}{Enum < \link{className, -className, actualCount, -actualCount, predictedCount, -predictedCount, f1, -f1} > Ordering the chart data by following attributes.Prefix the attribute name with a dash to sort in descending order, e.g. orderBy='-predictedCount'}
 
@@ -5784,8 +5963,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Retrieve metadata for the confusion chart of a model.         .. note:: Available for multiclass projects only.
-}
+> Retrieve metadata for the confusion chart of a model. .. note:: > Available for multiclass projects only.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/confusionCharts/\{source\}/metadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5823,8 +6004,8 @@ result <- api.instance$ProjectsModelsConfusionChartsMetadataList(projectId, mode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsConfusionChartsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsConfusionChartsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsConfusionChartsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsConfusionChartsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsConfusionChartsRetrieve()}}{
 Retrieve the confusion chart data from a single source.
 Produces: "application/json"
@@ -5850,7 +6031,7 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{source}}{Enum < \link{backtest_9, backtest_3, backtest_20, crossValidation, backtest_6, backtest_17, backtest_18, backtest_12, backtest_11, validation, backtest_10, backtest_16, backtest_15, backtest_8, backtest_19, backtest_5, backtest_13, backtest_2, backtest_4, backtest_14, holdout, backtest_7} > Source of the data}
+\item{\code{source}}{Enum < \link{backtest_18, backtest_10, backtest_11, backtest_14, backtest_3, backtest_15, holdout, backtest_5, backtest_16, crossValidation, backtest_2, backtest_12, backtest_20, backtest_17, validation, backtest_6, backtest_4, backtest_13, backtest_9, backtest_19, backtest_8, backtest_7} > Source of the data}
 
 \item{\code{orderBy}}{Enum < \link{className, -className, actualCount, -actualCount, predictedCount, -predictedCount, f1, -f1} > Ordering the chart data by following attributes.Prefix the attribute name with a dash to sort in descending order, e.g. orderBy='-predictedCount'}
 
@@ -5869,8 +6050,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Retrieve the confusion chart data from a single source. A confusion chart consists of the confusion matrix for all classes, classes frequencies and &#x60;oneVsAll&#x60; metrics for all classes. The confusion matrix can be requested in a particular sort order and orientated by rows or columns. A subset of the confusion matrix can also be requested in part by specifying slicing indices. Throughout the following specification, &#x60;C&#x60; refers to the total number of classes in the dataset. The full confusion matrix refers to the confusion matrix with &#x60;C&#x60; classes.          .. note:: Available for multiclass projects only.          An example on the meaning of wasActualPercentages and wasPredictedPercentages:         Let&#39;s say we have the following data:         .. code-block:: js                         classMetrics.classA.wasActualPercentages[0].percentage &#x3D; 0.56            classMetrics.classA.wasPredictedPercentages[0].percentage &#x3D; 0.62            classA.wasActualPercentages[0].otherClassName &#x3D; \\&quot;classB\\&quot;            classA.wasPredictedPercentages[0].otherClassName &#x3D; \\&quot;classB\\&quot;               That means:          1) \\&quot;Given that it was actually classA, it predicted classB 56\% of the time\\&quot;.         2) \\&quot;Given that classA was predicted, it was actually classB 62\% of the time\\&quot;.
-}
+> Retrieve the confusion chart data from a single source. A confusion > chart consists of the confusion matrix for all classes, classes > frequencies and oneVsAll metrics for all classes. The confusion matrix > can be requested in a particular sort order and orientated by rows or > columns. A subset of the confusion matrix can also be requested in > part by specifying slicing indices. Throughout the following > specification, C refers to the total number of classes in the dataset. > The full confusion matrix refers to the confusion matrix with C > classes. > > Note > > Available for multiclass projects only. > > An example on the meaning of wasActualPercentages and > wasPredictedPercentages: Let's say we have the following data: .. > code-block:: js > > > classMetrics.classA.wasActualPercentages\[0\].percentage = 0.56 > > classMetrics.classA.wasPredictedPercentages\[0\].percentage = 0.62 > > classA.wasActualPercentages\[0\].otherClassName = \"classB\" > > classA.wasPredictedPercentages\[0\].otherClassName = \"classB\" > > That means: > > 1)  \"Given that it was actually classA, it predicted classB 56\% of the >     time\". > 2)  \"Given that classA was predicted, it was actually classB 62\% of >     the time\".
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/confusionCharts/\{source\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5914,8 +6097,8 @@ result <- api.instance$ProjectsModelsConfusionChartsRetrieve(projectId, modelId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsCrossClassAccuracyScoresCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsCrossClassAccuracyScoresCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresCreate}{}}}
 \subsection{Method \code{ProjectsModelsCrossClassAccuracyScoresCreate()}}{
 Start Cross Class Accuracy calculations.
 Produces: "application/json"
@@ -5940,6 +6123,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Submits a job to start Cross Class Accuracy scores calculations for the model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/crossClassAccuracyScores/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5971,8 +6157,8 @@ result <- api.instance$ProjectsModelsCrossClassAccuracyScoresCreate(projectId, m
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsCrossClassAccuracyScoresList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsCrossClassAccuracyScoresList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsCrossClassAccuracyScoresList}{}}}
 \subsection{Method \code{ProjectsModelsCrossClassAccuracyScoresList()}}{
 List Cross Class Accuracy scores.
 Produces: "application/json"
@@ -6005,6 +6191,9 @@ Produces: "application/json"
 Retrieves a list of Cross Class Accuracy scores for the model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/crossClassAccuracyScores/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns Cross Class Accuracy scores.
@@ -6035,8 +6224,8 @@ result <- api.instance$ProjectsModelsCrossClassAccuracyScoresList(projectId, mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDataDisparityInsightsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDataDisparityInsightsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDataDisparityInsightsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDataDisparityInsightsCreate}{}}}
 \subsection{Method \code{ProjectsModelsDataDisparityInsightsCreate()}}{
 Start insight calculations.
 Produces: "application/json"
@@ -6066,6 +6255,9 @@ Produces: "application/json"
 Submits a job to start Cross Class Data Disparity insight calculations.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/dataDisparityInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -6084,7 +6276,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-dataDisparityCreatePayload <- DataDisparityCreatePayload$new() # DataDisparityCreatePayload |
+dataDisparityCreatePayload <- DataDisparityCreatePayload$new() # DataDisparityCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsDataDisparityInsightsCreate(projectId, modelId, dataDisparityCreatePayload=dataDisparityCreatePayload)
@@ -6096,8 +6288,8 @@ result <- api.instance$ProjectsModelsDataDisparityInsightsCreate(projectId, mode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDataDisparityInsightsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDataDisparityInsightsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDataDisparityInsightsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDataDisparityInsightsList}{}}}
 \subsection{Method \code{ProjectsModelsDataDisparityInsightsList()}}{
 Get Cross Class Data Disparity results.
 Produces: "application/json"
@@ -6139,6 +6331,9 @@ Produces: "application/json"
 Retrieve a list of Cross Class Data Disparity insights for the model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/dataDisparityInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns Cross Class Data Disparity results.
@@ -6172,8 +6367,8 @@ result <- api.instance$ProjectsModelsDataDisparityInsightsList(feature, classNam
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetConfusionChartsClassDetailsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetConfusionChartsClassDetailsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetConfusionChartsClassDetailsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetConfusionChartsClassDetailsList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetConfusionChartsClassDetailsList()}}{
 Calculate and sends frequency of class in distributed among other classes for actual and predicted data.
 Produces: "application/json"
@@ -6204,6 +6399,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Calculate and sends frequency of class in distributed among other classes for actual and predicted data. A confusion chart class details for given class gives stats of misclassification done by model for given class for actual and predicted data. Available for multiclass projects only.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetConfusionCharts/\{datasetId\}/classDetails/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6239,8 +6437,8 @@ result <- api.instance$ProjectsModelsDatasetConfusionChartsClassDetailsList(clas
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetConfusionChartsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetConfusionChartsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetConfusionChartsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetConfusionChartsList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetConfusionChartsList()}}{
 List of Confusion Charts objects on external datasets for a project with filtering option by dataset.
 Produces: "application/json"
@@ -6294,6 +6492,9 @@ Produces: "application/json"
 List of Confusion Charts objects on external datasets for a project with filtering option by dataset. Prediction dataset may have Confusion Chart for multiclass projects computed if it contained a target with actual values and insights were computed on this dataset. A confusion chart consists of the confusion matrix for all classes, classes frequencies and oneVsAll metrics for all classes. The confusion matrix can be requested in a particular sort order and orientated by rows or columns. Available for multiclass projects only.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetConfusionCharts/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} List of Confusion Charts objects for external datasets.
@@ -6334,8 +6535,8 @@ result <- api.instance$ProjectsModelsDatasetConfusionChartsList(projectId, model
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetConfusionChartsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetConfusionChartsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetConfusionChartsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetConfusionChartsMetadataList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetConfusionChartsMetadataList()}}{
 Retrieve metadata for the confusion chart of a model on external dataset for a project.
 Produces: "application/json"
@@ -6374,6 +6575,9 @@ Produces: "application/json"
 Retrieve metadata for the confusion chart of a model on external dataset for a project. Available for multiclass projects only.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetConfusionCharts/\{datasetId\}/metadata/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Retrieve metadata for the Confusion Chart objects on external datasets.
@@ -6409,8 +6613,8 @@ result <- api.instance$ProjectsModelsDatasetConfusionChartsMetadataList(projectI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetConfusionChartsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetConfusionChartsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetConfusionChartsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetConfusionChartsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsDatasetConfusionChartsRetrieve()}}{
 Retrieve Confusion Chart objects on external datasets for a project.
 Produces: "application/json"
@@ -6458,6 +6662,9 @@ Produces: "application/json"
 Retrieve Confusion Chart objects on external datasets for a project. Prediction dataset may have Confusion Chart for multiclass projects computed if it contained a target with actual values and insights were computed on this dataset. A confusion chart consists of the confusion matrix for all classes, classes frequencies and oneVsAll metrics for all classes. The confusion matrix can be requested in a particular sort order and oriented by rows or columns (zero-indexed). Available for multiclass projects only.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetConfusionCharts/\{datasetId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Retrieve Confusion Chart objects on external datasets.
@@ -6496,8 +6703,8 @@ result <- api.instance$ProjectsModelsDatasetConfusionChartsRetrieve(projectId, m
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetLiftChartsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetLiftChartsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetLiftChartsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetLiftChartsList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetLiftChartsList()}}{
 Retrieve List of Lift chart data on prediction datasets for a project.
 Produces: "application/json"
@@ -6530,7 +6737,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-List of Lift chart objects on prediction datasets for a project with filtering option by dataset. Prediction dataset may have Lift chart computed if it contained a column with actual values and predictions were computed on this dataset. This controller is not supported for multiclass classification projects. For multiclass, instead use /projects/<projectId>/models/<modelId>/datasetMulticlassLiftCharts/.
+List of Lift chart objects on prediction datasets for a project with filtering option by dataset. Prediction dataset may have Lift chart computed if it contained a column with actual values and predictions were computed on this dataset. This controller is not supported for multiclass classification projects. For multiclass, instead use /projects/\\<projectId\\>/models/\\<modelId\\>/datasetMulticlassLiftCharts/.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetLiftCharts/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6567,8 +6777,8 @@ result <- api.instance$ProjectsModelsDatasetLiftChartsList(projectId, modelId, o
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetMulticlassLiftChartsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetMulticlassLiftChartsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetMulticlassLiftChartsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetMulticlassLiftChartsList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetMulticlassLiftChartsList()}}{
 Retrieve List of Multiclass Lift chart data on prediction datasets for a project.
 Produces: "application/json"
@@ -6602,6 +6812,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List of Multiclass Lift chart objects on prediction datasets for a project with filtering option by dataset. Prediction dataset may have Multiclass Lift chart computed if it contained a column with actual values and predictions were computed on this dataset. Multiclass Lift charts are supported for multiclass classification projects only.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetMulticlassLiftCharts/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6638,8 +6851,8 @@ result <- api.instance$ProjectsModelsDatasetMulticlassLiftChartsList(projectId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetResidualsChartsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetResidualsChartsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetResidualsChartsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetResidualsChartsList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetResidualsChartsList()}}{
 List of residuals charts objects on prediction datasets.
 Produces: "application/json"
@@ -6675,6 +6888,9 @@ Produces: "application/json"
 List of residuals charts objects on prediction datasets for a project with filtering option by dataset. Prediction dataset may have residuals chart computed if it contained a column with actual values and predictions were computed on this dataset. Residuals charts are supported for regression projects only.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetResidualsCharts/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -6706,8 +6922,8 @@ result <- api.instance$ProjectsModelsDatasetResidualsChartsList(projectId, model
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDatasetRocCurvesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDatasetRocCurvesList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsDatasetRocCurvesList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsDatasetRocCurvesList}{}}}
 \subsection{Method \code{ProjectsModelsDatasetRocCurvesList()}}{
 List of ROC curve objects on prediction datasets for a project with filtering option by dataset.
 Produces: "application/json"
@@ -6743,6 +6959,9 @@ Produces: "application/json"
 List of ROC curve objects on prediction datasets for a project with filtering option by dataset.  Prediction dataset may have ROC curve computed if it contained a column with actual values and predictions were computed on this dataset. Each ROC curve object includes an array of points showing the performance of the model at different thresholds for classification, and arrays of sample predictions for both the positive and negative classes.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/datasetRocCurves/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Objects were returned successfully. No objects is a valid case.
@@ -6774,8 +6993,8 @@ result <- api.instance$ProjectsModelsDatasetRocCurvesList(projectId, modelId, of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFairnessInsightsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFairnessInsightsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFairnessInsightsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFairnessInsightsCreate}{}}}
 \subsection{Method \code{ProjectsModelsFairnessInsightsCreate()}}{
 Start insight calculations.
 Produces: "application/json"
@@ -6805,6 +7024,9 @@ Produces: "application/json"
 Submits a job to start Per Class Bias insight calculations for the model.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/fairnessInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -6823,7 +7045,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-fairnessInsightsStartCalculationPayload <- FairnessInsightsStartCalculationPayload$new() # FairnessInsightsStartCalculationPayload |
+fairnessInsightsStartCalculationPayload <- FairnessInsightsStartCalculationPayload$new() # FairnessInsightsStartCalculationPayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFairnessInsightsCreate(projectId, modelId, fairnessInsightsStartCalculationPayload=fairnessInsightsStartCalculationPayload)
@@ -6835,8 +7057,8 @@ result <- api.instance$ProjectsModelsFairnessInsightsCreate(projectId, modelId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFairnessInsightsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFairnessInsightsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFairnessInsightsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFairnessInsightsList}{}}}
 \subsection{Method \code{ProjectsModelsFairnessInsightsList()}}{
 List calculated Per Class Bias insights.
 Produces: "application/json"
@@ -6872,6 +7094,9 @@ Produces: "application/json"
 Retrieve a list of Per Class Bias insights for the model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/fairnessInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Returns Per Class Bias results.
@@ -6903,8 +7128,8 @@ result <- api.instance$ProjectsModelsFairnessInsightsList(projectId, modelId, of
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureEffectsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureEffectsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureEffectsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureEffectsCreate}{}}}
 \subsection{Method \code{ProjectsModelsFeatureEffectsCreate()}}{
 Add a request to the queue to calculate Feature Effects.
 Produces: NA
@@ -6931,7 +7156,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Add a request to the queue to calculate Feature Effects. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job.
+Add a request to the queue to calculate Feature Effects. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/featureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6958,7 +7186,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureEffectCreate <- FeatureEffectCreate$new() # FeatureEffectCreate |
+featureEffectCreate <- FeatureEffectCreate$new() # FeatureEffectCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFeatureEffectsCreate(projectId, modelId, featureEffectCreate=featureEffectCreate)
@@ -6970,8 +7198,8 @@ result <- api.instance$ProjectsModelsFeatureEffectsCreate(projectId, modelId, fe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureEffectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureEffectsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureEffectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureEffectsList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureEffectsList()}}{
 Retrieve Feature Effects for the model.
 Produces: "application/json"
@@ -7001,7 +7229,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Feature Effects for the model. Feature Effects provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature impact score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Effects job was previously submitted, this endpoint will return a response structured as {\"message\": <message>, \"jobId\": <jobId>} where jobId is the ID of the job. Retrieve the job with :http:get:`/api/v2/projects/(projectId)/jobs/(jobId)/`
+Retrieve Feature Effects for the model. Feature Effects provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature impact score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Effects job was previously submitted, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7040,8 +7271,8 @@ result <- api.instance$ProjectsModelsFeatureEffectsList(projectId, modelId, sour
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureEffectsMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureEffectsMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureEffectsMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureEffectsMetadataList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureEffectsMetadataList()}}{
 Retrieve Feature Effects metadata. Response contains status and available sources.
 Produces: "application/json"
@@ -7061,7 +7292,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Feature Effects metadata. Response contains status and available sources. One of the provided `source` parameters used for retrieving Feature Effects. * Source can be, at a minimum, `training` or `validation`. If holdout is configured for the project, `source` also includes `holdout`. * Source value of `training` is always available. (versions prior to v2.17 support `validation` only) * When a model is trained into `validation` or `holdout` without stacked predictions (i.e., no out-of-sample predictions in `validation` or `holdout`), `validation` and `holdout` sources are not available.
+Retrieve Feature Effects metadata. Response contains status and available sources. One of the provided source parameters used for retrieving Feature Effects. \\* Source can be, at a minimum, training or validation. If holdout is configured for the project, source also includes holdout. \\* Source value of training is always available. (versions prior to v2.17 support validation only) \\* When a model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureEffectsMetadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7101,8 +7335,8 @@ result <- api.instance$ProjectsModelsFeatureEffectsMetadataList(projectId, model
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureFitCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureFitCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureFitCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureFitCreate}{}}}
 \subsection{Method \code{ProjectsModelsFeatureFitCreate()}}{
 Add a request to the queue to calculate Feature Fit.
 Produces: NA
@@ -7122,7 +7356,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job.
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/featureFit/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7160,8 +7397,8 @@ result <- api.instance$ProjectsModelsFeatureFitCreate(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureFitList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureFitList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureFitList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureFitList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureFitList()}}{
 Retrieve Feature Fit for the model.
 Produces: "application/json"
@@ -7191,7 +7428,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for the model. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted, this endpoint will return a response structured as {\"message\": <message>, \"jobId\": <jobId>} where jobId is the ID of the job. Retrieve the job with :http:get:`/api/v2/projects/(projectId)/jobs/(jobId)/`
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for the model. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureFit/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7230,8 +7470,8 @@ result <- api.instance$ProjectsModelsFeatureFitList(projectId, modelId, source=s
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureFitMetadataList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureFitMetadataList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureFitMetadataList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureFitMetadataList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureFitMetadataList()}}{
 Retrieve Feature Fit metadata. Response contains status and available sources.
 Produces: "application/json"
@@ -7251,7 +7491,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata. Response contains status and available sources. One of the provided `source` parameters used for retrieving Feature Fit. * Source can be, at a minimum, `training` or `validation`. If holdout is configured for the project, `source` also includes `holdout`. * Source value of `training` is always available.(versions prior to v2.17 support `validation` only) * When a model is trained into `validation` or `holdout` without stacked predictions (i.e., no out-of-sample predictions in `validation` or `holdout`), `validation` and `holdout` sources are not available.
+NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata. Response contains status and available sources. One of the provided source parameters used for retrieving Feature Fit. \\* Source can be, at a minimum, training or validation. If holdout is configured for the project, source also includes holdout. \\* Source value of training is always available.(versions prior to v2.17 support validation only) \\* When a model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureFitMetadata/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7291,8 +7534,8 @@ result <- api.instance$ProjectsModelsFeatureFitMetadataList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureImpactCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureImpactCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureImpactCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureImpactCreate}{}}}
 \subsection{Method \code{ProjectsModelsFeatureImpactCreate()}}{
 Add a request to calculate feature impact to the queue.
 Produces: NA
@@ -7300,7 +7543,7 @@ Produces: NA
 \if{html}{\out{<div class="r">}}\preformatted{InsightsApi$ProjectsModelsFeatureImpactCreate(
   projectId,
   modelId,
-  featureImpactCreatePayload = NULL,
+  permutationFeatureImpactCreatePayload = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -7312,14 +7555,17 @@ Produces: NA
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{featureImpactCreatePayload}}{\link{FeatureImpactCreatePayload}.}
+\item{\code{permutationFeatureImpactCreatePayload}}{\link{PermutationFeatureImpactCreatePayload}.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Add a request to calculate feature impact to the queue. If the job has been previously submitted, the request  will fail and return the `jobId` of previously submitted job. This `jobId` can be used to check status of previously submitted job.
+Add a request to calculate feature impact to the queue. If the job has been previously submitted, the request will fail and return the jobId of previously submitted job. This jobId can be used to check status of previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7343,10 +7589,10 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+permutationFeatureImpactCreatePayload <- PermutationFeatureImpactCreatePayload$new() # PermutationFeatureImpactCreatePayload | 
 
 api.instance <- InsightsApi$new()
-result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, featureImpactCreatePayload=featureImpactCreatePayload)
+result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, permutationFeatureImpactCreatePayload=permutationFeatureImpactCreatePayload)
 }
 }
 \if{html}{\out{</div>}}
@@ -7355,8 +7601,8 @@ result <- api.instance$ProjectsModelsFeatureImpactCreate(projectId, modelId, fea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureImpactList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureImpactList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureImpactList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureImpactList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureImpactList()}}{
 Retrieve feature impact scores for features in a model.
 Produces: "application/json"
@@ -7376,14 +7622,17 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{backtest}}{character. The backtest value is used for Feature Impact computation. It is possible to re-compute Feature Impact for different backtests in datetime partitioned models.}
+\item{\code{backtest}}{\link{OneOfintegerstring}. The backtest value used for Feature Impact computation. Applicable for datetime aware models.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve feature impact scores for features in a model. Feature Impact is computed for each column by creating new data with that column randomly permuted (but the others left unchanged), and seeing how the error metric score for the predictions is affected. Elsewhere this technique is sometimes called 'Permutation Importance'. The `impactUnnormalized` is how much worse the error metric score is when making predictions on this modified data. The `impactNormalized` is normalized so that the largest value is 1. In both cases, larger values indicate more important features. If a feature is a redundant feature, i.e. once other features are considered it doesn't contribute much in addition, the `redundantWith` value is the name of feature that has the highest correlation with this feature.
+Retrieve feature impact scores for features in a model. Feature Impact is computed for each column by creating new data with that column randomly permuted (but the others left unchanged), and seeing how the error metric score for the predictions is affected. Elsewhere this technique is sometimes called 'Permutation Importance'. The impactUnnormalized is how much worse the error metric score is when making predictions on this modified data. The impactNormalized is normalized so that the largest value is 1. In both cases, larger values indicate more important features. If a feature is a redundant feature, i.e. once other features are considered it doesn't contribute much in addition, the redundantWith value is the name of feature that has the highest correlation with this feature.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7398,7 +7647,7 @@ Response status codes, messages, and headers:
 }
 
 \subsection{Returns}{
-\link{FeatureImpactResponse}
+\link{PermutationFeatureImpactResponse}
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
@@ -7406,7 +7655,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-backtest <- 'backtest_example' # character | The backtest value is used for Feature Impact computation. It is possible to re-compute Feature Impact for different backtests in datetime partitioned models.
+backtest <- 'backtest_example' # OneOfintegerstring | The backtest value used for Feature Impact computation. Applicable for datetime aware models.
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsFeatureImpactList(projectId, modelId, backtest=backtest)
@@ -7418,8 +7667,8 @@ result <- api.instance$ProjectsModelsFeatureImpactList(projectId, modelId, backt
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeatureListsClusterInsightsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeatureListsClusterInsightsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsFeatureListsClusterInsightsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsFeatureListsClusterInsightsList}{}}}
 \subsection{Method \code{ProjectsModelsFeatureListsClusterInsightsList()}}{
 Retrieve Cluster Insights for a single featurelist
 Produces: "application/json"
@@ -7461,6 +7710,9 @@ Produces: "application/json"
 Retrieve computed Cluster Insights for a clustering project model on a single featurelist.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/featureLists/\{datasetId\}/clusterInsights/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Insights for a clustering project model on a single featurelist.
@@ -7500,8 +7752,8 @@ result <- api.instance$ProjectsModelsFeatureListsClusterInsightsList(limit, proj
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageActivationMapsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageActivationMapsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsImageActivationMapsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsImageActivationMapsCreate}{}}}
 \subsection{Method \code{ProjectsModelsImageActivationMapsCreate()}}{
 Request the computation of image activation maps for the specified model.
 Produces: "application/json"
@@ -7522,6 +7774,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Request the computation of image activation maps for the specified model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7556,8 +7811,8 @@ result <- api.instance$ProjectsModelsImageActivationMapsCreate(projectId, modelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageActivationMapsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageActivationMapsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsImageActivationMapsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsImageActivationMapsList}{}}}
 \subsection{Method \code{ProjectsModelsImageActivationMapsList()}}{
 Retrieve Image Activation Maps for a feature of a model.
 Produces: "application/json"
@@ -7584,7 +7839,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Image Activation Maps for a feature of a model. Image Activation maps are a technique to get the discriminative image regions used by a CNN to identify a specific class in the image. In other words, an image activation map lets us see which regions in the image were relevant to this class.  The higher the value in the activation map the greater the effect the region had on the prediction.
+Retrieve Image Activation Maps for a feature of a model. Image Activation maps are a technique to get the discriminative image regions used by a CNN to identify a specific class in the image. In other words, an image activation map lets us see which regions in the image were relevant to this class. The higher the value in the activation map the greater the effect the region had on the prediction.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/imageActivationMaps/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7619,8 +7877,8 @@ result <- api.instance$ProjectsModelsImageActivationMapsList(featureName, projec
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageEmbeddingsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageEmbeddingsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsImageEmbeddingsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsImageEmbeddingsCreate}{}}}
 \subsection{Method \code{ProjectsModelsImageEmbeddingsCreate()}}{
 Request the computation of image embeddings for the specified model.
 Produces: "application/json"
@@ -7641,6 +7899,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Request the computation of image embeddings for the specified model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7675,8 +7936,8 @@ result <- api.instance$ProjectsModelsImageEmbeddingsCreate(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsImageEmbeddingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsImageEmbeddingsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsImageEmbeddingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsImageEmbeddingsList}{}}}
 \subsection{Method \code{ProjectsModelsImageEmbeddingsList()}}{
 Retrieve ImageEmbeddings for a feature of a model.
 Produces: "application/json"
@@ -7704,6 +7965,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve ImageEmbeddings for a feature of a model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/imageEmbeddings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7738,8 +8002,8 @@ result <- api.instance$ProjectsModelsImageEmbeddingsList(featureName, projectId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsLabelwiseRocCurvesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsLabelwiseRocCurvesList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsLabelwiseRocCurvesList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsLabelwiseRocCurvesList}{}}}
 \subsection{Method \code{ProjectsModelsLabelwiseRocCurvesList()}}{
 Retrieve labelwise ROC curves for model and given source.
 Produces: "application/json"
@@ -7793,6 +8057,9 @@ Produces: "application/json"
 Retrieve labelwise ROC curves for model and given source.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/labelwiseRocCurves/\{source\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Labelwise ROC curves for model and given source.
@@ -7830,8 +8097,8 @@ result <- api.instance$ProjectsModelsLabelwiseRocCurvesList(projectId, modelId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsLiftChartList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsLiftChartList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsLiftChartList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsLiftChartList}{}}}
 \subsection{Method \code{ProjectsModelsLiftChartList()}}{
 Retrieve all available lift charts for model.
 Produces: "application/json"
@@ -7851,7 +8118,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve all available lift charts for model. The response will include a json list of all available lift charts, in the same format as the response from :http:get:`/api/v2/projects/(projectId)/models/(modelId)/liftChart/(source)/`.
+Retrieve all available lift charts for model. The response will include a json list of all available lift charts, in the same format as the response from :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/liftChart/(source)/.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/liftChart/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7891,8 +8161,8 @@ result <- api.instance$ProjectsModelsLiftChartList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsLiftChartRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsLiftChartRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsLiftChartRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsLiftChartRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsLiftChartRetrieve()}}{
 Retrieve the lift chart data from a single source.
 Produces: "application/json"
@@ -7907,7 +8177,7 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{source}}{Enum < \link{backtest_9, backtest_3, backtest_20, crossValidation, backtest_6, backtest_17, backtest_18, backtest_12, backtest_11, validation, backtest_10, backtest_16, backtest_15, backtest_8, backtest_19, backtest_5, backtest_13, backtest_2, backtest_4, backtest_14, holdout, backtest_7} > Source of the data}
+\item{\code{source}}{Enum < \link{backtest_18, backtest_10, backtest_11, backtest_14, backtest_3, backtest_15, holdout, backtest_5, backtest_16, crossValidation, backtest_2, backtest_12, backtest_20, backtest_17, validation, backtest_6, backtest_4, backtest_13, backtest_9, backtest_19, backtest_8, backtest_7} > Source of the data}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -7915,6 +8185,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the lift chart data from a single source.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/liftChart/\{source\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7946,8 +8219,8 @@ result <- api.instance$ProjectsModelsLiftChartRetrieve(projectId, modelId, sourc
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMulticlassFeatureEffectsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMulticlassFeatureEffectsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsCreate}{}}}
 \subsection{Method \code{ProjectsModelsMulticlassFeatureEffectsCreate()}}{
 Compute feature effects for a multiclass model.
 Produces: NA
@@ -7974,7 +8247,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Compute feature effects for a multiclass model. If the job has been previously submitted, the request fails, returning the `jobId` of the previously submitted job. Use this `jobId` to check status of the previously submitted job. NOTE: feature effects are computed for top 100 classes.
+Compute feature effects for a multiclass model. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job. NOTE: feature effects are computed for top 100 classes.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/multiclassFeatureEffects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8001,7 +8277,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-multiclassFeatureEffectCreate <- MulticlassFeatureEffectCreate$new() # MulticlassFeatureEffectCreate |
+multiclassFeatureEffectCreate <- MulticlassFeatureEffectCreate$new() # MulticlassFeatureEffectCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsMulticlassFeatureEffectsCreate(projectId, modelId, multiclassFeatureEffectCreate=multiclassFeatureEffectCreate)
@@ -8013,8 +8289,8 @@ result <- api.instance$ProjectsModelsMulticlassFeatureEffectsCreate(projectId, m
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMulticlassFeatureEffectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMulticlassFeatureEffectsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMulticlassFeatureEffectsList}{}}}
 \subsection{Method \code{ProjectsModelsMulticlassFeatureEffectsList()}}{
 Retrieve feature effects for each class in a multiclass model.
 Produces: "application/json"
@@ -8056,6 +8332,9 @@ Produces: "application/json"
 Retrieve feature effects for each class in a multiclass model.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/multiclassFeatureEffects/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -8095,8 +8374,8 @@ result <- api.instance$ProjectsModelsMulticlassFeatureEffectsList(projectId, mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMulticlassFeatureImpactList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMulticlassFeatureImpactList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMulticlassFeatureImpactList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMulticlassFeatureImpactList}{}}}
 \subsection{Method \code{ProjectsModelsMulticlassFeatureImpactList()}}{
 Retrieve feature impact scores for each class in a multiclass model.
 Produces: "application/json"
@@ -8116,7 +8395,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve feature impact scores for each class in a multiclass model. Feature Impact is computed for each column by creating new data with that column randomly permuted (but the others left unchanged), and seeing how the error metric score for the predictions is affected. Elsewhere this technique is sometimes called 'Permutation Importance'. The `impactUnnormalized` is how much worse the error metric score is when making predictions on this modified data. The `impactNormalized` is normalized so that the largest value is 1. In both cases, larger values indicate more important features.
+Retrieve feature impact scores for each class in a multiclass model. Feature Impact is computed for each column by creating new data with that column randomly permuted (but the others left unchanged), and seeing how the error metric score for the predictions is affected. Elsewhere this technique is sometimes called 'Permutation Importance'. The impactUnnormalized is how much worse the error metric score is when making predictions on this modified data. The impactNormalized is normalized so that the largest value is 1. In both cases, larger values indicate more important features.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/multiclassFeatureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8150,8 +8432,8 @@ result <- api.instance$ProjectsModelsMulticlassFeatureImpactList(projectId, mode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMulticlassLiftChartList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMulticlassLiftChartList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMulticlassLiftChartList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMulticlassLiftChartList}{}}}
 \subsection{Method \code{ProjectsModelsMulticlassLiftChartList()}}{
 Retrieve all available lift charts for multiclass model.
 Produces: "application/json"
@@ -8172,6 +8454,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve all available lift charts for multiclass model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/multiclassLiftChart/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8202,8 +8487,8 @@ result <- api.instance$ProjectsModelsMulticlassLiftChartList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMulticlassLiftChartRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMulticlassLiftChartRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMulticlassLiftChartRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMulticlassLiftChartRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsMulticlassLiftChartRetrieve()}}{
 Retrieve the multiclass lift chart data from a single source.
 Produces: "application/json"
@@ -8231,6 +8516,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the multiclass lift chart data from a single source.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/multiclassLiftChart/\{source\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8262,8 +8550,8 @@ result <- api.instance$ProjectsModelsMulticlassLiftChartRetrieve(projectId, mode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMultilabelLiftChartsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMultilabelLiftChartsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsMultilabelLiftChartsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsMultilabelLiftChartsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsMultilabelLiftChartsRetrieve()}}{
 Retrieve labelwise lift charts for model and given source.
 Produces: "application/json"
@@ -8296,6 +8584,9 @@ Produces: "application/json"
 Retrieve labelwise lift charts for model and given source.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/multilabelLiftCharts/\{source\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Labelwise lift charts for model and given source.
@@ -8326,8 +8617,8 @@ result <- api.instance$ProjectsModelsMultilabelLiftChartsRetrieve(projectId, mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationCreate}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationCreate()}}{
 Create a new prediction explanations initialization.
 Produces: NA
@@ -8357,6 +8648,9 @@ Produces: NA
 Create a new prediction explanations initialization. This is a necessary prerequisite for generating prediction explanations.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} The request was accepted and will be worked on.
@@ -8372,7 +8666,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate |
+predictionExplanationsInitializationCreate <- PredictionExplanationsInitializationCreate$new() # PredictionExplanationsInitializationCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(projectId, modelId, predictionExplanationsInitializationCreate=predictionExplanationsInitializationCreate)
@@ -8384,8 +8678,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationCreate(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationDeleteMany}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationDeleteMany()}}{
 Delete an existing PredictionExplanationsInitialization.
 Produces: NA
@@ -8410,6 +8704,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete an existing PredictionExplanationsInitialization.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8437,8 +8734,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationDeleteM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionExplanationsInitializationList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionExplanationsInitializationList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsPredictionExplanationsInitializationList}{}}}
 \subsection{Method \code{ProjectsModelsPredictionExplanationsInitializationList()}}{
 Retrieve the current PredictionExplanationsInitialization.
 Produces: NA
@@ -8471,6 +8768,9 @@ Produces: NA
 Retrieve the current PredictionExplanationsInitialization. A PredictionExplanationsInitialization is a pre-requisite for successfully computing prediction explanations using a particular model, and can be used to preview the prediction explanations that would be generated for a complete dataset.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -8486,7 +8786,7 @@ library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in the PredictionExplanationsSample response.
-predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve |
+predictionExplanationsInitializationRetrieve <- PredictionExplanationsInitializationRetrieve$new() # PredictionExplanationsInitializationRetrieve | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(projectId, modelId, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsInitializationRetrieve=predictionExplanationsInitializationRetrieve)
@@ -8498,8 +8798,8 @@ result <- api.instance$ProjectsModelsPredictionExplanationsInitializationList(pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsResidualsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsResidualsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsResidualsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsResidualsList}{}}}
 \subsection{Method \code{ProjectsModelsResidualsList()}}{
 Retrieve all residuals charts for a model.
 Produces: "application/json"
@@ -8520,6 +8820,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve all residuals charts for a model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/residuals/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8550,8 +8853,8 @@ result <- api.instance$ProjectsModelsResidualsList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsResidualsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsResidualsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsResidualsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsResidualsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsResidualsRetrieve()}}{
 Retrieve the residuals chart data from a single source.
 Produces: "application/json"
@@ -8574,6 +8877,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the residuals chart data from a single source.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/residuals/\{source\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8605,8 +8911,8 @@ result <- api.instance$ProjectsModelsResidualsRetrieve(projectId, modelId, sourc
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsRocCurveList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsRocCurveList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsRocCurveList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsRocCurveList}{}}}
 \subsection{Method \code{ProjectsModelsRocCurveList()}}{
 Retrieve all available ROC curves for model.
 Produces: "application/json"
@@ -8626,7 +8932,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve all available ROC curves for model. The response will include a json list of all available ROC curves, in the same format as the response from :http:get:`/api/v2/projects/(projectId)/models/(modelId)/rocCurve/(source)/`.
+Retrieve all available ROC curves for model. The response will include a json list of all available ROC curves, in the same format as the response from :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/rocCurve/(source)/.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/rocCurve/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8666,8 +8975,8 @@ result <- api.instance$ProjectsModelsRocCurveList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsRocCurveRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsRocCurveRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsRocCurveRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsRocCurveRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsRocCurveRetrieve()}}{
 Retrieve the ROC curve data from a single source.
 Produces: "application/json"
@@ -8682,7 +8991,7 @@ Produces: "application/json"
 
 \item{\code{modelId}}{character. The model ID}
 
-\item{\code{source}}{Enum < \link{backtest_9, backtest_3, backtest_20, crossValidation, backtest_6, backtest_17, backtest_18, backtest_12, backtest_11, validation, backtest_10, backtest_16, backtest_15, backtest_8, backtest_19, backtest_5, backtest_13, backtest_2, backtest_4, backtest_14, holdout, backtest_7} > Source of the data}
+\item{\code{source}}{Enum < \link{backtest_18, backtest_10, backtest_11, backtest_14, backtest_3, backtest_15, holdout, backtest_5, backtest_16, crossValidation, backtest_2, backtest_12, backtest_20, backtest_17, validation, backtest_6, backtest_4, backtest_13, backtest_9, backtest_19, backtest_8, backtest_7} > Source of the data}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -8690,6 +8999,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the ROC curve data from a single source. The response includes an array of pointsshowing the performance of the model at different thresholds for classification, and arrays of sample predictions for both the positive and negative classes.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/rocCurve/\{source\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8721,8 +9033,8 @@ result <- api.instance$ProjectsModelsRocCurveRetrieve(projectId, modelId, source
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsShapImpactCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsShapImpactCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsShapImpactCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsShapImpactCreate}{}}}
 \subsection{Method \code{ProjectsModelsShapImpactCreate()}}{
 Create a Shap based Feature Impact.
 Produces: NA
@@ -8752,6 +9064,9 @@ Produces: NA
 Create a Shap based Feature Impact with a model.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/shapImpact/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -8766,7 +9081,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsModelsShapImpactCreate(projectId, modelId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -8778,8 +9093,8 @@ result <- api.instance$ProjectsModelsShapImpactCreate(projectId, modelId, featur
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsShapImpactList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsShapImpactList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsShapImpactList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsShapImpactList}{}}}
 \subsection{Method \code{ProjectsModelsShapImpactList()}}{
 Retrieve Feature Impact for a model.
 Produces: "application/json"
@@ -8800,6 +9115,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve Feature Impact for a model. Shap impact is computed by calculating the shap values on a sample of training data and then taking the mean absolute value for each column. The larger value of impact indicate more important feature.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/shapImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8833,8 +9151,8 @@ result <- api.instance$ProjectsModelsShapImpactList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsWordCloudList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsWordCloudList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsModelsWordCloudList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsModelsWordCloudList}{}}}
 \subsection{Method \code{ProjectsModelsWordCloudList()}}{
 Retrieve word cloud data for a model.
 Produces: "application/json"
@@ -8862,6 +9180,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve word cloud data for a model. Not all models will have word cloud data available, even when they use text features.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/wordCloud/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8893,8 +9214,8 @@ result <- api.instance$ProjectsModelsWordCloudList(projectId, modelId, excludeSt
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsMulticategoricalInvalidFormatFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsMulticategoricalInvalidFormatFileList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsMulticategoricalInvalidFormatFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsMulticategoricalInvalidFormatFileList}{}}}
 \subsection{Method \code{ProjectsMulticategoricalInvalidFormatFileList()}}{
 Get file with format errors of potential multicategorical features.
 Produces: NA
@@ -8913,6 +9234,9 @@ Produces: NA
 }
 \subsection{Details}{
 Get file with format errors of potential multicategorical features.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/multicategoricalInvalidFormat/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8939,8 +9263,8 @@ result <- api.instance$ProjectsMulticategoricalInvalidFormatFileList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsMulticategoricalInvalidFormatList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsMulticategoricalInvalidFormatList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsMulticategoricalInvalidFormatList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsMulticategoricalInvalidFormatList}{}}}
 \subsection{Method \code{ProjectsMulticategoricalInvalidFormatList()}}{
 Retrieve multicategorical data quality log.
 Produces: "application/json"
@@ -8959,6 +9283,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve multicategorical data quality log.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/multicategoricalInvalidFormat/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8991,8 +9318,8 @@ result <- api.instance$ProjectsMulticategoricalInvalidFormatList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPayoffMatricesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPayoffMatricesCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPayoffMatricesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPayoffMatricesCreate}{}}}
 \subsection{Method \code{ProjectsPayoffMatricesCreate()}}{
 Create a payoff matrix.
 Produces: NA
@@ -9019,6 +9346,9 @@ Produces: NA
 Create a payoff matrix associated with a project.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/payoffMatrices/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -9032,7 +9362,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate |
+payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPayoffMatricesCreate(projectId, payoffMatricesCreate=payoffMatricesCreate)
@@ -9044,8 +9374,8 @@ result <- api.instance$ProjectsPayoffMatricesCreate(projectId, payoffMatricesCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPayoffMatricesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPayoffMatricesDelete}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPayoffMatricesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPayoffMatricesDelete}{}}}
 \subsection{Method \code{ProjectsPayoffMatricesDelete()}}{
 Delete a payoff matrix in a project.
 Produces: NA
@@ -9066,6 +9396,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a payoff matrix in a project.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/payoffMatrices/\{payoffMatrixId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9093,8 +9426,8 @@ result <- api.instance$ProjectsPayoffMatricesDelete(projectId, payoffMatrixId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPayoffMatricesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPayoffMatricesList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPayoffMatricesList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPayoffMatricesList}{}}}
 \subsection{Method \code{ProjectsPayoffMatricesList()}}{
 List of all payoff matrices for a project.
 Produces: "application/json"
@@ -9117,6 +9450,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List of all payoff matrices for a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/payoffMatrices/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9148,8 +9484,8 @@ result <- api.instance$ProjectsPayoffMatricesList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPayoffMatricesPut"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPayoffMatricesPut}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPayoffMatricesPut"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPayoffMatricesPut}{}}}
 \subsection{Method \code{ProjectsPayoffMatricesPut()}}{
 Update a payoff matrix.
 Produces: "application/json"
@@ -9179,6 +9515,9 @@ Produces: "application/json"
 Update all fields in a payoff matrix, including values and label.
 
 
+This method invokes \verb{PUT /projects/\{projectId\}/payoffMatrices/\{payoffMatrixId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Updated payoff matrix values and label.
@@ -9196,7 +9535,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 payoffMatrixId <- 'payoffMatrixId_example' # character | ObjectId of the payoff matrix.
-payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate |
+payoffMatricesCreate <- PayoffMatricesCreate$new() # PayoffMatricesCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPayoffMatricesPut(projectId, payoffMatrixId, payoffMatricesCreate=payoffMatricesCreate)
@@ -9208,8 +9547,8 @@ result <- api.instance$ProjectsPayoffMatricesPut(projectId, payoffMatrixId, payo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPredictionExplanationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPredictionExplanationsCreate}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsCreate()}}{
 Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord).
 Produces: NA
@@ -9233,7 +9572,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord). In order to successfully create PredictionExplanations for a particular model and dataset, you must first - Compute feature impact for the model via :http:post:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/` - Compute a PredictionExplanationsInitialization for the model via :http:post:`/api/v2/projects/(projectId)/models/(modelId)/predictionExplanationsInitialization/` - Compute predictions for the model and dataset via :http:post:`/api/v2/projects/(projectId)/predictions/` `thresholdHigh` and `thresholdLow` are optional filters applied to speed up computation. When at least one is specified, only the selected outlier rows will have prediction explanations computed. Rows are considered to be outliers if their predicted value (in case of regression projects) or probability of being the positive class (in case of classification projects) isless than `thresholdLow` or greater than `thresholdHigh`. If neither is specified, prediction explanations will be computed for all rows.
+Create a new PredictionExplanations object (and its accompanying PredictionExplanationsRecord). In order to successfully create PredictionExplanations for a particular model and dataset, you must first - Compute feature impact for the model via :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/ - Compute a PredictionExplanationsInitialization for the model via :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/predictionExplanationsInitialization/ - Compute predictions for the model and dataset via :<http:post>:/api/v2/projects/(projectId)/predictions/ thresholdHigh and thresholdLow are optional filters applied to speed up computation. When at least one is specified, only the selected outlier rows will have prediction explanations computed. Rows are considered to be outliers if their predicted value (in case of regression projects) or probability of being the positive class (in case of classification projects) isless than thresholdLow or greater than thresholdHigh. If neither is specified, prediction explanations will be computed for all rows.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/predictionExplanations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9250,7 +9592,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate |
+predictionExplanationsCreate <- PredictionExplanationsCreate$new() # PredictionExplanationsCreate | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictionExplanationsCreate=predictionExplanationsCreate)
@@ -9262,8 +9604,8 @@ result <- api.instance$ProjectsPredictionExplanationsCreate(projectId, predictio
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPredictionExplanationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPredictionExplanationsList}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsList()}}{
 Retrieve stored Prediction Explanations.
 Produces: NA
@@ -9302,6 +9644,9 @@ Produces: NA
 Retrieve stored Prediction Explanations. Each PredictionExplanationsRow retrieved corresponds to a row of the prediction dataset, although some rows may not have had prediction explanations computed depending on the thresholds selected.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanations/\{predictionExplanationsId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -9319,7 +9664,7 @@ projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
 offset <- 0 # integer | This many results will be skipped.
 excludeAdjustedPredictions <- "true" # character | Whether to include adjusted prediction in PredictionExplanationsRow response.
-predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve |
+predictionExplanationsRetrieve <- PredictionExplanationsRetrieve$new() # PredictionExplanationsRetrieve | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, predictionExplanationsId, offset=offset, excludeAdjustedPredictions=excludeAdjustedPredictions, predictionExplanationsRetrieve=predictionExplanationsRetrieve)
@@ -9331,8 +9676,8 @@ result <- api.instance$ProjectsPredictionExplanationsList(limit, projectId, pred
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsDelete}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPredictionExplanationsRecordsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPredictionExplanationsRecordsDelete}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsDelete()}}{
 Delete saved Prediction Explanations.
 Produces: NA
@@ -9357,6 +9702,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete saved Prediction Explanations. Deletes both the actual prediction explanations and the corresponding PredictionExplanationsRecord.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/predictionExplanationsRecords/\{predictionExplanationsId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9384,8 +9732,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsDelete(projectId, pr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPredictionExplanationsRecordsList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPredictionExplanationsRecordsList}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsList()}}{
 List PredictionExplanationsRecord objects for a project.
 Produces: "application/json"
@@ -9418,6 +9766,9 @@ Produces: "application/json"
 List PredictionExplanationsRecord objects for a project. These contain metadata about the computed prediction explanations and the location at which the PredictionExplanations can be retrieved.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanationsRecords/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The object was found and returned successfully.
@@ -9448,8 +9799,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsList(projectId, offs
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPredictionExplanationsRecordsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPredictionExplanationsRecordsRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsPredictionExplanationsRecordsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsPredictionExplanationsRecordsRetrieve}{}}}
 \subsection{Method \code{ProjectsPredictionExplanationsRecordsRetrieve()}}{
 Retrieve a PredictionExplanationsRecord object.
 Produces: NA
@@ -9479,6 +9830,9 @@ Produces: NA
 Retrieve a PredictionExplanationsRecord object. A PredictionExplanationsRecord contains metadata about the computed prediction explanations and the location at which the PredictionExplanations can be retrieved.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/predictionExplanationsRecords/\{predictionExplanationsId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The object was found and returned successfully.
@@ -9493,7 +9847,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 predictionExplanationsId <- 'predictionExplanationsId_example' # character | The ID of the PredictionExplanationsRecord to retrieve.
-predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord |
+predictionExplanationsRecord <- PredictionExplanationsRecord$new() # PredictionExplanationsRecord | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, predictionExplanationsId, predictionExplanationsRecord=predictionExplanationsRecord)
@@ -9505,8 +9859,8 @@ result <- api.instance$ProjectsPredictionExplanationsRecordsRetrieve(projectId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsShapMatricesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsShapMatricesCreate}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsShapMatricesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsShapMatricesCreate}{}}}
 \subsection{Method \code{ProjectsShapMatricesCreate()}}{
 Calculate a matrix with SHAP based prediction explanations scores.
 Produces: NA
@@ -9533,6 +9887,9 @@ Produces: NA
 Submit a request to calculate a matrix with SHAP based prediction explanations scores.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/shapMatrices/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -9547,7 +9904,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createShapMatrixPayload <- CreateShapMatrixPayload$new() # CreateShapMatrixPayload |
+createShapMatrixPayload <- CreateShapMatrixPayload$new() # CreateShapMatrixPayload | 
 
 api.instance <- InsightsApi$new()
 result <- api.instance$ProjectsShapMatricesCreate(projectId, createShapMatrixPayload=createShapMatrixPayload)
@@ -9559,8 +9916,8 @@ result <- api.instance$ProjectsShapMatricesCreate(projectId, createShapMatrixPay
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsShapMatricesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsShapMatricesList}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsShapMatricesList"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsShapMatricesList}{}}}
 \subsection{Method \code{ProjectsShapMatricesList()}}{
 List SHAP matrix records.
 Produces: "application/json"
@@ -9583,6 +9940,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of available SHAP matrix records.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/shapMatrices/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9614,8 +9974,8 @@ result <- api.instance$ProjectsShapMatricesList(projectId, offset=offset, limit=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsShapMatricesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsShapMatricesRetrieve}{}}}
+\if{html}{\out{<a id="method-InsightsApi-ProjectsShapMatricesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-ProjectsShapMatricesRetrieve}{}}}
 \subsection{Method \code{ProjectsShapMatricesRetrieve()}}{
 Get matrix with SHAP prediction explanations scores.
 Produces: "application/json", "text/csv"
@@ -9636,6 +9996,9 @@ Produces: "application/json", "text/csv"
 }
 \subsection{Details}{
 Get matrix with SHAP prediction explanations scores.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/shapMatrices/\{shapMatrixId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -9666,8 +10029,8 @@ result <- api.instance$ProjectsShapMatricesRetrieve(projectId, shapMatrixId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InsightsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InsightsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -31,16 +31,16 @@ ConfusionChartRetrieveMetadataForDatasets Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ConfusionChartRetrieveMetadataForDatasets$new()}}
-\item \href{#method-validate}{\code{ConfusionChartRetrieveMetadataForDatasets$validate()}}
-\item \href{#method-toJSON}{\code{ConfusionChartRetrieveMetadataForDatasets$toJSON()}}
-\item \href{#method-fromJSON}{\code{ConfusionChartRetrieveMetadataForDatasets$fromJSON()}}
-\item \href{#method-clone}{\code{ConfusionChartRetrieveMetadataForDatasets$clone()}}
+\item \href{#method-ConfusionChartRetrieveMetadataForDatasets-new}{\code{ConfusionChartRetrieveMetadataForDatasets$new()}}
+\item \href{#method-ConfusionChartRetrieveMetadataForDatasets-validate}{\code{ConfusionChartRetrieveMetadataForDatasets$validate()}}
+\item \href{#method-ConfusionChartRetrieveMetadataForDatasets-toJSON}{\code{ConfusionChartRetrieveMetadataForDatasets$toJSON()}}
+\item \href{#method-ConfusionChartRetrieveMetadataForDatasets-fromJSON}{\code{ConfusionChartRetrieveMetadataForDatasets$fromJSON()}}
+\item \href{#method-ConfusionChartRetrieveMetadataForDatasets-clone}{\code{ConfusionChartRetrieveMetadataForDatasets$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ConfusionChartRetrieveMetadataForDatasets-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfusionChartRetrieveMetadataForDatasets-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -79,19 +79,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ConfusionChartRetrieveMetadataForDatasets-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfusionChartRetrieveMetadataForDatasets-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ConfusionChartRetrieveMetadataForDatasets$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ConfusionChartRetrieveMetadataForDatasets-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfusionChartRetrieveMetadataForDatasets-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -100,8 +101,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ConfusionChartRetrieveMetadataForDatasets-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfusionChartRetrieveMetadataForDatasets-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -122,8 +123,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ConfusionChartRetrieveMetadataForDatasets-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ConfusionChartRetrieveMetadataForDatasets-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -35,23 +35,10 @@ result <- api.instance$AccessControlList(offset, limit, projectId, username=user
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-sharingUpdateOrRemove <- SharingUpdateOrRemove$new() # SharingUpdateOrRemove |
+sharingUpdateOrRemove <- SharingUpdateOrRemove$new() # SharingUpdateOrRemove | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AccessControlPatchMany(projectId, sharingUpdateOrRemove=sharingUpdateOrRemove)
-}
-
-## ------------------------------------------------
-## Method `ProjectsApi$AimPatchMany`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID.
-aim <- Aim$new() # Aim |
-
-api.instance <- ProjectsApi$new()
-result <- api.instance$AimPatchMany(projectId, aim=aim)
 }
 
 ## ------------------------------------------------
@@ -61,7 +48,7 @@ result <- api.instance$AimPatchMany(projectId, aim=aim)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-autopilot <- Autopilot$new() # Autopilot |
+autopilot <- Autopilot$new() # Autopilot | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AutopilotCreate(projectId, autopilot=autopilot)
@@ -74,7 +61,7 @@ result <- api.instance$AutopilotCreate(projectId, autopilot=autopilot)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-autopilotStart <- AutopilotStart$new() # AutopilotStart |
+autopilotStart <- AutopilotStart$new() # AutopilotStart | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AutopilotsCreate(projectId, autopilotStart=autopilotStart)
@@ -87,7 +74,7 @@ result <- api.instance$AutopilotsCreate(projectId, autopilotStart=autopilotStart
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to create the feature in.
-batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform |
+batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$BatchTypeTransformFeaturesCreate(projectId, batchFeatureTransform=batchFeatureTransform)
@@ -101,7 +88,7 @@ result <- api.instance$BatchTypeTransformFeaturesCreate(projectId, batchFeatureT
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project containing transformed features.
 jobId <- 56 # integer | ID of the batch variable type transformation job.
-batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform |
+batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$BatchTypeTransformFeaturesResultRetrieve(projectId, jobId, batchFeatureTransform=batchFeatureTransform)
@@ -160,7 +147,7 @@ result <- api.instance$CalendarsAccessControlList(calendarId, username=username,
 \dontrun{
 library(datarobot.apicore)
 calendarId <- 'calendarId_example' # character | The ID of this calendar.
-calendarAccessControlUpdate <- CalendarAccessControlUpdate$new() # CalendarAccessControlUpdate |
+calendarAccessControlUpdate <- CalendarAccessControlUpdate$new() # CalendarAccessControlUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsAccessControlPatchMany(calendarId, calendarAccessControlUpdate=calendarAccessControlUpdate)
@@ -184,7 +171,7 @@ result <- api.instance$CalendarsDelete(calendarId)
 
 \dontrun{
 library(datarobot.apicore)
-calendarFileUpload <- CalendarFileUpload$new() # CalendarFileUpload |
+calendarFileUpload <- CalendarFileUpload$new() # CalendarFileUpload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFileUploadCreate(calendarFileUpload=calendarFileUpload)
@@ -196,7 +183,7 @@ result <- api.instance$CalendarsFileUploadCreate(calendarFileUpload=calendarFile
 
 \dontrun{
 library(datarobot.apicore)
-preloadedCalendar <- PreloadedCalendar$new() # PreloadedCalendar |
+preloadedCalendar <- PreloadedCalendar$new() # PreloadedCalendar | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFromCountryCodeCreate(preloadedCalendar=preloadedCalendar)
@@ -208,7 +195,7 @@ result <- api.instance$CalendarsFromCountryCodeCreate(preloadedCalendar=preloade
 
 \dontrun{
 library(datarobot.apicore)
-calendarFromDataset <- CalendarFromDataset$new() # CalendarFromDataset |
+calendarFromDataset <- CalendarFromDataset$new() # CalendarFromDataset | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFromDatasetCreate(calendarFromDataset=calendarFromDataset)
@@ -235,7 +222,7 @@ result <- api.instance$CalendarsList(offset, limit, projectId=projectId)
 \dontrun{
 library(datarobot.apicore)
 calendarId <- 'calendarId_example' # character | The ID of this calendar.
-calendarNameUpdate <- CalendarNameUpdate$new() # CalendarNameUpdate |
+calendarNameUpdate <- CalendarNameUpdate$new() # CalendarNameUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsPatch(calendarId, calendarNameUpdate=calendarNameUpdate)
@@ -259,7 +246,7 @@ result <- api.instance$CalendarsRetrieve(calendarId)
 
 \dontrun{
 library(datarobot.apicore)
-projectNuke <- ProjectNuke$new() # ProjectNuke |
+projectNuke <- ProjectNuke$new() # ProjectNuke | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CleanupJobsCreate(projectNuke=projectNuke)
@@ -330,10 +317,23 @@ result <- api.instance$CleanupJobsSummaryList(statusId)
 
 \dontrun{
 library(datarobot.apicore)
-projectClone <- ProjectClone$new() # ProjectClone |
+projectClone <- ProjectClone$new() # ProjectClone | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ClonesCreate(projectClone=projectClone)
+}
+
+## ------------------------------------------------
+## Method `ProjectsApi$ConfigureAndStartAutopilot`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+projectId <- 'projectId_example' # character | The project ID.
+aim <- Aim$new() # Aim | 
+
+api.instance <- ProjectsApi$new()
+result <- api.instance$ConfigureAndStartAutopilot(projectId, aim=aim)
 }
 
 ## ------------------------------------------------
@@ -342,7 +342,7 @@ result <- api.instance$ClonesCreate(projectClone=projectClone)
 
 \dontrun{
 library(datarobot.apicore)
-projectCreate <- ProjectCreate$new() # ProjectCreate |
+projectCreate <- ProjectCreate$new() # ProjectCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$Create(projectCreate=projectCreate)
@@ -355,7 +355,7 @@ result <- api.instance$Create(projectCreate=projectCreate)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-crossSeriesGroupByColumnValidatePayload <- CrossSeriesGroupByColumnValidatePayload$new() # CrossSeriesGroupByColumnValidatePayload |
+crossSeriesGroupByColumnValidatePayload <- CrossSeriesGroupByColumnValidatePayload$new() # CrossSeriesGroupByColumnValidatePayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CrossSeriesPropertiesCreate(projectId, crossSeriesGroupByColumnValidatePayload=crossSeriesGroupByColumnValidatePayload)
@@ -418,7 +418,7 @@ result <- api.instance$DeletedProjectsList(searchFor=searchFor, creator=creator,
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-projectRecover <- ProjectRecover$new() # ProjectRecover |
+projectRecover <- ProjectRecover$new() # ProjectRecover | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$DeletedProjectsPatch(projectId, projectRecover=projectRecover)
@@ -444,7 +444,7 @@ result <- api.instance$DiscardedFeaturesList(projectId, search=search)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-externalTsBaselinePayload <- ExternalTSBaselinePayload$new() # ExternalTSBaselinePayload |
+externalTsBaselinePayload <- ExternalTSBaselinePayload$new() # ExternalTSBaselinePayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ExternalTimeSeriesBaselineDataValidationJobsCreate(projectId, externalTsBaselinePayload=externalTsBaselinePayload)
@@ -523,7 +523,7 @@ result <- api.instance$FeatureDiscoveryRecipeSQLsDownloadList(projectId, modelId
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-featureDiscoveryRecipeSqlsExport <- FeatureDiscoveryRecipeSQLsExport$new() # FeatureDiscoveryRecipeSQLsExport |
+featureDiscoveryRecipeSqlsExport <- FeatureDiscoveryRecipeSQLsExport$new() # FeatureDiscoveryRecipeSQLsExport | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeatureDiscoveryRecipeSqlExportsCreate(projectId, featureDiscoveryRecipeSqlsExport=featureDiscoveryRecipeSqlsExport)
@@ -537,7 +537,7 @@ result <- api.instance$FeatureDiscoveryRecipeSqlExportsCreate(projectId, feature
 library(datarobot.apicore)
 binLimit <- 60 # integer | maximum number of bins in the returned plot
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 key <- 'key_example' # character | name of the top 50 key for which plot to be retrieved. (Only required for the Summarized categorical feature)
 
 api.instance <- ProjectsApi$new()
@@ -564,7 +564,7 @@ result <- api.instance$FeatureLineagesRetrieve(projectId, featureLineageId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist |
+createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturelistsCreate(projectId, createFeaturelist=createFeaturelist)
@@ -605,7 +605,7 @@ result <- api.instance$FeaturelistsList(projectId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
 featurelistId <- 'featurelistId_example' # character | The featurelist ID.
-updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist |
+updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturelistsPatch(projectId, featurelistId, updateFeaturelist=updateFeaturelist)
@@ -670,7 +670,7 @@ result <- api.instance$FeaturesMultiseriesPropertiesList(projectId, featureName)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturesRetrieve(projectId, featureName)
@@ -682,7 +682,7 @@ result <- api.instance$FeaturesRetrieve(projectId, featureName)
 
 \dontrun{
 library(datarobot.apicore)
-hdfsProjectCreate <- HdfsProjectCreate$new() # HdfsProjectCreate |
+hdfsProjectCreate <- HdfsProjectCreate$new() # HdfsProjectCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$HdfsProjectsCreate(hdfsProjectCreate=hdfsProjectCreate)
@@ -734,7 +734,7 @@ result <- api.instance$JobsRetrieve(projectId, jobId)
 \dontrun{
 library(datarobot.apicore)
 projectName <- 'projectName_example' # character | if provided will filter returned projects for projects with matching names
-projectId <- OneOfstringarray$new() # OneOfstringarray | if provided will filter returned projects with matching project IDs
+projectId <- list(c('projectId_example')) # OneOfstringarray | if provided will filter returned projects with matching project IDs
 orderBy <- 'orderBy_example' # character | if provided will order the results by this field
 featureDiscovery <- 'featureDiscovery_example' # character | Return only feature discovery projects
 
@@ -749,7 +749,7 @@ result <- api.instance$List(projectName=projectName, projectId=projectId, orderB
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist |
+createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturelistsCreate(projectId, createFeaturelist=createFeaturelist)
@@ -792,7 +792,7 @@ result <- api.instance$ModelingFeaturelistsList(offset, limit, projectId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
 featurelistId <- 'featurelistId_example' # character | The featurelist ID.
-updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist |
+updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturelistsPatch(projectId, featurelistId, updateFeaturelist=updateFeaturelist)
@@ -818,7 +818,7 @@ result <- api.instance$ModelingFeaturelistsRetrieve(projectId, featurelistId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-modelingFeaturesCreateFromDiscarded <- ModelingFeaturesCreateFromDiscarded$new() # ModelingFeaturesCreateFromDiscarded |
+modelingFeaturesCreateFromDiscarded <- ModelingFeaturesCreateFromDiscarded$new() # ModelingFeaturesCreateFromDiscarded | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturesFromDiscardedFeaturesCreate(projectId, modelingFeaturesCreateFromDiscarded=modelingFeaturesCreateFromDiscarded)
@@ -845,7 +845,7 @@ result <- api.instance$ModelingFeaturesList(offset, limit, projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturesRetrieve(projectId, featureName)
@@ -859,7 +859,7 @@ result <- api.instance$ModelingFeaturesRetrieve(projectId, featureName)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to retrieve cross-series group-by columns for.
 multiseriesId <- 'multiseriesId_example' # character | The name of the column to be used as the multiseries ID column.
-crossSeriesGroupByColumns <- OneOfstringarray$new() # OneOfstringarray | The names of the columns to retrieve the validation status for. If not specified, all eligible columns will be returned.
+crossSeriesGroupByColumns <- list(c('crossSeriesGroupByColumns_example')) # OneOfstringarray | The names of the columns to retrieve the validation status for. If not specified, all eligible columns will be returned.
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$MultiseriesIdsCrossSeriesPropertiesList(projectId, multiseriesId, crossSeriesGroupByColumns=crossSeriesGroupByColumns)
@@ -886,7 +886,7 @@ result <- api.instance$MultiseriesNamesList(projectId, offset=offset, limit=limi
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-multiseriesPayload <- MultiseriesPayload$new() # MultiseriesPayload |
+multiseriesPayload <- MultiseriesPayload$new() # MultiseriesPayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$MultiseriesPropertiesCreate(projectId, multiseriesPayload=multiseriesPayload)
@@ -899,7 +899,7 @@ result <- api.instance$MultiseriesPropertiesCreate(projectId, multiseriesPayload
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-projectUpdate <- ProjectUpdate$new() # ProjectUpdate |
+projectUpdate <- ProjectUpdate$new() # ProjectUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$Patch(projectId, projectUpdate=projectUpdate)
@@ -924,7 +924,7 @@ result <- api.instance$RelationshipsConfigurationList(projectId, configId=config
 
 \dontrun{
 library(datarobot.apicore)
-relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate |
+relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$RelationshipsConfigurationsCreate(relationshipsConfigCreate=relationshipsConfigCreate)
@@ -949,7 +949,7 @@ result <- api.instance$RelationshipsConfigurationsDelete(relationshipsConfigurat
 \dontrun{
 library(datarobot.apicore)
 relationshipsConfigurationId <- 'relationshipsConfigurationId_example' # character | Id of the relationships configuration to delete
-relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate |
+relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$RelationshipsConfigurationsPut(relationshipsConfigurationId, relationshipsConfigCreate=relationshipsConfigCreate)
@@ -986,7 +986,7 @@ result <- api.instance$Retrieve(projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-secondaryDatasetCreate <- SecondaryDatasetCreate$new() # SecondaryDatasetCreate |
+secondaryDatasetCreate <- SecondaryDatasetCreate$new() # SecondaryDatasetCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SecondaryDatasetsConfigurationsCreate(projectId, secondaryDatasetCreate=secondaryDatasetCreate)
@@ -1016,7 +1016,7 @@ featurelistId <- 'featurelistId_example' # character | feature list ID of the mo
 modelId <- 'modelId_example' # character | ID of the model
 offset <- 0 # integer | This many results will be skipped.
 limit <- 100 # integer | At most this many results are returned.
-includeDeleted <- "true" # character | Include deleted records.
+includeDeleted <- "false" # character | Include deleted records.
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SecondaryDatasetsConfigurationsList(projectId, featurelistId=featurelistId, modelId=modelId, offset=offset, limit=limit, includeDeleted=includeDeleted)
@@ -1055,7 +1055,7 @@ result <- api.instance$SegmentationTaskJobResultsRetrieve(projectId, segmentatio
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-segmentationTaskCreate <- SegmentationTaskCreate$new() # SegmentationTaskCreate |
+segmentationTaskCreate <- SegmentationTaskCreate$new() # SegmentationTaskCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SegmentationTasksCreate(projectId, segmentationTaskCreate=segmentationTaskCreate)
@@ -1111,7 +1111,7 @@ result <- api.instance$SegmentationTasksRetrieve(projectId, segmentationTaskId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 segmentId <- 'segmentId_example' # character | The name of the segment
-projectSegmentUpdate <- ProjectSegmentUpdate$new() # ProjectSegmentUpdate |
+projectSegmentUpdate <- ProjectSegmentUpdate$new() # ProjectSegmentUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SegmentsPatch(projectId, segmentId, projectSegmentUpdate=projectSegmentUpdate)
@@ -1136,7 +1136,7 @@ result <- api.instance$StatusList(projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to create the feature in.
-featureTransform <- FeatureTransform$new() # FeatureTransform |
+featureTransform <- FeatureTransform$new() # FeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$TypeTransformFeaturesCreate(projectId, featureTransform=featureTransform)
@@ -1152,98 +1152,98 @@ result <- api.instance$TypeTransformFeaturesCreate(projectId, featureTransform=f
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectsApi$new()}}
-\item \href{#method-AccessControlList}{\code{ProjectsApi$AccessControlList()}}
-\item \href{#method-AccessControlPatchMany}{\code{ProjectsApi$AccessControlPatchMany()}}
-\item \href{#method-AimPatchMany}{\code{ProjectsApi$AimPatchMany()}}
-\item \href{#method-AutopilotCreate}{\code{ProjectsApi$AutopilotCreate()}}
-\item \href{#method-AutopilotsCreate}{\code{ProjectsApi$AutopilotsCreate()}}
-\item \href{#method-BatchTypeTransformFeaturesCreate}{\code{ProjectsApi$BatchTypeTransformFeaturesCreate()}}
-\item \href{#method-BatchTypeTransformFeaturesResultRetrieve}{\code{ProjectsApi$BatchTypeTransformFeaturesResultRetrieve()}}
-\item \href{#method-CalendarCountryCodesList}{\code{ProjectsApi$CalendarCountryCodesList()}}
-\item \href{#method-CalendarEventsList}{\code{ProjectsApi$CalendarEventsList()}}
-\item \href{#method-CalendarsAccessControlList}{\code{ProjectsApi$CalendarsAccessControlList()}}
-\item \href{#method-CalendarsAccessControlPatchMany}{\code{ProjectsApi$CalendarsAccessControlPatchMany()}}
-\item \href{#method-CalendarsDelete}{\code{ProjectsApi$CalendarsDelete()}}
-\item \href{#method-CalendarsFileUploadCreate}{\code{ProjectsApi$CalendarsFileUploadCreate()}}
-\item \href{#method-CalendarsFromCountryCodeCreate}{\code{ProjectsApi$CalendarsFromCountryCodeCreate()}}
-\item \href{#method-CalendarsFromDatasetCreate}{\code{ProjectsApi$CalendarsFromDatasetCreate()}}
-\item \href{#method-CalendarsList}{\code{ProjectsApi$CalendarsList()}}
-\item \href{#method-CalendarsPatch}{\code{ProjectsApi$CalendarsPatch()}}
-\item \href{#method-CalendarsRetrieve}{\code{ProjectsApi$CalendarsRetrieve()}}
-\item \href{#method-CleanupJobsCreate}{\code{ProjectsApi$CleanupJobsCreate()}}
-\item \href{#method-CleanupJobsDelete}{\code{ProjectsApi$CleanupJobsDelete()}}
-\item \href{#method-CleanupJobsDownloadList}{\code{ProjectsApi$CleanupJobsDownloadList()}}
-\item \href{#method-CleanupJobsList}{\code{ProjectsApi$CleanupJobsList()}}
-\item \href{#method-CleanupJobsRetrieve}{\code{ProjectsApi$CleanupJobsRetrieve()}}
-\item \href{#method-CleanupJobsSummaryList}{\code{ProjectsApi$CleanupJobsSummaryList()}}
-\item \href{#method-ClonesCreate}{\code{ProjectsApi$ClonesCreate()}}
-\item \href{#method-Create}{\code{ProjectsApi$Create()}}
-\item \href{#method-CrossSeriesPropertiesCreate}{\code{ProjectsApi$CrossSeriesPropertiesCreate()}}
-\item \href{#method-Delete}{\code{ProjectsApi$Delete()}}
-\item \href{#method-DeletedProjectsCountList}{\code{ProjectsApi$DeletedProjectsCountList()}}
-\item \href{#method-DeletedProjectsList}{\code{ProjectsApi$DeletedProjectsList()}}
-\item \href{#method-DeletedProjectsPatch}{\code{ProjectsApi$DeletedProjectsPatch()}}
-\item \href{#method-DiscardedFeaturesList}{\code{ProjectsApi$DiscardedFeaturesList()}}
-\item \href{#method-ExternalTimeSeriesBaselineDataValidationJobsCreate}{\code{ProjectsApi$ExternalTimeSeriesBaselineDataValidationJobsCreate()}}
-\item \href{#method-ExternalTimeSeriesBaselineDataValidationJobsRetrieve}{\code{ProjectsApi$ExternalTimeSeriesBaselineDataValidationJobsRetrieve()}}
-\item \href{#method-FeatureDiscoveryDatasetDownloadList}{\code{ProjectsApi$FeatureDiscoveryDatasetDownloadList()}}
-\item \href{#method-FeatureDiscoveryLogsDownloadList}{\code{ProjectsApi$FeatureDiscoveryLogsDownloadList()}}
-\item \href{#method-FeatureDiscoveryLogsList}{\code{ProjectsApi$FeatureDiscoveryLogsList()}}
-\item \href{#method-FeatureDiscoveryRecipeSQLsDownloadList}{\code{ProjectsApi$FeatureDiscoveryRecipeSQLsDownloadList()}}
-\item \href{#method-FeatureDiscoveryRecipeSqlExportsCreate}{\code{ProjectsApi$FeatureDiscoveryRecipeSqlExportsCreate()}}
-\item \href{#method-FeatureHistogramsRetrieve}{\code{ProjectsApi$FeatureHistogramsRetrieve()}}
-\item \href{#method-FeatureLineagesRetrieve}{\code{ProjectsApi$FeatureLineagesRetrieve()}}
-\item \href{#method-FeaturelistsCreate}{\code{ProjectsApi$FeaturelistsCreate()}}
-\item \href{#method-FeaturelistsDelete}{\code{ProjectsApi$FeaturelistsDelete()}}
-\item \href{#method-FeaturelistsList}{\code{ProjectsApi$FeaturelistsList()}}
-\item \href{#method-FeaturelistsPatch}{\code{ProjectsApi$FeaturelistsPatch()}}
-\item \href{#method-FeaturelistsRetrieve}{\code{ProjectsApi$FeaturelistsRetrieve()}}
-\item \href{#method-FeaturesList}{\code{ProjectsApi$FeaturesList()}}
-\item \href{#method-FeaturesMetricsList}{\code{ProjectsApi$FeaturesMetricsList()}}
-\item \href{#method-FeaturesMultiseriesPropertiesList}{\code{ProjectsApi$FeaturesMultiseriesPropertiesList()}}
-\item \href{#method-FeaturesRetrieve}{\code{ProjectsApi$FeaturesRetrieve()}}
-\item \href{#method-HdfsProjectsCreate}{\code{ProjectsApi$HdfsProjectsCreate()}}
-\item \href{#method-JobsDelete}{\code{ProjectsApi$JobsDelete()}}
-\item \href{#method-JobsList}{\code{ProjectsApi$JobsList()}}
-\item \href{#method-JobsRetrieve}{\code{ProjectsApi$JobsRetrieve()}}
-\item \href{#method-List}{\code{ProjectsApi$List()}}
-\item \href{#method-ModelingFeaturelistsCreate}{\code{ProjectsApi$ModelingFeaturelistsCreate()}}
-\item \href{#method-ModelingFeaturelistsDelete}{\code{ProjectsApi$ModelingFeaturelistsDelete()}}
-\item \href{#method-ModelingFeaturelistsList}{\code{ProjectsApi$ModelingFeaturelistsList()}}
-\item \href{#method-ModelingFeaturelistsPatch}{\code{ProjectsApi$ModelingFeaturelistsPatch()}}
-\item \href{#method-ModelingFeaturelistsRetrieve}{\code{ProjectsApi$ModelingFeaturelistsRetrieve()}}
-\item \href{#method-ModelingFeaturesFromDiscardedFeaturesCreate}{\code{ProjectsApi$ModelingFeaturesFromDiscardedFeaturesCreate()}}
-\item \href{#method-ModelingFeaturesList}{\code{ProjectsApi$ModelingFeaturesList()}}
-\item \href{#method-ModelingFeaturesRetrieve}{\code{ProjectsApi$ModelingFeaturesRetrieve()}}
-\item \href{#method-MultiseriesIdsCrossSeriesPropertiesList}{\code{ProjectsApi$MultiseriesIdsCrossSeriesPropertiesList()}}
-\item \href{#method-MultiseriesNamesList}{\code{ProjectsApi$MultiseriesNamesList()}}
-\item \href{#method-MultiseriesPropertiesCreate}{\code{ProjectsApi$MultiseriesPropertiesCreate()}}
-\item \href{#method-Patch}{\code{ProjectsApi$Patch()}}
-\item \href{#method-RelationshipsConfigurationList}{\code{ProjectsApi$RelationshipsConfigurationList()}}
-\item \href{#method-RelationshipsConfigurationsCreate}{\code{ProjectsApi$RelationshipsConfigurationsCreate()}}
-\item \href{#method-RelationshipsConfigurationsDelete}{\code{ProjectsApi$RelationshipsConfigurationsDelete()}}
-\item \href{#method-RelationshipsConfigurationsPut}{\code{ProjectsApi$RelationshipsConfigurationsPut()}}
-\item \href{#method-RelationshipsConfigurationsRetrieve}{\code{ProjectsApi$RelationshipsConfigurationsRetrieve()}}
-\item \href{#method-Retrieve}{\code{ProjectsApi$Retrieve()}}
-\item \href{#method-SecondaryDatasetsConfigurationsCreate}{\code{ProjectsApi$SecondaryDatasetsConfigurationsCreate()}}
-\item \href{#method-SecondaryDatasetsConfigurationsDelete}{\code{ProjectsApi$SecondaryDatasetsConfigurationsDelete()}}
-\item \href{#method-SecondaryDatasetsConfigurationsList}{\code{ProjectsApi$SecondaryDatasetsConfigurationsList()}}
-\item \href{#method-SecondaryDatasetsConfigurationsRetrieve}{\code{ProjectsApi$SecondaryDatasetsConfigurationsRetrieve()}}
-\item \href{#method-SegmentationTaskJobResultsRetrieve}{\code{ProjectsApi$SegmentationTaskJobResultsRetrieve()}}
-\item \href{#method-SegmentationTasksCreate}{\code{ProjectsApi$SegmentationTasksCreate()}}
-\item \href{#method-SegmentationTasksList}{\code{ProjectsApi$SegmentationTasksList()}}
-\item \href{#method-SegmentationTasksMappingsList}{\code{ProjectsApi$SegmentationTasksMappingsList()}}
-\item \href{#method-SegmentationTasksRetrieve}{\code{ProjectsApi$SegmentationTasksRetrieve()}}
-\item \href{#method-SegmentsPatch}{\code{ProjectsApi$SegmentsPatch()}}
-\item \href{#method-StatusList}{\code{ProjectsApi$StatusList()}}
-\item \href{#method-TypeTransformFeaturesCreate}{\code{ProjectsApi$TypeTransformFeaturesCreate()}}
-\item \href{#method-clone}{\code{ProjectsApi$clone()}}
+\item \href{#method-ProjectsApi-new}{\code{ProjectsApi$new()}}
+\item \href{#method-ProjectsApi-AccessControlList}{\code{ProjectsApi$AccessControlList()}}
+\item \href{#method-ProjectsApi-AccessControlPatchMany}{\code{ProjectsApi$AccessControlPatchMany()}}
+\item \href{#method-ProjectsApi-AutopilotCreate}{\code{ProjectsApi$AutopilotCreate()}}
+\item \href{#method-ProjectsApi-AutopilotsCreate}{\code{ProjectsApi$AutopilotsCreate()}}
+\item \href{#method-ProjectsApi-BatchTypeTransformFeaturesCreate}{\code{ProjectsApi$BatchTypeTransformFeaturesCreate()}}
+\item \href{#method-ProjectsApi-BatchTypeTransformFeaturesResultRetrieve}{\code{ProjectsApi$BatchTypeTransformFeaturesResultRetrieve()}}
+\item \href{#method-ProjectsApi-CalendarCountryCodesList}{\code{ProjectsApi$CalendarCountryCodesList()}}
+\item \href{#method-ProjectsApi-CalendarEventsList}{\code{ProjectsApi$CalendarEventsList()}}
+\item \href{#method-ProjectsApi-CalendarsAccessControlList}{\code{ProjectsApi$CalendarsAccessControlList()}}
+\item \href{#method-ProjectsApi-CalendarsAccessControlPatchMany}{\code{ProjectsApi$CalendarsAccessControlPatchMany()}}
+\item \href{#method-ProjectsApi-CalendarsDelete}{\code{ProjectsApi$CalendarsDelete()}}
+\item \href{#method-ProjectsApi-CalendarsFileUploadCreate}{\code{ProjectsApi$CalendarsFileUploadCreate()}}
+\item \href{#method-ProjectsApi-CalendarsFromCountryCodeCreate}{\code{ProjectsApi$CalendarsFromCountryCodeCreate()}}
+\item \href{#method-ProjectsApi-CalendarsFromDatasetCreate}{\code{ProjectsApi$CalendarsFromDatasetCreate()}}
+\item \href{#method-ProjectsApi-CalendarsList}{\code{ProjectsApi$CalendarsList()}}
+\item \href{#method-ProjectsApi-CalendarsPatch}{\code{ProjectsApi$CalendarsPatch()}}
+\item \href{#method-ProjectsApi-CalendarsRetrieve}{\code{ProjectsApi$CalendarsRetrieve()}}
+\item \href{#method-ProjectsApi-CleanupJobsCreate}{\code{ProjectsApi$CleanupJobsCreate()}}
+\item \href{#method-ProjectsApi-CleanupJobsDelete}{\code{ProjectsApi$CleanupJobsDelete()}}
+\item \href{#method-ProjectsApi-CleanupJobsDownloadList}{\code{ProjectsApi$CleanupJobsDownloadList()}}
+\item \href{#method-ProjectsApi-CleanupJobsList}{\code{ProjectsApi$CleanupJobsList()}}
+\item \href{#method-ProjectsApi-CleanupJobsRetrieve}{\code{ProjectsApi$CleanupJobsRetrieve()}}
+\item \href{#method-ProjectsApi-CleanupJobsSummaryList}{\code{ProjectsApi$CleanupJobsSummaryList()}}
+\item \href{#method-ProjectsApi-ClonesCreate}{\code{ProjectsApi$ClonesCreate()}}
+\item \href{#method-ProjectsApi-ConfigureAndStartAutopilot}{\code{ProjectsApi$ConfigureAndStartAutopilot()}}
+\item \href{#method-ProjectsApi-Create}{\code{ProjectsApi$Create()}}
+\item \href{#method-ProjectsApi-CrossSeriesPropertiesCreate}{\code{ProjectsApi$CrossSeriesPropertiesCreate()}}
+\item \href{#method-ProjectsApi-Delete}{\code{ProjectsApi$Delete()}}
+\item \href{#method-ProjectsApi-DeletedProjectsCountList}{\code{ProjectsApi$DeletedProjectsCountList()}}
+\item \href{#method-ProjectsApi-DeletedProjectsList}{\code{ProjectsApi$DeletedProjectsList()}}
+\item \href{#method-ProjectsApi-DeletedProjectsPatch}{\code{ProjectsApi$DeletedProjectsPatch()}}
+\item \href{#method-ProjectsApi-DiscardedFeaturesList}{\code{ProjectsApi$DiscardedFeaturesList()}}
+\item \href{#method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsCreate}{\code{ProjectsApi$ExternalTimeSeriesBaselineDataValidationJobsCreate()}}
+\item \href{#method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsRetrieve}{\code{ProjectsApi$ExternalTimeSeriesBaselineDataValidationJobsRetrieve()}}
+\item \href{#method-ProjectsApi-FeatureDiscoveryDatasetDownloadList}{\code{ProjectsApi$FeatureDiscoveryDatasetDownloadList()}}
+\item \href{#method-ProjectsApi-FeatureDiscoveryLogsDownloadList}{\code{ProjectsApi$FeatureDiscoveryLogsDownloadList()}}
+\item \href{#method-ProjectsApi-FeatureDiscoveryLogsList}{\code{ProjectsApi$FeatureDiscoveryLogsList()}}
+\item \href{#method-ProjectsApi-FeatureDiscoveryRecipeSQLsDownloadList}{\code{ProjectsApi$FeatureDiscoveryRecipeSQLsDownloadList()}}
+\item \href{#method-ProjectsApi-FeatureDiscoveryRecipeSqlExportsCreate}{\code{ProjectsApi$FeatureDiscoveryRecipeSqlExportsCreate()}}
+\item \href{#method-ProjectsApi-FeatureHistogramsRetrieve}{\code{ProjectsApi$FeatureHistogramsRetrieve()}}
+\item \href{#method-ProjectsApi-FeatureLineagesRetrieve}{\code{ProjectsApi$FeatureLineagesRetrieve()}}
+\item \href{#method-ProjectsApi-FeaturelistsCreate}{\code{ProjectsApi$FeaturelistsCreate()}}
+\item \href{#method-ProjectsApi-FeaturelistsDelete}{\code{ProjectsApi$FeaturelistsDelete()}}
+\item \href{#method-ProjectsApi-FeaturelistsList}{\code{ProjectsApi$FeaturelistsList()}}
+\item \href{#method-ProjectsApi-FeaturelistsPatch}{\code{ProjectsApi$FeaturelistsPatch()}}
+\item \href{#method-ProjectsApi-FeaturelistsRetrieve}{\code{ProjectsApi$FeaturelistsRetrieve()}}
+\item \href{#method-ProjectsApi-FeaturesList}{\code{ProjectsApi$FeaturesList()}}
+\item \href{#method-ProjectsApi-FeaturesMetricsList}{\code{ProjectsApi$FeaturesMetricsList()}}
+\item \href{#method-ProjectsApi-FeaturesMultiseriesPropertiesList}{\code{ProjectsApi$FeaturesMultiseriesPropertiesList()}}
+\item \href{#method-ProjectsApi-FeaturesRetrieve}{\code{ProjectsApi$FeaturesRetrieve()}}
+\item \href{#method-ProjectsApi-HdfsProjectsCreate}{\code{ProjectsApi$HdfsProjectsCreate()}}
+\item \href{#method-ProjectsApi-JobsDelete}{\code{ProjectsApi$JobsDelete()}}
+\item \href{#method-ProjectsApi-JobsList}{\code{ProjectsApi$JobsList()}}
+\item \href{#method-ProjectsApi-JobsRetrieve}{\code{ProjectsApi$JobsRetrieve()}}
+\item \href{#method-ProjectsApi-List}{\code{ProjectsApi$List()}}
+\item \href{#method-ProjectsApi-ModelingFeaturelistsCreate}{\code{ProjectsApi$ModelingFeaturelistsCreate()}}
+\item \href{#method-ProjectsApi-ModelingFeaturelistsDelete}{\code{ProjectsApi$ModelingFeaturelistsDelete()}}
+\item \href{#method-ProjectsApi-ModelingFeaturelistsList}{\code{ProjectsApi$ModelingFeaturelistsList()}}
+\item \href{#method-ProjectsApi-ModelingFeaturelistsPatch}{\code{ProjectsApi$ModelingFeaturelistsPatch()}}
+\item \href{#method-ProjectsApi-ModelingFeaturelistsRetrieve}{\code{ProjectsApi$ModelingFeaturelistsRetrieve()}}
+\item \href{#method-ProjectsApi-ModelingFeaturesFromDiscardedFeaturesCreate}{\code{ProjectsApi$ModelingFeaturesFromDiscardedFeaturesCreate()}}
+\item \href{#method-ProjectsApi-ModelingFeaturesList}{\code{ProjectsApi$ModelingFeaturesList()}}
+\item \href{#method-ProjectsApi-ModelingFeaturesRetrieve}{\code{ProjectsApi$ModelingFeaturesRetrieve()}}
+\item \href{#method-ProjectsApi-MultiseriesIdsCrossSeriesPropertiesList}{\code{ProjectsApi$MultiseriesIdsCrossSeriesPropertiesList()}}
+\item \href{#method-ProjectsApi-MultiseriesNamesList}{\code{ProjectsApi$MultiseriesNamesList()}}
+\item \href{#method-ProjectsApi-MultiseriesPropertiesCreate}{\code{ProjectsApi$MultiseriesPropertiesCreate()}}
+\item \href{#method-ProjectsApi-Patch}{\code{ProjectsApi$Patch()}}
+\item \href{#method-ProjectsApi-RelationshipsConfigurationList}{\code{ProjectsApi$RelationshipsConfigurationList()}}
+\item \href{#method-ProjectsApi-RelationshipsConfigurationsCreate}{\code{ProjectsApi$RelationshipsConfigurationsCreate()}}
+\item \href{#method-ProjectsApi-RelationshipsConfigurationsDelete}{\code{ProjectsApi$RelationshipsConfigurationsDelete()}}
+\item \href{#method-ProjectsApi-RelationshipsConfigurationsPut}{\code{ProjectsApi$RelationshipsConfigurationsPut()}}
+\item \href{#method-ProjectsApi-RelationshipsConfigurationsRetrieve}{\code{ProjectsApi$RelationshipsConfigurationsRetrieve()}}
+\item \href{#method-ProjectsApi-Retrieve}{\code{ProjectsApi$Retrieve()}}
+\item \href{#method-ProjectsApi-SecondaryDatasetsConfigurationsCreate}{\code{ProjectsApi$SecondaryDatasetsConfigurationsCreate()}}
+\item \href{#method-ProjectsApi-SecondaryDatasetsConfigurationsDelete}{\code{ProjectsApi$SecondaryDatasetsConfigurationsDelete()}}
+\item \href{#method-ProjectsApi-SecondaryDatasetsConfigurationsList}{\code{ProjectsApi$SecondaryDatasetsConfigurationsList()}}
+\item \href{#method-ProjectsApi-SecondaryDatasetsConfigurationsRetrieve}{\code{ProjectsApi$SecondaryDatasetsConfigurationsRetrieve()}}
+\item \href{#method-ProjectsApi-SegmentationTaskJobResultsRetrieve}{\code{ProjectsApi$SegmentationTaskJobResultsRetrieve()}}
+\item \href{#method-ProjectsApi-SegmentationTasksCreate}{\code{ProjectsApi$SegmentationTasksCreate()}}
+\item \href{#method-ProjectsApi-SegmentationTasksList}{\code{ProjectsApi$SegmentationTasksList()}}
+\item \href{#method-ProjectsApi-SegmentationTasksMappingsList}{\code{ProjectsApi$SegmentationTasksMappingsList()}}
+\item \href{#method-ProjectsApi-SegmentationTasksRetrieve}{\code{ProjectsApi$SegmentationTasksRetrieve()}}
+\item \href{#method-ProjectsApi-SegmentsPatch}{\code{ProjectsApi$SegmentsPatch()}}
+\item \href{#method-ProjectsApi-StatusList}{\code{ProjectsApi$StatusList()}}
+\item \href{#method-ProjectsApi-TypeTransformFeaturesCreate}{\code{ProjectsApi$TypeTransformFeaturesCreate()}}
+\item \href{#method-ProjectsApi-clone}{\code{ProjectsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1258,8 +1258,8 @@ result <- api.instance$TypeTransformFeaturesCreate(projectId, featureTransform=f
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-AccessControlList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-AccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-AccessControlList}{}}}
 \subsection{Method \code{AccessControlList()}}{
 Get project's access control list
 Produces: "application/json"
@@ -1293,6 +1293,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users who have access to this project and their roles on the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1332,8 +1335,8 @@ result <- api.instance$AccessControlList(offset, limit, projectId, username=user
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-AccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-AccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-AccessControlPatchMany}{}}}
 \subsection{Method \code{AccessControlPatchMany()}}{
 Update project's access controls
 Produces: NA
@@ -1360,6 +1363,9 @@ Produces: NA
 Set roles for users on this project.
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -1379,7 +1385,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-sharingUpdateOrRemove <- SharingUpdateOrRemove$new() # SharingUpdateOrRemove |
+sharingUpdateOrRemove <- SharingUpdateOrRemove$new() # SharingUpdateOrRemove | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AccessControlPatchMany(projectId, sharingUpdateOrRemove=sharingUpdateOrRemove)
@@ -1391,57 +1397,8 @@ result <- api.instance$AccessControlPatchMany(projectId, sharingUpdateOrRemove=s
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AimPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-AimPatchMany}{}}}
-\subsection{Method \code{AimPatchMany()}}{
-Start modeling
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ProjectsApi$AimPatchMany(projectId, aim = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{projectId}}{character. The project ID.}
-
-\item{\code{aim}}{\link{Aim}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Start the data modeling process.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{202}} Autopilot has successfully started.  See the Location header.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID.
-aim <- Aim$new() # Aim |
-
-api.instance <- ProjectsApi$new()
-result <- api.instance$AimPatchMany(projectId, aim=aim)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutopilotCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-AutopilotCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-AutopilotCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-AutopilotCreate}{}}}
 \subsection{Method \code{AutopilotCreate()}}{
 Pause or unpause Autopilot
 Produces: NA
@@ -1464,6 +1421,9 @@ Produces: NA
 Pause or unpause the autopilot for a project.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/autopilot/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Request received
@@ -1477,7 +1437,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-autopilot <- Autopilot$new() # Autopilot |
+autopilot <- Autopilot$new() # Autopilot | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AutopilotCreate(projectId, autopilot=autopilot)
@@ -1489,8 +1449,8 @@ result <- api.instance$AutopilotCreate(projectId, autopilot=autopilot)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AutopilotsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-AutopilotsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-AutopilotsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-AutopilotsCreate}{}}}
 \subsection{Method \code{AutopilotsCreate()}}{
 Start autopilot
 Produces: NA
@@ -1513,6 +1473,9 @@ Produces: NA
 Start autopilot on provided featurelist.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/autopilots/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Successfully started
@@ -1529,7 +1492,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-autopilotStart <- AutopilotStart$new() # AutopilotStart |
+autopilotStart <- AutopilotStart$new() # AutopilotStart | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$AutopilotsCreate(projectId, autopilotStart=autopilotStart)
@@ -1541,8 +1504,8 @@ result <- api.instance$AutopilotsCreate(projectId, autopilotStart=autopilotStart
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchTypeTransformFeaturesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchTypeTransformFeaturesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-BatchTypeTransformFeaturesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-BatchTypeTransformFeaturesCreate}{}}}
 \subsection{Method \code{BatchTypeTransformFeaturesCreate()}}{
 Create multiple new features by changing the type of existing features.
 Produces: NA
@@ -1569,6 +1532,9 @@ Produces: NA
 Create multiple new features by changing the type of existing features.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/batchTypeTransformFeatures/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Creation has successfully started. See the Location header.
@@ -1586,7 +1552,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to create the feature in.
-batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform |
+batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$BatchTypeTransformFeaturesCreate(projectId, batchFeatureTransform=batchFeatureTransform)
@@ -1598,8 +1564,8 @@ result <- api.instance$BatchTypeTransformFeaturesCreate(projectId, batchFeatureT
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-BatchTypeTransformFeaturesResultRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-BatchTypeTransformFeaturesResultRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-BatchTypeTransformFeaturesResultRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-BatchTypeTransformFeaturesResultRetrieve}{}}}
 \subsection{Method \code{BatchTypeTransformFeaturesResultRetrieve()}}{
 Retrieve the result of a batch variable type transformation.
 Produces: "application/json"
@@ -1629,6 +1595,9 @@ Produces: "application/json"
 Retrieve the result of a batch variable type transformation.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/batchTypeTransformFeaturesResult/\{jobId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Names of successfully created features.
@@ -1649,7 +1618,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project containing transformed features.
 jobId <- 56 # integer | ID of the batch variable type transformation job.
-batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform |
+batchFeatureTransform <- BatchFeatureTransform$new() # BatchFeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$BatchTypeTransformFeaturesResultRetrieve(projectId, jobId, batchFeatureTransform=batchFeatureTransform)
@@ -1661,8 +1630,8 @@ result <- api.instance$BatchTypeTransformFeaturesResultRetrieve(projectId, jobId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarCountryCodesList"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarCountryCodesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarCountryCodesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarCountryCodesList}{}}}
 \subsection{Method \code{CalendarCountryCodesList()}}{
 Retrieve the list of allowed country codes to request preloaded calendars generation for.
 Produces: "application/json"
@@ -1683,6 +1652,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the list of allowed country codes to request preloaded calendars generation for.
+
+
+This method invokes \verb{GET /calendarCountryCodes/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1713,8 +1685,8 @@ result <- api.instance$CalendarCountryCodesList(offset=offset, limit=limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarEventsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarEventsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarEventsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarEventsList}{}}}
 \subsection{Method \code{CalendarEventsList()}}{
 List available calendar events for the project.
 Produces: "application/json"
@@ -1753,6 +1725,9 @@ Produces: "application/json"
 List available calendar events for the project.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/calendarEvents/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} A list of calendar events.
@@ -1785,8 +1760,8 @@ result <- api.instance$CalendarEventsList(projectId, seriesId=seriesId, startDat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsAccessControlList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsAccessControlList}{}}}
 \subsection{Method \code{CalendarsAccessControlList()}}{
 Get a list of users who have access to this calendar and their roles on the calendar.
 Produces: "application/json"
@@ -1820,6 +1795,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users who have access to this calendar and their roles on the calendar.
+
+
+This method invokes \verb{GET /calendars/\{calendarId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1859,8 +1837,8 @@ result <- api.instance$CalendarsAccessControlList(calendarId, username=username,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsAccessControlPatchMany}{}}}
 \subsection{Method \code{CalendarsAccessControlPatchMany()}}{
 Update the access control for this calendar.
 Produces: NA
@@ -1884,7 +1862,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update the access control for this calendar. See the `entity sharing documentation <sharing>` for more information.
+Update the access control for this calendar. See the entity sharing documentation \\<sharing\\> for more information.
+
+
+This method invokes \verb{PATCH /calendars/\{calendarId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1906,7 +1887,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 calendarId <- 'calendarId_example' # character | The ID of this calendar.
-calendarAccessControlUpdate <- CalendarAccessControlUpdate$new() # CalendarAccessControlUpdate |
+calendarAccessControlUpdate <- CalendarAccessControlUpdate$new() # CalendarAccessControlUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsAccessControlPatchMany(calendarId, calendarAccessControlUpdate=calendarAccessControlUpdate)
@@ -1918,8 +1899,8 @@ result <- api.instance$CalendarsAccessControlPatchMany(calendarId, calendarAcces
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsDelete}{}}}
 \subsection{Method \code{CalendarsDelete()}}{
 Delete a calendar.
 Produces: "application/json"
@@ -1938,6 +1919,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Delete a calendar. This can only be done if all projects and deployments using the calendar have been deleted.
+
+
+This method invokes \verb{DELETE /calendars/\{calendarId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1967,8 +1951,8 @@ result <- api.instance$CalendarsDelete(calendarId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsFileUploadCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsFileUploadCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsFileUploadCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsFileUploadCreate}{}}}
 \subsection{Method \code{CalendarsFileUploadCreate()}}{
 Create a calendar from a file.
 Produces: "application/json"
@@ -1989,6 +1973,9 @@ Produces: "application/json"
 Create a calendar from a file in a csv or xlsx format. The calendar file specifies the dates or events in a dataset such that DataRobot automatically derives and creates special features based on the calendar events (e.g., time until the next event, labeling the most recent event).
 
 
+This method invokes \verb{POST /calendars/fileUpload/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Request for calendar generation was submitted. See Location header.
@@ -2002,7 +1989,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-calendarFileUpload <- CalendarFileUpload$new() # CalendarFileUpload |
+calendarFileUpload <- CalendarFileUpload$new() # CalendarFileUpload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFileUploadCreate(calendarFileUpload=calendarFileUpload)
@@ -2014,8 +2001,8 @@ result <- api.instance$CalendarsFileUploadCreate(calendarFileUpload=calendarFile
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsFromCountryCodeCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsFromCountryCodeCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsFromCountryCodeCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsFromCountryCodeCreate}{}}}
 \subsection{Method \code{CalendarsFromCountryCodeCreate()}}{
 Initialize generation of preloaded calendars.
 Produces: "application/json"
@@ -2036,6 +2023,9 @@ Produces: "application/json"
 Initialize generation of preloaded calendars. Preloaded calendars are available only for time series projects. Preloaded calendars do not support multiseries calendars.
 
 
+This method invokes \verb{POST /calendars/fromCountryCode/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Request for calendar generation was submitted. See Location header.
@@ -2049,7 +2039,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-preloadedCalendar <- PreloadedCalendar$new() # PreloadedCalendar |
+preloadedCalendar <- PreloadedCalendar$new() # PreloadedCalendar | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFromCountryCodeCreate(preloadedCalendar=preloadedCalendar)
@@ -2061,8 +2051,8 @@ result <- api.instance$CalendarsFromCountryCodeCreate(preloadedCalendar=preloade
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsFromDatasetCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsFromDatasetCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsFromDatasetCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsFromDatasetCreate}{}}}
 \subsection{Method \code{CalendarsFromDatasetCreate()}}{
 Create a calendar from the dataset
 Produces: "application/json"
@@ -2083,6 +2073,9 @@ Produces: "application/json"
 Create a calendar from the dataset.
 
 
+This method invokes \verb{POST /calendars/fromDataset/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Successfully created a calendar from the dataset.
@@ -2099,7 +2092,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-calendarFromDataset <- CalendarFromDataset$new() # CalendarFromDataset |
+calendarFromDataset <- CalendarFromDataset$new() # CalendarFromDataset | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsFromDatasetCreate(calendarFromDataset=calendarFromDataset)
@@ -2111,8 +2104,8 @@ result <- api.instance$CalendarsFromDatasetCreate(calendarFromDataset=calendarFr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsList}{}}}
 \subsection{Method \code{CalendarsList()}}{
 List all available calendars for a user.
 Produces: "application/json"
@@ -2135,6 +2128,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all the calendars which the user has access to.
+
+
+This method invokes \verb{GET /calendars/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2166,8 +2162,8 @@ result <- api.instance$CalendarsList(offset, limit, projectId=projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsPatch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsPatch}{}}}
 \subsection{Method \code{CalendarsPatch()}}{
 Update a calendar's name
 Produces: "application/json"
@@ -2190,6 +2186,9 @@ Produces: "application/json"
 Update a calendar's name
 
 
+This method invokes \verb{PATCH /calendars/\{calendarId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Calendar name successfully updated.
@@ -2206,7 +2205,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 calendarId <- 'calendarId_example' # character | The ID of this calendar.
-calendarNameUpdate <- CalendarNameUpdate$new() # CalendarNameUpdate |
+calendarNameUpdate <- CalendarNameUpdate$new() # CalendarNameUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CalendarsPatch(calendarId, calendarNameUpdate=calendarNameUpdate)
@@ -2218,8 +2217,8 @@ result <- api.instance$CalendarsPatch(calendarId, calendarNameUpdate=calendarNam
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CalendarsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CalendarsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CalendarsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CalendarsRetrieve}{}}}
 \subsection{Method \code{CalendarsRetrieve()}}{
 Retrieve information about a calendar.
 Produces: "application/json"
@@ -2238,6 +2237,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all the information about a calendar such as the total number of event dates, the earliest calendar event date, the IDs of projects currently using this calendar and the others.
+
+
+This method invokes \verb{GET /calendars/\{calendarId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2267,8 +2269,8 @@ result <- api.instance$CalendarsRetrieve(calendarId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsCreate}{}}}
 \subsection{Method \code{CleanupJobsCreate()}}{
 Schedule Project Permadelete Job
 Produces: NA
@@ -2289,6 +2291,9 @@ Produces: NA
 Add list of projects to permadelete and returns async status
 
 
+This method invokes \verb{POST /projectCleanupJobs/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Location URL to check permadelete status per project
@@ -2302,7 +2307,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-projectNuke <- ProjectNuke$new() # ProjectNuke |
+projectNuke <- ProjectNuke$new() # ProjectNuke | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CleanupJobsCreate(projectNuke=projectNuke)
@@ -2314,8 +2319,8 @@ result <- api.instance$CleanupJobsCreate(projectNuke=projectNuke)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsDelete}{}}}
 \subsection{Method \code{CleanupJobsDelete()}}{
 Cancel Scheduled Project Permadelete Job
 Produces: NA
@@ -2334,6 +2339,9 @@ Produces: NA
 }
 \subsection{Details}{
 Stop permadelete job, if possible
+
+
+This method invokes \verb{DELETE /projectCleanupJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2360,8 +2368,8 @@ result <- api.instance$CleanupJobsDelete(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsDownloadList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsDownloadList}{}}}
 \subsection{Method \code{CleanupJobsDownloadList()}}{
 Download a projects permadeletion report.
 Produces: "application/json"
@@ -2380,6 +2388,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a file containing a per-project report of permanent deletion.
+
+
+This method invokes \verb{GET /projectCleanupJobs/\{statusId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2410,8 +2421,8 @@ result <- api.instance$CleanupJobsDownloadList(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsList}{}}}
 \subsection{Method \code{CleanupJobsList()}}{
 Retrieve Project Permadelete job status
 Produces: "application/json"
@@ -2428,6 +2439,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get async status of the project permadelete job
+
+
+This method invokes \verb{GET /projectCleanupJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2456,8 +2470,8 @@ result <- api.instance$CleanupJobsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsRetrieve}{}}}
 \subsection{Method \code{CleanupJobsRetrieve()}}{
 Retrieve Project Permadelete job status
 Produces: "application/json"
@@ -2476,6 +2490,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get async status of the project permadelete job
+
+
+This method invokes \verb{GET /projectCleanupJobs/\{statusId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2505,8 +2522,8 @@ result <- api.instance$CleanupJobsRetrieve(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CleanupJobsSummaryList"></a>}}
-\if{latex}{\out{\hypertarget{method-CleanupJobsSummaryList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CleanupJobsSummaryList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CleanupJobsSummaryList}{}}}
 \subsection{Method \code{CleanupJobsSummaryList()}}{
 Get a projects cleanup jobs summary.
 Produces: "application/json"
@@ -2525,6 +2542,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get number of projects whose deletion finished in particular state
+
+
+This method invokes \verb{GET /projectCleanupJobs/\{statusId\}/summary/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2554,8 +2574,8 @@ result <- api.instance$CleanupJobsSummaryList(statusId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ClonesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ClonesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ClonesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ClonesCreate}{}}}
 \subsection{Method \code{ClonesCreate()}}{
 Clone a project
 Produces: "application/json"
@@ -2573,8 +2593,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{ Create a clone of an existing project.      The resultant project will begin the initial exploratory     data analysis and will be ready to set the target of the new project shortly.
-}
+> Create a clone of an existing project. > > The resultant project will begin the initial exploratory data analysis > and will be ready to set the target of the new project shortly.
+
+
+This method invokes \verb{POST /projectClones/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2592,7 +2614,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-projectClone <- ProjectClone$new() # ProjectClone |
+projectClone <- ProjectClone$new() # ProjectClone | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ClonesCreate(projectClone=projectClone)
@@ -2604,8 +2626,60 @@ result <- api.instance$ClonesCreate(projectClone=projectClone)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Create"></a>}}
-\if{latex}{\out{\hypertarget{method-Create}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ConfigureAndStartAutopilot"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ConfigureAndStartAutopilot}{}}}
+\subsection{Method \code{ConfigureAndStartAutopilot()}}{
+Start modeling
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ProjectsApi$ConfigureAndStartAutopilot(projectId, aim = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{projectId}}{character. The project ID.}
+
+\item{\code{aim}}{\link{Aim}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Start the data modeling process.
+
+
+This method invokes \verb{PATCH /projects/\{projectId\}/aim/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{202}} Autopilot has successfully started.  See the Location header.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+projectId <- 'projectId_example' # character | The project ID.
+aim <- Aim$new() # Aim | 
+
+api.instance <- ProjectsApi$new()
+result <- api.instance$ConfigureAndStartAutopilot(projectId, aim=aim)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ProjectsApi-Create"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-Create}{}}}
 \subsection{Method \code{Create()}}{
 Create project.
 Produces: "application/json"
@@ -2624,6 +2698,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a new project.
+
+
+This method invokes \verb{POST /projects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2650,7 +2727,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-projectCreate <- ProjectCreate$new() # ProjectCreate |
+projectCreate <- ProjectCreate$new() # ProjectCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$Create(projectCreate=projectCreate)
@@ -2662,8 +2739,8 @@ result <- api.instance$Create(projectCreate=projectCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CrossSeriesPropertiesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CrossSeriesPropertiesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-CrossSeriesPropertiesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-CrossSeriesPropertiesCreate}{}}}
 \subsection{Method \code{CrossSeriesPropertiesCreate()}}{
 Validate columns for potential use as the group-by column for cross-series functionality.
 Produces: "application/json"
@@ -2690,6 +2767,9 @@ Produces: "application/json"
 Validate columns for potential use as the group-by column for cross-series functionality.  The group-by column is an optional setting that indicates how to further splitseries into related groups. For example, if each series represents sales of an individual product, the group-by column could be the product category, e.g., \"clothing\" or \"sports equipment\".
 
 
+This method invokes \verb{POST /projects/\{projectId\}/crossSeriesProperties/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Cross-series group-by column validation job was successfully submitted. See Location header.
@@ -2707,7 +2787,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-crossSeriesGroupByColumnValidatePayload <- CrossSeriesGroupByColumnValidatePayload$new() # CrossSeriesGroupByColumnValidatePayload |
+crossSeriesGroupByColumnValidatePayload <- CrossSeriesGroupByColumnValidatePayload$new() # CrossSeriesGroupByColumnValidatePayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$CrossSeriesPropertiesCreate(projectId, crossSeriesGroupByColumnValidatePayload=crossSeriesGroupByColumnValidatePayload)
@@ -2719,8 +2799,8 @@ result <- api.instance$CrossSeriesPropertiesCreate(projectId, crossSeriesGroupBy
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Delete"></a>}}
-\if{latex}{\out{\hypertarget{method-Delete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-Delete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-Delete}{}}}
 \subsection{Method \code{Delete()}}{
 Delete a project
 Produces: NA
@@ -2739,6 +2819,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a project
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2768,8 +2851,8 @@ result <- api.instance$Delete(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeletedProjectsCountList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeletedProjectsCountList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-DeletedProjectsCountList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-DeletedProjectsCountList}{}}}
 \subsection{Method \code{DeletedProjectsCountList()}}{
 Count soft-deleted projects.
 Produces: "application/json"
@@ -2811,6 +2894,9 @@ Produces: "application/json"
 Get current number of deleted projects matching search criteria. Value is limited by DELETED_PROJECTS_BATCH_LIMIT system setting. That means that the actual amount of deleted projects can be greater than the limit, but counting will stop when reaching it.
 
 
+This method invokes \verb{GET /deletedProjectsCount/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Soft-deleted projects amount, current counting limit value and boolean flag to notify if an actual amount of soft-deleted projects in the system exceeds the limit value.
@@ -2844,8 +2930,8 @@ result <- api.instance$DeletedProjectsCountList(searchFor=searchFor, creator=cre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeletedProjectsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeletedProjectsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-DeletedProjectsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-DeletedProjectsList}{}}}
 \subsection{Method \code{DeletedProjectsList()}}{
 Retrieve a list of soft-deleted projects
 Produces: "application/json"
@@ -2893,6 +2979,9 @@ Produces: "application/json"
 Retrieve a list of soft-deleted projects matching search criteria
 
 
+This method invokes \verb{GET /deletedProjects/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} List of soft-deleted projects
@@ -2928,8 +3017,8 @@ result <- api.instance$DeletedProjectsList(searchFor=searchFor, creator=creator,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeletedProjectsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DeletedProjectsPatch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-DeletedProjectsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-DeletedProjectsPatch}{}}}
 \subsection{Method \code{DeletedProjectsPatch()}}{
 Recover soft-deleted project
 Produces: "application/json"
@@ -2952,6 +3041,9 @@ Produces: "application/json"
 Recover (undelete) soft-deleted project
 
 
+This method invokes \verb{PATCH /deletedProjects/\{projectId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Recovery operation result description
@@ -2968,7 +3060,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-projectRecover <- ProjectRecover$new() # ProjectRecover |
+projectRecover <- ProjectRecover$new() # ProjectRecover | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$DeletedProjectsPatch(projectId, projectRecover=projectRecover)
@@ -2980,8 +3072,8 @@ result <- api.instance$DeletedProjectsPatch(projectId, projectRecover=projectRec
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DiscardedFeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-DiscardedFeaturesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-DiscardedFeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-DiscardedFeaturesList}{}}}
 \subsection{Method \code{DiscardedFeaturesList()}}{
 Get discarded features.
 Produces: "application/json"
@@ -3002,6 +3094,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get features which were discarded during feature reduction process.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/discardedFeatures/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3035,8 +3130,8 @@ result <- api.instance$DiscardedFeaturesList(projectId, search=search)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalTimeSeriesBaselineDataValidationJobsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalTimeSeriesBaselineDataValidationJobsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsCreate}{}}}
 \subsection{Method \code{ExternalTimeSeriesBaselineDataValidationJobsCreate()}}{
 Validate baseline data
 Produces: NA
@@ -3063,6 +3158,9 @@ Produces: NA
 This route validates if a provided catalog version id can be used as baseline for calculating metrics. This functionality is available only for time series projects.For a baseline dataset to be valid, the number of unique date amd multiseries_id columnrows must match the unique number of date and multiseries_id column rows in the uploadedtraining dataset. This functionality is limited to one forecast distance. Additionally, the catalog must be a snapshot.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/externalTimeSeriesBaselineDataValidationJobs/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Validate baseline data that is provided in the form of a catalog version id. We willconfirm that the dataset contains the proper date, target column, and multiseries ID column. If the provided dataset meets the criteria, the job will be successful.
@@ -3083,7 +3181,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-externalTsBaselinePayload <- ExternalTSBaselinePayload$new() # ExternalTSBaselinePayload |
+externalTsBaselinePayload <- ExternalTSBaselinePayload$new() # ExternalTSBaselinePayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ExternalTimeSeriesBaselineDataValidationJobsCreate(projectId, externalTsBaselinePayload=externalTsBaselinePayload)
@@ -3095,8 +3193,8 @@ result <- api.instance$ExternalTimeSeriesBaselineDataValidationJobsCreate(projec
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExternalTimeSeriesBaselineDataValidationJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ExternalTimeSeriesBaselineDataValidationJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ExternalTimeSeriesBaselineDataValidationJobsRetrieve}{}}}
 \subsection{Method \code{ExternalTimeSeriesBaselineDataValidationJobsRetrieve()}}{
 Retrieve Baseline Validation Job
 Produces: "application/json"
@@ -3121,6 +3219,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve information to confirm if the validation job triggered via /api/v2/projects/(projectId)/externalTimeSeriesBaselineDataValidationJobs/ is valid.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/externalTimeSeriesBaselineDataValidationJobs/\{baselineValidationJobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3157,8 +3258,8 @@ result <- api.instance$ExternalTimeSeriesBaselineDataValidationJobsRetrieve(proj
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureDiscoveryDatasetDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureDiscoveryDatasetDownloadList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureDiscoveryDatasetDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureDiscoveryDatasetDownloadList}{}}}
 \subsection{Method \code{FeatureDiscoveryDatasetDownloadList()}}{
 Download the project dataset with features added by feature discovery
 Produces: NA
@@ -3183,6 +3284,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download the project dataset with features added by feature discovery
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureDiscoveryDatasetDownload/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3216,8 +3320,8 @@ result <- api.instance$FeatureDiscoveryDatasetDownloadList(projectId, datasetId=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureDiscoveryLogsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureDiscoveryLogsDownloadList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureDiscoveryLogsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureDiscoveryLogsDownloadList}{}}}
 \subsection{Method \code{FeatureDiscoveryLogsDownloadList()}}{
 Retrieve a text file containing the feature discovery log
 Produces: NA
@@ -3236,6 +3340,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve a text file containing the feature discovery log. This route is only supported for feature discovery projects that have finished partitioning.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureDiscoveryLogs/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3265,8 +3372,8 @@ result <- api.instance$FeatureDiscoveryLogsDownloadList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureDiscoveryLogsList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureDiscoveryLogsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureDiscoveryLogsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureDiscoveryLogsList}{}}}
 \subsection{Method \code{FeatureDiscoveryLogsList()}}{
 Retrieve the feature discovery log content and log length
 Produces: "application/json"
@@ -3289,6 +3396,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the feature discovery log content and log length for a feature discovery project. This route is only supported for feature discovery projects that have finished partitioning
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureDiscoveryLogs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3323,8 +3433,8 @@ result <- api.instance$FeatureDiscoveryLogsList(projectId, offset=offset, limit=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureDiscoveryRecipeSQLsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureDiscoveryRecipeSQLsDownloadList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureDiscoveryRecipeSQLsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureDiscoveryRecipeSQLsDownloadList}{}}}
 \subsection{Method \code{FeatureDiscoveryRecipeSQLsDownloadList()}}{
 Download feature discovery SQL recipe
 Produces: NA
@@ -3352,6 +3462,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download feature discovery SQL recipe for a project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureDiscoveryRecipeSQLs/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3386,8 +3499,8 @@ result <- api.instance$FeatureDiscoveryRecipeSQLsDownloadList(projectId, modelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureDiscoveryRecipeSqlExportsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureDiscoveryRecipeSqlExportsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureDiscoveryRecipeSqlExportsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureDiscoveryRecipeSqlExportsCreate}{}}}
 \subsection{Method \code{FeatureDiscoveryRecipeSqlExportsCreate()}}{
 Generate feature discovery SQL recipe
 Produces: NA
@@ -3414,6 +3527,9 @@ Produces: NA
 Generate feature discovery SQL recipe for a project
 
 
+This method invokes \verb{POST /projects/\{projectId\}/featureDiscoveryRecipeSqlExports/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -3434,7 +3550,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-featureDiscoveryRecipeSqlsExport <- FeatureDiscoveryRecipeSQLsExport$new() # FeatureDiscoveryRecipeSQLsExport |
+featureDiscoveryRecipeSqlsExport <- FeatureDiscoveryRecipeSQLsExport$new() # FeatureDiscoveryRecipeSQLsExport | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeatureDiscoveryRecipeSqlExportsCreate(projectId, featureDiscoveryRecipeSqlsExport=featureDiscoveryRecipeSqlsExport)
@@ -3446,8 +3562,8 @@ result <- api.instance$FeatureDiscoveryRecipeSqlExportsCreate(projectId, feature
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureHistogramsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureHistogramsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureHistogramsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureHistogramsRetrieve}{}}}
 \subsection{Method \code{FeatureHistogramsRetrieve()}}{
 Get feature histogram
 Produces: "application/json"
@@ -3480,6 +3596,9 @@ Produces: "application/json"
 Get histogram chart data for a specific feature. Information that can be used to build histogram charts. Plot data returned is based on raw data that is calculated during initial project creation and updated after the project's target variable has been selected. The number of bins in the histogram is no greater than the requested limit.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/featureHistograms/\{featureName\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The feature histogram chart data
@@ -3500,7 +3619,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 binLimit <- 60 # integer | maximum number of bins in the returned plot
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 key <- 'key_example' # character | name of the top 50 key for which plot to be retrieved. (Only required for the Summarized categorical feature)
 
 api.instance <- ProjectsApi$new()
@@ -3513,8 +3632,8 @@ result <- api.instance$FeatureHistogramsRetrieve(binLimit, projectId, featureNam
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeatureLineagesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-FeatureLineagesRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeatureLineagesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeatureLineagesRetrieve}{}}}
 \subsection{Method \code{FeatureLineagesRetrieve()}}{
 Retrieve Feature Discovery Lineage
 Produces: "application/json"
@@ -3535,6 +3654,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve single Feature Discovery feature lineage.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featureLineages/\{featureLineageId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3565,8 +3687,8 @@ result <- api.instance$FeatureLineagesRetrieve(projectId, featureLineageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturelistsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturelistsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturelistsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturelistsCreate}{}}}
 \subsection{Method \code{FeaturelistsCreate()}}{
 Create a new featurelist.
 Produces: "application/json"
@@ -3589,6 +3711,9 @@ Produces: "application/json"
 Create a new featurelist from list of feature names.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/featurelists/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The newly created featurelist in the same format as :http:get:`/api/v2/projects/(projectId)/featurelists/(featurelistId)/`.
@@ -3605,7 +3730,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist |
+createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturelistsCreate(projectId, createFeaturelist=createFeaturelist)
@@ -3617,8 +3742,8 @@ result <- api.instance$FeaturelistsCreate(projectId, createFeaturelist=createFea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturelistsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturelistsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturelistsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturelistsDelete}{}}}
 \subsection{Method \code{FeaturelistsDelete()}}{
 Delete a specified featurelist.
 Produces: "application/json"
@@ -3648,7 +3773,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a specified featurelist. All models using a featurelist, whether as the training featurelist or as a monotonic constraint featurelist, will also be deleted when the deletion is executed and any queued or running jobs using it will be cancelled. Similarly, predictions made on these models will also be deleted. All the entities that are to be deleted with a featurelist are described as \"dependencies\" of it. When deleting a featurelist with dependencies, users must pass an additional query parameter `deleteDependencies` to confirm they want to delete the featurelist and all its dependencies. Without that option, only featurelists with no dependencies may be successfully deleted. Featurelists configured into the project as a default featurelist or as a default monotonic constraint featurelist cannot be deleted. Featurelists used in a model deployment cannot be deleted until the model deployment is deleted.
+Delete a specified featurelist. All models using a featurelist, whether as the training featurelist or as a monotonic constraint featurelist, will also be deleted when the deletion is executed and any queued or running jobs using it will be cancelled. Similarly, predictions made on these models will also be deleted. All the entities that are to be deleted with a featurelist are described as \"dependencies\" of it. When deleting a featurelist with dependencies, users must pass an additional query parameter deleteDependencies to confirm they want to delete the featurelist and all its dependencies. Without that option, only featurelists with no dependencies may be successfully deleted. Featurelists configured into the project as a default featurelist or as a default monotonic constraint featurelist cannot be deleted. Featurelists used in a model deployment cannot be deleted until the model deployment is deleted.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3681,8 +3809,8 @@ result <- api.instance$FeaturelistsDelete(projectId, featurelistId, dryRun=dryRu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturelistsList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturelistsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturelistsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturelistsList}{}}}
 \subsection{Method \code{FeaturelistsList()}}{
 List featurelists
 Produces: "application/json"
@@ -3701,6 +3829,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all featurelists for a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featurelists/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3730,8 +3861,8 @@ result <- api.instance$FeaturelistsList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturelistsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturelistsPatch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturelistsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturelistsPatch}{}}}
 \subsection{Method \code{FeaturelistsPatch()}}{
 Update an existing featurelist
 Produces: NA
@@ -3761,6 +3892,9 @@ Produces: NA
 Update an existing featurelist by ID.
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} The featurelist was successfully updated.
@@ -3778,7 +3912,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
 featurelistId <- 'featurelistId_example' # character | The featurelist ID.
-updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist |
+updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturelistsPatch(projectId, featurelistId, updateFeaturelist=updateFeaturelist)
@@ -3790,8 +3924,8 @@ result <- api.instance$FeaturelistsPatch(projectId, featurelistId, updateFeature
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturelistsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturelistsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturelistsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturelistsRetrieve}{}}}
 \subsection{Method \code{FeaturelistsRetrieve()}}{
 Retrieve a feature list
 Produces: "application/json"
@@ -3812,6 +3946,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a single known feature list.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/featurelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3842,8 +3979,8 @@ result <- api.instance$FeaturelistsRetrieve(projectId, featurelistId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturesList}{}}}
 \subsection{Method \code{FeaturesList()}}{
 List project features
 Produces: "application/json"
@@ -3864,6 +4001,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the features from a project with descriptive information.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/features/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3894,8 +4034,8 @@ result <- api.instance$FeaturesList(projectId, forSegmentedAnalysis=forSegmented
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturesMetricsList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturesMetricsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturesMetricsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturesMetricsList}{}}}
 \subsection{Method \code{FeaturesMetricsList()}}{
 List feature metrics
 Produces: "application/json"
@@ -3916,6 +4056,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the appropriate metrics if a feature were chosen as the target. The metrics listed will include both weighted and unweighted metrics - which are appropriate will depend on whether a weights column is used.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/features/metrics/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3946,8 +4089,8 @@ result <- api.instance$FeaturesMetricsList(featureName, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturesMultiseriesPropertiesList"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturesMultiseriesPropertiesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturesMultiseriesPropertiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturesMultiseriesPropertiesList}{}}}
 \subsection{Method \code{FeaturesMultiseriesPropertiesList()}}{
 Retrieve potential multiseries ID columns to use with a particular datetime partition column.
 Produces: "application/json"
@@ -3967,7 +4110,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Time series projects require that each timestamp have at most one row corresponding to it. However, multiple series of data can be handled within a single project by designating a multiseries ID column that assigns each row to a particular series. See the :ref:`multiseries <multiseries>` docs on time series projects for more information.  Note that detection will have to be triggered via :http:post:`/api/v2/projects/(projectId)/multiseriesProperties/` in order for multiseries id columns to appear here. The route will return successfully with an empty array of detected columns if detection hasn't run yet, or hasn't found any valid columns.
+Time series projects require that each timestamp have at most one row corresponding to it. However, multiple series of data can be handled within a single project by designating a multiseries ID column that assigns each row to a particular series. See the `multiseries <multiseries>` docs on time series projects for more information.  Note that detection will have to be triggered via :<http:post>:/api/v2/projects/(projectId)/multiseriesProperties/ in order for multiseries id columns to appear here. The route will return successfully with an empty array of detected columns if detection hasn't run yet, or hasn't found any valid columns.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/features/\{featureName\}/multiseriesProperties/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3998,8 +4144,8 @@ result <- api.instance$FeaturesMultiseriesPropertiesList(projectId, featureName)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FeaturesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-FeaturesRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-FeaturesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-FeaturesRetrieve}{}}}
 \subsection{Method \code{FeaturesRetrieve()}}{
 Get project feature
 Produces: NA
@@ -4022,6 +4168,9 @@ Produces: NA
 Retrieve the specified feature with descriptive information. Descriptive information for features also includes summary statistics as of v2.8. These are returned via the fields max, min, mean, median, and stdDev. These fields are formatted according to the original feature type of the feature. For example, the format will be numeric if your feature is numeric, in feet and inches if your feature is length type, in currency if your feature is currency type, in time format if your feature is time type, or in ISO date format if your feature is a date type. Numbers will be rounded so that they have at most two non-zero decimal digits. For projects created prior to v2.8, these descriptive statistics will not be available. Also, some features, like categorical and text features, may not have summary statistics.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/features/\{featureName\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The feature information
@@ -4035,7 +4184,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$FeaturesRetrieve(projectId, featureName)
@@ -4047,8 +4196,8 @@ result <- api.instance$FeaturesRetrieve(projectId, featureName)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-HdfsProjectsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-HdfsProjectsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-HdfsProjectsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-HdfsProjectsCreate}{}}}
 \subsection{Method \code{HdfsProjectsCreate()}}{
 Create a project from an HDFS file source.
 Produces: "application/json"
@@ -4066,7 +4215,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a project from an HDFS file via WebHDFS API. Represent the file using URL, optionally, port, and optionally, user/password credentials. For example, `{\"url\": \"hdfs://<ip>/path/to/file.csv\", \"port\": \"50070\"}`.
+Create a project from an HDFS file via WebHDFS API. Represent the file using URL, optionally, port, and optionally, user/password credentials. For example, {\"url\": \"hdfs://\\<ip\\>/path/to/file.csv\", \"port\": \"50070\"}.
+
+
+This method invokes \verb{POST /hdfsProjects/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4085,7 +4237,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-hdfsProjectCreate <- HdfsProjectCreate$new() # HdfsProjectCreate |
+hdfsProjectCreate <- HdfsProjectCreate$new() # HdfsProjectCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$HdfsProjectsCreate(hdfsProjectCreate=hdfsProjectCreate)
@@ -4097,8 +4249,8 @@ result <- api.instance$HdfsProjectsCreate(hdfsProjectCreate=hdfsProjectCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-JobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-JobsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-JobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-JobsDelete}{}}}
 \subsection{Method \code{JobsDelete()}}{
 Cancel Job
 Produces: NA
@@ -4119,6 +4271,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel a pending job.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/jobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4146,8 +4301,8 @@ result <- api.instance$JobsDelete(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-JobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-JobsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-JobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-JobsList}{}}}
 \subsection{Method \code{JobsList()}}{
 List project jobs
 Produces: "application/json"
@@ -4168,6 +4323,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the project's jobs.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/jobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4198,8 +4356,8 @@ result <- api.instance$JobsList(projectId, status=status)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-JobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-JobsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-JobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-JobsRetrieve}{}}}
 \subsection{Method \code{JobsRetrieve()}}{
 Get job
 Produces: "application/json"
@@ -4220,6 +4378,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve details for a job that has been started but has not yet completed.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/jobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4253,8 +4414,8 @@ result <- api.instance$JobsRetrieve(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-List"></a>}}
-\if{latex}{\out{\hypertarget{method-List}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-List"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-List}{}}}
 \subsection{Method \code{List()}}{
 List projects
 Produces: "application/json"
@@ -4287,6 +4448,9 @@ Produces: "application/json"
 List all available projects.
 
 
+This method invokes \verb{GET /projects/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The list of projects
@@ -4303,7 +4467,7 @@ list( \link{ProjectDetailsResponse} )
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectName <- 'projectName_example' # character | if provided will filter returned projects for projects with matching names
-projectId <- OneOfstringarray$new() # OneOfstringarray | if provided will filter returned projects with matching project IDs
+projectId <- list(c('projectId_example')) # OneOfstringarray | if provided will filter returned projects with matching project IDs
 orderBy <- 'orderBy_example' # character | if provided will order the results by this field
 featureDiscovery <- 'featureDiscovery_example' # character | Return only feature discovery projects
 
@@ -4317,8 +4481,8 @@ result <- api.instance$List(projectName=projectName, projectId=projectId, orderB
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturelistsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturelistsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturelistsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturelistsCreate}{}}}
 \subsection{Method \code{ModelingFeaturelistsCreate()}}{
 Create a new modeling featurelist.
 Produces: "application/json"
@@ -4342,7 +4506,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create new modeling featurelist from list of feature names. Only time series projects differentiate between modeling and input featurelists. On other projects, this route will behave the same as :http:post:`/api/v2/projects/(projectId)/featurelists/`. On time series projects, this can be used after the target has been set in order to create a new featurelist on the modeling features, although the previously mentioned route for creating featurelists will be disabled. On time series projects, only modeling features may be passed to this route to create a featurelist.
+Create new modeling featurelist from list of feature names. Only time series projects differentiate between modeling and input featurelists. On other projects, this route will behave the same as :<http:post>:/api/v2/projects/(projectId)/featurelists/. On time series projects, this can be used after the target has been set in order to create a new featurelist on the modeling features, although the previously mentioned route for creating featurelists will be disabled. On time series projects, only modeling features may be passed to this route to create a featurelist.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/modelingFeaturelists/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4361,7 +4528,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist |
+createFeaturelist <- CreateFeaturelist$new() # CreateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturelistsCreate(projectId, createFeaturelist=createFeaturelist)
@@ -4373,8 +4540,8 @@ result <- api.instance$ModelingFeaturelistsCreate(projectId, createFeaturelist=c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturelistsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturelistsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturelistsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturelistsDelete}{}}}
 \subsection{Method \code{ModelingFeaturelistsDelete()}}{
 Delete a specified modeling featurelist.
 Produces: "application/json"
@@ -4404,7 +4571,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Delete a specified modeling featurelist. All models using a featurelist, whether as the training featurelist or as a monotonic constraint featurelist, will also be deleted when the deletion is executed and any queued or running jobs using it will be cancelled. Similarly, predictions made on these models will also be deleted. All the entities that are to be deleted with a featurelist are described as \"dependencies\" of it. When deleting a featurelist with dependencies, users must pass an additional query parameter `deleteDependencies` to confirm they want to delete the featurelist and all its dependencies. Without that option, only featurelists with no dependencies may be successfully deleted. Featurelists configured into the project as a default featurelist or as a default monotonic constraint featurelist cannot be deleted. Featurelists used in a model deployment cannot be deleted until the model deployment is deleted. Modeling featurelists are featurelists of modeling features, and are the appropriate featurelists to use when creating models or restarting the autopilot. In a time series project, these will be distinct from those returned from :http:get:`/api/v2/projects/(projectId)/featurelists/` while in other projects these will be identical.
+Delete a specified modeling featurelist. All models using a featurelist, whether as the training featurelist or as a monotonic constraint featurelist, will also be deleted when the deletion is executed and any queued or running jobs using it will be cancelled. Similarly, predictions made on these models will also be deleted. All the entities that are to be deleted with a featurelist are described as \"dependencies\" of it. When deleting a featurelist with dependencies, users must pass an additional query parameter deleteDependencies to confirm they want to delete the featurelist and all its dependencies. Without that option, only featurelists with no dependencies may be successfully deleted. Featurelists configured into the project as a default featurelist or as a default monotonic constraint featurelist cannot be deleted. Featurelists used in a model deployment cannot be deleted until the model deployment is deleted. Modeling featurelists are featurelists of modeling features, and are the appropriate featurelists to use when creating models or restarting the autopilot. In a time series project, these will be distinct from those returned from :<http:get>:/api/v2/projects/(projectId)/featurelists/ while in other projects these will be identical.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/modelingFeaturelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4437,8 +4607,8 @@ result <- api.instance$ModelingFeaturelistsDelete(projectId, featurelistId, dryR
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturelistsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturelistsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturelistsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturelistsList}{}}}
 \subsection{Method \code{ModelingFeaturelistsList()}}{
 List all modeling featurelists from a project
 Produces: "application/json"
@@ -4460,7 +4630,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-List all modeling featurelists from the project requested by ID. This route will only become available after the target and partitioning options have been set for a project. Modeling featurelists are featurelists of modeling features, and are the correct featurelists to use when creating models or restarting the autopilot. In a time series project, these will differ from those returned from :http:get:`/api/v2/projects/(projectId)/featurelists/` while in other projects these will be identical. See the :ref:`documentation <input_vs_modeling>` for more information on the distinction between input and modeling data in time series projects.
+List all modeling featurelists from the project requested by ID. This route will only become available after the target and partitioning options have been set for a project. Modeling featurelists are featurelists of modeling features, and are the correct featurelists to use when creating models or restarting the autopilot. In a time series project, these will differ from those returned from :<http:get>:/api/v2/projects/(projectId)/featurelists/ while in other projects these will be identical. See the `documentation <input_vs_modeling>` for more information on the distinction between input and modeling data in time series projects.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelingFeaturelists/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4492,8 +4665,8 @@ result <- api.instance$ModelingFeaturelistsList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturelistsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturelistsPatch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturelistsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturelistsPatch}{}}}
 \subsection{Method \code{ModelingFeaturelistsPatch()}}{
 Update an existing modeling featurelist
 Produces: NA
@@ -4520,7 +4693,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Update an existing modeling featurelist by ID. In non-time series projects, \"modeling featurelists\" and \"featurelists\" routes behave the same, except \"modeling featurelists\" are only accessible after the project is ready for modeling.  In time series projects, \"featurelists\" contain the input features before feature derivation that are used to derive the time series features, while  \"modeling featurelists\" contain the derived time series features used for modeling.
+Update an existing modeling featurelist by ID. In non-time series projects, \"modeling featurelists\" and \"featurelists\" routes behave the same, except \"modeling featurelists\" are only accessible after the project is ready for modeling. In time series projects, \"featurelists\" contain the input features before feature derivation that are used to derive the time series features, while \"modeling featurelists\" contain the derived time series features used for modeling.
+
+
+This method invokes \verb{PATCH /projects/\{projectId\}/modelingFeaturelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4540,7 +4716,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
 featurelistId <- 'featurelistId_example' # character | The featurelist ID.
-updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist |
+updateFeaturelist <- UpdateFeaturelist$new() # UpdateFeaturelist | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturelistsPatch(projectId, featurelistId, updateFeaturelist=updateFeaturelist)
@@ -4552,8 +4728,8 @@ result <- api.instance$ModelingFeaturelistsPatch(projectId, featurelistId, updat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturelistsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturelistsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturelistsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturelistsRetrieve}{}}}
 \subsection{Method \code{ModelingFeaturelistsRetrieve()}}{
 Retrieve a single modeling featurelist by ID
 Produces: "application/json"
@@ -4573,7 +4749,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a single modeling featurelist by ID. When reporting the number of models that \"use\" a featurelist, a model is considered to use a featurelist if it is used as to train the model or as a monotonic constraint featurelist, or if the model is a blender with component models that use the featurelist. This route will only become available after the target and partitioning options have been set for a project. Modeling featurelists are featurelists of modeling features, and are the appropriate featurelists to use when creating models or restarting the autopilot. In a time series project, these will be distinct from those returned from :http:get:`/api/v2/projects/(projectId)/featurelists/` while in other projects these will be identical.
+Retrieve a single modeling featurelist by ID. When reporting the number of models that \"use\" a featurelist, a model is considered to use a featurelist if it is used as to train the model or as a monotonic constraint featurelist, or if the model is a blender with component models that use the featurelist. This route will only become available after the target and partitioning options have been set for a project. Modeling featurelists are featurelists of modeling features, and are the appropriate featurelists to use when creating models or restarting the autopilot. In a time series project, these will be distinct from those returned from :<http:get>:/api/v2/projects/(projectId)/featurelists/ while in other projects these will be identical.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelingFeaturelists/\{featurelistId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4604,8 +4783,8 @@ result <- api.instance$ModelingFeaturelistsRetrieve(projectId, featurelistId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturesFromDiscardedFeaturesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturesFromDiscardedFeaturesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturesFromDiscardedFeaturesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturesFromDiscardedFeaturesCreate}{}}}
 \subsection{Method \code{ModelingFeaturesFromDiscardedFeaturesCreate()}}{
 Restore discarded time series features.
 Produces: "application/json"
@@ -4632,6 +4811,9 @@ Produces: "application/json"
 Restore discarded time series features.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/modelingFeatures/fromDiscardedFeatures/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Creation has successfully started. See the Location header.
@@ -4655,7 +4837,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-modelingFeaturesCreateFromDiscarded <- ModelingFeaturesCreateFromDiscarded$new() # ModelingFeaturesCreateFromDiscarded |
+modelingFeaturesCreateFromDiscarded <- ModelingFeaturesCreateFromDiscarded$new() # ModelingFeaturesCreateFromDiscarded | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturesFromDiscardedFeaturesCreate(projectId, modelingFeaturesCreateFromDiscarded=modelingFeaturesCreateFromDiscarded)
@@ -4667,8 +4849,8 @@ result <- api.instance$ModelingFeaturesFromDiscardedFeaturesCreate(projectId, mo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturesList}{}}}
 \subsection{Method \code{ModelingFeaturesList()}}{
 List project modeling features.
 Produces: "application/json"
@@ -4691,6 +4873,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the features from a project that are used for modeling with descriptive information.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelingFeatures/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4725,8 +4910,8 @@ result <- api.instance$ModelingFeaturesList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelingFeaturesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelingFeaturesRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-ModelingFeaturesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-ModelingFeaturesRetrieve}{}}}
 \subsection{Method \code{ModelingFeaturesRetrieve()}}{
 Retrieve project modeling feature.
 Produces: "application/json"
@@ -4747,6 +4932,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the specified modeling feature with descriptive information.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelingFeatures/\{featureName\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4771,7 +4959,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The ID of the project
-featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting)
+featureName <- 'featureName_example' # character | the name of the feature Note: DataRobot renames some features, so the feature name may not be the one from your original data. You can use :http:get:`/api/v2/projects/(projectId)/features/` to list the features and check the name. Note to users with non-ascii features names: The feature name should be utf-8-encoded (before URL-quoting) 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$ModelingFeaturesRetrieve(projectId, featureName)
@@ -4783,8 +4971,8 @@ result <- api.instance$ModelingFeaturesRetrieve(projectId, featureName)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultiseriesIdsCrossSeriesPropertiesList"></a>}}
-\if{latex}{\out{\hypertarget{method-MultiseriesIdsCrossSeriesPropertiesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-MultiseriesIdsCrossSeriesPropertiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-MultiseriesIdsCrossSeriesPropertiesList}{}}}
 \subsection{Method \code{MultiseriesIdsCrossSeriesPropertiesList()}}{
 Retrieve eligible cross-series group-by columns.
 Produces: "application/json"
@@ -4811,7 +4999,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve eligible cross-series group-by columns.  Note that validation will have to have been triggered via :http:post:`/api/v2/projects/(projectId)/crossSeriesProperties/` in order for results to appear here.
+Retrieve eligible cross-series group-by columns.  Note that validation will have to have been triggered via :<http:post>:/api/v2/projects/(projectId)/crossSeriesProperties/ in order for results to appear here.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/multiseriesIds/\{multiseriesId\}/crossSeriesProperties/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4831,7 +5022,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to retrieve cross-series group-by columns for.
 multiseriesId <- 'multiseriesId_example' # character | The name of the column to be used as the multiseries ID column.
-crossSeriesGroupByColumns <- OneOfstringarray$new() # OneOfstringarray | The names of the columns to retrieve the validation status for. If not specified, all eligible columns will be returned.
+crossSeriesGroupByColumns <- list(c('crossSeriesGroupByColumns_example')) # OneOfstringarray | The names of the columns to retrieve the validation status for. If not specified, all eligible columns will be returned.
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$MultiseriesIdsCrossSeriesPropertiesList(projectId, multiseriesId, crossSeriesGroupByColumns=crossSeriesGroupByColumns)
@@ -4843,8 +5034,8 @@ result <- api.instance$MultiseriesIdsCrossSeriesPropertiesList(projectId, multis
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultiseriesNamesList"></a>}}
-\if{latex}{\out{\hypertarget{method-MultiseriesNamesList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-MultiseriesNamesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-MultiseriesNamesList}{}}}
 \subsection{Method \code{MultiseriesNamesList()}}{
 List the names of a multiseries project.
 Produces: "application/json"
@@ -4867,6 +5058,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the individual series names of a multiseries project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/multiseriesNames/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4898,8 +5092,8 @@ result <- api.instance$MultiseriesNamesList(projectId, offset=offset, limit=limi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-MultiseriesPropertiesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-MultiseriesPropertiesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-MultiseriesPropertiesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-MultiseriesPropertiesCreate}{}}}
 \subsection{Method \code{MultiseriesPropertiesCreate()}}{
 Detect multiseries properties
 Produces: NA
@@ -4923,7 +5117,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Analyze relationships between potential partition and multiseries ID columns. Time series projects require that each timestamp have at most one row corresponding to it. However, multiple series of data can be handled within a single project by designating a multiseries ID column that assigns each row to a particular series.  See the :ref:`multiseries <multiseries>` docs on time series projects for more information. A detection job analyzing the relationship between the multiseries ID column and the datetime partition column must be ran before it can be used.  If the desired multiseries ID column(s) are known, it can be specified to limit the analysis to only those columns.
+Analyze relationships between potential partition and multiseries ID columns. Time series projects require that each timestamp have at most one row corresponding to it. However, multiple series of data can be handled within a single project by designating a multiseries ID column that assigns each row to a particular series. See the `multiseries <multiseries>` docs on time series projects for more information. A detection job analyzing the relationship between the multiseries ID column and the datetime partition column must be ran before it can be used. If the desired multiseries ID column(s) are known, it can be specified to limit the analysis to only those columns.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/multiseriesProperties/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4940,7 +5137,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-multiseriesPayload <- MultiseriesPayload$new() # MultiseriesPayload |
+multiseriesPayload <- MultiseriesPayload$new() # MultiseriesPayload | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$MultiseriesPropertiesCreate(projectId, multiseriesPayload=multiseriesPayload)
@@ -4952,8 +5149,8 @@ result <- api.instance$MultiseriesPropertiesCreate(projectId, multiseriesPayload
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Patch"></a>}}
-\if{latex}{\out{\hypertarget{method-Patch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-Patch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-Patch}{}}}
 \subsection{Method \code{Patch()}}{
 Update project
 Produces: NA
@@ -4973,7 +5170,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Change project name, worker count, or unlock the holdout.     If any of the optional json arguments are not provided,     that aspect of the project will not be altered.
+Change project name, worker count, or unlock the holdout.   If any of the optional json arguments are not provided, that aspect of the project will not be altered.
+
+
+This method invokes \verb{PATCH /projects/\{projectId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4989,7 +5189,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-projectUpdate <- ProjectUpdate$new() # ProjectUpdate |
+projectUpdate <- ProjectUpdate$new() # ProjectUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$Patch(projectId, projectUpdate=projectUpdate)
@@ -5001,8 +5201,8 @@ result <- api.instance$Patch(projectId, projectUpdate=projectUpdate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RelationshipsConfigurationList"></a>}}
-\if{latex}{\out{\hypertarget{method-RelationshipsConfigurationList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-RelationshipsConfigurationList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-RelationshipsConfigurationList}{}}}
 \subsection{Method \code{RelationshipsConfigurationList()}}{
 Retrieve relationships configuration for a project
 Produces: "application/json"
@@ -5023,6 +5223,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve relationships configuration for a project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/relationshipsConfiguration/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5056,8 +5259,8 @@ result <- api.instance$RelationshipsConfigurationList(projectId, configId=config
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RelationshipsConfigurationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-RelationshipsConfigurationsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-RelationshipsConfigurationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-RelationshipsConfigurationsCreate}{}}}
 \subsection{Method \code{RelationshipsConfigurationsCreate()}}{
 Create a relationships configuration
 Produces: "application/json"
@@ -5081,6 +5284,9 @@ Produces: "application/json"
 Create a relationships configuration
 
 
+This method invokes \verb{POST /relationshipsConfigurations/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -5099,7 +5305,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate |
+relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$RelationshipsConfigurationsCreate(relationshipsConfigCreate=relationshipsConfigCreate)
@@ -5111,8 +5317,8 @@ result <- api.instance$RelationshipsConfigurationsCreate(relationshipsConfigCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RelationshipsConfigurationsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-RelationshipsConfigurationsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-RelationshipsConfigurationsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-RelationshipsConfigurationsDelete}{}}}
 \subsection{Method \code{RelationshipsConfigurationsDelete()}}{
 Delete a relationships configuration
 Produces: NA
@@ -5134,6 +5340,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a relationships configuration
+
+
+This method invokes \verb{DELETE /relationshipsConfigurations/\{relationshipsConfigurationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5163,8 +5372,8 @@ result <- api.instance$RelationshipsConfigurationsDelete(relationshipsConfigurat
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RelationshipsConfigurationsPut"></a>}}
-\if{latex}{\out{\hypertarget{method-RelationshipsConfigurationsPut}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-RelationshipsConfigurationsPut"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-RelationshipsConfigurationsPut}{}}}
 \subsection{Method \code{RelationshipsConfigurationsPut()}}{
 Replace a relationships configuration
 Produces: "application/json"
@@ -5191,6 +5400,9 @@ Produces: "application/json"
 Replace a relationships configuration
 
 
+This method invokes \verb{PUT /relationshipsConfigurations/\{relationshipsConfigurationId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -5210,7 +5422,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 relationshipsConfigurationId <- 'relationshipsConfigurationId_example' # character | Id of the relationships configuration to delete
-relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate |
+relationshipsConfigCreate <- RelationshipsConfigCreate$new() # RelationshipsConfigCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$RelationshipsConfigurationsPut(relationshipsConfigurationId, relationshipsConfigCreate=relationshipsConfigCreate)
@@ -5222,8 +5434,8 @@ result <- api.instance$RelationshipsConfigurationsPut(relationshipsConfiguration
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RelationshipsConfigurationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-RelationshipsConfigurationsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-RelationshipsConfigurationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-RelationshipsConfigurationsRetrieve}{}}}
 \subsection{Method \code{RelationshipsConfigurationsRetrieve()}}{
 Retrieve a relationships configuration
 Produces: "application/json"
@@ -5245,6 +5457,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a relationships configuration
+
+
+This method invokes \verb{GET /relationshipsConfigurations/\{relationshipsConfigurationId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5277,8 +5492,8 @@ result <- api.instance$RelationshipsConfigurationsRetrieve(relationshipsConfigur
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Retrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-Retrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-Retrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-Retrieve}{}}}
 \subsection{Method \code{Retrieve()}}{
 Get project.
 Produces: "application/json"
@@ -5297,6 +5512,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Look up a particular project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5326,8 +5544,8 @@ result <- api.instance$Retrieve(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SecondaryDatasetsConfigurationsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-SecondaryDatasetsConfigurationsCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SecondaryDatasetsConfigurationsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SecondaryDatasetsConfigurationsCreate}{}}}
 \subsection{Method \code{SecondaryDatasetsConfigurationsCreate()}}{
 Create secondary dataset configurations for a project.
 Produces: NA
@@ -5354,6 +5572,9 @@ Produces: NA
 Create secondary dataset configurations for a project.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/secondaryDatasetsConfigurations/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Secondary dataset configuration created with allowable type mismatches
@@ -5376,7 +5597,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-secondaryDatasetCreate <- SecondaryDatasetCreate$new() # SecondaryDatasetCreate |
+secondaryDatasetCreate <- SecondaryDatasetCreate$new() # SecondaryDatasetCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SecondaryDatasetsConfigurationsCreate(projectId, secondaryDatasetCreate=secondaryDatasetCreate)
@@ -5388,8 +5609,8 @@ result <- api.instance$SecondaryDatasetsConfigurationsCreate(projectId, secondar
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SecondaryDatasetsConfigurationsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-SecondaryDatasetsConfigurationsDelete}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SecondaryDatasetsConfigurationsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SecondaryDatasetsConfigurationsDelete}{}}}
 \subsection{Method \code{SecondaryDatasetsConfigurationsDelete()}}{
 Soft deletes a secondary dataset configuration.
 Produces: NA
@@ -5414,6 +5635,9 @@ Produces: NA
 }
 \subsection{Details}{
 Soft deletes a secondary dataset configuration.
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/secondaryDatasetsConfigurations/\{secondaryDatasetConfigId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5447,8 +5671,8 @@ result <- api.instance$SecondaryDatasetsConfigurationsDelete(projectId, secondar
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SecondaryDatasetsConfigurationsList"></a>}}
-\if{latex}{\out{\hypertarget{method-SecondaryDatasetsConfigurationsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SecondaryDatasetsConfigurationsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SecondaryDatasetsConfigurationsList}{}}}
 \subsection{Method \code{SecondaryDatasetsConfigurationsList()}}{
 List all secondary dataset configurations for a project
 Produces: "application/json"
@@ -5459,7 +5683,7 @@ Produces: "application/json"
   modelId = NULL,
   offset = 0,
   limit = 100,
-  includeDeleted = "true",
+  includeDeleted = "false",
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -5485,6 +5709,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all secondary dataset configurations for a project, optionally filtered by feature list id.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/secondaryDatasetsConfigurations/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5513,7 +5740,7 @@ featurelistId <- 'featurelistId_example' # character | feature list ID of the mo
 modelId <- 'modelId_example' # character | ID of the model
 offset <- 0 # integer | This many results will be skipped.
 limit <- 100 # integer | At most this many results are returned.
-includeDeleted <- "true" # character | Include deleted records.
+includeDeleted <- "false" # character | Include deleted records.
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SecondaryDatasetsConfigurationsList(projectId, featurelistId=featurelistId, modelId=modelId, offset=offset, limit=limit, includeDeleted=includeDeleted)
@@ -5525,8 +5752,8 @@ result <- api.instance$SecondaryDatasetsConfigurationsList(projectId, featurelis
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SecondaryDatasetsConfigurationsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-SecondaryDatasetsConfigurationsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SecondaryDatasetsConfigurationsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SecondaryDatasetsConfigurationsRetrieve}{}}}
 \subsection{Method \code{SecondaryDatasetsConfigurationsRetrieve()}}{
 Retrieve secondary dataset configuration by ID.
 Produces: "application/json"
@@ -5551,6 +5778,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve secondary dataset configuration by ID.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/secondaryDatasetsConfigurations/\{secondaryDatasetConfigId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5587,8 +5817,8 @@ result <- api.instance$SecondaryDatasetsConfigurationsRetrieve(projectId, second
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentationTaskJobResultsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentationTaskJobResultsRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentationTaskJobResultsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentationTaskJobResultsRetrieve}{}}}
 \subsection{Method \code{SegmentationTaskJobResultsRetrieve()}}{
 Retrieve segmentation task statuses.
 Produces: "application/json"
@@ -5613,6 +5843,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the statuses of segmentation task jobs associated with the ID.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/segmentationTaskJobResults/\{segmentationTaskId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5643,8 +5876,8 @@ result <- api.instance$SegmentationTaskJobResultsRetrieve(projectId, segmentatio
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentationTasksCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentationTasksCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentationTasksCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentationTasksCreate}{}}}
 \subsection{Method \code{SegmentationTasksCreate()}}{
 Create segmentation tasks.
 Produces: NA
@@ -5671,6 +5904,9 @@ Produces: NA
 Create segmentation tasks for the dataset used in the project.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/segmentationTasks/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -5685,7 +5921,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-segmentationTaskCreate <- SegmentationTaskCreate$new() # SegmentationTaskCreate |
+segmentationTaskCreate <- SegmentationTaskCreate$new() # SegmentationTaskCreate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SegmentationTasksCreate(projectId, segmentationTaskCreate=segmentationTaskCreate)
@@ -5697,8 +5933,8 @@ result <- api.instance$SegmentationTasksCreate(projectId, segmentationTaskCreate
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentationTasksList"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentationTasksList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentationTasksList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentationTasksList}{}}}
 \subsection{Method \code{SegmentationTasksList()}}{
 List segmentation tasks.
 Produces: "application/json"
@@ -5721,6 +5957,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all segmentation tasks created for the project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/segmentationTasks/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5752,8 +5991,8 @@ result <- api.instance$SegmentationTasksList(projectId, offset=offset, limit=lim
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentationTasksMappingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentationTasksMappingsList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentationTasksMappingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentationTasksMappingsList}{}}}
 \subsection{Method \code{SegmentationTasksMappingsList()}}{
 Retrieve seriesId to segmentId mappings.
 Produces: "application/json"
@@ -5786,6 +6025,9 @@ Produces: "application/json"
 Retrieve the seriesId to segmentId mappings for a Segmentation Task.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/segmentationTasks/\{segmentationTaskId\}/mappings/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -5816,8 +6058,8 @@ result <- api.instance$SegmentationTasksMappingsList(projectId, segmentationTask
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentationTasksRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentationTasksRetrieve}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentationTasksRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentationTasksRetrieve}{}}}
 \subsection{Method \code{SegmentationTasksRetrieve()}}{
 Retrieve segmentation task.
 Produces: "application/json"
@@ -5838,6 +6080,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve information about a segmentation task.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/segmentationTasks/\{segmentationTaskId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5868,8 +6113,8 @@ result <- api.instance$SegmentationTasksRetrieve(projectId, segmentationTaskId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SegmentsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-SegmentsPatch}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-SegmentsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-SegmentsPatch}{}}}
 \subsection{Method \code{SegmentsPatch()}}{
 Update child segment project.
 Produces: "application/json"
@@ -5899,6 +6144,9 @@ Produces: "application/json"
 The only supported operation right now is segment restart, which removes existing child segment project and starts another child project instead for the given segment. Should be only used for child segments which are stuck during project startup or upload.
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/segments/\{segmentId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The segment is updated.
@@ -5916,7 +6164,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 segmentId <- 'segmentId_example' # character | The name of the segment
-projectSegmentUpdate <- ProjectSegmentUpdate$new() # ProjectSegmentUpdate |
+projectSegmentUpdate <- ProjectSegmentUpdate$new() # ProjectSegmentUpdate | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$SegmentsPatch(projectId, segmentId, projectSegmentUpdate=projectSegmentUpdate)
@@ -5928,8 +6176,8 @@ result <- api.instance$SegmentsPatch(projectId, segmentId, projectSegmentUpdate=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-StatusList"></a>}}
-\if{latex}{\out{\hypertarget{method-StatusList}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-StatusList"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-StatusList}{}}}
 \subsection{Method \code{StatusList()}}{
 Check project status
 Produces: "application/json"
@@ -5948,6 +6196,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Check the status of a project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/status/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5977,8 +6228,8 @@ result <- api.instance$StatusList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TypeTransformFeaturesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-TypeTransformFeaturesCreate}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-TypeTransformFeaturesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-TypeTransformFeaturesCreate}{}}}
 \subsection{Method \code{TypeTransformFeaturesCreate()}}{
 Create a new feature by changing the type of an existing one.
 Produces: NA
@@ -6005,6 +6256,9 @@ Produces: NA
 Create a new feature by changing the type of an existing one.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/typeTransformFeatures/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Creation has successfully started. See the Location header.
@@ -6022,7 +6276,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to create the feature in.
-featureTransform <- FeatureTransform$new() # FeatureTransform |
+featureTransform <- FeatureTransform$new() # FeatureTransform | 
 
 api.instance <- ProjectsApi$new()
 result <- api.instance$TypeTransformFeaturesCreate(projectId, featureTransform=featureTransform)
@@ -6034,8 +6288,8 @@ result <- api.instance$TypeTransformFeaturesCreate(projectId, featureTransform=f
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

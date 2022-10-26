@@ -6,21 +6,17 @@
 \usage{
 RetrieveCredentials(credentialId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve the credentials set.
 }
 \details{
 Return the credential set matching the specified ID.
+
+This method invokes \verb{GET /credentials/\{credentialId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsRetrieve in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{CreateCredentials}()},
-\code{\link{DeleteCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{ListCredentials}()},
-\code{\link{PatchCredentials}()},
-\code{\link{PatchManyCredentialsAssociations}()}
+The method CredentialsRetrieve in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

@@ -30,16 +30,16 @@ SolutionResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SolutionResponse$new()}}
-\item \href{#method-validate}{\code{SolutionResponse$validate()}}
-\item \href{#method-toJSON}{\code{SolutionResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{SolutionResponse$fromJSON()}}
-\item \href{#method-clone}{\code{SolutionResponse$clone()}}
+\item \href{#method-SolutionResponse-new}{\code{SolutionResponse$new()}}
+\item \href{#method-SolutionResponse-validate}{\code{SolutionResponse$validate()}}
+\item \href{#method-SolutionResponse-toJSON}{\code{SolutionResponse$toJSON()}}
+\item \href{#method-SolutionResponse-fromJSON}{\code{SolutionResponse$fromJSON()}}
+\item \href{#method-SolutionResponse-clone}{\code{SolutionResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SolutionResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SolutionResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -78,19 +78,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SolutionResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SolutionResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SolutionResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SolutionResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SolutionResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +100,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SolutionResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SolutionResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -118,8 +119,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SolutionResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SolutionResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -58,22 +58,24 @@ DeploymentRetrieveResponse Class
 \item{\code{settings}}{\link{DeploymentSettingsInfo}}
 
 \item{\code{status}}{character Displays current deployment status.}
+
+\item{\code{userProvidedId}}{character \link{optional} A user-provided unique ID associated with a deployment definition in a remote git repository.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{DeploymentRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{DeploymentRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeploymentRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DeploymentRetrieveResponse$clone()}}
+\item \href{#method-DeploymentRetrieveResponse-new}{\code{DeploymentRetrieveResponse$new()}}
+\item \href{#method-DeploymentRetrieveResponse-validate}{\code{DeploymentRetrieveResponse$validate()}}
+\item \href{#method-DeploymentRetrieveResponse-toJSON}{\code{DeploymentRetrieveResponse$toJSON()}}
+\item \href{#method-DeploymentRetrieveResponse-fromJSON}{\code{DeploymentRetrieveResponse$fromJSON()}}
+\item \href{#method-DeploymentRetrieveResponse-clone}{\code{DeploymentRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -101,6 +103,7 @@ A function used to initialize an instance of this class.
   owners = NULL,
   predictionEnvironment = NULL,
   scoringCodeInitialDownload = NULL,
+  userProvidedId = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -127,6 +130,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{openedChangeRequests}}{An array of the change request IDs related to this deployment that have.}
 
+\item{\code{userProvidedId}}{A user-provided unique ID associated with a deployment definition in a remote git repository.}
+
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
 \item{\code{...}}{Any additional keyword arguments to be passed into this object for initialization.}
@@ -135,19 +140,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeploymentRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -156,8 +162,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -178,8 +184,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -182,3 +182,65 @@ transformNestedListToDF <- function(inlist) {
   outlist <- cbind(outlist, metrics)
   data.frame(outlist)
 }
+
+#' @name GetDeploymentAccuracy
+#' @details Retrieve accuracy statistics for a deployment.
+#'
+#' @param deploymentId character. The ID of the deployment.
+#' @param modelId character. Optional. The ID of the model to query. If provided, only data for this
+#'   specific model will be retrieved; otherwise, data for the deployment's default model will be
+#'   retrieved.
+#' @param start POSIXct. Optional. The start time of the reporting period for monitoring data.
+#'   Defaults to seven days prior to the end of the period. Sub-hour resolution is not permitted,
+#'   and the timezone must be `UTC`.
+#' @param end POSIXct. Optional. The end time of the reporting period for monitoring data. Defaults
+#'   to the next top of the hour. Sub-hour resolution is not permitted, and the timezone must be
+#'   `UTC`.
+#' @param segmentAttribute character. Optional. The name of an attribute used for segment analysis.
+#' See `SegmentAnalysisAttribute` for permitted values. Added in DataRobot 2.21.
+#' @param segmentValue character. Optional. The value of \code{segmentAttribute}. Added in DataRobot
+#'   2.21.
+#' @param targetClasses character. Optional. List of target classes to filter out of the response.
+#'   Added in DataRobot 2.23.
+#' @return An object representing service health metrics for the deployment, containing:
+#' \itemize{
+#'   \item modelId character. The ID of the deployment model for which monitoring data was
+#'     retrieved.
+#'   \item period list. The duration of the reporting period, containing:
+#'     \itemize{
+#'       \item start POSIXct. Start of the reporting period.
+#'       \item end POSIXct. End of the reporting period.
+#'     }
+#'   \item metrics data.frame. Accuracy metrics for the deployment, where each row is a separate
+#'     metric and contains the columns:
+#'     \itemize{
+#'       \item metric. character. Name of the metric. See \code{DeploymentAccuracyMetric} for valid
+#'         values.
+#'       \item baselineValue. numeric. May be NA if accuracy data is not available.
+#'       \item value. numeric. May be NA if accuracy data is not available.
+#'       \item percentChange. numeric. The percent change of value over baseline. May be NA if
+#'         accuracy data is not available.
+#'     }
+#'   \item segmentAttribute character. Optional. The name of the segment on which segment analysis
+#'     was performed. Added in DataRobot 2.21.
+#'   \item segmentValue character. Optional. The value of the segmentAttribute. Added in DataRobot
+#'     2.21.
+#' }
+#' @examples
+#' \dontrun{
+#' library(dplyr)
+#' deploymentId <- "59a5af20c80891534e3c2bde"
+#' acc <- GetDeploymentAccuracy(deploymentId, end = ISOdate(2021, 01, 06, 1, 0, 0, tz = "UTC"))
+#' df <- mutate(
+#'   acc$metrics,
+#'   "modelId" = acc$modelId,
+#'   "startTime" = acc$period$start,
+#'   "endTime" = acc$period$end,
+#'   .before = everything()
+#' )
+#' }
+#' @family deployment accuracy functions
+#' @md
+#' @export
+#' @include deployments_apiWrapper.R
+GetDeploymentAccuracy

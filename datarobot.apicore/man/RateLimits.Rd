@@ -28,16 +28,16 @@ RateLimits Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{RateLimits$new()}}
-\item \href{#method-validate}{\code{RateLimits$validate()}}
-\item \href{#method-toJSON}{\code{RateLimits$toJSON()}}
-\item \href{#method-fromJSON}{\code{RateLimits$fromJSON()}}
-\item \href{#method-clone}{\code{RateLimits$clone()}}
+\item \href{#method-RateLimits-new}{\code{RateLimits$new()}}
+\item \href{#method-RateLimits-validate}{\code{RateLimits$validate()}}
+\item \href{#method-RateLimits-toJSON}{\code{RateLimits$toJSON()}}
+\item \href{#method-RateLimits-fromJSON}{\code{RateLimits$fromJSON()}}
+\item \href{#method-RateLimits-clone}{\code{RateLimits$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-RateLimits-new"></a>}}
+\if{latex}{\out{\hypertarget{method-RateLimits-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-RateLimits-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-RateLimits-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{RateLimits$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-RateLimits-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-RateLimits-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-RateLimits-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-RateLimits-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -113,8 +114,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-RateLimits-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-RateLimits-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

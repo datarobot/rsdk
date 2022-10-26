@@ -6,35 +6,17 @@
 \usage{
 DeleteApplicationsDeployments(modelDeploymentId, applicationId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete link between application and deployment.
 }
 \details{
 Delete link between application and deployment.
+
+This method invokes \verb{DELETE /applications/\{applicationId\}/deployments/\{modelDeploymentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method ApplicationsDeploymentsDelete in [datarobot.apicore::ApplicationsApi], which this function wraps.
-
-Other Applications: 
-\code{\link{CreateApplicationsBuildJobs}()},
-\code{\link{CreateApplicationsDeployments}()},
-\code{\link{CreateApplicationsDuplicate}()},
-\code{\link{CreateApplications}()},
-\code{\link{CreateDemoApplications}()},
-\code{\link{DeleteApplications}()},
-\code{\link{ListApplicationTypesUsecases}()},
-\code{\link{ListApplicationTypes}()},
-\code{\link{ListApplicationsAccessControl}()},
-\code{\link{ListApplicationsSharedRoles}()},
-\code{\link{ListApplications}()},
-\code{\link{PatchApplications}()},
-\code{\link{PatchManyApplicationsAccessControl}()},
-\code{\link{PatchManyApplicationsAuthToken}()},
-\code{\link{PatchManyApplicationsDeploymentState}()},
-\code{\link{PatchManyApplicationsSharedRoles}()},
-\code{\link{PatchManyApplicationsVersion}()},
-\code{\link{RetrieveApplicationTypes}()},
-\code{\link{RetrieveApplicationUserRole}()},
-\code{\link{RetrieveApplications}()}
+The method ApplicationsDeploymentsDelete in \link[datarobot.apicore:ApplicationsApi]{datarobot.apicore::ApplicationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Applications}

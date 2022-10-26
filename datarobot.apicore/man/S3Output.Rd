@@ -15,9 +15,13 @@ S3Output Class
 \describe{
 \item{\code{credentialId}}{character \link{optional} Use the specified credential to access the url}
 
+\item{\code{endpointUrl}}{character \link{optional} Endpoint URL for the S3 connection (omit to use the default)}
+
 \item{\code{format}}{character \link{optional} Type of output file format}
 
 \item{\code{partitionColumns}}{list( character ) \link{optional} For Parquet directory-scoring only. The column names of the intake data of which to partition the dataset. Columns are partitioned in the order they are given. At least one value is required if scoring to a directory (meaning the output url ends with a slash (\"/\").}
+
+\item{\code{serverSideEncryption}}{\link{ServerSideEncryption} \link{optional}}
 
 \item{\code{type}}{character Type name for this output type}
 
@@ -28,16 +32,16 @@ S3Output Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{S3Output$new()}}
-\item \href{#method-validate}{\code{S3Output$validate()}}
-\item \href{#method-toJSON}{\code{S3Output$toJSON()}}
-\item \href{#method-fromJSON}{\code{S3Output$fromJSON()}}
-\item \href{#method-clone}{\code{S3Output$clone()}}
+\item \href{#method-S3Output-new}{\code{S3Output$new()}}
+\item \href{#method-S3Output-validate}{\code{S3Output$validate()}}
+\item \href{#method-S3Output-toJSON}{\code{S3Output$toJSON()}}
+\item \href{#method-S3Output-fromJSON}{\code{S3Output$fromJSON()}}
+\item \href{#method-S3Output-clone}{\code{S3Output$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-S3Output-new"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Output-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -45,8 +49,10 @@ A function used to initialize an instance of this class.
   type = NULL,
   url = NULL,
   credentialId = NULL,
+  endpointUrl = NULL,
   format = "csv",
   partitionColumns = NULL,
+  serverSideEncryption = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -61,6 +67,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{credentialId}}{Use the specified credential to access the url}
 
+\item{\code{endpointUrl}}{Endpoint URL for the S3 connection (omit to use the default)}
+
 \item{\code{format}}{Type of output file format}
 
 \item{\code{partitionColumns}}{For Parquet directory-scoring only. The column names of the intake data of which to partition the dataset. Columns are partitioned in the order they are given. At least one value is required if scoring to a directory (meaning the output url ends with a slash (\"/\").}
@@ -73,19 +81,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-S3Output-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Output-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{S3Output$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-S3Output-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Output-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +103,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-S3Output-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Output-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -113,8 +122,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-S3Output-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-S3Output-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

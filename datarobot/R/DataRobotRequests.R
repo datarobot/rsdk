@@ -90,6 +90,10 @@ MakeDataRobotRequest <- function(requestMethod,
 
   # Run the call to request method
   rawResponse <- do.call(requestMethod, args)
+  if (ResponseHasDeprecationHeader(rawResponse)) {
+    # DSX-2384 warn about deprecated/disabled resources that have the Deprecation header set
+    DeprecatedHeaderMessage(rawResponse)
+  }
 
   # Return response
   if (isTRUE(stopOnError)) {
@@ -213,7 +217,7 @@ SSLVerify <- function() {
 BuildPath <- function(routeString, addUrl = TRUE) {
   endpoint <- Endpoint()
   token <- Token()
-  if (endpoint == "" | token == "") {
+  if (endpoint == "" || token == "") {
     rawMsg <- paste("User authentication required. See ConnectToDataRobot documentation")
     stop(strwrap(rawMsg), call. = FALSE)
   } else if (isTRUE(addUrl)) {
@@ -287,4 +291,21 @@ TryingToSubmitNull <- function(body) {
 ResponseIsRedirection <- function(rawResponse) {
   responseCategory <- httr::http_status(rawResponse)$category
   tolower(responseCategory) == "redirection"
+}
+
+ResponseHasDeprecationHeader <- function(rawResponse) {
+  tryCatch(
+    {
+      headers <- httr::headers(rawResponse)
+      if (is.null(headers) || is.null(headers$Deprecation)) {
+        return(FALSE)
+      }
+      return(TRUE)
+    },
+    error = function(e) {
+      # This code really only catches errors with poor test mocks that
+      # don't set up a full httr:::response properly
+      return(FALSE)
+    }
+  )
 }

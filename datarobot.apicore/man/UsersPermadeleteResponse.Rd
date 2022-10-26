@@ -13,10 +13,6 @@ UsersPermadeleteResponse Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{forceDeploymentDelete}}{character If true, any deployment this user group has a role on, including those shared outside the users, will be deleted.}
-
-\item{\code{forceProjectDelete}}{character If true, any project this user group has a role on, including those shared outside the users, will be deleted.}
-
 \item{\code{orgId}}{character \link{optional} Organization which's users to be permanently deleted.}
 
 \item{\code{orphansOwner}}{character \link{optional} User which becomes an owner of any projects or deployments that otherwise cause an error because they would be orphaned.}
@@ -30,24 +26,22 @@ UsersPermadeleteResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UsersPermadeleteResponse$new()}}
-\item \href{#method-validate}{\code{UsersPermadeleteResponse$validate()}}
-\item \href{#method-toJSON}{\code{UsersPermadeleteResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{UsersPermadeleteResponse$fromJSON()}}
-\item \href{#method-clone}{\code{UsersPermadeleteResponse$clone()}}
+\item \href{#method-UsersPermadeleteResponse-new}{\code{UsersPermadeleteResponse$new()}}
+\item \href{#method-UsersPermadeleteResponse-validate}{\code{UsersPermadeleteResponse$validate()}}
+\item \href{#method-UsersPermadeleteResponse-toJSON}{\code{UsersPermadeleteResponse$toJSON()}}
+\item \href{#method-UsersPermadeleteResponse-fromJSON}{\code{UsersPermadeleteResponse$fromJSON()}}
+\item \href{#method-UsersPermadeleteResponse-clone}{\code{UsersPermadeleteResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UsersPermadeleteResponse$new(
-  forceDeploymentDelete = NULL,
-  forceProjectDelete = NULL,
-  orgId = "null",
-  orphansOwner = "null",
+  orgId = NULL,
+  orphansOwner = NULL,
   orphansOwnerName = NULL,
   userIds = NULL,
   validateParams = FALSE,
@@ -58,10 +52,6 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{forceDeploymentDelete}}{If true, any deployment this user group has a role on, including those shared outside the users, will be deleted.}
-
-\item{\code{forceProjectDelete}}{If true, any project this user group has a role on, including those shared outside the users, will be deleted.}
-
 \item{\code{orgId}}{Organization which's users to be permanently deleted.}
 
 \item{\code{orphansOwner}}{User which becomes an owner of any projects or deployments that otherwise cause an error because they would be orphaned.}
@@ -78,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UsersPermadeleteResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -99,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -121,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UsersPermadeleteResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UsersPermadeleteResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

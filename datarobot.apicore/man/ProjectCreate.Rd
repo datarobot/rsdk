@@ -38,16 +38,16 @@ ProjectCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectCreate$new()}}
-\item \href{#method-validate}{\code{ProjectCreate$validate()}}
-\item \href{#method-toJSON}{\code{ProjectCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{ProjectCreate$fromJSON()}}
-\item \href{#method-clone}{\code{ProjectCreate$clone()}}
+\item \href{#method-ProjectCreate-new}{\code{ProjectCreate$new()}}
+\item \href{#method-ProjectCreate-validate}{\code{ProjectCreate$validate()}}
+\item \href{#method-ProjectCreate-toJSON}{\code{ProjectCreate$toJSON()}}
+\item \href{#method-ProjectCreate-fromJSON}{\code{ProjectCreate$fromJSON()}}
+\item \href{#method-ProjectCreate-clone}{\code{ProjectCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -98,19 +98,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ProjectCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ProjectCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -119,8 +120,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ProjectCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -138,8 +139,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

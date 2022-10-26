@@ -7,7 +7,7 @@
 .setComplexProperty(typeList, propertyData)
 }
 \arguments{
-\item{typeList}{A vector of R6 class generator names.}
+\item{typeList}{An object vector of R6 class generators.}
 
 \item{propertyData}{A deserialized JSON string, OR an R6 object instance.}
 }

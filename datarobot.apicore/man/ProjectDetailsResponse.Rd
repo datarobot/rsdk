@@ -17,7 +17,7 @@ ProjectDetailsResponse Class
 
 \item{\code{autopilotClusterList}}{list( integer ) \link{optional} Optional. A list of integers where each value will be used as the number of clusters in Autopilot model(s) for unsupervised clustering projects. Cannot be specified unless unsupervisedMode is true and unsupervisedType is set to 'clustering'.}
 
-\item{\code{autopilotMode}}{integer The current autopilot mode, either 0 for full autopilot or 2 for manual mode.}
+\item{\code{autopilotMode}}{integer The current autopilot mode, 0 for full autopilot, 2 for manual mode, 3 for quick mode, 4 for comprehensive mode}
 
 \item{\code{created}}{character The time of project creation.}
 
@@ -45,8 +45,6 @@ ProjectDetailsResponse Class
 
 \item{\code{projectName}}{character The name of a project.}
 
-\item{\code{recommender}}{\link{ProjectRecommenderResponse}}
-
 \item{\code{stage}}{character the stage of the project - if modeling, then the target is successfully set, and modeling or predictions can proceed.}
 
 \item{\code{target}}{character the target of the project, null if project is unsupervised.}
@@ -64,16 +62,16 @@ ProjectDetailsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectDetailsResponse$new()}}
-\item \href{#method-validate}{\code{ProjectDetailsResponse$validate()}}
-\item \href{#method-toJSON}{\code{ProjectDetailsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ProjectDetailsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ProjectDetailsResponse$clone()}}
+\item \href{#method-ProjectDetailsResponse-new}{\code{ProjectDetailsResponse$new()}}
+\item \href{#method-ProjectDetailsResponse-validate}{\code{ProjectDetailsResponse$validate()}}
+\item \href{#method-ProjectDetailsResponse-toJSON}{\code{ProjectDetailsResponse$toJSON()}}
+\item \href{#method-ProjectDetailsResponse-fromJSON}{\code{ProjectDetailsResponse$fromJSON()}}
+\item \href{#method-ProjectDetailsResponse-clone}{\code{ProjectDetailsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectDetailsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectDetailsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -90,7 +88,6 @@ A function used to initialize an instance of this class.
   partition = NULL,
   positiveClass = NULL,
   projectName = NULL,
-  recommender = NULL,
   stage = NULL,
   target = NULL,
   targetType = NULL,
@@ -109,7 +106,7 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{autopilotMode}}{The current autopilot mode, either 0 for full autopilot or 2 for manual mode.}
+\item{\code{autopilotMode}}{The current autopilot mode, 0 for full autopilot, 2 for manual mode, 3 for quick mode, 4 for comprehensive mode}
 
 \item{\code{created}}{The time of project creation.}
 
@@ -157,19 +154,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ProjectDetailsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectDetailsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectDetailsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ProjectDetailsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectDetailsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -178,8 +176,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ProjectDetailsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectDetailsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -200,8 +198,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectDetailsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectDetailsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

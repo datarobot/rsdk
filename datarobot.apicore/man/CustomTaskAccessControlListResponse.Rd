@@ -26,16 +26,16 @@ CustomTaskAccessControlListResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomTaskAccessControlListResponse$new()}}
-\item \href{#method-validate}{\code{CustomTaskAccessControlListResponse$validate()}}
-\item \href{#method-toJSON}{\code{CustomTaskAccessControlListResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CustomTaskAccessControlListResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CustomTaskAccessControlListResponse$clone()}}
+\item \href{#method-CustomTaskAccessControlListResponse-new}{\code{CustomTaskAccessControlListResponse$new()}}
+\item \href{#method-CustomTaskAccessControlListResponse-validate}{\code{CustomTaskAccessControlListResponse$validate()}}
+\item \href{#method-CustomTaskAccessControlListResponse-toJSON}{\code{CustomTaskAccessControlListResponse$toJSON()}}
+\item \href{#method-CustomTaskAccessControlListResponse-fromJSON}{\code{CustomTaskAccessControlListResponse$fromJSON()}}
+\item \href{#method-CustomTaskAccessControlListResponse-clone}{\code{CustomTaskAccessControlListResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomTaskAccessControlListResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTaskAccessControlListResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CustomTaskAccessControlListResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTaskAccessControlListResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomTaskAccessControlListResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CustomTaskAccessControlListResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTaskAccessControlListResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CustomTaskAccessControlListResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTaskAccessControlListResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -111,8 +112,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomTaskAccessControlListResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomTaskAccessControlListResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

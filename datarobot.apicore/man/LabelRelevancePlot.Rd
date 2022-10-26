@@ -24,16 +24,16 @@ LabelRelevancePlot Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{LabelRelevancePlot$new()}}
-\item \href{#method-validate}{\code{LabelRelevancePlot$validate()}}
-\item \href{#method-toJSON}{\code{LabelRelevancePlot$toJSON()}}
-\item \href{#method-fromJSON}{\code{LabelRelevancePlot$fromJSON()}}
-\item \href{#method-clone}{\code{LabelRelevancePlot$clone()}}
+\item \href{#method-LabelRelevancePlot-new}{\code{LabelRelevancePlot$new()}}
+\item \href{#method-LabelRelevancePlot-validate}{\code{LabelRelevancePlot$validate()}}
+\item \href{#method-LabelRelevancePlot-toJSON}{\code{LabelRelevancePlot$toJSON()}}
+\item \href{#method-LabelRelevancePlot-fromJSON}{\code{LabelRelevancePlot$fromJSON()}}
+\item \href{#method-LabelRelevancePlot-clone}{\code{LabelRelevancePlot$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-LabelRelevancePlot-new"></a>}}
+\if{latex}{\out{\hypertarget{method-LabelRelevancePlot-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-LabelRelevancePlot-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-LabelRelevancePlot-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LabelRelevancePlot$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-LabelRelevancePlot-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-LabelRelevancePlot-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-LabelRelevancePlot-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-LabelRelevancePlot-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-LabelRelevancePlot-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-LabelRelevancePlot-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

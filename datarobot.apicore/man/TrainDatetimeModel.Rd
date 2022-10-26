@@ -40,16 +40,16 @@ TrainDatetimeModel Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TrainDatetimeModel$new()}}
-\item \href{#method-validate}{\code{TrainDatetimeModel$validate()}}
-\item \href{#method-toJSON}{\code{TrainDatetimeModel$toJSON()}}
-\item \href{#method-fromJSON}{\code{TrainDatetimeModel$fromJSON()}}
-\item \href{#method-clone}{\code{TrainDatetimeModel$clone()}}
+\item \href{#method-TrainDatetimeModel-new}{\code{TrainDatetimeModel$new()}}
+\item \href{#method-TrainDatetimeModel-validate}{\code{TrainDatetimeModel$validate()}}
+\item \href{#method-TrainDatetimeModel-toJSON}{\code{TrainDatetimeModel$toJSON()}}
+\item \href{#method-TrainDatetimeModel-fromJSON}{\code{TrainDatetimeModel$fromJSON()}}
+\item \href{#method-TrainDatetimeModel-clone}{\code{TrainDatetimeModel$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TrainDatetimeModel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TrainDatetimeModel-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -103,19 +103,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TrainDatetimeModel-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TrainDatetimeModel-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TrainDatetimeModel$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TrainDatetimeModel-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TrainDatetimeModel-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -124,8 +125,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TrainDatetimeModel-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TrainDatetimeModel-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -143,8 +144,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TrainDatetimeModel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TrainDatetimeModel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

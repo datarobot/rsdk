@@ -6,21 +6,17 @@
 \usage{
 CreateCredentials(credentialsBody, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Store a new set of credentials which can be used for data sources creation.
 }
 \details{
 Store a new set of credentials.
+
+This method invokes \verb{POST /credentials/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsCreate in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{DeleteCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{ListCredentials}()},
-\code{\link{PatchCredentials}()},
-\code{\link{PatchManyCredentialsAssociations}()},
-\code{\link{RetrieveCredentials}()}
+The method CredentialsCreate in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

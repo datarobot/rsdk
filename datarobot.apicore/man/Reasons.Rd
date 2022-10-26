@@ -13,6 +13,8 @@ Reasons Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{supportsDocumentTextExtractionSampleInsight}}{character \link{optional} If present, the reason document text extraction sample insights are not supported for the model.}
+
 \item{\code{supportsImageActivationMaps}}{character \link{optional} If present, the reason image activation maps are not supported for the model.}
 
 \item{\code{supportsImageEmbedding}}{character \link{optional} If present, the reason image embeddings are not supported for the model.}
@@ -22,20 +24,21 @@ Reasons Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Reasons$new()}}
-\item \href{#method-validate}{\code{Reasons$validate()}}
-\item \href{#method-toJSON}{\code{Reasons$toJSON()}}
-\item \href{#method-fromJSON}{\code{Reasons$fromJSON()}}
-\item \href{#method-clone}{\code{Reasons$clone()}}
+\item \href{#method-Reasons-new}{\code{Reasons$new()}}
+\item \href{#method-Reasons-validate}{\code{Reasons$validate()}}
+\item \href{#method-Reasons-toJSON}{\code{Reasons$toJSON()}}
+\item \href{#method-Reasons-fromJSON}{\code{Reasons$fromJSON()}}
+\item \href{#method-Reasons-clone}{\code{Reasons$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Reasons-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Reasons-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Reasons$new(
+  supportsDocumentTextExtractionSampleInsight = NULL,
   supportsImageActivationMaps = NULL,
   supportsImageEmbedding = NULL,
   validateParams = FALSE,
@@ -46,6 +49,8 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
+\item{\code{supportsDocumentTextExtractionSampleInsight}}{If present, the reason document text extraction sample insights are not supported for the model.}
+
 \item{\code{supportsImageActivationMaps}}{If present, the reason image activation maps are not supported for the model.}
 
 \item{\code{supportsImageEmbedding}}{If present, the reason image embeddings are not supported for the model.}
@@ -58,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Reasons-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Reasons-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Reasons$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Reasons-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Reasons-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Reasons-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Reasons-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Reasons-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Reasons-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

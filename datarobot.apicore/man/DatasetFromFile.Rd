@@ -22,16 +22,16 @@ DatasetFromFile Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetFromFile$new()}}
-\item \href{#method-validate}{\code{DatasetFromFile$validate()}}
-\item \href{#method-toJSON}{\code{DatasetFromFile$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetFromFile$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetFromFile$clone()}}
+\item \href{#method-DatasetFromFile-new}{\code{DatasetFromFile$new()}}
+\item \href{#method-DatasetFromFile-validate}{\code{DatasetFromFile$validate()}}
+\item \href{#method-DatasetFromFile-toJSON}{\code{DatasetFromFile$toJSON()}}
+\item \href{#method-DatasetFromFile-fromJSON}{\code{DatasetFromFile$fromJSON()}}
+\item \href{#method-DatasetFromFile-clone}{\code{DatasetFromFile$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetFromFile-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetFromFile-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetFromFile-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetFromFile-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetFromFile$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetFromFile-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetFromFile-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetFromFile-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetFromFile-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetFromFile-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetFromFile-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

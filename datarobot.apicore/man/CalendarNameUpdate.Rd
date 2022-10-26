@@ -20,16 +20,16 @@ CalendarNameUpdate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CalendarNameUpdate$new()}}
-\item \href{#method-validate}{\code{CalendarNameUpdate$validate()}}
-\item \href{#method-toJSON}{\code{CalendarNameUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{CalendarNameUpdate$fromJSON()}}
-\item \href{#method-clone}{\code{CalendarNameUpdate$clone()}}
+\item \href{#method-CalendarNameUpdate-new}{\code{CalendarNameUpdate$new()}}
+\item \href{#method-CalendarNameUpdate-validate}{\code{CalendarNameUpdate$validate()}}
+\item \href{#method-CalendarNameUpdate-toJSON}{\code{CalendarNameUpdate$toJSON()}}
+\item \href{#method-CalendarNameUpdate-fromJSON}{\code{CalendarNameUpdate$fromJSON()}}
+\item \href{#method-CalendarNameUpdate-clone}{\code{CalendarNameUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CalendarNameUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarNameUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CalendarNameUpdate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarNameUpdate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CalendarNameUpdate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CalendarNameUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarNameUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CalendarNameUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarNameUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CalendarNameUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarNameUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

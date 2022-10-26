@@ -22,16 +22,16 @@ ActualValueColumnInfo Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ActualValueColumnInfo$new()}}
-\item \href{#method-validate}{\code{ActualValueColumnInfo$validate()}}
-\item \href{#method-toJSON}{\code{ActualValueColumnInfo$toJSON()}}
-\item \href{#method-fromJSON}{\code{ActualValueColumnInfo$fromJSON()}}
-\item \href{#method-clone}{\code{ActualValueColumnInfo$clone()}}
+\item \href{#method-ActualValueColumnInfo-new}{\code{ActualValueColumnInfo$new()}}
+\item \href{#method-ActualValueColumnInfo-validate}{\code{ActualValueColumnInfo$validate()}}
+\item \href{#method-ActualValueColumnInfo-toJSON}{\code{ActualValueColumnInfo$toJSON()}}
+\item \href{#method-ActualValueColumnInfo-fromJSON}{\code{ActualValueColumnInfo$fromJSON()}}
+\item \href{#method-ActualValueColumnInfo-clone}{\code{ActualValueColumnInfo$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ActualValueColumnInfo-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ActualValueColumnInfo-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ActualValueColumnInfo-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ActualValueColumnInfo-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActualValueColumnInfo$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ActualValueColumnInfo-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActualValueColumnInfo-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ActualValueColumnInfo-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActualValueColumnInfo-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ActualValueColumnInfo-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ActualValueColumnInfo-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

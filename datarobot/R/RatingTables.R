@@ -133,3 +133,98 @@ as.dataRobotRatingTable <- function(inList) {
   class(outList) <- "dataRobotRatingTable"
   outList
 }
+
+#' @name ListRatingTableModels
+#' @details Retrieve information about all DataRobot models with a rating table.
+#'
+#' @inheritParams DeleteProject
+#' @return data.frame containing information about each model with a rating table in a
+#'   project (one row per model with a rating table).
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ListRatingTableModels(projectId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+ListRatingTableModels
+
+#' @name GetRatingTableModel
+#' @details Retrieve information about specified model with a rating table.
+#'
+#' @inheritParams GetModel
+#' @return list containing information about specified model with a rating table.
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' modelId <- "5984b4d7100d2b31c1166529"
+#' GetRatingTableModel(projectId, modelId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetRatingTableModel
+
+#' @name RequestNewRatingTableModel
+#' @details Create a new model from a rating table.
+#'
+#' @inheritParams GetRatingTable
+#' @return An integer value that can be used as the modelJobId parameter
+#'   in subsequent calls to the GetModelFromJobId function.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' ratingTableId <- "5984b4d7100d2b31c1166529"
+#' RequestNewModel(projectId, ratingTableId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+RequestNewRatingTableModel
+
+#' @name ListRatingTables
+#' @details Retrieve information about all rating tables.
+#'
+#' @inheritParams DeleteProject
+#' @return data.frame containing information about each rating table in a
+#'   project (one row per model with a rating table).
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ListRatingTables(projectId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+ListRatingTables
+
+#' @name GetRatingTable
+#' @details Retrieve a single rating table.
+#'
+#' @inheritParams DeleteProject
+#' @param ratingTableId character. The ID of the rating table.
+#' @return An S3 object of class 'dataRobotRatingTable' summarizing all
+#'   available information about the rating table.
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ratingTableId <- "5984b4d7100d2b31c1166529"
+#' GetRatingTable(projectId, ratingTableId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetRatingTable
+
+#' @name RenameRatingTable
+#' @details Renames a rating table to a different name.
+#'
+#' @inheritParams GetRatingTable
+#' @param ratingTableName character. The new name for the rating table.
+#' @return An S3 object of class 'dataRobotRatingTable' summarizing all
+#'   available information about the renamed rating table.
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ratingTableId <- "5984b4d7100d2b31c1166529"
+#' RenameRatingTable(projectId, ratingTableId, "Renamed Table")
+#' }
+#' @export
+#' @include models_apiWrapper.R
+RenameRatingTable

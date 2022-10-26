@@ -7,6 +7,10 @@
 GetDatetimeModelFromJobId(project, modelJobId, maxWait = 600)
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{modelJobId}{The integer returned by either RequestNewDatetimeModel}
 
 \item{maxWait}{Integer, The maximum time (in seconds) to wait for the model job to complete}

@@ -17,7 +17,7 @@ ChangeRequestCreate Class
 
 \item{\code{autoApply}}{character Whether to automatically apply the change when the request is approved. If `true`, the requested changes will be applied on approval.}
 
-\item{\code{change}}{\link{DeploymentUpdateSecondaryDatasetConfigChange}}
+\item{\code{change}}{\link{DeploymentApproveChange}}
 
 \item{\code{comment}}{character \link{optional} Free form text to comment on the requested changes.}
 
@@ -30,16 +30,16 @@ ChangeRequestCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ChangeRequestCreate$new()}}
-\item \href{#method-validate}{\code{ChangeRequestCreate$validate()}}
-\item \href{#method-toJSON}{\code{ChangeRequestCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{ChangeRequestCreate$fromJSON()}}
-\item \href{#method-clone}{\code{ChangeRequestCreate$clone()}}
+\item \href{#method-ChangeRequestCreate-new}{\code{ChangeRequestCreate$new()}}
+\item \href{#method-ChangeRequestCreate-validate}{\code{ChangeRequestCreate$validate()}}
+\item \href{#method-ChangeRequestCreate-toJSON}{\code{ChangeRequestCreate$toJSON()}}
+\item \href{#method-ChangeRequestCreate-fromJSON}{\code{ChangeRequestCreate$fromJSON()}}
+\item \href{#method-ChangeRequestCreate-clone}{\code{ChangeRequestCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ChangeRequestCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -76,19 +76,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ChangeRequestCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ChangeRequestCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -97,8 +98,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ChangeRequestCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ChangeRequestCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ChangeRequestCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

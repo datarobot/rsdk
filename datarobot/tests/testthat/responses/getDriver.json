@@ -1,9 +1,0 @@
-{
-  "className": ["com.microsoft.sqlserver.jdbc.SQLServerDriver"],
-  "baseNames": [
-    ["sqljdbc41.jar"]
-  ],
-  "id": ["5adeb2e123d2a10001133029"],
-  "canonicalName": ["Microsoft JDBC Driver 6.0"],
-  "creator": ["5474e68f16f4b622fb4e2ce6"]
-}

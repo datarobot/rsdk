@@ -640,9 +640,9 @@ as.dataRobotDatetimePartitionSpecification <- function(inList) {
 #'   }
 #' @examples
 #' \dontrun{
-#'   projectId <- "59a5af20c80891534e3c2bde"
-#'   partitionSpec <- CreateDatetimePartitionSpecification("date_col")
-#'   GenerateDatetimePartition(projectId, partitionSpec)
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' partitionSpec <- CreateDatetimePartitionSpecification("date_col")
+#' GenerateDatetimePartition(projectId, partitionSpec)
 #' }
 #' @export
 GenerateDatetimePartition <- function(project, spec) {
@@ -721,3 +721,19 @@ as.dataRobotDatetimePartition <- function(inList) {
   outList$isCrossSeries <- isTRUE(outList$useCrossSeriesFeatures)
   outList
 }
+
+#' @name GetDatetimePartition
+#' @details Retrieve the DatetimePartitioning from a project
+#'
+#' Only available if the project has already set the target as a datetime project.
+#'
+#' @inheritParams DeleteProject
+#' @inherit GenerateDatetimePartition return
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetDatetimePartition(projectId)
+#' }
+#' @export
+#' @include datetime_partitioning_apiWrapper.R
+GetDatetimePartition

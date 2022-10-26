@@ -6,18 +6,17 @@
 \usage{
 PutManyClusterLicense(licenseKey, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create or replace license
 }
 \details{
 Create or replace the cluster license.
+
+This method invokes \verb{PUT /clusterLicense/} in the DataRobot Public API.
 }
 \seealso{
-The method ClusterLicensePutMany in [datarobot.apicore::InfrastructureApi], which this function wraps.
-
-Other Infrastructure: 
-\code{\link{CreateClusterLicenseValidation}()},
-\code{\link{GetServerVersion}()},
-\code{\link{ListClusterLicense}()}
+The method ClusterLicensePutMany in \link[datarobot.apicore:InfrastructureApi]{datarobot.apicore::InfrastructureApi}, which invokes the same underlying API endpoint.
 }
-\concept{Infrastructure}

@@ -207,3 +207,102 @@ GetFeatureDiscoveryRelationships <- function(project) {
   response <- DataRobotGET(routeString)
   return(response)
 }
+
+#' @name ListFeatureInfo
+#' @details Details about all features for this project
+#'
+#' @inheritParams DeleteProject
+#' @inherit as.dataRobotFeatureInfo return
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' ListFeatureInfo(projectId)
+#' }
+#' @family feature functions
+#' @export
+#' @include projects_apiWrapper.R
+ListFeatureInfo
+
+#' @name GetFeatureInfo
+#' @details Details about a feature
+#'
+#' @inheritParams DeleteProject
+#' @param featureName Name of the feature to retrieve. Note: DataRobot renames some features, so
+#' the feature name may not be the one from your original data. You can use ListFeatureInfo to list
+#' the features and check the name.
+#' @inherit as.dataRobotFeatureInfo return
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' GetFeatureInfo(projectId, "myFeature")
+#' }
+#' @family feature functions
+#' @export
+#' @include projects_apiWrapper.R
+GetFeatureInfo
+
+#' @name GetFeatureHistogram
+#' @details Retrieve histogram plot data for a specific feature
+#'
+#' A histogram is a popular way of visual representation of a feature values
+#' distribution in a series of bins. For categorical features every bin represents
+#' exactly one of feature values plus the number of occurrences of that value.
+#' For numeric features every bin represents a range of values (low end inclusive,
+#' high end exclusive) plus the total number of occurrences of all values in this range.
+#' In addition to that, with every bin for categorical and numeric features there is also
+#' included a target feature average for values in that bin (though it can be missing
+#' if the feature is deemed uninformative, if the project target has not been selected
+#' yet using \code{SetTarget}, or if the project is a multiclass project).
+#'
+#' @inheritParams GetFeatureInfo
+#' @param binLimit integer. Optional. Desired max number of histogram bins. The default is 60.
+#' @return list containing:
+#'   \itemize{
+#'     \item count numeric. The number of values in this bin's range. If a project is using weights,
+#'       the value is equal to the sum of weights of all feature values in the bin's range.
+#'     \item target numeric. Average of the target feature for values in this bin. It may be NULL
+#'       if the feature is deemed uninformative, if the target has not yet been set
+#'       (see \code{SetTarget}), or if the project is multiclass.
+#'     \item label character. The value of the feature if categorical, otherwise the low end of the
+#'       bin range such that the difference between two consecutive bin labels is the length of the
+#'       bin.
+#'   }
+#' @export
+#' @include projects_apiWrapper.R
+GetFeatureHistogram
+
+#' @name BatchFeaturesTypeTransform
+#' @details Create new features by transforming the type of an existing ones.
+#'
+#' Supports feature transformations, including:
+#' \itemize{
+#'    \item text to categorical
+#'    \item text to numeric
+#'    \item categorical to text
+#'    \item categorical to numeric
+#'    \item numeric to categorical
+#' }
+#' @inheritParams GetProject
+#' @param parentNames character. Character vector of variable names to be transformed.
+#' @param variableType character. The new type that the columns should be converted to.
+#'   See \code{VariableTransformTypes}.
+#' @param prefix character. Optional. The string to preface all the transformed features.
+#'   Either \code{prefix} or \code{suffix} or both must be provided.
+#' @param suffix character. Optional. The string that will be appended at the end to all
+#'  the transformed features. Either \code{prefix} or \code{suffix} or both must be provided.
+#' @param maxWait integer. Optional. The maximum amount of time (in seconds) to wait for
+#'  DataRobot to finish processing the new column before providing a timeout error.
+#' @return a list of all the features, after transformation. See \code{GetFeaturelist}
+#'  for details.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' BatchFeaturesTypeTransform(projectId,
+#'   parentNames = c("var1", "var2"),
+#'   variableType = VariableTransformTypes$Categorical,
+#'   suffix = "_transformed"
+#' )
+#' }
+#' @export
+#' @include projects_apiWrapper.R
+BatchFeaturesTypeTransform

@@ -15,6 +15,8 @@ SeriesAccuracyRetrieveDataResponse Class
 \describe{
 \item{\code{backtestingScore}}{numeric The backtesting score for this series. If backtesting has not been run for this model, this score will be null.}
 
+\item{\code{cluster}}{character \link{optional} The cluster associated with this series.}
+
 \item{\code{duration}}{character The duration of this series formatted as an ISO 8601 duration string.}
 
 \item{\code{endDate}}{character \link{optional} The ISO-formatted end date of this series.}
@@ -38,16 +40,16 @@ SeriesAccuracyRetrieveDataResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SeriesAccuracyRetrieveDataResponse$new()}}
-\item \href{#method-validate}{\code{SeriesAccuracyRetrieveDataResponse$validate()}}
-\item \href{#method-toJSON}{\code{SeriesAccuracyRetrieveDataResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{SeriesAccuracyRetrieveDataResponse$fromJSON()}}
-\item \href{#method-clone}{\code{SeriesAccuracyRetrieveDataResponse$clone()}}
+\item \href{#method-SeriesAccuracyRetrieveDataResponse-new}{\code{SeriesAccuracyRetrieveDataResponse$new()}}
+\item \href{#method-SeriesAccuracyRetrieveDataResponse-validate}{\code{SeriesAccuracyRetrieveDataResponse$validate()}}
+\item \href{#method-SeriesAccuracyRetrieveDataResponse-toJSON}{\code{SeriesAccuracyRetrieveDataResponse$toJSON()}}
+\item \href{#method-SeriesAccuracyRetrieveDataResponse-fromJSON}{\code{SeriesAccuracyRetrieveDataResponse$fromJSON()}}
+\item \href{#method-SeriesAccuracyRetrieveDataResponse-clone}{\code{SeriesAccuracyRetrieveDataResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SeriesAccuracyRetrieveDataResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SeriesAccuracyRetrieveDataResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,6 +60,7 @@ A function used to initialize an instance of this class.
   multiseriesValues = NULL,
   rowCount = NULL,
   validationScore = NULL,
+  cluster = NULL,
   endDate = NULL,
   holdoutScore = NULL,
   startDate = NULL,
@@ -82,6 +85,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{validationScore}}{The validation set score for this series}
 
+\item{\code{cluster}}{The cluster associated with this series.}
+
 \item{\code{endDate}}{The ISO-formatted end date of this series.}
 
 \item{\code{holdoutScore}}{The holdout set score for this series. If holdout is locked for the project, this score will be null.}
@@ -98,19 +103,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-SeriesAccuracyRetrieveDataResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-SeriesAccuracyRetrieveDataResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SeriesAccuracyRetrieveDataResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SeriesAccuracyRetrieveDataResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SeriesAccuracyRetrieveDataResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -119,8 +125,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SeriesAccuracyRetrieveDataResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SeriesAccuracyRetrieveDataResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -141,8 +147,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SeriesAccuracyRetrieveDataResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SeriesAccuracyRetrieveDataResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

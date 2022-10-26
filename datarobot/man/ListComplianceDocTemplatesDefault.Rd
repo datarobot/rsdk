@@ -6,29 +6,17 @@
 \usage{
 ListComplianceDocTemplatesDefault(type = "normal", ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve the default documentation template
 }
 \details{
 Retrieve the default documentation template.
+
+This method invokes \verb{GET /complianceDocTemplates/default/} in the DataRobot Public API.
 }
 \seealso{
-The method ComplianceDocTemplatesDefaultList in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesSharedRoles}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method ComplianceDocTemplatesDefaultList in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

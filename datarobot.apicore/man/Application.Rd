@@ -37,13 +37,13 @@ Application Class
 
 \item{\code{deploymentName}}{character Name of the deployment}
 
-\item{\code{deploymentState}}{character The state of the application deployment}
-
 \item{\code{deploymentStatusId}}{character  The ID of the status object to track the asynchronous deployment process status}
 
 \item{\code{deployments}}{list( \link{ApplicationDeployment} ) A list of deployment details}
 
 \item{\code{description}}{character A description of the application}
+
+\item{\code{hasCustomLogo}}{character Whether the app has a custom logo}
 
 \item{\code{id}}{character The ID of the created application}
 
@@ -55,11 +55,7 @@ Application Class
 
 \item{\code{poolUsed}}{character Whether the pool where used for last app deployment}
 
-\item{\code{recentEvents}}{list( character ) The list of deployment events of the application.}
-
 \item{\code{updatedAt}}{character The timestamp when the application was updated}
-
-\item{\code{url}}{character The URL of the active application}
 
 \item{\code{userId}}{character The ID of the user which created the application}
 }
@@ -68,16 +64,16 @@ Application Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Application$new()}}
-\item \href{#method-validate}{\code{Application$validate()}}
-\item \href{#method-toJSON}{\code{Application$toJSON()}}
-\item \href{#method-fromJSON}{\code{Application$fromJSON()}}
-\item \href{#method-clone}{\code{Application$clone()}}
+\item \href{#method-Application-new}{\code{Application$new()}}
+\item \href{#method-Application-validate}{\code{Application$validate()}}
+\item \href{#method-Application-toJSON}{\code{Application$toJSON()}}
+\item \href{#method-Application-fromJSON}{\code{Application$fromJSON()}}
+\item \href{#method-Application-clone}{\code{Application$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Application-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Application-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -94,18 +90,16 @@ A function used to initialize an instance of this class.
   deactivationStatusId = NULL,
   deploymentIds = NULL,
   deploymentName = NULL,
-  deploymentState = NULL,
   deploymentStatusId = NULL,
   deployments = NULL,
   description = NULL,
+  hasCustomLogo = NULL,
   id = NULL,
   modelDeploymentId = NULL,
   name = NULL,
   permissions = NULL,
   poolUsed = NULL,
-  recentEvents = NULL,
   updatedAt = NULL,
-  url = NULL,
   userId = NULL,
   validateParams = FALSE,
   ...
@@ -139,13 +133,13 @@ A function used to initialize an instance of this class.
 
 \item{\code{deploymentName}}{Name of the deployment}
 
-\item{\code{deploymentState}}{The state of the application deployment}
-
 \item{\code{deploymentStatusId}}{The ID of the status object to track the asynchronous deployment process status}
 
 \item{\code{deployments}}{A list of deployment details}
 
 \item{\code{description}}{A description of the application}
+
+\item{\code{hasCustomLogo}}{Whether the app has a custom logo}
 
 \item{\code{id}}{The ID of the created application}
 
@@ -157,11 +151,7 @@ A function used to initialize an instance of this class.
 
 \item{\code{poolUsed}}{Whether the pool where used for last app deployment}
 
-\item{\code{recentEvents}}{The list of deployment events of the application.}
-
 \item{\code{updatedAt}}{The timestamp when the application was updated}
-
-\item{\code{url}}{The URL of the active application}
 
 \item{\code{userId}}{The ID of the user which created the application}
 
@@ -173,19 +163,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Application-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Application-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Application$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Application-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Application-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -194,8 +185,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Application-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Application-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -213,8 +204,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Application-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Application-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -18,7 +18,7 @@ datarobot.apicore.Governance
 
 \dontrun{
 library(datarobot.apicore)
-approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy |
+approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ApprovalPoliciesCreate(approvalPolicy=approvalPolicy)
@@ -58,7 +58,7 @@ result <- api.instance$ApprovalPoliciesList(offset=offset, limit=limit, entityTy
 \dontrun{
 library(datarobot.apicore)
 approvalPolicyId <- 'approvalPolicyId_example' # character | ID of the Approval Policy.
-approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy |
+approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ApprovalPoliciesPut(approvalPolicyId, approvalPolicy=approvalPolicy)
@@ -123,7 +123,7 @@ result <- api.instance$ApprovalPolicyTriggersList()
 
 \dontrun{
 library(datarobot.apicore)
-changeRequestCreate <- ChangeRequestCreate$new() # ChangeRequestCreate |
+changeRequestCreate <- ChangeRequestCreate$new() # ChangeRequestCreate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsCreate(changeRequestCreate=changeRequestCreate)
@@ -138,11 +138,11 @@ library(datarobot.apicore)
 entityType <- 'entityType_example' # character | Type of the entity to filter requests by.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-entityId <- OneOfstringarray$new() # OneOfstringarray | ID of the entity to filter change requests by.
+entityId <- list(c('entityId_example')) # OneOfstringarray | ID of the entity to filter change requests by.
 myRequests <- 'myRequests_example' # character | Filter change requests by the owner. If `true`, only returns change requests owned by the user. If `false`, only returns change requests owned by other users but accessible to the requester.
 showApproved <- 'showApproved_example' # character | Filter change requests by status. If `true`, only returns approved change requests. If `false`, only returns not approved change requests.
 showCancelled <- 'showCancelled_example' # character | Filter change requests by status. If `true`, only returns cancelled change requests. If `false`, only returns not cancelled change requests.
-status <- OneOfstringarray$new() # OneOfstringarray | Filter change requests by status.
+status <- list(c('status_example')) # OneOfstringarray | Filter change requests by status.
 orderBy <- 'orderBy_example' # character | The order that the results should be retrieved in.
 
 api.instance <- GovernanceApi$new()
@@ -156,7 +156,7 @@ result <- api.instance$ChangeRequestsList(entityType, offset=offset, limit=limit
 \dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-changeRequestUpdate <- ChangeRequestUpdate$new() # ChangeRequestUpdate |
+changeRequestUpdate <- ChangeRequestUpdate$new() # ChangeRequestUpdate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsPatch(changeRequestId, changeRequestUpdate=changeRequestUpdate)
@@ -181,7 +181,7 @@ result <- api.instance$ChangeRequestsRetrieve(changeRequestId)
 \dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-reviewCreate <- ReviewCreate$new() # ReviewCreate |
+reviewCreate <- ReviewCreate$new() # ReviewCreate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsReviewsCreate(changeRequestId, reviewCreate=reviewCreate)
@@ -223,7 +223,7 @@ result <- api.instance$ChangeRequestsReviewsRetrieve(changeRequestId, reviewId)
 \dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-changeRequestUpdateStatus <- ChangeRequestUpdateStatus$new() # ChangeRequestUpdateStatus |
+changeRequestUpdateStatus <- ChangeRequestUpdateStatus$new() # ChangeRequestUpdateStatus | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsStatusPatchMany(changeRequestId, changeRequestUpdateStatus=changeRequestUpdateStatus)
@@ -253,30 +253,30 @@ result <- api.instance$ChangeRequestsSuggestedReviewersList(changeRequestId, off
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GovernanceApi$new()}}
-\item \href{#method-ApprovalPoliciesCreate}{\code{GovernanceApi$ApprovalPoliciesCreate()}}
-\item \href{#method-ApprovalPoliciesDelete}{\code{GovernanceApi$ApprovalPoliciesDelete()}}
-\item \href{#method-ApprovalPoliciesList}{\code{GovernanceApi$ApprovalPoliciesList()}}
-\item \href{#method-ApprovalPoliciesPut}{\code{GovernanceApi$ApprovalPoliciesPut()}}
-\item \href{#method-ApprovalPoliciesRetrieve}{\code{GovernanceApi$ApprovalPoliciesRetrieve()}}
-\item \href{#method-ApprovalPoliciesShareableChangeRequestsList}{\code{GovernanceApi$ApprovalPoliciesShareableChangeRequestsList()}}
-\item \href{#method-ApprovalPolicyMatchList}{\code{GovernanceApi$ApprovalPolicyMatchList()}}
-\item \href{#method-ApprovalPolicyTriggersList}{\code{GovernanceApi$ApprovalPolicyTriggersList()}}
-\item \href{#method-ChangeRequestsCreate}{\code{GovernanceApi$ChangeRequestsCreate()}}
-\item \href{#method-ChangeRequestsList}{\code{GovernanceApi$ChangeRequestsList()}}
-\item \href{#method-ChangeRequestsPatch}{\code{GovernanceApi$ChangeRequestsPatch()}}
-\item \href{#method-ChangeRequestsRetrieve}{\code{GovernanceApi$ChangeRequestsRetrieve()}}
-\item \href{#method-ChangeRequestsReviewsCreate}{\code{GovernanceApi$ChangeRequestsReviewsCreate()}}
-\item \href{#method-ChangeRequestsReviewsList}{\code{GovernanceApi$ChangeRequestsReviewsList()}}
-\item \href{#method-ChangeRequestsReviewsRetrieve}{\code{GovernanceApi$ChangeRequestsReviewsRetrieve()}}
-\item \href{#method-ChangeRequestsStatusPatchMany}{\code{GovernanceApi$ChangeRequestsStatusPatchMany()}}
-\item \href{#method-ChangeRequestsSuggestedReviewersList}{\code{GovernanceApi$ChangeRequestsSuggestedReviewersList()}}
-\item \href{#method-clone}{\code{GovernanceApi$clone()}}
+\item \href{#method-GovernanceApi-new}{\code{GovernanceApi$new()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesCreate}{\code{GovernanceApi$ApprovalPoliciesCreate()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesDelete}{\code{GovernanceApi$ApprovalPoliciesDelete()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesList}{\code{GovernanceApi$ApprovalPoliciesList()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesPut}{\code{GovernanceApi$ApprovalPoliciesPut()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesRetrieve}{\code{GovernanceApi$ApprovalPoliciesRetrieve()}}
+\item \href{#method-GovernanceApi-ApprovalPoliciesShareableChangeRequestsList}{\code{GovernanceApi$ApprovalPoliciesShareableChangeRequestsList()}}
+\item \href{#method-GovernanceApi-ApprovalPolicyMatchList}{\code{GovernanceApi$ApprovalPolicyMatchList()}}
+\item \href{#method-GovernanceApi-ApprovalPolicyTriggersList}{\code{GovernanceApi$ApprovalPolicyTriggersList()}}
+\item \href{#method-GovernanceApi-ChangeRequestsCreate}{\code{GovernanceApi$ChangeRequestsCreate()}}
+\item \href{#method-GovernanceApi-ChangeRequestsList}{\code{GovernanceApi$ChangeRequestsList()}}
+\item \href{#method-GovernanceApi-ChangeRequestsPatch}{\code{GovernanceApi$ChangeRequestsPatch()}}
+\item \href{#method-GovernanceApi-ChangeRequestsRetrieve}{\code{GovernanceApi$ChangeRequestsRetrieve()}}
+\item \href{#method-GovernanceApi-ChangeRequestsReviewsCreate}{\code{GovernanceApi$ChangeRequestsReviewsCreate()}}
+\item \href{#method-GovernanceApi-ChangeRequestsReviewsList}{\code{GovernanceApi$ChangeRequestsReviewsList()}}
+\item \href{#method-GovernanceApi-ChangeRequestsReviewsRetrieve}{\code{GovernanceApi$ChangeRequestsReviewsRetrieve()}}
+\item \href{#method-GovernanceApi-ChangeRequestsStatusPatchMany}{\code{GovernanceApi$ChangeRequestsStatusPatchMany()}}
+\item \href{#method-GovernanceApi-ChangeRequestsSuggestedReviewersList}{\code{GovernanceApi$ChangeRequestsSuggestedReviewersList()}}
+\item \href{#method-GovernanceApi-clone}{\code{GovernanceApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GovernanceApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -291,8 +291,8 @@ result <- api.instance$ChangeRequestsSuggestedReviewersList(changeRequestId, off
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesCreate}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesCreate}{}}}
 \subsection{Method \code{ApprovalPoliciesCreate()}}{
 Create a new Approval Policy.
 Produces: "application/json"
@@ -311,6 +311,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a new Approval Policy.
+
+
+This method invokes \verb{POST /approvalPolicies/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -334,7 +337,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy |
+approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ApprovalPoliciesCreate(approvalPolicy=approvalPolicy)
@@ -346,8 +349,8 @@ result <- api.instance$ApprovalPoliciesCreate(approvalPolicy=approvalPolicy)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesDelete}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesDelete}{}}}
 \subsection{Method \code{ApprovalPoliciesDelete()}}{
 Delete an Approval Policy.
 Produces: NA
@@ -366,6 +369,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete the policy with the given ID.
+
+
+This method invokes \verb{DELETE /approvalPolicies/\{approvalPolicyId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -398,8 +404,8 @@ result <- api.instance$ApprovalPoliciesDelete(approvalPolicyId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesList}{}}}
 \subsection{Method \code{ApprovalPoliciesList()}}{
 List Approval Policies.
 Produces: "application/json"
@@ -430,6 +436,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List Approval Policies.
+
+
+This method invokes \verb{GET /approvalPolicies/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -465,8 +474,8 @@ result <- api.instance$ApprovalPoliciesList(offset=offset, limit=limit, entityTy
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesPut"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesPut}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesPut"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesPut}{}}}
 \subsection{Method \code{ApprovalPoliciesPut()}}{
 Update an Approval Policy.
 Produces: "application/json"
@@ -487,6 +496,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Update the policy with the given ID.
+
+
+This method invokes \verb{PUT /approvalPolicies/\{approvalPolicyId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -514,7 +526,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 approvalPolicyId <- 'approvalPolicyId_example' # character | ID of the Approval Policy.
-approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy |
+approvalPolicy <- ApprovalPolicy$new() # ApprovalPolicy | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ApprovalPoliciesPut(approvalPolicyId, approvalPolicy=approvalPolicy)
@@ -526,8 +538,8 @@ result <- api.instance$ApprovalPoliciesPut(approvalPolicyId, approvalPolicy=appr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesRetrieve}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesRetrieve}{}}}
 \subsection{Method \code{ApprovalPoliciesRetrieve()}}{
 Retrieve an Approval Policy.
 Produces: "application/json"
@@ -546,6 +558,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the policy with the given ID.
+
+
+This method invokes \verb{GET /approvalPolicies/\{approvalPolicyId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -581,8 +596,8 @@ result <- api.instance$ApprovalPoliciesRetrieve(approvalPolicyId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPoliciesShareableChangeRequestsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPoliciesShareableChangeRequestsList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPoliciesShareableChangeRequestsList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPoliciesShareableChangeRequestsList}{}}}
 \subsection{Method \code{ApprovalPoliciesShareableChangeRequestsList()}}{
 Retrieve associated Change Requests Info.
 Produces: "application/json"
@@ -613,6 +628,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get information about Change Requests submitted for a certain Approval Policy.
+
+
+This method invokes \verb{GET /approvalPolicies/\{approvalPolicyId\}/shareableChangeRequests/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -651,8 +669,8 @@ result <- api.instance$ApprovalPoliciesShareableChangeRequestsList(approvalPolic
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPolicyMatchList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPolicyMatchList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPolicyMatchList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPolicyMatchList}{}}}
 \subsection{Method \code{ApprovalPolicyMatchList()}}{
 Get policy ID matching the query
 Produces: "application/json"
@@ -683,6 +701,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get policy ID matching the query
+
+
+This method invokes \verb{GET /approvalPolicyMatch/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -718,8 +739,8 @@ result <- api.instance$ApprovalPolicyMatchList(entityType, action, fieldName=fie
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ApprovalPolicyTriggersList"></a>}}
-\if{latex}{\out{\hypertarget{method-ApprovalPolicyTriggersList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ApprovalPolicyTriggersList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ApprovalPolicyTriggersList}{}}}
 \subsection{Method \code{ApprovalPolicyTriggersList()}}{
 Get a list of available policy triggers.
 Produces: "application/json"
@@ -736,6 +757,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of available policy triggers.
+
+
+This method invokes \verb{GET /approvalPolicyTriggers/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -767,8 +791,8 @@ result <- api.instance$ApprovalPolicyTriggersList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsCreate}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsCreate}{}}}
 \subsection{Method \code{ChangeRequestsCreate()}}{
 Create Change Request.
 Produces: "application/json"
@@ -789,6 +813,9 @@ Produces: "application/json"
 Request changes for a supported product entity. For now, you can request changes for deployments only.
 
 
+This method invokes \verb{POST /changeRequests/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Change Request Created.
@@ -804,7 +831,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-changeRequestCreate <- ChangeRequestCreate$new() # ChangeRequestCreate |
+changeRequestCreate <- ChangeRequestCreate$new() # ChangeRequestCreate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsCreate(changeRequestCreate=changeRequestCreate)
@@ -816,8 +843,8 @@ result <- api.instance$ChangeRequestsCreate(changeRequestCreate=changeRequestCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsList}{}}}
 \subsection{Method \code{ChangeRequestsList()}}{
 List Change Requests.
 Produces: "application/json"
@@ -865,6 +892,9 @@ Produces: "application/json"
 List all Change Requests accessible by the user for the given product entity type.
 
 
+This method invokes \verb{GET /changeRequests/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -883,11 +913,11 @@ library(datarobot.apicore)
 entityType <- 'entityType_example' # character | Type of the entity to filter requests by.
 offset <- 0 # integer | Number of results to skip.
 limit <- 100 # integer | At most this many results are returned. The default may change without notice.
-entityId <- OneOfstringarray$new() # OneOfstringarray | ID of the entity to filter change requests by.
+entityId <- list(c('entityId_example')) # OneOfstringarray | ID of the entity to filter change requests by.
 myRequests <- 'myRequests_example' # character | Filter change requests by the owner. If `true`, only returns change requests owned by the user. If `false`, only returns change requests owned by other users but accessible to the requester.
 showApproved <- 'showApproved_example' # character | Filter change requests by status. If `true`, only returns approved change requests. If `false`, only returns not approved change requests.
 showCancelled <- 'showCancelled_example' # character | Filter change requests by status. If `true`, only returns cancelled change requests. If `false`, only returns not cancelled change requests.
-status <- OneOfstringarray$new() # OneOfstringarray | Filter change requests by status.
+status <- list(c('status_example')) # OneOfstringarray | Filter change requests by status.
 orderBy <- 'orderBy_example' # character | The order that the results should be retrieved in.
 
 api.instance <- GovernanceApi$new()
@@ -900,8 +930,8 @@ result <- api.instance$ChangeRequestsList(entityType, offset=offset, limit=limit
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsPatch}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsPatch}{}}}
 \subsection{Method \code{ChangeRequestsPatch()}}{
 Update Change Request.
 Produces: "application/json"
@@ -928,6 +958,9 @@ Produces: "application/json"
 Update Change Request with the given ID.
 
 
+This method invokes \verb{PATCH /changeRequests/\{changeRequestId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -944,7 +977,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-changeRequestUpdate <- ChangeRequestUpdate$new() # ChangeRequestUpdate |
+changeRequestUpdate <- ChangeRequestUpdate$new() # ChangeRequestUpdate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsPatch(changeRequestId, changeRequestUpdate=changeRequestUpdate)
@@ -956,8 +989,8 @@ result <- api.instance$ChangeRequestsPatch(changeRequestId, changeRequestUpdate=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsRetrieve}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsRetrieve}{}}}
 \subsection{Method \code{ChangeRequestsRetrieve()}}{
 Retrieve Change Request.
 Produces: "application/json"
@@ -976,6 +1009,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve Change Request by ID.
+
+
+This method invokes \verb{GET /changeRequests/\{changeRequestId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1005,8 +1041,8 @@ result <- api.instance$ChangeRequestsRetrieve(changeRequestId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsReviewsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsReviewsCreate}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsReviewsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsReviewsCreate}{}}}
 \subsection{Method \code{ChangeRequestsReviewsCreate()}}{
 Create review.
 Produces: "application/json"
@@ -1033,6 +1069,9 @@ Produces: "application/json"
 Review the Change Request.
 
 
+This method invokes \verb{POST /changeRequests/\{changeRequestId\}/reviews/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -1049,7 +1088,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-reviewCreate <- ReviewCreate$new() # ReviewCreate |
+reviewCreate <- ReviewCreate$new() # ReviewCreate | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsReviewsCreate(changeRequestId, reviewCreate=reviewCreate)
@@ -1061,8 +1100,8 @@ result <- api.instance$ChangeRequestsReviewsCreate(changeRequestId, reviewCreate
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsReviewsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsReviewsList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsReviewsList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsReviewsList}{}}}
 \subsection{Method \code{ChangeRequestsReviewsList()}}{
 List Change Request reviews.
 Produces: "application/json"
@@ -1098,6 +1137,9 @@ Produces: "application/json"
 List Change Request reviews.
 
 
+This method invokes \verb{GET /changeRequests/\{changeRequestId\}/reviews/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1129,8 +1171,8 @@ result <- api.instance$ChangeRequestsReviewsList(changeRequestId, offset=offset,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsReviewsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsReviewsRetrieve}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsReviewsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsReviewsRetrieve}{}}}
 \subsection{Method \code{ChangeRequestsReviewsRetrieve()}}{
 Retrieve review.
 Produces: "application/json"
@@ -1151,6 +1193,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a review by ID.
+
+
+This method invokes \verb{GET /changeRequests/\{changeRequestId\}/reviews/\{reviewId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1181,8 +1226,8 @@ result <- api.instance$ChangeRequestsReviewsRetrieve(changeRequestId, reviewId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsStatusPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsStatusPatchMany}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsStatusPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsStatusPatchMany}{}}}
 \subsection{Method \code{ChangeRequestsStatusPatchMany()}}{
 Resolve or Cancel the Change Request.
 Produces: "application/json"
@@ -1209,6 +1254,9 @@ Produces: "application/json"
 Resolve or Cancel the Change Request.
 
 
+This method invokes \verb{PATCH /changeRequests/\{changeRequestId\}/status/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -1226,7 +1274,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 changeRequestId <- 'changeRequestId_example' # character | ID of the Change Request.
-changeRequestUpdateStatus <- ChangeRequestUpdateStatus$new() # ChangeRequestUpdateStatus |
+changeRequestUpdateStatus <- ChangeRequestUpdateStatus$new() # ChangeRequestUpdateStatus | 
 
 api.instance <- GovernanceApi$new()
 result <- api.instance$ChangeRequestsStatusPatchMany(changeRequestId, changeRequestUpdateStatus=changeRequestUpdateStatus)
@@ -1238,8 +1286,8 @@ result <- api.instance$ChangeRequestsStatusPatchMany(changeRequestId, changeRequ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ChangeRequestsSuggestedReviewersList"></a>}}
-\if{latex}{\out{\hypertarget{method-ChangeRequestsSuggestedReviewersList}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-ChangeRequestsSuggestedReviewersList"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-ChangeRequestsSuggestedReviewersList}{}}}
 \subsection{Method \code{ChangeRequestsSuggestedReviewersList()}}{
 List suggested reviewers.
 Produces: "application/json"
@@ -1267,6 +1315,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List users, suggested to review the Change Request.
+
+
+This method invokes \verb{GET /changeRequests/\{changeRequestId\}/suggestedReviewers/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1298,8 +1349,8 @@ result <- api.instance$ChangeRequestsSuggestedReviewersList(changeRequestId, off
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GovernanceApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GovernanceApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

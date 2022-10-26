@@ -6,24 +6,17 @@
 \usage{
 DeleteUsersRateLimitUsage(resourceName, userId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Reset resource usage for the resource
 }
 \details{
 Reset rate limit resource usage for a user of a specified resource to zero. This will happen automatically when windows roll over. This route can be used to reset a user's rate limits sooner.
+
+This method invokes \verb{DELETE /users/\{userId\}/rateLimitUsage/\{resourceName\}/} in the DataRobot Public API.
 }
 \seealso{
-The method UsersRateLimitUsageDelete in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method UsersRateLimitUsageDelete in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

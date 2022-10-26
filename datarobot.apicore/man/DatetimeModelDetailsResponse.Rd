@@ -25,7 +25,7 @@ DatetimeModelDetailsResponse Class
 
 \item{\code{featurelistId}}{character the ID of the featurelist used by the model}
 
-\item{\code{featurelistName}}{character the name of the featurelist used by the model}
+\item{\code{featurelistName}}{character the name of the featurelist used by the model.If null, the model was trained on multiple feature lists.}
 
 \item{\code{forecastWindowEnd}}{integer Only available for time series projects. How many timeUnits into the future relative to the forecast point the forecast window should end.}
 
@@ -45,11 +45,11 @@ DatetimeModelDetailsResponse Class
 
 \item{\code{metrics}}{object Object where each metric has validation, backtesting, backtestingScores and holdout scores reported, or null if they have not been computed. The `validation` score will be the score of the first backtest, which will be computed during initial model training.  The `backtesting` and  `backtestingScores` scores are computed when requested via :http:post:`/api/v2/projects/(projectId)/datetimeModels/(modelId)/backtests/`. The `backtesting` score is the average score across all backtests. The `backtestingScores` is an array of scores for each backtest, with the scores reported as null if the backtest score is unavailable. The `holdout` score is the score against the holdout data, using the training data defined in `trainingInfo`.}
 
-\item{\code{modelCategory}}{character indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, `scaleout` for scaleout models, and `model` for all other models}
+\item{\code{modelCategory}}{character indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, and `model` for all other models}
 
 \item{\code{modelFamily}}{character the family model belongs to, e.g. SVM, GMB, etc.}
 
-\item{\code{modelNumber}}{integer number of the model on leaderboard.}
+\item{\code{modelNumber}}{integer The model number from the leaderboard.}
 
 \item{\code{modelType}}{character identifies the model, e.g. `Nystroem Kernel SVM Regressor`}
 
@@ -83,7 +83,7 @@ DatetimeModelDetailsResponse Class
 
 \item{\code{trainingInfo}}{\link{TrainingInfoResponse}}
 
-\item{\code{trainingRowCount}}{integer the number of rows used to train the model}
+\item{\code{trainingRowCount}}{integer The number of rows used to train the model.}
 
 \item{\code{trainingStartDate}}{character the start date of the dates in the partition column for the data used to train the model}
 
@@ -94,16 +94,16 @@ DatetimeModelDetailsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatetimeModelDetailsResponse$new()}}
-\item \href{#method-validate}{\code{DatetimeModelDetailsResponse$validate()}}
-\item \href{#method-toJSON}{\code{DatetimeModelDetailsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatetimeModelDetailsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DatetimeModelDetailsResponse$clone()}}
+\item \href{#method-DatetimeModelDetailsResponse-new}{\code{DatetimeModelDetailsResponse$new()}}
+\item \href{#method-DatetimeModelDetailsResponse-validate}{\code{DatetimeModelDetailsResponse$validate()}}
+\item \href{#method-DatetimeModelDetailsResponse-toJSON}{\code{DatetimeModelDetailsResponse$toJSON()}}
+\item \href{#method-DatetimeModelDetailsResponse-fromJSON}{\code{DatetimeModelDetailsResponse$fromJSON()}}
+\item \href{#method-DatetimeModelDetailsResponse-clone}{\code{DatetimeModelDetailsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatetimeModelDetailsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimeModelDetailsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -166,7 +166,7 @@ A function used to initialize an instance of this class.
 
 \item{\code{featurelistId}}{the ID of the featurelist used by the model}
 
-\item{\code{featurelistName}}{the name of the featurelist used by the model}
+\item{\code{featurelistName}}{the name of the featurelist used by the model.If null, the model was trained on multiple feature lists.}
 
 \item{\code{forecastWindowEnd}}{Only available for time series projects. How many timeUnits into the future relative to the forecast point the forecast window should end.}
 
@@ -186,11 +186,11 @@ A function used to initialize an instance of this class.
 
 \item{\code{metrics}}{Object where each metric has validation, backtesting, backtestingScores and holdout scores reported, or null if they have not been computed. The `validation` score will be the score of the first backtest, which will be computed during initial model training.  The `backtesting` and  `backtestingScores` scores are computed when requested via :http:post:`/api/v2/projects/(projectId)/datetimeModels/(modelId)/backtests/`. The `backtesting` score is the average score across all backtests. The `backtestingScores` is an array of scores for each backtest, with the scores reported as null if the backtest score is unavailable. The `holdout` score is the score against the holdout data, using the training data defined in `trainingInfo`.}
 
-\item{\code{modelCategory}}{indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, `scaleout` for scaleout models, and `model` for all other models}
+\item{\code{modelCategory}}{indicates what kind of model it is - will be `prime` for DataRobot Prime models, `blend` for blender models, and `model` for all other models}
 
 \item{\code{modelFamily}}{the family model belongs to, e.g. SVM, GMB, etc.}
 
-\item{\code{modelNumber}}{number of the model on leaderboard.}
+\item{\code{modelNumber}}{The model number from the leaderboard.}
 
 \item{\code{modelType}}{identifies the model, e.g. `Nystroem Kernel SVM Regressor`}
 
@@ -220,7 +220,7 @@ A function used to initialize an instance of this class.
 
 \item{\code{trainingEndDate}}{the end date of the dates in the partition column for the data used to train the model}
 
-\item{\code{trainingRowCount}}{the number of rows used to train the model}
+\item{\code{trainingRowCount}}{The number of rows used to train the model.}
 
 \item{\code{trainingStartDate}}{the start date of the dates in the partition column for the data used to train the model}
 
@@ -236,19 +236,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatetimeModelDetailsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimeModelDetailsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatetimeModelDetailsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatetimeModelDetailsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimeModelDetailsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -257,8 +258,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatetimeModelDetailsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimeModelDetailsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -279,8 +280,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatetimeModelDetailsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatetimeModelDetailsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

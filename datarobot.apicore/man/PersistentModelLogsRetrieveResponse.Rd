@@ -20,16 +20,16 @@ PersistentModelLogsRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PersistentModelLogsRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{PersistentModelLogsRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{PersistentModelLogsRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{PersistentModelLogsRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{PersistentModelLogsRetrieveResponse$clone()}}
+\item \href{#method-PersistentModelLogsRetrieveResponse-new}{\code{PersistentModelLogsRetrieveResponse$new()}}
+\item \href{#method-PersistentModelLogsRetrieveResponse-validate}{\code{PersistentModelLogsRetrieveResponse$validate()}}
+\item \href{#method-PersistentModelLogsRetrieveResponse-toJSON}{\code{PersistentModelLogsRetrieveResponse$toJSON()}}
+\item \href{#method-PersistentModelLogsRetrieveResponse-fromJSON}{\code{PersistentModelLogsRetrieveResponse$fromJSON()}}
+\item \href{#method-PersistentModelLogsRetrieveResponse-clone}{\code{PersistentModelLogsRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PersistentModelLogsRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PersistentModelLogsRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PersistentModelLogsRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PersistentModelLogsRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PersistentModelLogsRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PersistentModelLogsRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PersistentModelLogsRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PersistentModelLogsRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PersistentModelLogsRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PersistentModelLogsRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PersistentModelLogsRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

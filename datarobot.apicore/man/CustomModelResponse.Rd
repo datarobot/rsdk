@@ -72,22 +72,24 @@ CustomModelResponse Class
 \item{\code{trainingDatasetVersionId}}{character \link{optional} The ID of the dataset version that was used as training data if it was assigned previously.}
 
 \item{\code{updated}}{character ISO-8601 timestamp of when model was last updated.}
+
+\item{\code{userProvidedId}}{character \link{optional} A user-provided unique ID associated with the given custom inference model.}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CustomModelResponse$new()}}
-\item \href{#method-validate}{\code{CustomModelResponse$validate()}}
-\item \href{#method-toJSON}{\code{CustomModelResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{CustomModelResponse$fromJSON()}}
-\item \href{#method-clone}{\code{CustomModelResponse$clone()}}
+\item \href{#method-CustomModelResponse-new}{\code{CustomModelResponse$new()}}
+\item \href{#method-CustomModelResponse-validate}{\code{CustomModelResponse$validate()}}
+\item \href{#method-CustomModelResponse-toJSON}{\code{CustomModelResponse$toJSON()}}
+\item \href{#method-CustomModelResponse-fromJSON}{\code{CustomModelResponse$fromJSON()}}
+\item \href{#method-CustomModelResponse-clone}{\code{CustomModelResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CustomModelResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -122,6 +124,7 @@ A function used to initialize an instance of this class.
   trainingDataPartitionColumn = NULL,
   trainingDatasetId = NULL,
   trainingDatasetVersionId = NULL,
+  userProvidedId = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -188,6 +191,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{trainingDatasetVersionId}}{The ID of the dataset version that was used as training data if it was assigned previously.}
 
+\item{\code{userProvidedId}}{A user-provided unique ID associated with the given custom inference model.}
+
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
 \item{\code{...}}{Any additional keyword arguments to be passed into this object for initialization.}
@@ -196,19 +201,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CustomModelResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CustomModelResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CustomModelResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -217,8 +223,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CustomModelResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -236,8 +242,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CustomModelResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CustomModelResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

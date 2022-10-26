@@ -6,21 +6,17 @@
 \usage{
 DeleteCredentials(credentialId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Delete the credentials set.
 }
 \details{
 Delete the credential set matching the specified ID if it is not used by any data connection or batch prediction job.
+
+This method invokes \verb{DELETE /credentials/\{credentialId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsDelete in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{CreateCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{ListCredentials}()},
-\code{\link{PatchCredentials}()},
-\code{\link{PatchManyCredentialsAssociations}()},
-\code{\link{RetrieveCredentials}()}
+The method CredentialsDelete in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

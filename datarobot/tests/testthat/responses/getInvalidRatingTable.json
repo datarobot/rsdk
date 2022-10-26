@@ -1,2 +1,0 @@
-{"validationJobId": "5", "validationError": "Row 0: Wrong number of columns, expected 2, observed 1", "created": 1507747214.735063, "projectId": "59de60fee70875036462e122", "ratingTableName": "Modified Invalid File2", "parentModelId": "59de6125e70875036462e126", "modelJobId": null, "id": "59de658ee70875001410be06", "originalFilename": "test-ratingTable-modified.csv", "modelId": null}
-

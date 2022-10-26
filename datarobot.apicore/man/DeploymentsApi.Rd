@@ -31,7 +31,7 @@ result <- api.instance$DeletedDeploymentsList(offset, limit)
 
 \dontrun{
 library(datarobot.apicore)
-deploymentPermanentDelete <- DeploymentPermanentDelete$new() # DeploymentPermanentDelete |
+deploymentPermanentDelete <- DeploymentPermanentDelete$new() # DeploymentPermanentDelete | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeletedDeploymentsPatchMany(deploymentPermanentDelete=deploymentPermanentDelete)
@@ -82,7 +82,7 @@ result <- api.instance$DeploymentsAccuracyOverTimeList(deploymentId, start=start
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentDatasetCreate <- DeploymentDatasetCreate$new() # DeploymentDatasetCreate |
+deploymentDatasetCreate <- DeploymentDatasetCreate$new() # DeploymentDatasetCreate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsActualsFromDatasetCreate(deploymentId, deploymentDatasetCreate=deploymentDatasetCreate)
@@ -95,10 +95,22 @@ result <- api.instance$DeploymentsActualsFromDatasetCreate(deploymentId, deploym
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentActuals <- DeploymentActuals$new() # DeploymentActuals |
+deploymentActuals <- DeploymentActuals$new() # DeploymentActuals | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsActualsFromJSONCreate(deploymentId, deploymentActuals=deploymentActuals)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsCapabilitiesList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsCapabilitiesList(deploymentId)
 }
 
 ## ------------------------------------------------
@@ -108,7 +120,7 @@ result <- api.instance$DeploymentsActualsFromJSONCreate(deploymentId, deployment
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-challengerScore <- ChallengerScore$new() # ChallengerScore |
+challengerScore <- ChallengerScore$new() # ChallengerScore | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengerPredictionsCreate(deploymentId, challengerScore=challengerScore)
@@ -121,7 +133,7 @@ result <- api.instance$DeploymentsChallengerPredictionsCreate(deploymentId, chal
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-challengerCreate <- ChallengerCreate$new() # ChallengerCreate |
+challengerCreate <- ChallengerCreate$new() # ChallengerCreate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengersCreate(deploymentId, challengerCreate=challengerCreate)
@@ -160,7 +172,7 @@ result <- api.instance$DeploymentsChallengersList(deploymentId)
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
 challengerId <- 'challengerId_example' # character | Unique identifier of the challenger.
-challengerUpdate <- ChallengerUpdate$new() # ChallengerUpdate |
+challengerUpdate <- ChallengerUpdate$new() # ChallengerUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengersPatch(deploymentId, challengerId, challengerUpdate=challengerUpdate)
@@ -213,6 +225,26 @@ result <- api.instance$DeploymentsFeatureDriftList(deploymentId, start=start, en
 }
 
 ## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsFeatureDriftOverTimeList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+featureNames <- list(c('featureNames_example')) # OneOfstringarray | List of feature names, limited to two per request.
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+start <- 'start_example' # character | RFC3339 datetime. Start of time period to retrieve the features drift for. If not set, defaults to 1 week from the end of the period.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.
+end <- 'end_example' # character | RFC3339 datetime. End of time period to retrieve the features drift for. If not set, defaults to the next top of the hour from now.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.
+bucketSize <- 'bucketSize_example' # character | The time duration of a bucket. Needs to be multiple of one hour. Can not be longer than the total length of the period. If not set, a default value will be calculated based on the start and end time.
+modelId <- 'modelId_example' # character | The id of the model for which the features drift is being retrieved.
+metric <- "psi" # character | Name of the metric used to calculate the drift. Can be one of psi, kl_divergence, dissimilarity, hellinger, and js_divergence. Defaults to psi.
+segmentAttribute <- 'segmentAttribute_example' # character | The name of the segment on which segment analysis is being performed.
+segmentValue <- 'segmentValue_example' # character | The value of the `segmentAttribute` to segment on.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsFeatureDriftOverTimeList(featureNames, deploymentId, start=start, end=end, bucketSize=bucketSize, modelId=modelId, metric=metric, segmentAttribute=segmentAttribute, segmentValue=segmentValue)
+}
+
+## ------------------------------------------------
 ## Method `DeploymentsApi$DeploymentsFeaturesList`
 ## ------------------------------------------------
 
@@ -235,22 +267,10 @@ result <- api.instance$DeploymentsFeaturesList(offset, limit, deploymentId, incl
 
 \dontrun{
 library(datarobot.apicore)
-deploymentCreateFromLearningModel <- DeploymentCreateFromLearningModel$new() # DeploymentCreateFromLearningModel |
+deploymentCreateFromLearningModel <- DeploymentCreateFromLearningModel$new() # DeploymentCreateFromLearningModel | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsFromLearningModelCreate(deploymentCreateFromLearningModel=deploymentCreateFromLearningModel)
-}
-
-## ------------------------------------------------
-## Method `DeploymentsApi$DeploymentsFromProjectRecommendedModelCreate`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-deploymentCreateFromProjectRecommendedModel <- DeploymentCreateFromProjectRecommendedModel$new() # DeploymentCreateFromProjectRecommendedModel |
-
-api.instance <- DeploymentsApi$new()
-result <- api.instance$DeploymentsFromProjectRecommendedModelCreate(deploymentCreateFromProjectRecommendedModel=deploymentCreateFromProjectRecommendedModel)
 }
 
 ## ------------------------------------------------
@@ -314,9 +334,10 @@ buildEnvironmentType <- ['buildEnvironmentType_example'] # array[character] | Fi
 executionEnvironmentType <- ['executionEnvironmentType_example'] # array[character] | Filter deployments based on the type of their execution environment.
 predictionEnvironmentPlatform <- ['predictionEnvironmentPlatform_example'] # array[character] | Filter deployments based on prediction environment platform
 hasDecisionFlow <- 'hasDecisionFlow_example' # character | Filter deployments based if it is a decision flow
+createdByMe <- 'createdByMe_example' # character | Filter deployments to those created by the current user.
 
 api.instance <- DeploymentsApi$new()
-result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=search, serviceHealth=serviceHealth, modelHealth=modelHealth, accuracyHealth=accuracyHealth, role=role, status=status, importance=importance, lastPredictionTimestampStart=lastPredictionTimestampStart, lastPredictionTimestampEnd=lastPredictionTimestampEnd, predictionUsageDailyAvgGreaterThan=predictionUsageDailyAvgGreaterThan, predictionUsageDailyAvgLessThan=predictionUsageDailyAvgLessThan, defaultPredictionServerId=defaultPredictionServerId, buildEnvironmentType=buildEnvironmentType, executionEnvironmentType=executionEnvironmentType, predictionEnvironmentPlatform=predictionEnvironmentPlatform, hasDecisionFlow=hasDecisionFlow)
+result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=search, serviceHealth=serviceHealth, modelHealth=modelHealth, accuracyHealth=accuracyHealth, role=role, status=status, importance=importance, lastPredictionTimestampStart=lastPredictionTimestampStart, lastPredictionTimestampEnd=lastPredictionTimestampEnd, predictionUsageDailyAvgGreaterThan=predictionUsageDailyAvgGreaterThan, predictionUsageDailyAvgLessThan=predictionUsageDailyAvgLessThan, defaultPredictionServerId=defaultPredictionServerId, buildEnvironmentType=buildEnvironmentType, executionEnvironmentType=executionEnvironmentType, predictionEnvironmentPlatform=predictionEnvironmentPlatform, hasDecisionFlow=hasDecisionFlow, createdByMe=createdByMe)
 }
 
 ## ------------------------------------------------
@@ -326,7 +347,7 @@ result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=se
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-modelReplacementSubmission <- ModelReplacementSubmission$new() # ModelReplacementSubmission |
+modelReplacementSubmission <- ModelReplacementSubmission$new() # ModelReplacementSubmission | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelPatchMany(deploymentId, modelReplacementSubmission=modelReplacementSubmission)
@@ -365,7 +386,7 @@ result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationList(deploym
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-secondaryDatasetConfigUpdate <- SecondaryDatasetConfigUpdate$new() # SecondaryDatasetConfigUpdate |
+secondaryDatasetConfigUpdate <- SecondaryDatasetConfigUpdate$new() # SecondaryDatasetConfigUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationPatchMany(deploymentId, secondaryDatasetConfigUpdate=secondaryDatasetConfigUpdate)
@@ -378,10 +399,23 @@ result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationPatchMany(de
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-modelReplacementValidationRequest <- ModelReplacementValidationRequest$new() # ModelReplacementValidationRequest |
+modelReplacementValidationRequest <- ModelReplacementValidationRequest$new() # ModelReplacementValidationRequest | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelValidationCreate(deploymentId, modelReplacementValidationRequest=modelReplacementValidationRequest)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsMonitoringDataDeletionsCreate`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+monitoringDataDeletePayload <- MonitoringDataDeletePayload$new() # MonitoringDataDeletePayload | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsMonitoringDataDeletionsCreate(deploymentId, monitoringDataDeletePayload=monitoringDataDeletePayload)
 }
 
 ## ------------------------------------------------
@@ -391,7 +425,7 @@ result <- api.instance$DeploymentsModelValidationCreate(deploymentId, modelRepla
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-scheduledReportOnDemmand <- ScheduledReportOnDemmand$new() # ScheduledReportOnDemmand |
+scheduledReportOnDemmand <- ScheduledReportOnDemmand$new() # ScheduledReportOnDemmand | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsOnDemandReportsCreate(deploymentId, scheduledReportOnDemmand=scheduledReportOnDemmand)
@@ -404,7 +438,7 @@ result <- api.instance$DeploymentsOnDemandReportsCreate(deploymentId, scheduledR
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentUpdate <- DeploymentUpdate$new() # DeploymentUpdate |
+deploymentUpdate <- DeploymentUpdate$new() # DeploymentUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsPatch(deploymentId, deploymentUpdate=deploymentUpdate)
@@ -417,7 +451,7 @@ result <- api.instance$DeploymentsPatch(deploymentId, deploymentUpdate=deploymen
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-predictionDatasetAssignment <- PredictionDatasetAssignment$new() # PredictionDatasetAssignment |
+predictionDatasetAssignment <- PredictionDatasetAssignment$new() # PredictionDatasetAssignment | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsPredictionInputsFromDatasetCreate(deploymentId, predictionDatasetAssignment=predictionDatasetAssignment)
@@ -451,8 +485,8 @@ library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
 passthroughColumns <- ['passthroughColumns_example'] # array[character] | List of columns from a scoring dataset to return in the prediction response. If not specified, no columns will be present in the response. Mutually exclusive with `passthroughColumnsSet`.
 passthroughColumnsSet <- 'passthroughColumnsSet_example' # character | If `passthroughColumnsSet=all` is passed, all columns from the scoring dataset are returned in the prediction response. All other values for this parameter are invalid. Mutually exclusive with `passthroughColumns`.
-maxExplanations <- OneOfintegerstring$new() # OneOfintegerstring | The maximum number of prediction explanations to supply per row of the dataset. The default `maxExplanations` is `3` when `xemp` based explanations are requested.  The default `maxExplanations` is `all` (no limit) when `shap` based explanations are requested.
-maxCodes <- OneOfintegerstring$new() # OneOfintegerstring | Deprecated alias of `maxExplanations`.
+maxExplanations <- 'maxExplanations_example' # OneOfintegerstring | The maximum number of prediction explanations to supply per row of the dataset. The default `maxExplanations` is `3` when `xemp` based explanations are requested.  The default `maxExplanations` is `all` (no limit) when `shap` based explanations are requested.
+maxCodes <- 'maxCodes_example' # OneOfintegerstring | Deprecated alias of `maxExplanations`.
 thresholdHigh <- 3.4 # numeric | The high threshold, above which a prediction must score in order for prediction explanations to be computed for a row in the dataset. If neither `thresholdHigh` nor `thresholdLow` is specified, prediction explanations will be computed for all rows. This option is ignored when `shap` based explanations are requested.
 thresholdLow <- 3.4 # numeric | The lower threshold, below which a prediction must score in order for prediction explanations to be computed for a row in the dataset. If neither `thresholdHigh` nor `thresholdLow` is specified, prediction explanations will be computed for all rows. This option is ignored when `shap` based explanations are requested.
 excludeAdjustedPredictions <- TRUE # character | If `false`, include exposure-adjusted predictions in the response.
@@ -464,6 +498,155 @@ predictionWarningEnabled <- 'predictionWarningEnabled_example' # character | If 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsPredictionsCreate(deploymentId, passthroughColumns=passthroughColumns, passthroughColumnsSet=passthroughColumnsSet, maxExplanations=maxExplanations, maxCodes=maxCodes, thresholdHigh=thresholdHigh, thresholdLow=thresholdLow, excludeAdjustedPredictions=excludeAdjustedPredictions, forecastPoint=forecastPoint, predictionsStartDate=predictionsStartDate, predictionsEndDate=predictionsEndDate, relaxKnownInAdvanceFeaturesCheck=relaxKnownInAdvanceFeaturesCheck, predictionWarningEnabled=predictionWarningEnabled)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesCreate`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyCreate <- RetrainingPolicyCreate$new() # RetrainingPolicyCreate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesCreate(deploymentId, retrainingPolicyCreate=retrainingPolicyCreate)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesDelete`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesDelete(deploymentId, retrainingPolicyId)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+offset <- 0 # integer | Number of results to skip.
+limit <- 100 # integer | At most this many results are returned. The default may change without notice.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesList(deploymentId, offset=offset, limit=limit)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesPatch`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+retrainingPolicyUpdate <- RetrainingPolicyUpdate$new() # RetrainingPolicyUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesPatch(deploymentId, retrainingPolicyId, retrainingPolicyUpdate=retrainingPolicyUpdate)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesRetrieve`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRetrieve(deploymentId, retrainingPolicyId)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesRunsCreate`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsCreate(deploymentId, retrainingPolicyId)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesRunsList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+offset <- 0 # integer | Number of results to skip.
+limit <- 100 # integer | At most this many results are returned. The default may change without notice.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsList(deploymentId, retrainingPolicyId, offset=offset, limit=limit)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesRunsPatch`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+runId <- 'runId_example' # character | ID of the retraining policy run.
+retrainingPolicyRunUpdate <- RetrainingPolicyRunUpdate$new() # RetrainingPolicyRunUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsPatch(deploymentId, retrainingPolicyId, runId, retrainingPolicyRunUpdate=retrainingPolicyRunUpdate)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingPoliciesRunsRetrieve`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+runId <- 'runId_example' # character | ID of the retraining policy run.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsRetrieve(deploymentId, retrainingPolicyId, runId)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingSettingsList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingSettingsList(deploymentId)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsRetrainingSettingsPatchMany`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingSettingsUpdate <- RetrainingSettingsUpdate$new() # RetrainingSettingsUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingSettingsPatchMany(deploymentId, retrainingSettingsUpdate=retrainingSettingsUpdate)
 }
 
 ## ------------------------------------------------
@@ -485,7 +668,7 @@ result <- api.instance$DeploymentsRetrieve(deploymentId)
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentsScoringCodeBuildPayload <- DeploymentsScoringCodeBuildPayload$new() # DeploymentsScoringCodeBuildPayload |
+deploymentsScoringCodeBuildPayload <- DeploymentsScoringCodeBuildPayload$new() # DeploymentsScoringCodeBuildPayload | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsScoringCodeBuildsCreate(deploymentId, deploymentsScoringCodeBuildPayload=deploymentsScoringCodeBuildPayload)
@@ -570,7 +753,7 @@ result <- api.instance$DeploymentsSettingsList(deploymentId)
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentSettingsUpdate <- DeploymentSettingsUpdate$new() # DeploymentSettingsUpdate |
+deploymentSettingsUpdate <- DeploymentSettingsUpdate$new() # DeploymentSettingsUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsSettingsPatchMany(deploymentId, deploymentSettingsUpdate=deploymentSettingsUpdate)
@@ -600,10 +783,23 @@ result <- api.instance$DeploymentsSharedRolesList(offset, limit, deploymentId, i
 \dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | The deployment ID.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsSharedRolesPatchMany(deploymentId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
+}
+
+## ------------------------------------------------
+## Method `DeploymentsApi$DeploymentsStatusPatchMany`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+deploymentStatusUpdate <- DeploymentStatusUpdate$new() # DeploymentStatusUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsStatusPatchMany(deploymentId, deploymentStatusUpdate=deploymentStatusUpdate)
 }
 
 ## ------------------------------------------------
@@ -647,54 +843,68 @@ result <- api.instance$PredictionServersList(offset=offset, limit=limit)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentsApi$new()}}
-\item \href{#method-DeletedDeploymentsList}{\code{DeploymentsApi$DeletedDeploymentsList()}}
-\item \href{#method-DeletedDeploymentsPatchMany}{\code{DeploymentsApi$DeletedDeploymentsPatchMany()}}
-\item \href{#method-DeploymentsAccuracyList}{\code{DeploymentsApi$DeploymentsAccuracyList()}}
-\item \href{#method-DeploymentsAccuracyOverTimeList}{\code{DeploymentsApi$DeploymentsAccuracyOverTimeList()}}
-\item \href{#method-DeploymentsActualsFromDatasetCreate}{\code{DeploymentsApi$DeploymentsActualsFromDatasetCreate()}}
-\item \href{#method-DeploymentsActualsFromJSONCreate}{\code{DeploymentsApi$DeploymentsActualsFromJSONCreate()}}
-\item \href{#method-DeploymentsChallengerPredictionsCreate}{\code{DeploymentsApi$DeploymentsChallengerPredictionsCreate()}}
-\item \href{#method-DeploymentsChallengersCreate}{\code{DeploymentsApi$DeploymentsChallengersCreate()}}
-\item \href{#method-DeploymentsChallengersDelete}{\code{DeploymentsApi$DeploymentsChallengersDelete()}}
-\item \href{#method-DeploymentsChallengersList}{\code{DeploymentsApi$DeploymentsChallengersList()}}
-\item \href{#method-DeploymentsChallengersPatch}{\code{DeploymentsApi$DeploymentsChallengersPatch()}}
-\item \href{#method-DeploymentsChallengersRetrieve}{\code{DeploymentsApi$DeploymentsChallengersRetrieve()}}
-\item \href{#method-DeploymentsDelete}{\code{DeploymentsApi$DeploymentsDelete()}}
-\item \href{#method-DeploymentsFeatureDriftList}{\code{DeploymentsApi$DeploymentsFeatureDriftList()}}
-\item \href{#method-DeploymentsFeaturesList}{\code{DeploymentsApi$DeploymentsFeaturesList()}}
-\item \href{#method-DeploymentsFromLearningModelCreate}{\code{DeploymentsApi$DeploymentsFromLearningModelCreate()}}
-\item \href{#method-DeploymentsFromProjectRecommendedModelCreate}{\code{DeploymentsApi$DeploymentsFromProjectRecommendedModelCreate()}}
-\item \href{#method-DeploymentsHumilityStatsList}{\code{DeploymentsApi$DeploymentsHumilityStatsList()}}
-\item \href{#method-DeploymentsHumilityStatsOverTimeList}{\code{DeploymentsApi$DeploymentsHumilityStatsOverTimeList()}}
-\item \href{#method-DeploymentsList}{\code{DeploymentsApi$DeploymentsList()}}
-\item \href{#method-DeploymentsModelPatchMany}{\code{DeploymentsApi$DeploymentsModelPatchMany()}}
-\item \href{#method-DeploymentsModelSecondaryDatasetConfigurationHistoryList}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationHistoryList()}}
-\item \href{#method-DeploymentsModelSecondaryDatasetConfigurationList}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationList()}}
-\item \href{#method-DeploymentsModelSecondaryDatasetConfigurationPatchMany}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationPatchMany()}}
-\item \href{#method-DeploymentsModelValidationCreate}{\code{DeploymentsApi$DeploymentsModelValidationCreate()}}
-\item \href{#method-DeploymentsOnDemandReportsCreate}{\code{DeploymentsApi$DeploymentsOnDemandReportsCreate()}}
-\item \href{#method-DeploymentsPatch}{\code{DeploymentsApi$DeploymentsPatch()}}
-\item \href{#method-DeploymentsPredictionInputsFromDatasetCreate}{\code{DeploymentsApi$DeploymentsPredictionInputsFromDatasetCreate()}}
-\item \href{#method-DeploymentsPredictionResultsList}{\code{DeploymentsApi$DeploymentsPredictionResultsList()}}
-\item \href{#method-DeploymentsPredictionsCreate}{\code{DeploymentsApi$DeploymentsPredictionsCreate()}}
-\item \href{#method-DeploymentsRetrieve}{\code{DeploymentsApi$DeploymentsRetrieve()}}
-\item \href{#method-DeploymentsScoringCodeBuildsCreate}{\code{DeploymentsApi$DeploymentsScoringCodeBuildsCreate()}}
-\item \href{#method-DeploymentsScoringCodeList}{\code{DeploymentsApi$DeploymentsScoringCodeList()}}
-\item \href{#method-DeploymentsServiceStatsList}{\code{DeploymentsApi$DeploymentsServiceStatsList()}}
-\item \href{#method-DeploymentsServiceStatsOverTimeList}{\code{DeploymentsApi$DeploymentsServiceStatsOverTimeList()}}
-\item \href{#method-DeploymentsSettingsList}{\code{DeploymentsApi$DeploymentsSettingsList()}}
-\item \href{#method-DeploymentsSettingsPatchMany}{\code{DeploymentsApi$DeploymentsSettingsPatchMany()}}
-\item \href{#method-DeploymentsSharedRolesList}{\code{DeploymentsApi$DeploymentsSharedRolesList()}}
-\item \href{#method-DeploymentsSharedRolesPatchMany}{\code{DeploymentsApi$DeploymentsSharedRolesPatchMany()}}
-\item \href{#method-DeploymentsTargetDriftList}{\code{DeploymentsApi$DeploymentsTargetDriftList()}}
-\item \href{#method-PredictionServersList}{\code{DeploymentsApi$PredictionServersList()}}
-\item \href{#method-clone}{\code{DeploymentsApi$clone()}}
+\item \href{#method-DeploymentsApi-new}{\code{DeploymentsApi$new()}}
+\item \href{#method-DeploymentsApi-DeletedDeploymentsList}{\code{DeploymentsApi$DeletedDeploymentsList()}}
+\item \href{#method-DeploymentsApi-DeletedDeploymentsPatchMany}{\code{DeploymentsApi$DeletedDeploymentsPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsAccuracyList}{\code{DeploymentsApi$DeploymentsAccuracyList()}}
+\item \href{#method-DeploymentsApi-DeploymentsAccuracyOverTimeList}{\code{DeploymentsApi$DeploymentsAccuracyOverTimeList()}}
+\item \href{#method-DeploymentsApi-DeploymentsActualsFromDatasetCreate}{\code{DeploymentsApi$DeploymentsActualsFromDatasetCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsActualsFromJSONCreate}{\code{DeploymentsApi$DeploymentsActualsFromJSONCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsCapabilitiesList}{\code{DeploymentsApi$DeploymentsCapabilitiesList()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengerPredictionsCreate}{\code{DeploymentsApi$DeploymentsChallengerPredictionsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengersCreate}{\code{DeploymentsApi$DeploymentsChallengersCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengersDelete}{\code{DeploymentsApi$DeploymentsChallengersDelete()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengersList}{\code{DeploymentsApi$DeploymentsChallengersList()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengersPatch}{\code{DeploymentsApi$DeploymentsChallengersPatch()}}
+\item \href{#method-DeploymentsApi-DeploymentsChallengersRetrieve}{\code{DeploymentsApi$DeploymentsChallengersRetrieve()}}
+\item \href{#method-DeploymentsApi-DeploymentsDelete}{\code{DeploymentsApi$DeploymentsDelete()}}
+\item \href{#method-DeploymentsApi-DeploymentsFeatureDriftList}{\code{DeploymentsApi$DeploymentsFeatureDriftList()}}
+\item \href{#method-DeploymentsApi-DeploymentsFeatureDriftOverTimeList}{\code{DeploymentsApi$DeploymentsFeatureDriftOverTimeList()}}
+\item \href{#method-DeploymentsApi-DeploymentsFeaturesList}{\code{DeploymentsApi$DeploymentsFeaturesList()}}
+\item \href{#method-DeploymentsApi-DeploymentsFromLearningModelCreate}{\code{DeploymentsApi$DeploymentsFromLearningModelCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsHumilityStatsList}{\code{DeploymentsApi$DeploymentsHumilityStatsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsHumilityStatsOverTimeList}{\code{DeploymentsApi$DeploymentsHumilityStatsOverTimeList()}}
+\item \href{#method-DeploymentsApi-DeploymentsList}{\code{DeploymentsApi$DeploymentsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsModelPatchMany}{\code{DeploymentsApi$DeploymentsModelPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationHistoryList}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationHistoryList()}}
+\item \href{#method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationList}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationList()}}
+\item \href{#method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationPatchMany}{\code{DeploymentsApi$DeploymentsModelSecondaryDatasetConfigurationPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsModelValidationCreate}{\code{DeploymentsApi$DeploymentsModelValidationCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsMonitoringDataDeletionsCreate}{\code{DeploymentsApi$DeploymentsMonitoringDataDeletionsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsOnDemandReportsCreate}{\code{DeploymentsApi$DeploymentsOnDemandReportsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsPatch}{\code{DeploymentsApi$DeploymentsPatch()}}
+\item \href{#method-DeploymentsApi-DeploymentsPredictionInputsFromDatasetCreate}{\code{DeploymentsApi$DeploymentsPredictionInputsFromDatasetCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsPredictionResultsList}{\code{DeploymentsApi$DeploymentsPredictionResultsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsPredictionsCreate}{\code{DeploymentsApi$DeploymentsPredictionsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesCreate}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesDelete}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesDelete()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesList}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesList()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesPatch}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesPatch()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesRetrieve}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesRetrieve()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsCreate}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesRunsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsList}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesRunsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsPatch}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesRunsPatch()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsRetrieve}{\code{DeploymentsApi$DeploymentsRetrainingPoliciesRunsRetrieve()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingSettingsList}{\code{DeploymentsApi$DeploymentsRetrainingSettingsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrainingSettingsPatchMany}{\code{DeploymentsApi$DeploymentsRetrainingSettingsPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsRetrieve}{\code{DeploymentsApi$DeploymentsRetrieve()}}
+\item \href{#method-DeploymentsApi-DeploymentsScoringCodeBuildsCreate}{\code{DeploymentsApi$DeploymentsScoringCodeBuildsCreate()}}
+\item \href{#method-DeploymentsApi-DeploymentsScoringCodeList}{\code{DeploymentsApi$DeploymentsScoringCodeList()}}
+\item \href{#method-DeploymentsApi-DeploymentsServiceStatsList}{\code{DeploymentsApi$DeploymentsServiceStatsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsServiceStatsOverTimeList}{\code{DeploymentsApi$DeploymentsServiceStatsOverTimeList()}}
+\item \href{#method-DeploymentsApi-DeploymentsSettingsList}{\code{DeploymentsApi$DeploymentsSettingsList()}}
+\item \href{#method-DeploymentsApi-DeploymentsSettingsPatchMany}{\code{DeploymentsApi$DeploymentsSettingsPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsSharedRolesList}{\code{DeploymentsApi$DeploymentsSharedRolesList()}}
+\item \href{#method-DeploymentsApi-DeploymentsSharedRolesPatchMany}{\code{DeploymentsApi$DeploymentsSharedRolesPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsStatusPatchMany}{\code{DeploymentsApi$DeploymentsStatusPatchMany()}}
+\item \href{#method-DeploymentsApi-DeploymentsTargetDriftList}{\code{DeploymentsApi$DeploymentsTargetDriftList()}}
+\item \href{#method-DeploymentsApi-PredictionServersList}{\code{DeploymentsApi$PredictionServersList()}}
+\item \href{#method-DeploymentsApi-clone}{\code{DeploymentsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -709,8 +919,8 @@ result <- api.instance$PredictionServersList(offset=offset, limit=limit)
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeletedDeploymentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeletedDeploymentsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeletedDeploymentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeletedDeploymentsList}{}}}
 \subsection{Method \code{DeletedDeploymentsList()}}{
 List deleted deployments
 Produces: "application/json"
@@ -731,6 +941,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List deleted deployments.Only available as part of an enterprise (on-prem) installation. Requires a CAN_DELETE_APP_PROJECTS permission to execute.
+
+
+This method invokes \verb{GET /deletedDeployments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -761,8 +974,8 @@ result <- api.instance$DeletedDeploymentsList(offset, limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeletedDeploymentsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DeletedDeploymentsPatchMany}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeletedDeploymentsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeletedDeploymentsPatchMany}{}}}
 \subsection{Method \code{DeletedDeploymentsPatchMany()}}{
 Erase deleted deployments
 Produces: NA
@@ -786,6 +999,9 @@ Produces: NA
 Permanently erase data for deleted deployments. Only available as part of an on-premise or private/hybrid cloud deployment. Requires a CAN_DELETE_APP_PROJECTS permission to execute.
 
 
+This method invokes \verb{PATCH /deletedDeployments/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -799,7 +1015,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-deploymentPermanentDelete <- DeploymentPermanentDelete$new() # DeploymentPermanentDelete |
+deploymentPermanentDelete <- DeploymentPermanentDelete$new() # DeploymentPermanentDelete | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeletedDeploymentsPatchMany(deploymentPermanentDelete=deploymentPermanentDelete)
@@ -811,8 +1027,8 @@ result <- api.instance$DeletedDeploymentsPatchMany(deploymentPermanentDelete=dep
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsAccuracyList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsAccuracyList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsAccuracyList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsAccuracyList}{}}}
 \subsection{Method \code{DeploymentsAccuracyList()}}{
 Retrieve accuracy metric
 Produces: "application/json"
@@ -852,6 +1068,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve accuracy metric for a certain time period.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/accuracy/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -896,8 +1115,8 @@ result <- api.instance$DeploymentsAccuracyList(deploymentId, start=start, end=en
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsAccuracyOverTimeList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsAccuracyOverTimeList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsAccuracyOverTimeList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsAccuracyOverTimeList}{}}}
 \subsection{Method \code{DeploymentsAccuracyOverTimeList()}}{
 Retrieve accuracy over time data for one single metric.
 Produces: "application/json"
@@ -942,8 +1161,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Retrieve accuracy over time data for one single metric.          The following metrics can be retrieved.              For classification deployments:              - Accuracy             - AUC             - Balanced Accuracy             - FVE Binomial             - Gini Norm             - Kolmogorov-Smirnov             - LogLoss (default)             - Rate@Top5\%             - Rate@Top10\%              For regression deployments:              - Gamma Deviance (default)             - FVE Gamma             - FVE Poisson             - FVE Tweedie             - MAD             - MAE             - MAPE             - Poisson Deviance             - R Squared             - RMSE             - RMSLE             - Tweedie Deviance
-}
+> Retrieve accuracy over time data for one single metric. > > The following metrics can be retrieved. > > > For classification deployments: > > > > - Accuracy > > - AUC > > - Balanced Accuracy > > - FVE Binomial > > - Gini Norm > > - Kolmogorov-Smirnov > > - LogLoss (default) > > - <Rate@Top5>\% > > - <Rate@Top10>\% > > > > For regression deployments: > > > > - Gamma Deviance (default) > > - FVE Gamma > > - FVE Poisson > > - FVE Tweedie > > - MAD > > - MAE > > - MAPE > > - Poisson Deviance > > - R Squared > > - RMSE > > - RMSLE > > - Tweedie Deviance
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/accuracyOverTime/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -990,8 +1211,8 @@ result <- api.instance$DeploymentsAccuracyOverTimeList(deploymentId, start=start
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsActualsFromDatasetCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsActualsFromDatasetCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsActualsFromDatasetCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsActualsFromDatasetCreate}{}}}
 \subsection{Method \code{DeploymentsActualsFromDatasetCreate()}}{
 Submit actuals values from AI Catalog
 Produces: NA
@@ -1015,7 +1236,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Submit actuals values for processing using catalog item. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals * number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals * number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+Submit actuals values for processing using catalog item. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals \\* number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals \\* number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/actuals/fromDataset/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1038,7 +1262,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentDatasetCreate <- DeploymentDatasetCreate$new() # DeploymentDatasetCreate |
+deploymentDatasetCreate <- DeploymentDatasetCreate$new() # DeploymentDatasetCreate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsActualsFromDatasetCreate(deploymentId, deploymentDatasetCreate=deploymentDatasetCreate)
@@ -1050,8 +1274,8 @@ result <- api.instance$DeploymentsActualsFromDatasetCreate(deploymentId, deploym
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsActualsFromJSONCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsActualsFromJSONCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsActualsFromJSONCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsActualsFromJSONCreate}{}}}
 \subsection{Method \code{DeploymentsActualsFromJSONCreate()}}{
 Submit actuals values
 Produces: NA
@@ -1075,7 +1299,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Submit actuals values for processing. Values are not processed immediately and may take some time to propagate through deployment systems. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals * number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals * number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+Submit actuals values for processing. Values are not processed immediately and may take some time to propagate through deployment systems. Submission of actuals is limited to 10,000,000 actuals per hour. For time series deployments, total actuals = number of actuals \\* number of forecast distances. For example, submitting 10 actuals for a deployment with 50 forecast distances = 500 total actuals. For multiclass deployments, a similar calculation is made where total actuals = number of actuals \\* number of classes. For example, submitting 10 actuals for a deployment with 20 classes = 200 actuals.
+
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/actuals/fromJSON/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1098,7 +1325,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentActuals <- DeploymentActuals$new() # DeploymentActuals |
+deploymentActuals <- DeploymentActuals$new() # DeploymentActuals | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsActualsFromJSONCreate(deploymentId, deploymentActuals=deploymentActuals)
@@ -1110,8 +1337,60 @@ result <- api.instance$DeploymentsActualsFromJSONCreate(deploymentId, deployment
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengerPredictionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengerPredictionsCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsCapabilitiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsCapabilitiesList}{}}}
+\subsection{Method \code{DeploymentsCapabilitiesList()}}{
+Retrieve capabilities.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsCapabilitiesList(deploymentId, ...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve the capabilities for the deployment.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/capabilities/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{DeploymentCapabilitiesRetrieveResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsCapabilitiesList(deploymentId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengerPredictionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengerPredictionsCreate}{}}}
 \subsection{Method \code{DeploymentsChallengerPredictionsCreate()}}{
 Score challenger models
 Produces: NA
@@ -1138,6 +1417,9 @@ Produces: NA
 Score main model prediction requests against challenger model requests.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/challengerPredictions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -1158,7 +1440,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-challengerScore <- ChallengerScore$new() # ChallengerScore |
+challengerScore <- ChallengerScore$new() # ChallengerScore | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengerPredictionsCreate(deploymentId, challengerScore=challengerScore)
@@ -1170,8 +1452,8 @@ result <- api.instance$DeploymentsChallengerPredictionsCreate(deploymentId, chal
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengersCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengersCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengersCreate}{}}}
 \subsection{Method \code{DeploymentsChallengersCreate()}}{
 Create challenger model
 Produces: NA
@@ -1198,6 +1480,9 @@ Produces: NA
 Create new challenger model.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/challengers/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted successfully. See Location header.
@@ -1215,7 +1500,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-challengerCreate <- ChallengerCreate$new() # ChallengerCreate |
+challengerCreate <- ChallengerCreate$new() # ChallengerCreate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengersCreate(deploymentId, challengerCreate=challengerCreate)
@@ -1227,8 +1512,8 @@ result <- api.instance$DeploymentsChallengersCreate(deploymentId, challengerCrea
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengersDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengersDelete}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengersDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengersDelete}{}}}
 \subsection{Method \code{DeploymentsChallengersDelete()}}{
 Delete challenger model
 Produces: NA
@@ -1249,6 +1534,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete challenger model.
+
+
+This method invokes \verb{DELETE /deployments/\{deploymentId\}/challengers/\{challengerId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1276,8 +1564,8 @@ result <- api.instance$DeploymentsChallengersDelete(deploymentId, challengerId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengersList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengersList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengersList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengersList}{}}}
 \subsection{Method \code{DeploymentsChallengersList()}}{
 List challenger models
 Produces: "application/json"
@@ -1296,6 +1584,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List challenger models for deployment.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/challengers/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1325,8 +1616,8 @@ result <- api.instance$DeploymentsChallengersList(deploymentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengersPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengersPatch}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengersPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengersPatch}{}}}
 \subsection{Method \code{DeploymentsChallengersPatch()}}{
 Update challenger model
 Produces: "application/json"
@@ -1356,6 +1647,9 @@ Produces: "application/json"
 Update challenger model.
 
 
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/challengers/\{challengerId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Model successfully updated.
@@ -1373,7 +1667,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
 challengerId <- 'challengerId_example' # character | Unique identifier of the challenger.
-challengerUpdate <- ChallengerUpdate$new() # ChallengerUpdate |
+challengerUpdate <- ChallengerUpdate$new() # ChallengerUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsChallengersPatch(deploymentId, challengerId, challengerUpdate=challengerUpdate)
@@ -1385,8 +1679,8 @@ result <- api.instance$DeploymentsChallengersPatch(deploymentId, challengerId, c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsChallengersRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsChallengersRetrieve}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsChallengersRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsChallengersRetrieve}{}}}
 \subsection{Method \code{DeploymentsChallengersRetrieve()}}{
 Get challenger model
 Produces: "application/json"
@@ -1407,6 +1701,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve challenger model.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/challengers/\{challengerId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1437,8 +1734,8 @@ result <- api.instance$DeploymentsChallengersRetrieve(deploymentId, challengerId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsDelete}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsDelete}{}}}
 \subsection{Method \code{DeploymentsDelete()}}{
 Delete deployment
 Produces: NA
@@ -1463,6 +1760,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a deployment.
+
+
+This method invokes \verb{DELETE /deployments/\{deploymentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1493,8 +1793,8 @@ result <- api.instance$DeploymentsDelete(deploymentId, ignoreManagementAgent=ign
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsFeatureDriftList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsFeatureDriftList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsFeatureDriftList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsFeatureDriftList}{}}}
 \subsection{Method \code{DeploymentsFeatureDriftList()}}{
 Retrieve feature drift scores
 Produces: "application/json"
@@ -1542,6 +1842,9 @@ Produces: "application/json"
 Retrieve drift scores for features of the deployment.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/featureDrift/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Features drift over specified time period retrieved.
@@ -1586,8 +1889,104 @@ result <- api.instance$DeploymentsFeatureDriftList(deploymentId, start=start, en
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsFeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsFeaturesList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsFeatureDriftOverTimeList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsFeatureDriftOverTimeList}{}}}
+\subsection{Method \code{DeploymentsFeatureDriftOverTimeList()}}{
+Retrieve drift over time info for a feature of the deployment.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsFeatureDriftOverTimeList(
+  featureNames,
+  deploymentId,
+  start = NULL,
+  end = NULL,
+  bucketSize = NULL,
+  modelId = NULL,
+  metric = "psi",
+  segmentAttribute = NULL,
+  segmentValue = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{featureNames}}{\link{OneOfstringarray}. List of feature names, limited to two per request.}
+
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{start}}{character. RFC3339 datetime. Start of time period to retrieve the features drift for. If not set, defaults to 1 week from the end of the period.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.}
+
+\item{\code{end}}{character. RFC3339 datetime. End of time period to retrieve the features drift for. If not set, defaults to the next top of the hour from now.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.}
+
+\item{\code{bucketSize}}{character. The time duration of a bucket. Needs to be multiple of one hour. Can not be longer than the total length of the period. If not set, a default value will be calculated based on the start and end time.}
+
+\item{\code{modelId}}{character. The id of the model for which the features drift is being retrieved.}
+
+\item{\code{metric}}{Enum < \link{psi, kl_divergence, dissimilarity, hellinger, js_divergence} > Name of the metric used to calculate the drift. Can be one of psi, kl_divergence, dissimilarity, hellinger, and js_divergence. Defaults to psi.}
+
+\item{\code{segmentAttribute}}{character. The name of the segment on which segment analysis is being performed.}
+
+\item{\code{segmentValue}}{character. The value of the `segmentAttribute` to segment on.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve drift over time info for a feature of the deployment.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/featureDriftOverTime/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Feature drift over time info of the deployment retrieved.
+\itemize{
+}
+\item \strong{\code{400}} Request invalid, refer to messages for detail.
+\itemize{
+}
+\item \strong{\code{403}} Model Deployments and/or Monitoring are not enabled.
+\itemize{
+}
+\item \strong{\code{404}} Either the deployment does not exist or user does not have permission to view the deployment.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{FeatureDriftOverTimeRetrieveResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+featureNames <- list(c('featureNames_example')) # OneOfstringarray | List of feature names, limited to two per request.
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+start <- 'start_example' # character | RFC3339 datetime. Start of time period to retrieve the features drift for. If not set, defaults to 1 week from the end of the period.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.
+end <- 'end_example' # character | RFC3339 datetime. End of time period to retrieve the features drift for. If not set, defaults to the next top of the hour from now.Note: this field only accepts top of the hour RFC3339 datetime strings For example: ``2019-08-01T00:00:00Z``.
+bucketSize <- 'bucketSize_example' # character | The time duration of a bucket. Needs to be multiple of one hour. Can not be longer than the total length of the period. If not set, a default value will be calculated based on the start and end time.
+modelId <- 'modelId_example' # character | The id of the model for which the features drift is being retrieved.
+metric <- "psi" # character | Name of the metric used to calculate the drift. Can be one of psi, kl_divergence, dissimilarity, hellinger, and js_divergence. Defaults to psi.
+segmentAttribute <- 'segmentAttribute_example' # character | The name of the segment on which segment analysis is being performed.
+segmentValue <- 'segmentValue_example' # character | The value of the `segmentAttribute` to segment on.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsFeatureDriftOverTimeList(featureNames, deploymentId, start=start, end=end, bucketSize=bucketSize, modelId=modelId, metric=metric, segmentAttribute=segmentAttribute, segmentValue=segmentValue)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsFeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsFeaturesList}{}}}
 \subsection{Method \code{DeploymentsFeaturesList()}}{
 Get deployment features
 Produces: "application/json"
@@ -1626,6 +2025,9 @@ Produces: "application/json"
 Retrieve features contained within the universe dataset associated with a specific deployment. By default, this returns all raw features required for predictions.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/features/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The deployment's features
@@ -1661,8 +2063,8 @@ result <- api.instance$DeploymentsFeaturesList(offset, limit, deploymentId, incl
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsFromLearningModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsFromLearningModelCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsFromLearningModelCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsFromLearningModelCreate}{}}}
 \subsection{Method \code{DeploymentsFromLearningModelCreate()}}{
 Create deployment from DataRobot model
 Produces: "application/json"
@@ -1684,6 +2086,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a deployment from a DataRobot model.
+
+
+This method invokes \verb{POST /deployments/fromLearningModel/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1714,7 +2119,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-deploymentCreateFromLearningModel <- DeploymentCreateFromLearningModel$new() # DeploymentCreateFromLearningModel |
+deploymentCreateFromLearningModel <- DeploymentCreateFromLearningModel$new() # DeploymentCreateFromLearningModel | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsFromLearningModelCreate(deploymentCreateFromLearningModel=deploymentCreateFromLearningModel)
@@ -1726,73 +2131,8 @@ result <- api.instance$DeploymentsFromLearningModelCreate(deploymentCreateFromLe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsFromProjectRecommendedModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsFromProjectRecommendedModelCreate}{}}}
-\subsection{Method \code{DeploymentsFromProjectRecommendedModelCreate()}}{
-Create deployment from recommended model
-Produces: "application/json"
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsFromProjectRecommendedModelCreate(
-  deploymentCreateFromProjectRecommendedModel = NULL,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{deploymentCreateFromProjectRecommendedModel}}{\link{DeploymentCreateFromProjectRecommendedModel}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Create a deployment for a recommended model
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}} The model is already deployed.
-\itemize{
-}
-\item \strong{\code{202}} Job submitted. The URL at the Location header can be used to track when the deployment is ready for predictions.
-\itemize{
-\item \strong{\code{Location}} URL for tracking async job status.
-}
-\item \strong{\code{403}} User does not have permission to create a deployment.
-\itemize{
-}
-\item \strong{\code{409}} User's organization has reached the maximum number of deployments.
-\itemize{
-}
-\item \strong{\code{422}} Unable to process the deployment creation request.
-\itemize{
-}
-}
-}
-
-\subsection{Returns}{
-\link{DeploymentCreateResponse}
-}
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-deploymentCreateFromProjectRecommendedModel <- DeploymentCreateFromProjectRecommendedModel$new() # DeploymentCreateFromProjectRecommendedModel |
-
-api.instance <- DeploymentsApi$new()
-result <- api.instance$DeploymentsFromProjectRecommendedModelCreate(deploymentCreateFromProjectRecommendedModel=deploymentCreateFromProjectRecommendedModel)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsHumilityStatsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsHumilityStatsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsHumilityStatsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsHumilityStatsList}{}}}
 \subsection{Method \code{DeploymentsHumilityStatsList()}}{
 Retrieve humility stats
 Produces: "application/json"
@@ -1834,6 +2174,9 @@ Produces: "application/json"
 Retrieve humility rule service triggers statistics overview.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/humilityStats/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Humility service health statistics overview retrieved.
@@ -1873,8 +2216,8 @@ result <- api.instance$DeploymentsHumilityStatsList(deploymentId, start=start, e
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsHumilityStatsOverTimeList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsHumilityStatsOverTimeList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsHumilityStatsOverTimeList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsHumilityStatsOverTimeList}{}}}
 \subsection{Method \code{DeploymentsHumilityStatsOverTimeList()}}{
 Retrieve humility stats over time
 Produces: "application/json"
@@ -1916,6 +2259,9 @@ Produces: "application/json"
 Retrieve humility service statistics over time.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/humilityStatsOverTime/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Humility statistics for deployment retrieved.
@@ -1955,8 +2301,8 @@ result <- api.instance$DeploymentsHumilityStatsOverTimeList(deploymentId, start=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsList}{}}}
 \subsection{Method \code{DeploymentsList()}}{
 List deployments
 Produces: "application/json"
@@ -1981,6 +2327,7 @@ Produces: "application/json"
   executionEnvironmentType = NULL,
   predictionEnvironmentPlatform = NULL,
   hasDecisionFlow = NULL,
+  createdByMe = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1996,15 +2343,15 @@ Produces: "application/json"
 
 \item{\code{search}}{character. Case insensitive search against deployment's label and description.}
 
-\item{\code{serviceHealth}}{Enum < \link{unavailable, failing, warning, unknown, passing} > Filters deployments by their service health status.}
+\item{\code{serviceHealth}}{Enum < \link{unknown, warning, passing, unavailable, failing} > Filters deployments by their service health status.}
 
-\item{\code{modelHealth}}{Enum < \link{unavailable, failing, warning, unknown, passing} > Filters deployments by their model health status.}
+\item{\code{modelHealth}}{Enum < \link{unknown, warning, passing, unavailable, failing} > Filters deployments by their model health status.}
 
-\item{\code{accuracyHealth}}{Enum < \link{unavailable, failing, warning, unknown, passing} > Filters deployments by their accuracy health status.}
+\item{\code{accuracyHealth}}{Enum < \link{unknown, warning, passing, unavailable, failing} > Filters deployments by their accuracy health status.}
 
-\item{\code{role}}{Enum < \link{USER, OWNER, DEMO_OBSERVER} > Filter deployments to only those that the authenticated user has the specified role for.}
+\item{\code{role}}{Enum < \link{OWNER, USER} > Filter deployments to only those that the authenticated user has the specified role for.}
 
-\item{\code{status}}{Enum < \link{launching, stopping, active, replacingModel, inactive, archived, errored} > Filters deployments by their status}
+\item{\code{status}}{Enum < \link{active, inactive, stopping, launching, archived, replacingModel, errored} > Filters deployments by their status}
 
 \item{\code{importance}}{Enum < \link{CRITICAL, HIGH, MODERATE, LOW} > Filters deployments by their importance}
 
@@ -2026,12 +2373,17 @@ Produces: "application/json"
 
 \item{\code{hasDecisionFlow}}{Enum < \link{false, False, true, True} > Filter deployments based if it is a decision flow}
 
+\item{\code{createdByMe}}{Enum < \link{false, False, true, True} > Filter deployments to those created by the current user.}
+
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 List deployments a user can view.
+
+
+This method invokes \verb{GET /deployments/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2068,9 +2420,10 @@ buildEnvironmentType <- ['buildEnvironmentType_example'] # array[character] | Fi
 executionEnvironmentType <- ['executionEnvironmentType_example'] # array[character] | Filter deployments based on the type of their execution environment.
 predictionEnvironmentPlatform <- ['predictionEnvironmentPlatform_example'] # array[character] | Filter deployments based on prediction environment platform
 hasDecisionFlow <- 'hasDecisionFlow_example' # character | Filter deployments based if it is a decision flow
+createdByMe <- 'createdByMe_example' # character | Filter deployments to those created by the current user.
 
 api.instance <- DeploymentsApi$new()
-result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=search, serviceHealth=serviceHealth, modelHealth=modelHealth, accuracyHealth=accuracyHealth, role=role, status=status, importance=importance, lastPredictionTimestampStart=lastPredictionTimestampStart, lastPredictionTimestampEnd=lastPredictionTimestampEnd, predictionUsageDailyAvgGreaterThan=predictionUsageDailyAvgGreaterThan, predictionUsageDailyAvgLessThan=predictionUsageDailyAvgLessThan, defaultPredictionServerId=defaultPredictionServerId, buildEnvironmentType=buildEnvironmentType, executionEnvironmentType=executionEnvironmentType, predictionEnvironmentPlatform=predictionEnvironmentPlatform, hasDecisionFlow=hasDecisionFlow)
+result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=search, serviceHealth=serviceHealth, modelHealth=modelHealth, accuracyHealth=accuracyHealth, role=role, status=status, importance=importance, lastPredictionTimestampStart=lastPredictionTimestampStart, lastPredictionTimestampEnd=lastPredictionTimestampEnd, predictionUsageDailyAvgGreaterThan=predictionUsageDailyAvgGreaterThan, predictionUsageDailyAvgLessThan=predictionUsageDailyAvgLessThan, defaultPredictionServerId=defaultPredictionServerId, buildEnvironmentType=buildEnvironmentType, executionEnvironmentType=executionEnvironmentType, predictionEnvironmentPlatform=predictionEnvironmentPlatform, hasDecisionFlow=hasDecisionFlow, createdByMe=createdByMe)
 }
 }
 \if{html}{\out{</div>}}
@@ -2079,8 +2432,8 @@ result <- api.instance$DeploymentsList(offset, limit, orderBy=orderBy, search=se
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsModelPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsModelPatchMany}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsModelPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsModelPatchMany}{}}}
 \subsection{Method \code{DeploymentsModelPatchMany()}}{
 Model Replacement.
 Produces: "application/json"
@@ -2107,6 +2460,9 @@ Produces: "application/json"
 Replace the model used to make predictions for the deployment. A validation process will be performed to make sure the new model is eligible as a replacement. If the validation fails, the model replacement will not occur.The Model Replacement Validation endpoint can be used to confirm the new model is eligible as a replacement.
 
 
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/model/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Job submitted. See Location header.
@@ -2124,7 +2480,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-modelReplacementSubmission <- ModelReplacementSubmission$new() # ModelReplacementSubmission |
+modelReplacementSubmission <- ModelReplacementSubmission$new() # ModelReplacementSubmission | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelPatchMany(deploymentId, modelReplacementSubmission=modelReplacementSubmission)
@@ -2136,8 +2492,8 @@ result <- api.instance$DeploymentsModelPatchMany(deploymentId, modelReplacementS
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsModelSecondaryDatasetConfigurationHistoryList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsModelSecondaryDatasetConfigurationHistoryList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationHistoryList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationHistoryList}{}}}
 \subsection{Method \code{DeploymentsModelSecondaryDatasetConfigurationHistoryList()}}{
 List the secondary datasets configuration history for a deployment
 Produces: "application/json"
@@ -2165,6 +2521,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all the secondary datasets configuration used by a given Feature Discovery deployment
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/model/secondaryDatasetConfigurationHistory/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2196,8 +2555,8 @@ result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationHistoryList(
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsModelSecondaryDatasetConfigurationList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsModelSecondaryDatasetConfigurationList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationList}{}}}
 \subsection{Method \code{DeploymentsModelSecondaryDatasetConfigurationList()}}{
 Retrieve secondary datasets configuration for a deployment.
 Produces: "application/json"
@@ -2219,6 +2578,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the secondary datasets configuration used by a deployed Feature discovery model.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/model/secondaryDatasetConfiguration/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2251,8 +2613,8 @@ result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationList(deploym
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsModelSecondaryDatasetConfigurationPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsModelSecondaryDatasetConfigurationPatchMany}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsModelSecondaryDatasetConfigurationPatchMany}{}}}
 \subsection{Method \code{DeploymentsModelSecondaryDatasetConfigurationPatchMany()}}{
 Update the secondary datasets configuration for the deployed model.
 Produces: NA
@@ -2279,6 +2641,9 @@ Produces: NA
 Update the secondary datasets configuration used by the deployed feature discovery model.
 
 
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/model/secondaryDatasetConfiguration/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Secondary Datasets Configuration updated successfully.
@@ -2295,7 +2660,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-secondaryDatasetConfigUpdate <- SecondaryDatasetConfigUpdate$new() # SecondaryDatasetConfigUpdate |
+secondaryDatasetConfigUpdate <- SecondaryDatasetConfigUpdate$new() # SecondaryDatasetConfigUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationPatchMany(deploymentId, secondaryDatasetConfigUpdate=secondaryDatasetConfigUpdate)
@@ -2307,8 +2672,8 @@ result <- api.instance$DeploymentsModelSecondaryDatasetConfigurationPatchMany(de
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsModelValidationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsModelValidationCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsModelValidationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsModelValidationCreate}{}}}
 \subsection{Method \code{DeploymentsModelValidationCreate()}}{
 Model Replacement Validation.
 Produces: "application/json"
@@ -2335,6 +2700,9 @@ Produces: "application/json"
 Validate that a model can be used to replace the current model of the deployment.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/model/validation/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -2351,7 +2719,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-modelReplacementValidationRequest <- ModelReplacementValidationRequest$new() # ModelReplacementValidationRequest |
+modelReplacementValidationRequest <- ModelReplacementValidationRequest$new() # ModelReplacementValidationRequest | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsModelValidationCreate(deploymentId, modelReplacementValidationRequest=modelReplacementValidationRequest)
@@ -2363,8 +2731,67 @@ result <- api.instance$DeploymentsModelValidationCreate(deploymentId, modelRepla
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsOnDemandReportsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsOnDemandReportsCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsMonitoringDataDeletionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsMonitoringDataDeletionsCreate}{}}}
+\subsection{Method \code{DeploymentsMonitoringDataDeletionsCreate()}}{
+Endpoint for deleting deployment monitoring data.
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsMonitoringDataDeletionsCreate(
+  deploymentId,
+  monitoringDataDeletePayload = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{monitoringDataDeletePayload}}{\link{MonitoringDataDeletePayload}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Delete deployment monitoring data.
+
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/monitoringDataDeletions/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+\item \strong{\code{404}} Deployment or model not found.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+monitoringDataDeletePayload <- MonitoringDataDeletePayload$new() # MonitoringDataDeletePayload | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsMonitoringDataDeletionsCreate(deploymentId, monitoringDataDeletePayload=monitoringDataDeletePayload)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsOnDemandReportsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsOnDemandReportsCreate}{}}}
 \subsection{Method \code{DeploymentsOnDemandReportsCreate()}}{
 Add report to execution queue.
 Produces: NA
@@ -2391,6 +2818,9 @@ Produces: NA
 Add report to execution queue.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/onDemandReports/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Scheduled report job was addded to execution.
@@ -2405,7 +2835,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-scheduledReportOnDemmand <- ScheduledReportOnDemmand$new() # ScheduledReportOnDemmand |
+scheduledReportOnDemmand <- ScheduledReportOnDemmand$new() # ScheduledReportOnDemmand | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsOnDemandReportsCreate(deploymentId, scheduledReportOnDemmand=scheduledReportOnDemmand)
@@ -2417,8 +2847,8 @@ result <- api.instance$DeploymentsOnDemandReportsCreate(deploymentId, scheduledR
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsPatch}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsPatch}{}}}
 \subsection{Method \code{DeploymentsPatch()}}{
 Update deployment
 Produces: NA
@@ -2441,6 +2871,9 @@ Produces: NA
 Update a deployment's label and description.
 
 
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Deployment successfully updated
@@ -2454,7 +2887,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentUpdate <- DeploymentUpdate$new() # DeploymentUpdate |
+deploymentUpdate <- DeploymentUpdate$new() # DeploymentUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsPatch(deploymentId, deploymentUpdate=deploymentUpdate)
@@ -2466,8 +2899,8 @@ result <- api.instance$DeploymentsPatch(deploymentId, deploymentUpdate=deploymen
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsPredictionInputsFromDatasetCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsPredictionInputsFromDatasetCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsPredictionInputsFromDatasetCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsPredictionInputsFromDatasetCreate}{}}}
 \subsection{Method \code{DeploymentsPredictionInputsFromDatasetCreate()}}{
 Submit external deployment prediction data.
 Produces: NA
@@ -2494,6 +2927,9 @@ Produces: NA
 Assigns prediction dataset to the external deployment to enable the analysis of historical model performance. Multiple datasets containing historical predictions for the external deployment can be uploaded. This requires one request for each dataset. For a regression deployment, predictions can be either an int or float. For a classification (binary/multiclass) deployment, predictions must be lists with each list containing probabilities for each class.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/predictionInputs/fromDataset/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Submitted successfully.
@@ -2513,7 +2949,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-predictionDatasetAssignment <- PredictionDatasetAssignment$new() # PredictionDatasetAssignment |
+predictionDatasetAssignment <- PredictionDatasetAssignment$new() # PredictionDatasetAssignment | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsPredictionInputsFromDatasetCreate(deploymentId, predictionDatasetAssignment=predictionDatasetAssignment)
@@ -2525,8 +2961,8 @@ result <- api.instance$DeploymentsPredictionInputsFromDatasetCreate(deploymentId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsPredictionResultsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsPredictionResultsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsPredictionResultsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsPredictionResultsList}{}}}
 \subsection{Method \code{DeploymentsPredictionResultsList()}}{
 Retrieve predictions results.
 Produces: "application/json", "text/csv"
@@ -2571,6 +3007,9 @@ Produces: "application/json", "text/csv"
 Retrieve predictions results of the deployment.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/predictionResults/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -2605,8 +3044,8 @@ result <- api.instance$DeploymentsPredictionResultsList(deploymentId, start=star
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsPredictionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsPredictionsCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsPredictionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsPredictionsCreate}{}}}
 \subsection{Method \code{DeploymentsPredictionsCreate()}}{
 Compute predictions synchronously
 Produces: "application/json"
@@ -2666,6 +3105,9 @@ Produces: "application/json"
 The route can be used for low-latency (hence synchronous) predictions. Scoring dataset, however, must be up to 50 MB and is limited by comma-delimited CSV and record oriented JSON. All other formats are not supported.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/predictions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Predictions and/or prediction explanations
@@ -2684,8 +3126,8 @@ library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
 passthroughColumns <- ['passthroughColumns_example'] # array[character] | List of columns from a scoring dataset to return in the prediction response. If not specified, no columns will be present in the response. Mutually exclusive with `passthroughColumnsSet`.
 passthroughColumnsSet <- 'passthroughColumnsSet_example' # character | If `passthroughColumnsSet=all` is passed, all columns from the scoring dataset are returned in the prediction response. All other values for this parameter are invalid. Mutually exclusive with `passthroughColumns`.
-maxExplanations <- OneOfintegerstring$new() # OneOfintegerstring | The maximum number of prediction explanations to supply per row of the dataset. The default `maxExplanations` is `3` when `xemp` based explanations are requested.  The default `maxExplanations` is `all` (no limit) when `shap` based explanations are requested.
-maxCodes <- OneOfintegerstring$new() # OneOfintegerstring | Deprecated alias of `maxExplanations`.
+maxExplanations <- 'maxExplanations_example' # OneOfintegerstring | The maximum number of prediction explanations to supply per row of the dataset. The default `maxExplanations` is `3` when `xemp` based explanations are requested.  The default `maxExplanations` is `all` (no limit) when `shap` based explanations are requested.
+maxCodes <- 'maxCodes_example' # OneOfintegerstring | Deprecated alias of `maxExplanations`.
 thresholdHigh <- 3.4 # numeric | The high threshold, above which a prediction must score in order for prediction explanations to be computed for a row in the dataset. If neither `thresholdHigh` nor `thresholdLow` is specified, prediction explanations will be computed for all rows. This option is ignored when `shap` based explanations are requested.
 thresholdLow <- 3.4 # numeric | The lower threshold, below which a prediction must score in order for prediction explanations to be computed for a row in the dataset. If neither `thresholdHigh` nor `thresholdLow` is specified, prediction explanations will be computed for all rows. This option is ignored when `shap` based explanations are requested.
 excludeAdjustedPredictions <- TRUE # character | If `false`, include exposure-adjusted predictions in the response.
@@ -2705,8 +3147,702 @@ result <- api.instance$DeploymentsPredictionsCreate(deploymentId, passthroughCol
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsRetrieve}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesCreate}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesCreate()}}{
+Endpoint for creating a deployment retraining policy.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesCreate(
+  deploymentId,
+  retrainingPolicyCreate = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyCreate}}{\link{RetrainingPolicyCreate}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Create a deployment retraining policy.
+
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/retrainingPolicies/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+\item \strong{\code{404}} Deployment not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyCreate <- RetrainingPolicyCreate$new() # RetrainingPolicyCreate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesCreate(deploymentId, retrainingPolicyCreate=retrainingPolicyCreate)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesDelete}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesDelete()}}{
+Endpoint for deleting a deployment retraining policy.
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesDelete(
+  deploymentId,
+  retrainingPolicyId,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Delete a deployment retraining policy.
+
+
+This method invokes \verb{DELETE /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Delete a deployment retraining policy.
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesDelete(deploymentId, retrainingPolicyId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesList}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesList()}}{
+Endpoint for fetching a list of deployment retraining policies.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesList(
+  deploymentId,
+  offset = 0,
+  limit = 100,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{offset}}{integer. Number of results to skip.}
+
+\item{\code{limit}}{integer. At most this many results are returned. The default may change without notice.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve a list of deployment retraining policies.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/retrainingPolicies/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Retrieve a list of deployment retraining policies.
+\itemize{
+}
+\item \strong{\code{404}} Deployment not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyListResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+offset <- 0 # integer | Number of results to skip.
+limit <- 100 # integer | At most this many results are returned. The default may change without notice.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesList(deploymentId, offset=offset, limit=limit)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesPatch}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesPatch()}}{
+Endpoint for updating a deployment retraining policy.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesPatch(
+  deploymentId,
+  retrainingPolicyId,
+  retrainingPolicyUpdate = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{retrainingPolicyUpdate}}{\link{RetrainingPolicyUpdate}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Update a deployment retraining policy.
+
+
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+retrainingPolicyUpdate <- RetrainingPolicyUpdate$new() # RetrainingPolicyUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesPatch(deploymentId, retrainingPolicyId, retrainingPolicyUpdate=retrainingPolicyUpdate)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesRetrieve}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesRetrieve()}}{
+Endpoint for fetching a deployment retraining policy.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesRetrieve(
+  deploymentId,
+  retrainingPolicyId,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve a deployment retraining policy.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Retrieve a deployment retraining policy.
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRetrieve(deploymentId, retrainingPolicyId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsCreate}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesRunsCreate()}}{
+Endpoint for initiating a deployment retraining policy run.
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesRunsCreate(
+  deploymentId,
+  retrainingPolicyId,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Initiate a deployment retraining policy run.
+
+
+This method invokes \verb{POST /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/runs/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsCreate(deploymentId, retrainingPolicyId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsList}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesRunsList()}}{
+Endpoint for fetching a list of deployment retraining policy runs.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesRunsList(
+  deploymentId,
+  retrainingPolicyId,
+  offset = 0,
+  limit = 100,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{offset}}{integer. Number of results to skip.}
+
+\item{\code{limit}}{integer. At most this many results are returned. The default may change without notice.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve a list of deployment retraining policy runs.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/runs/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Retrieve a list of deployment retraining policy runs.
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRunListResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+offset <- 0 # integer | Number of results to skip.
+limit <- 100 # integer | At most this many results are returned. The default may change without notice.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsList(deploymentId, retrainingPolicyId, offset=offset, limit=limit)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsPatch}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesRunsPatch()}}{
+Endpoint for updating a single deployment retraining policy run.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesRunsPatch(
+  deploymentId,
+  retrainingPolicyId,
+  runId,
+  retrainingPolicyRunUpdate = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{runId}}{character. ID of the retraining policy run.}
+
+\item{\code{retrainingPolicyRunUpdate}}{\link{RetrainingPolicyRunUpdate}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Update a single deployment retraining policy run.
+
+
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/runs/\{runId\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Update a single deployment retraining policy run.
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRunRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+runId <- 'runId_example' # character | ID of the retraining policy run.
+retrainingPolicyRunUpdate <- RetrainingPolicyRunUpdate$new() # RetrainingPolicyRunUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsPatch(deploymentId, retrainingPolicyId, runId, retrainingPolicyRunUpdate=retrainingPolicyRunUpdate)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingPoliciesRunsRetrieve}{}}}
+\subsection{Method \code{DeploymentsRetrainingPoliciesRunsRetrieve()}}{
+Endpoint for fetching a single deployment retraining policy run.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingPoliciesRunsRetrieve(
+  deploymentId,
+  retrainingPolicyId,
+  runId,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingPolicyId}}{character. ID of the retraining policy.}
+
+\item{\code{runId}}{character. ID of the retraining policy run.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve a single deployment retraining policy run.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/retrainingPolicies/\{retrainingPolicyId\}/runs/\{runId\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Retrieve a single deployment retraining policy run.
+\itemize{
+}
+\item \strong{\code{404}} Deployment or retraining policy not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingPolicyRunRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingPolicyId <- 'retrainingPolicyId_example' # character | ID of the retraining policy.
+runId <- 'runId_example' # character | ID of the retraining policy run.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingPoliciesRunsRetrieve(deploymentId, retrainingPolicyId, runId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingSettingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingSettingsList}{}}}
+\subsection{Method \code{DeploymentsRetrainingSettingsList()}}{
+Endpoint for fetching deployment retraining settings.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingSettingsList(deploymentId, ...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve deployment retraining settings.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/retrainingSettings/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Retrieve deployment retraining settings.
+\itemize{
+}
+\item \strong{\code{404}} Deployment not found.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{RetrainingSettingsRetrieve}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingSettingsList(deploymentId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrainingSettingsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrainingSettingsPatchMany}{}}}
+\subsection{Method \code{DeploymentsRetrainingSettingsPatchMany()}}{
+Endpoint for updating deployment retraining settings.
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsRetrainingSettingsPatchMany(
+  deploymentId,
+  retrainingSettingsUpdate = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{retrainingSettingsUpdate}}{\link{RetrainingSettingsUpdate}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Update deployment retraining settings.
+
+
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/retrainingSettings/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}} Update deployment retraining settings.
+\itemize{
+}
+\item \strong{\code{404}} Deployment not found.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+retrainingSettingsUpdate <- RetrainingSettingsUpdate$new() # RetrainingSettingsUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsRetrainingSettingsPatchMany(deploymentId, retrainingSettingsUpdate=retrainingSettingsUpdate)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsRetrieve}{}}}
 \subsection{Method \code{DeploymentsRetrieve()}}{
 Retrieve deployment
 Produces: "application/json"
@@ -2725,6 +3861,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a deployment.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2754,8 +3893,8 @@ result <- api.instance$DeploymentsRetrieve(deploymentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsScoringCodeBuildsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsScoringCodeBuildsCreate}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsScoringCodeBuildsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsScoringCodeBuildsCreate}{}}}
 \subsection{Method \code{DeploymentsScoringCodeBuildsCreate()}}{
 Build Java package containing Scoring Code with agent integration.
 Produces: NA
@@ -2782,6 +3921,9 @@ Produces: NA
 Build Java package containing Scoring Code with agent integration.
 
 
+This method invokes \verb{POST /deployments/\{deploymentId\}/scoringCodeBuilds/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -2795,7 +3937,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentsScoringCodeBuildPayload <- DeploymentsScoringCodeBuildPayload$new() # DeploymentsScoringCodeBuildPayload |
+deploymentsScoringCodeBuildPayload <- DeploymentsScoringCodeBuildPayload$new() # DeploymentsScoringCodeBuildPayload | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsScoringCodeBuildsCreate(deploymentId, deploymentsScoringCodeBuildPayload=deploymentsScoringCodeBuildPayload)
@@ -2807,8 +3949,8 @@ result <- api.instance$DeploymentsScoringCodeBuildsCreate(deploymentId, deployme
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsScoringCodeList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsScoringCodeList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsScoringCodeList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsScoringCodeList}{}}}
 \subsection{Method \code{DeploymentsScoringCodeList()}}{
 Retrieve Scoring Code
 Produces: NA
@@ -2844,7 +3986,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Scoring Code of the current deployed model for making predictions outside of a DataRobot prediction server. You need the \"Scoring Code\" feature enabled to use this route.  By default, returns a compiled executable JAR that can be executed locally to calculate model predictions, or it can be used as a library for a Java application. Execute it with the '--help` parameters to learn how to use it as a command-line utility. See model API documentation at https://javadoc.io/doc/com.datarobot/datarobot-prediction/latest/index.html to be able to use it inside an existing Java application.  With sourceCode query parameter set to 'true', returns a source code archive that can be used to review internal calculations of the model. This JAR is NOT executable.  See \"https://app.datarobot.com/docs/predictions/scoring-code/scorecode.html\" documentation in DataRobot application for more information.  \emph{Note} Cannot retrieve source code if agent is included.
+Retrieve Scoring Code of the current deployed model for making predictions outside of a DataRobot prediction server. You need the \"Scoring Code\" feature enabled to use this route.  By default, returns a compiled executable JAR that can be executed locally to calculate model predictions, or it can be used as a library for a Java application. Execute it with the '--help\\` parameters to learn how to use it as a command-line utility. See model API documentation at <https://javadoc.io/doc/com.datarobot/datarobot-prediction/latest/index.html> to be able to use it inside an existing Java application.  With sourceCode query parameter set to 'true', returns a source code archive that can be used to review internal calculations of the model. This JAR is NOT executable.  See \"<https://app.datarobot.com/docs/predictions/scoring-code/scorecode.html>\" documentation in DataRobot application for more information.  \emph{Note} Cannot retrieve source code if agent is included.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/scoringCode/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2878,8 +4023,8 @@ result <- api.instance$DeploymentsScoringCodeList(deploymentId, sourceCode=sourc
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsServiceStatsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsServiceStatsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsServiceStatsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsServiceStatsList}{}}}
 \subsection{Method \code{DeploymentsServiceStatsList()}}{
 Retrieve service statistics
 Produces: "application/json"
@@ -2933,6 +4078,9 @@ Produces: "application/json"
 Retrieve deployment service health statistics overview.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/serviceStats/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Service health statistics overview retrieved.
@@ -2976,8 +4124,8 @@ result <- api.instance$DeploymentsServiceStatsList(deploymentId, start=start, en
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsServiceStatsOverTimeList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsServiceStatsOverTimeList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsServiceStatsOverTimeList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsServiceStatsOverTimeList}{}}}
 \subsection{Method \code{DeploymentsServiceStatsOverTimeList()}}{
 Retrieve service statistics over time
 Produces: "application/json"
@@ -3028,6 +4176,9 @@ Produces: "application/json"
 Retrieve deployment service health statistics over time data for one single metric.
 
 
+This method invokes \verb{GET /deployments/\{deploymentId\}/serviceStatsOverTime/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Service health statistics for metric retrieved.
@@ -3070,8 +4221,8 @@ result <- api.instance$DeploymentsServiceStatsOverTimeList(deploymentId, start=s
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsSettingsList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsSettingsList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsSettingsList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsSettingsList}{}}}
 \subsection{Method \code{DeploymentsSettingsList()}}{
 Get deployment settings
 Produces: "application/json"
@@ -3090,6 +4241,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve deployment settings.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/settings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3122,8 +4276,8 @@ result <- api.instance$DeploymentsSettingsList(deploymentId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsSettingsPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsSettingsPatchMany}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsSettingsPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsSettingsPatchMany}{}}}
 \subsection{Method \code{DeploymentsSettingsPatchMany()}}{
 Update deployment settings
 Produces: NA
@@ -3148,6 +4302,9 @@ Produces: NA
 }
 \subsection{Details}{
 Updates deployment settings.
+
+
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/settings/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3176,7 +4333,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
-deploymentSettingsUpdate <- DeploymentSettingsUpdate$new() # DeploymentSettingsUpdate |
+deploymentSettingsUpdate <- DeploymentSettingsUpdate$new() # DeploymentSettingsUpdate | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsSettingsPatchMany(deploymentId, deploymentSettingsUpdate=deploymentSettingsUpdate)
@@ -3188,8 +4345,8 @@ result <- api.instance$DeploymentsSettingsPatchMany(deploymentId, deploymentSett
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsSharedRolesList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsSharedRolesList}{}}}
 \subsection{Method \code{DeploymentsSharedRolesList()}}{
 Get model deployment's access control list
 Produces: "application/json"
@@ -3226,6 +4383,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users, groups and organizations who have access to this deployment and their roles.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3266,8 +4426,8 @@ result <- api.instance$DeploymentsSharedRolesList(offset, limit, deploymentId, i
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsSharedRolesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsSharedRolesPatchMany}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsSharedRolesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsSharedRolesPatchMany}{}}}
 \subsection{Method \code{DeploymentsSharedRolesPatchMany()}}{
 Update model deployment's controls
 Produces: NA
@@ -3294,6 +4454,9 @@ Produces: NA
 Set roles for users on this model deployment.
 
 
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/sharedRoles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -3313,7 +4476,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 deploymentId <- 'deploymentId_example' # character | The deployment ID.
-sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant |
+sharedRolesUpdateWithGrant <- SharedRolesUpdateWithGrant$new() # SharedRolesUpdateWithGrant | 
 
 api.instance <- DeploymentsApi$new()
 result <- api.instance$DeploymentsSharedRolesPatchMany(deploymentId, sharedRolesUpdateWithGrant=sharedRolesUpdateWithGrant)
@@ -3325,8 +4488,71 @@ result <- api.instance$DeploymentsSharedRolesPatchMany(deploymentId, sharedRoles
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeploymentsTargetDriftList"></a>}}
-\if{latex}{\out{\hypertarget{method-DeploymentsTargetDriftList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsStatusPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsStatusPatchMany}{}}}
+\subsection{Method \code{DeploymentsStatusPatchMany()}}{
+Change deployment status
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{DeploymentsApi$DeploymentsStatusPatchMany(
+  deploymentId,
+  deploymentStatusUpdate = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{deploymentId}}{character. Unique identifier of the deployment.}
+
+\item{\code{deploymentStatusUpdate}}{\link{DeploymentStatusUpdate}.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Change deployment status.
+
+
+This method invokes \verb{PATCH /deployments/\{deploymentId\}/status/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{202}} Job submitted. See Location header.
+\itemize{
+\item \strong{\code{Location}} URL for tracking async job status.
+}
+\item \strong{\code{409}} Deployment is already in process of status change or already in requested status.
+\itemize{
+}
+\item \strong{\code{422}} Deployment status change request could not be processed.
+\itemize{
+}
+}
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+deploymentId <- 'deploymentId_example' # character | Unique identifier of the deployment.
+deploymentStatusUpdate <- DeploymentStatusUpdate$new() # DeploymentStatusUpdate | 
+
+api.instance <- DeploymentsApi$new()
+result <- api.instance$DeploymentsStatusPatchMany(deploymentId, deploymentStatusUpdate=deploymentStatusUpdate)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeploymentsApi-DeploymentsTargetDriftList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-DeploymentsTargetDriftList}{}}}
 \subsection{Method \code{DeploymentsTargetDriftList()}}{
 Retrieve target drift
 Produces: "application/json"
@@ -3366,6 +4592,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve target drift data.
+
+
+This method invokes \verb{GET /deployments/\{deploymentId\}/targetDrift/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3410,8 +4639,8 @@ result <- api.instance$DeploymentsTargetDriftList(deploymentId, start=start, end
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-PredictionServersList"></a>}}
-\if{latex}{\out{\hypertarget{method-PredictionServersList}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-PredictionServersList"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-PredictionServersList}{}}}
 \subsection{Method \code{PredictionServersList()}}{
 List prediction servers.
 Produces: "application/json"
@@ -3432,6 +4661,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List prediction servers available for a user.
+
+
+This method invokes \verb{GET /predictionServers/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3462,8 +4694,8 @@ result <- api.instance$PredictionServersList(offset=offset, limit=limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

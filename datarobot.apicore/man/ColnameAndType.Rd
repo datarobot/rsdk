@@ -24,16 +24,16 @@ ColnameAndType Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ColnameAndType$new()}}
-\item \href{#method-validate}{\code{ColnameAndType$validate()}}
-\item \href{#method-toJSON}{\code{ColnameAndType$toJSON()}}
-\item \href{#method-fromJSON}{\code{ColnameAndType$fromJSON()}}
-\item \href{#method-clone}{\code{ColnameAndType$clone()}}
+\item \href{#method-ColnameAndType-new}{\code{ColnameAndType$new()}}
+\item \href{#method-ColnameAndType-validate}{\code{ColnameAndType$validate()}}
+\item \href{#method-ColnameAndType-toJSON}{\code{ColnameAndType$toJSON()}}
+\item \href{#method-ColnameAndType-fromJSON}{\code{ColnameAndType$fromJSON()}}
+\item \href{#method-ColnameAndType-clone}{\code{ColnameAndType$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ColnameAndType-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ColnameAndType-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ColnameAndType-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ColnameAndType-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ColnameAndType$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ColnameAndType-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ColnameAndType-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ColnameAndType-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ColnameAndType-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ColnameAndType-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ColnameAndType-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

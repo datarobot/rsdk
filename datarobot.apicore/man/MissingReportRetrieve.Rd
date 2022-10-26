@@ -20,16 +20,16 @@ MissingReportRetrieve Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MissingReportRetrieve$new()}}
-\item \href{#method-validate}{\code{MissingReportRetrieve$validate()}}
-\item \href{#method-toJSON}{\code{MissingReportRetrieve$toJSON()}}
-\item \href{#method-fromJSON}{\code{MissingReportRetrieve$fromJSON()}}
-\item \href{#method-clone}{\code{MissingReportRetrieve$clone()}}
+\item \href{#method-MissingReportRetrieve-new}{\code{MissingReportRetrieve$new()}}
+\item \href{#method-MissingReportRetrieve-validate}{\code{MissingReportRetrieve$validate()}}
+\item \href{#method-MissingReportRetrieve-toJSON}{\code{MissingReportRetrieve$toJSON()}}
+\item \href{#method-MissingReportRetrieve-fromJSON}{\code{MissingReportRetrieve$fromJSON()}}
+\item \href{#method-MissingReportRetrieve-clone}{\code{MissingReportRetrieve$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MissingReportRetrieve-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingReportRetrieve-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-MissingReportRetrieve-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingReportRetrieve-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MissingReportRetrieve$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MissingReportRetrieve-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingReportRetrieve-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MissingReportRetrieve-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingReportRetrieve-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MissingReportRetrieve-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MissingReportRetrieve-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

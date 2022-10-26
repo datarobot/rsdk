@@ -157,3 +157,75 @@ as.dataRobotDeploymentServiceStatsOverTime <- function(inlist, metricName) {
   class(outlist) <- "deploymentServiceStatsOverTime"
   outlist
 }
+
+#' @name GetDeploymentServiceStats
+#' @details Retrieve service health statistics for a deployment.
+#'
+#' @param deploymentId character. The ID of the deployment.
+#' @param modelId character. Optional. The ID of the model to query. If provided, only data for this
+#'   specific model will be retrieved; otherwise, data for the deployment's default model will be
+#'   retrieved.
+#' @param start POSIXct. Optional. The start time of the reporting period for monitoring data.
+#'   Defaults to seven days prior to the end of the period. Sub-hour resolution is not permitted,
+#'   and the timezone must be `UTC`.
+#' @param end POSIXct. Optional. The end time of the reporting period for monitoring data. Defaults
+#'   to the next top of the hour. Sub-hour resolution is not permitted, and the timezone must be
+#'   `UTC`.
+#' @param executionTimeQuantile numeric. Optional. Quantile for the `executionTime` metric. Defaults
+#'   to 0.5.
+#' @param responseTimeQuantile numeric. Optional. Quantile for the `responseTime` metric. Defaults
+#'   to 0.5.
+#' @param slowRequestsThreshold integer. Optional. Threshold for the `slowRequests` metric.
+#'   Defaults to 1000.
+#' @param segmentAttribute character. Optional. The name of an attribute used for segment analysis.
+#'   See `SegmentAnalysisAttribute` for permitted values. Added in DataRobot 2.20.
+#' @param segmentValue character. Optional. The value of `segmentAttribute`. Added in DataRobot
+#'   2.20.
+#' @return An object representing service health metrics for the deployment, containing:
+#' \itemize{
+#'   \item modelId character. The ID of the deployment model for which monitoring data was
+#'     retrieved.
+#'   \item period list. The duration of the reporting period, containing:
+#'     \itemize{
+#'       \item start POSIXct. Start of the reporting period.
+#'       \item end POSIXct. End of the reporting period.
+#'     }
+#'   \item metrics list. Service health metrics for the deployment, containing:
+#'     \itemize{
+#'       \item totalPredictions integer. Total number of prediction rows.
+#'       \item totalRequests integer. Total number of prediction requests performed.
+#'       \item slowRequests integer. Number of requests with response time greater than
+#'         `slowRequestsThreshold`.
+#'       \item responseTime numeric. Request response time at `responseTimeQuantile` in
+#'         milliseconds. May be NA.
+#'       \item executionTime numeric. Request execution time at `executionTimeQuantile` in
+#'         milliseconds. May be NA.
+#'       \item medianLoad integer. Median request rate, in requests per minute.
+#'       \item peakLoad integer. Greatest request rate, in requests per minute.
+#'       \item userErrorRate numeric. Ratio of user errors to the total number of requests.
+#'       \item serverErrorRate numeric. Ratio of server errors to the total number of requests.
+#'       \item numConsumers integer. Number of unique users performing requests.
+#'       \item cacheHitRatio numeric. The ratio of cache hits to requests.
+#'     }
+#'   \item segmentAttribute character. Added in DataRobot 2.20. The name of the segment on which
+#'     segment analysis was performed.
+#'   \item segmentValue character. Added in DataRobot 2.20. The value of the segmentAttribute.
+#' }
+#' @examples
+#' \dontrun{
+#' deploymentId <- "59a5af20c80891534e3c2bde"
+#' startTime <- ISOdate(2020, 12, 25, 1, 0, 0, tz = "UTC")
+#' endTime <- ISOdate(2021, 01, 06, 1, 0, 0, tz = "UTC")
+#' GetDeploymentServiceStats(deploymentId, startTime, endTime)
+#' }
+#' \dontrun{
+#' deploymentId <- "59a5af20c80891534e3c2bde"
+#' GetDeploymentServiceStats(deploymentId,
+#'   segmentAttribute = SegmentAnalysisAttribute$DataRobotRemoteIP,
+#'   segmentValue = "192.168.0.1"
+#' )
+#' }
+#' @md
+#' @export
+#' @include deployments_apiWrapper.R
+GetDeploymentServiceStats

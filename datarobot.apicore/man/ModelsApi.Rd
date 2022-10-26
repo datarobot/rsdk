@@ -19,7 +19,7 @@ datarobot.apicore.Models
 \dontrun{
 library(datarobot.apicore)
 imageId <- 'imageId_example' # character | ID of the image of the custom inference model to submit feature impact job for.
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomInferenceImagesFeatureImpactCreate(imageId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -45,8 +45,8 @@ result <- api.instance$CustomInferenceImagesFeatureImpactList(imageId)
 library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped.
 limit <- 100 # integer | At most this many results are returned.
-customModelIds <- OneOfstringarray$new() # OneOfstringarray | List of ID's of the custom model which model deployments will be retrieved.
-environmentIds <- OneOfstringarray$new() # OneOfstringarray | List of ID's of the execution environment which model deployments will be retrieved.
+customModelIds <- list(c('customModelIds_example')) # OneOfstringarray | List of ID's of the custom model which model deployments will be retrieved.
+environmentIds <- list(c('environmentIds_example')) # OneOfstringarray | List of ID's of the execution environment which model deployments will be retrieved.
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelDeploymentsList(offset, limit, customModelIds=customModelIds, environmentIds=environmentIds)
@@ -69,7 +69,7 @@ result <- api.instance$CustomModelLimitsList()
 
 \dontrun{
 library(datarobot.apicore)
-customModelTests <- CustomModelTests$new() # CustomModelTests |
+customModelTests <- CustomModelTests$new() # CustomModelTests | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelTestsCreate(customModelTests=customModelTests)
@@ -164,7 +164,7 @@ result <- api.instance$CustomModelsAccessControlList(offset, limit, customModelI
 \dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsAccessControlPatchMany(customModelId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -176,7 +176,7 @@ result <- api.instance$CustomModelsAccessControlPatchMany(customModelId, sharing
 
 \dontrun{
 library(datarobot.apicore)
-customModelCreate <- CustomModelCreate$new() # CustomModelCreate |
+customModelCreate <- CustomModelCreate$new() # CustomModelCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsCreate(customModelCreate=customModelCreate)
@@ -213,7 +213,7 @@ result <- api.instance$CustomModelsDownloadList(customModelId, pps=pps)
 
 \dontrun{
 library(datarobot.apicore)
-customModelCopy <- CustomModelCopy$new() # CustomModelCopy |
+customModelCopy <- CustomModelCopy$new() # CustomModelCopy | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsFromCustomModelCreate(customModelCopy=customModelCopy)
@@ -243,7 +243,7 @@ result <- api.instance$CustomModelsList(offset, limit, customModelType=customMod
 \dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelUpdate <- CustomModelUpdate$new() # CustomModelUpdate |
+customModelUpdate <- CustomModelUpdate$new() # CustomModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsPatch(customModelId, customModelUpdate=customModelUpdate)
@@ -255,7 +255,7 @@ result <- api.instance$CustomModelsPatch(customModelId, customModelUpdate=custom
 
 \dontrun{
 library(datarobot.apicore)
-customModelPredictionExplanations <- CustomModelPredictionExplanations$new() # CustomModelPredictionExplanations |
+customModelPredictionExplanations <- CustomModelPredictionExplanations$new() # CustomModelPredictionExplanations | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsPredictionExplanationsInitializationCreate(customModelPredictionExplanations=customModelPredictionExplanations)
@@ -280,10 +280,10 @@ result <- api.instance$CustomModelsRetrieve(customModelId)
 \dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-trainingDataAssignment <- TrainingDataAssignment$new() # TrainingDataAssignment |
+deprecatedTrainingDataAssignment <- DeprecatedTrainingDataAssignment$new() # DeprecatedTrainingDataAssignment | 
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsTrainingDataPatchMany(customModelId, trainingDataAssignment=trainingDataAssignment)
+result <- api.instance$CustomModelsTrainingDataPatchMany(customModelId, deprecatedTrainingDataAssignment=deprecatedTrainingDataAssignment)
 }
 
 ## ------------------------------------------------
@@ -296,9 +296,9 @@ customModelId <- 'customModelId_example' # character | ID of the custom model.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
-filesToDelete <- oneOf<string,array>$new() # OneOfstringarray | The IDs of the files to be deleted.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
 replicas <- 56 # integer | A fixed number of replicas that will be set for the given custom-model.
@@ -318,7 +318,7 @@ result <- api.instance$CustomModelsVersionCreateFromLatest(customModelId, baseEn
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-conversionCreateQuery <- ConversionCreateQuery$new() # ConversionCreateQuery |
+conversionCreateQuery <- ConversionCreateQuery$new() # ConversionCreateQuery | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsConversionsCreate(customModelId, customModelVersionId, conversionCreateQuery=conversionCreateQuery)
@@ -377,9 +377,10 @@ library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
+baseEnvironmentVersionId <- 'baseEnvironmentVersionId_example' # character | The base environment version ID to use with this model version.Can be set only by user with correct permissions.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
 replicas <- 56 # integer | A fixed number of replicas that will be set for the given custom-model.
@@ -388,7 +389,7 @@ requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additio
 requiresHa <- 'requiresHa_example' # character | Require all custom model replicas to be deployed on different Kubernetes nodes for predictions fault tolerance.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsVersionsCreate(customModelId, isMajorUpdate, baseEnvironmentId=baseEnvironmentId, desiredMemory=desiredMemory, file=file, filePath=filePath, maximumMemory=maximumMemory, networkEgressPolicy=networkEgressPolicy, replicas=replicas, requiredMetadata=requiredMetadata, requiredMetadataValues=requiredMetadataValues, requiresHa=requiresHa)
+result <- api.instance$CustomModelsVersionsCreate(customModelId, isMajorUpdate, baseEnvironmentId=baseEnvironmentId, baseEnvironmentVersionId=baseEnvironmentVersionId, desiredMemory=desiredMemory, file=file, filePath=filePath, maximumMemory=maximumMemory, networkEgressPolicy=networkEgressPolicy, replicas=replicas, requiredMetadata=requiredMetadata, requiredMetadataValues=requiredMetadataValues, requiresHa=requiresHa)
 }
 
 ## ------------------------------------------------
@@ -465,7 +466,7 @@ result <- api.instance$CustomModelsVersionsDownloadList(customModelId, customMod
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFeatureImpactCreate(customModelId, customModelVersionId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -491,7 +492,7 @@ result <- api.instance$CustomModelsVersionsFeatureImpactList(customModelId, cust
 \dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository |
+customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFromRepositoryCreate(customModelId, customModelVersionCreateFromRepository=customModelVersionCreateFromRepository)
@@ -504,7 +505,7 @@ result <- api.instance$CustomModelsVersionsFromRepositoryCreate(customModelId, c
 \dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository |
+customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFromRepositoryPatchMany(customModelId, customModelVersionCreateFromRepository=customModelVersionCreateFromRepository)
@@ -519,9 +520,10 @@ library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped.
 limit <- 1000 # integer | At most this many results are returned.
 customModelId <- 'customModelId_example' # character | ID of the custom model.
+mainBranchCommitSha <- 'mainBranchCommitSha_example' # character | Specifies the commit SHA-1 in GitHub repository from the main branch that corresponds to a given custom model version.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId)
+result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId, mainBranchCommitSha=mainBranchCommitSha)
 }
 
 ## ------------------------------------------------
@@ -532,7 +534,7 @@ result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId)
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-customModelVersionMetadataUpdate <- CustomModelVersionMetadataUpdate$new() # CustomModelVersionMetadataUpdate |
+customModelVersionMetadataUpdate <- CustomModelVersionMetadataUpdate$new() # CustomModelVersionMetadataUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsPatch(customModelId, customModelVersionId, customModelVersionMetadataUpdate=customModelVersionMetadataUpdate)
@@ -570,7 +572,7 @@ result <- api.instance$CustomModelsVersionsRetrieve(customModelId, customModelVe
 
 \dontrun{
 library(datarobot.apicore)
-customTrainingBlueprintCreate <- CustomTrainingBlueprintCreate$new() # CustomTrainingBlueprintCreate |
+customTrainingBlueprintCreate <- CustomTrainingBlueprintCreate$new() # CustomTrainingBlueprintCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomTrainingBlueprintsCreate(customTrainingBlueprintCreate=customTrainingBlueprintCreate)
@@ -593,18 +595,6 @@ result <- api.instance$CustomTrainingBlueprintsList(offset, limit, customModelId
 }
 
 ## ------------------------------------------------
-## Method `ModelsApi$ModelExportsCreate`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-modelExport <- ModelExport$new() # ModelExport |
-
-api.instance <- ModelsApi$new()
-result <- api.instance$ModelExportsCreate(modelExport=modelExport)
-}
-
-## ------------------------------------------------
 ## Method `ModelsApi$ModelPackagesArchiveCreate`
 ## ------------------------------------------------
 
@@ -614,6 +604,18 @@ modelPackageId <- 'modelPackageId_example' # character | ID of the model package
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ModelPackagesArchiveCreate(modelPackageId)
+}
+
+## ------------------------------------------------
+## Method `ModelsApi$ModelPackagesCapabilitiesList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+modelPackageId <- 'modelPackageId_example' # character | ID of the model package.
+
+api.instance <- ModelsApi$new()
+result <- api.instance$ModelPackagesCapabilitiesList(modelPackageId)
 }
 
 ## ------------------------------------------------
@@ -640,7 +642,7 @@ result <- api.instance$ModelPackagesFeaturesList(offset, limit, modelPackageId, 
 
 \dontrun{
 library(datarobot.apicore)
-modelPackageCreateFromLearningModel <- ModelPackageCreateFromLearningModel$new() # ModelPackageCreateFromLearningModel |
+modelPackageCreateFromLearningModel <- ModelPackageCreateFromLearningModel$new() # ModelPackageCreateFromLearningModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ModelPackagesFromLearningModelCreate(modelPackageCreateFromLearningModel=modelPackageCreateFromLearningModel)
@@ -661,10 +663,11 @@ search <- 'search_example' # character | Provide a term to search for in package
 predictionThreshold <- 3.4 # numeric | Prediction threshold used for binary classification models
 imported <- 'imported_example' # character | If specified, filter for either imported (true) or non-imported (false) model packages
 predictionEnvironmentId <- 'predictionEnvironmentId_example' # character | Can be used to filter packages by what is supported by the prediction environment
-modelKind <- OneOfstringarray$new() # OneOfstringarray | Return models from the registry that match a specific format.
+modelKind <- list(c('modelKind_example')) # OneOfstringarray | Return models from the registry that match a specific format.
+buildStatus <- 'buildStatus_example' # character | If specified, filter model packages by the build status.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ModelPackagesList(offset=offset, limit=limit, modelId=modelId, similarTo=similarTo, forChallenger=forChallenger, search=search, predictionThreshold=predictionThreshold, imported=imported, predictionEnvironmentId=predictionEnvironmentId, modelKind=modelKind)
+result <- api.instance$ModelPackagesList(offset=offset, limit=limit, modelId=modelId, similarTo=similarTo, forChallenger=forChallenger, search=search, predictionThreshold=predictionThreshold, imported=imported, predictionEnvironmentId=predictionEnvironmentId, modelKind=modelKind, buildStatus=buildStatus)
 }
 
 ## ------------------------------------------------
@@ -697,43 +700,57 @@ result <- api.instance$ModelPackagesSharedRolesList(offset, limit, modelPackageI
 }
 
 ## ------------------------------------------------
-## Method `ModelsApi$ProjectsBlenderBuildersCreate`
+## Method `ModelsApi$ProjectsBiasMitigatedModelsCreate`
 ## ------------------------------------------------
 
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-baseBlenderBuilderCreate <- BaseBlenderBuilderCreate$new() # BaseBlenderBuilderCreate |
+biasMitigationModelCreate <- BiasMitigationModelCreate$new() # BiasMitigationModelCreate | 
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersCreate(projectId, baseBlenderBuilderCreate=baseBlenderBuilderCreate)
+result <- api.instance$ProjectsBiasMitigatedModelsCreate(projectId, biasMitigationModelCreate=biasMitigationModelCreate)
 }
 
 ## ------------------------------------------------
-## Method `ModelsApi$ProjectsBlenderBuildersList`
+## Method `ModelsApi$ProjectsBiasMitigatedModelsList`
 ## ------------------------------------------------
 
 \dontrun{
 library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID that the blender builder is associated with.
-offset <- 0 # integer | The maximum number of blender builder job records to return
-limit <- 100 # integer | pagination offset
+projectId <- 'projectId_example' # character | The project ID
+offset <- 0 # integer | This many results will be skipped.
+limit <- 100 # integer | At most this many results are returned.
+parentModelId <- 'parentModelId_example' # character | Retrieve a list of mitigated models for the parent model if specified. Otherwise retrieve a list of all mitigated models for the project.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersList(projectId, offset, limit)
+result <- api.instance$ProjectsBiasMitigatedModelsList(projectId, offset=offset, limit=limit, parentModelId=parentModelId)
 }
 
 ## ------------------------------------------------
-## Method `ModelsApi$ProjectsBlenderBuildersRetrieve`
+## Method `ModelsApi$ProjectsBiasMitigationFeatureInfoCreateOne`
 ## ------------------------------------------------
 
 \dontrun{
 library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID that the blender builder is associated with.
-buildId <- 'buildId_example' # character | The ID of the blender builder job to get data for.
+projectId <- 'projectId_example' # character | The project ID
+featureName <- 'featureName_example' # character | Name of feature for mitigation info.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersRetrieve(projectId, buildId)
+result <- api.instance$ProjectsBiasMitigationFeatureInfoCreateOne(projectId, featureName)
+}
+
+## ------------------------------------------------
+## Method `ModelsApi$ProjectsBiasMitigationFeatureInfoList`
+## ------------------------------------------------
+
+\dontrun{
+library(datarobot.apicore)
+featureName <- 'featureName_example' # character | Name of feature for mitigation info.
+projectId <- 'projectId_example' # character | The project ID
+
+api.instance <- ModelsApi$new()
+result <- api.instance$ProjectsBiasMitigationFeatureInfoList(featureName, projectId)
 }
 
 ## ------------------------------------------------
@@ -743,7 +760,7 @@ result <- api.instance$ProjectsBlenderBuildersRetrieve(projectId, buildId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-blenderCreate <- BlenderCreate$new() # BlenderCreate |
+blenderCreate <- BlenderCreate$new() # BlenderCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsBlenderModelsBlendCheckCreate(projectId, blenderCreate=blenderCreate)
@@ -756,7 +773,7 @@ result <- api.instance$ProjectsBlenderModelsBlendCheckCreate(projectId, blenderC
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-blenderCreate <- BlenderCreate$new() # BlenderCreate |
+blenderCreate <- BlenderCreate$new() # BlenderCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsBlenderModelsCreate(projectId, blenderCreate=blenderCreate)
@@ -865,7 +882,7 @@ result <- api.instance$ProjectsDatetimeModelsBacktestsCreate(projectId, modelId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-trainDatetimeModel <- TrainDatetimeModel$new() # TrainDatetimeModel |
+trainDatetimeModel <- TrainDatetimeModel$new() # TrainDatetimeModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDatetimeModelsCreate(projectId, trainDatetimeModel=trainDatetimeModel)
@@ -878,7 +895,7 @@ result <- api.instance$ProjectsDatetimeModelsCreate(projectId, trainDatetimeMode
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-retrainDatetimeModel <- RetrainDatetimeModel$new() # RetrainDatetimeModel |
+retrainDatetimeModel <- RetrainDatetimeModel$new() # RetrainDatetimeModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFromModelCreate(projectId, retrainDatetimeModel=retrainDatetimeModel)
@@ -919,7 +936,7 @@ result <- api.instance$ProjectsDatetimeModelsRetrieve(projectId, modelId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-prepareForDeployment <- PrepareForDeployment$new() # PrepareForDeployment |
+prepareForDeployment <- PrepareForDeployment$new() # PrepareForDeployment | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDeploymentReadyModelsCreate(projectId, prepareForDeployment=prepareForDeployment)
@@ -958,7 +975,7 @@ result <- api.instance$ProjectsEureqaModelDetailRetrieve(projectId, solutionId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-eureqaLeaderboardEntryPayload <- EureqaLeaderboardEntryPayload$new() # EureqaLeaderboardEntryPayload |
+eureqaLeaderboardEntryPayload <- EureqaLeaderboardEntryPayload$new() # EureqaLeaderboardEntryPayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsEureqaModelsCreate(projectId, eureqaLeaderboardEntryPayload=eureqaLeaderboardEntryPayload)
@@ -984,7 +1001,7 @@ result <- api.instance$ProjectsEureqaModelsRetrieve(projectId, modelId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-trainDatetimeFrozenModel <- TrainDatetimeFrozenModel$new() # TrainDatetimeFrozenModel |
+trainDatetimeFrozenModel <- TrainDatetimeFrozenModel$new() # TrainDatetimeFrozenModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsFrozenDatetimeModelsCreate(projectId, trainDatetimeFrozenModel=trainDatetimeFrozenModel)
@@ -997,7 +1014,7 @@ result <- api.instance$ProjectsFrozenDatetimeModelsCreate(projectId, trainDateti
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-frozenModelCreate <- FrozenModelCreate$new() # FrozenModelCreate |
+frozenModelCreate <- FrozenModelCreate$new() # FrozenModelCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsFrozenModelsCreate(projectId, frozenModelCreate=frozenModelCreate)
@@ -1078,7 +1095,7 @@ result <- api.instance$ProjectsModelJobsRetrieve(projectId, jobId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelAdvancedTuning <- ModelAdvancedTuning$new() # ModelAdvancedTuning |
+modelAdvancedTuning <- ModelAdvancedTuning$new() # ModelAdvancedTuning | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsAdvancedTuningCreate(projectId, modelId, modelAdvancedTuning=modelAdvancedTuning)
@@ -1118,7 +1135,7 @@ result <- api.instance$ProjectsModelsClusterNamesList(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-clusterNamesUpdateParam <- ClusterNamesUpdateParam$new() # ClusterNamesUpdateParam |
+clusterNamesUpdateParam <- ClusterNamesUpdateParam$new() # ClusterNamesUpdateParam | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsClusterNamesPatchMany(projectId, modelId, clusterNamesUpdateParam=clusterNamesUpdateParam)
@@ -1131,7 +1148,7 @@ result <- api.instance$ProjectsModelsClusterNamesPatchMany(projectId, modelId, c
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-trainModel <- TrainModel$new() # TrainModel |
+trainModel <- TrainModel$new() # TrainModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsCreate(projectId, trainModel=trainModel)
@@ -1145,7 +1162,7 @@ result <- api.instance$ProjectsModelsCreate(projectId, trainModel=trainModel)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsCrossValidationCreate(projectId, modelId, body=body)
@@ -1180,19 +1197,6 @@ result <- api.instance$ProjectsModelsDelete(projectId, modelId)
 }
 
 ## ------------------------------------------------
-## Method `ModelsApi$ProjectsModelsExportList`
-## ------------------------------------------------
-
-\dontrun{
-library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID
-modelId <- 'modelId_example' # character | The model ID
-
-api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsModelsExportList(projectId, modelId)
-}
-
-## ------------------------------------------------
 ## Method `ModelsApi$ProjectsModelsFeaturesList`
 ## ------------------------------------------------
 
@@ -1212,7 +1216,7 @@ result <- api.instance$ProjectsModelsFeaturesList(projectId, modelId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-retrainModel <- RetrainModel$new() # RetrainModel |
+retrainModel <- RetrainModel$new() # RetrainModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsFromModelCreate(projectId, retrainModel=retrainModel)
@@ -1283,7 +1287,7 @@ result <- api.instance$ProjectsModelsParametersList(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelUpdate <- ModelUpdate$new() # ModelUpdate |
+modelUpdate <- ModelUpdate$new() # ModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPatch(projectId, modelId, modelUpdate=modelUpdate)
@@ -1297,7 +1301,7 @@ result <- api.instance$ProjectsModelsPatch(projectId, modelId, modelUpdate=model
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to calculate prediction intervals for. Must be a time series project.
 modelId <- 'modelId_example' # character | The model to calculate prediction intervals for.
-predictionIntervalsCreate <- PredictionIntervalsCreate$new() # PredictionIntervalsCreate |
+predictionIntervalsCreate <- PredictionIntervalsCreate$new() # PredictionIntervalsCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPredictionIntervalsCreate(projectId, modelId, predictionIntervalsCreate=predictionIntervalsCreate)
@@ -1339,7 +1343,7 @@ result <- api.instance$ProjectsModelsPrimeInfoList(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project the model to approximate belongs to
 modelId <- 'modelId_example' # character | the model to approximate
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPrimeRulesetsCreate(projectId, modelId, body=body)
@@ -1405,7 +1409,7 @@ result <- api.instance$ProjectsModelsSupportedCapabilitiesList(projectId, modelI
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project the Prime model belongs to
-primeFileCreate <- PrimeFileCreate$new() # PrimeFileCreate |
+primeFileCreate <- PrimeFileCreate$new() # PrimeFileCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsPrimeFilesCreate(projectId, primeFileCreate=primeFileCreate)
@@ -1460,7 +1464,7 @@ result <- api.instance$ProjectsPrimeFilesRetrieve(projectId, primeFileId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project in which to create the model
-primeModelCreatePayload <- PrimeModelCreatePayload$new() # PrimeModelCreatePayload |
+primeModelCreatePayload <- PrimeModelCreatePayload$new() # PrimeModelCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsPrimeModelsCreate(projectId, primeModelCreatePayload=primeModelCreatePayload)
@@ -1500,7 +1504,7 @@ result <- api.instance$ProjectsPrimeModelsRetrieve(projectId, modelId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
-createRatingTableModel <- CreateRatingTableModel$new() # CreateRatingTableModel |
+createRatingTableModel <- CreateRatingTableModel$new() # CreateRatingTableModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsRatingTableModelsCreate(projectId, createRatingTableModel=createRatingTableModel)
@@ -1545,7 +1549,7 @@ result <- api.instance$ProjectsRatingTableModelsRetrieve(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 parentModelId <- 'parentModelId_example' # character | the parent model this rating table file was derived from
-ratingTableFile <- File.new('/path/to/file') # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
+ratingTableFile <- '/path/to/file.csv' # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
 ratingTableName <- 'ratingTableName_example' # character | the name of the new rating table to create
 
 api.instance <- ModelsApi$new()
@@ -1589,7 +1593,7 @@ result <- api.instance$ProjectsRatingTablesList(projectId, parentModelId=parentM
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 ratingTableId <- 'ratingTableId_example' # character | the rating table ID to retrieve the source file from
-ratingTableUpdate <- RatingTableUpdate$new() # RatingTableUpdate |
+ratingTableUpdate <- RatingTableUpdate$new() # RatingTableUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsRatingTablesPatch(projectId, ratingTableId, ratingTableUpdate=ratingTableUpdate)
@@ -1639,7 +1643,7 @@ result <- api.instance$ProjectsRecommendedModelsRecommendedModelList(projectId)
 \dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-segmentChampionModelUpdate <- SegmentChampionModelUpdate$new() # SegmentChampionModelUpdate |
+segmentChampionModelUpdate <- SegmentChampionModelUpdate$new() # SegmentChampionModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsSegmentChampionPutMany(projectId, segmentChampionModelUpdate=segmentChampionModelUpdate)
@@ -1655,132 +1659,132 @@ result <- api.instance$ProjectsSegmentChampionPutMany(projectId, segmentChampion
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ModelsApi$new()}}
-\item \href{#method-CustomInferenceImagesFeatureImpactCreate}{\code{ModelsApi$CustomInferenceImagesFeatureImpactCreate()}}
-\item \href{#method-CustomInferenceImagesFeatureImpactList}{\code{ModelsApi$CustomInferenceImagesFeatureImpactList()}}
-\item \href{#method-CustomModelDeploymentsList}{\code{ModelsApi$CustomModelDeploymentsList()}}
-\item \href{#method-CustomModelLimitsList}{\code{ModelsApi$CustomModelLimitsList()}}
-\item \href{#method-CustomModelTestsCreate}{\code{ModelsApi$CustomModelTestsCreate()}}
-\item \href{#method-CustomModelTestsDelete}{\code{ModelsApi$CustomModelTestsDelete()}}
-\item \href{#method-CustomModelTestsList}{\code{ModelsApi$CustomModelTestsList()}}
-\item \href{#method-CustomModelTestsLogList}{\code{ModelsApi$CustomModelTestsLogList()}}
-\item \href{#method-CustomModelTestsRetrieve}{\code{ModelsApi$CustomModelTestsRetrieve()}}
-\item \href{#method-CustomModelTestsTailList}{\code{ModelsApi$CustomModelTestsTailList()}}
-\item \href{#method-CustomModelsAccessControlList}{\code{ModelsApi$CustomModelsAccessControlList()}}
-\item \href{#method-CustomModelsAccessControlPatchMany}{\code{ModelsApi$CustomModelsAccessControlPatchMany()}}
-\item \href{#method-CustomModelsCreate}{\code{ModelsApi$CustomModelsCreate()}}
-\item \href{#method-CustomModelsDelete}{\code{ModelsApi$CustomModelsDelete()}}
-\item \href{#method-CustomModelsDownloadList}{\code{ModelsApi$CustomModelsDownloadList()}}
-\item \href{#method-CustomModelsFromCustomModelCreate}{\code{ModelsApi$CustomModelsFromCustomModelCreate()}}
-\item \href{#method-CustomModelsList}{\code{ModelsApi$CustomModelsList()}}
-\item \href{#method-CustomModelsPatch}{\code{ModelsApi$CustomModelsPatch()}}
-\item \href{#method-CustomModelsPredictionExplanationsInitializationCreate}{\code{ModelsApi$CustomModelsPredictionExplanationsInitializationCreate()}}
-\item \href{#method-CustomModelsRetrieve}{\code{ModelsApi$CustomModelsRetrieve()}}
-\item \href{#method-CustomModelsTrainingDataPatchMany}{\code{ModelsApi$CustomModelsTrainingDataPatchMany()}}
-\item \href{#method-CustomModelsVersionCreateFromLatest}{\code{ModelsApi$CustomModelsVersionCreateFromLatest()}}
-\item \href{#method-CustomModelsVersionsConversionsCreate}{\code{ModelsApi$CustomModelsVersionsConversionsCreate()}}
-\item \href{#method-CustomModelsVersionsConversionsDelete}{\code{ModelsApi$CustomModelsVersionsConversionsDelete()}}
-\item \href{#method-CustomModelsVersionsConversionsList}{\code{ModelsApi$CustomModelsVersionsConversionsList()}}
-\item \href{#method-CustomModelsVersionsConversionsRetrieve}{\code{ModelsApi$CustomModelsVersionsConversionsRetrieve()}}
-\item \href{#method-CustomModelsVersionsCreate}{\code{ModelsApi$CustomModelsVersionsCreate()}}
-\item \href{#method-CustomModelsVersionsDependencyBuildCreate}{\code{ModelsApi$CustomModelsVersionsDependencyBuildCreate()}}
-\item \href{#method-CustomModelsVersionsDependencyBuildDeleteMany}{\code{ModelsApi$CustomModelsVersionsDependencyBuildDeleteMany()}}
-\item \href{#method-CustomModelsVersionsDependencyBuildList}{\code{ModelsApi$CustomModelsVersionsDependencyBuildList()}}
-\item \href{#method-CustomModelsVersionsDependencyBuildLogList}{\code{ModelsApi$CustomModelsVersionsDependencyBuildLogList()}}
-\item \href{#method-CustomModelsVersionsDownloadList}{\code{ModelsApi$CustomModelsVersionsDownloadList()}}
-\item \href{#method-CustomModelsVersionsFeatureImpactCreate}{\code{ModelsApi$CustomModelsVersionsFeatureImpactCreate()}}
-\item \href{#method-CustomModelsVersionsFeatureImpactList}{\code{ModelsApi$CustomModelsVersionsFeatureImpactList()}}
-\item \href{#method-CustomModelsVersionsFromRepositoryCreate}{\code{ModelsApi$CustomModelsVersionsFromRepositoryCreate()}}
-\item \href{#method-CustomModelsVersionsFromRepositoryPatchMany}{\code{ModelsApi$CustomModelsVersionsFromRepositoryPatchMany()}}
-\item \href{#method-CustomModelsVersionsList}{\code{ModelsApi$CustomModelsVersionsList()}}
-\item \href{#method-CustomModelsVersionsPatch}{\code{ModelsApi$CustomModelsVersionsPatch()}}
-\item \href{#method-CustomModelsVersionsPredictionExplanationsInitializationCreate}{\code{ModelsApi$CustomModelsVersionsPredictionExplanationsInitializationCreate()}}
-\item \href{#method-CustomModelsVersionsRetrieve}{\code{ModelsApi$CustomModelsVersionsRetrieve()}}
-\item \href{#method-CustomTrainingBlueprintsCreate}{\code{ModelsApi$CustomTrainingBlueprintsCreate()}}
-\item \href{#method-CustomTrainingBlueprintsList}{\code{ModelsApi$CustomTrainingBlueprintsList()}}
-\item \href{#method-ModelExportsCreate}{\code{ModelsApi$ModelExportsCreate()}}
-\item \href{#method-ModelPackagesArchiveCreate}{\code{ModelsApi$ModelPackagesArchiveCreate()}}
-\item \href{#method-ModelPackagesFeaturesList}{\code{ModelsApi$ModelPackagesFeaturesList()}}
-\item \href{#method-ModelPackagesFromLearningModelCreate}{\code{ModelsApi$ModelPackagesFromLearningModelCreate()}}
-\item \href{#method-ModelPackagesList}{\code{ModelsApi$ModelPackagesList()}}
-\item \href{#method-ModelPackagesRetrieve}{\code{ModelsApi$ModelPackagesRetrieve()}}
-\item \href{#method-ModelPackagesSharedRolesList}{\code{ModelsApi$ModelPackagesSharedRolesList()}}
-\item \href{#method-ProjectsBlenderBuildersCreate}{\code{ModelsApi$ProjectsBlenderBuildersCreate()}}
-\item \href{#method-ProjectsBlenderBuildersList}{\code{ModelsApi$ProjectsBlenderBuildersList()}}
-\item \href{#method-ProjectsBlenderBuildersRetrieve}{\code{ModelsApi$ProjectsBlenderBuildersRetrieve()}}
-\item \href{#method-ProjectsBlenderModelsBlendCheckCreate}{\code{ModelsApi$ProjectsBlenderModelsBlendCheckCreate()}}
-\item \href{#method-ProjectsBlenderModelsCreate}{\code{ModelsApi$ProjectsBlenderModelsCreate()}}
-\item \href{#method-ProjectsBlenderModelsList}{\code{ModelsApi$ProjectsBlenderModelsList()}}
-\item \href{#method-ProjectsBlenderModelsRetrieve}{\code{ModelsApi$ProjectsBlenderModelsRetrieve()}}
-\item \href{#method-ProjectsCombinedModelsList}{\code{ModelsApi$ProjectsCombinedModelsList()}}
-\item \href{#method-ProjectsCombinedModelsRetrieve}{\code{ModelsApi$ProjectsCombinedModelsRetrieve()}}
-\item \href{#method-ProjectsCombinedModelsSegmentsDownloadList}{\code{ModelsApi$ProjectsCombinedModelsSegmentsDownloadList()}}
-\item \href{#method-ProjectsCombinedModelsSegmentsList}{\code{ModelsApi$ProjectsCombinedModelsSegmentsList()}}
-\item \href{#method-ProjectsDatetimeModelsBacktestsCreate}{\code{ModelsApi$ProjectsDatetimeModelsBacktestsCreate()}}
-\item \href{#method-ProjectsDatetimeModelsCreate}{\code{ModelsApi$ProjectsDatetimeModelsCreate()}}
-\item \href{#method-ProjectsDatetimeModelsFromModelCreate}{\code{ModelsApi$ProjectsDatetimeModelsFromModelCreate()}}
-\item \href{#method-ProjectsDatetimeModelsList}{\code{ModelsApi$ProjectsDatetimeModelsList()}}
-\item \href{#method-ProjectsDatetimeModelsRetrieve}{\code{ModelsApi$ProjectsDatetimeModelsRetrieve()}}
-\item \href{#method-ProjectsDeploymentReadyModelsCreate}{\code{ModelsApi$ProjectsDeploymentReadyModelsCreate()}}
-\item \href{#method-ProjectsEureqaDistributionPlotRetrieve}{\code{ModelsApi$ProjectsEureqaDistributionPlotRetrieve()}}
-\item \href{#method-ProjectsEureqaModelDetailRetrieve}{\code{ModelsApi$ProjectsEureqaModelDetailRetrieve()}}
-\item \href{#method-ProjectsEureqaModelsCreate}{\code{ModelsApi$ProjectsEureqaModelsCreate()}}
-\item \href{#method-ProjectsEureqaModelsRetrieve}{\code{ModelsApi$ProjectsEureqaModelsRetrieve()}}
-\item \href{#method-ProjectsFrozenDatetimeModelsCreate}{\code{ModelsApi$ProjectsFrozenDatetimeModelsCreate()}}
-\item \href{#method-ProjectsFrozenModelsCreate}{\code{ModelsApi$ProjectsFrozenModelsCreate()}}
-\item \href{#method-ProjectsFrozenModelsList}{\code{ModelsApi$ProjectsFrozenModelsList()}}
-\item \href{#method-ProjectsFrozenModelsRetrieve}{\code{ModelsApi$ProjectsFrozenModelsRetrieve()}}
-\item \href{#method-ProjectsModelJobsDelete}{\code{ModelsApi$ProjectsModelJobsDelete()}}
-\item \href{#method-ProjectsModelJobsList}{\code{ModelsApi$ProjectsModelJobsList()}}
-\item \href{#method-ProjectsModelJobsRetrieve}{\code{ModelsApi$ProjectsModelJobsRetrieve()}}
-\item \href{#method-ProjectsModelsAdvancedTuningCreate}{\code{ModelsApi$ProjectsModelsAdvancedTuningCreate()}}
-\item \href{#method-ProjectsModelsAdvancedTuningParametersList}{\code{ModelsApi$ProjectsModelsAdvancedTuningParametersList()}}
-\item \href{#method-ProjectsModelsClusterNamesList}{\code{ModelsApi$ProjectsModelsClusterNamesList()}}
-\item \href{#method-ProjectsModelsClusterNamesPatchMany}{\code{ModelsApi$ProjectsModelsClusterNamesPatchMany()}}
-\item \href{#method-ProjectsModelsCreate}{\code{ModelsApi$ProjectsModelsCreate()}}
-\item \href{#method-ProjectsModelsCrossValidationCreate}{\code{ModelsApi$ProjectsModelsCrossValidationCreate()}}
-\item \href{#method-ProjectsModelsCrossValidationScoresList}{\code{ModelsApi$ProjectsModelsCrossValidationScoresList()}}
-\item \href{#method-ProjectsModelsDelete}{\code{ModelsApi$ProjectsModelsDelete()}}
-\item \href{#method-ProjectsModelsExportList}{\code{ModelsApi$ProjectsModelsExportList()}}
-\item \href{#method-ProjectsModelsFeaturesList}{\code{ModelsApi$ProjectsModelsFeaturesList()}}
-\item \href{#method-ProjectsModelsFromModelCreate}{\code{ModelsApi$ProjectsModelsFromModelCreate()}}
-\item \href{#method-ProjectsModelsList}{\code{ModelsApi$ProjectsModelsList()}}
-\item \href{#method-ProjectsModelsMissingReportList}{\code{ModelsApi$ProjectsModelsMissingReportList()}}
-\item \href{#method-ProjectsModelsNumIterationsTrainedList}{\code{ModelsApi$ProjectsModelsNumIterationsTrainedList()}}
-\item \href{#method-ProjectsModelsParametersList}{\code{ModelsApi$ProjectsModelsParametersList()}}
-\item \href{#method-ProjectsModelsPatch}{\code{ModelsApi$ProjectsModelsPatch()}}
-\item \href{#method-ProjectsModelsPredictionIntervalsCreate}{\code{ModelsApi$ProjectsModelsPredictionIntervalsCreate()}}
-\item \href{#method-ProjectsModelsPredictionIntervalsList}{\code{ModelsApi$ProjectsModelsPredictionIntervalsList()}}
-\item \href{#method-ProjectsModelsPrimeInfoList}{\code{ModelsApi$ProjectsModelsPrimeInfoList()}}
-\item \href{#method-ProjectsModelsPrimeRulesetsCreate}{\code{ModelsApi$ProjectsModelsPrimeRulesetsCreate()}}
-\item \href{#method-ProjectsModelsPrimeRulesetsList}{\code{ModelsApi$ProjectsModelsPrimeRulesetsList()}}
-\item \href{#method-ProjectsModelsRetrieve}{\code{ModelsApi$ProjectsModelsRetrieve()}}
-\item \href{#method-ProjectsModelsScoringCodeList}{\code{ModelsApi$ProjectsModelsScoringCodeList()}}
-\item \href{#method-ProjectsModelsSupportedCapabilitiesList}{\code{ModelsApi$ProjectsModelsSupportedCapabilitiesList()}}
-\item \href{#method-ProjectsPrimeFilesCreate}{\code{ModelsApi$ProjectsPrimeFilesCreate()}}
-\item \href{#method-ProjectsPrimeFilesDownloadList}{\code{ModelsApi$ProjectsPrimeFilesDownloadList()}}
-\item \href{#method-ProjectsPrimeFilesList}{\code{ModelsApi$ProjectsPrimeFilesList()}}
-\item \href{#method-ProjectsPrimeFilesRetrieve}{\code{ModelsApi$ProjectsPrimeFilesRetrieve()}}
-\item \href{#method-ProjectsPrimeModelsCreate}{\code{ModelsApi$ProjectsPrimeModelsCreate()}}
-\item \href{#method-ProjectsPrimeModelsList}{\code{ModelsApi$ProjectsPrimeModelsList()}}
-\item \href{#method-ProjectsPrimeModelsRetrieve}{\code{ModelsApi$ProjectsPrimeModelsRetrieve()}}
-\item \href{#method-ProjectsRatingTableModelsCreate}{\code{ModelsApi$ProjectsRatingTableModelsCreate()}}
-\item \href{#method-ProjectsRatingTableModelsList}{\code{ModelsApi$ProjectsRatingTableModelsList()}}
-\item \href{#method-ProjectsRatingTableModelsRetrieve}{\code{ModelsApi$ProjectsRatingTableModelsRetrieve()}}
-\item \href{#method-ProjectsRatingTablesCreate}{\code{ModelsApi$ProjectsRatingTablesCreate()}}
-\item \href{#method-ProjectsRatingTablesFileList}{\code{ModelsApi$ProjectsRatingTablesFileList()}}
-\item \href{#method-ProjectsRatingTablesList}{\code{ModelsApi$ProjectsRatingTablesList()}}
-\item \href{#method-ProjectsRatingTablesPatch}{\code{ModelsApi$ProjectsRatingTablesPatch()}}
-\item \href{#method-ProjectsRatingTablesRetrieve}{\code{ModelsApi$ProjectsRatingTablesRetrieve()}}
-\item \href{#method-ProjectsRecommendedModelsList}{\code{ModelsApi$ProjectsRecommendedModelsList()}}
-\item \href{#method-ProjectsRecommendedModelsRecommendedModelList}{\code{ModelsApi$ProjectsRecommendedModelsRecommendedModelList()}}
-\item \href{#method-ProjectsSegmentChampionPutMany}{\code{ModelsApi$ProjectsSegmentChampionPutMany()}}
-\item \href{#method-clone}{\code{ModelsApi$clone()}}
+\item \href{#method-ModelsApi-new}{\code{ModelsApi$new()}}
+\item \href{#method-ModelsApi-CustomInferenceImagesFeatureImpactCreate}{\code{ModelsApi$CustomInferenceImagesFeatureImpactCreate()}}
+\item \href{#method-ModelsApi-CustomInferenceImagesFeatureImpactList}{\code{ModelsApi$CustomInferenceImagesFeatureImpactList()}}
+\item \href{#method-ModelsApi-CustomModelDeploymentsList}{\code{ModelsApi$CustomModelDeploymentsList()}}
+\item \href{#method-ModelsApi-CustomModelLimitsList}{\code{ModelsApi$CustomModelLimitsList()}}
+\item \href{#method-ModelsApi-CustomModelTestsCreate}{\code{ModelsApi$CustomModelTestsCreate()}}
+\item \href{#method-ModelsApi-CustomModelTestsDelete}{\code{ModelsApi$CustomModelTestsDelete()}}
+\item \href{#method-ModelsApi-CustomModelTestsList}{\code{ModelsApi$CustomModelTestsList()}}
+\item \href{#method-ModelsApi-CustomModelTestsLogList}{\code{ModelsApi$CustomModelTestsLogList()}}
+\item \href{#method-ModelsApi-CustomModelTestsRetrieve}{\code{ModelsApi$CustomModelTestsRetrieve()}}
+\item \href{#method-ModelsApi-CustomModelTestsTailList}{\code{ModelsApi$CustomModelTestsTailList()}}
+\item \href{#method-ModelsApi-CustomModelsAccessControlList}{\code{ModelsApi$CustomModelsAccessControlList()}}
+\item \href{#method-ModelsApi-CustomModelsAccessControlPatchMany}{\code{ModelsApi$CustomModelsAccessControlPatchMany()}}
+\item \href{#method-ModelsApi-CustomModelsCreate}{\code{ModelsApi$CustomModelsCreate()}}
+\item \href{#method-ModelsApi-CustomModelsDelete}{\code{ModelsApi$CustomModelsDelete()}}
+\item \href{#method-ModelsApi-CustomModelsDownloadList}{\code{ModelsApi$CustomModelsDownloadList()}}
+\item \href{#method-ModelsApi-CustomModelsFromCustomModelCreate}{\code{ModelsApi$CustomModelsFromCustomModelCreate()}}
+\item \href{#method-ModelsApi-CustomModelsList}{\code{ModelsApi$CustomModelsList()}}
+\item \href{#method-ModelsApi-CustomModelsPatch}{\code{ModelsApi$CustomModelsPatch()}}
+\item \href{#method-ModelsApi-CustomModelsPredictionExplanationsInitializationCreate}{\code{ModelsApi$CustomModelsPredictionExplanationsInitializationCreate()}}
+\item \href{#method-ModelsApi-CustomModelsRetrieve}{\code{ModelsApi$CustomModelsRetrieve()}}
+\item \href{#method-ModelsApi-CustomModelsTrainingDataPatchMany}{\code{ModelsApi$CustomModelsTrainingDataPatchMany()}}
+\item \href{#method-ModelsApi-CustomModelsVersionCreateFromLatest}{\code{ModelsApi$CustomModelsVersionCreateFromLatest()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsConversionsCreate}{\code{ModelsApi$CustomModelsVersionsConversionsCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsConversionsDelete}{\code{ModelsApi$CustomModelsVersionsConversionsDelete()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsConversionsList}{\code{ModelsApi$CustomModelsVersionsConversionsList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsConversionsRetrieve}{\code{ModelsApi$CustomModelsVersionsConversionsRetrieve()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsCreate}{\code{ModelsApi$CustomModelsVersionsCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsDependencyBuildCreate}{\code{ModelsApi$CustomModelsVersionsDependencyBuildCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsDependencyBuildDeleteMany}{\code{ModelsApi$CustomModelsVersionsDependencyBuildDeleteMany()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsDependencyBuildList}{\code{ModelsApi$CustomModelsVersionsDependencyBuildList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsDependencyBuildLogList}{\code{ModelsApi$CustomModelsVersionsDependencyBuildLogList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsDownloadList}{\code{ModelsApi$CustomModelsVersionsDownloadList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsFeatureImpactCreate}{\code{ModelsApi$CustomModelsVersionsFeatureImpactCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsFeatureImpactList}{\code{ModelsApi$CustomModelsVersionsFeatureImpactList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsFromRepositoryCreate}{\code{ModelsApi$CustomModelsVersionsFromRepositoryCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsFromRepositoryPatchMany}{\code{ModelsApi$CustomModelsVersionsFromRepositoryPatchMany()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsList}{\code{ModelsApi$CustomModelsVersionsList()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsPatch}{\code{ModelsApi$CustomModelsVersionsPatch()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsPredictionExplanationsInitializationCreate}{\code{ModelsApi$CustomModelsVersionsPredictionExplanationsInitializationCreate()}}
+\item \href{#method-ModelsApi-CustomModelsVersionsRetrieve}{\code{ModelsApi$CustomModelsVersionsRetrieve()}}
+\item \href{#method-ModelsApi-CustomTrainingBlueprintsCreate}{\code{ModelsApi$CustomTrainingBlueprintsCreate()}}
+\item \href{#method-ModelsApi-CustomTrainingBlueprintsList}{\code{ModelsApi$CustomTrainingBlueprintsList()}}
+\item \href{#method-ModelsApi-ModelPackagesArchiveCreate}{\code{ModelsApi$ModelPackagesArchiveCreate()}}
+\item \href{#method-ModelsApi-ModelPackagesCapabilitiesList}{\code{ModelsApi$ModelPackagesCapabilitiesList()}}
+\item \href{#method-ModelsApi-ModelPackagesFeaturesList}{\code{ModelsApi$ModelPackagesFeaturesList()}}
+\item \href{#method-ModelsApi-ModelPackagesFromLearningModelCreate}{\code{ModelsApi$ModelPackagesFromLearningModelCreate()}}
+\item \href{#method-ModelsApi-ModelPackagesList}{\code{ModelsApi$ModelPackagesList()}}
+\item \href{#method-ModelsApi-ModelPackagesRetrieve}{\code{ModelsApi$ModelPackagesRetrieve()}}
+\item \href{#method-ModelsApi-ModelPackagesSharedRolesList}{\code{ModelsApi$ModelPackagesSharedRolesList()}}
+\item \href{#method-ModelsApi-ProjectsBiasMitigatedModelsCreate}{\code{ModelsApi$ProjectsBiasMitigatedModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsBiasMitigatedModelsList}{\code{ModelsApi$ProjectsBiasMitigatedModelsList()}}
+\item \href{#method-ModelsApi-ProjectsBiasMitigationFeatureInfoCreateOne}{\code{ModelsApi$ProjectsBiasMitigationFeatureInfoCreateOne()}}
+\item \href{#method-ModelsApi-ProjectsBiasMitigationFeatureInfoList}{\code{ModelsApi$ProjectsBiasMitigationFeatureInfoList()}}
+\item \href{#method-ModelsApi-ProjectsBlenderModelsBlendCheckCreate}{\code{ModelsApi$ProjectsBlenderModelsBlendCheckCreate()}}
+\item \href{#method-ModelsApi-ProjectsBlenderModelsCreate}{\code{ModelsApi$ProjectsBlenderModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsBlenderModelsList}{\code{ModelsApi$ProjectsBlenderModelsList()}}
+\item \href{#method-ModelsApi-ProjectsBlenderModelsRetrieve}{\code{ModelsApi$ProjectsBlenderModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsCombinedModelsList}{\code{ModelsApi$ProjectsCombinedModelsList()}}
+\item \href{#method-ModelsApi-ProjectsCombinedModelsRetrieve}{\code{ModelsApi$ProjectsCombinedModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsCombinedModelsSegmentsDownloadList}{\code{ModelsApi$ProjectsCombinedModelsSegmentsDownloadList()}}
+\item \href{#method-ModelsApi-ProjectsCombinedModelsSegmentsList}{\code{ModelsApi$ProjectsCombinedModelsSegmentsList()}}
+\item \href{#method-ModelsApi-ProjectsDatetimeModelsBacktestsCreate}{\code{ModelsApi$ProjectsDatetimeModelsBacktestsCreate()}}
+\item \href{#method-ModelsApi-ProjectsDatetimeModelsCreate}{\code{ModelsApi$ProjectsDatetimeModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsDatetimeModelsFromModelCreate}{\code{ModelsApi$ProjectsDatetimeModelsFromModelCreate()}}
+\item \href{#method-ModelsApi-ProjectsDatetimeModelsList}{\code{ModelsApi$ProjectsDatetimeModelsList()}}
+\item \href{#method-ModelsApi-ProjectsDatetimeModelsRetrieve}{\code{ModelsApi$ProjectsDatetimeModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsDeploymentReadyModelsCreate}{\code{ModelsApi$ProjectsDeploymentReadyModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsEureqaDistributionPlotRetrieve}{\code{ModelsApi$ProjectsEureqaDistributionPlotRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsEureqaModelDetailRetrieve}{\code{ModelsApi$ProjectsEureqaModelDetailRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsEureqaModelsCreate}{\code{ModelsApi$ProjectsEureqaModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsEureqaModelsRetrieve}{\code{ModelsApi$ProjectsEureqaModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsFrozenDatetimeModelsCreate}{\code{ModelsApi$ProjectsFrozenDatetimeModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsFrozenModelsCreate}{\code{ModelsApi$ProjectsFrozenModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsFrozenModelsList}{\code{ModelsApi$ProjectsFrozenModelsList()}}
+\item \href{#method-ModelsApi-ProjectsFrozenModelsRetrieve}{\code{ModelsApi$ProjectsFrozenModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsModelJobsDelete}{\code{ModelsApi$ProjectsModelJobsDelete()}}
+\item \href{#method-ModelsApi-ProjectsModelJobsList}{\code{ModelsApi$ProjectsModelJobsList()}}
+\item \href{#method-ModelsApi-ProjectsModelJobsRetrieve}{\code{ModelsApi$ProjectsModelJobsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsModelsAdvancedTuningCreate}{\code{ModelsApi$ProjectsModelsAdvancedTuningCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsAdvancedTuningParametersList}{\code{ModelsApi$ProjectsModelsAdvancedTuningParametersList()}}
+\item \href{#method-ModelsApi-ProjectsModelsClusterNamesList}{\code{ModelsApi$ProjectsModelsClusterNamesList()}}
+\item \href{#method-ModelsApi-ProjectsModelsClusterNamesPatchMany}{\code{ModelsApi$ProjectsModelsClusterNamesPatchMany()}}
+\item \href{#method-ModelsApi-ProjectsModelsCreate}{\code{ModelsApi$ProjectsModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsCrossValidationCreate}{\code{ModelsApi$ProjectsModelsCrossValidationCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsCrossValidationScoresList}{\code{ModelsApi$ProjectsModelsCrossValidationScoresList()}}
+\item \href{#method-ModelsApi-ProjectsModelsDelete}{\code{ModelsApi$ProjectsModelsDelete()}}
+\item \href{#method-ModelsApi-ProjectsModelsFeaturesList}{\code{ModelsApi$ProjectsModelsFeaturesList()}}
+\item \href{#method-ModelsApi-ProjectsModelsFromModelCreate}{\code{ModelsApi$ProjectsModelsFromModelCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsList}{\code{ModelsApi$ProjectsModelsList()}}
+\item \href{#method-ModelsApi-ProjectsModelsMissingReportList}{\code{ModelsApi$ProjectsModelsMissingReportList()}}
+\item \href{#method-ModelsApi-ProjectsModelsNumIterationsTrainedList}{\code{ModelsApi$ProjectsModelsNumIterationsTrainedList()}}
+\item \href{#method-ModelsApi-ProjectsModelsParametersList}{\code{ModelsApi$ProjectsModelsParametersList()}}
+\item \href{#method-ModelsApi-ProjectsModelsPatch}{\code{ModelsApi$ProjectsModelsPatch()}}
+\item \href{#method-ModelsApi-ProjectsModelsPredictionIntervalsCreate}{\code{ModelsApi$ProjectsModelsPredictionIntervalsCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsPredictionIntervalsList}{\code{ModelsApi$ProjectsModelsPredictionIntervalsList()}}
+\item \href{#method-ModelsApi-ProjectsModelsPrimeInfoList}{\code{ModelsApi$ProjectsModelsPrimeInfoList()}}
+\item \href{#method-ModelsApi-ProjectsModelsPrimeRulesetsCreate}{\code{ModelsApi$ProjectsModelsPrimeRulesetsCreate()}}
+\item \href{#method-ModelsApi-ProjectsModelsPrimeRulesetsList}{\code{ModelsApi$ProjectsModelsPrimeRulesetsList()}}
+\item \href{#method-ModelsApi-ProjectsModelsRetrieve}{\code{ModelsApi$ProjectsModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsModelsScoringCodeList}{\code{ModelsApi$ProjectsModelsScoringCodeList()}}
+\item \href{#method-ModelsApi-ProjectsModelsSupportedCapabilitiesList}{\code{ModelsApi$ProjectsModelsSupportedCapabilitiesList()}}
+\item \href{#method-ModelsApi-ProjectsPrimeFilesCreate}{\code{ModelsApi$ProjectsPrimeFilesCreate()}}
+\item \href{#method-ModelsApi-ProjectsPrimeFilesDownloadList}{\code{ModelsApi$ProjectsPrimeFilesDownloadList()}}
+\item \href{#method-ModelsApi-ProjectsPrimeFilesList}{\code{ModelsApi$ProjectsPrimeFilesList()}}
+\item \href{#method-ModelsApi-ProjectsPrimeFilesRetrieve}{\code{ModelsApi$ProjectsPrimeFilesRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsPrimeModelsCreate}{\code{ModelsApi$ProjectsPrimeModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsPrimeModelsList}{\code{ModelsApi$ProjectsPrimeModelsList()}}
+\item \href{#method-ModelsApi-ProjectsPrimeModelsRetrieve}{\code{ModelsApi$ProjectsPrimeModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsRatingTableModelsCreate}{\code{ModelsApi$ProjectsRatingTableModelsCreate()}}
+\item \href{#method-ModelsApi-ProjectsRatingTableModelsList}{\code{ModelsApi$ProjectsRatingTableModelsList()}}
+\item \href{#method-ModelsApi-ProjectsRatingTableModelsRetrieve}{\code{ModelsApi$ProjectsRatingTableModelsRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsRatingTablesCreate}{\code{ModelsApi$ProjectsRatingTablesCreate()}}
+\item \href{#method-ModelsApi-ProjectsRatingTablesFileList}{\code{ModelsApi$ProjectsRatingTablesFileList()}}
+\item \href{#method-ModelsApi-ProjectsRatingTablesList}{\code{ModelsApi$ProjectsRatingTablesList()}}
+\item \href{#method-ModelsApi-ProjectsRatingTablesPatch}{\code{ModelsApi$ProjectsRatingTablesPatch()}}
+\item \href{#method-ModelsApi-ProjectsRatingTablesRetrieve}{\code{ModelsApi$ProjectsRatingTablesRetrieve()}}
+\item \href{#method-ModelsApi-ProjectsRecommendedModelsList}{\code{ModelsApi$ProjectsRecommendedModelsList()}}
+\item \href{#method-ModelsApi-ProjectsRecommendedModelsRecommendedModelList}{\code{ModelsApi$ProjectsRecommendedModelsRecommendedModelList()}}
+\item \href{#method-ModelsApi-ProjectsSegmentChampionPutMany}{\code{ModelsApi$ProjectsSegmentChampionPutMany()}}
+\item \href{#method-ModelsApi-clone}{\code{ModelsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ModelsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1795,8 +1799,8 @@ result <- api.instance$ProjectsSegmentChampionPutMany(projectId, segmentChampion
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomInferenceImagesFeatureImpactCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomInferenceImagesFeatureImpactCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomInferenceImagesFeatureImpactCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomInferenceImagesFeatureImpactCreate}{}}}
 \subsection{Method \code{CustomInferenceImagesFeatureImpactCreate()}}{
 Create custom model feature impact.
 Produces: "application/json"
@@ -1820,7 +1824,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Add a request to calculate feature impact for a custom inference model image to             the queue.  .. minversion:: v2.23     DEPRECATED: please use version route instead:     :http:post:`/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/featureImpact/`  This route is a counterpart of a corresponding endpoint for native models: :http:post:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/`
+Add a request to calculate feature impact for a custom inference model image to the queue.  v2.23 DEPRECATED: please use version route instead: :<http:post>:/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/featureImpact/  This route is a counterpart of a corresponding endpoint for native models: :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/
+
+
+This method invokes \verb{POST /customInferenceImages/\{imageId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1846,7 +1853,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 imageId <- 'imageId_example' # character | ID of the image of the custom inference model to submit feature impact job for.
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomInferenceImagesFeatureImpactCreate(imageId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -1858,8 +1865,8 @@ result <- api.instance$CustomInferenceImagesFeatureImpactCreate(imageId, feature
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomInferenceImagesFeatureImpactList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomInferenceImagesFeatureImpactList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomInferenceImagesFeatureImpactList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomInferenceImagesFeatureImpactList}{}}}
 \subsection{Method \code{CustomInferenceImagesFeatureImpactList()}}{
 Get custom model feature impact.
 Produces: "application/json"
@@ -1877,7 +1884,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve feature impact scores for features in a custom inference model image.  .. minversion:: v2.23     DEPRECATED: please use version route instead:     :http:get:`/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/featureImpact/`  This route is a counterpart of a corresponding endpoint for native models: :http:get:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/`
+Retrieve feature impact scores for features in a custom inference model image.  v2.23 DEPRECATED: please use version route instead: :<http:get>:/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/featureImpact/  This route is a counterpart of a corresponding endpoint for native models: :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/
+
+
+This method invokes \verb{GET /customInferenceImages/\{imageId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -1913,8 +1923,8 @@ result <- api.instance$CustomInferenceImagesFeatureImpactList(imageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelDeploymentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelDeploymentsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelDeploymentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelDeploymentsList}{}}}
 \subsection{Method \code{CustomModelDeploymentsList()}}{
 List custom model deployments.
 Produces: "application/json"
@@ -1947,6 +1957,9 @@ Produces: "application/json"
 List of model deployments for user sorted by creation time descending.
 
 
+This method invokes \verb{GET /customModelDeployments/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} OK.
@@ -1967,8 +1980,8 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped.
 limit <- 100 # integer | At most this many results are returned.
-customModelIds <- OneOfstringarray$new() # OneOfstringarray | List of ID's of the custom model which model deployments will be retrieved.
-environmentIds <- OneOfstringarray$new() # OneOfstringarray | List of ID's of the execution environment which model deployments will be retrieved.
+customModelIds <- list(c('customModelIds_example')) # OneOfstringarray | List of ID's of the custom model which model deployments will be retrieved.
+environmentIds <- list(c('environmentIds_example')) # OneOfstringarray | List of ID's of the execution environment which model deployments will be retrieved.
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelDeploymentsList(offset, limit, customModelIds=customModelIds, environmentIds=environmentIds)
@@ -1980,8 +1993,8 @@ result <- api.instance$CustomModelDeploymentsList(offset, limit, customModelIds=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelLimitsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelLimitsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelLimitsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelLimitsList}{}}}
 \subsection{Method \code{CustomModelLimitsList()}}{
 Get custom model resource limits.
 Produces: "application/json"
@@ -1998,6 +2011,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve custom model resource limits the user has access to.
+
+
+This method invokes \verb{GET /customModelLimits/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2026,8 +2042,8 @@ result <- api.instance$CustomModelLimitsList()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsCreate}{}}}
 \subsection{Method \code{CustomModelTestsCreate()}}{
 Create custom model test.
 Produces: "application/json"
@@ -2046,6 +2062,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Test a custom inference model. This will start a job to check that the custom model can make predictions against the supplied dataset without breaking.
+
+
+This method invokes \verb{POST /customModelTests/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2073,7 +2092,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customModelTests <- CustomModelTests$new() # CustomModelTests |
+customModelTests <- CustomModelTests$new() # CustomModelTests | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelTestsCreate(customModelTests=customModelTests)
@@ -2085,8 +2104,8 @@ result <- api.instance$CustomModelTestsCreate(customModelTests=customModelTests)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsDelete}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsDelete}{}}}
 \subsection{Method \code{CustomModelTestsDelete()}}{
 Cancel custom model test.
 Produces: NA
@@ -2105,6 +2124,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel custom inference model testing.
+
+
+This method invokes \verb{DELETE /customModelTests/\{customModelTestId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2137,8 +2159,8 @@ result <- api.instance$CustomModelTestsDelete(customModelTestId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsList}{}}}
 \subsection{Method \code{CustomModelTestsList()}}{
 List custom model tests.
 Produces: "application/json"
@@ -2167,7 +2189,7 @@ Produces: "application/json"
 
 \item{\code{maximumMemory}}{integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed}
 
-\item{\code{networkEgressPolicy}}{Enum < \link{NONE, PUBLIC} > Network egress policy.}
+\item{\code{networkEgressPolicy}}{Enum < \link{NONE, DR_API_ACCESS, PUBLIC} > Network egress policy.}
 
 \item{\code{desiredMemory}}{integer. The amount of memory that is expected to be allocated by the custom model.}
 
@@ -2181,6 +2203,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the testing history for a model.
+
+
+This method invokes \verb{GET /customModelTests/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2217,8 +2242,8 @@ result <- api.instance$CustomModelTestsList(offset, limit, customModelId, maximu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsLogList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsLogList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsLogList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsLogList}{}}}
 \subsection{Method \code{CustomModelTestsLogList()}}{
 Get custom model test log.
 Produces: NA
@@ -2237,6 +2262,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve the logs from a model testing attempt.
+
+
+This method invokes \verb{GET /customModelTests/\{customModelTestId\}/log/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2267,8 +2295,8 @@ result <- api.instance$CustomModelTestsLogList(customModelTestId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsRetrieve}{}}}
 \subsection{Method \code{CustomModelTestsRetrieve()}}{
 Get custom model test.
 Produces: "application/json"
@@ -2287,6 +2315,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a specific testing history entry for a custom model.
+
+
+This method invokes \verb{GET /customModelTests/\{customModelTestId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2316,8 +2347,8 @@ result <- api.instance$CustomModelTestsRetrieve(customModelTestId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelTestsTailList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelTestsTailList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelTestsTailList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelTestsTailList}{}}}
 \subsection{Method \code{CustomModelTestsTailList()}}{
 Get custom model test log tail.
 Produces: "application/json"
@@ -2338,6 +2369,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the last N lines of logs from a model testing attempt.
+
+
+This method invokes \verb{GET /customModelTests/\{customModelTestId\}/tail/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2374,8 +2408,8 @@ result <- api.instance$CustomModelTestsTailList(lines, customModelTestId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsAccessControlList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsAccessControlList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsAccessControlList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsAccessControlList}{}}}
 \subsection{Method \code{CustomModelsAccessControlList()}}{
 Get a list of users who have access to this custom model and their roles on it.
 Produces: "application/json"
@@ -2398,6 +2432,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users who have access to this custom model and their roles on it.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/accessControl/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2432,8 +2469,8 @@ result <- api.instance$CustomModelsAccessControlList(offset, limit, customModelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsAccessControlPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsAccessControlPatchMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsAccessControlPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsAccessControlPatchMany}{}}}
 \subsection{Method \code{CustomModelsAccessControlPatchMany()}}{
 Grant access or update roles for users on this custom model and appropriate learning data.
 Produces: "application/json"
@@ -2460,6 +2497,9 @@ Produces: "application/json"
 Grant access or update roles for users on this custom model and appropriate learning data. Up to 100 user roles may be set in a single request.
 
 
+This method invokes \verb{PATCH /customModels/\{customModelId\}/accessControl/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} Roles updated successfully.
@@ -2482,7 +2522,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant |
+sharingUpdateOrRemoveWithGrant <- SharingUpdateOrRemoveWithGrant$new() # SharingUpdateOrRemoveWithGrant | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsAccessControlPatchMany(customModelId, sharingUpdateOrRemoveWithGrant=sharingUpdateOrRemoveWithGrant)
@@ -2494,8 +2534,8 @@ result <- api.instance$CustomModelsAccessControlPatchMany(customModelId, sharing
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsCreate}{}}}
 \subsection{Method \code{CustomModelsCreate()}}{
 Create custom model.
 Produces: "application/json"
@@ -2513,7 +2553,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Creates a new custom model and returns the newly created metadata record for it.  All custom models must support at least one target type (binaryClassification, regression). Custom inference models can only support a single target type.  A regression model is expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class.  For example, a binary classification model might return:  .. code:: Python      {         positiveClassLabel: probability,         negativeClassLabel: 1.0 - probability     }  For Custom Inference Models, the ``file`` parameter must be either a tarball or zip archive containing, at minimum, a script named ``start_server.sh``.  It may contain additional files, including scripts and precompiled binaries as well as data files.  ``start_server.sh`` may execute these scripts and/or binaries.  When this script is executed, it is run as part of an Environment (specified via subsequent API calls), and all included scripts and binaries can take advantage of any programming language interpreters, compilers, libraries, or other tools included in the Environment. ``start_server.sh`` must be marked as executable (``chmod +x``).  When ``start_server.sh`` is launched, it must launch and maintain (in the foreground) a Web server that listens on two URLs:  * ``GET $URL_PREFIX/``     This route must return a 200 response code with an empty body immediately     if the server is ready to respond to prediction requests.  Otherwise it should     either not accept the request, not respond to the request, or return a     503 response code. * ``POST $URL_PREFIX/predict_no_state/``     This route must accept as input a JSON object of the form:      .. code-block:: Python          {             'X': {                 'col1': \link{...col1_data...},                 'col2': \link{...col2_data...},                 'col3': \link{...col3_data...},                 ...             }         }      The data lists will all be the same length.      It must return a JSON object of the form:      .. code-block:: Python          {             'predictions': \link{...predictions data...}         }      The predictions data must correspond 1:1 to the rows in the input data lists.      ``$URL_PREFIX`` is provided as an environment variable.  The Web server process must     re-read its value every time the process starts, as it may change.     It is an opaque string that is guaranteed to be a valid URL component,     but may contain path separators (``/``).
+Creates a new custom model and returns the newly created metadata record for it.  All custom models must support at least one target type (binaryClassification, regression). Custom inference models can only support a single target type. A regression model is expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class. For example, a binary classification model might return:  ``` Python {     positiveClassLabel: probability,     negativeClassLabel: 1.0 - probability } ```  For Custom Inference Models, the `file` parameter must be either a tarball or zip archive containing, at minimum, a script named `start_server.sh`. It may contain additional files, including scripts and precompiled binaries as well as data files. `start_server.sh` may execute these scripts and/or binaries. When this script is executed, it is run as part of an Environment (specified via subsequent API calls), and all included scripts and binaries can take advantage of any programming language interpreters, compilers, libraries, or other tools included in the Environment. `start_server.sh` must be marked as executable (`chmod +x`).  When `start_server.sh` is launched, it must launch and maintain (in the foreground) a Web server that listens on two URLs:  - `GET $URL_PREFIX/`     This route must return a 200 response code with an empty body   immediately if the server is ready to respond to prediction requests.   Otherwise it should either not accept the request, not respond to the   request, or return a 503 response code.  - `POST $URL_PREFIX/predict_no_state/`     This route must accept as input a JSON object of the form:    ``` Python   {       'X': {           'col1': \link{...col1_data...},           'col2': \link{...col2_data...},           'col3': \link{...col3_data...},           ...       }   }   ```    The data lists will all be the same length.    It must return a JSON object of the form:    ``` Python   {       'predictions': \link{...predictions data...}   }   ```    The predictions data must correspond 1:1 to the rows in the input data   lists.    `$URL_PREFIX` is provided as an environment variable. The Web server   process must re-read its value every time the process starts, as it   may change. It is an opaque string that is guaranteed to be a valid   URL component, but may contain path separators (`/`).
+
+
+This method invokes \verb{POST /customModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2537,7 +2580,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customModelCreate <- CustomModelCreate$new() # CustomModelCreate |
+customModelCreate <- CustomModelCreate$new() # CustomModelCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsCreate(customModelCreate=customModelCreate)
@@ -2549,8 +2592,8 @@ result <- api.instance$CustomModelsCreate(customModelCreate=customModelCreate)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsDelete}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsDelete}{}}}
 \subsection{Method \code{CustomModelsDelete()}}{
 Delete custom model.
 Produces: NA
@@ -2569,6 +2612,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a custom model. Only users who have permission to edit custom model can delete it. Only custom models which are not currently deployed or undergoing custom model testing can be deleted. Relevant CustomModelImage will be deleted also.
+
+
+This method invokes \verb{DELETE /customModels/\{customModelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2598,8 +2644,8 @@ result <- api.instance$CustomModelsDelete(customModelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsDownloadList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsDownloadList}{}}}
 \subsection{Method \code{CustomModelsDownloadList()}}{
 Download the latest custom model version content.
 Produces: NA
@@ -2620,6 +2666,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download the latest item bundle from a custom model as a zip compressed archive.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2648,8 +2697,8 @@ result <- api.instance$CustomModelsDownloadList(customModelId, pps=pps)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsFromCustomModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsFromCustomModelCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsFromCustomModelCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsFromCustomModelCreate}{}}}
 \subsection{Method \code{CustomModelsFromCustomModelCreate()}}{
 Clone custom model.
 Produces: "application/json"
@@ -2670,6 +2719,9 @@ Produces: "application/json"
 Creates a copy of the provided custom model, including metadata, versions of that model, and uploaded files. Associates the new versions with files owned by the custom model.
 
 
+This method invokes \verb{POST /customModels/fromCustomModel/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Successfully created copy.
@@ -2685,7 +2737,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customModelCopy <- CustomModelCopy$new() # CustomModelCopy |
+customModelCopy <- CustomModelCopy$new() # CustomModelCopy | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsFromCustomModelCreate(customModelCopy=customModelCopy)
@@ -2697,8 +2749,8 @@ result <- api.instance$CustomModelsFromCustomModelCreate(customModelCopy=customM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsList}{}}}
 \subsection{Method \code{CustomModelsList()}}{
 List custom models.
 Produces: "application/json"
@@ -2737,6 +2789,9 @@ Produces: "application/json"
 Retrieve metadata for all custom models the user has access to.
 
 
+This method invokes \verb{GET /customModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} OK.
@@ -2769,8 +2824,8 @@ result <- api.instance$CustomModelsList(offset, limit, customModelType=customMod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsPatch}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsPatch}{}}}
 \subsection{Method \code{CustomModelsPatch()}}{
 Update custom model.
 Produces: "application/json"
@@ -2790,7 +2845,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Updates metadata for an existing custom model.  All custom models must support at least one target type (binaryClassification, regression). Custom inference models can only support a single target type.  Setting `positiveClassLabel` and `negativeClassLabel` to null will set the labels to their default values (1 and 0 for positiveClassLabel and negativeClassLabel, respectively).  Setting `positiveClassLabel`, `negativeClassLabel`, 'targetName` is disabled if model has active deployments or assigned training data.
+Updates metadata for an existing custom model.  All custom models must support at least one target type (binaryClassification, regression). Custom inference models can only support a single target type.  Setting positiveClassLabel and negativeClassLabel to null will set the labels to their default values (1 and 0 for positiveClassLabel and negativeClassLabel, respectively).  Setting positiveClassLabel, negativeClassLabel, 'targetName\\` is disabled if model has active deployments or assigned training data.
+
+
+This method invokes \verb{PATCH /customModels/\{customModelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2818,7 +2876,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelUpdate <- CustomModelUpdate$new() # CustomModelUpdate |
+customModelUpdate <- CustomModelUpdate$new() # CustomModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsPatch(customModelId, customModelUpdate=customModelUpdate)
@@ -2830,8 +2888,8 @@ result <- api.instance$CustomModelsPatch(customModelId, customModelUpdate=custom
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsPredictionExplanationsInitializationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsPredictionExplanationsInitializationCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsPredictionExplanationsInitializationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsPredictionExplanationsInitializationCreate}{}}}
 \subsection{Method \code{CustomModelsPredictionExplanationsInitializationCreate()}}{
 Create a new prediction explanations initialization for custom model.
 Produces: NA
@@ -2852,7 +2910,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a new prediction explanations initialization for custom model. This is a necessary prerequisite for generating prediction explanations.  .. minversion:: v2.23     DEPRECATED please use custom model version route instead:     :http:post:`/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/predictionExplanationsInitialization/`
+Create a new prediction explanations initialization for custom model. This is a necessary prerequisite for generating prediction explanations.  v2.23 DEPRECATED please use custom model version route instead: :<http:post>:/api/v2/customModels/(customModelId)/versions/(customModelVersionId)/predictionExplanationsInitialization/
+
+
+This method invokes \verb{POST /customModels/predictionExplanationsInitialization/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2871,7 +2932,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customModelPredictionExplanations <- CustomModelPredictionExplanations$new() # CustomModelPredictionExplanations |
+customModelPredictionExplanations <- CustomModelPredictionExplanations$new() # CustomModelPredictionExplanations | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsPredictionExplanationsInitializationCreate(customModelPredictionExplanations=customModelPredictionExplanations)
@@ -2883,8 +2944,8 @@ result <- api.instance$CustomModelsPredictionExplanationsInitializationCreate(cu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsRetrieve}{}}}
 \subsection{Method \code{CustomModelsRetrieve()}}{
 Get custom model.
 Produces: "application/json"
@@ -2903,6 +2964,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve metadata for a custom model.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2932,15 +2996,15 @@ result <- api.instance$CustomModelsRetrieve(customModelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsTrainingDataPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsTrainingDataPatchMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsTrainingDataPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsTrainingDataPatchMany}{}}}
 \subsection{Method \code{CustomModelsTrainingDataPatchMany()}}{
 Assign training data to custom model.
 Produces: NA
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ModelsApi$CustomModelsTrainingDataPatchMany(
   customModelId,
-  trainingDataAssignment = NULL,
+  deprecatedTrainingDataAssignment = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -2950,7 +3014,7 @@ Produces: NA
 \describe{
 \item{\code{customModelId}}{character. ID of the custom model.}
 
-\item{\code{trainingDataAssignment}}{\link{TrainingDataAssignment}.}
+\item{\code{deprecatedTrainingDataAssignment}}{\link{DeprecatedTrainingDataAssignment}.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -2958,6 +3022,9 @@ Produces: NA
 }
 \subsection{Details}{
 Assigns training data from provided dataset to provided Custom Inference Model. For each of custom model's deployments the training data from the specified project is used as baseline, this will enable turning drift tracking on for those deployments.
+
+
+This method invokes \verb{PATCH /customModels/\{customModelId\}/trainingData/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -2983,10 +3050,10 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-trainingDataAssignment <- TrainingDataAssignment$new() # TrainingDataAssignment |
+deprecatedTrainingDataAssignment <- DeprecatedTrainingDataAssignment$new() # DeprecatedTrainingDataAssignment | 
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsTrainingDataPatchMany(customModelId, trainingDataAssignment=trainingDataAssignment)
+result <- api.instance$CustomModelsTrainingDataPatchMany(customModelId, deprecatedTrainingDataAssignment=deprecatedTrainingDataAssignment)
 }
 }
 \if{html}{\out{</div>}}
@@ -2995,8 +3062,8 @@ result <- api.instance$CustomModelsTrainingDataPatchMany(customModelId, training
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionCreateFromLatest"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionCreateFromLatest}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionCreateFromLatest"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionCreateFromLatest}{}}}
 \subsection{Method \code{CustomModelsVersionCreateFromLatest()}}{
 Update custom model version files.
 Produces: "application/json"
@@ -3038,7 +3105,7 @@ Produces: "application/json"
 
 \item{\code{maximumMemory}}{integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed}
 
-\item{\code{networkEgressPolicy}}{Enum < \link{NONE, PUBLIC} > Network egress policy.}
+\item{\code{networkEgressPolicy}}{Enum < \link{NONE, DR_API_ACCESS, PUBLIC} > Network egress policy.}
 
 \item{\code{replicas}}{integer. A fixed number of replicas that will be set for the given custom-model.}
 
@@ -3054,6 +3121,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a new custom model version with files added, replaced or deleted. Files from the previous version of a custom models will be used as a basis.
+
+
+This method invokes \verb{PATCH /customModels/\{customModelId\}/versions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3081,9 +3151,9 @@ customModelId <- 'customModelId_example' # character | ID of the custom model.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
-filesToDelete <- oneOf<string,array>$new() # OneOfstringarray | The IDs of the files to be deleted.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
 replicas <- 56 # integer | A fixed number of replicas that will be set for the given custom-model.
@@ -3101,8 +3171,8 @@ result <- api.instance$CustomModelsVersionCreateFromLatest(customModelId, baseEn
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsConversionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsConversionsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsConversionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsConversionsCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsConversionsCreate()}}{
 Generates JAR file from particular files.
 Produces: "application/json"
@@ -3132,6 +3202,9 @@ Produces: "application/json"
 Converts files in the given custom model version to a JAR file.
 
 
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/\{customModelVersionId\}/conversions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} The request was accepted and will be worked on.
@@ -3152,7 +3225,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-conversionCreateQuery <- ConversionCreateQuery$new() # ConversionCreateQuery |
+conversionCreateQuery <- ConversionCreateQuery$new() # ConversionCreateQuery | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsConversionsCreate(customModelId, customModelVersionId, conversionCreateQuery=conversionCreateQuery)
@@ -3164,8 +3237,8 @@ result <- api.instance$CustomModelsVersionsConversionsCreate(customModelId, cust
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsConversionsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsConversionsDelete}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsConversionsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsConversionsDelete}{}}}
 \subsection{Method \code{CustomModelsVersionsConversionsDelete()}}{
 Stop a given custom model conversion.
 Produces: NA
@@ -3193,6 +3266,9 @@ Produces: NA
 }
 \subsection{Details}{
 Stop a running conversion for given model and model version.
+
+
+This method invokes \verb{DELETE /customModels/\{customModelId\}/versions/\{customModelVersionId\}/conversions/\{conversionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3224,8 +3300,8 @@ result <- api.instance$CustomModelsVersionsConversionsDelete(customModelId, cust
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsConversionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsConversionsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsConversionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsConversionsList}{}}}
 \subsection{Method \code{CustomModelsVersionsConversionsList()}}{
 Get a list or latest custom model conversion(s).
 Produces: "application/json"
@@ -3261,6 +3337,9 @@ Produces: "application/json"
 Get the list of custom model conversions that are associated with the given custom model. Alternatively, it can return a single item list of the latest custom model conversion that is associated with the given custom model version.
 
 
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/conversions/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -3292,8 +3371,8 @@ result <- api.instance$CustomModelsVersionsConversionsList(offset, limit, custom
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsConversionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsConversionsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsConversionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsConversionsRetrieve}{}}}
 \subsection{Method \code{CustomModelsVersionsConversionsRetrieve()}}{
 Get a given custom model conversion.
 Produces: "application/json"
@@ -3321,6 +3400,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a given custom model conversion.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/conversions/\{conversionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3352,8 +3434,8 @@ result <- api.instance$CustomModelsVersionsConversionsRetrieve(customModelId, cu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsCreate()}}{
 Create custom model version.
 Produces: "application/json"
@@ -3362,6 +3444,7 @@ Produces: "application/json"
   customModelId,
   isMajorUpdate,
   baseEnvironmentId = NULL,
+  baseEnvironmentVersionId = NULL,
   desiredMemory = NULL,
   file = NULL,
   filePath = NULL,
@@ -3384,6 +3467,8 @@ Produces: "application/json"
 
 \item{\code{baseEnvironmentId}}{character. The base environment to use with this model version.}
 
+\item{\code{baseEnvironmentVersionId}}{character. The base environment version ID to use with this model version.Can be set only by user with correct permissions.}
+
 \item{\code{desiredMemory}}{integer. The amount of memory that is expected to be allocated by the custom model.}
 
 \item{\code{file}}{data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would \emph{also} need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.}
@@ -3392,7 +3477,7 @@ Produces: "application/json"
 
 \item{\code{maximumMemory}}{integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed}
 
-\item{\code{networkEgressPolicy}}{Enum < \link{NONE, PUBLIC} > Network egress policy.}
+\item{\code{networkEgressPolicy}}{Enum < \link{NONE, DR_API_ACCESS, PUBLIC} > Network egress policy.}
 
 \item{\code{replicas}}{integer. A fixed number of replicas that will be set for the given custom-model.}
 
@@ -3408,6 +3493,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Create a new custom model version with attached files if supplied.
+
+
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3434,9 +3522,10 @@ library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
+baseEnvironmentVersionId <- 'baseEnvironmentVersionId_example' # character | The base environment version ID to use with this model version.Can be set only by user with correct permissions.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- File.new('/path/to/file') # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
-filePath <- oneOf<string,array>$new() # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
+file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
 replicas <- 56 # integer | A fixed number of replicas that will be set for the given custom-model.
@@ -3445,7 +3534,7 @@ requiredMetadataValues <- 'requiredMetadataValues_example' # character | Additio
 requiresHa <- 'requiresHa_example' # character | Require all custom model replicas to be deployed on different Kubernetes nodes for predictions fault tolerance.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsVersionsCreate(customModelId, isMajorUpdate, baseEnvironmentId=baseEnvironmentId, desiredMemory=desiredMemory, file=file, filePath=filePath, maximumMemory=maximumMemory, networkEgressPolicy=networkEgressPolicy, replicas=replicas, requiredMetadata=requiredMetadata, requiredMetadataValues=requiredMetadataValues, requiresHa=requiresHa)
+result <- api.instance$CustomModelsVersionsCreate(customModelId, isMajorUpdate, baseEnvironmentId=baseEnvironmentId, baseEnvironmentVersionId=baseEnvironmentVersionId, desiredMemory=desiredMemory, file=file, filePath=filePath, maximumMemory=maximumMemory, networkEgressPolicy=networkEgressPolicy, replicas=replicas, requiredMetadata=requiredMetadata, requiredMetadataValues=requiredMetadataValues, requiresHa=requiresHa)
 }
 }
 \if{html}{\out{</div>}}
@@ -3454,8 +3543,8 @@ result <- api.instance$CustomModelsVersionsCreate(customModelId, isMajorUpdate, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsDependencyBuildCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsDependencyBuildCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsDependencyBuildCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsDependencyBuildCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsDependencyBuildCreate()}}{
 Start a custom model version's dependency build.
 Produces: "application/json"
@@ -3480,6 +3569,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Start a custom model version's dependency build. This is required to test, deploy, or train custom models.
+
+
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/\{customModelVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3513,8 +3605,8 @@ result <- api.instance$CustomModelsVersionsDependencyBuildCreate(customModelId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsDependencyBuildDeleteMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsDependencyBuildDeleteMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsDependencyBuildDeleteMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsDependencyBuildDeleteMany}{}}}
 \subsection{Method \code{CustomModelsVersionsDependencyBuildDeleteMany()}}{
 Cancel dependency build.
 Produces: NA
@@ -3539,6 +3631,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel the custom model version's dependency build.
+
+
+This method invokes \verb{DELETE /customModels/\{customModelId\}/versions/\{customModelVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3572,8 +3667,8 @@ result <- api.instance$CustomModelsVersionsDependencyBuildDeleteMany(customModel
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsDependencyBuildList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsDependencyBuildList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsDependencyBuildList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsDependencyBuildList}{}}}
 \subsection{Method \code{CustomModelsVersionsDependencyBuildList()}}{
 Retrieve the custom model version's dependency build status.
 Produces: "application/json"
@@ -3598,6 +3693,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the custom model version's dependency build status.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/dependencyBuild/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3631,8 +3729,8 @@ result <- api.instance$CustomModelsVersionsDependencyBuildList(customModelId, cu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsDependencyBuildLogList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsDependencyBuildLogList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsDependencyBuildLogList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsDependencyBuildLogList}{}}}
 \subsection{Method \code{CustomModelsVersionsDependencyBuildLogList()}}{
 Retrieve the custom model version's dependency build log.
 Produces: "application/json"
@@ -3657,6 +3755,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the custom model version's dependency build log.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/dependencyBuildLog/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3693,8 +3794,8 @@ result <- api.instance$CustomModelsVersionsDependencyBuildLogList(customModelId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsDownloadList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsDownloadList}{}}}
 \subsection{Method \code{CustomModelsVersionsDownloadList()}}{
 Download custom model version content.
 Produces: NA
@@ -3724,6 +3825,9 @@ Produces: NA
 Download a specific item bundle from a custom model as a zip compressed archive.
 
 
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/download/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The download succeeded.
@@ -3751,8 +3855,8 @@ result <- api.instance$CustomModelsVersionsDownloadList(customModelId, customMod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsFeatureImpactCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsFeatureImpactCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsFeatureImpactCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsFeatureImpactCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsFeatureImpactCreate()}}{
 Create custom model feature impact.
 Produces: "application/json"
@@ -3779,7 +3883,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Add a request to calculate feature impact for a custom inference model image to             the queue.  This route is a counterpart of a corresponding endpoint for native models: :http:post:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/`
+Add a request to calculate feature impact for a custom inference model image to the queue.  This route is a counterpart of a corresponding endpoint for native models: :<http:post>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/
+
+
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/\{customModelVersionId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3806,7 +3913,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload |
+featureImpactCreatePayload <- FeatureImpactCreatePayload$new() # FeatureImpactCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFeatureImpactCreate(customModelId, customModelVersionId, featureImpactCreatePayload=featureImpactCreatePayload)
@@ -3818,8 +3925,8 @@ result <- api.instance$CustomModelsVersionsFeatureImpactCreate(customModelId, cu
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsFeatureImpactList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsFeatureImpactList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsFeatureImpactList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsFeatureImpactList}{}}}
 \subsection{Method \code{CustomModelsVersionsFeatureImpactList()}}{
 Get custom model feature impact.
 Produces: "application/json"
@@ -3843,7 +3950,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve feature impact scores for features in a custom inference model image.   This route is a counterpart of a corresponding endpoint for native models: :http:get:`/api/v2/projects/(projectId)/models/(modelId)/featureImpact/`
+Retrieve feature impact scores for features in a custom inference model image.  This route is a counterpart of a corresponding endpoint for native models: :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/featureImpact/
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/featureImpact/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -3880,8 +3990,8 @@ result <- api.instance$CustomModelsVersionsFeatureImpactList(customModelId, cust
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsFromRepositoryCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsFromRepositoryCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsFromRepositoryCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsFromRepositoryCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsFromRepositoryCreate()}}{
 Create custom model version from remote repository.
 Produces: NA
@@ -3908,6 +4018,9 @@ Produces: NA
 Create a new custom model version with only files added from the specified remote repository.
 
 
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/fromRepository/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Accepted: request placed to a queue for processing.
@@ -3925,7 +4038,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository |
+customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFromRepositoryCreate(customModelId, customModelVersionCreateFromRepository=customModelVersionCreateFromRepository)
@@ -3937,8 +4050,8 @@ result <- api.instance$CustomModelsVersionsFromRepositoryCreate(customModelId, c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsFromRepositoryPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsFromRepositoryPatchMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsFromRepositoryPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsFromRepositoryPatchMany}{}}}
 \subsection{Method \code{CustomModelsVersionsFromRepositoryPatchMany()}}{
 Create custom model version from remote repository with files from previous version.
 Produces: NA
@@ -3965,6 +4078,9 @@ Produces: NA
 Create a new custom model version with files added from a remote repository. Files from the previous version of a custom models will be used as a basis.
 
 
+This method invokes \verb{PATCH /customModels/\{customModelId\}/versions/fromRepository/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Accepted: request placed to a queue for processing.
@@ -3982,7 +4098,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
-customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository |
+customModelVersionCreateFromRepository <- CustomModelVersionCreateFromRepository$new() # CustomModelVersionCreateFromRepository | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsFromRepositoryPatchMany(customModelId, customModelVersionCreateFromRepository=customModelVersionCreateFromRepository)
@@ -3994,13 +4110,19 @@ result <- api.instance$CustomModelsVersionsFromRepositoryPatchMany(customModelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsList}{}}}
 \subsection{Method \code{CustomModelsVersionsList()}}{
 List custom model versions.
 Produces: "application/json"
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$CustomModelsVersionsList(offset, limit, customModelId, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$CustomModelsVersionsList(
+  offset,
+  limit,
+  customModelId,
+  mainBranchCommitSha = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -4012,12 +4134,17 @@ Produces: "application/json"
 
 \item{\code{customModelId}}{character. ID of the custom model.}
 
+\item{\code{mainBranchCommitSha}}{character. Specifies the commit SHA-1 in GitHub repository from the main branch that corresponds to a given custom model version.}
+
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 List custom model versions.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4044,9 +4171,10 @@ library(datarobot.apicore)
 offset <- 0 # integer | This many results will be skipped.
 limit <- 1000 # integer | At most this many results are returned.
 customModelId <- 'customModelId_example' # character | ID of the custom model.
+mainBranchCommitSha <- 'mainBranchCommitSha_example' # character | Specifies the commit SHA-1 in GitHub repository from the main branch that corresponds to a given custom model version.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId)
+result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId, mainBranchCommitSha=mainBranchCommitSha)
 }
 }
 \if{html}{\out{</div>}}
@@ -4055,8 +4183,8 @@ result <- api.instance$CustomModelsVersionsList(offset, limit, customModelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsPatch}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsPatch}{}}}
 \subsection{Method \code{CustomModelsVersionsPatch()}}{
 Update custom model version.
 Produces: "application/json"
@@ -4086,6 +4214,9 @@ Produces: "application/json"
 Edit metadata of a specific model version.
 
 
+This method invokes \verb{PATCH /customModels/\{customModelId\}/versions/\{customModelVersionId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The edit was successful.
@@ -4109,7 +4240,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 customModelId <- 'customModelId_example' # character | ID of the custom model.
 customModelVersionId <- 'customModelVersionId_example' # character | ID of the custom model version.
-customModelVersionMetadataUpdate <- CustomModelVersionMetadataUpdate$new() # CustomModelVersionMetadataUpdate |
+customModelVersionMetadataUpdate <- CustomModelVersionMetadataUpdate$new() # CustomModelVersionMetadataUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomModelsVersionsPatch(customModelId, customModelVersionId, customModelVersionMetadataUpdate=customModelVersionMetadataUpdate)
@@ -4121,8 +4252,8 @@ result <- api.instance$CustomModelsVersionsPatch(customModelId, customModelVersi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsPredictionExplanationsInitializationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsPredictionExplanationsInitializationCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsPredictionExplanationsInitializationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsPredictionExplanationsInitializationCreate}{}}}
 \subsection{Method \code{CustomModelsVersionsPredictionExplanationsInitializationCreate()}}{
 Create a new prediction explanations initialization for custom model version.
 Produces: NA
@@ -4147,6 +4278,9 @@ Produces: NA
 }
 \subsection{Details}{
 Create a new prediction explanations initialization for custom model version. This is a necessary prerequisite for generating prediction explanations.
+
+
+This method invokes \verb{POST /customModels/\{customModelId\}/versions/\{customModelVersionId\}/predictionExplanationsInitialization/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4178,8 +4312,8 @@ result <- api.instance$CustomModelsVersionsPredictionExplanationsInitializationC
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomModelsVersionsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomModelsVersionsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomModelsVersionsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomModelsVersionsRetrieve}{}}}
 \subsection{Method \code{CustomModelsVersionsRetrieve()}}{
 Get custom model version.
 Produces: "application/json"
@@ -4204,6 +4338,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Display a requested version of a custom model along with the files attached to it.
+
+
+This method invokes \verb{GET /customModels/\{customModelId\}/versions/\{customModelVersionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4234,8 +4371,8 @@ result <- api.instance$CustomModelsVersionsRetrieve(customModelId, customModelVe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTrainingBlueprintsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomTrainingBlueprintsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomTrainingBlueprintsCreate}{}}}
 \subsection{Method \code{CustomTrainingBlueprintsCreate()}}{
 Create a blueprint from a single custom training estimator.
 Produces: "application/json"
@@ -4259,6 +4396,9 @@ Produces: "application/json"
 This route creates a blueprint from a custom training estimator with an environment so that it can be trained via blueprint ID.
 
 
+This method invokes \verb{POST /customTrainingBlueprints/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Blueprint successfully created.
@@ -4280,7 +4420,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-customTrainingBlueprintCreate <- CustomTrainingBlueprintCreate$new() # CustomTrainingBlueprintCreate |
+customTrainingBlueprintCreate <- CustomTrainingBlueprintCreate$new() # CustomTrainingBlueprintCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$CustomTrainingBlueprintsCreate(customTrainingBlueprintCreate=customTrainingBlueprintCreate)
@@ -4292,8 +4432,8 @@ result <- api.instance$CustomTrainingBlueprintsCreate(customTrainingBlueprintCre
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CustomTrainingBlueprintsList"></a>}}
-\if{latex}{\out{\hypertarget{method-CustomTrainingBlueprintsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-CustomTrainingBlueprintsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-CustomTrainingBlueprintsList}{}}}
 \subsection{Method \code{CustomTrainingBlueprintsList()}}{
 List training blueprints.
 Produces: "application/json"
@@ -4326,7 +4466,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-List custom training blueprints.  This route retrieves the metadata for all custom training blueprints             a user has access to.
+List custom training blueprints.  This route retrieves the metadata for all custom training blueprints a user has access to.
+
+
+This method invokes \verb{GET /customTrainingBlueprints/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4360,61 +4503,8 @@ result <- api.instance$CustomTrainingBlueprintsList(offset, limit, customModelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelExportsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelExportsCreate}{}}}
-\subsection{Method \code{ModelExportsCreate()}}{
-Create model export job
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ModelExportsCreate(modelExport = NULL, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{modelExport}}{\link{ModelExport}.}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Create model export job. Note: Export of User and Open-Source models (and blenders including these models) is not supported at the moment.
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{202}}
-\itemize{
-\item \strong{\code{Location}} A url that can be polled to check the status.
-}
-\item \strong{\code{403}} You do not have permissions on this project to manage models
-\itemize{
-}
-\item \strong{\code{422}} Model export is not supported in selected models.
-\itemize{
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-modelExport <- ModelExport$new() # ModelExport |
-
-api.instance <- ModelsApi$new()
-result <- api.instance$ModelExportsCreate(modelExport=modelExport)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesArchiveCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesArchiveCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesArchiveCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesArchiveCreate}{}}}
 \subsection{Method \code{ModelPackagesArchiveCreate()}}{
 Archive a model package.
 Produces: NA
@@ -4433,6 +4523,9 @@ Produces: NA
 }
 \subsection{Details}{
 Permanently archive a model package. It will no longer be able to be used in new deployments or replacement. It will not be accessible in the model package list api. It will only be accessible at the model package retrieve route for this model package.
+
+
+This method invokes \verb{POST /modelPackages/\{modelPackageId\}/archive/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4459,8 +4552,60 @@ result <- api.instance$ModelPackagesArchiveCreate(modelPackageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesFeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesFeaturesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesCapabilitiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesCapabilitiesList}{}}}
+\subsection{Method \code{ModelPackagesCapabilitiesList()}}{
+Retrieve capabilities.
+Produces: "application/json"
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ModelPackagesCapabilitiesList(modelPackageId, ...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{modelPackageId}}{character. ID of the model package.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve the capabilities for the model package.
+
+
+This method invokes \verb{GET /modelPackages/\{modelPackageId\}/capabilities/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{200}}
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{ModelPackageCapabilitiesRetrieveResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+modelPackageId <- 'modelPackageId_example' # character | ID of the model package.
+
+api.instance <- ModelsApi$new()
+result <- api.instance$ModelPackagesCapabilitiesList(modelPackageId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesFeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesFeaturesList}{}}}
 \subsection{Method \code{ModelPackagesFeaturesList()}}{
 Retrieve feature list.
 Produces: "application/json"
@@ -4502,6 +4647,9 @@ Produces: "application/json"
 Retrieve the feature list for given model package.
 
 
+This method invokes \verb{GET /modelPackages/\{modelPackageId\}/features/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} OK.
@@ -4535,8 +4683,8 @@ result <- api.instance$ModelPackagesFeaturesList(offset, limit, modelPackageId, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesFromLearningModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesFromLearningModelCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesFromLearningModelCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesFromLearningModelCreate}{}}}
 \subsection{Method \code{ModelPackagesFromLearningModelCreate()}}{
 Create model package from DataRobot model.
 Produces: NA
@@ -4560,6 +4708,9 @@ Produces: NA
 Create model package from DataRobot model.
 
 
+This method invokes \verb{POST /modelPackages/fromLearningModel/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}}
@@ -4581,7 +4732,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-modelPackageCreateFromLearningModel <- ModelPackageCreateFromLearningModel$new() # ModelPackageCreateFromLearningModel |
+modelPackageCreateFromLearningModel <- ModelPackageCreateFromLearningModel$new() # ModelPackageCreateFromLearningModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ModelPackagesFromLearningModelCreate(modelPackageCreateFromLearningModel=modelPackageCreateFromLearningModel)
@@ -4593,8 +4744,8 @@ result <- api.instance$ModelPackagesFromLearningModelCreate(modelPackageCreateFr
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesList}{}}}
 \subsection{Method \code{ModelPackagesList()}}{
 List model packages
 Produces: "application/json"
@@ -4610,6 +4761,7 @@ Produces: "application/json"
   imported = NULL,
   predictionEnvironmentId = NULL,
   modelKind = NULL,
+  buildStatus = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -4637,12 +4789,17 @@ Produces: "application/json"
 
 \item{\code{modelKind}}{\link{OneOfstringarray}. Return models from the registry that match a specific format.}
 
+\item{\code{buildStatus}}{Enum < \link{inProgress, complete, failed} > If specified, filter model packages by the build status.}
+
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
 Retrieve the list of model packages a user has access to.
+
+
+This method invokes \verb{GET /modelPackages/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4678,10 +4835,11 @@ search <- 'search_example' # character | Provide a term to search for in package
 predictionThreshold <- 3.4 # numeric | Prediction threshold used for binary classification models
 imported <- 'imported_example' # character | If specified, filter for either imported (true) or non-imported (false) model packages
 predictionEnvironmentId <- 'predictionEnvironmentId_example' # character | Can be used to filter packages by what is supported by the prediction environment
-modelKind <- OneOfstringarray$new() # OneOfstringarray | Return models from the registry that match a specific format.
+modelKind <- list(c('modelKind_example')) # OneOfstringarray | Return models from the registry that match a specific format.
+buildStatus <- 'buildStatus_example' # character | If specified, filter model packages by the build status.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ModelPackagesList(offset=offset, limit=limit, modelId=modelId, similarTo=similarTo, forChallenger=forChallenger, search=search, predictionThreshold=predictionThreshold, imported=imported, predictionEnvironmentId=predictionEnvironmentId, modelKind=modelKind)
+result <- api.instance$ModelPackagesList(offset=offset, limit=limit, modelId=modelId, similarTo=similarTo, forChallenger=forChallenger, search=search, predictionThreshold=predictionThreshold, imported=imported, predictionEnvironmentId=predictionEnvironmentId, modelKind=modelKind, buildStatus=buildStatus)
 }
 }
 \if{html}{\out{</div>}}
@@ -4690,8 +4848,8 @@ result <- api.instance$ModelPackagesList(offset=offset, limit=limit, modelId=mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesRetrieve}{}}}
 \subsection{Method \code{ModelPackagesRetrieve()}}{
 Retrieve info about a model package.
 Produces: "application/json"
@@ -4710,6 +4868,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve info about a model package.
+
+
+This method invokes \verb{GET /modelPackages/\{modelPackageId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4742,8 +4903,8 @@ result <- api.instance$ModelPackagesRetrieve(modelPackageId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ModelPackagesSharedRolesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ModelPackagesSharedRolesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ModelPackagesSharedRolesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ModelPackagesSharedRolesList}{}}}
 \subsection{Method \code{ModelPackagesSharedRolesList()}}{
 Get model package's access control list
 Produces: "application/json"
@@ -4780,6 +4941,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get a list of users, groups and organizations who have access to this template and their roles on the template.
+
+
+This method invokes \verb{GET /modelPackages/\{modelPackageId\}/sharedRoles/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -4820,15 +4984,15 @@ result <- api.instance$ModelPackagesSharedRolesList(offset, limit, modelPackageI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderBuildersCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderBuildersCreate}{}}}
-\subsection{Method \code{ProjectsBlenderBuildersCreate()}}{
-Create blenders using the blender builder system.
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBiasMitigatedModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBiasMitigatedModelsCreate}{}}}
+\subsection{Method \code{ProjectsBiasMitigatedModelsCreate()}}{
+Add a request to the queue to train a model with bias mitigation applied.
 Produces: NA
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBlenderBuildersCreate(
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBiasMitigatedModelsCreate(
   projectId,
-  baseBlenderBuilderCreate = NULL,
+  biasMitigationModelCreate = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -4838,19 +5002,22 @@ Produces: NA
 \describe{
 \item{\code{projectId}}{character. The project ID}
 
-\item{\code{baseBlenderBuilderCreate}}{\link{BaseBlenderBuilderCreate}.}
+\item{\code{biasMitigationModelCreate}}{\link{BiasMitigationModelCreate}.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Create a blender builder job, which will create one or more blenders.  The CORRELATION     method uses a combination of model accuracy score along with correlation between models to     select models for blending.  The VALIDATION method uses the raw model accuracy scores, but     can be useful for creating different types of blenders with those models.
+Add a request to the queue to train a model with bias mitigation applied. If the job has been previously submitted, the request will return the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/biasMitigatedModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
 \itemize{
-\item \strong{\code{200}} A list of blenderbuilder IDs
+\item \strong{\code{202}} The model training request has been successfully submitted. See Location header.
 \itemize{
 }
 }
@@ -4861,10 +5028,10 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-baseBlenderBuilderCreate <- BaseBlenderBuilderCreate$new() # BaseBlenderBuilderCreate |
+biasMitigationModelCreate <- BiasMitigationModelCreate$new() # BiasMitigationModelCreate | 
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersCreate(projectId, baseBlenderBuilderCreate=baseBlenderBuilderCreate)
+result <- api.instance$ProjectsBiasMitigatedModelsCreate(projectId, biasMitigationModelCreate=biasMitigationModelCreate)
 }
 }
 \if{html}{\out{</div>}}
@@ -4873,35 +5040,107 @@ result <- api.instance$ProjectsBlenderBuildersCreate(projectId, baseBlenderBuild
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderBuildersList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderBuildersList}{}}}
-\subsection{Method \code{ProjectsBlenderBuildersList()}}{
-Get information about all blender builder jobs associated with the project.
-Produces: NA
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBiasMitigatedModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBiasMitigatedModelsList}{}}}
+\subsection{Method \code{ProjectsBiasMitigatedModelsList()}}{
+List of bias mitigated models for the selected project.
+Produces: "application/json"
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBlenderBuildersList(projectId, offset, limit, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBiasMitigatedModelsList(
+  projectId,
+  offset = 0,
+  limit = 100,
+  parentModelId = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{projectId}}{character. The project ID that the blender builder is associated with.}
+\item{\code{projectId}}{character. The project ID}
 
-\item{\code{offset}}{integer. The maximum number of blender builder job records to return}
+\item{\code{offset}}{integer. This many results will be skipped.}
 
-\item{\code{limit}}{integer. pagination offset}
+\item{\code{limit}}{integer. At most this many results are returned.}
+
+\item{\code{parentModelId}}{character. Retrieve a list of mitigated models for the parent model if specified. Otherwise retrieve a list of all mitigated models for the project.}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Get information about all blender builder jobs associated with the project.
+List of bias mitigated models for the selected project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/biasMitigatedModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
 \itemize{
-\item \strong{\code{200}} List of blender builder job IDs in the project
+\item \strong{\code{200}} Returns Bias Mitigated models results.
+\itemize{
+}
+}
+}
+
+\subsection{Returns}{
+\link{BiasMitigatedModelsListResponse}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{
+library(datarobot.apicore)
+projectId <- 'projectId_example' # character | The project ID
+offset <- 0 # integer | This many results will be skipped.
+limit <- 100 # integer | At most this many results are returned.
+parentModelId <- 'parentModelId_example' # character | Retrieve a list of mitigated models for the parent model if specified. Otherwise retrieve a list of all mitigated models for the project.
+
+api.instance <- ModelsApi$new()
+result <- api.instance$ProjectsBiasMitigatedModelsList(projectId, offset=offset, limit=limit, parentModelId=parentModelId)
+}
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBiasMitigationFeatureInfoCreateOne"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBiasMitigationFeatureInfoCreateOne}{}}}
+\subsection{Method \code{ProjectsBiasMitigationFeatureInfoCreateOne()}}{
+Submit a job to create bias mitigation data quality information for a given projectId and featureName.
+Produces: NA
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBiasMitigationFeatureInfoCreateOne(
+  projectId,
+  featureName,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{projectId}}{character. The project ID}
+
+\item{\code{featureName}}{character. Name of feature for mitigation info.}
+
+\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Submit a job to create bias mitigation data quality information for a given projectId and featureName.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/biasMitigationFeatureInfo/\{featureName\}/} in the DataRobot Public API.
+
+
+Response status codes, messages, and headers:
+\itemize{
+\item \strong{\code{202}} A URI of the newly submitted job in the \"Location\" header.
 \itemize{
 }
 }
@@ -4911,12 +5150,11 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID that the blender builder is associated with.
-offset <- 0 # integer | The maximum number of blender builder job records to return
-limit <- 100 # integer | pagination offset
+projectId <- 'projectId_example' # character | The project ID
+featureName <- 'featureName_example' # character | Name of feature for mitigation info.
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersList(projectId, offset, limit)
+result <- api.instance$ProjectsBiasMitigationFeatureInfoCreateOne(projectId, featureName)
 }
 }
 \if{html}{\out{</div>}}
@@ -4925,47 +5163,53 @@ result <- api.instance$ProjectsBlenderBuildersList(projectId, offset, limit)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderBuildersRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderBuildersRetrieve}{}}}
-\subsection{Method \code{ProjectsBlenderBuildersRetrieve()}}{
-Get information about a completed blender builder job.
-Produces: NA
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBiasMitigationFeatureInfoList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBiasMitigationFeatureInfoList}{}}}
+\subsection{Method \code{ProjectsBiasMitigationFeatureInfoList()}}{
+Get bias mitigation data quality information for a given projectId and featureName.
+Produces: "application/json"
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBlenderBuildersRetrieve(projectId, buildId, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsBiasMitigationFeatureInfoList(featureName, projectId, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{projectId}}{character. The project ID that the blender builder is associated with.}
+\item{\code{featureName}}{character. Name of feature for mitigation info.}
 
-\item{\code{buildId}}{character. The ID of the blender builder job to get data for.}
+\item{\code{projectId}}{character. The project ID}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Get information about a completed blender builder job.
+Get bias mitigation data quality information for a given projectId and featureName.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/biasMitigationFeatureInfo/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
 \itemize{
-\item \strong{\code{200}} Blender builder job result
+\item \strong{\code{200}} Dictionary with one entry (\"messages\") with list of data quality information about a feature.
 \itemize{
 }
 }
 }
 
+\subsection{Returns}{
+\link{MessagesInfo}
+}
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID that the blender builder is associated with.
-buildId <- 'buildId_example' # character | The ID of the blender builder job to get data for.
+featureName <- 'featureName_example' # character | Name of feature for mitigation info.
+projectId <- 'projectId_example' # character | The project ID
 
 api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsBlenderBuildersRetrieve(projectId, buildId)
+result <- api.instance$ProjectsBiasMitigationFeatureInfoList(featureName, projectId)
 }
 }
 \if{html}{\out{</div>}}
@@ -4974,8 +5218,8 @@ result <- api.instance$ProjectsBlenderBuildersRetrieve(projectId, buildId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderModelsBlendCheckCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderModelsBlendCheckCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBlenderModelsBlendCheckCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBlenderModelsBlendCheckCreate}{}}}
 \subsection{Method \code{ProjectsBlenderModelsBlendCheckCreate()}}{
 Check if models can be blended.
 Produces: "application/json"
@@ -5002,6 +5246,9 @@ Produces: "application/json"
 Check if models can be blended.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/blenderModels/blendCheck/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Information on whether models can be blended and why.
@@ -5024,7 +5271,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-blenderCreate <- BlenderCreate$new() # BlenderCreate |
+blenderCreate <- BlenderCreate$new() # BlenderCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsBlenderModelsBlendCheckCreate(projectId, blenderCreate=blenderCreate)
@@ -5036,8 +5283,8 @@ result <- api.instance$ProjectsBlenderModelsBlendCheckCreate(projectId, blenderC
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBlenderModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBlenderModelsCreate}{}}}
 \subsection{Method \code{ProjectsBlenderModelsCreate()}}{
 Create a blender from other models using a specified blender method.
 Produces: NA
@@ -5060,6 +5307,9 @@ Produces: NA
 Create a blender from other models using a specified blender method. Note: Time Series projects only allow the following blender methods: \"AVG\", \"MED\", \"FORECAST_DISTANCE_ENET\", and \"FORECAST_DISTANCE_AVG\".
 
 
+This method invokes \verb{POST /projects/\{projectId\}/blenderModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Model job successfully added to queue. See the Location header.
@@ -5080,7 +5330,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-blenderCreate <- BlenderCreate$new() # BlenderCreate |
+blenderCreate <- BlenderCreate$new() # BlenderCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsBlenderModelsCreate(projectId, blenderCreate=blenderCreate)
@@ -5092,8 +5342,8 @@ result <- api.instance$ProjectsBlenderModelsCreate(projectId, blenderCreate=blen
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBlenderModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBlenderModelsList}{}}}
 \subsection{Method \code{ProjectsBlenderModelsList()}}{
 List all blenders in a project.
 Produces: "application/json"
@@ -5116,6 +5366,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all blenders in a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blenderModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5150,8 +5403,8 @@ result <- api.instance$ProjectsBlenderModelsList(offset, limit, projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsBlenderModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsBlenderModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsBlenderModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsBlenderModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsBlenderModelsRetrieve()}}{
 Retrieve a blender.
 Produces: "application/json"
@@ -5171,7 +5424,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a blender. Blenders are a special type of models, so the response includes all attributes that would be in a response to :http:get:`/api/v2/projects/(projectId)/models/(modelId)/` as well as some additional ones.
+Retrieve a blender. Blenders are a special type of models, so the response includes all attributes that would be in a response to :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/ as well as some additional ones.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/blenderModels/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5205,8 +5461,8 @@ result <- api.instance$ProjectsBlenderModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsCombinedModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsCombinedModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsCombinedModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsCombinedModelsList}{}}}
 \subsection{Method \code{ProjectsCombinedModelsList()}}{
 Retrieve all existing combined models for this project.
 Produces: "application/json"
@@ -5228,7 +5484,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve all existing combined models for this project. .. note::      To retrieve information on the segments for a combined model, retrieve the combined model using :http:get:`/api/v2/projects/(projectId)/combinedModels/(combinedModelId)/`
+Retrieve all existing combined models for this project. .. note:      To retrieve information on the segments for a combined model, retrieve the combined model using :http:get:`/api/v2/projects/(projectId)/combinedModels/(combinedModelId)/`
+
+
+This method invokes \verb{GET /projects/\{projectId\}/combinedModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5260,8 +5519,8 @@ result <- api.instance$ProjectsCombinedModelsList(projectId, offset=offset, limi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsCombinedModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsCombinedModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsCombinedModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsCombinedModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsCombinedModelsRetrieve()}}{
 Retrieve an existing combined model.
 Produces: "application/json"
@@ -5282,6 +5541,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve an existing combined model. If available, contains information on which champion model is used for each segment.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/combinedModels/\{combinedModelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5312,8 +5574,8 @@ result <- api.instance$ProjectsCombinedModelsRetrieve(projectId, combinedModelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsCombinedModelsSegmentsDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsCombinedModelsSegmentsDownloadList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsCombinedModelsSegmentsDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsCombinedModelsSegmentsDownloadList}{}}}
 \subsection{Method \code{ProjectsCombinedModelsSegmentsDownloadList()}}{
 Download Combined Model segments info.
 Produces: "text/csv"
@@ -5338,6 +5600,9 @@ Produces: "text/csv"
 }
 \subsection{Details}{
 Download Combined Model segments info (name, related project & model details) as a CSV.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/combinedModels/\{combinedModelId\}/segments/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5366,8 +5631,8 @@ result <- api.instance$ProjectsCombinedModelsSegmentsDownloadList(projectId, com
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsCombinedModelsSegmentsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsCombinedModelsSegmentsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsCombinedModelsSegmentsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsCombinedModelsSegmentsList}{}}}
 \subsection{Method \code{ProjectsCombinedModelsSegmentsList()}}{
 Retrieve Combined Model segments info.
 Produces: "application/json"
@@ -5403,6 +5668,9 @@ Produces: "application/json"
 Retrieve Combined Model segments info (name, related project & model details).
 
 
+This method invokes \verb{GET /projects/\{projectId\}/combinedModels/\{combinedModelId\}/segments/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -5434,8 +5702,8 @@ result <- api.instance$ProjectsCombinedModelsSegmentsList(projectId, combinedMod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsBacktestsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsBacktestsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDatetimeModelsBacktestsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDatetimeModelsBacktestsCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsBacktestsCreate()}}{
 Score all the available backtests of a datetime model.
 Produces: NA
@@ -5456,6 +5724,9 @@ Produces: NA
 }
 \subsection{Details}{
 Score all the available backtests of a datetime model.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/\{modelId\}/backtests/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5484,8 +5755,8 @@ result <- api.instance$ProjectsDatetimeModelsBacktestsCreate(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDatetimeModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDatetimeModelsCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsCreate()}}{
 Train a new datetime model.
 Produces: "application/json"
@@ -5509,7 +5780,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Train a new datetime model.  All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules<time_format>`.
+Train a new datetime model.  All durations and datetimes should be specified in accordance with the `timestamp and duration formatting rules<time_format>`.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5532,7 +5806,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-trainDatetimeModel <- TrainDatetimeModel$new() # TrainDatetimeModel |
+trainDatetimeModel <- TrainDatetimeModel$new() # TrainDatetimeModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDatetimeModelsCreate(projectId, trainDatetimeModel=trainDatetimeModel)
@@ -5544,8 +5818,8 @@ result <- api.instance$ProjectsDatetimeModelsCreate(projectId, trainDatetimeMode
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsFromModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsFromModelCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDatetimeModelsFromModelCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDatetimeModelsFromModelCreate}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsFromModelCreate()}}{
 Retrain an existing datetime model with specified parameters.
 Produces: "application/json"
@@ -5569,7 +5843,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrain an existing datetime model using a new training period for the model training set (with optional time window sampling) or different feature list.  All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules<time_format>`.  Note that only one of `trainingDuration` or `trainingRowCount` or `trainingStartDate` and `trainingEndDate` should be specified. If `trainingStartDate` and `trainingEndDate` are specified, the source model must be frozen.
+Retrain an existing datetime model using a new training period for the model training set (with optional time window sampling) or different feature list.  All durations and datetimes should be specified in accordance with the `timestamp and duration formatting rules<time_format>`.  Note that only one of trainingDuration or trainingRowCount or trainingStartDate and trainingEndDate should be specified. If trainingStartDate and trainingEndDate are specified, the source model must be frozen.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/datetimeModels/fromModel/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5598,7 +5875,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-retrainDatetimeModel <- RetrainDatetimeModel$new() # RetrainDatetimeModel |
+retrainDatetimeModel <- RetrainDatetimeModel$new() # RetrainDatetimeModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDatetimeModelsFromModelCreate(projectId, retrainDatetimeModel=retrainDatetimeModel)
@@ -5610,8 +5887,8 @@ result <- api.instance$ProjectsDatetimeModelsFromModelCreate(projectId, retrainD
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDatetimeModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDatetimeModelsList}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsList()}}{
 List datetime partitioned project models
 Produces: "application/json"
@@ -5644,6 +5921,9 @@ Produces: "application/json"
 List all the models from a datetime partitioned project.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The datetime partitioned project's models
@@ -5674,8 +5954,8 @@ result <- api.instance$ProjectsDatetimeModelsList(projectId, offset=offset, limi
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDatetimeModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDatetimeModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDatetimeModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDatetimeModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsDatetimeModelsRetrieve()}}{
 Get datetime model
 Produces: "application/json"
@@ -5695,7 +5975,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Look up a particular datetime model All durations and datetimes are specified in accordance with :ref:`timestamp and duration formatting rules <time_format>`.
+Look up a particular datetime model All durations and datetimes are specified in accordance with `timestamp and duration formatting rules <time_format>`.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/datetimeModels/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5726,8 +6009,8 @@ result <- api.instance$ProjectsDatetimeModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsDeploymentReadyModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsDeploymentReadyModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsDeploymentReadyModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsDeploymentReadyModelsCreate}{}}}
 \subsection{Method \code{ProjectsDeploymentReadyModelsCreate()}}{
 Prepare a model for deployment
 Produces: NA
@@ -5754,6 +6037,9 @@ Produces: NA
 Prepare a specific model for deployment. This model will go through the recommendation stages.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/deploymentReadyModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{201}} Start preparing the model for deployment.
@@ -5770,7 +6056,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-prepareForDeployment <- PrepareForDeployment$new() # PrepareForDeployment |
+prepareForDeployment <- PrepareForDeployment$new() # PrepareForDeployment | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsDeploymentReadyModelsCreate(projectId, prepareForDeployment=prepareForDeployment)
@@ -5782,8 +6068,8 @@ result <- api.instance$ProjectsDeploymentReadyModelsCreate(projectId, prepareFor
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsEureqaDistributionPlotRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsEureqaDistributionPlotRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsEureqaDistributionPlotRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsEureqaDistributionPlotRetrieve}{}}}
 \subsection{Method \code{ProjectsEureqaDistributionPlotRetrieve()}}{
 Retrieve Eureqa model details plot.
 Produces: "application/json"
@@ -5804,6 +6090,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve Eureqa model details plot.  Available for classification projects only
+
+
+This method invokes \verb{GET /projects/\{projectId\}/eureqaDistributionPlot/\{solutionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5837,8 +6126,8 @@ result <- api.instance$ProjectsEureqaDistributionPlotRetrieve(projectId, solutio
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsEureqaModelDetailRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsEureqaModelDetailRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsEureqaModelDetailRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsEureqaModelDetailRetrieve}{}}}
 \subsection{Method \code{ProjectsEureqaModelDetailRetrieve()}}{
 Retrieve Eureqa model details plot.
 Produces: "application/json"
@@ -5859,6 +6148,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve Eureqa model details plot.  Available for regression projects only
+
+
+This method invokes \verb{GET /projects/\{projectId\}/eureqaModelDetail/\{solutionId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -5892,8 +6184,8 @@ result <- api.instance$ProjectsEureqaModelDetailRetrieve(projectId, solutionId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsEureqaModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsEureqaModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsEureqaModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsEureqaModelsCreate}{}}}
 \subsection{Method \code{ProjectsEureqaModelsCreate()}}{
 Create a new model from an existing eureqa solution.
 Produces: NA
@@ -5920,6 +6212,9 @@ Produces: NA
 Create a new model from an existing eureqa solution.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/eureqaModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Request accepted, creation is underway.
@@ -5940,7 +6235,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-eureqaLeaderboardEntryPayload <- EureqaLeaderboardEntryPayload$new() # EureqaLeaderboardEntryPayload |
+eureqaLeaderboardEntryPayload <- EureqaLeaderboardEntryPayload$new() # EureqaLeaderboardEntryPayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsEureqaModelsCreate(projectId, eureqaLeaderboardEntryPayload=eureqaLeaderboardEntryPayload)
@@ -5952,8 +6247,8 @@ result <- api.instance$ProjectsEureqaModelsCreate(projectId, eureqaLeaderboardEn
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsEureqaModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsEureqaModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsEureqaModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsEureqaModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsEureqaModelsRetrieve()}}{
 Retrieve the pareto front for the specified Eureqa model.
 Produces: "application/json"
@@ -5973,7 +6268,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve the pareto front for the specified Eureqa model.  Only the best solution in the pareto front will have a corresponding model initially. Models can be created for other solutions using :http:post:`/api/v2/projects/(projectId)/eureqaModels/`.
+Retrieve the pareto front for the specified Eureqa model.  Only the best solution in the pareto front will have a corresponding model initially. Models can be created for other solutions using :<http:post>:/api/v2/projects/(projectId)/eureqaModels/.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/eureqaModels/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6007,8 +6305,8 @@ result <- api.instance$ProjectsEureqaModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFrozenDatetimeModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFrozenDatetimeModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsFrozenDatetimeModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsFrozenDatetimeModelsCreate}{}}}
 \subsection{Method \code{ProjectsFrozenDatetimeModelsCreate()}}{
 Train a frozen datetime model.
 Produces: "application/json"
@@ -6032,7 +6330,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Train a frozen datetime model. If no training data is specified, the frozen datetime model will be trained on the most recent data using an amount of data that is equivalent to the original model. However, if the equivalent duration does not provide enough rows for training, then the duration will be extended until the minimum is met. Note that this will require the holdout of the project to be unlocked.  All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules<time_format>`.  Note that only one of `trainingDuration`, `trainingRowCount`, `trainingStartDate` and `trainingEndDate`, or `useProjectSettings` may be specified.
+Train a frozen datetime model. If no training data is specified, the frozen datetime model will be trained on the most recent data using an amount of data that is equivalent to the original model. However, if the equivalent duration does not provide enough rows for training, then the duration will be extended until the minimum is met. Note that this will require the holdout of the project to be unlocked.  All durations and datetimes should be specified in accordance with the `timestamp and duration formatting rules<time_format>`.  Note that only one of trainingDuration, trainingRowCount, trainingStartDate and trainingEndDate, or useProjectSettings may be specified.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/frozenDatetimeModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6061,7 +6362,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-trainDatetimeFrozenModel <- TrainDatetimeFrozenModel$new() # TrainDatetimeFrozenModel |
+trainDatetimeFrozenModel <- TrainDatetimeFrozenModel$new() # TrainDatetimeFrozenModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsFrozenDatetimeModelsCreate(projectId, trainDatetimeFrozenModel=trainDatetimeFrozenModel)
@@ -6073,8 +6374,8 @@ result <- api.instance$ProjectsFrozenDatetimeModelsCreate(projectId, trainDateti
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFrozenModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFrozenModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsFrozenModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsFrozenModelsCreate}{}}}
 \subsection{Method \code{ProjectsFrozenModelsCreate()}}{
 Train a new frozen model with parameters from an existing model.
 Produces: NA
@@ -6094,7 +6395,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Train a new frozen model with parameters from an existing model. Frozen models use tuning parameters from another model on the leaderboard, allowing them to be retrained on a larger amount of the training data more efficiently.   To specify the amount of data to use to train the model, use either `samplePct` to express a percentage of the rows of the dataset to use or `trainingRowCount` to express the number of rows to use.   If neither `samplePct` or `trainingRowCount` is specified, the model will be trained on the maximum available training data that can be used to train an in-memory model.   For projects using smart sampling, `samplePct` and `trainingRowCount` will be interpreted as a percent or number of rows of the minority class.   When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or `project.max_training_rows`) avoids ambiguity around how many rows of data you want the model to use.
+Train a new frozen model with parameters from an existing model. Frozen models use tuning parameters from another model on the leaderboard, allowing them to be retrained on a larger amount of the training data more efficiently.   To specify the amount of data to use to train the model, use either samplePct to express a percentage of the rows of the dataset to use or trainingRowCount to express the number of rows to use. If neither samplePct or trainingRowCount is specified, the model will be trained on the maximum available training data that can be used to train an in-memory model. For projects using smart sampling, samplePct and trainingRowCount will be interpreted as a percent or number of rows of the minority class. When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or project.max_training_rows) avoids ambiguity around how many rows of data you want the model to use.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/frozenModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6117,7 +6421,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-frozenModelCreate <- FrozenModelCreate$new() # FrozenModelCreate |
+frozenModelCreate <- FrozenModelCreate$new() # FrozenModelCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsFrozenModelsCreate(projectId, frozenModelCreate=frozenModelCreate)
@@ -6129,8 +6433,8 @@ result <- api.instance$ProjectsFrozenModelsCreate(projectId, frozenModelCreate=f
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFrozenModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFrozenModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsFrozenModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsFrozenModelsList}{}}}
 \subsection{Method \code{ProjectsFrozenModelsList()}}{
 List all frozen models from a project.
 Produces: "application/json"
@@ -6161,6 +6465,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all frozen models from a project.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/frozenModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6196,8 +6503,8 @@ result <- api.instance$ProjectsFrozenModelsList(offset, limit, projectId, withMe
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsFrozenModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsFrozenModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsFrozenModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsFrozenModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsFrozenModelsRetrieve()}}{
 Look up a particular frozen model.
 Produces: "application/json"
@@ -6220,6 +6527,9 @@ Produces: "application/json"
 Look up a particular frozen model. If model with given ID exists but it's not frozen, returns 404 Not Found.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/frozenModels/\{modelId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The frozen model.
@@ -6232,7 +6542,7 @@ Response status codes, messages, and headers:
 }
 
 \subsection{Returns}{
-\link{FrozenModelRetrieveResponse}
+\link{ModelDetailsResponse}
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
@@ -6251,8 +6561,8 @@ result <- api.instance$ProjectsFrozenModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelJobsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelJobsDelete}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelJobsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelJobsDelete}{}}}
 \subsection{Method \code{ProjectsModelJobsDelete()}}{
 Cancel a modeling job.
 Produces: NA
@@ -6273,6 +6583,9 @@ Produces: NA
 }
 \subsection{Details}{
 Cancel a modeling job
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/modelJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6303,8 +6616,8 @@ result <- api.instance$ProjectsModelJobsDelete(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelJobsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelJobsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelJobsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelJobsList}{}}}
 \subsection{Method \code{ProjectsModelJobsList()}}{
 List modeling jobs
 Produces: "application/json"
@@ -6325,6 +6638,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List modeling jobs.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelJobs/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6355,8 +6671,8 @@ result <- api.instance$ProjectsModelJobsList(projectId, status=status)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelJobsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelJobsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelJobsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelJobsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelJobsRetrieve()}}{
 Look up a specific modeling job
 Produces: "application/json"
@@ -6377,6 +6693,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Look up a particular modeling job
+
+
+This method invokes \verb{GET /projects/\{projectId\}/modelJobs/\{jobId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6411,8 +6730,8 @@ result <- api.instance$ProjectsModelJobsRetrieve(projectId, jobId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsAdvancedTuningCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsAdvancedTuningCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsAdvancedTuningCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsAdvancedTuningCreate}{}}}
 \subsection{Method \code{ProjectsModelsAdvancedTuningCreate()}}{
 Submit a job to make a new version of the model with different advanced tuning parameters.
 Produces: NA
@@ -6439,7 +6758,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Submit a job to make a new version of the model with different advanced tuning parameters. Note: This route currently supports all models other than: OSS, blenders, prime, scaleout, baseline and user-created. Currently, only single-stage models (most simple models) are supported. Blueprints that run multiple steps, for example one step to predict zero vs nonzero and a second step to determine the value of nonzero predictions, are not supported. (:ref:`Advanced Tuning documentation <grid_search>`). Parameters may be omitted from this endpoint. If a parameter is omitted, its `currentValue` will be used. To see the possible parameter IDs and constraints on possible values, see :http:get:`/api/v2/projects/(projectId)/models/(modelId)/advancedTuning/parameters/`.
+Submit a job to make a new version of the model with different advanced tuning parameters. Note: This route currently supports all models other than: OSS, blenders, prime, scaleout, baseline and user-created. Currently, only single-stage models (most simple models) are supported. Blueprints that run multiple steps, for example one step to predict zero vs nonzero and a second step to determine the value of nonzero predictions, are not supported. (`Advanced Tuning documentation <grid_search>`). Parameters may be omitted from this endpoint. If a parameter is omitted, its currentValue will be used. To see the possible parameter IDs and constraints on possible values, see :<http:get>:/api/v2/projects/(projectId)/models/(modelId)/advancedTuning/parameters/.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/advancedTuning/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6469,7 +6791,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelAdvancedTuning <- ModelAdvancedTuning$new() # ModelAdvancedTuning |
+modelAdvancedTuning <- ModelAdvancedTuning$new() # ModelAdvancedTuning | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsAdvancedTuningCreate(projectId, modelId, modelAdvancedTuning=modelAdvancedTuning)
@@ -6481,8 +6803,8 @@ result <- api.instance$ProjectsModelsAdvancedTuningCreate(projectId, modelId, mo
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsAdvancedTuningParametersList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsAdvancedTuningParametersList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsAdvancedTuningParametersList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsAdvancedTuningParametersList}{}}}
 \subsection{Method \code{ProjectsModelsAdvancedTuningParametersList()}}{
 Retrieve information about all advanced tuning parameters available for the specified model.
 Produces: "application/json"
@@ -6503,6 +6825,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve information about all advanced tuning parameters available for the specified model. Note: This route currently supports all models other than: OSS, blenders, prime, scaleout, baseline and user-created
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/advancedTuning/parameters/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6542,8 +6867,8 @@ result <- api.instance$ProjectsModelsAdvancedTuningParametersList(projectId, mod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsClusterNamesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsClusterNamesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsClusterNamesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsClusterNamesList}{}}}
 \subsection{Method \code{ProjectsModelsClusterNamesList()}}{
 Retrieve cluster names assigned to an unsupervised cluster model
 Produces: "application/json"
@@ -6564,6 +6889,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve all cluster names assigned to an unsupervised cluster model
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/clusterNames/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6597,8 +6925,8 @@ result <- api.instance$ProjectsModelsClusterNamesList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsClusterNamesPatchMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsClusterNamesPatchMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsClusterNamesPatchMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsClusterNamesPatchMany}{}}}
 \subsection{Method \code{ProjectsModelsClusterNamesPatchMany()}}{
 Update cluster names assigned to an unsupervised cluster model
 Produces: "application/json"
@@ -6628,6 +6956,9 @@ Produces: "application/json"
 Update and then retrieve all cluster names assigned to an unsupervised cluster model
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/models/\{modelId\}/clusterNames/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Update cluster names and then retrieve all cluster names for the model
@@ -6651,7 +6982,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-clusterNamesUpdateParam <- ClusterNamesUpdateParam$new() # ClusterNamesUpdateParam |
+clusterNamesUpdateParam <- ClusterNamesUpdateParam$new() # ClusterNamesUpdateParam | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsClusterNamesPatchMany(projectId, modelId, clusterNamesUpdateParam=clusterNamesUpdateParam)
@@ -6663,8 +6994,8 @@ result <- api.instance$ProjectsModelsClusterNamesPatchMany(projectId, modelId, c
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsCreate}{}}}
 \subsection{Method \code{ProjectsModelsCreate()}}{
 Train a new model
 Produces: NA
@@ -6684,7 +7015,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Train a new model. To specify the amount of data to use to train the model, use either `samplePct` to express a percentage of the rows of the dataset to use or `trainingRowCount` to express the number of rows to use. If neither `samplePct` or `trainingRowCount` is specified, the model will be trained on the maximum available training data that can be used to train an in-memory model. For projects using smart sampling, samplePct and trainingRowCount will be interpreted as a percent or number of rows of the minority class.   When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or `project.max_training_rows`) avoids ambiguity around how many rows of data you want the model to use.
+Train a new model. To specify the amount of data to use to train the model, use either samplePct to express a percentage of the rows of the dataset to use or trainingRowCount to express the number of rows to use. If neither samplePct or trainingRowCount is specified, the model will be trained on the maximum available training data that can be used to train an in-memory model. For projects using smart sampling, samplePct and trainingRowCount will be interpreted as a percent or number of rows of the minority class.   When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or project.max_training_rows) avoids ambiguity around how many rows of data you want the model to use.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6704,7 +7038,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID.
-trainModel <- TrainModel$new() # TrainModel |
+trainModel <- TrainModel$new() # TrainModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsCreate(projectId, trainModel=trainModel)
@@ -6716,8 +7050,8 @@ result <- api.instance$ProjectsModelsCreate(projectId, trainModel=trainModel)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsCrossValidationCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsCrossValidationCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsCrossValidationCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsCrossValidationCreate}{}}}
 \subsection{Method \code{ProjectsModelsCrossValidationCreate()}}{
 Run Cross Validation on a model.
 Produces: NA
@@ -6747,6 +7081,9 @@ Produces: NA
 Run Cross Validation on a model.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/crossValidation/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} The model has been successfully submitted.
@@ -6765,7 +7102,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsCrossValidationCreate(projectId, modelId, body=body)
@@ -6777,8 +7114,8 @@ result <- api.instance$ProjectsModelsCrossValidationCreate(projectId, modelId, b
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsCrossValidationScoresList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsCrossValidationScoresList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsCrossValidationScoresList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsCrossValidationScoresList}{}}}
 \subsection{Method \code{ProjectsModelsCrossValidationScoresList()}}{
 Get Cross Validation scores for each partition in a model.
 Produces: "application/json"
@@ -6808,8 +7145,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-\preformatted{     Get Cross Validation scores for each partition in a model.         .. note:: Individual partition scores are only available for newer models; older models that                   have cross validation score calculated will need to be retrained.
-}
+> Get Cross Validation scores for each partition in a model. .. note:: > Individual partition scores are only available for newer models; older > models that have cross validation score calculated will need to be > retrained.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/crossValidationScores/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6845,8 +7184,8 @@ result <- api.instance$ProjectsModelsCrossValidationScoresList(projectId, modelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsDelete"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsDelete}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsDelete"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsDelete}{}}}
 \subsection{Method \code{ProjectsModelsDelete()}}{
 Delete a model from the leaderboard.
 Produces: NA
@@ -6867,6 +7206,9 @@ Produces: NA
 }
 \subsection{Details}{
 Delete a model from the leaderboard
+
+
+This method invokes \verb{DELETE /projects/\{projectId\}/models/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -6900,59 +7242,8 @@ result <- api.instance$ProjectsModelsDelete(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsExportList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsExportList}{}}}
-\subsection{Method \code{ProjectsModelsExportList()}}{
-Download exported model
-Produces: NA
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ModelsApi$ProjectsModelsExportList(projectId, modelId, ...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{projectId}}{character. The project ID}
-
-\item{\code{modelId}}{character. The model ID}
-
-\item{\code{...}}{Optional. Additional named parameters to be passed downward.}
-}
-\if{html}{\out{</div>}}
-}
-\subsection{Details}{
-Download exported model
-
-
-Response status codes, messages, and headers:
-\itemize{
-\item \strong{\code{200}}
-\itemize{
-\item \strong{\code{ContentMinusDisposition}} `attachment;filename=<filename>.drx`. The filename is dynamically generated.
-\item \strong{\code{ContentMinusType}} `application/octet-stream`
-}
-}
-}
-
-\subsection{Examples}{
-\if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{
-library(datarobot.apicore)
-projectId <- 'projectId_example' # character | The project ID
-modelId <- 'modelId_example' # character | The model ID
-
-api.instance <- ModelsApi$new()
-result <- api.instance$ProjectsModelsExportList(projectId, modelId)
-}
-}
-\if{html}{\out{</div>}}
-
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFeaturesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFeaturesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsFeaturesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsFeaturesList}{}}}
 \subsection{Method \code{ProjectsModelsFeaturesList()}}{
 List the features used in a model.
 Produces: "application/json"
@@ -6973,6 +7264,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List the features used in a model
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/features/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7006,8 +7300,8 @@ result <- api.instance$ProjectsModelsFeaturesList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsFromModelCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsFromModelCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsFromModelCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsFromModelCreate}{}}}
 \subsection{Method \code{ProjectsModelsFromModelCreate()}}{
 Retrain a model
 Produces: "application/json"
@@ -7027,7 +7321,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrain an existing model using a new sample size and/or feature list.When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or `project.max_training_rows`) avoids ambiguity around how many rows of data you want the model to use. Note that only one of `samplePct` or `trainingRowCount` should be specified.
+Retrain an existing model using a new sample size and/or feature list.When configuring retraining sample sizes for models in projects with large row counts, DataRobot recommends requesting sample sizes using integer row counts instead of percentages. This is because percentages map to many actual possible row counts and only one of which is the actual sample size for up to validation. For example, if a project has 199,408 rows and you request a 64\% sample size, any number of rows between 126,625 rows and 128,618 rows maps to 64\% of the data. Using actual integer row counts (or project.max_training_rows) avoids ambiguity around how many rows of data you want the model to use. Note that only one of samplePct or trainingRowCount should be specified.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/fromModel/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7050,7 +7347,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-retrainModel <- RetrainModel$new() # RetrainModel |
+retrainModel <- RetrainModel$new() # RetrainModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsFromModelCreate(projectId, retrainModel=retrainModel)
@@ -7062,8 +7359,8 @@ result <- api.instance$ProjectsModelsFromModelCreate(projectId, retrainModel=ret
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsList}{}}}
 \subsection{Method \code{ProjectsModelsList()}}{
 List project models
 Produces: "application/json"
@@ -7105,6 +7402,9 @@ Produces: "application/json"
 Lists all the models from a project.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The project's models
@@ -7138,8 +7438,8 @@ result <- api.instance$ProjectsModelsList(projectId, bulkOperationId=bulkOperati
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsMissingReportList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsMissingReportList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsMissingReportList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsMissingReportList}{}}}
 \subsection{Method \code{ProjectsModelsMissingReportList()}}{
 Retrieve a summary of how the model's subtasks handle missing values.
 Produces: "application/json"
@@ -7159,7 +7459,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve a summary of how the model's subtasks handle missing values         Only models built after the missing value report feature was added will have reports,         and only models with at least one imputation or encoding task, e.g. ordinal encoding,         missing value imputation. Blenders and scaleout models do not support Missing Value reports.          The report will describe how each feature's missing values were treated, and report how many         missing values were present in the training data. Features which were not processed by a         given blueprint task will not mention it: for instance, a categorical feature with many         unique values may not be considered eligible for processing by a One-Hot Encoding          Report is collected for those features which are considered eligible by given         blueprint task. For instance, categorical feature with a lot of unique values may not be         considered as eligible in One-Hot Encoding task.
+Retrieve a summary of how the model's subtasks handle missing values   Only models built after the missing value report feature was added will have reports, and only models with at least one imputation or encoding task, e.g. ordinal encoding, missing value imputation. Blenders and scaleout models do not support Missing Value reports.  The report will describe how each feature's missing values were treated, and report how many missing values were present in the training data. Features which were not processed by a given blueprint task will not mention it: for instance, a categorical feature with many unique values may not be considered eligible for processing by a One-Hot Encoding  Report is collected for those features which are considered eligible by given blueprint task. For instance, categorical feature with a lot of unique values may not be considered as eligible in One-Hot Encoding task.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/missingReport/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7193,8 +7496,8 @@ result <- api.instance$ProjectsModelsMissingReportList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsNumIterationsTrainedList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsNumIterationsTrainedList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsNumIterationsTrainedList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsNumIterationsTrainedList}{}}}
 \subsection{Method \code{ProjectsModelsNumIterationsTrainedList()}}{
 Get number of iterations trained
 Produces: "application/json"
@@ -7215,6 +7518,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve the actual number of iterations or estimators trained by a tree-based early stopping model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/numIterationsTrained/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7248,8 +7554,8 @@ result <- api.instance$ProjectsModelsNumIterationsTrainedList(projectId, modelId
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsParametersList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsParametersList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsParametersList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsParametersList}{}}}
 \subsection{Method \code{ProjectsModelsParametersList()}}{
 Retrieve model parameters.
 Produces: "application/json"
@@ -7269,7 +7575,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve model parameters. These are the parameters that appear in the webapp on the `Coefficients` tab. Note that they are only available for some models.
+Retrieve model parameters. These are the parameters that appear in the webapp on the Coefficients tab. Note that they are only available for some models.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/parameters/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7303,8 +7612,8 @@ result <- api.instance$ProjectsModelsParametersList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPatch}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPatch}{}}}
 \subsection{Method \code{ProjectsModelsPatch()}}{
 Updates a model's attribute(s).
 Produces: NA
@@ -7329,6 +7638,9 @@ Produces: NA
 Updates a model's attribute(s)
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/models/\{modelId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{204}} The model has been successfully updated with new attributes.
@@ -7349,7 +7661,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
 modelId <- 'modelId_example' # character | The model ID
-modelUpdate <- ModelUpdate$new() # ModelUpdate |
+modelUpdate <- ModelUpdate$new() # ModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPatch(projectId, modelId, modelUpdate=modelUpdate)
@@ -7361,8 +7673,8 @@ result <- api.instance$ProjectsModelsPatch(projectId, modelId, modelUpdate=model
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionIntervalsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionIntervalsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPredictionIntervalsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPredictionIntervalsCreate}{}}}
 \subsection{Method \code{ProjectsModelsPredictionIntervalsCreate()}}{
 Calculate prediction intervals for the specified percentiles for this model.
 Produces: "application/json"
@@ -7389,7 +7701,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Submit a job to calculate prediction intervals for the specified percentiles for this model.  Note that the project this model belongs to must be a time series project.
+Submit a job to calculate prediction intervals for the specified percentiles for this model. Note that the project this model belongs to must be a time series project.
+
+
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/predictionIntervals/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7410,7 +7725,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project to calculate prediction intervals for. Must be a time series project.
 modelId <- 'modelId_example' # character | The model to calculate prediction intervals for.
-predictionIntervalsCreate <- PredictionIntervalsCreate$new() # PredictionIntervalsCreate |
+predictionIntervalsCreate <- PredictionIntervalsCreate$new() # PredictionIntervalsCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPredictionIntervalsCreate(projectId, modelId, predictionIntervalsCreate=predictionIntervalsCreate)
@@ -7422,8 +7737,8 @@ result <- api.instance$ProjectsModelsPredictionIntervalsCreate(projectId, modelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPredictionIntervalsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPredictionIntervalsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPredictionIntervalsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPredictionIntervalsList}{}}}
 \subsection{Method \code{ProjectsModelsPredictionIntervalsList()}}{
 Retrieve prediction intervals that are already calculated for this model.
 Produces: "application/json"
@@ -7456,6 +7771,9 @@ Produces: "application/json"
 Retrieve prediction intervals (in descending order) that are already calculated for this model. Note that the project this model belongs to must be a time series project.
 
 
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/predictionIntervals/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} Request was successful.
@@ -7486,8 +7804,8 @@ result <- api.instance$ProjectsModelsPredictionIntervalsList(projectId, modelId,
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPrimeInfoList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPrimeInfoList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPrimeInfoList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPrimeInfoList}{}}}
 \subsection{Method \code{ProjectsModelsPrimeInfoList()}}{
 Check a Model for Prime Eligibility
 Produces: "application/json"
@@ -7508,6 +7826,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Check if a model can be approximated by DataRobot Prime
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/primeInfo/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7538,8 +7859,8 @@ result <- api.instance$ProjectsModelsPrimeInfoList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPrimeRulesetsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPrimeRulesetsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPrimeRulesetsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPrimeRulesetsCreate}{}}}
 \subsection{Method \code{ProjectsModelsPrimeRulesetsCreate()}}{
 Create Rulesets
 Produces: NA
@@ -7569,6 +7890,9 @@ Produces: NA
 Approximate an existing model on the leaderboard with DataRobot Prime. A request body should be an empty JSON {}
 
 
+This method invokes \verb{POST /projects/\{projectId\}/models/\{modelId\}/primeRulesets/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} The request was understood and accepted, and is now being worked on. See the Location header
@@ -7584,7 +7908,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project the model to approximate belongs to
 modelId <- 'modelId_example' # character | the model to approximate
-body <- NULL # object |
+body <- NULL # object | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsModelsPrimeRulesetsCreate(projectId, modelId, body=body)
@@ -7596,8 +7920,8 @@ result <- api.instance$ProjectsModelsPrimeRulesetsCreate(projectId, modelId, bod
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsPrimeRulesetsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsPrimeRulesetsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsPrimeRulesetsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsPrimeRulesetsList}{}}}
 \subsection{Method \code{ProjectsModelsPrimeRulesetsList()}}{
 List Rulesets
 Produces: "application/json"
@@ -7618,6 +7942,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all the rulesets approximating a model  When rulesets are created for the parent model, all of the rulesets are created at once, but not all rulesets have corresponding Prime models (until they are directly requested).
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/primeRulesets/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7648,8 +7975,8 @@ result <- api.instance$ProjectsModelsPrimeRulesetsList(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsModelsRetrieve()}}{
 Get model
 Produces: "application/json"
@@ -7670,6 +7997,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Look up a particular model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7700,8 +8030,8 @@ result <- api.instance$ProjectsModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsScoringCodeList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsScoringCodeList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsScoringCodeList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsScoringCodeList}{}}}
 \subsection{Method \code{ProjectsModelsScoringCodeList()}}{
 Retrieve Scoring Code
 Produces: NA
@@ -7728,7 +8058,10 @@ Produces: NA
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Retrieve Scoring Code for making new predictions from an existing model offline. You need the \"Scoring Code\" feature enabled to use this route.  By default, returns a compiled executable JAR that can be executed locally to calculate model predictions, or it can be used as a library for a Java application. Execute it with the '--help` parameters to learn how to use it as a command-line utility. See model API documentation (https://javadoc.io/doc/com.datarobot/datarobot-prediction/latest/index.html) to be able to use it inside an existing Java application.  With the sourceCode query parameter set to 'true', returns a source code archive that can be used to review internal calculations of the model. This JAR is NOT executable.  See \"https://app.datarobot.com/docs/predictions/scoring-code/scorecode.html\" in DataRobot application for more information.
+Retrieve Scoring Code for making new predictions from an existing model offline. You need the \"Scoring Code\" feature enabled to use this route.  By default, returns a compiled executable JAR that can be executed locally to calculate model predictions, or it can be used as a library for a Java application. Execute it with the '--help\\` parameters to learn how to use it as a command-line utility. See model API documentation (<https://javadoc.io/doc/com.datarobot/datarobot-prediction/latest/index.html>) to be able to use it inside an existing Java application.  With the sourceCode query parameter set to 'true', returns a source code archive that can be used to review internal calculations of the model. This JAR is NOT executable.  See \"<https://app.datarobot.com/docs/predictions/scoring-code/scorecode.html>\" in DataRobot application for more information.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/scoringCode/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7759,8 +8092,8 @@ result <- api.instance$ProjectsModelsScoringCodeList(projectId, modelId, sourceC
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsModelsSupportedCapabilitiesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsModelsSupportedCapabilitiesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsModelsSupportedCapabilitiesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsModelsSupportedCapabilitiesList}{}}}
 \subsection{Method \code{ProjectsModelsSupportedCapabilitiesList()}}{
 Get supported capabilities for a model.
 Produces: "application/json"
@@ -7781,6 +8114,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Get supported capabilities for a model.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/models/\{modelId\}/supportedCapabilities/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7814,8 +8150,8 @@ result <- api.instance$ProjectsModelsSupportedCapabilitiesList(projectId, modelI
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeFilesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeFilesCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeFilesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeFilesCreate}{}}}
 \subsection{Method \code{ProjectsPrimeFilesCreate()}}{
 Create a Prime File
 Produces: NA
@@ -7838,6 +8174,9 @@ Produces: NA
 Request creation and validation of source code from a Prime model
 
 
+This method invokes \verb{POST /projects/\{projectId\}/primeFiles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} prime validation job added to queue. See the Location header.
@@ -7852,7 +8191,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project the Prime model belongs to
-primeFileCreate <- PrimeFileCreate$new() # PrimeFileCreate |
+primeFileCreate <- PrimeFileCreate$new() # PrimeFileCreate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsPrimeFilesCreate(projectId, primeFileCreate=primeFileCreate)
@@ -7864,8 +8203,8 @@ result <- api.instance$ProjectsPrimeFilesCreate(projectId, primeFileCreate=prime
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeFilesDownloadList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeFilesDownloadList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeFilesDownloadList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeFilesDownloadList}{}}}
 \subsection{Method \code{ProjectsPrimeFilesDownloadList()}}{
 Download Code
 Produces: NA
@@ -7886,6 +8225,9 @@ Produces: NA
 }
 \subsection{Details}{
 Download code from an existing Prime file
+
+
+This method invokes \verb{GET /projects/\{projectId\}/primeFiles/\{primeFileId\}/download/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -7914,8 +8256,8 @@ result <- api.instance$ProjectsPrimeFilesDownloadList(projectId, primeFileId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeFilesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeFilesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeFilesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeFilesList}{}}}
 \subsection{Method \code{ProjectsPrimeFilesList()}}{
 Get Prime Files
 Produces: "application/json"
@@ -7951,6 +8293,9 @@ Produces: "application/json"
 List all DataRobot Prime files available for download
 
 
+This method invokes \verb{GET /projects/\{projectId\}/primeFiles/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}}
@@ -7982,8 +8327,8 @@ result <- api.instance$ProjectsPrimeFilesList(projectId, offset=offset, limit=li
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeFilesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeFilesRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeFilesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeFilesRetrieve}{}}}
 \subsection{Method \code{ProjectsPrimeFilesRetrieve()}}{
 Retrieve metadata about a DataRobot Prime file
 Produces: "application/json"
@@ -8004,6 +8349,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve metadata about a DataRobot Prime file available for download
+
+
+This method invokes \verb{GET /projects/\{projectId\}/primeFiles/\{primeFileId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8034,8 +8382,8 @@ result <- api.instance$ProjectsPrimeFilesRetrieve(projectId, primeFileId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeModelsCreate}{}}}
 \subsection{Method \code{ProjectsPrimeModelsCreate()}}{
 Create a Prime Model from a Ruleset
 Produces: NA
@@ -8062,6 +8410,9 @@ Produces: NA
 Create a Prime model using a particular ruleset.  DataRobot Prime is not available for multiclass projects.  Once rulesets approximating a parent model have been created, using POST /api/v2/projects/(projectId)/models/(modelId)/primeRulesets/, this route will allow creation of a Prime model using one of those rulesets.  Available rulesets can be retrieved via GET /api/v2/projects/(projectId)/models/(modelId)/primeRulesets/.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/primeModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} Prime model creation job successfully added to queue. See the Location header.
@@ -8076,7 +8427,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project in which to create the model
-primeModelCreatePayload <- PrimeModelCreatePayload$new() # PrimeModelCreatePayload |
+primeModelCreatePayload <- PrimeModelCreatePayload$new() # PrimeModelCreatePayload | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsPrimeModelsCreate(projectId, primeModelCreatePayload=primeModelCreatePayload)
@@ -8088,8 +8439,8 @@ result <- api.instance$ProjectsPrimeModelsCreate(projectId, primeModelCreatePayl
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeModelsList}{}}}
 \subsection{Method \code{ProjectsPrimeModelsList()}}{
 List all Prime models in a project
 Produces: "application/json"
@@ -8112,6 +8463,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 List all Prime models in a project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/primeModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8143,8 +8497,8 @@ result <- api.instance$ProjectsPrimeModelsList(projectId, offset=offset, limit=l
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsPrimeModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsPrimeModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsPrimeModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsPrimeModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsPrimeModelsRetrieve()}}{
 Retrieve a Prime model details
 Produces: "application/json"
@@ -8165,6 +8519,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieve a Prime model details
+
+
+This method invokes \verb{GET /projects/\{projectId\}/primeModels/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8195,8 +8552,8 @@ result <- api.instance$ProjectsPrimeModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTableModelsCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTableModelsCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTableModelsCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTableModelsCreate}{}}}
 \subsection{Method \code{ProjectsRatingTableModelsCreate()}}{
 Create New Models From A Rating Table
 Produces: NA
@@ -8223,6 +8580,9 @@ Produces: NA
 Create a new rating table model from a validated rating table record
 
 
+This method invokes \verb{POST /projects/\{projectId\}/ratingTableModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} the request was understood and accepted, and is now being worked on
@@ -8237,7 +8597,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
-createRatingTableModel <- CreateRatingTableModel$new() # CreateRatingTableModel |
+createRatingTableModel <- CreateRatingTableModel$new() # CreateRatingTableModel | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsRatingTableModelsCreate(projectId, createRatingTableModel=createRatingTableModel)
@@ -8249,8 +8609,8 @@ result <- api.instance$ProjectsRatingTableModelsCreate(projectId, createRatingTa
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTableModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTableModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTableModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTableModelsList}{}}}
 \subsection{Method \code{ProjectsRatingTableModelsList()}}{
 List Rating Table Models
 Produces: "application/json"
@@ -8292,6 +8652,9 @@ Produces: "application/json"
 Lists all the models from a project that have rating tables
 
 
+This method invokes \verb{GET /projects/\{projectId\}/ratingTableModels/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The response will include a json list of models in the same format as      those from GET /api/v2/projects/(projectId)/ratingTableModels/(modelId)/.
@@ -8325,8 +8688,8 @@ result <- api.instance$ProjectsRatingTableModelsList(projectId, bulkOperationId=
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTableModelsRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTableModelsRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTableModelsRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTableModelsRetrieve}{}}}
 \subsection{Method \code{ProjectsRatingTableModelsRetrieve()}}{
 Retrieve Rating Table Model
 Produces: "application/json"
@@ -8347,6 +8710,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Look up a particular rating table model
+
+
+This method invokes \verb{GET /projects/\{projectId\}/ratingTableModels/\{modelId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8377,8 +8743,8 @@ result <- api.instance$ProjectsRatingTableModelsRetrieve(projectId, modelId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTablesCreate"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTablesCreate}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTablesCreate"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTablesCreate}{}}}
 \subsection{Method \code{ProjectsRatingTablesCreate()}}{
 Upload Modified Rating Table File
 Produces: "application/json"
@@ -8411,6 +8777,9 @@ Produces: "application/json"
 Create a new rating table from a rating table file This will create a new rating table, regardless of whether the validation succeeds. The rating table object will have a validationError which will be left blank in the case of successful validation.
 
 
+This method invokes \verb{POST /projects/\{projectId\}/ratingTables/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{202}} the request was understood and accepted, and is now being worked on
@@ -8429,7 +8798,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 parentModelId <- 'parentModelId_example' # character | the parent model this rating table file was derived from
-ratingTableFile <- File.new('/path/to/file') # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
+ratingTableFile <- '/path/to/file.csv' # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
 ratingTableName <- 'ratingTableName_example' # character | the name of the new rating table to create
 
 api.instance <- ModelsApi$new()
@@ -8442,8 +8811,8 @@ result <- api.instance$ProjectsRatingTablesCreate(projectId, parentModelId, rati
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTablesFileList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTablesFileList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTablesFileList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTablesFileList}{}}}
 \subsection{Method \code{ProjectsRatingTablesFileList()}}{
 Retrieve Rating Table File
 Produces: NA
@@ -8464,6 +8833,9 @@ Produces: NA
 }
 \subsection{Details}{
 Retrieve the CSV file for the rating table
+
+
+This method invokes \verb{GET /projects/\{projectId\}/ratingTables/\{ratingTableId\}/file/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8491,8 +8863,8 @@ result <- api.instance$ProjectsRatingTablesFileList(projectId, ratingTableId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTablesList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTablesList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTablesList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTablesList}{}}}
 \subsection{Method \code{ProjectsRatingTablesList()}}{
 List Rating Tables For The Project
 Produces: "application/json"
@@ -8525,7 +8897,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-List RatingTable objects for a project.     These contain metadata about the rating table and the location at which the corresponding rating      table file can be retrieved.
+List RatingTable objects for a project.   These contain metadata about the rating table and the location at which the corresponding rating   table file can be retrieved.
+
+
+This method invokes \verb{GET /projects/\{projectId\}/ratingTables/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8559,8 +8934,8 @@ result <- api.instance$ProjectsRatingTablesList(projectId, parentModelId=parentM
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTablesPatch"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTablesPatch}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTablesPatch"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTablesPatch}{}}}
 \subsection{Method \code{ProjectsRatingTablesPatch()}}{
 Update an uploaded rating table
 Produces: "application/json"
@@ -8590,6 +8965,9 @@ Produces: "application/json"
 Rating tables may only be updated if they have not yet been used to create a model.
 
 
+This method invokes \verb{PATCH /projects/\{projectId\}/ratingTables/\{ratingTableId\}/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} On success, will return the modified rating table record in the same      format as GET /api/v2/projects/(projectId)/ratingTables/(ratingTableId)/
@@ -8607,7 +8985,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 ratingTableId <- 'ratingTableId_example' # character | the rating table ID to retrieve the source file from
-ratingTableUpdate <- RatingTableUpdate$new() # RatingTableUpdate |
+ratingTableUpdate <- RatingTableUpdate$new() # RatingTableUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsRatingTablesPatch(projectId, ratingTableId, ratingTableUpdate=ratingTableUpdate)
@@ -8619,8 +8997,8 @@ result <- api.instance$ProjectsRatingTablesPatch(projectId, ratingTableId, ratin
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRatingTablesRetrieve"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRatingTablesRetrieve}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRatingTablesRetrieve"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRatingTablesRetrieve}{}}}
 \subsection{Method \code{ProjectsRatingTablesRetrieve()}}{
 Retrieve Rating Table Information
 Produces: "application/json"
@@ -8641,6 +9019,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves a rating table
+
+
+This method invokes \verb{GET /projects/\{projectId\}/ratingTables/\{ratingTableId\}/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8671,8 +9052,8 @@ result <- api.instance$ProjectsRatingTablesRetrieve(projectId, ratingTableId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRecommendedModelsList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRecommendedModelsList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRecommendedModelsList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRecommendedModelsList}{}}}
 \subsection{Method \code{ProjectsRecommendedModelsList()}}{
 List recommended models for the project
 Produces: "application/json"
@@ -8691,6 +9072,9 @@ Produces: "application/json"
 }
 \subsection{Details}{
 Retrieves all of the current recommended models for the project
+
+
+This method invokes \verb{GET /projects/\{projectId\}/recommendedModels/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8720,8 +9104,8 @@ result <- api.instance$ProjectsRecommendedModelsList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsRecommendedModelsRecommendedModelList"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsRecommendedModelsRecommendedModelList}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsRecommendedModelsRecommendedModelList"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsRecommendedModelsRecommendedModelList}{}}}
 \subsection{Method \code{ProjectsRecommendedModelsRecommendedModelList()}}{
 Get recommended model
 Produces: "application/json"
@@ -8739,7 +9123,10 @@ Produces: "application/json"
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-This route returns the simplest recommended model available. To see all the available recommended models, use :http:get:`/api/v2/projects/(projectId)/recommendedModels/`
+This route returns the simplest recommended model available. To see all the available recommended models, use :<http:get>:/api/v2/projects/(projectId)/recommendedModels/
+
+
+This method invokes \verb{GET /projects/\{projectId\}/recommendedModels/recommendedModel/} in the DataRobot Public API.
 
 
 Response status codes, messages, and headers:
@@ -8769,8 +9156,8 @@ result <- api.instance$ProjectsRecommendedModelsRecommendedModelList(projectId)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ProjectsSegmentChampionPutMany"></a>}}
-\if{latex}{\out{\hypertarget{method-ProjectsSegmentChampionPutMany}{}}}
+\if{html}{\out{<a id="method-ModelsApi-ProjectsSegmentChampionPutMany"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-ProjectsSegmentChampionPutMany}{}}}
 \subsection{Method \code{ProjectsSegmentChampionPutMany()}}{
 Update champion model for a segment project.
 Produces: "application/json"
@@ -8797,6 +9184,9 @@ Produces: "application/json"
 Update champion model for a segment project.
 
 
+This method invokes \verb{PUT /projects/\{projectId\}/segmentChampion/} in the DataRobot Public API.
+
+
 Response status codes, messages, and headers:
 \itemize{
 \item \strong{\code{200}} The ID of Combined model that has been updated with new segment champion model.
@@ -8813,7 +9203,7 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | The project ID
-segmentChampionModelUpdate <- SegmentChampionModelUpdate$new() # SegmentChampionModelUpdate |
+segmentChampionModelUpdate <- SegmentChampionModelUpdate$new() # SegmentChampionModelUpdate | 
 
 api.instance <- ModelsApi$new()
 result <- api.instance$ProjectsSegmentChampionPutMany(projectId, segmentChampionModelUpdate=segmentChampionModelUpdate)
@@ -8825,8 +9215,8 @@ result <- api.instance$ProjectsSegmentChampionPutMany(projectId, segmentChampion
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ModelsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ModelsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

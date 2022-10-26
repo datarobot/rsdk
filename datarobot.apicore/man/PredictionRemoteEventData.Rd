@@ -28,16 +28,16 @@ PredictionRemoteEventData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PredictionRemoteEventData$new()}}
-\item \href{#method-validate}{\code{PredictionRemoteEventData$validate()}}
-\item \href{#method-toJSON}{\code{PredictionRemoteEventData$toJSON()}}
-\item \href{#method-fromJSON}{\code{PredictionRemoteEventData$fromJSON()}}
-\item \href{#method-clone}{\code{PredictionRemoteEventData$clone()}}
+\item \href{#method-PredictionRemoteEventData-new}{\code{PredictionRemoteEventData$new()}}
+\item \href{#method-PredictionRemoteEventData-validate}{\code{PredictionRemoteEventData$validate()}}
+\item \href{#method-PredictionRemoteEventData-toJSON}{\code{PredictionRemoteEventData$toJSON()}}
+\item \href{#method-PredictionRemoteEventData-fromJSON}{\code{PredictionRemoteEventData$fromJSON()}}
+\item \href{#method-PredictionRemoteEventData-clone}{\code{PredictionRemoteEventData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PredictionRemoteEventData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRemoteEventData-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-PredictionRemoteEventData-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRemoteEventData-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionRemoteEventData$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PredictionRemoteEventData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRemoteEventData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PredictionRemoteEventData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRemoteEventData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PredictionRemoteEventData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PredictionRemoteEventData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

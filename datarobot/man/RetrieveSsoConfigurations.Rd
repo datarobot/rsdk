@@ -6,18 +6,17 @@
 \usage{
 RetrieveSsoConfigurations(configurationId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Retrieve SSO configuration of a specific organization.
 }
 \details{
 Retrieve SSO configuration of a specific organization.
+
+This method invokes \verb{GET /ssoConfigurations/\{configurationId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method SsoConfigurationsRetrieve in [datarobot.apicore::SsoConfigurationApi], which this function wraps.
-
-Other SsoConfiguration: 
-\code{\link{CreateSsoConfigurations}()},
-\code{\link{ListSsoConfigurations}()},
-\code{\link{PatchSsoConfigurations}()}
+The method SsoConfigurationsRetrieve in \link[datarobot.apicore:SsoConfigurationApi]{datarobot.apicore::SsoConfigurationApi}, which invokes the same underlying API endpoint.
 }
-\concept{SsoConfiguration}

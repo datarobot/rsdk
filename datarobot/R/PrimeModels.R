@@ -68,3 +68,25 @@ as.dataRobotPrimeModel <- function(inList) {
   class(outList) <- c("dataRobotPrimeModel")
   outList
 }
+
+#' @name ListPrimeModels
+#' @details Retrieve information about all DataRobot Prime models for a DataRobot project
+#'
+#' This function requests the DataRobot Prime models information for the DataRobot
+#' project specified by the project argument, described under Arguments.
+#'
+#' The function returns data.frame containing information about each DataRobot Prime model in a
+#' project (one row per Prime model)
+#'
+#' @inheritParams DeleteProject
+#' @return data.frame (classed as \code{dataRobotPrimeModels}) containing
+#'   information about each DataRobot Prime model in a project (one row per
+#'   Prime model).
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' ListPrimeModels(projectId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+ListPrimeModels

@@ -7,6 +7,10 @@
 GetRatingTableModelFromJobId(project, ratingTableModelJobId, maxWait = 600)
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{ratingTableModelJobId}{integer. The ID returned by \code{RequestNewRatingTableModel}.}
 
 \item{maxWait}{integer. The maximum time (in seconds) to wait for the retrieve to complete.}

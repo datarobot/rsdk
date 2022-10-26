@@ -7,14 +7,14 @@
 .setMixedProperty(typeList, propertyData)
 }
 \arguments{
-\item{typeList}{A vector of R6 class generator names.}
+\item{typeList}{A character vector of property types. The list is guaranteed to be ordered with complex types before primitive types.}
 
 \item{propertyData}{A deserialized JSON string, OR an R6 object instance.}
 }
 \value{
 If \code{typeOption} is a complex type, this function will return an R6 object that was provided if it's one of the listed types in \code{typeList},
 or a newly instantiated R6 object based on the input map if that map can be converted into one of the types in \code{typeList}.
-If \code{typeOption} is a primitive, this function will return \code{propertyData} if the value is one of the types listed in \code{typeList}.
+If \code{typeOption} is a primitive, this function will return \code{propertyData} iff the value is one of the types listed in \code{typeList}.
 A helper method to validate mixed types for anyOf and oneOf properties in an R6 object.
 }
 \description{

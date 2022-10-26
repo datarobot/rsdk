@@ -17,6 +17,8 @@ AccuracyOverTimePlotsMetadataResponse Class
 
 \item{\code{backtestStatuses}}{list( \link{AccuracyOverTimePlotsStatus} ) An array of status information for each backtest. The array index of status object is the backtest index.}
 
+\item{\code{estimatedSeriesLimit}}{integer \link{optional} Estimated number of series that can be calculated in one request for 1 FD.}
+
 \item{\code{forecastDistance}}{integer The forecast distance for which the data was retrieved. `null` for OTV projects.}
 
 \item{\code{holdoutMetadata}}{\link{DatetimeTrendPlotsBacktestMetadata}}
@@ -30,16 +32,16 @@ AccuracyOverTimePlotsMetadataResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AccuracyOverTimePlotsMetadataResponse$new()}}
-\item \href{#method-validate}{\code{AccuracyOverTimePlotsMetadataResponse$validate()}}
-\item \href{#method-toJSON}{\code{AccuracyOverTimePlotsMetadataResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{AccuracyOverTimePlotsMetadataResponse$fromJSON()}}
-\item \href{#method-clone}{\code{AccuracyOverTimePlotsMetadataResponse$clone()}}
+\item \href{#method-AccuracyOverTimePlotsMetadataResponse-new}{\code{AccuracyOverTimePlotsMetadataResponse$new()}}
+\item \href{#method-AccuracyOverTimePlotsMetadataResponse-validate}{\code{AccuracyOverTimePlotsMetadataResponse$validate()}}
+\item \href{#method-AccuracyOverTimePlotsMetadataResponse-toJSON}{\code{AccuracyOverTimePlotsMetadataResponse$toJSON()}}
+\item \href{#method-AccuracyOverTimePlotsMetadataResponse-fromJSON}{\code{AccuracyOverTimePlotsMetadataResponse$fromJSON()}}
+\item \href{#method-AccuracyOverTimePlotsMetadataResponse-clone}{\code{AccuracyOverTimePlotsMetadataResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AccuracyOverTimePlotsMetadataResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AccuracyOverTimePlotsMetadataResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -50,6 +52,7 @@ A function used to initialize an instance of this class.
   holdoutMetadata = NULL,
   holdoutStatuses = NULL,
   resolutions = NULL,
+  estimatedSeriesLimit = NULL,
   validateParams = FALSE,
   ...
 )}\if{html}{\out{</div>}}
@@ -66,6 +69,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{resolutions}}{An array of available time resolutions for which plots can be retrieved.}
 
+\item{\code{estimatedSeriesLimit}}{Estimated number of series that can be calculated in one request for 1 FD.}
+
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
 
 \item{\code{...}}{Any additional keyword arguments to be passed into this object for initialization.}
@@ -74,19 +79,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-AccuracyOverTimePlotsMetadataResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-AccuracyOverTimePlotsMetadataResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AccuracyOverTimePlotsMetadataResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AccuracyOverTimePlotsMetadataResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AccuracyOverTimePlotsMetadataResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -95,8 +101,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AccuracyOverTimePlotsMetadataResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AccuracyOverTimePlotsMetadataResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -117,8 +123,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AccuracyOverTimePlotsMetadataResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AccuracyOverTimePlotsMetadataResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

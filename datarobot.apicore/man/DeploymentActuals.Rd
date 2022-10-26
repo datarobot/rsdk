@@ -22,16 +22,16 @@ DeploymentActuals Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DeploymentActuals$new()}}
-\item \href{#method-validate}{\code{DeploymentActuals$validate()}}
-\item \href{#method-toJSON}{\code{DeploymentActuals$toJSON()}}
-\item \href{#method-fromJSON}{\code{DeploymentActuals$fromJSON()}}
-\item \href{#method-clone}{\code{DeploymentActuals$clone()}}
+\item \href{#method-DeploymentActuals-new}{\code{DeploymentActuals$new()}}
+\item \href{#method-DeploymentActuals-validate}{\code{DeploymentActuals$validate()}}
+\item \href{#method-DeploymentActuals-toJSON}{\code{DeploymentActuals$toJSON()}}
+\item \href{#method-DeploymentActuals-fromJSON}{\code{DeploymentActuals$fromJSON()}}
+\item \href{#method-DeploymentActuals-clone}{\code{DeploymentActuals$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DeploymentActuals-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentActuals-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DeploymentActuals-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentActuals-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DeploymentActuals$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentActuals-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentActuals-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DeploymentActuals-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentActuals-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DeploymentActuals-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DeploymentActuals-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

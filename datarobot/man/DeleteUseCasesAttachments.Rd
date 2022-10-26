@@ -6,30 +6,17 @@
 \usage{
 DeleteUseCasesAttachments(useCaseId, attachmentId, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Removes a resource from a use case.
 }
 \details{
 Removes a resource from a use case.
+
+This method invokes \verb{DELETE /useCases/\{useCaseId\}/attachments/\{attachmentId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method UseCasesAttachmentsDelete in [datarobot.apicore::UseCaseApi], which this function wraps.
-
-Other UseCase: 
-\code{\link{CreateUseCasesAttachments}()},
-\code{\link{CreateUseCases}()},
-\code{\link{DeleteUseCases}()},
-\code{\link{ListUseCaseValueTemplatesCalculation}()},
-\code{\link{ListUseCaseValueTemplates}()},
-\code{\link{ListUseCasesActivities}()},
-\code{\link{ListUseCasesAttachments}()},
-\code{\link{ListUseCasesRealizedValueOverTime}()},
-\code{\link{ListUseCasesSharedRoles}()},
-\code{\link{ListUseCases}()},
-\code{\link{PatchManyUseCasesSharedRoles}()},
-\code{\link{PatchUseCases}()},
-\code{\link{RetrieveUseCaseValueTemplates}()},
-\code{\link{RetrieveUseCasesAttachments}()},
-\code{\link{RetrieveUseCases}()}
+The method UseCasesAttachmentsDelete in \link[datarobot.apicore:UseCaseApi]{datarobot.apicore::UseCaseApi}, which invokes the same underlying API endpoint.
 }
-\concept{UseCase}

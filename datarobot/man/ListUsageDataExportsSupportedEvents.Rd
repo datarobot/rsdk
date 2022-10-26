@@ -6,24 +6,17 @@
 \usage{
 ListUsageDataExportsSupportedEvents(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Describe supported available audit events with which to filter result data.
 }
 \details{
 Describe supported available audit events with which to filter result data.
+
+This method invokes \verb{GET /usageDataExports/supportedEvents/} in the DataRobot Public API.
 }
 \seealso{
-The method UsageDataExportsSupportedEventsList in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveEventLogs}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method UsageDataExportsSupportedEventsList in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

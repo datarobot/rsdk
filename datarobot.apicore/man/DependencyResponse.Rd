@@ -26,16 +26,16 @@ DependencyResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DependencyResponse$new()}}
-\item \href{#method-validate}{\code{DependencyResponse$validate()}}
-\item \href{#method-toJSON}{\code{DependencyResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{DependencyResponse$fromJSON()}}
-\item \href{#method-clone}{\code{DependencyResponse$clone()}}
+\item \href{#method-DependencyResponse-new}{\code{DependencyResponse$new()}}
+\item \href{#method-DependencyResponse-validate}{\code{DependencyResponse$validate()}}
+\item \href{#method-DependencyResponse-toJSON}{\code{DependencyResponse$toJSON()}}
+\item \href{#method-DependencyResponse-fromJSON}{\code{DependencyResponse$fromJSON()}}
+\item \href{#method-DependencyResponse-clone}{\code{DependencyResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DependencyResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DependencyResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -68,19 +68,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DependencyResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DependencyResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DependencyResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DependencyResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DependencyResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DependencyResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DependencyResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -108,8 +109,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DependencyResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DependencyResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

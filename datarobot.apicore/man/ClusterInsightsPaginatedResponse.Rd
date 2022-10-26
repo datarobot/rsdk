@@ -15,7 +15,7 @@ ClusterInsightsPaginatedResponse Class
 \describe{
 \item{\code{count}}{integer \link{optional} Number of items returned on this page.}
 
-\item{\code{data}}{list( \link{AnyOfImageFeatureGeospatialFeatureTextFeatureNumericFeatureCategoricalFeature} ) A list of features with clusters insights.}
+\item{\code{data}}{list( \link{AnyOfImageFeatureGeospatialFeatureTextFeatureNumericFeatureCategoricalFeatureDocumentFeature} ) A list of features with clusters insights.}
 
 \item{\code{isCurrentClusterInsightVersion}}{character If retrieved insights are current version.}
 
@@ -32,16 +32,16 @@ ClusterInsightsPaginatedResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ClusterInsightsPaginatedResponse$new()}}
-\item \href{#method-validate}{\code{ClusterInsightsPaginatedResponse$validate()}}
-\item \href{#method-toJSON}{\code{ClusterInsightsPaginatedResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ClusterInsightsPaginatedResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ClusterInsightsPaginatedResponse$clone()}}
+\item \href{#method-ClusterInsightsPaginatedResponse-new}{\code{ClusterInsightsPaginatedResponse$new()}}
+\item \href{#method-ClusterInsightsPaginatedResponse-validate}{\code{ClusterInsightsPaginatedResponse$validate()}}
+\item \href{#method-ClusterInsightsPaginatedResponse-toJSON}{\code{ClusterInsightsPaginatedResponse$toJSON()}}
+\item \href{#method-ClusterInsightsPaginatedResponse-fromJSON}{\code{ClusterInsightsPaginatedResponse$fromJSON()}}
+\item \href{#method-ClusterInsightsPaginatedResponse-clone}{\code{ClusterInsightsPaginatedResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ClusterInsightsPaginatedResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ClusterInsightsPaginatedResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -83,19 +83,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ClusterInsightsPaginatedResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ClusterInsightsPaginatedResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ClusterInsightsPaginatedResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ClusterInsightsPaginatedResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ClusterInsightsPaginatedResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -104,8 +105,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ClusterInsightsPaginatedResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ClusterInsightsPaginatedResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -126,8 +127,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ClusterInsightsPaginatedResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ClusterInsightsPaginatedResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

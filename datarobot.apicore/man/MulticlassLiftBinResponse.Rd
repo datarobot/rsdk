@@ -22,16 +22,16 @@ MulticlassLiftBinResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MulticlassLiftBinResponse$new()}}
-\item \href{#method-validate}{\code{MulticlassLiftBinResponse$validate()}}
-\item \href{#method-toJSON}{\code{MulticlassLiftBinResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{MulticlassLiftBinResponse$fromJSON()}}
-\item \href{#method-clone}{\code{MulticlassLiftBinResponse$clone()}}
+\item \href{#method-MulticlassLiftBinResponse-new}{\code{MulticlassLiftBinResponse$new()}}
+\item \href{#method-MulticlassLiftBinResponse-validate}{\code{MulticlassLiftBinResponse$validate()}}
+\item \href{#method-MulticlassLiftBinResponse-toJSON}{\code{MulticlassLiftBinResponse$toJSON()}}
+\item \href{#method-MulticlassLiftBinResponse-fromJSON}{\code{MulticlassLiftBinResponse$fromJSON()}}
+\item \href{#method-MulticlassLiftBinResponse-clone}{\code{MulticlassLiftBinResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MulticlassLiftBinResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticlassLiftBinResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-MulticlassLiftBinResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticlassLiftBinResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MulticlassLiftBinResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MulticlassLiftBinResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticlassLiftBinResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MulticlassLiftBinResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticlassLiftBinResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MulticlassLiftBinResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticlassLiftBinResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

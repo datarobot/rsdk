@@ -22,16 +22,16 @@ MulticategoricalHistogramItem Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MulticategoricalHistogramItem$new()}}
-\item \href{#method-validate}{\code{MulticategoricalHistogramItem$validate()}}
-\item \href{#method-toJSON}{\code{MulticategoricalHistogramItem$toJSON()}}
-\item \href{#method-fromJSON}{\code{MulticategoricalHistogramItem$fromJSON()}}
-\item \href{#method-clone}{\code{MulticategoricalHistogramItem$clone()}}
+\item \href{#method-MulticategoricalHistogramItem-new}{\code{MulticategoricalHistogramItem$new()}}
+\item \href{#method-MulticategoricalHistogramItem-validate}{\code{MulticategoricalHistogramItem$validate()}}
+\item \href{#method-MulticategoricalHistogramItem-toJSON}{\code{MulticategoricalHistogramItem$toJSON()}}
+\item \href{#method-MulticategoricalHistogramItem-fromJSON}{\code{MulticategoricalHistogramItem$fromJSON()}}
+\item \href{#method-MulticategoricalHistogramItem-clone}{\code{MulticategoricalHistogramItem$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MulticategoricalHistogramItem-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticategoricalHistogramItem-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-MulticategoricalHistogramItem-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticategoricalHistogramItem-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MulticategoricalHistogramItem$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MulticategoricalHistogramItem-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticategoricalHistogramItem-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MulticategoricalHistogramItem-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticategoricalHistogramItem-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -101,8 +102,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MulticategoricalHistogramItem-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MulticategoricalHistogramItem-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

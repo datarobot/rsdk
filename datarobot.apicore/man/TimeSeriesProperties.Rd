@@ -20,16 +20,16 @@ TimeSeriesProperties Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TimeSeriesProperties$new()}}
-\item \href{#method-validate}{\code{TimeSeriesProperties$validate()}}
-\item \href{#method-toJSON}{\code{TimeSeriesProperties$toJSON()}}
-\item \href{#method-fromJSON}{\code{TimeSeriesProperties$fromJSON()}}
-\item \href{#method-clone}{\code{TimeSeriesProperties$clone()}}
+\item \href{#method-TimeSeriesProperties-new}{\code{TimeSeriesProperties$new()}}
+\item \href{#method-TimeSeriesProperties-validate}{\code{TimeSeriesProperties$validate()}}
+\item \href{#method-TimeSeriesProperties-toJSON}{\code{TimeSeriesProperties$toJSON()}}
+\item \href{#method-TimeSeriesProperties-fromJSON}{\code{TimeSeriesProperties$fromJSON()}}
+\item \href{#method-TimeSeriesProperties-clone}{\code{TimeSeriesProperties$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TimeSeriesProperties-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TimeSeriesProperties-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TimeSeriesProperties-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TimeSeriesProperties-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TimeSeriesProperties$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TimeSeriesProperties-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TimeSeriesProperties-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TimeSeriesProperties-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TimeSeriesProperties-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TimeSeriesProperties-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TimeSeriesProperties-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

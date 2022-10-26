@@ -41,7 +41,8 @@ HandleDeploymentErrors <- function(deploymentResponse) {
   }
 }
 
-#' Submit actuals for processing.
+#' @name SubmitActuals
+#' @details Submit actuals for processing.
 #'
 #' The actuals submitted will be used to calculate accuracy metrics.
 #' Values are not processed immediately and may take some time to propagate through deployment
@@ -83,6 +84,7 @@ HandleDeploymentErrors <- function(deploymentResponse) {
 #' }
 #' @family deployment accuracy functions
 #' @export
+#' @include deployments_apiWrapper.R
 SubmitActuals <- function(actuals, deploymentId, batchSize = 10000) {
   # It's not you, it's R: https://developer.r-project.org/Blog/public/2020/02/16/stringsasfactors/
   # Force factor columns to character to allow for validation.
@@ -307,3 +309,202 @@ as.dataRobotPredictionServer <- function(inList) {
   class(out) <- "dataRobotPredictionServer"
   out
 }
+
+#' @name CreateDeployment
+#' @details Create a deployment.
+#'
+#' @inheritParams RequestPredictionExplanationsInitialization
+#' @param label character. The name of the deployment.
+#' @param description character. Optional. A longer description of the deployment.
+#' @param defaultPredictionServerId character. The ID of the prediction server to connect to.
+#'   Can also be a prediction server object.
+#' @inherit GetDeployment return
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' model <- GetModel(projectId, modelId)
+#' predictionServer <- ListPredictionServers()[[1]]
+#' CreateDeployment(model,
+#'   label = "myDeployment",
+#'   description = "this is my deployment",
+#'   defaultPredictionServerId = predictionServer
+#' )
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+CreateDeployment
+
+#' @name ListDeployments
+#' @details List all current model deployments.
+#' @param orderBy string. Optional. the order to sort the deployment list by, defaults to `label`
+#' Allowed attributes to sort by are:
+#'  * `label`
+#'  * `serviceHealth`
+#'  * `modelHealth`
+#'  * `accuracyHealth`
+#'  * `recentPredictions`
+#'  * `lastPredictionTimestamp`
+#'
+#'  If the sort attribute is preceded by a hyphen, deployments will be sorted in descending
+#'  order, otherwise in ascending order.
+#'  For health related sorting, ascending means failing, warning, passing, unknown.
+#' @param search string. Optional. Case insensitive search against deployment labels and
+#'  descriptions.
+#' @return A list of DataRobotDeployment objects containing:
+#' \itemize{
+#'  \item id character. The ID of the deployment.
+#'  \item label character. The label of the deployment.
+#'  \item description character. The description of the deployment.
+#'  \item defaultPredictionServer list. Information on the default prediction
+#'    server connected with the deployment. See \code{ListPredictionServers}
+#'    for details.
+#'  \item model dataRobotModel. The model associated with the deployment.
+#'    See \code{GetModel} for details.
+#'  \item capabilities list. Information on the capabilities of the deployment.
+#'  \item predictionUsage list. Information on the prediction usage of the deployment.
+#'  \item permissions list. User's permissions on the deployment.
+#'  \item serviceHealth list. Information on the service health of the deployment.
+#'  \item modelHealth list. Information on the model health of the deployment.
+#'  \item accuracyHealth list. Information on the accuracy health of the deployment.
+#' }
+#' @examples
+#' \dontrun{
+#' ListDeployments()
+#' }
+#' @export
+#' @md
+#' @include deployments_apiWrapper.R
+ListDeployments
+
+#' @name GetDeployment
+#' @details Get information on a particular deployment.
+#'
+#' @param deploymentId character. The ID of the deployment.
+#' @return A DataRobotDeployment object containing:
+#' \itemize{
+#'  \item id character. The ID of the deployment.
+#'  \item label character. The label of the deployment.
+#'  \item description character. The description of the deployment.
+#'  \item defaultPredictionServer list. Information on the default prediction
+#'    server connected with the deployment. See \code{ListPredictionServers}
+#'    for details.
+#'  \item model dataRobotModel. The model associated with the deployment.
+#'    See \code{GetModel} for details.
+#'  \item capabilities list. Information on the capabilities of the deployment.
+#'  \item predictionUsage list. Information on the prediction usage of the deployment.
+#'  \item permissions list. User's permissions on the deployment.
+#'  \item serviceHealth list. Information on the service health of the deployment.
+#'  \item modelHealth list. Information on the model health of the deployment.
+#'  \item accuracyHealth list. Information on the accuracy health of the deployment.
+#' }
+#' @examples
+#' \dontrun{
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' GetDeployment(deploymentId)
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+GetDeployment
+
+#' @name DeleteDeployment
+#' @details Delete a deployment.
+#'
+#' @inheritParams GetDeployment
+#' @return NULL
+#' @examples
+#' \dontrun{
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' DeleteDeployment(deploymentId)
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+DeleteDeployment
+
+#' @name ReplaceDeployedModel
+#' @details Replace a model in a deployment with another model.
+#'
+#' @inheritParams GetDeployment
+#' @param newModelId character. The ID of the model to use in the deployment. This model
+#'   will replace the old model. You can also pass a dataRobotModel object.
+#' @param replacementReason character. Optional. The reason for replacing the deployment.
+#'   See \code{ModelReplacementReason} for a list of reasons.
+#' @param maxWait integer. How long to wait (in seconds) for the computation to complete
+#'   before returning a timeout error? (Default 600 seconds)
+#' @inherit GetDeployment return
+#' @examples
+#' \dontrun{
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' newModelId <- "5996f820af07fc605e81ead4"
+#' ReplaceDeployedModel(deploymentId, newModelId, ModelReplacementReason$Other)
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+ReplaceDeployedModel
+
+#' @name ValidateReplaceDeployedModel
+#' @details Validate a potential deployment model replacement.
+#'
+#' @inheritParams ReplaceDeployedModel
+#' @return A validation report with:
+#' \itemize{
+#'   \item status character. Either PASSED or FAILED depending on whether all checks passed
+#'     or not.
+#'   \item message character. A message explaining the status failure, if any.
+#'   \item checks list. A list of each check and the individual status.
+#' }
+#' @examples
+#' \dontrun{
+#' deploymentId <- "5e319d2e422fbd6b58a5edad"
+#' newModelId <- "5996f820af07fc605e81ead4"
+#' ValidateReplaceDeployedModel(deploymentId, newModelId)
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+ValidateReplaceDeployedModel
+
+#' @name GetDeploymentSettings
+#' @details Retrieves all settings for a deployed model.
+#'
+#' @keywords internal
+#'
+#' @param deployment An S3 object representing a model deployment, or the unique ID of such a
+#'   deployment.
+#' @return List representing the various settings to be configured on a
+#'   deployment, including:
+#' \describe{
+#'   \item{associationId}{object. Information on association ID for tracking deployment accuracy.
+#'     See [GetDeploymentAssociationId()]}
+#'   \item{challengerModels}{logical. Whether challenger models are enabled.}
+#'   \item{featureDrift}{logical. Whether feature drift tracking is enabled. See
+#'     [GetDeploymentDriftTrackingSettings()]}
+#'   \item{humility}{logical. Whether humility rules are enabled.}
+#'   \item{predictionIntervals}{object. Information on prediction intervals.}
+#'   \item{predictionWarning}{object. Information on prediction warning settings.}
+#'   \item{predictionsByForecastDate}{object. Information on predictions by forecast date.}
+#'   \item{predictionsDataCollection}{logical. Whether predictions data is stored.}
+#'   \item{targetDrift}{logical. Whether target drift tracking is enabled.}
+#'   \item{segmentAnalysis}{object. Information on segment analysis settings.}
+#' }
+#' @family deployment configuration functions
+#' @md
+#' @export
+#' @include deployments_apiWrapper.R
+GetDeploymentSettings
+
+#' @name ListPredictionServers
+#' @details List all available prediction servers.
+#'
+#' @return A list of DataRobotPredictionServer objects containing:
+#' \itemize{
+#'  \item id character. The ID of the prediction server.
+#'  \item url character. The URL of the prediction server.
+#'  \item dataRobotKey character. The key used to access the prediction server.
+#' }
+#' @examples
+#' \dontrun{
+#' ListPredictionServers()
+#' }
+#' @export
+#' @include deployments_apiWrapper.R
+ListPredictionServers

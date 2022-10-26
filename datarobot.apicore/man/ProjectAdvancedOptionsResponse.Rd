@@ -62,16 +62,16 @@ ProjectAdvancedOptionsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectAdvancedOptionsResponse$new()}}
-\item \href{#method-validate}{\code{ProjectAdvancedOptionsResponse$validate()}}
-\item \href{#method-toJSON}{\code{ProjectAdvancedOptionsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ProjectAdvancedOptionsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ProjectAdvancedOptionsResponse$clone()}}
+\item \href{#method-ProjectAdvancedOptionsResponse-new}{\code{ProjectAdvancedOptionsResponse$new()}}
+\item \href{#method-ProjectAdvancedOptionsResponse-validate}{\code{ProjectAdvancedOptionsResponse$validate()}}
+\item \href{#method-ProjectAdvancedOptionsResponse-toJSON}{\code{ProjectAdvancedOptionsResponse$toJSON()}}
+\item \href{#method-ProjectAdvancedOptionsResponse-fromJSON}{\code{ProjectAdvancedOptionsResponse$fromJSON()}}
+\item \href{#method-ProjectAdvancedOptionsResponse-clone}{\code{ProjectAdvancedOptionsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectAdvancedOptionsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectAdvancedOptionsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -158,19 +158,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ProjectAdvancedOptionsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectAdvancedOptionsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectAdvancedOptionsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ProjectAdvancedOptionsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectAdvancedOptionsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -179,8 +180,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ProjectAdvancedOptionsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectAdvancedOptionsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -201,8 +202,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectAdvancedOptionsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectAdvancedOptionsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

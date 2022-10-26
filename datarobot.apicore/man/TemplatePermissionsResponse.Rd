@@ -28,16 +28,16 @@ TemplatePermissionsResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TemplatePermissionsResponse$new()}}
-\item \href{#method-validate}{\code{TemplatePermissionsResponse$validate()}}
-\item \href{#method-toJSON}{\code{TemplatePermissionsResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{TemplatePermissionsResponse$fromJSON()}}
-\item \href{#method-clone}{\code{TemplatePermissionsResponse$clone()}}
+\item \href{#method-TemplatePermissionsResponse-new}{\code{TemplatePermissionsResponse$new()}}
+\item \href{#method-TemplatePermissionsResponse-validate}{\code{TemplatePermissionsResponse$validate()}}
+\item \href{#method-TemplatePermissionsResponse-toJSON}{\code{TemplatePermissionsResponse$toJSON()}}
+\item \href{#method-TemplatePermissionsResponse-fromJSON}{\code{TemplatePermissionsResponse$fromJSON()}}
+\item \href{#method-TemplatePermissionsResponse-clone}{\code{TemplatePermissionsResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TemplatePermissionsResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplatePermissionsResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -73,19 +73,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TemplatePermissionsResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplatePermissionsResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TemplatePermissionsResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TemplatePermissionsResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplatePermissionsResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -94,8 +95,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TemplatePermissionsResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplatePermissionsResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -116,8 +117,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TemplatePermissionsResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TemplatePermissionsResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

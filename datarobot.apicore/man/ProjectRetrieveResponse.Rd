@@ -15,11 +15,9 @@ ProjectRetrieveResponse Class
 \describe{
 \item{\code{advancedOptions}}{\link{ProjectAdvancedOptionsResponse}}
 
-\item{\code{automodelDeploymentId}}{character The ID of the Deployment that was created as the result of an Automodel on this project.  Null if there is no Automodel for the project}
-
 \item{\code{autopilotClusterList}}{list( integer ) \link{optional} Optional. A list of integers where each value will be used as the number of clusters in Autopilot model(s) for unsupervised clustering projects. Cannot be specified unless unsupervisedMode is true and unsupervisedType is set to 'clustering'.}
 
-\item{\code{autopilotMode}}{character The current autopilot mode. 0: Full Autopilot. 2: Manual Mode. 4: Comprehenisve Autopilot. null: Mode not set. Note: Quick Autopilot is defined by the `quickrun` field.}
+\item{\code{autopilotMode}}{character The current autopilot mode. 0: Full Autopilot. 2: Manual Mode. 3: Quick Mode. 4: Comprehensive Autopilot. null: Mode not set.}
 
 \item{\code{catalogId}}{character The ID of the AI catalog entry used to create the project, or null if not created from the AI catalog.}
 
@@ -57,9 +55,9 @@ ProjectRetrieveResponse Class
 
 \item{\code{queryGeneratorId}}{character The ID of the time series data prep query generator associated with the project, or null if there is no associated query generator.}
 
-\item{\code{quickrun}}{character If the Autopilot mode is set to quick.}
+\item{\code{quickrun}}{character If the Autopilot mode is set to quick. DEPRECATED: look at autopilot_mode instead.}
 
-\item{\code{recommender}}{\link{Recommender}}
+\item{\code{relationshipsConfigurationId}}{character \link{optional} Relationships configuration id to be used for Feature Discovery projects.}
 
 \item{\code{segmentation}}{\link{ProjectSegmentationInfoResponse} \link{optional}}
 
@@ -80,22 +78,21 @@ ProjectRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ProjectRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{ProjectRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{ProjectRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ProjectRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ProjectRetrieveResponse$clone()}}
+\item \href{#method-ProjectRetrieveResponse-new}{\code{ProjectRetrieveResponse$new()}}
+\item \href{#method-ProjectRetrieveResponse-validate}{\code{ProjectRetrieveResponse$validate()}}
+\item \href{#method-ProjectRetrieveResponse-toJSON}{\code{ProjectRetrieveResponse$toJSON()}}
+\item \href{#method-ProjectRetrieveResponse-fromJSON}{\code{ProjectRetrieveResponse$fromJSON()}}
+\item \href{#method-ProjectRetrieveResponse-clone}{\code{ProjectRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ProjectRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectRetrieveResponse$new(
   advancedOptions = NULL,
-  automodelDeploymentId = NULL,
   autopilotMode = NULL,
   catalogId = NULL,
   catalogVersionId = NULL,
@@ -111,7 +108,6 @@ A function used to initialize an instance of this class.
   projectName = NULL,
   queryGeneratorId = NULL,
   quickrun = NULL,
-  recommender = NULL,
   stage = NULL,
   target = NULL,
   targetType = NULL,
@@ -123,6 +119,7 @@ A function used to initialize an instance of this class.
   maxClusters = NULL,
   minClusters = NULL,
   primaryLocationColumn = NULL,
+  relationshipsConfigurationId = NULL,
   segmentation = NULL,
   unsupervisedType = NULL,
   validateParams = FALSE,
@@ -133,9 +130,7 @@ A function used to initialize an instance of this class.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{automodelDeploymentId}}{The ID of the Deployment that was created as the result of an Automodel on this project.  Null if there is no Automodel for the project}
-
-\item{\code{autopilotMode}}{The current autopilot mode. 0: Full Autopilot. 2: Manual Mode. 4: Comprehenisve Autopilot. null: Mode not set. Note: Quick Autopilot is defined by the `quickrun` field.}
+\item{\code{autopilotMode}}{The current autopilot mode. 0: Full Autopilot. 2: Manual Mode. 3: Quick Mode. 4: Comprehensive Autopilot. null: Mode not set.}
 
 \item{\code{catalogId}}{The ID of the AI catalog entry used to create the project, or null if not created from the AI catalog.}
 
@@ -161,7 +156,7 @@ A function used to initialize an instance of this class.
 
 \item{\code{queryGeneratorId}}{The ID of the time series data prep query generator associated with the project, or null if there is no associated query generator.}
 
-\item{\code{quickrun}}{If the Autopilot mode is set to quick.}
+\item{\code{quickrun}}{If the Autopilot mode is set to quick. DEPRECATED: look at autopilot_mode instead.}
 
 \item{\code{stage}}{The stage of the project. If modeling, then the target is successfully set and modeling or predictions can proceed.}
 
@@ -183,6 +178,8 @@ A function used to initialize an instance of this class.
 
 \item{\code{primaryLocationColumn}}{Primary location column name}
 
+\item{\code{relationshipsConfigurationId}}{Relationships configuration id to be used for Feature Discovery projects.}
+
 \item{\code{unsupervisedType}}{Only valid when unsupervisedMode is True. The type of unsupervised project, anomaly or clustering. If unsupervisedMode, defaults to 'anomaly'.}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}
@@ -193,19 +190,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ProjectRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ProjectRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ProjectRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -214,8 +212,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ProjectRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -236,8 +234,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ProjectRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ProjectRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

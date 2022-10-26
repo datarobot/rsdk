@@ -12,6 +12,12 @@ GetPredictionExplanationsRowsAsDataFrame(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
+\item{predictionExplanationId}{character. Id of the prediction explanations.}
+
 \item{excludeAdjustedPredictions}{logical. Optional. Set to FALSE to include adjusted
 predictions, which are predictions adjusted by an exposure column. This is only relevant for
 projects that use an exposure column.}

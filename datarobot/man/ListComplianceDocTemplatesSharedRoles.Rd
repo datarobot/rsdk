@@ -14,29 +14,17 @@ ListComplianceDocTemplatesSharedRoles(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Get template's access control list
 }
 \details{
 Get a list of users, groups and organizations who have access to this template and their roles on the template.
+
+This method invokes \verb{GET /complianceDocTemplates/\{templateId\}/sharedRoles/} in the DataRobot Public API.
 }
 \seealso{
-The method ComplianceDocTemplatesSharedRolesList in [datarobot.apicore::DocumentationApi], which this function wraps.
-
-Other Documentation: 
-\code{\link{CreateAutomatedDocuments}()},
-\code{\link{CreateOneModelComplianceDocsInitializations}()},
-\code{\link{DeleteAutomatedDocuments}()},
-\code{\link{DeleteComplianceDocTemplate}()},
-\code{\link{GetComplianceDocTemplate}()},
-\code{\link{ListAutomatedDocumentOptions}()},
-\code{\link{ListAutomatedDocuments}()},
-\code{\link{ListComplianceDocTemplatesDefault}()},
-\code{\link{ListComplianceDocTemplates}()},
-\code{\link{PatchManyComplianceDocTemplatesSharedRoles}()},
-\code{\link{RetrieveAutomatedDocuments}()},
-\code{\link{RetrieveModelComplianceDocsInitializations}()},
-\code{\link{UpdateComplianceDocTemplate}()},
-\code{\link{UploadComplianceDocTemplate}()}
+The method ComplianceDocTemplatesSharedRolesList in \link[datarobot.apicore:DocumentationApi]{datarobot.apicore::DocumentationApi}, which invokes the same underlying API endpoint.
 }
-\concept{Documentation}

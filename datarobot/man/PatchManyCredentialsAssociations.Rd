@@ -11,21 +11,17 @@ PatchManyCredentialsAssociations(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Add objects associated with credentials
 }
 \details{
 Add objects associated with credentials
+
+This method invokes \verb{PATCH /credentials/\{credentialId\}/associations/} in the DataRobot Public API.
 }
 \seealso{
-The method CredentialsAssociationsPatchMany in [datarobot.apicore::CredentialsApi], which this function wraps.
-
-Other Credentials: 
-\code{\link{CreateCredentials}()},
-\code{\link{DeleteCredentials}()},
-\code{\link{ListCredentialsAssociations}()},
-\code{\link{ListCredentials}()},
-\code{\link{PatchCredentials}()},
-\code{\link{RetrieveCredentials}()}
+The method CredentialsAssociationsPatchMany in \link[datarobot.apicore:CredentialsApi]{datarobot.apicore::CredentialsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Credentials}

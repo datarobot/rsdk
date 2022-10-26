@@ -62,16 +62,16 @@ UseCaseResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UseCaseResponse$new()}}
-\item \href{#method-validate}{\code{UseCaseResponse$validate()}}
-\item \href{#method-toJSON}{\code{UseCaseResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{UseCaseResponse$fromJSON()}}
-\item \href{#method-clone}{\code{UseCaseResponse$clone()}}
+\item \href{#method-UseCaseResponse-new}{\code{UseCaseResponse$new()}}
+\item \href{#method-UseCaseResponse-validate}{\code{UseCaseResponse$validate()}}
+\item \href{#method-UseCaseResponse-toJSON}{\code{UseCaseResponse$toJSON()}}
+\item \href{#method-UseCaseResponse-fromJSON}{\code{UseCaseResponse$fromJSON()}}
+\item \href{#method-UseCaseResponse-clone}{\code{UseCaseResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UseCaseResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -154,19 +154,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-UseCaseResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UseCaseResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UseCaseResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -175,8 +176,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UseCaseResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -194,8 +195,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UseCaseResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UseCaseResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

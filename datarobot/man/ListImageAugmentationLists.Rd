@@ -12,40 +12,17 @@ ListImageAugmentationLists(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 List of augmentation lists that match the specified query.
 }
 \details{
 List of augmentation lists that match the specified query.
+
+This method invokes \verb{GET /imageAugmentationLists/} in the DataRobot Public API.
 }
 \seealso{
-The method ImageAugmentationListsList in [datarobot.apicore::ImagesApi], which this function wraps.
-
-Other Images: 
-\code{\link{CreateImageAugmentationListsSamples}()},
-\code{\link{CreateImageAugmentationLists}()},
-\code{\link{CreateImageAugmentationSamples}()},
-\code{\link{CreateProjectsModelsImageActivationMaps}()},
-\code{\link{CreateProjectsModelsImageEmbeddings}()},
-\code{\link{DeleteImageAugmentationLists}()},
-\code{\link{ListDatasetsImagesDataQualityLogFile}()},
-\code{\link{ListDatasetsImagesDataQualityLog}()},
-\code{\link{ListImageAugmentationListsSamples}()},
-\code{\link{ListImageAugmentationSamples}()},
-\code{\link{ListProjectsDuplicateImages}()},
-\code{\link{ListProjectsImageActivationMaps}()},
-\code{\link{ListProjectsImageBins}()},
-\code{\link{ListProjectsImageEmbeddings}()},
-\code{\link{ListProjectsImageSamples}()},
-\code{\link{ListProjectsImagesDataQualityLogFile}()},
-\code{\link{ListProjectsImagesDataQualityLog}()},
-\code{\link{ListProjectsImagesFile}()},
-\code{\link{ListProjectsImages}()},
-\code{\link{ListProjectsModelsImageActivationMaps}()},
-\code{\link{ListProjectsModelsImageEmbeddings}()},
-\code{\link{PatchImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationLists}()},
-\code{\link{RetrieveImageAugmentationOptions}()},
-\code{\link{RetrieveProjectsImages}()}
+The method ImageAugmentationListsList in \link[datarobot.apicore:ImagesApi]{datarobot.apicore::ImagesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Images}

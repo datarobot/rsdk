@@ -41,10 +41,10 @@ ValidateProject <- function(project) {
 #' @returns the model object if it is valid, potentially with a new field `modelId` if it didn't previously exist; throws an error otherwise.
 ValidateAndReturnModel <- function(model) {
   errorMessage <- "Invalid model specification"
-  if (!(is(model, "dataRobotModel") |
-    is(model, "dataRobotFrozenModel") |
-    is(model, "dataRobotDatetimeModel") |
-    is(model, "dataRobotPrimeModel") |
+  if (!(is(model, "dataRobotModel") ||
+    is(model, "dataRobotFrozenModel") ||
+    is(model, "dataRobotDatetimeModel") ||
+    is(model, "dataRobotPrimeModel") ||
     isApicoreModel(model))) {
     stop(errorMessage)
   } else {
@@ -72,7 +72,6 @@ ValidateAndReturnModel <- function(model) {
 apicoreModelClasses <- c(
   datarobot.apicore::ModelDetailsResponse,
   datarobot.apicore::DatetimeModelDetailsResponse,
-  datarobot.apicore::FrozenModelRetrieveResponse,
   datarobot.apicore::PrimeModelDetailsRetrieveResponse
 )
 

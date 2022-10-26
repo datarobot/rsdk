@@ -22,16 +22,16 @@ ShapWarnings Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ShapWarnings$new()}}
-\item \href{#method-validate}{\code{ShapWarnings$validate()}}
-\item \href{#method-toJSON}{\code{ShapWarnings$toJSON()}}
-\item \href{#method-fromJSON}{\code{ShapWarnings$fromJSON()}}
-\item \href{#method-clone}{\code{ShapWarnings$clone()}}
+\item \href{#method-ShapWarnings-new}{\code{ShapWarnings$new()}}
+\item \href{#method-ShapWarnings-validate}{\code{ShapWarnings$validate()}}
+\item \href{#method-ShapWarnings-toJSON}{\code{ShapWarnings$toJSON()}}
+\item \href{#method-ShapWarnings-fromJSON}{\code{ShapWarnings$fromJSON()}}
+\item \href{#method-ShapWarnings-clone}{\code{ShapWarnings$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ShapWarnings-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapWarnings-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -58,19 +58,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ShapWarnings-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapWarnings-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ShapWarnings$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ShapWarnings-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapWarnings-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -79,8 +80,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ShapWarnings-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapWarnings-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -98,8 +99,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ShapWarnings-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ShapWarnings-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -7,6 +7,10 @@
 GetRatingTableFromJobId(project, ratingTableJobId, maxWait = 600)
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{ratingTableJobId}{integer. The job ID returned by \code{CreateRatingTable}.}
 
 \item{maxWait}{integer. The maximum time (in seconds) to wait for the retrieve to complete.}

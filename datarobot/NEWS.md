@@ -1,76 +1,80 @@
-# datarobot v2.29.0.9000
+# datarobot v2.29.0.9001
 
-New Features:
+The `datarobot` package is now dependent on R >= 3.5.
+
+The `datarobot` package now covers the entirety of the DataRobot Public API. It is now dependent on the `datarobot.apicore` package, which provides auto-generated functions to access the Public API. The `datarobot` package provides a number of "API wrapper functions" around the `apicore` package to make it easier to use.
+
+DataRobot recommends starting with package documentation:  try `?datarobot` and `?datarobot.apicore` in your R session. Also, take a look at the vignettes.
+
+New API Functions:
+
+* Generated API wrapper functions are organized into categories based on their tags from the OpenAPI specification, which were themselves redone for the entire DataRobot Public API in v2.27.
+* These functions use camel-cased argument names, to be consistent with the rest of the package.
+* Most function names follow a `VerbObject` pattern based on the OpenAPI specification.
+* Some function names match "legacy" functions that existed in v2.18 of the R Client, if they invoked the same underlying endpoint. For example, the wrapper function is called `GetModel`, not `RetrieveProjectsModels`, since the latter is what was implemented in the R client for the endpoint `/projects/{mId}/models/{mId}`.
+* Similarly, these functions use the same arguments as the corresponding "legacy" functions, to ensure that DataRobot does not break existing code that calls those functions.
+
+Other New Features:
+
+* The R client (both `datarobot` and `datarobot.apicore` packages) will output a warning when you attempt to access certain resources (projects, models, deployments, etc.) that are deprecated or disabled by the DataRobot platform migration to Python 3.
+* Added the helper function `EditConfig` that allows you to interactively modify drconfig.yaml.
+* Added the `DownloadDatasetAsCsv` function to retrieve dataset as CSV using catalogId.
+* Added the `GetFeatureDiscoveryRelationships` function to get the feature discovery relationships for a project.
+* Added support for comprehensive autopilot: use `mode = AutopilotMode.Comprehensive`.
 
 Enhancements:
 
-Bugfixes:
-
-* Fixed some tests exercising the `BuildPath` helper function.
-* Fixed `datarobot.apicore` file upload functions to properly encode the payload as "multipart"
-
-API Changes:
-
-* The functions `ListProjects` and `as.data.frame.projectSummaryList` no longer return fields related to recommender models, which were removed in v2.5.0.
-
-Deprecated and Defunct:
-
-Dependency Changes:
-
-Documentation Changes:
-
-# datarobot v2.27.0.9000
-
-The `datarobot` package is now dependent on the `datarobot.apicore` package. We also import `R6`.
-
-Earlier preview releases of this package were versioned `v3.0.0` but are subsumed by this one.
-
-- Generated API wrapper functions have been reorganized based on their OpenAPI tags, which were themselves redone for the entire DataRobot Public API in v2.27.
-- Package-level documentation for both packages has been updated to explain how to use package options. Try `?datarobot` and `?datarobot.apicore` in your R session!
-- The internal helper function `ValidateModel` was renamed to `ValidateAndReturnModel` and now works with model classes from the `apicore` package.
-- Removed files (code, tests, doc) representing parts of the Public API not present in v2.27.
-
-New Features:
-
-* Added the helper function `EditConfig` which allows you to interactively modify drconfig.yaml.
-* Added the DownloadDatasetAsCsv function to retrieve dataset as CSV using catalogId.
-* Added the GetFeatureDiscoveryRelationships function to get the feature discovery relationships for a project.
+* The function `RequestFeatureImpact` now accepts a `rowCount` argument, which will change the sample size used for Feature Impact calculations.
+* The internal helper function `ValidateModel` was renamed to `ValidateAndReturnModel` and now works with model classes from the `apicore` package.
 
 Bugfixes:
 
 * The enum `ModelCapability` has been properly exported.
+* Fixed `FullAverageDataset` function in the PartialDependence vignette to ignore `NA` when calculating the `min` and `max` of the data range.
+* Fixed `RetrieveAutomatedDocuments` function to accept filename argument that is used to specify where to save the automated document.
+* Fixed `datarobot.apicore` file upload functions to properly encode the payload as "multipart".
+* Fixed `datarobot.apicore` JSON serialization bugs.
+* Fixed some tests exercising the `BuildPath` helper function.
+
+API Changes:
+
+* The helper function `isApicoreModel` no longer checks for `datarobot.apicore::FrozenModelRetrieveResponse` since it no longer exists in the Public API. It was replaced by the class `datarobot.apicore::ModelDetailsResponse`.
+* The functions `ListProjects` and `as.data.frame.projectSummaryList` no longer return fields related to recommender models, which were removed in v2.5.0.
+* The function `SetTarget` now sets autopilot mode to `Quick` by default. Additionally, when `Quick` is passed, the underlying `/aim` endpoint will no longer be invoked with `Auto`.
+* The functions `CreateDatasetsFromHDFS`, `CreateDatasetsVersionsFromHDFS`, and `CreateHdfsProjects` have been deprecated.
+
+Deprecated and Defunct:
+
+* `quickrun` argument is removed from the function `SetTarget`. Users should set `mode = AutopilotMode.Quick` instead.
+* Compliance Documentation got deprecated in favor of Automated Documentation API.
+* The Transferable Models family of functions (`ListTransferableModels`, `GetTransferableModel`, `RequestTransferableModel`, `DownloadTransferableModel`, `UploadTransferableModel`, `UpdateTransferableModel`, `DeleteTransferableModel`) have been removed. The underlying endpoints -- long deprecated -- were removed from the Public API with the removal of the Standalone Scoring Engine (SSE).
+* Removed files (code, tests, doc) representing parts of the Public API not present in v2.27-2.29.
+
+Dependency Changes:
+
+* The `datarobot` package is now dependent on R >= 3.5 due to changes in the updated "Introduction to DataRobot" vignette.
+* Added dependency on `AmesHousing` package for updated "Introduction to DataRobot" vignette.
+* Removed dependency on `MASS` package.
+* Removed dependency on `R6` package; it is already a dependency of `datarobot.apicore` but is not used in `datarobot` itself.
+* Client documentation is now explicitly generated with Roxygen2 v7.2.1.
 
 Documentation Changes:
 
+* Package-level documentation for both packages has been updated to explain how to use package options.
+* Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset.
 * Compressed `extdata/Friedman1.csv` and updated vignettes dependent on that dataset.
 * Removed `extdata/anomFrame.csv` as it was unused.
 
-# datarobot v3.0.0.9002
+# datarobot v2.27.0.9000
 
-Deprecated.
+This was a Private Preview release of the R API Client. Earlier preview releases of this package were versioned `v3.0.0` but are subsumed by this one.
 
-* Generated API wrapper functions for the `datarobot.apicore` package now use the same arguments as the corresponding "legacy" functions, to ensure we don't break existing code that calls those functions. For example, the wrapper function `ProjectsModelsRetrieve` is now called `GetModel`, since the latter is what was implemented in the R client for the endpoint `/projects/{mId}/models/{mId}`.
-* Removed some generated API wrapper functions that do not easily override legacy functions.
-
-# datarobot v3.0.0.9001
-
-Deprecated.
-
-* Generated API wrapper functions for the `datarobot.apicore` package now use camel-cased argument names, to be consistent with the rest of the package.
-* Some generated API wrapper functions have been renamed to match "legacy" functions if they invoked the same API endpoint. These renamed functions take precedence over the legacy functions.
-
-# datarobot v3.0.0.9000
-
-Deprecated.
-
-The `datarobot` package is now dependent on the `datarobot.apicore` package.
-
-# datarobot v2.18.1.9000
+# datarobot v2.18.1
 
 New Features:
 
-* Added the ability to retrieve and restore features that have been reduced using the time series 
-  feature generation and reduction functionality. Discarded features can be retrieved using 
+* Added the ability to retrieve and restore features that have been reduced using the time series
+  feature generation and reduction functionality. Discarded features can be retrieved using
   a `RetrieveDiscardedFeaturesInformation` and restored using `RestoreDiscardedFeatures`
 * Added the ability to create and retrieve DataEngineQueryGenerators and create a Dataset from a DataEngineQueryGenerator for time series data prep.
 * Added support to upload a prediction dataset from the AI catalog.
@@ -92,9 +96,11 @@ Bugfixes:
 API Changes:
 
 Deprecated and Defunct:
+
 * The deprecated `BlendMethod$FORECAST_DISTANCE` has been removed. Use `BlendMethod$FORECAST_DISTANCE_ENET` instead.
 
 Dependency Changes:
+
 * Client documentation is now explicitly generated with Roxygen2 v7.1.2.
 
 Documentation Changes:

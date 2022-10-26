@@ -5,7 +5,7 @@
 \alias{AutopilotMode}
 \title{Autopilot modes}
 \format{
-An object of class \code{list} of length 3.
+An object of class \code{list} of length 4.
 }
 \usage{
 AutopilotMode
@@ -20,5 +20,6 @@ options.
 \code{FullAuto} represents running the entire autopilot. \code{Quick} runs a quicker, abridged
 version of the autopilot that focuses on the most important models. \code{Manual} does not run
 the autopilot and instead leaves it to the user to select the algorithms to be run.
+\code{Comprehensive} runs all blueprints in the repository, and may be extremely slow.
 }
 \keyword{datasets}

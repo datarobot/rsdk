@@ -20,16 +20,16 @@ Username Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Username$new()}}
-\item \href{#method-validate}{\code{Username$validate()}}
-\item \href{#method-toJSON}{\code{Username$toJSON()}}
-\item \href{#method-fromJSON}{\code{Username$fromJSON()}}
-\item \href{#method-clone}{\code{Username$clone()}}
+\item \href{#method-Username-new}{\code{Username$new()}}
+\item \href{#method-Username-validate}{\code{Username$validate()}}
+\item \href{#method-Username-toJSON}{\code{Username$toJSON()}}
+\item \href{#method-Username-fromJSON}{\code{Username$fromJSON()}}
+\item \href{#method-Username-clone}{\code{Username$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Username-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Username-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Username-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Username-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Username$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Username-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Username-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Username-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Username-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Username-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Username-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

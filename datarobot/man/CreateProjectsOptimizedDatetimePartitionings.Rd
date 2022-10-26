@@ -45,21 +45,17 @@ CreateProjectsOptimizedDatetimePartitionings(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create an optimized datetime partitioning configuration using the target.
 }
 \details{
-Create an optimized datetime partitioning configuration using the target.  Initializes a job to construct an optimized datetime partitioning using the date and target information to ensure that backtests sufficiently cover regions of interest in the target. This is an asynchronous job. The results of the asynchronous job (backtests and other parameters can be used in the synchronous version.  `useTimeSeries` controls whether a time series project should be created or a normal project that uses datetime partitioning. See :ref:`Time-Series Projects<time_series_overview>` for more detail on the differences between time series projects and datetime partitioned projects. Time-series projects are only available to some users and use the additional settings of `featureDerivationWindowStart` and `featureDerivationWindowEnd` to establish feature derivation window and `forecastWindowStart` and `forecastWindowEnd` to establish a forecast window. The overview referenced above provides more information about using feature derivation and forecast windows.  When specifying a feature derivation window of a forecast window, the number of units it spans (end - start) must be an integer multiple of the timeStep of the datetimePartitionColumn.  All durations and datetimes should be specified in accordance with the :ref:`timestamp and duration formatting rules<time_format>`.
+Create an optimized datetime partitioning configuration using the target.  Initializes a job to construct an optimized datetime partitioning using the date and target information to ensure that backtests sufficiently cover regions of interest in the target. This is an asynchronous job. The results of the asynchronous job (backtests and other parameters can be used in the synchronous version.  useTimeSeries controls whether a time series project should be created or a normal project that uses datetime partitioning. See \verb{Time-Series Projects<time_series_overview>} for more detail on the differences between time series projects and datetime partitioned projects. Time-series projects are only available to some users and use the additional settings of featureDerivationWindowStart and featureDerivationWindowEnd to establish feature derivation window and forecastWindowStart and forecastWindowEnd to establish a forecast window. The overview referenced above provides more information about using feature derivation and forecast windows.  When specifying a feature derivation window of a forecast window, the number of units it spans (end - start) must be an integer multiple of the timeStep of the datetimePartitionColumn.  All durations and datetimes should be specified in accordance with the \verb{timestamp and duration formatting rules<time_format>}.
+
+This method invokes \verb{POST /projects/\{projectId\}/optimizedDatetimePartitionings/} in the DataRobot Public API.
 }
 \seealso{
-The method ProjectsOptimizedDatetimePartitioningsCreate in [datarobot.apicore::DatetimePartitioningApi], which this function wraps.
-
-Other DatetimePartitioning: 
-\code{\link{CreateProjectsDatetimePartitioning}()},
-\code{\link{DownloadTimeSeriesFeatureDerivationLog}()},
-\code{\link{GetDatetimePartition}()},
-\code{\link{GetTimeSeriesFeatureDerivationLog}()},
-\code{\link{ListProjectsOptimizedDatetimePartitionings}()},
-\code{\link{RetrieveProjectsOptimizedDatetimePartitionings}()}
+The method ProjectsOptimizedDatetimePartitioningsCreate in \link[datarobot.apicore:DatetimePartitioningApi]{datarobot.apicore::DatetimePartitioningApi}, which invokes the same underlying API endpoint.
 }
-\concept{DatetimePartitioning}

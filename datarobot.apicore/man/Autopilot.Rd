@@ -20,16 +20,16 @@ Autopilot Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Autopilot$new()}}
-\item \href{#method-validate}{\code{Autopilot$validate()}}
-\item \href{#method-toJSON}{\code{Autopilot$toJSON()}}
-\item \href{#method-fromJSON}{\code{Autopilot$fromJSON()}}
-\item \href{#method-clone}{\code{Autopilot$clone()}}
+\item \href{#method-Autopilot-new}{\code{Autopilot$new()}}
+\item \href{#method-Autopilot-validate}{\code{Autopilot$validate()}}
+\item \href{#method-Autopilot-toJSON}{\code{Autopilot$toJSON()}}
+\item \href{#method-Autopilot-fromJSON}{\code{Autopilot$fromJSON()}}
+\item \href{#method-Autopilot-clone}{\code{Autopilot$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Autopilot-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Autopilot-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-Autopilot-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-Autopilot-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Autopilot$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Autopilot-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Autopilot-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Autopilot-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Autopilot-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -89,8 +90,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Autopilot-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Autopilot-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -48,16 +48,16 @@ NotificationChannelResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotificationChannelResponse$new()}}
-\item \href{#method-validate}{\code{NotificationChannelResponse$validate()}}
-\item \href{#method-toJSON}{\code{NotificationChannelResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{NotificationChannelResponse$fromJSON()}}
-\item \href{#method-clone}{\code{NotificationChannelResponse$clone()}}
+\item \href{#method-NotificationChannelResponse-new}{\code{NotificationChannelResponse$new()}}
+\item \href{#method-NotificationChannelResponse-validate}{\code{NotificationChannelResponse$validate()}}
+\item \href{#method-NotificationChannelResponse-toJSON}{\code{NotificationChannelResponse$toJSON()}}
+\item \href{#method-NotificationChannelResponse-fromJSON}{\code{NotificationChannelResponse$fromJSON()}}
+\item \href{#method-NotificationChannelResponse-clone}{\code{NotificationChannelResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotificationChannelResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationChannelResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -123,19 +123,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-NotificationChannelResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationChannelResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotificationChannelResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-NotificationChannelResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationChannelResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -144,8 +145,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-NotificationChannelResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationChannelResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -166,8 +167,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotificationChannelResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotificationChannelResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

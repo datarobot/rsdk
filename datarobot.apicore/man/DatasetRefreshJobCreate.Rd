@@ -34,16 +34,16 @@ DatasetRefreshJobCreate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetRefreshJobCreate$new()}}
-\item \href{#method-validate}{\code{DatasetRefreshJobCreate$validate()}}
-\item \href{#method-toJSON}{\code{DatasetRefreshJobCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetRefreshJobCreate$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetRefreshJobCreate$clone()}}
+\item \href{#method-DatasetRefreshJobCreate-new}{\code{DatasetRefreshJobCreate$new()}}
+\item \href{#method-DatasetRefreshJobCreate-validate}{\code{DatasetRefreshJobCreate$validate()}}
+\item \href{#method-DatasetRefreshJobCreate-toJSON}{\code{DatasetRefreshJobCreate$toJSON()}}
+\item \href{#method-DatasetRefreshJobCreate-fromJSON}{\code{DatasetRefreshJobCreate$fromJSON()}}
+\item \href{#method-DatasetRefreshJobCreate-clone}{\code{DatasetRefreshJobCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobCreate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -51,7 +51,7 @@ A function used to initialize an instance of this class.
   name = NULL,
   schedule = NULL,
   categories = NULL,
-  credentialId = "null",
+  credentialId = NULL,
   credentials = NULL,
   enabled = TRUE,
   scheduleReferenceDate = NULL,
@@ -86,19 +86,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobCreate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobCreate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetRefreshJobCreate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -107,8 +108,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -129,8 +130,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetRefreshJobCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetRefreshJobCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

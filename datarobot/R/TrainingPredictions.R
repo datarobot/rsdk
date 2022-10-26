@@ -197,3 +197,17 @@ DownloadTrainingPredictions <- function(project, predictionId, filename, encodin
   trainingPredictions$predictionValues <- unlist(lapply(trainingPredictions$predictionValues, "[", "value"), use.names = FALSE)
   write.csv(trainingPredictions, file = filename, row.names = FALSE, fileEncoding = encoding)
 }
+
+#' @name ListTrainingPredictions
+#' @details Retrieve information about all training prediction datasets in a project.
+#'
+#' @inheritParams DeleteProject
+#' @return data.frame containing information about each training prediction.
+#' @examples
+#' \dontrun{
+#' projectId <- "5984b4d7100d2b31c1166529"
+#' ListTrainingPredictions(projectId)
+#' }
+#' @export
+#' @include predictions_apiWrapper.R
+ListTrainingPredictions

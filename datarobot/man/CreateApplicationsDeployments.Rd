@@ -6,35 +6,17 @@
 \usage{
 CreateApplicationsDeployments(modelDeploymentId, applicationId, linkName, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Links a deployment to an application
 }
 \details{
 If application creates deployment during its lifetime, we want to have an API to link deployment with application.
+
+This method invokes \verb{POST /applications/\{applicationId\}/deployments/} in the DataRobot Public API.
 }
 \seealso{
-The method ApplicationsDeploymentsCreate in [datarobot.apicore::ApplicationsApi], which this function wraps.
-
-Other Applications: 
-\code{\link{CreateApplicationsBuildJobs}()},
-\code{\link{CreateApplicationsDuplicate}()},
-\code{\link{CreateApplications}()},
-\code{\link{CreateDemoApplications}()},
-\code{\link{DeleteApplicationsDeployments}()},
-\code{\link{DeleteApplications}()},
-\code{\link{ListApplicationTypesUsecases}()},
-\code{\link{ListApplicationTypes}()},
-\code{\link{ListApplicationsAccessControl}()},
-\code{\link{ListApplicationsSharedRoles}()},
-\code{\link{ListApplications}()},
-\code{\link{PatchApplications}()},
-\code{\link{PatchManyApplicationsAccessControl}()},
-\code{\link{PatchManyApplicationsAuthToken}()},
-\code{\link{PatchManyApplicationsDeploymentState}()},
-\code{\link{PatchManyApplicationsSharedRoles}()},
-\code{\link{PatchManyApplicationsVersion}()},
-\code{\link{RetrieveApplicationTypes}()},
-\code{\link{RetrieveApplicationUserRole}()},
-\code{\link{RetrieveApplications}()}
+The method ApplicationsDeploymentsCreate in \link[datarobot.apicore:ApplicationsApi]{datarobot.apicore::ApplicationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Applications}

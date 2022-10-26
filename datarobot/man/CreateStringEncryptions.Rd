@@ -6,13 +6,17 @@
 \usage{
 CreateStringEncryptions(plainText, ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Encrypt a string which DataRobot can decrypt.
 }
 \details{
 DataRobot does not store your credentials when accessing external data stores. Instead you first encrypt your sensitive information with DataRobot and then, when accessing those data stores, supply the encrypted credentials. DataRobot will decrypt your credentials and use them to establish a connection to your data store.
+
+This method invokes \verb{POST /stringEncryptions/} in the DataRobot Public API.
 }
 \seealso{
-The method StringEncryptionsCreate in [datarobot.apicore::UtilitiesApi], which this function wraps.
+The method StringEncryptionsCreate in \link[datarobot.apicore:UtilitiesApi]{datarobot.apicore::UtilitiesApi}, which invokes the same underlying API endpoint.
 }
-\concept{Utilities}

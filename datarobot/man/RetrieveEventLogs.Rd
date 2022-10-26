@@ -6,24 +6,17 @@
 \usage{
 RetrieveEventLogs(recordId, includeIdentifyingFields = "true", ...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Get audit record by ID.
 }
 \details{
 Get audit record by ID.
+
+This method invokes \verb{GET /eventLogs/\{recordId\}/} in the DataRobot Public API.
 }
 \seealso{
-The method EventLogsRetrieve in [datarobot.apicore::AnalyticsApi], which this function wraps.
-
-Other Analytics: 
-\code{\link{CreateUsageDataExports}()},
-\code{\link{DeleteManyUsersRateLimitUsage}()},
-\code{\link{DeleteUsersRateLimitUsage}()},
-\code{\link{ListEventLogsEvents}()},
-\code{\link{ListEventLogsPredictionUsage}()},
-\code{\link{ListEventLogs}()},
-\code{\link{ListUsageDataExportsSupportedEvents}()},
-\code{\link{ListUsersRateLimitUsage}()},
-\code{\link{RetrieveUsageDataExports}()}
+The method EventLogsRetrieve in \link[datarobot.apicore:AnalyticsApi]{datarobot.apicore::AnalyticsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Analytics}

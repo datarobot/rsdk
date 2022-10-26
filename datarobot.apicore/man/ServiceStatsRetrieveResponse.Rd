@@ -28,16 +28,16 @@ ServiceStatsRetrieveResponse Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ServiceStatsRetrieveResponse$new()}}
-\item \href{#method-validate}{\code{ServiceStatsRetrieveResponse$validate()}}
-\item \href{#method-toJSON}{\code{ServiceStatsRetrieveResponse$toJSON()}}
-\item \href{#method-fromJSON}{\code{ServiceStatsRetrieveResponse$fromJSON()}}
-\item \href{#method-clone}{\code{ServiceStatsRetrieveResponse$clone()}}
+\item \href{#method-ServiceStatsRetrieveResponse-new}{\code{ServiceStatsRetrieveResponse$new()}}
+\item \href{#method-ServiceStatsRetrieveResponse-validate}{\code{ServiceStatsRetrieveResponse$validate()}}
+\item \href{#method-ServiceStatsRetrieveResponse-toJSON}{\code{ServiceStatsRetrieveResponse$toJSON()}}
+\item \href{#method-ServiceStatsRetrieveResponse-fromJSON}{\code{ServiceStatsRetrieveResponse$fromJSON()}}
+\item \href{#method-ServiceStatsRetrieveResponse-clone}{\code{ServiceStatsRetrieveResponse$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ServiceStatsRetrieveResponse-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ServiceStatsRetrieveResponse-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -69,19 +69,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-ServiceStatsRetrieveResponse-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-ServiceStatsRetrieveResponse-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ServiceStatsRetrieveResponse$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ServiceStatsRetrieveResponse-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ServiceStatsRetrieveResponse-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -90,8 +91,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ServiceStatsRetrieveResponse-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ServiceStatsRetrieveResponse-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -112,8 +113,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ServiceStatsRetrieveResponse-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ServiceStatsRetrieveResponse-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

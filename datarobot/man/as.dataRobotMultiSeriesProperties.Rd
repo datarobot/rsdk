@@ -30,6 +30,8 @@ Return value for GetMultiSeriesProperties() and others
 }
 \seealso{
 Other MultiSeriesProject functions: 
-\code{\link{GetMultiSeriesProperties}()}
+\code{\link{GetMultiSeriesProperties}()},
+\code{\link{RequestCrossSeriesDetection}()},
+\code{\link{RequestMultiSeriesDetection}()}
 }
 \concept{MultiSeriesProject functions}

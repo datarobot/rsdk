@@ -13,6 +13,12 @@ DownloadPredictionExplanations(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
+\item{predictionExplanationId}{character. Id of the prediction explanations.}
+
 \item{filename}{character. Filename of file to save prediction explanations rows}
 
 \item{encoding}{character. Optional. Character string A string representing the encoding

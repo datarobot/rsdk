@@ -1,18 +1,18 @@
 Package: datarobot.apicore
 Title: R Package Client for Public API
-Version: 0.2.0.9000
+Version: 0.4.0.9000
 Authors@R: person("AJ Alon", email = "api-maintainer@datarobot.com", role = c("aut", "cre"))
 Description: DataRobot's Public facing API
-URL: https://github.com/datarobot/public_api_R_client
-BugReports: https://github.com/datarobot/public_api_R_client/issues
+URL: https://github.com/datarobot/rsdk
+BugReports: https://github.com/datarobot/rsdk/issues
 Depends: R (>= 3.3)
 Encoding: UTF-8
 License: file LICENSE
 Suggests: testthat
 Imports: jsonlite, httr, R6
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 NeedsCompilation: no
-Packaged: 2022-06-07 05:30:18 UTC; aj
+Packaged: 2022-10-26 01:16:17 UTC; user
 Author: AJ Alon [aut, cre]
 Maintainer: AJ Alon <api-maintainer@datarobot.com>

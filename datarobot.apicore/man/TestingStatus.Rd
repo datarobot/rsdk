@@ -22,16 +22,16 @@ TestingStatus Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TestingStatus$new()}}
-\item \href{#method-validate}{\code{TestingStatus$validate()}}
-\item \href{#method-toJSON}{\code{TestingStatus$toJSON()}}
-\item \href{#method-fromJSON}{\code{TestingStatus$fromJSON()}}
-\item \href{#method-clone}{\code{TestingStatus$clone()}}
+\item \href{#method-TestingStatus-new}{\code{TestingStatus$new()}}
+\item \href{#method-TestingStatus-validate}{\code{TestingStatus$validate()}}
+\item \href{#method-TestingStatus-toJSON}{\code{TestingStatus$toJSON()}}
+\item \href{#method-TestingStatus-fromJSON}{\code{TestingStatus$fromJSON()}}
+\item \href{#method-TestingStatus-clone}{\code{TestingStatus$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TestingStatus-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TestingStatus-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-TestingStatus-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-TestingStatus-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TestingStatus$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TestingStatus-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TestingStatus-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TestingStatus-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TestingStatus-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -93,8 +94,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TestingStatus-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TestingStatus-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

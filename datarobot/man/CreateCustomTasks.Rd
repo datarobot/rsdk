@@ -14,35 +14,17 @@ CreateCustomTasks(
   ...
 )
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Create a custom task
 }
 \details{
-Creates a new custom task and returns the newly created metadata record for it.  A custom task may either be an estimator or a transform. Estimators must support a single target type (e.g. binaryClassification, regression). Regression and anomaly detection models are expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class.  For example, a binary classification model might return:  .. code:: Python      {         positiveClassLabel: probability,         negativeClassLabel: 1.0 - probability     }  Transforms are expected to return a dataframe or sparse matrix with the same number of rows as the input feature matrix. At this time, only numeric outputs are supported for custom transforms.
+Creates a new custom task and returns the newly created metadata record for it.  A custom task may either be an estimator or a transform. Estimators must support a single target type (e.g. binaryClassification, regression). Regression and anomaly detection models are expected to produce predictions that are arbitrary floating-point or integer numbers. A classification model is expected to return predictions with probability scores for each class. For example, a binary classification model might return:  \verb{Python \{     positiveClassLabel: probability,     negativeClassLabel: 1.0 - probability \}}  Transforms are expected to return a dataframe or sparse matrix with the same number of rows as the input feature matrix. At this time, only numeric outputs are supported for custom transforms.
+
+This method invokes \verb{POST /customTasks/} in the DataRobot Public API.
 }
 \seealso{
-The method CustomTasksCreate in [datarobot.apicore::CustomTasksApi], which this function wraps.
-
-Other CustomTasks: 
-\code{\link{CreateCustomTasksFromCustomTask}()},
-\code{\link{CreateCustomTasksVersionsDependencyBuild}()},
-\code{\link{CreateCustomTasksVersionsFromRepository}()},
-\code{\link{CreateCustomTasksVersions}()},
-\code{\link{CreateFromLatestCustomTaskVersion}()},
-\code{\link{DeleteCustomTasks}()},
-\code{\link{DeleteManyCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksAccessControl}()},
-\code{\link{ListCustomTasksDownload}()},
-\code{\link{ListCustomTasksVersionsDependencyBuildLog}()},
-\code{\link{ListCustomTasksVersionsDependencyBuild}()},
-\code{\link{ListCustomTasksVersionsDownload}()},
-\code{\link{ListCustomTasksVersions}()},
-\code{\link{ListCustomTasks}()},
-\code{\link{PatchCustomTasksVersions}()},
-\code{\link{PatchCustomTasks}()},
-\code{\link{PatchManyCustomTasksAccessControl}()},
-\code{\link{PatchManyCustomTasksVersionsFromRepository}()},
-\code{\link{RetrieveCustomTasksVersions}()},
-\code{\link{RetrieveCustomTasks}()}
+The method CustomTasksCreate in \link[datarobot.apicore:CustomTasksApi]{datarobot.apicore::CustomTasksApi}, which invokes the same underlying API endpoint.
 }
-\concept{CustomTasks}

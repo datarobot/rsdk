@@ -136,3 +136,47 @@ as.dataRobotMultiSeriesProperties <- function(inList) {
   ))
   outList
 }
+
+#' @name RequestMultiSeriesDetection
+#' @details Format a multiseries.
+#'
+#' Call this function to request the project be formatted as a multiseries project, with the
+#' \code{dateColumn} specifying the time series.
+#'
+#' Note that as of v2.13 this function no longer needs to be called directly, but is called
+#' indirectly as a part of \code{SetTarget} (which itself is called indirectly as part of
+#' \code{StartProject}) when you pass a multiseries partition using
+#' \code{CreateDatetimePartitionSpecification}.
+#'
+#' @inheritParams DeleteProject
+#' @param dateColumn character. The name of the column containing the date that defines the
+#'   time series.
+#' @param multiseriesIdColumns character. Optional. The Series ID to demarcate the series. If
+#'   not specified, DataRobot will attempt to automatically infer the series ID.
+#' @param maxWait integer. The maximum time (in seconds) to wait for the model job to complete.
+#' @inherit as.dataRobotMultiSeriesProperties return
+#'
+#' @family MultiSeriesProject functions
+#' @export
+#' @include projects_apiWrapper.R
+RequestMultiSeriesDetection
+
+#' @name RequestCrossSeriesDetection
+#' @details Format a cross series with group by columns.
+#'
+#' Call this function to request the project be formatted as a cross series project with a
+#' group by column.
+#'
+#' Note that this function no longer needs to be called directly, but is called
+#' indirectly as a part of \code{SetTarget} (which itself is called indirectly as part of
+#' \code{StartProject}) when you pass a /code{crossSeriesGroupByColumn} using
+#' \code{CreateDatetimePartitionSpecification}.
+#'
+#' @inheritParams RequestMultiSeriesDetection
+#' @inheritParams CreateDatetimePartitionSpecification
+#' @inherit as.dataRobotMultiSeriesProperties return
+#'
+#' @family MultiSeriesProject functions
+#' @export
+#' @include projects_apiWrapper.R
+RequestCrossSeriesDetection

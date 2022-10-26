@@ -20,16 +20,16 @@ CalendarAccessControlUpdate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{CalendarAccessControlUpdate$new()}}
-\item \href{#method-validate}{\code{CalendarAccessControlUpdate$validate()}}
-\item \href{#method-toJSON}{\code{CalendarAccessControlUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{CalendarAccessControlUpdate$fromJSON()}}
-\item \href{#method-clone}{\code{CalendarAccessControlUpdate$clone()}}
+\item \href{#method-CalendarAccessControlUpdate-new}{\code{CalendarAccessControlUpdate$new()}}
+\item \href{#method-CalendarAccessControlUpdate-validate}{\code{CalendarAccessControlUpdate$validate()}}
+\item \href{#method-CalendarAccessControlUpdate-toJSON}{\code{CalendarAccessControlUpdate$toJSON()}}
+\item \href{#method-CalendarAccessControlUpdate-fromJSON}{\code{CalendarAccessControlUpdate$fromJSON()}}
+\item \href{#method-CalendarAccessControlUpdate-clone}{\code{CalendarAccessControlUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-CalendarAccessControlUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarAccessControlUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -49,19 +49,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-CalendarAccessControlUpdate-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarAccessControlUpdate-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{CalendarAccessControlUpdate$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-CalendarAccessControlUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarAccessControlUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -70,8 +71,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-CalendarAccessControlUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarAccessControlUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -92,8 +93,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-CalendarAccessControlUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-CalendarAccessControlUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,6 +13,10 @@ GetPredictions(
 )
 }
 \arguments{
+\item{project}{character. Either (1) a character string giving the unique alphanumeric
+identifier for the project, or (2) a list containing the element projectId with this
+identifier.}
+
 \item{predictId}{character or integer. Either can be the character id of the
 \code{predictionId} associated with the prediction or the integer \code{predictionJobId}
 that is created by the call to \code{RequestPredictions}.}

@@ -650,3 +650,340 @@ GetModelCapabilities <- function(model) {
   )
   return(DataRobotGET(routeString))
 }
+
+#' @name GetModel
+#' @details Retrieve the details of a specified model
+#'
+#' This function returns a DataRobot S3 object of class
+#' dataRobotModel for the model defined by project and modelId.
+#'
+#' The S3 object returned by this function is required by the
+#' functions DeleteModel, ListModelFeatures, and RequestSampleSizeUpdate.
+#'
+#' @inheritParams DeleteProject
+#' @param modelId character. Unique alphanumeric identifier for the model of interest.
+#' @return An S3 object of class `dataRobotModel', which is a list
+#' with the following components:
+#' \itemize{
+#'   \item featurelistId. Character string: unique alphanumeric identifier for the featurelist on
+#'     which the model is based.
+#'   \item processes. Character vector with components describing preprocessing; may include
+#'     modelType.
+#'   \item featurelistName. Character string giving the name of the featurelist on which the model
+#'     is based.
+#'   \item projectId. Character string giving the unique alphanumeric identifier for the project.
+#'   \item samplePct. Numeric or NULL. The percentage of the project dataset used in training the
+#'     model. If the project uses datetime partitioning, the \code{samplePct} will be NULL.
+#'     See \code{trainingRowCount}, \code{trainingDuration}, and \code{trainingStartDate}
+#'     and \code{trainingEndDate} instead.
+#'   \item trainingRowCount. Integer. The number of rows of the project dataset used in training
+#'     the model. In a datetime partitioned project, if specified, defines the number of
+#'     rows used to train the model and evaluate backtest scores; if unspecified, either
+#'     \code{trainingDuration} or \code{trainingStartDate} and \code{trainingEndDate} was used to
+#'     determine that instead.
+#'   \item isFrozen. Logical : is model created with frozen tuning parameters.
+#'   \item modelType. Character string describing the model type.
+#'   \item metrics. List with one element for each valid metric associated with the model. Each
+#'     element is a list with elements for each possible evaluation type (holdout, validation,
+#'     and crossValidation).
+#'   \item modelCategory. Character string giving model category (e.g., blend, model).
+#'   \item blueprintId. Character string giving the unique DataRobot blueprint identifier on which
+#'     the model is based.
+#'   \item modelId. Character string giving the unique alphanumeric model identifier.
+#'   \item modelNumber. Integer. The assigned model number.
+#'   \item projectName. Character string: optional description of project defined by projectId.
+#'   \item projectTarget. Character string defining the target variable predicted by all models in
+#'     the project.
+#'   \item projectMetric. Character string defining the fitting metric optimized by all project
+#'     models.
+#'   \item supportsMonotonicConstraints logical. Whether or not the model supports monotonic
+#'     constraints.
+#'   \item monotonicIncreasingFeaturelistId character. The ID of the featurelist specifying the
+#'     features that are constrained to be monotonically increasing. Will be \code{NULL} if no
+#'     increasing constraints are used.
+#'   \item monotonicDecreasingFeaturelistId character. The ID of the featurelist specifying the
+#'     features that are constrained to be monotonically decreasing. Will be \code{NULL} if no
+#'     decreasing constraints are used.
+#'   \item isStarred logical. Whether or not the model is starred.
+#'   \item predictionThreshold numeric. For binary classification projects, the threshold used
+#'     for predictions.
+#'   \item predictionThresholdReadOnly logical. Whether or not the prediction threshold can be
+#'     modified. Typically, the prediction threshold can no longer be modified once a model has
+#'     a deployment created or predictions have been made with the dedicated prediction API.
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetModel(projectId, modelId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetModel
+
+#' @name GetFrozenModel
+#' @details Retrieve the details of a specified frozen model
+#'
+#' This function returns a DataRobot S3 object of class
+#' dataRobotFrozenModel for the model defined by project and modelId.
+#' GetModel also can be used to retrieve some information about
+#' frozen model, however then some frozen specific information (parentModelId)
+#' will not be returned
+#'
+#' The S3 object returned by this function is required by the
+#' functions DeleteModel, ListModelFeatures, and RequestSampleSizeUpdate.
+#'
+#' @inheritParams DeleteProject
+#' @param modelId Unique alphanumeric identifier for the model of interest.
+#' @inherit GetModel return
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetFrozenModel(projectId, modelId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetFrozenModel
+
+#' @name RequestNewModel
+#' @details Adds a new model of type specified by blueprint to a DataRobot project
+#'
+#' This function requests the creation of a new model in the DataRobot
+#' modeling project defined by the project parameter.  The function also
+#' allows the user to specify alternatives to the project default for
+#' featurelist, samplePct, and scoringType.  This function returns an
+#' integer modelJobId value, which can be used by the GetModelFromJobId
+#' function to return the full model object.
+#'
+#' Motivation for this function is the fact that some models - e.g., very
+#' complex machine learning models fit to large datasets - may take a long
+#' time to complete.  Splitting the model creation request from model
+#' retrieval in these cases allows the user to perform other interactive R
+#' session tasks between the time the model creation/update request is made
+#' and the time the final model is available.
+#'
+#' Either `sample_pct` or `training_row_count` can be used to specify the amount of data to
+#' use, but not both. If neither are specified, a default of the maximum amount of data that
+#' can safely be used to train any blueprint without going into the validation data will be
+#' selected.
+
+#' In smart-sampled projects, `samplePct` and `trainingRowCount` are assumed to be in terms of rows
+#' of the minority class.
+#'
+#' Note : For datetime partitioned projects, use \code{RequestNewDatetimeModel} instead
+#'
+#' @inheritParams DeleteProject
+#' @param blueprint list. A list with at least the following two elements:
+#'   blueprintId and projectId.  Note that the individual elements of the
+#'   list returned by ListBlueprints are admissible values for this parameter.
+#' @param featurelist list. A list that contains the element featurelistId that
+#'   specifies the featurelist to be used in building the model; if not
+#'   specified (i.e., for the default value NULL), the project default
+#'   (Informative Features) is used.
+#' @param samplePct numeric. The percentage of the training
+#'   dataset to be used in building the new model; if not specified
+#'   (i.e., for the default value NULL), the maxTrainPct value for the
+#'   project is used. Value should be between 0 and 100.
+#' @param trainingRowCount integer. The number of rows to use to train
+#'   the requested model.
+#' @param scoringType character. String specifying the scoring type;
+#'   default is validation set scoring, but cross-validation averaging
+#'   is also possible.
+#' @param monotonicIncreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically increasing relationship to the
+#'   target. If \code{NULL} (default), the default for the project will be used (if any).
+#'   Note that currently there is no way to create a model without monotonic constraints
+#'   if there was a project-level default set. If desired, the featurelist itself can
+#'   also be passed as this parameter.
+#' @param monotonicDecreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically decreasing relationship to the
+#'   target. If \code{NULL}, the default for the project will be used (if any). If empty
+#'   (i.e., \code{""}), no such constraints are enforced. Also, if desired, the featurelist
+#'   itself can be passed as this parameter.
+#' @return An integer value that can be used as the modelJobId parameter
+#'   in subsequent calls to the GetModelFromJobId function.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' blueprints <- ListBlueprints(projectId)
+#' blueprint <- blueprints[[1]]
+#' RequestNewModel(projectId, blueprint)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+RequestNewModel
+
+#' Retrieve model parameters
+#'
+#' @inheritParams GetModel
+#' @return List with the following components:
+#' \itemize{
+#'   \item parameters. List of model parameters that are related to the whole model with following
+#'     components: name, value.
+#'   \item derivedFeatures. List containing preprocessing information about derived features with
+#'     following components: originalFeature, derivedFeature, type, coefficient, transformations
+#'     and stageCoefficients. `transformations` is a list itself with components: name and value.
+#'     `stageCoefficients` is also a list with components: stage and coefficient. It contains
+#'     coefficients for each stage of multistage models and is empty list for single stage models.
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetModelParameters(projectId, modelId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetModelParameters
+
+#' @name GetDatetimeModel
+#' @details Retrieve the details of a specified datetime model.
+#'
+#' This function returns a DataRobot S3 object of class
+#' dataRobotDatetimeModel for the model defined by project and modelId.
+#'
+#' If the project does not use datetime partitioning an error will occur.
+#'
+#' @inheritParams DeleteProject
+#' @param modelId character. Unique alphanumeric identifier for the model of interest.
+#' @return An S3 object of class `dataRobotDatetimeModel`, which is a list
+#' with the following components:
+#' \itemize{
+#'   \item featurelistId character. Unique alphanumeric identifier for the featurelist on
+#'     which the model is based.
+#'   \item processes character. Vector with components describing preprocessing; may include
+#'     `modelType`.
+#'   \item featurelistName character. The name of the featurelist on which the model is based.
+#'   \item projectId character. The unique alphanumeric identifier for the project.
+#'   \item samplePct numeric. Percentage of the dataset used to form the training dataset for
+#'     model fitting.
+#'   \item isFrozen logical. Is model created with frozen tuning parameters?
+#'   \item modelType character. A description of the model.
+#'   \item metrics list. List with one element for each valid metric associated with the model.
+#'     Each element is a list with elements for each possible evaluation type (holdout, validation,
+#'     and crossValidation).
+#'   \item modelCategory character. The model category (e.g., blend, model).
+#'   \item blueprintId character. The unique DataRobot blueprint identifier on which
+#'     the model is based.
+#'   \item modelId character. The unique alphanumeric model identifier.
+#'   \item modelNumber. integer. The assigned model number.
+#'   \item projectName character. Optional description of project defined by projectId.
+#'   \item projectTarget character. The target variable predicted by all models in the project.
+#'   \item projectMetric character. The fitting metric optimized by all project models.
+#'   \item trainingRowCount integer. The number of rows of the project dataset used in training
+#'     the model. In a datetime partitioned project, if specified, defines the number of
+#'      rows used to train the model and evaluate backtest scores; if unspecified, either
+#'      \code{trainingDuration} or \code{trainingStartDate} and \code{trainingEndDate} was used to
+#'      determine that instead.
+#'   \item trainingDuration character. Only present for models in datetime partitioned projects.
+#'      If specified, a duration string specifying the duration spanned by the data used to train
+#'      the model and evaluate backtest scores.
+#'   \item trainingStartDate character. Only present for frozen models in datetime partitioned
+#'      projects. If specified, the start date of the data used to train the model.
+#'   \item trainingEndDate character. Only present for frozen models in datetime partitioned
+#'      projects. If specified, the end date of the data used to train the model.
+#'   \item backtests list. What data was used to fit each backtest, the score for the
+#'     project metric, and why the backtest score is unavailable if it is not provided.
+#'   \item dataSelectionMethod character. Which of trainingRowCount, trainingDuration,
+#'     or trainingStartDate and trainingEndDate were used to determine the data used to fit the
+#'     model. One of "rowCount", "duration", or "selectedDateRange".
+#'   \item trainingInfo list. Which data was used to train on when scoring the holdout and
+#'     making predictions. trainingInfo will have the following keys: `holdoutTrainingStartDate`,
+#'     `holdoutTrainingDuration`, `holdoutTrainingRowCount`, `holdoutTrainingEndDate`,
+#'     `predictionTrainingStartDate`, `predictionTrainingDuration`,
+#'     `predictionTrainingRowCount`, `predictionTrainingEndDate`.  Start and end dates will be
+#'     datetime string, durations will be duration strings, and rows will be integers.
+#'   \item holdoutScore numeric. The score against the holdout, if available and the holdout
+#'     is unlocked, according to the project metric.
+#'   \item holdoutStatus character. The status of the holdout score, e.g. "COMPLETED",
+#'     "HOLDOUT_BOUNDARIES_EXCEEDED".
+#'   \item effectiveFeatureDerivationWindowStart integer. Only available for time series projects.
+#'     How many timeUnits into the past relative to the forecast point the user needs to provide
+#'     history for at prediction time. This can differ from the `featureDerivationWindowStart` set
+#'     on the project due to the differencing method and period selected, or if the model is a time
+#'     series native model such as ARIMA. Will be a negative integer in time series projects and
+#'     `NULL` otherwise.
+#'   \item effectiveFeatureDerivationWindowEnd integer. Only available for time series projects.
+#'     How many timeUnits into the past relative to the forecast point the feature derivation window
+#'     should end. Will be a non-positive integer in time series projects and `NULL` otherwise.
+#'   \item forecastWindowStart integer. Only available for time series projects. How many timeUnits
+#'     into the future relative to the forecast point the forecast window should start. Note that
+#'     this field will be the same as what is shown in the project settings. Will be a non-negative
+#'     integer in time series projects and `NULL` otherwise.
+#'   \item forecastWindowEnd integer. Only available for time series projects. How many timeUnits
+#'     into the future relative to the forecast point the forecast window should end. Note that this
+#'     field will be the same as what is shown in the project settings. Will be a non-negative
+#'     integer in time series projects and `NULL` otherwise.
+#'   \item windowsBasisUnit character. Only available for time series projects. Indicates which unit
+#'     is the basis for the feature derivation window and the  forecast window. Note that this field
+#'     will be the same as what is shown in the project settings. In time series projects, will be
+#'     either the detected time unit or "ROW", and `NULL` otherwise.
+#' }
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' modelId <- "5996f820af07fc605e81ead4"
+#' GetDatetimeModel(projectId, modelId)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+GetDatetimeModel
+
+#' @name RequestNewDatetimeModel
+#' @details Adds a new datetime model of the type specified by the blueprint to a DataRobot project
+#'
+#' This function requests the creation of a new datetime model in the DataRobot
+#' modeling project defined by the project parameter.  The function also
+#' allows the user to specify alternatives to the project default for
+#' featurelist, samplePct, and scoringType.  This function returns an
+#' integer modelJobId value, which can be used by the GetDatetimeModelFromJobId
+#' function to return the full model object.
+#'
+#' Motivation for this function is the fact that some models - e.g., very
+#' complex machine learning models fit to large datasets - may take a long
+#' time to complete.  Splitting the model creation request from model
+#' retrieval in these cases allows the user to perform other interactive R
+#' session tasks between the time the model creation/update request is made
+#' and the time the final model is available.
+#'
+#' @inheritParams DeleteProject
+#' @param blueprint list. A list with at least the following two elements:
+#'   blueprintId and projectId.  Note that the individual elements of the
+#'   list returned by ListBlueprints are admissible values for this parameter.
+#' @param featurelist list. A list that contains the element featurelistId that
+#'   specifies the featurelist to be used in building the model; if not
+#'   specified (i.e., for the default value NULL), the project default
+#'   (Informative Features) is used.
+#' @param trainingRowCount integer. Optional, the number of rows of data
+#'   that should be used to train the model. If specified, trainingDuration may not be specified.
+#' @param trainingDuration character. String (optional) a duration string specifying what
+#'   time range the data used to train the model should span.
+#'   If specified, trainingRowCount may not be specified.
+#' @param timeWindowSamplePct integer. Optional. May only be specified when the requested model
+#'   is a time window (e.g. duration or start and end dates).
+#'   An integer between 1 and 99 indicating the percentage to sample by within the window.
+#'   The points kept are determined by a random uniform sample.
+#' @param monotonicIncreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically increasing relationship to the
+#'   target. If \code{NULL} (default), the default for the project will be used (if any).
+#'   Note that currently there is no way to create a model without monotonic constraints
+#'   if there was a project-level default set. If desired, the featurelist itself can
+#'   also be passed as this parameter.
+#' @param monotonicDecreasingFeaturelistId character. Optional. The id of the featurelist
+#'   that defines the set of features with a monotonically decreasing relationship to the
+#'   target. If \code{NULL}, the default for the project will be used (if any). If empty
+#'   (i.e., \code{""}), no such constraints are enforced. Also, if desired, the featurelist
+#'   itself can be passed as this parameter.
+#' @return An integer value that can be used as the modelJobId parameter
+#'   in subsequent calls to the GetDatetimeModelFromJobId function.
+#' @examples
+#' \dontrun{
+#' projectId <- "59a5af20c80891534e3c2bde"
+#' blueprints <- ListBlueprints(projectId)
+#' blueprint <- blueprints[[1]]
+#' RequestNewDatetimeModel(projectId, blueprint)
+#' }
+#' @export
+#' @include models_apiWrapper.R
+RequestNewDatetimeModel

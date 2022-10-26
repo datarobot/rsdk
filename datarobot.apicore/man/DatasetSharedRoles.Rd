@@ -24,16 +24,16 @@ DatasetSharedRoles Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DatasetSharedRoles$new()}}
-\item \href{#method-validate}{\code{DatasetSharedRoles$validate()}}
-\item \href{#method-toJSON}{\code{DatasetSharedRoles$toJSON()}}
-\item \href{#method-fromJSON}{\code{DatasetSharedRoles$fromJSON()}}
-\item \href{#method-clone}{\code{DatasetSharedRoles$clone()}}
+\item \href{#method-DatasetSharedRoles-new}{\code{DatasetSharedRoles$new()}}
+\item \href{#method-DatasetSharedRoles-validate}{\code{DatasetSharedRoles$validate()}}
+\item \href{#method-DatasetSharedRoles-toJSON}{\code{DatasetSharedRoles$toJSON()}}
+\item \href{#method-DatasetSharedRoles-fromJSON}{\code{DatasetSharedRoles$fromJSON()}}
+\item \href{#method-DatasetSharedRoles-clone}{\code{DatasetSharedRoles$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DatasetSharedRoles-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetSharedRoles-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -63,19 +63,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-DatasetSharedRoles-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetSharedRoles-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DatasetSharedRoles$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DatasetSharedRoles-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetSharedRoles-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -84,8 +85,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DatasetSharedRoles-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetSharedRoles-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -103,8 +104,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DatasetSharedRoles-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DatasetSharedRoles-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

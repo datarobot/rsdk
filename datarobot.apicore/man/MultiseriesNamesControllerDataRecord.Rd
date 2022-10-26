@@ -20,16 +20,16 @@ MultiseriesNamesControllerDataRecord Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MultiseriesNamesControllerDataRecord$new()}}
-\item \href{#method-validate}{\code{MultiseriesNamesControllerDataRecord$validate()}}
-\item \href{#method-toJSON}{\code{MultiseriesNamesControllerDataRecord$toJSON()}}
-\item \href{#method-fromJSON}{\code{MultiseriesNamesControllerDataRecord$fromJSON()}}
-\item \href{#method-clone}{\code{MultiseriesNamesControllerDataRecord$clone()}}
+\item \href{#method-MultiseriesNamesControllerDataRecord-new}{\code{MultiseriesNamesControllerDataRecord$new()}}
+\item \href{#method-MultiseriesNamesControllerDataRecord-validate}{\code{MultiseriesNamesControllerDataRecord$validate()}}
+\item \href{#method-MultiseriesNamesControllerDataRecord-toJSON}{\code{MultiseriesNamesControllerDataRecord$toJSON()}}
+\item \href{#method-MultiseriesNamesControllerDataRecord-fromJSON}{\code{MultiseriesNamesControllerDataRecord$fromJSON()}}
+\item \href{#method-MultiseriesNamesControllerDataRecord-clone}{\code{MultiseriesNamesControllerDataRecord$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MultiseriesNamesControllerDataRecord-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesNamesControllerDataRecord-new}{}}}
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
@@ -53,19 +53,20 @@ A function used to initialize an instance of this class.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-validate"></a>}}
-\if{latex}{\out{\hypertarget{method-validate}{}}}
+\if{html}{\out{<a id="method-MultiseriesNamesControllerDataRecord-validate"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesNamesControllerDataRecord-validate}{}}}
 \subsection{Method \code{validate()}}{
 A helper function that provides public access to the private validateProps function. This allows users the ability
 to programmatically validate objects before sending them to DataRobot.
+checking this objects set properties.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiseriesNamesControllerDataRecord$validate()}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MultiseriesNamesControllerDataRecord-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesNamesControllerDataRecord-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 A helper function that serializes this object into a JSON encoded string.
 \subsection{Usage}{
@@ -74,8 +75,8 @@ A helper function that serializes this object into a JSON encoded string.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MultiseriesNamesControllerDataRecord-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesNamesControllerDataRecord-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 A helper function that deserializes a JSON string into an instance of this class.
 \subsection{Usage}{
@@ -96,8 +97,8 @@ A helper function that deserializes a JSON string into an instance of this class
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MultiseriesNamesControllerDataRecord-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiseriesNamesControllerDataRecord-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

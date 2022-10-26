@@ -6,40 +6,17 @@
 \usage{
 PatchManyUserNotifications(...)
 }
+\arguments{
+\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
+}
 \description{
 Mark all as read
 }
 \details{
 Mark all associated notifications with the user as read.
+
+This method invokes \verb{PATCH /userNotifications/} in the DataRobot Public API.
 }
 \seealso{
-The method UserNotificationsPatchMany in [datarobot.apicore::NotificationsApi], which this function wraps.
-
-Other Notifications: 
-\code{\link{CreateNotificationChannels}()},
-\code{\link{CreateNotificationEmailChannelVerificationStatus}()},
-\code{\link{CreateNotificationEmailChannelVerification}()},
-\code{\link{CreateNotificationPolicies}()},
-\code{\link{CreateNotificationPolicyMutes}()},
-\code{\link{CreateNotificationWebhookChannelTests}()},
-\code{\link{CreateNotifications}()},
-\code{\link{CreateRemoteEvents}()},
-\code{\link{DeleteManyUserNotifications}()},
-\code{\link{DeleteNotificationChannels}()},
-\code{\link{DeleteNotificationPolicies}()},
-\code{\link{DeleteNotificationPolicyMutes}()},
-\code{\link{DeleteUserNotifications}()},
-\code{\link{ListNotificationChannels}()},
-\code{\link{ListNotificationEvents}()},
-\code{\link{ListNotificationLogs}()},
-\code{\link{ListNotificationPolicies}()},
-\code{\link{ListNotificationPolicyMutes}()},
-\code{\link{ListUserNotifications}()},
-\code{\link{PatchUserNotifications}()},
-\code{\link{PutNotificationChannels}()},
-\code{\link{PutNotificationPolicies}()},
-\code{\link{RetrieveNotificationChannels}()},
-\code{\link{RetrieveNotificationPolicies}()},
-\code{\link{RetrieveNotificationWebhookChannelTests}()}
+The method UserNotificationsPatchMany in \link[datarobot.apicore:NotificationsApi]{datarobot.apicore::NotificationsApi}, which invokes the same underlying API endpoint.
 }
-\concept{Notifications}
