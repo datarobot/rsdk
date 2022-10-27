@@ -1,6 +1,6 @@
-# rsdk
+# datarobot: 'DataRobot' Predictive Modeling API
 
-A read-only public repository of the R API Client for the DataRobot Public API.
+A read-only public repository of the R API Client for the DataRobot Public API. For working with the 'DataRobot' predictive modeling platform's API &lt;https://www.datarobot.com/&gt;.
 
 ## Installation
 
