@@ -13,6 +13,10 @@ library(datarobot)
 
 You can find specific installation instructions for each release under [GitHub Releases](https://github.com/datarobot/rsdk/releases).
 
+## Changelog
+
+The `datarobot` package can be found at [NEWS.md](datarobot/NEWS.md).
+
 ## Feedback
 
 If you have feedback or questions on the R API Client, please ask on [DataRobot Community](https://community.datarobot.com/).
