@@ -15,7 +15,7 @@ You can find specific installation instructions for each release under [GitHub R
 
 ## Changelog
 
-The `datarobot` package can be found at [NEWS.md](datarobot/NEWS.md).
+The changelog for the R API Client can be found in [NEWS.md in the `datarobot` package](datarobot/NEWS.md).
 
 ## Feedback
 
