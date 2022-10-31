@@ -24,7 +24,7 @@ ApiClient <- R6::R6Class(
     #' @field basePath Base path for all requests. May be set by environment variable.
     basePath = "https://app.datarobot.com/api/v2",
     #' @field userAgent Default user agent in the HTTP request.
-    userAgent = "DataRobotRClientAPICore/0.1.0.9000",
+    userAgent = "DataRobotRClientAPICore/0.4.0.9000",
     #' @field defaultHeaders Default HTTP headers to use with all API requests.
     defaultHeaders = NULL,
     #' @field username Username for HTTP basic authentication. Unused.

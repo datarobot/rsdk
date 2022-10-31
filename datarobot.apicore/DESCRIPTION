@@ -1,6 +1,6 @@
 Package: datarobot.apicore
 Title: R Package Client for Public API
-Version: 0.3.0.9000
+Version: 0.4.0.9000
 Authors@R: person("AJ Alon", email = "api-maintainer@datarobot.com", role = c("aut", "cre"))
 Description: DataRobot's Public facing API
 URL: https://github.com/datarobot/rsdk
