@@ -108,8 +108,8 @@ UserNotificationResponse <- R6::R6Class(
       if (!is.null(`relatedUsersDelete`)) {
         stopifnot(R6::is.R6(`relatedUsersDelete`))
       }
-      if (!is.null(`sharedUsers`)) {
-        stopifnot(is.vector(`sharedUsers`))
+      if (!is.null(`sharedUsers`) && length(`sharedUsers`) > 0) {
+        stopifnot(is.vector(`sharedUsers`), sapply(`sharedUsers`, R6::is.R6))
       }
       if (!is.null(`statusId`)) {
         stopifnot(is.character(`statusId`), length(`statusId`) == 1)
@@ -171,7 +171,7 @@ UserNotificationResponse <- R6::R6Class(
       self$`relatedDeployment` <- `relatedDeployment`
       self$`relatedProject` <- `relatedProject`
       self$`relatedUsersDelete` <- `relatedUsersDelete`
-      sapply(`sharedUsers`, function(x) stopifnot(R6::is.R6(x)))
+      self$`sharedUsers` <- `sharedUsers`
       self$`statusId` <- `statusId`
       self$`title` <- `title`
       self$`updated` <- `updated`

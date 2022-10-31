@@ -8,7 +8,8 @@ GetPredictionExplanationsRows(
   project,
   predictionExplanationId,
   batchSize = NULL,
-  excludeAdjustedPredictions = TRUE
+  excludeAdjustedPredictions = TRUE,
+  adjustmentMethod = NULL
 )
 }
 \arguments{
@@ -24,6 +25,8 @@ retrieve per request}
 \item{excludeAdjustedPredictions}{logical. Optional. Set to FALSE to include adjusted
 predictions, which are predictions adjusted by an exposure column. This is only relevant for
 projects that use an exposure column.}
+
+\item{adjustmentMethod.}{Character &#39;exposureNormalized&#39; (for regression projects with exposure) or &#39;N/A&#39; (for classification projects) The value of &#39;exposureNormalized&#39; indicates that prediction outputs are adjusted (or divided) by exposure. The value of &#39;N/A&#39; indicates that no adjustments are applied to the adjusted predictions and they are identical to the unadjusted predictions.}
 }
 \value{
 list of raw prediction explanations, each element corresponds to a row of the

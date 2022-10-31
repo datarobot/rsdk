@@ -1,4 +1,4 @@
-# datarobot v2.29.0.9001
+# datarobot v2.29.0.9002
 
 The `datarobot` package is now dependent on R >= 3.5.
 
@@ -26,6 +26,7 @@ Enhancements:
 
 * The function `RequestFeatureImpact` now accepts a `rowCount` argument, which will change the sample size used for Feature Impact calculations.
 * The internal helper function `ValidateModel` was renamed to `ValidateAndReturnModel` and now works with model classes from the `apicore` package.
+* Those functions in `datarobot.apicore` that do not have defined responses will now return whatever content is found in the HTTP response object via `httr::content()`.
 
 Bugfixes:
 
@@ -33,7 +34,9 @@ Bugfixes:
 * Fixed `FullAverageDataset` function in the PartialDependence vignette to ignore `NA` when calculating the `min` and `max` of the data range.
 * Fixed `RetrieveAutomatedDocuments` function to accept filename argument that is used to specify where to save the automated document.
 * Fixed `datarobot.apicore` file upload functions to properly encode the payload as "multipart".
+* Fixed `datarobot.apicore` file download functions so that they properly write to disk.
 * Fixed `datarobot.apicore` JSON serialization bugs.
+* Fixed `datarobot.apicore` functions not including `list` and `array` parameters in API requests.
 * Fixed some tests exercising the `BuildPath` helper function.
 
 API Changes:
@@ -64,6 +67,7 @@ Documentation Changes:
 * Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset.
 * Compressed `extdata/Friedman1.csv` and updated vignettes dependent on that dataset.
 * Removed `extdata/anomFrame.csv` as it was unused.
+* Fixed `datarobot.apicore` documentation to reflect the correct data types.
 
 # datarobot v2.27.0.9000
 

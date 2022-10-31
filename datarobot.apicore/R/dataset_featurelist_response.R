@@ -63,7 +63,7 @@ DatasetFeaturelistResponse <- R6::R6Class(
         stopifnot(is.character(`datasetVersionId`), length(`datasetVersionId`) == 1)
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -108,7 +108,7 @@ DatasetFeaturelistResponse <- R6::R6Class(
       self$`creationDate` <- `creationDate`
       self$`datasetId` <- `datasetId`
       self$`datasetVersionId` <- `datasetVersionId`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`id` <- `id`
       self$`name` <- `name`
       self$`userCreated` <- `userCreated`

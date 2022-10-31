@@ -43,7 +43,7 @@ AOTChartPreviewResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bins` = NULL, `datasetId` = NULL, `modelId` = NULL, `projectId` = NULL) {
       if (!is.null(`bins`)) {
-        stopifnot(is.vector(`bins`))
+        stopifnot(is.vector(`bins`), sapply(`bins`, R6::is.R6))
       }
       if (!is.null(`datasetId`)) {
         stopifnot(is.character(`datasetId`), length(`datasetId`) == 1)
@@ -76,7 +76,7 @@ AOTChartPreviewResponse <- R6::R6Class(
         })
         private$validateProps(bins, datasetId, modelId, projectId)
       }
-      sapply(`bins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bins` <- `bins`
       self$`datasetId` <- `datasetId`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`

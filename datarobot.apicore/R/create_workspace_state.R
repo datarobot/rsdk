@@ -46,8 +46,8 @@ CreateWorkspaceState <- R6::R6Class(
       if (!is.null(`query`)) {
         stopifnot(is.character(`query`), length(`query`) == 1)
       }
-      if (!is.null(`datasets`)) {
-        stopifnot(is.vector(`datasets`))
+      if (!is.null(`datasets`) && length(`datasets`) > 0) {
+        stopifnot(is.vector(`datasets`), sapply(`datasets`, R6::is.R6))
       }
     }
   ),
@@ -69,7 +69,7 @@ CreateWorkspaceState <- R6::R6Class(
         })
         private$validateProps(datasets, language, query)
       }
-      sapply(`datasets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`datasets` <- `datasets`
       self$`language` <- `language`
       self$`query` <- `query`
     },

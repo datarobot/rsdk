@@ -104,7 +104,7 @@ BatchPredictionJobDefinitionJobSpecResponse <- R6::R6Class(
         stopifnot(is.logical(`includeProbabilities`), length(`includeProbabilities`) == 1)
       }
       if (!is.null(`includeProbabilitiesClasses`)) {
-        stopifnot(is.vector(`includeProbabilitiesClasses`))
+        stopifnot(is.vector(`includeProbabilitiesClasses`), sapply(`includeProbabilitiesClasses`, is.character))
       }
       if (!is.null(`intakeSettings`)) {
         .setComplexProperty(typeList = list(DataStageDataStreamer, DSSDataStreamer, CatalogDataStreamer, FileSystemDataStreamer, HTTPDataStreamer, JDBCDataStreamer, LocalFileDataStreamer, AzureDataStreamer, GCPDataStreamer, BigQueryDataStreamer, S3DataStreamer, SnowflakeDataStreamer, SynapseDataStreamer), propertyData = intakeSettings)
@@ -130,8 +130,8 @@ BatchPredictionJobDefinitionJobSpecResponse <- R6::R6Class(
       if (!is.null(`explanationAlgorithm`)) {
         stopifnot(is.character(`explanationAlgorithm`), length(`explanationAlgorithm`) == 1)
       }
-      if (!is.null(`explanationClassNames`)) {
-        stopifnot(is.vector(`explanationClassNames`))
+      if (!is.null(`explanationClassNames`) && length(`explanationClassNames`) > 0) {
+        stopifnot(is.vector(`explanationClassNames`), sapply(`explanationClassNames`, is.character))
       }
       if (!is.null(`explanationNumTopClasses`)) {
         stopifnot(is.numeric(`explanationNumTopClasses`), length(`explanationNumTopClasses`) == 1)
@@ -145,8 +145,8 @@ BatchPredictionJobDefinitionJobSpecResponse <- R6::R6Class(
       if (!is.null(`numConcurrent`)) {
         stopifnot(is.numeric(`numConcurrent`), length(`numConcurrent`) == 1)
       }
-      if (!is.null(`passthroughColumns`)) {
-        stopifnot(is.vector(`passthroughColumns`))
+      if (!is.null(`passthroughColumns`) && length(`passthroughColumns`) > 0) {
+        stopifnot(is.vector(`passthroughColumns`), sapply(`passthroughColumns`, is.character))
       }
       if (!is.null(`passthroughColumnsSet`)) {
         stopifnot(is.character(`passthroughColumnsSet`), length(`passthroughColumnsSet`) == 1)
@@ -244,18 +244,18 @@ BatchPredictionJobDefinitionJobSpecResponse <- R6::R6Class(
       self$`deploymentId` <- `deploymentId`
       self$`disableRowLevelErrorHandling` <- `disableRowLevelErrorHandling`
       self$`explanationAlgorithm` <- `explanationAlgorithm`
-      sapply(`explanationClassNames`, function(x) stopifnot(is.character(x)))
+      self$`explanationClassNames` <- `explanationClassNames`
       self$`explanationNumTopClasses` <- `explanationNumTopClasses`
       self$`includePredictionStatus` <- `includePredictionStatus`
       self$`includeProbabilities` <- `includeProbabilities`
-      sapply(`includeProbabilitiesClasses`, function(x) stopifnot(is.character(x)))
+      self$`includeProbabilitiesClasses` <- `includeProbabilitiesClasses`
       self$`intakeSettings` <- .setComplexProperty(typeList = list(DataStageDataStreamer, DSSDataStreamer, CatalogDataStreamer, FileSystemDataStreamer, HTTPDataStreamer, JDBCDataStreamer, LocalFileDataStreamer, AzureDataStreamer, GCPDataStreamer, BigQueryDataStreamer, S3DataStreamer, SnowflakeDataStreamer, SynapseDataStreamer), propertyData = intakeSettings)
       self$`maxExplanations` <- `maxExplanations`
       self$`modelId` <- `modelId`
       self$`modelPackageId` <- `modelPackageId`
       self$`numConcurrent` <- `numConcurrent`
       self$`outputSettings` <- .setComplexProperty(typeList = list(FileSystemOutputAdaptor, HttpOutputAdaptor, JdbcOutputAdaptor, LocalFileOutputAdaptor, TableauOutputAdaptor, AzureOutputAdaptor, GCPOutputAdaptor, BigQueryOutputAdaptor, S3OutputAdaptor, SnowflakeOutputAdaptor, SynapseOutputAdaptor), propertyData = outputSettings)
-      sapply(`passthroughColumns`, function(x) stopifnot(is.character(x)))
+      self$`passthroughColumns` <- `passthroughColumns`
       self$`passthroughColumnsSet` <- `passthroughColumnsSet`
       self$`pinnedModelId` <- `pinnedModelId`
       self$`predictionInstance` <- `predictionInstance`

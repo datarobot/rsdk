@@ -55,8 +55,8 @@ NotificationChannelUpdate <- R6::R6Class(
       if (!is.null(`contentType`)) {
         stopifnot(is.character(`contentType`), length(`contentType`) == 1)
       }
-      if (!is.null(`customHeaders`)) {
-        stopifnot(is.vector(`customHeaders`))
+      if (!is.null(`customHeaders`) && length(`customHeaders`) > 0) {
+        stopifnot(is.vector(`customHeaders`), sapply(`customHeaders`, R6::is.R6))
       }
       if (!is.null(`emailAddress`)) {
         stopifnot(is.character(`emailAddress`), length(`emailAddress`) == 1)
@@ -112,7 +112,7 @@ NotificationChannelUpdate <- R6::R6Class(
         private$validateProps(contentType, customHeaders, emailAddress, languageCode, name, payloadUrl, secretToken, validateSsl, verificationCode)
       }
       self$`contentType` <- `contentType`
-      sapply(`customHeaders`, function(x) stopifnot(R6::is.R6(x)))
+      self$`customHeaders` <- `customHeaders`
       self$`emailAddress` <- `emailAddress`
       self$`languageCode` <- `languageCode`
       self$`name` <- `name`

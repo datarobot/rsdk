@@ -254,6 +254,7 @@ GetPredictionExplanationsMetadataFromJobId <- function(project, jobId, maxWait =
 #' @inheritParams GetPredictionExplanationsRowsAsDataFrame
 #' @param batchSize integer. Optional. Maximum number of prediction explanations rows to
 #'   retrieve per request
+#' @param adjustmentMethod. Character &#39;exposureNormalized&#39; (for regression projects with exposure) or &#39;N/A&#39; (for classification projects) The value of &#39;exposureNormalized&#39; indicates that prediction outputs are adjusted (or divided) by exposure. The value of &#39;N/A&#39; indicates that no adjustments are applied to the adjusted predictions and they are identical to the unadjusted predictions.
 #' @return list of raw prediction explanations, each element corresponds to a row of the
 #'   prediction dataset and has following components.
 #'    \itemize{
@@ -298,13 +299,13 @@ GetPredictionExplanationsMetadataFromJobId <- function(project, jobId, maxWait =
 #' }
 #' @export
 GetPredictionExplanationsRows <- function(project, predictionExplanationId, batchSize = NULL,
-                                          excludeAdjustedPredictions = TRUE) {
+                                          excludeAdjustedPredictions = TRUE, adjustmentMethod = NULL) {
   page <- GetPredictionExplanationsPage(project,
     predictionExplanationId,
     limit = batchSize,
     offset = 0,
     excludeAdjustedPredictions = excludeAdjustedPredictions,
-    adjustmentMethod = NULL
+    adjustmentMethod = adjustmentMethod
   )
   GetServerDataInRows(page, batchSize = batchSize)
 }
@@ -325,6 +326,7 @@ GetPredictionExplanationsRows <- function(project, predictionExplanationId, batc
 #'   projects that use an exposure column.
 #' @param batchSize integer. Optional. Maximum number of prediction explanations rows to
 #'   retrieve per request
+#' @param adjustmentMethod. Character &#39;exposureNormalized&#39; (for regression projects with exposure) or &#39;N/A&#39; (for classification projects) The value of &#39;exposureNormalized&#39; indicates that prediction outputs are adjusted (or divided) by exposure. The value of &#39;N/A&#39; indicates that no adjustments are applied to the adjusted predictions and they are identical to the unadjusted predictions.
 #' @return data frame with following columns:
 #' \itemize{
 #'   \item rowId integer. Row id from prediction dataset.
@@ -378,11 +380,12 @@ GetPredictionExplanationsRows <- function(project, predictionExplanationId, batc
 #' @export
 GetPredictionExplanationsRowsAsDataFrame <- function(project, predictionExplanationId,
                                                      excludeAdjustedPredictions = TRUE,
-                                                     batchSize = NULL) {
+                                                     batchSize = NULL, adjustmentMethod = NULL) {
   explains <- GetPredictionExplanationsRows(project,
     predictionExplanationId,
     batchSize = batchSize,
-    excludeAdjustedPredictions = excludeAdjustedPredictions
+    excludeAdjustedPredictions = excludeAdjustedPredictions,
+    adjustmentMethod = adjustmentMethod
   )
   nExplains <- length(explains)
   outDf <- data.frame(
@@ -575,6 +578,7 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
 #' @param filename character. Filename of file to save prediction explanations rows
 #' @param encoding character. Optional. Character string A string representing the encoding
 #'   to use in the output file, defaults to 'UTF-8'.
+#' @param adjustmentMethod. Character &#39;exposureNormalized&#39; (for regression projects with exposure) or &#39;N/A&#39; (for classification projects) The value of &#39;exposureNormalized&#39; indicates that prediction outputs are adjusted (or divided) by exposure. The value of &#39;N/A&#39; indicates that no adjustments are applied to the adjusted predictions and they are identical to the unadjusted predictions.
 #' @return Logical TRUE and displays a message to the user if the delete
 #'   request was successful; otherwise an error message is displayed.
 #' @examples
@@ -592,11 +596,13 @@ GetPredictionExplanations <- function(model, dataset, maxExplanations = NULL,
 #' }
 #' @export
 DownloadPredictionExplanations <- function(project, predictionExplanationId, filename,
-                                           encoding = "UTF-8", excludeAdjustedPredictions = TRUE) {
+                                           encoding = "UTF-8", excludeAdjustedPredictions = TRUE,
+                                           adjustmentMethod = NULL) {
   predictionExplanationsFrame <- GetPredictionExplanationsRowsAsDataFrame(
     project,
     predictionExplanationId,
-    excludeAdjustedPredictions = excludeAdjustedPredictions
+    excludeAdjustedPredictions = excludeAdjustedPredictions,
+    adjustmentMethod = adjustmentMethod
   )
   write.csv(predictionExplanationsFrame,
     file = filename, row.names = FALSE,

@@ -74,8 +74,8 @@ BatchPredictionJobUpdate <- R6::R6Class(
       if (!is.null(`jobOutputSize`)) {
         stopifnot(is.numeric(`jobOutputSize`), length(`jobOutputSize`) == 1)
       }
-      if (!is.null(`logs`)) {
-        stopifnot(is.vector(`logs`))
+      if (!is.null(`logs`) && length(`logs`) > 0) {
+        stopifnot(is.vector(`logs`), sapply(`logs`, is.character))
       }
       if (!is.null(`scoredRows`)) {
         stopifnot(is.numeric(`scoredRows`), length(`scoredRows`) == 1)
@@ -131,7 +131,7 @@ BatchPredictionJobUpdate <- R6::R6Class(
       self$`hidden` <- `hidden`
       self$`jobIntakeSize` <- `jobIntakeSize`
       self$`jobOutputSize` <- `jobOutputSize`
-      sapply(`logs`, function(x) stopifnot(is.character(x)))
+      self$`logs` <- `logs`
       self$`scoredRows` <- `scoredRows`
       self$`skippedRows` <- `skippedRows`
       self$`started` <- `started`

@@ -51,13 +51,13 @@ ActivationMapsRetrieveResponse <- R6::R6Class(
         stopifnot(is.numeric(`activationMapWidth`), length(`activationMapWidth`) == 1)
       }
       if (!is.null(`activationMaps`)) {
-        stopifnot(is.vector(`activationMaps`))
+        stopifnot(is.vector(`activationMaps`), sapply(`activationMaps`, R6::is.R6))
       }
       if (!is.null(`targetBins`)) {
-        stopifnot(is.vector(`targetBins`))
+        stopifnot(is.vector(`targetBins`), sapply(`targetBins`, R6::is.R6))
       }
       if (!is.null(`targetValues`)) {
-        stopifnot(is.vector(`targetValues`))
+        stopifnot(is.vector(`targetValues`), sapply(`targetValues`, is.character))
       }
     }
   ),
@@ -85,9 +85,9 @@ ActivationMapsRetrieveResponse <- R6::R6Class(
       }
       self$`activationMapHeight` <- `activationMapHeight`
       self$`activationMapWidth` <- `activationMapWidth`
-      sapply(`activationMaps`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`targetBins`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`targetValues`, function(x) stopifnot(is.character(x)))
+      self$`activationMaps` <- `activationMaps`
+      self$`targetBins` <- `targetBins`
+      self$`targetValues` <- `targetValues`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

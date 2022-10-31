@@ -55,13 +55,13 @@ Relationship <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`dataset1Identifier` = NULL, `dataset1Keys` = NULL, `dataset2Identifier` = NULL, `dataset2Keys` = NULL, `featureDerivationWindowEnd` = NULL, `featureDerivationWindowStart` = NULL, `featureDerivationWindowTimeUnit` = NULL, `featureDerivationWindows` = NULL, `predictionPointRounding` = NULL, `predictionPointRoundingTimeUnit` = NULL) {
       if (!is.null(`dataset1Keys`)) {
-        stopifnot(is.vector(`dataset1Keys`))
+        stopifnot(is.vector(`dataset1Keys`), sapply(`dataset1Keys`, is.character))
       }
       if (!is.null(`dataset2Identifier`)) {
         stopifnot(is.character(`dataset2Identifier`), length(`dataset2Identifier`) == 1)
       }
       if (!is.null(`dataset2Keys`)) {
-        stopifnot(is.vector(`dataset2Keys`))
+        stopifnot(is.vector(`dataset2Keys`), sapply(`dataset2Keys`, is.character))
       }
       if (!is.null(`dataset1Identifier`)) {
         stopifnot(is.character(`dataset1Identifier`), length(`dataset1Identifier`) == 1)
@@ -75,8 +75,8 @@ Relationship <- R6::R6Class(
       if (!is.null(`featureDerivationWindowTimeUnit`)) {
         stopifnot(is.character(`featureDerivationWindowTimeUnit`), length(`featureDerivationWindowTimeUnit`) == 1)
       }
-      if (!is.null(`featureDerivationWindows`)) {
-        stopifnot(is.vector(`featureDerivationWindows`))
+      if (!is.null(`featureDerivationWindows`) && length(`featureDerivationWindows`) > 0) {
+        stopifnot(is.vector(`featureDerivationWindows`), sapply(`featureDerivationWindows`, R6::is.R6))
       }
       if (!is.null(`predictionPointRounding`)) {
         stopifnot(is.numeric(`predictionPointRounding`), length(`predictionPointRounding`) == 1)
@@ -119,13 +119,13 @@ Relationship <- R6::R6Class(
         private$validateProps(dataset1Identifier, dataset1Keys, dataset2Identifier, dataset2Keys, featureDerivationWindowEnd, featureDerivationWindowStart, featureDerivationWindowTimeUnit, featureDerivationWindows, predictionPointRounding, predictionPointRoundingTimeUnit)
       }
       self$`dataset1Identifier` <- `dataset1Identifier`
-      sapply(`dataset1Keys`, function(x) stopifnot(is.character(x)))
+      self$`dataset1Keys` <- `dataset1Keys`
       self$`dataset2Identifier` <- `dataset2Identifier`
-      sapply(`dataset2Keys`, function(x) stopifnot(is.character(x)))
+      self$`dataset2Keys` <- `dataset2Keys`
       self$`featureDerivationWindowEnd` <- `featureDerivationWindowEnd`
       self$`featureDerivationWindowStart` <- `featureDerivationWindowStart`
       self$`featureDerivationWindowTimeUnit` <- `featureDerivationWindowTimeUnit`
-      sapply(`featureDerivationWindows`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureDerivationWindows` <- `featureDerivationWindows`
       self$`predictionPointRounding` <- `predictionPointRounding`
       self$`predictionPointRoundingTimeUnit` <- `predictionPointRoundingTimeUnit`
     },

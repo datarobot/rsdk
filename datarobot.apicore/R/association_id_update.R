@@ -38,8 +38,8 @@ AssociationIDUpdate <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`columnNames` = NULL, `requiredInPredictionRequests` = NULL) {
-      if (!is.null(`columnNames`)) {
-        stopifnot(is.vector(`columnNames`))
+      if (!is.null(`columnNames`) && length(`columnNames`) > 0) {
+        stopifnot(is.vector(`columnNames`), sapply(`columnNames`, is.character))
       }
       if (!is.null(`requiredInPredictionRequests`)) {
         stopifnot(is.logical(`requiredInPredictionRequests`), length(`requiredInPredictionRequests`) == 1)
@@ -62,7 +62,7 @@ AssociationIDUpdate <- R6::R6Class(
         })
         private$validateProps(columnNames, requiredInPredictionRequests)
       }
-      sapply(`columnNames`, function(x) stopifnot(is.character(x)))
+      self$`columnNames` <- `columnNames`
       self$`requiredInPredictionRequests` <- `requiredInPredictionRequests`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

@@ -52,7 +52,7 @@ GeoFeaturePlotData <- R6::R6Class(
       if (!is.null(`bbox`)) {
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, R6::is.R6))
       }
       if (!is.null(`summary`)) {
         stopifnot(R6::is.R6(`summary`))
@@ -91,7 +91,7 @@ GeoFeaturePlotData <- R6::R6Class(
       }
       self$`aggregation` <- `aggregation`
       self$`bbox` <- `bbox`
-      sapply(`features`, function(x) stopifnot(R6::is.R6(x)))
+      self$`features` <- `features`
       self$`summary` <- `summary`
       self$`type` <- `type`
       self$`valueAggregation` <- `valueAggregation`

@@ -310,7 +310,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -409,7 +411,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -686,7 +690,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -729,7 +735,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -917,7 +925,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1010,7 +1020,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1028,7 +1040,7 @@ ModelsApi <- R6::R6Class(
     #' @param baseEnvironmentId character. The base environment to use with this model version.
     #' @param isMajorUpdate Enum < [false, False, true, True] > If set to true, new major version will created, otherwise minor version will be created.
     #' @param desiredMemory integer. The amount of memory that is expected to be allocated by the custom model.
-    #' @param file data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding &#x60;filePath&#x60; supplied that shows the relative location of the file. For example, you have two files: &#x60;/home/username/custom-task/main.py&#x60; and &#x60;/home/username/custom-task/helpers/helper.py&#x60;. When uploading these files, you would _also_ need to include two &#x60;filePath&#x60; fields of, &#x60;\\\&quot;main.py\\\&quot;&#x60; and &#x60;\\\&quot;helpers/helper.py\\\&quot;&#x60;. If the supplied &#x60;file&#x60; already exists at the supplied &#x60;filePath&#x60;, the old file is replaced by the new file.
+    #' @param file character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' @param filePath \link{OneOfstringarray}. The local path of the file being uploaded. See the &#x60;file&#x60; field explanation for more details.
     #' @param filesToDelete \link{OneOfstringarray}. The IDs of the files to be deleted.
     #' @param maximumMemory integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -1058,7 +1070,7 @@ ModelsApi <- R6::R6Class(
     #' baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
     #' isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
     #' desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-    #' file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+    #' file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
     #' filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
     #' maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -1176,7 +1188,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1289,7 +1303,7 @@ ModelsApi <- R6::R6Class(
     #' @param baseEnvironmentId character. The base environment to use with this model version.
     #' @param baseEnvironmentVersionId character. The base environment version ID to use with this model version.Can be set only by user with correct permissions.
     #' @param desiredMemory integer. The amount of memory that is expected to be allocated by the custom model.
-    #' @param file data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding &#x60;filePath&#x60; supplied that shows the relative location of the file. For example, you have two files: &#x60;/home/username/custom-task/main.py&#x60; and &#x60;/home/username/custom-task/helpers/helper.py&#x60;. When uploading these files, you would _also_ need to include two &#x60;filePath&#x60; fields of, &#x60;\\\&quot;main.py\\\&quot;&#x60; and &#x60;\\\&quot;helpers/helper.py\\\&quot;&#x60;. If the supplied &#x60;file&#x60; already exists at the supplied &#x60;filePath&#x60;, the old file is replaced by the new file.
+    #' @param file character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' @param filePath \link{OneOfstringarray}. The local path of the file being uploaded. See the &#x60;file&#x60; field explanation for more details.
     #' @param maximumMemory integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
     #' @param networkEgressPolicy Enum < [NONE, DR_API_ACCESS, PUBLIC] > Network egress policy.
@@ -1319,7 +1333,7 @@ ModelsApi <- R6::R6Class(
     #' baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
     #' baseEnvironmentVersionId <- 'baseEnvironmentVersionId_example' # character | The base environment version ID to use with this model version.Can be set only by user with correct permissions.
     #' desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-    #' file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+    #' file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
     #' maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
     #' networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
@@ -1435,7 +1449,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1575,7 +1591,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1722,7 +1740,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1768,7 +1788,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1918,7 +1940,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2097,7 +2121,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2240,7 +2266,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2453,7 +2481,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2542,7 +2572,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2683,7 +2715,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3000,7 +3034,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3235,7 +3271,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3376,7 +3414,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3524,7 +3564,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3665,7 +3707,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3812,7 +3856,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4007,7 +4053,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4055,7 +4103,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4153,7 +4203,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4487,7 +4539,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4668,7 +4722,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4800,7 +4856,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4889,7 +4947,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -4932,7 +4992,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -5067,7 +5129,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -5198,7 +5262,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -5310,7 +5376,7 @@ ModelsApi <- R6::R6Class(
     #' @details This method invokes `POST /projects/{projectId}/ratingTables/` in the DataRobot Public API.
     #' @param projectId character. the project that owns this data
     #' @param parentModelId character. the parent model this rating table file was derived from
-    #' @param ratingTableFile data.frame. rating table file to use for the new rating table. Accepts &#x60;Content-Type:multipart/form-data&#x60;
+    #' @param ratingTableFile character. rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
     #' @param ratingTableName character. the name of the new rating table to create
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @return \link{RatingTableCreateResponse}
@@ -5326,7 +5392,7 @@ ModelsApi <- R6::R6Class(
     #' library(datarobot.apicore)
     #' projectId <- 'projectId_example' # character | the project that owns this data
     #' parentModelId <- 'parentModelId_example' # character | the parent model this rating table file was derived from
-    #' ratingTableFile <- '/path/to/file.csv' # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
+    #' ratingTableFile <- '/path/to/file.csv' # character | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
     #' ratingTableName <- 'ratingTableName_example' # character | the name of the new rating table to create
     #'
     #' api.instance <- ModelsApi$new()
@@ -5384,7 +5450,9 @@ ModelsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -5757,9 +5825,13 @@ ModelsApi <- R6::R6Class(
 
       queryParams["limit"] <- limit
 
-      queryParams["customModelIds"] <- customModelIds
+      if (!is.null(customModelIds)) {
+        queryParams["customModelIds"] <- paste0(customModelIds, collapse = ",")
+      }
 
-      queryParams["environmentIds"] <- environmentIds
+      if (!is.null(environmentIds)) {
+        queryParams["environmentIds"] <- paste0(environmentIds, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/customModelDeployments/"
@@ -7508,7 +7580,9 @@ ModelsApi <- R6::R6Class(
 
       queryParams["reverse"] <- reverse
 
-      queryParams["targetTypes"] <- targetTypes
+      if (!is.null(targetTypes)) {
+        queryParams["targetTypes"] <- paste0(targetTypes, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/customTrainingBlueprints/"
@@ -7725,7 +7799,9 @@ ModelsApi <- R6::R6Class(
 
       queryParams["predictionEnvironmentId"] <- predictionEnvironmentId
 
-      queryParams["modelKind"] <- modelKind
+      if (!is.null(modelKind)) {
+        queryParams["modelKind"] <- paste0(modelKind, collapse = ",")
+      }
 
       queryParams["buildStatus"] <- buildStatus
 

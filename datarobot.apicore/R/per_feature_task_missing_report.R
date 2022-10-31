@@ -39,7 +39,7 @@ PerFeatureTaskMissingReport <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`descriptions` = NULL, `name` = NULL) {
       if (!is.null(`descriptions`)) {
-        stopifnot(is.vector(`descriptions`))
+        stopifnot(is.vector(`descriptions`), sapply(`descriptions`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -62,7 +62,7 @@ PerFeatureTaskMissingReport <- R6::R6Class(
         })
         private$validateProps(descriptions, name)
       }
-      sapply(`descriptions`, function(x) stopifnot(is.character(x)))
+      self$`descriptions` <- `descriptions`
       self$`name` <- `name`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

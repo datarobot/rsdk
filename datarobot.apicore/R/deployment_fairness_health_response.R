@@ -53,7 +53,7 @@ DeploymentFairnessHealthResponse <- R6::R6Class(
         stopifnot(is.character(`influentialFairnessMetric`), length(`influentialFairnessMetric`) == 1)
       }
       if (!is.null(`messages`)) {
-        stopifnot(is.vector(`messages`))
+        stopifnot(is.vector(`messages`), sapply(`messages`, is.character))
       }
       if (!is.null(`protectedFeaturesCount`)) {
         stopifnot(is.numeric(`protectedFeaturesCount`), length(`protectedFeaturesCount`) == 1)
@@ -92,7 +92,7 @@ DeploymentFairnessHealthResponse <- R6::R6Class(
       }
       self$`endDate` <- `endDate`
       self$`influentialFairnessMetric` <- `influentialFairnessMetric`
-      sapply(`messages`, function(x) stopifnot(is.character(x)))
+      self$`messages` <- `messages`
       self$`protectedFeaturesCount` <- `protectedFeaturesCount`
       self$`startDate` <- `startDate`
       self$`status` <- `status`

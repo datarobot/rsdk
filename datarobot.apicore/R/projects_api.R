@@ -130,7 +130,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -172,7 +174,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -217,7 +221,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -263,7 +269,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -508,7 +516,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -847,7 +857,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -887,7 +899,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1133,7 +1147,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1270,7 +1286,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1518,7 +1536,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1615,7 +1635,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1658,7 +1680,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1756,7 +1780,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1805,7 +1831,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2076,7 +2104,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2290,7 +2320,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2374,7 +2406,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2692,7 +2726,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3015,7 +3051,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3057,7 +3095,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3190,7 +3230,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3372,7 +3414,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3420,7 +3464,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3612,7 +3658,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3879,7 +3927,9 @@ ProjectsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -6149,7 +6199,9 @@ ProjectsApi <- R6::R6Class(
 
       queryParams["projectName"] <- projectName
 
-      queryParams["projectId"] <- projectId
+      if (!is.null(projectId)) {
+        queryParams["projectId"] <- paste0(projectId, collapse = ",")
+      }
 
       queryParams["orderBy"] <- orderBy
 
@@ -6571,7 +6623,9 @@ ProjectsApi <- R6::R6Class(
         stop("Missing required parameter `multiseriesId`.")
       }
 
-      queryParams["crossSeriesGroupByColumns"] <- crossSeriesGroupByColumns
+      if (!is.null(crossSeriesGroupByColumns)) {
+        queryParams["crossSeriesGroupByColumns"] <- paste0(crossSeriesGroupByColumns, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/projects/{projectId}/multiseriesIds/{multiseriesId}/crossSeriesProperties/"

@@ -37,7 +37,7 @@ UserBlueprintsInputTypesResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`inputTypes` = NULL) {
       if (!is.null(`inputTypes`)) {
-        stopifnot(is.vector(`inputTypes`))
+        stopifnot(is.vector(`inputTypes`), sapply(`inputTypes`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ UserBlueprintsInputTypesResponse <- R6::R6Class(
         })
         private$validateProps(inputTypes)
       }
-      sapply(`inputTypes`, function(x) stopifnot(R6::is.R6(x)))
+      self$`inputTypes` <- `inputTypes`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

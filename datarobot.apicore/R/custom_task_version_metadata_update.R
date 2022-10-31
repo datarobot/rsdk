@@ -45,8 +45,8 @@ CustomTaskVersionMetadataUpdate <- R6::R6Class(
       }
       if (!is.null(`requiredMetadata`)) {
       }
-      if (!is.null(`requiredMetadataValues`)) {
-        stopifnot(is.vector(`requiredMetadataValues`))
+      if (!is.null(`requiredMetadataValues`) && length(`requiredMetadataValues`) > 0) {
+        stopifnot(is.vector(`requiredMetadataValues`), sapply(`requiredMetadataValues`, R6::is.R6))
       }
     }
   ),
@@ -70,7 +70,7 @@ CustomTaskVersionMetadataUpdate <- R6::R6Class(
       }
       self$`description` <- `description`
       self$`requiredMetadata` <- `requiredMetadata`
-      sapply(`requiredMetadataValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`requiredMetadataValues` <- `requiredMetadataValues`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

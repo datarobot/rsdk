@@ -49,25 +49,25 @@ UserBlueprintsBlueprintTaskData <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`inputs` = NULL, `outputMethod` = NULL, `outputMethodParameters` = NULL, `taskCode` = NULL, `taskParameters` = NULL, `xTransformations` = NULL, `yTransformations` = NULL) {
       if (!is.null(`inputs`)) {
-        stopifnot(is.vector(`inputs`))
+        stopifnot(is.vector(`inputs`), sapply(`inputs`, is.character))
       }
       if (!is.null(`outputMethod`)) {
         stopifnot(is.character(`outputMethod`), length(`outputMethod`) == 1)
       }
       if (!is.null(`outputMethodParameters`)) {
-        stopifnot(is.vector(`outputMethodParameters`))
+        stopifnot(is.vector(`outputMethodParameters`), sapply(`outputMethodParameters`, R6::is.R6))
       }
       if (!is.null(`taskCode`)) {
         stopifnot(is.character(`taskCode`), length(`taskCode`) == 1)
       }
       if (!is.null(`taskParameters`)) {
-        stopifnot(is.vector(`taskParameters`))
+        stopifnot(is.vector(`taskParameters`), sapply(`taskParameters`, R6::is.R6))
       }
       if (!is.null(`xTransformations`)) {
-        stopifnot(is.vector(`xTransformations`))
+        stopifnot(is.vector(`xTransformations`), sapply(`xTransformations`, R6::is.R6))
       }
       if (!is.null(`yTransformations`)) {
-        stopifnot(is.vector(`yTransformations`))
+        stopifnot(is.vector(`yTransformations`), sapply(`yTransformations`, R6::is.R6))
       }
     }
   ),
@@ -97,13 +97,13 @@ UserBlueprintsBlueprintTaskData <- R6::R6Class(
         })
         private$validateProps(inputs, outputMethod, outputMethodParameters, taskCode, taskParameters, xTransformations, yTransformations)
       }
-      sapply(`inputs`, function(x) stopifnot(is.character(x)))
+      self$`inputs` <- `inputs`
       self$`outputMethod` <- `outputMethod`
-      sapply(`outputMethodParameters`, function(x) stopifnot(R6::is.R6(x)))
+      self$`outputMethodParameters` <- `outputMethodParameters`
       self$`taskCode` <- `taskCode`
-      sapply(`taskParameters`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`xTransformations`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`yTransformations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`taskParameters` <- `taskParameters`
+      self$`xTransformations` <- `xTransformations`
+      self$`yTransformations` <- `yTransformations`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

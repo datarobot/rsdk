@@ -46,10 +46,10 @@ RocCurveForDatasets <- R6::R6Class(
         stopifnot(is.character(`datasetId`), length(`datasetId`) == 1)
       }
       if (!is.null(`negativeClassPredictions`)) {
-        stopifnot(is.vector(`negativeClassPredictions`))
+        stopifnot(is.vector(`negativeClassPredictions`), sapply(`negativeClassPredictions`, is.numeric))
       }
       if (!is.null(`positiveClassPredictions`)) {
-        stopifnot(is.vector(`positiveClassPredictions`))
+        stopifnot(is.vector(`positiveClassPredictions`), sapply(`positiveClassPredictions`, is.numeric))
       }
       if (!is.null(`rocPoints`)) {
         stopifnot(R6::is.R6(`rocPoints`))
@@ -77,8 +77,8 @@ RocCurveForDatasets <- R6::R6Class(
         private$validateProps(datasetId, negativeClassPredictions, positiveClassPredictions, rocPoints)
       }
       self$`datasetId` <- `datasetId`
-      sapply(`negativeClassPredictions`, function(x) stopifnot(is.character(x)))
-      sapply(`positiveClassPredictions`, function(x) stopifnot(is.character(x)))
+      self$`negativeClassPredictions` <- `negativeClassPredictions`
+      self$`positiveClassPredictions` <- `positiveClassPredictions`
       self$`rocPoints` <- `rocPoints`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

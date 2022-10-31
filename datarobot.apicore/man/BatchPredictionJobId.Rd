@@ -13,8 +13,6 @@ BatchPredictionJobId Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{partNumber}}{integer The number of which csv part is being uploaded when using multipart upload}
-
 \item{\code{predictionJobId}}{character ID of the Batch Prediction job}
 }
 \if{html}{\out{</div>}}
@@ -35,19 +33,12 @@ BatchPredictionJobId Class
 \subsection{Method \code{new()}}{
 A function used to initialize an instance of this class.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{BatchPredictionJobId$new(
-  partNumber = NULL,
-  predictionJobId = NULL,
-  validateParams = FALSE,
-  ...
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{BatchPredictionJobId$new(predictionJobId = NULL, validateParams = FALSE, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{partNumber}}{The number of which csv part is being uploaded when using multipart upload}
-
 \item{\code{predictionJobId}}{ID of the Batch Prediction job}
 
 \item{\code{validateParams}}{An optional param for auto validating this object's parameters before initialization. Default FALSE.}

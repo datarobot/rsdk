@@ -41,13 +41,13 @@ ModelConfusionChartClassDetailsRetrieveReponseController <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`actualFrequency` = NULL, `className` = NULL, `predictedFrequency` = NULL) {
       if (!is.null(`actualFrequency`)) {
-        stopifnot(is.vector(`actualFrequency`))
+        stopifnot(is.vector(`actualFrequency`), sapply(`actualFrequency`, R6::is.R6))
       }
       if (!is.null(`className`)) {
         stopifnot(is.character(`className`), length(`className`) == 1)
       }
       if (!is.null(`predictedFrequency`)) {
-        stopifnot(is.vector(`predictedFrequency`))
+        stopifnot(is.vector(`predictedFrequency`), sapply(`predictedFrequency`, R6::is.R6))
       }
     }
   ),
@@ -69,9 +69,9 @@ ModelConfusionChartClassDetailsRetrieveReponseController <- R6::R6Class(
         })
         private$validateProps(actualFrequency, className, predictedFrequency)
       }
-      sapply(`actualFrequency`, function(x) stopifnot(R6::is.R6(x)))
+      self$`actualFrequency` <- `actualFrequency`
       self$`className` <- `className`
-      sapply(`predictedFrequency`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictedFrequency` <- `predictedFrequency`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

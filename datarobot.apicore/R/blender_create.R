@@ -42,7 +42,7 @@ BlenderCreate <- R6::R6Class(
         stopifnot(is.character(`blenderMethod`), length(`blenderMethod`) == 1)
       }
       if (!is.null(`modelIds`)) {
-        stopifnot(is.vector(`modelIds`))
+        stopifnot(is.vector(`modelIds`), sapply(`modelIds`, is.character))
       }
     }
   ),
@@ -63,7 +63,7 @@ BlenderCreate <- R6::R6Class(
         private$validateProps(blenderMethod, modelIds)
       }
       self$`blenderMethod` <- `blenderMethod`
-      sapply(`modelIds`, function(x) stopifnot(is.character(x)))
+      self$`modelIds` <- `modelIds`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

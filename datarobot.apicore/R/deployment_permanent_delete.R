@@ -42,7 +42,7 @@ DeploymentPermanentDelete <- R6::R6Class(
         stopifnot(is.character(`action`), length(`action`) == 1)
       }
       if (!is.null(`deploymentIds`)) {
-        stopifnot(is.vector(`deploymentIds`))
+        stopifnot(is.vector(`deploymentIds`), sapply(`deploymentIds`, is.character))
       }
     }
   ),
@@ -63,7 +63,7 @@ DeploymentPermanentDelete <- R6::R6Class(
         private$validateProps(action, deploymentIds)
       }
       self$`action` <- `action`
-      sapply(`deploymentIds`, function(x) stopifnot(is.character(x)))
+      self$`deploymentIds` <- `deploymentIds`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

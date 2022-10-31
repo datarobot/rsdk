@@ -62,7 +62,7 @@ FeatureLineageStep <- R6::R6Class(
         stopifnot(is.numeric(`id`), length(`id`) == 1)
       }
       if (!is.null(`parents`)) {
-        stopifnot(is.vector(`parents`))
+        stopifnot(is.vector(`parents`), sapply(`parents`, is.numeric))
       }
       if (!is.null(`stepType`)) {
         stopifnot(is.character(`stepType`), length(`stepType`) == 1)
@@ -78,8 +78,8 @@ FeatureLineageStep <- R6::R6Class(
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
       }
-      if (!is.null(`groupBy`)) {
-        stopifnot(is.vector(`groupBy`))
+      if (!is.null(`groupBy`) && length(`groupBy`) > 0) {
+        stopifnot(is.vector(`groupBy`), sapply(`groupBy`, is.character))
       }
       if (!is.null(`isTimeAware`)) {
         stopifnot(is.logical(`isTimeAware`), length(`isTimeAware`) == 1)
@@ -135,12 +135,12 @@ FeatureLineageStep <- R6::R6Class(
       self$`catalogId` <- `catalogId`
       self$`catalogVersionId` <- `catalogVersionId`
       self$`description` <- `description`
-      sapply(`groupBy`, function(x) stopifnot(is.character(x)))
+      self$`groupBy` <- `groupBy`
       self$`id` <- `id`
       self$`isTimeAware` <- `isTimeAware`
       self$`joinInfo` <- `joinInfo`
       self$`name` <- `name`
-      sapply(`parents`, function(x) stopifnot(is.character(x)))
+      self$`parents` <- `parents`
       self$`stepType` <- `stepType`
       self$`timeInfo` <- `timeInfo`
     },

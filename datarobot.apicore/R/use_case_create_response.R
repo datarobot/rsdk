@@ -102,8 +102,8 @@ UseCaseCreateResponse <- R6::R6Class(
       if (!is.null(`inProductionWarning`)) {
         stopifnot(is.character(`inProductionWarning`), length(`inProductionWarning`) == 1)
       }
-      if (!is.null(`mentions`)) {
-        stopifnot(is.vector(`mentions`))
+      if (!is.null(`mentions`) && length(`mentions`) > 0) {
+        stopifnot(is.vector(`mentions`), sapply(`mentions`, R6::is.R6))
       }
       if (!is.null(`modelHealth`)) {
         .setMixedProperty(typeList = list("UseCaseHealthInformation", "character"), propertyData = modelHealth)
@@ -117,8 +117,8 @@ UseCaseCreateResponse <- R6::R6Class(
       if (!is.null(`owner`)) {
         stopifnot(R6::is.R6(`owner`))
       }
-      if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+      if (!is.null(`permissions`) && length(`permissions`) > 0) {
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, is.character))
       }
       if (!is.null(`potentialValue`)) {
         stopifnot(R6::is.R6(`potentialValue`))
@@ -126,8 +126,8 @@ UseCaseCreateResponse <- R6::R6Class(
       if (!is.null(`potentialValueTemplate`)) {
         .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
       }
-      if (!is.null(`predictionTargets`)) {
-        stopifnot(is.vector(`predictionTargets`))
+      if (!is.null(`predictionTargets`) && length(`predictionTargets`) > 0) {
+        stopifnot(is.vector(`predictionTargets`), sapply(`predictionTargets`, is.character))
       }
       if (!is.null(`predictionsCount`)) {
         .setPrimitiveProperty(typeList = list("character", "numeric", "array"), propertyData = predictionsCount)
@@ -141,8 +141,8 @@ UseCaseCreateResponse <- R6::R6Class(
       if (!is.null(`stage`)) {
         stopifnot(is.character(`stage`), length(`stage`) == 1)
       }
-      if (!is.null(`targetDates`)) {
-        stopifnot(is.vector(`targetDates`))
+      if (!is.null(`targetDates`) && length(`targetDates`) > 0) {
+        stopifnot(is.vector(`targetDates`), sapply(`targetDates`, R6::is.R6))
       }
     }
   ),
@@ -210,20 +210,20 @@ UseCaseCreateResponse <- R6::R6Class(
       self$`feasibility` <- `feasibility`
       self$`id` <- `id`
       self$`inProductionWarning` <- `inProductionWarning`
-      sapply(`mentions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`mentions` <- `mentions`
       self$`modelHealth` <- .setMixedProperty(typeList = list("UseCaseHealthInformation", "character"), propertyData = modelHealth)
       self$`name` <- `name`
       self$`notes` <- `notes`
       self$`owner` <- `owner`
-      sapply(`permissions`, function(x) stopifnot(is.character(x)))
+      self$`permissions` <- `permissions`
       self$`potentialValue` <- `potentialValue`
       self$`potentialValueTemplate` <- .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
-      sapply(`predictionTargets`, function(x) stopifnot(is.character(x)))
+      self$`predictionTargets` <- `predictionTargets`
       self$`predictionsCount` <- .setPrimitiveProperty(typeList = list("character", "numeric", "array"), propertyData = predictionsCount)
       self$`realizedValue` <- .setMixedProperty(typeList = list("MonetaryValue", "character"), propertyData = realizedValue)
       self$`serviceHealth` <- .setMixedProperty(typeList = list("UseCaseHealthInformation", "character"), propertyData = serviceHealth)
       self$`stage` <- `stage`
-      sapply(`targetDates`, function(x) stopifnot(R6::is.R6(x)))
+      self$`targetDates` <- `targetDates`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

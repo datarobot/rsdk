@@ -53,7 +53,7 @@ DeploymentFeatureDriftResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`count` = NULL, `data` = NULL, `metric` = NULL, `modelId` = NULL, `next_` = NULL, `period` = NULL, `previous` = NULL, `segmentAttribute` = NULL, `segmentValue` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -112,7 +112,7 @@ DeploymentFeatureDriftResponse <- R6::R6Class(
         private$validateProps(count, data, metric, modelId, next_, period, previous, segmentAttribute, segmentValue)
       }
       self$`count` <- `count`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`metric` <- `metric`
       self$`modelId` <- `modelId`
       self$`next_` <- `next_`

@@ -78,7 +78,7 @@ ApplicationSharingUpdateOrRemove <- R6::R6Class(
       }
       self$`note` <- `note`
       self$`operation` <- `operation`
-      self$`roles` <- .setComplexProperty(typeList = list(GrantAccessControlWithUsername, GrantAccessControlWithId), propertyData = roles)
+      self$`roles` <- sapply(`roles`, function(item) .setComplexProperty(typeList = list(GrantAccessControlWithUsername, GrantAccessControlWithId), propertyData = item))
       self$`sendNotification` <- `sendNotification`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

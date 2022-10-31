@@ -56,8 +56,8 @@ AzureOutput <- R6::R6Class(
       if (!is.null(`format`)) {
         stopifnot(is.character(`format`), length(`format`) == 1)
       }
-      if (!is.null(`partitionColumns`)) {
-        stopifnot(is.vector(`partitionColumns`))
+      if (!is.null(`partitionColumns`) && length(`partitionColumns`) > 0) {
+        stopifnot(is.vector(`partitionColumns`), sapply(`partitionColumns`, is.character))
       }
     }
   ),
@@ -85,7 +85,7 @@ AzureOutput <- R6::R6Class(
       }
       self$`credentialId` <- `credentialId`
       self$`format` <- `format`
-      sapply(`partitionColumns`, function(x) stopifnot(is.character(x)))
+      self$`partitionColumns` <- `partitionColumns`
       self$`type` <- `type`
       self$`url` <- `url`
     },

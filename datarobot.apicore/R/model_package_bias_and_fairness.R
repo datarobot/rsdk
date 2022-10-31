@@ -51,7 +51,7 @@ ModelPackageBiasAndFairness <- R6::R6Class(
         .setPrimitiveProperty(typeList = list("logical", "numeric", "character"), propertyData = preferableTargetValue)
       }
       if (!is.null(`protectedFeatures`)) {
-        stopifnot(is.vector(`protectedFeatures`))
+        stopifnot(is.vector(`protectedFeatures`), sapply(`protectedFeatures`, is.character))
       }
     }
   ),
@@ -78,7 +78,7 @@ ModelPackageBiasAndFairness <- R6::R6Class(
       self$`fairnessMetricsSet` <- `fairnessMetricsSet`
       self$`fairnessThreshold` <- `fairnessThreshold`
       self$`preferableTargetValue` <- .setPrimitiveProperty(typeList = list("logical", "numeric", "character"), propertyData = preferableTargetValue)
-      sapply(`protectedFeatures`, function(x) stopifnot(is.character(x)))
+      self$`protectedFeatures` <- `protectedFeatures`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -39,7 +39,7 @@ CrossSeriesGroupByColumnRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`crossSeriesGroupByColumns` = NULL, `multiseriesId` = NULL) {
       if (!is.null(`crossSeriesGroupByColumns`)) {
-        stopifnot(is.vector(`crossSeriesGroupByColumns`))
+        stopifnot(is.vector(`crossSeriesGroupByColumns`), sapply(`crossSeriesGroupByColumns`, R6::is.R6))
       }
       if (!is.null(`multiseriesId`)) {
         stopifnot(is.character(`multiseriesId`), length(`multiseriesId`) == 1)
@@ -62,7 +62,7 @@ CrossSeriesGroupByColumnRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(crossSeriesGroupByColumns, multiseriesId)
       }
-      sapply(`crossSeriesGroupByColumns`, function(x) stopifnot(R6::is.R6(x)))
+      self$`crossSeriesGroupByColumns` <- `crossSeriesGroupByColumns`
       self$`multiseriesId` <- `multiseriesId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

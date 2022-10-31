@@ -161,7 +161,7 @@
           NULL
         }
       )
-      if (!is.null(property) && property) {
+      if (!is.null(property)) {
         return(propertyData)
       }
     }

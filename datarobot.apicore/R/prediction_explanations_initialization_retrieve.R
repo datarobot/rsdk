@@ -44,7 +44,7 @@ PredictionExplanationsInitializationRetrieve <- R6::R6Class(
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
       if (!is.null(`predictionExplanationsSample`)) {
-        stopifnot(is.vector(`predictionExplanationsSample`))
+        stopifnot(is.vector(`predictionExplanationsSample`), sapply(`predictionExplanationsSample`, R6::is.R6))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -70,7 +70,7 @@ PredictionExplanationsInitializationRetrieve <- R6::R6Class(
         private$validateProps(modelId, predictionExplanationsSample, projectId)
       }
       self$`modelId` <- `modelId`
-      sapply(`predictionExplanationsSample`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionExplanationsSample` <- `predictionExplanationsSample`
       self$`projectId` <- `projectId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

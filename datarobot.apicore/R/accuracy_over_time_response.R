@@ -52,7 +52,7 @@ AccuracyOverTimeResponse <- R6::R6Class(
         stopifnot(R6::is.R6(`baseline`))
       }
       if (!is.null(`buckets`)) {
-        stopifnot(is.vector(`buckets`))
+        stopifnot(is.vector(`buckets`), sapply(`buckets`, R6::is.R6))
       }
       if (!is.null(`metric`)) {
         stopifnot(is.character(`metric`), length(`metric`) == 1)
@@ -98,7 +98,7 @@ AccuracyOverTimeResponse <- R6::R6Class(
         private$validateProps(baseline, buckets, metric, modelId, segmentAttribute, segmentValue, summary)
       }
       self$`baseline` <- `baseline`
-      sapply(`buckets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`buckets` <- `buckets`
       self$`metric` <- `metric`
       self$`modelId` <- `modelId`
       self$`segmentAttribute` <- `segmentAttribute`

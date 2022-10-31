@@ -56,8 +56,8 @@ SecondaryDatasetResponse <- R6::R6Class(
       if (!is.null(`snapshotPolicy`)) {
         stopifnot(is.character(`snapshotPolicy`), length(`snapshotPolicy`) == 1)
       }
-      if (!is.null(`requiredFeatures`)) {
-        stopifnot(is.vector(`requiredFeatures`))
+      if (!is.null(`requiredFeatures`) && length(`requiredFeatures`) > 0) {
+        stopifnot(is.vector(`requiredFeatures`), sapply(`requiredFeatures`, is.character))
       }
     }
   ),
@@ -86,7 +86,7 @@ SecondaryDatasetResponse <- R6::R6Class(
       self$`catalogId` <- `catalogId`
       self$`catalogVersionId` <- `catalogVersionId`
       self$`identifier` <- `identifier`
-      sapply(`requiredFeatures`, function(x) stopifnot(is.character(x)))
+      self$`requiredFeatures` <- `requiredFeatures`
       self$`snapshotPolicy` <- `snapshotPolicy`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

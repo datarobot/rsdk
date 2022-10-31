@@ -37,7 +37,7 @@ MultiseriesHistogramsRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bins` = NULL) {
       if (!is.null(`bins`)) {
-        stopifnot(is.vector(`bins`))
+        stopifnot(is.vector(`bins`), sapply(`bins`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ MultiseriesHistogramsRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(bins)
       }
-      sapply(`bins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bins` <- `bins`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

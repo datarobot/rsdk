@@ -24,7 +24,7 @@ ListDeploymentsAccuracyOverTime(
 Retrieve accuracy over time data for one single metric.
 }
 \details{
-Retrieve accuracy over time data for one single metric. > > The following metrics can be retrieved. > > > For classification deployments: > > > > -   Accuracy > > -   AUC > > -   Balanced Accuracy > > -   FVE Binomial > > -   Gini Norm > > -   Kolmogorov-Smirnov > > -   LogLoss (default) > > -   Rate@Top5\% > > -   Rate@Top10\% > > > > For regression deployments: > > > > -   Gamma Deviance (default) > > -   FVE Gamma > > -   FVE Poisson > > -   FVE Tweedie > > -   MAD > > -   MAE > > -   MAPE > > -   Poisson Deviance > > -   R Squared > > -   RMSE > > -   RMSLE > > -   Tweedie Deviance
+Retrieve accuracy over time data for one single metric. > > The following metrics can be retrieved. > > > For classification deployments: > > > > - Accuracy > > - AUC > > - Balanced Accuracy > > - FVE Binomial > > - Gini Norm > > - Kolmogorov-Smirnov > > - LogLoss (default) > > - Rate@Top5\% > > - Rate@Top10\% > > > > For regression deployments: > > > > - Gamma Deviance (default) > > - FVE Gamma > > - FVE Poisson > > - FVE Tweedie > > - MAD > > - MAE > > - MAPE > > - Poisson Deviance > > - R Squared > > - RMSE > > - RMSLE > > - Tweedie Deviance
 
 This method invokes \verb{GET /deployments/\{deploymentId\}/accuracyOverTime/} in the DataRobot Public API.
 }

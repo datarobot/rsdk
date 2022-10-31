@@ -50,13 +50,13 @@ BlueprintListDocumentsResponse <- R6::R6Class(
         stopifnot(is.character(`description`), length(`description`) == 1)
       }
       if (!is.null(`links`)) {
-        stopifnot(is.vector(`links`))
+        stopifnot(is.vector(`links`), sapply(`links`, R6::is.R6))
       }
       if (!is.null(`parameters`)) {
-        stopifnot(is.vector(`parameters`))
+        stopifnot(is.vector(`parameters`), sapply(`parameters`, R6::is.R6))
       }
       if (!is.null(`references`)) {
-        stopifnot(is.vector(`references`))
+        stopifnot(is.vector(`references`), sapply(`references`, R6::is.R6))
       }
       if (!is.null(`task`)) {
         stopifnot(is.character(`task`), length(`task`) == 1)
@@ -91,9 +91,9 @@ BlueprintListDocumentsResponse <- R6::R6Class(
         private$validateProps(description, links, parameters, references, task, title)
       }
       self$`description` <- `description`
-      sapply(`links`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`parameters`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`references`, function(x) stopifnot(R6::is.R6(x)))
+      self$`links` <- `links`
+      self$`parameters` <- `parameters`
+      self$`references` <- `references`
       self$`task` <- `task`
       self$`title` <- `title`
     },

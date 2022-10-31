@@ -39,10 +39,10 @@ FeatureLineageJoinTable <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`columns` = NULL, `datasteps` = NULL) {
       if (!is.null(`columns`)) {
-        stopifnot(is.vector(`columns`))
+        stopifnot(is.vector(`columns`), sapply(`columns`, is.character))
       }
       if (!is.null(`datasteps`)) {
-        stopifnot(is.vector(`datasteps`))
+        stopifnot(is.vector(`datasteps`), sapply(`datasteps`, is.numeric))
       }
     }
   ),
@@ -62,8 +62,8 @@ FeatureLineageJoinTable <- R6::R6Class(
         })
         private$validateProps(columns, datasteps)
       }
-      sapply(`columns`, function(x) stopifnot(is.character(x)))
-      sapply(`datasteps`, function(x) stopifnot(is.character(x)))
+      self$`columns` <- `columns`
+      self$`datasteps` <- `datasteps`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

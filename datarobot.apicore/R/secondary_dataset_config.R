@@ -42,7 +42,7 @@ SecondaryDatasetConfig <- R6::R6Class(
         stopifnot(is.character(`featureEngineeringGraphId`), length(`featureEngineeringGraphId`) == 1)
       }
       if (!is.null(`secondaryDatasets`)) {
-        stopifnot(is.vector(`secondaryDatasets`))
+        stopifnot(is.vector(`secondaryDatasets`), sapply(`secondaryDatasets`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ SecondaryDatasetConfig <- R6::R6Class(
         private$validateProps(featureEngineeringGraphId, secondaryDatasets)
       }
       self$`featureEngineeringGraphId` <- `featureEngineeringGraphId`
-      sapply(`secondaryDatasets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`secondaryDatasets` <- `secondaryDatasets`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -144,8 +144,8 @@ PredictionUsageObjectResponse <- R6::R6Class(
       if (!is.null(`orgName`)) {
         stopifnot(is.character(`orgName`), length(`orgName`) == 1)
       }
-      if (!is.null(`predictionRowCountPerMinute`)) {
-        stopifnot(is.vector(`predictionRowCountPerMinute`))
+      if (!is.null(`predictionRowCountPerMinute`) && length(`predictionRowCountPerMinute`) > 0) {
+        stopifnot(is.vector(`predictionRowCountPerMinute`), sapply(`predictionRowCountPerMinute`, is.numeric))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -159,8 +159,8 @@ PredictionUsageObjectResponse <- R6::R6Class(
       if (!is.null(`recommendedModel`)) {
         stopifnot(is.logical(`recommendedModel`), length(`recommendedModel`) == 1)
       }
-      if (!is.null(`requestCountPerMinute`)) {
-        stopifnot(is.vector(`requestCountPerMinute`))
+      if (!is.null(`requestCountPerMinute`) && length(`requestCountPerMinute`) > 0) {
+        stopifnot(is.vector(`requestCountPerMinute`), sapply(`requestCountPerMinute`, is.numeric))
       }
       if (!is.null(`userProjectRole`)) {
         stopifnot(is.character(`userProjectRole`), length(`userProjectRole`) == 1)
@@ -249,13 +249,13 @@ PredictionUsageObjectResponse <- R6::R6Class(
       self$`orgName` <- `orgName`
       self$`predictionExplanations` <- `predictionExplanations`
       self$`predictionMethod` <- `predictionMethod`
-      sapply(`predictionRowCountPerMinute`, function(x) stopifnot(is.character(x)))
+      self$`predictionRowCountPerMinute` <- `predictionRowCountPerMinute`
       self$`predictionRowsCount` <- `predictionRowsCount`
       self$`projectId` <- `projectId`
       self$`projectType` <- `projectType`
       self$`pythonVersion` <- `pythonVersion`
       self$`recommendedModel` <- `recommendedModel`
-      sapply(`requestCountPerMinute`, function(x) stopifnot(is.character(x)))
+      self$`requestCountPerMinute` <- `requestCountPerMinute`
       self$`requestsCount` <- `requestsCount`
       self$`serverErrorCount` <- `serverErrorCount`
       self$`timestamp` <- `timestamp`

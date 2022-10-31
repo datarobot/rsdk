@@ -123,7 +123,7 @@ BlenderRetrieveResponse <- R6::R6Class(
         stopifnot(is.character(`modelFamily`), length(`modelFamily`) == 1)
       }
       if (!is.null(`modelIds`)) {
-        stopifnot(is.vector(`modelIds`))
+        stopifnot(is.vector(`modelIds`), sapply(`modelIds`, is.character))
       }
       if (!is.null(`modelNumber`)) {
         stopifnot(is.numeric(`modelNumber`), length(`modelNumber`) == 1)
@@ -146,7 +146,7 @@ BlenderRetrieveResponse <- R6::R6Class(
         stopifnot(is.logical(`predictionThresholdReadOnly`), length(`predictionThresholdReadOnly`) == 1)
       }
       if (!is.null(`processes`)) {
-        stopifnot(is.vector(`processes`))
+        stopifnot(is.vector(`processes`), sapply(`processes`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -252,7 +252,7 @@ BlenderRetrieveResponse <- R6::R6Class(
       self$`metrics` <- `metrics`
       self$`modelCategory` <- `modelCategory`
       self$`modelFamily` <- `modelFamily`
-      sapply(`modelIds`, function(x) stopifnot(is.character(x)))
+      self$`modelIds` <- `modelIds`
       self$`modelNumber` <- `modelNumber`
       self$`modelType` <- `modelType`
       self$`monotonicDecreasingFeaturelistId` <- `monotonicDecreasingFeaturelistId`
@@ -260,7 +260,7 @@ BlenderRetrieveResponse <- R6::R6Class(
       self$`parentModelId` <- `parentModelId`
       self$`predictionThreshold` <- `predictionThreshold`
       self$`predictionThresholdReadOnly` <- `predictionThresholdReadOnly`
-      sapply(`processes`, function(x) stopifnot(is.character(x)))
+      self$`processes` <- `processes`
       self$`projectId` <- `projectId`
       self$`samplePct` <- `samplePct`
       self$`supportsComposableMl` <- `supportsComposableMl`

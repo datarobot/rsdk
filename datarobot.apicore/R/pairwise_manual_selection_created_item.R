@@ -43,7 +43,7 @@ PairwiseManualSelectionCreatedItem <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`columnLabels` = NULL, `id` = NULL, `name` = NULL, `rowLabels` = NULL) {
       if (!is.null(`columnLabels`)) {
-        stopifnot(is.vector(`columnLabels`))
+        stopifnot(is.vector(`columnLabels`), sapply(`columnLabels`, is.character))
       }
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -52,7 +52,7 @@ PairwiseManualSelectionCreatedItem <- R6::R6Class(
         stopifnot(is.character(`name`), length(`name`) == 1)
       }
       if (!is.null(`rowLabels`)) {
-        stopifnot(is.vector(`rowLabels`))
+        stopifnot(is.vector(`rowLabels`), sapply(`rowLabels`, is.character))
       }
     }
   ),
@@ -76,10 +76,10 @@ PairwiseManualSelectionCreatedItem <- R6::R6Class(
         })
         private$validateProps(columnLabels, id, name, rowLabels)
       }
-      sapply(`columnLabels`, function(x) stopifnot(is.character(x)))
+      self$`columnLabels` <- `columnLabels`
       self$`id` <- `id`
       self$`name` <- `name`
-      sapply(`rowLabels`, function(x) stopifnot(is.character(x)))
+      self$`rowLabels` <- `rowLabels`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -59,7 +59,7 @@ ConfusionChartClassMatrix <- R6::R6Class(
         stopifnot(is.character(`className`), length(`className`) == 1)
       }
       if (!is.null(`confusionMatrixOneVsAll`)) {
-        stopifnot(is.vector(`confusionMatrixOneVsAll`))
+        stopifnot(is.vector(`confusionMatrixOneVsAll`), sapply(`confusionMatrixOneVsAll`, R6::is.R6))
       }
       if (!is.null(`f1`)) {
       }
@@ -71,10 +71,10 @@ ConfusionChartClassMatrix <- R6::R6Class(
       if (!is.null(`recall`)) {
       }
       if (!is.null(`wasActualPercentages`)) {
-        stopifnot(is.vector(`wasActualPercentages`))
+        stopifnot(is.vector(`wasActualPercentages`), sapply(`wasActualPercentages`, R6::is.R6))
       }
       if (!is.null(`wasPredictedPercentages`)) {
-        stopifnot(is.vector(`wasPredictedPercentages`))
+        stopifnot(is.vector(`wasPredictedPercentages`), sapply(`wasPredictedPercentages`, R6::is.R6))
       }
     }
   ),
@@ -110,13 +110,13 @@ ConfusionChartClassMatrix <- R6::R6Class(
       }
       self$`actualCount` <- `actualCount`
       self$`className` <- `className`
-      sapply(`confusionMatrixOneVsAll`, function(x) stopifnot(R6::is.R6(x)))
+      self$`confusionMatrixOneVsAll` <- `confusionMatrixOneVsAll`
       self$`f1` <- `f1`
       self$`precision` <- `precision`
       self$`predictedCount` <- `predictedCount`
       self$`recall` <- `recall`
-      sapply(`wasActualPercentages`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`wasPredictedPercentages`, function(x) stopifnot(R6::is.R6(x)))
+      self$`wasActualPercentages` <- `wasActualPercentages`
+      self$`wasPredictedPercentages` <- `wasPredictedPercentages`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

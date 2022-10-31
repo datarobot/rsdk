@@ -45,19 +45,19 @@ ConfusionChartData <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`classMetrics` = NULL, `classes` = NULL, `colClasses` = NULL, `confusionMatrix` = NULL, `rowClasses` = NULL) {
       if (!is.null(`classMetrics`)) {
-        stopifnot(is.vector(`classMetrics`))
+        stopifnot(is.vector(`classMetrics`), sapply(`classMetrics`, R6::is.R6))
       }
       if (!is.null(`classes`)) {
-        stopifnot(is.vector(`classes`))
+        stopifnot(is.vector(`classes`), sapply(`classes`, is.character))
       }
       if (!is.null(`colClasses`)) {
-        stopifnot(is.vector(`colClasses`))
+        stopifnot(is.vector(`colClasses`), sapply(`colClasses`, is.character))
       }
       if (!is.null(`confusionMatrix`)) {
-        stopifnot(is.vector(`confusionMatrix`))
+        stopifnot(is.vector(`confusionMatrix`), sapply(`confusionMatrix`, R6::is.R6))
       }
       if (!is.null(`rowClasses`)) {
-        stopifnot(is.vector(`rowClasses`))
+        stopifnot(is.vector(`rowClasses`), sapply(`rowClasses`, is.character))
       }
     }
   ),
@@ -83,11 +83,11 @@ ConfusionChartData <- R6::R6Class(
         })
         private$validateProps(classMetrics, classes, colClasses, confusionMatrix, rowClasses)
       }
-      sapply(`classMetrics`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`classes`, function(x) stopifnot(is.character(x)))
-      sapply(`colClasses`, function(x) stopifnot(is.character(x)))
-      sapply(`confusionMatrix`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`rowClasses`, function(x) stopifnot(is.character(x)))
+      self$`classMetrics` <- `classMetrics`
+      self$`classes` <- `classes`
+      self$`colClasses` <- `colClasses`
+      self$`confusionMatrix` <- `confusionMatrix`
+      self$`rowClasses` <- `rowClasses`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

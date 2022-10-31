@@ -43,10 +43,10 @@ ModelConfusionChartMetadataRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`classNames` = NULL, `relevantClassesPositions` = NULL, `source` = NULL, `totalMatrixSum` = NULL) {
       if (!is.null(`classNames`)) {
-        stopifnot(is.vector(`classNames`))
+        stopifnot(is.vector(`classNames`), sapply(`classNames`, is.character))
       }
       if (!is.null(`relevantClassesPositions`)) {
-        stopifnot(is.vector(`relevantClassesPositions`))
+        stopifnot(is.vector(`relevantClassesPositions`), sapply(`relevantClassesPositions`, R6::is.R6))
       }
       if (!is.null(`source`)) {
         stopifnot(is.character(`source`), length(`source`) == 1)
@@ -76,8 +76,8 @@ ModelConfusionChartMetadataRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(classNames, relevantClassesPositions, source, totalMatrixSum)
       }
-      sapply(`classNames`, function(x) stopifnot(is.character(x)))
-      sapply(`relevantClassesPositions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`classNames` <- `classNames`
+      self$`relevantClassesPositions` <- `relevantClassesPositions`
       self$`source` <- `source`
       self$`totalMatrixSum` <- `totalMatrixSum`
     },

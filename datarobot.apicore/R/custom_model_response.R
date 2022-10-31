@@ -135,8 +135,8 @@ CustomModelResponse <- R6::R6Class(
       if (!is.null(`calibratePredictions`)) {
         stopifnot(is.logical(`calibratePredictions`), length(`calibratePredictions`) == 1)
       }
-      if (!is.null(`classLabels`)) {
-        stopifnot(is.vector(`classLabels`))
+      if (!is.null(`classLabels`) && length(`classLabels`) > 0) {
+        stopifnot(is.vector(`classLabels`), sapply(`classLabels`, is.character))
       }
       if (!is.null(`customModelType`)) {
         stopifnot(is.character(`customModelType`), length(`customModelType`) == 1)
@@ -266,7 +266,7 @@ CustomModelResponse <- R6::R6Class(
         private$validateProps(calibratePredictions, classLabels, created, createdBy, customModelType, deploymentsCount, description, desiredMemory, id, language, latestVersion, maximumMemory, name, negativeClassLabel, networkEgressPolicy, positiveClassLabel, predictionThreshold, replicas, requiresHa, supportsAnomalyDetection, supportsBinaryClassification, supportsRegression, targetName, targetType, trainingDataAssignmentInProgress, trainingDataFileName, trainingDataPartitionColumn, trainingDatasetId, trainingDatasetVersionId, updated, userProvidedId)
       }
       self$`calibratePredictions` <- `calibratePredictions`
-      sapply(`classLabels`, function(x) stopifnot(is.character(x)))
+      self$`classLabels` <- `classLabels`
       self$`created` <- `created`
       self$`createdBy` <- `createdBy`
       self$`customModelType` <- `customModelType`

@@ -37,7 +37,7 @@ DatasetFeatureHistogramResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`plot` = NULL) {
       if (!is.null(`plot`)) {
-        stopifnot(is.vector(`plot`))
+        stopifnot(is.vector(`plot`), sapply(`plot`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ DatasetFeatureHistogramResponse <- R6::R6Class(
         })
         private$validateProps(plot)
       }
-      sapply(`plot`, function(x) stopifnot(R6::is.R6(x)))
+      self$`plot` <- `plot`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

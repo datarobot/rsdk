@@ -45,10 +45,10 @@ LabelwiseLiftChart <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`labelBins` = NULL, `labels` = NULL, `modelId` = NULL, `projectId` = NULL, `source` = NULL) {
       if (!is.null(`labelBins`)) {
-        stopifnot(is.vector(`labelBins`))
+        stopifnot(is.vector(`labelBins`), sapply(`labelBins`, R6::is.R6))
       }
       if (!is.null(`labels`)) {
-        stopifnot(is.vector(`labels`))
+        stopifnot(is.vector(`labels`), sapply(`labels`, is.character))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -83,8 +83,8 @@ LabelwiseLiftChart <- R6::R6Class(
         })
         private$validateProps(labelBins, labels, modelId, projectId, source)
       }
-      sapply(`labelBins`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`labels`, function(x) stopifnot(is.character(x)))
+      self$`labelBins` <- `labelBins`
+      self$`labels` <- `labels`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
       self$`source` <- `source`

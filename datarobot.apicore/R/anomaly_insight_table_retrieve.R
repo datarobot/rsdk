@@ -42,7 +42,7 @@ AnomalyInsightTableRetrieve <- R6::R6Class(
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
       if (!is.null(`table`)) {
-        stopifnot(is.vector(`table`))
+        stopifnot(is.vector(`table`), sapply(`table`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ AnomalyInsightTableRetrieve <- R6::R6Class(
         private$validateProps(modelId, table)
       }
       self$`modelId` <- `modelId`
-      sapply(`table`, function(x) stopifnot(R6::is.R6(x)))
+      self$`table` <- `table`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

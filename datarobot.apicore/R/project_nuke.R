@@ -68,8 +68,8 @@ ProjectNuke <- R6::R6Class(
       if (!is.null(`organization`)) {
         stopifnot(is.character(`organization`), length(`organization`) == 1)
       }
-      if (!is.null(`projectIds`)) {
-        stopifnot(is.vector(`projectIds`))
+      if (!is.null(`projectIds`) && length(`projectIds`) > 0) {
+        stopifnot(is.vector(`projectIds`), sapply(`projectIds`, is.character))
       }
       if (!is.null(`searchFor`)) {
         stopifnot(is.character(`searchFor`), length(`searchFor`) == 1)
@@ -110,7 +110,7 @@ ProjectNuke <- R6::R6Class(
       self$`limit` <- `limit`
       self$`offset` <- `offset`
       self$`organization` <- `organization`
-      sapply(`projectIds`, function(x) stopifnot(is.character(x)))
+      self$`projectIds` <- `projectIds`
       self$`searchFor` <- `searchFor`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

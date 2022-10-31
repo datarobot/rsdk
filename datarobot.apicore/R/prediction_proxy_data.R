@@ -66,7 +66,7 @@ PredictionProxyData <- R6::R6Class(
         .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = prediction)
       }
       if (!is.null(`predictionValues`)) {
-        stopifnot(is.vector(`predictionValues`))
+        stopifnot(is.vector(`predictionValues`), sapply(`predictionValues`, R6::is.R6))
       }
       if (!is.null(`rowId`)) {
         stopifnot(is.numeric(`rowId`), length(`rowId`) == 1)
@@ -85,8 +85,8 @@ PredictionProxyData <- R6::R6Class(
       }
       if (!is.null(`passthroughValues`)) {
       }
-      if (!is.null(`predictionExplanations`)) {
-        stopifnot(is.vector(`predictionExplanations`))
+      if (!is.null(`predictionExplanations`) && length(`predictionExplanations`) > 0) {
+        stopifnot(is.vector(`predictionExplanations`), sapply(`predictionExplanations`, R6::is.R6))
       }
       if (!is.null(`predictionIntervals`)) {
       }
@@ -96,8 +96,8 @@ PredictionProxyData <- R6::R6Class(
       if (!is.null(`seriesId`)) {
         stopifnot(is.character(`seriesId`), length(`seriesId`) == 1)
       }
-      if (!is.null(`shapExplanationsMetadata`)) {
-        stopifnot(is.vector(`shapExplanationsMetadata`))
+      if (!is.null(`shapExplanationsMetadata`) && length(`shapExplanationsMetadata`) > 0) {
+        stopifnot(is.vector(`shapExplanationsMetadata`), sapply(`shapExplanationsMetadata`, R6::is.R6))
       }
       if (!is.null(`timestamp`)) {
         stopifnot(inherits(`timestamp`, "POSIXt"))
@@ -150,13 +150,13 @@ PredictionProxyData <- R6::R6Class(
       self$`isOutlierPrediction` <- `isOutlierPrediction`
       self$`passthroughValues` <- `passthroughValues`
       self$`prediction` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = prediction)
-      sapply(`predictionExplanations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionExplanations` <- `predictionExplanations`
       self$`predictionIntervals` <- `predictionIntervals`
       self$`predictionThreshold` <- `predictionThreshold`
-      sapply(`predictionValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionValues` <- `predictionValues`
       self$`rowId` <- `rowId`
       self$`seriesId` <- `seriesId`
-      sapply(`shapExplanationsMetadata`, function(x) stopifnot(R6::is.R6(x)))
+      self$`shapExplanationsMetadata` <- `shapExplanationsMetadata`
       self$`timestamp` <- `timestamp`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

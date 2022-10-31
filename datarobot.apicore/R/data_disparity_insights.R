@@ -42,8 +42,8 @@ DataDisparityInsights <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`features` = NULL, `metric` = NULL, `protectedFeature` = NULL, `values` = NULL) {
-      if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+      if (!is.null(`features`) && length(`features`) > 0) {
+        stopifnot(is.vector(`features`), sapply(`features`, R6::is.R6))
       }
       if (!is.null(`metric`)) {
         stopifnot(is.character(`metric`), length(`metric`) == 1)
@@ -51,8 +51,8 @@ DataDisparityInsights <- R6::R6Class(
       if (!is.null(`protectedFeature`)) {
         stopifnot(is.character(`protectedFeature`), length(`protectedFeature`) == 1)
       }
-      if (!is.null(`values`)) {
-        stopifnot(is.vector(`values`))
+      if (!is.null(`values`) && length(`values`) > 0) {
+        stopifnot(is.vector(`values`), sapply(`values`, R6::is.R6))
       }
     }
   ),
@@ -76,10 +76,10 @@ DataDisparityInsights <- R6::R6Class(
         })
         private$validateProps(features, metric, protectedFeature, values)
       }
-      sapply(`features`, function(x) stopifnot(R6::is.R6(x)))
+      self$`features` <- `features`
       self$`metric` <- `metric`
       self$`protectedFeature` <- `protectedFeature`
-      sapply(`values`, function(x) stopifnot(R6::is.R6(x)))
+      self$`values` <- `values`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

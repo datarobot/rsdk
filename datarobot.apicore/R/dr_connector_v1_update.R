@@ -36,8 +36,8 @@ DRConnectorV1Update <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`fields` = NULL) {
-      if (!is.null(`fields`)) {
-        stopifnot(is.vector(`fields`))
+      if (!is.null(`fields`) && length(`fields`) > 0) {
+        stopifnot(is.vector(`fields`), sapply(`fields`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ DRConnectorV1Update <- R6::R6Class(
         })
         private$validateProps(fields)
       }
-      sapply(`fields`, function(x) stopifnot(R6::is.R6(x)))
+      self$`fields` <- `fields`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

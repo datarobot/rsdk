@@ -41,7 +41,7 @@ PerValueStatisticTextListItem <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`contextualExtracts` = NULL, `importance` = NULL, `ngram` = NULL) {
       if (!is.null(`contextualExtracts`)) {
-        stopifnot(is.vector(`contextualExtracts`))
+        stopifnot(is.vector(`contextualExtracts`), sapply(`contextualExtracts`, is.character))
       }
       if (!is.null(`importance`)) {
       }
@@ -68,7 +68,7 @@ PerValueStatisticTextListItem <- R6::R6Class(
         })
         private$validateProps(contextualExtracts, importance, ngram)
       }
-      sapply(`contextualExtracts`, function(x) stopifnot(is.character(x)))
+      self$`contextualExtracts` <- `contextualExtracts`
       self$`importance` <- `importance`
       self$`ngram` <- `ngram`
     },

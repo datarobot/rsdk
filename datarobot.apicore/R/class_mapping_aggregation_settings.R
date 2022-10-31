@@ -45,8 +45,8 @@ ClassMappingAggregationSettings <- R6::R6Class(
       if (!is.null(`aggregationClassName`)) {
         stopifnot(is.character(`aggregationClassName`), length(`aggregationClassName`) == 1)
       }
-      if (!is.null(`excludedFromAggregation`)) {
-        stopifnot(is.vector(`excludedFromAggregation`))
+      if (!is.null(`excludedFromAggregation`) && length(`excludedFromAggregation`) > 0) {
+        stopifnot(is.vector(`excludedFromAggregation`), sapply(`excludedFromAggregation`, is.character))
       }
       if (!is.null(`maxUnaggregatedClassValues`)) {
         stopifnot(is.numeric(`maxUnaggregatedClassValues`), length(`maxUnaggregatedClassValues`) == 1)
@@ -77,7 +77,7 @@ ClassMappingAggregationSettings <- R6::R6Class(
         private$validateProps(aggregationClassName, excludedFromAggregation, maxUnaggregatedClassValues, minClassSupport)
       }
       self$`aggregationClassName` <- `aggregationClassName`
-      sapply(`excludedFromAggregation`, function(x) stopifnot(is.character(x)))
+      self$`excludedFromAggregation` <- `excludedFromAggregation`
       self$`maxUnaggregatedClassValues` <- `maxUnaggregatedClassValues`
       self$`minClassSupport` <- `minClassSupport`
     },

@@ -41,7 +41,7 @@ MulticlassFeatureImpactResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`classFeatureImpacts` = NULL, `ranRedundancyDetection` = NULL, `shapBased` = NULL) {
       if (!is.null(`classFeatureImpacts`)) {
-        stopifnot(is.vector(`classFeatureImpacts`))
+        stopifnot(is.vector(`classFeatureImpacts`), sapply(`classFeatureImpacts`, R6::is.R6))
       }
       if (!is.null(`ranRedundancyDetection`)) {
         stopifnot(is.logical(`ranRedundancyDetection`), length(`ranRedundancyDetection`) == 1)
@@ -69,7 +69,7 @@ MulticlassFeatureImpactResponse <- R6::R6Class(
         })
         private$validateProps(classFeatureImpacts, ranRedundancyDetection, shapBased)
       }
-      sapply(`classFeatureImpacts`, function(x) stopifnot(R6::is.R6(x)))
+      self$`classFeatureImpacts` <- `classFeatureImpacts`
       self$`ranRedundancyDetection` <- `ranRedundancyDetection`
       self$`shapBased` <- `shapBased`
     },

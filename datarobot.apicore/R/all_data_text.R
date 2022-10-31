@@ -39,7 +39,7 @@ AllDataText <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`missingRowsPercent` = NULL, `perValueStatistics` = NULL) {
       if (!is.null(`perValueStatistics`)) {
-        stopifnot(is.vector(`perValueStatistics`))
+        stopifnot(is.vector(`perValueStatistics`), sapply(`perValueStatistics`, R6::is.R6))
       }
       if (!is.null(`missingRowsPercent`)) {
         stopifnot(is.numeric(`missingRowsPercent`), length(`missingRowsPercent`) == 1)
@@ -63,7 +63,7 @@ AllDataText <- R6::R6Class(
         private$validateProps(missingRowsPercent, perValueStatistics)
       }
       self$`missingRowsPercent` <- `missingRowsPercent`
-      sapply(`perValueStatistics`, function(x) stopifnot(R6::is.R6(x)))
+      self$`perValueStatistics` <- `perValueStatistics`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

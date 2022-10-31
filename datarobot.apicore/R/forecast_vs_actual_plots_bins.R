@@ -56,7 +56,7 @@ ForecastVsActualPlotsBins <- R6::R6Class(
       if (!is.null(`error`)) {
       }
       if (!is.null(`forecasts`)) {
-        stopifnot(is.vector(`forecasts`))
+        stopifnot(is.vector(`forecasts`), sapply(`forecasts`, is.numeric))
       }
       if (!is.null(`frequency`)) {
         stopifnot(is.numeric(`frequency`), length(`frequency`) == 1)
@@ -97,7 +97,7 @@ ForecastVsActualPlotsBins <- R6::R6Class(
       self$`actual` <- `actual`
       self$`endDate` <- `endDate`
       self$`error` <- `error`
-      sapply(`forecasts`, function(x) stopifnot(is.character(x)))
+      self$`forecasts` <- `forecasts`
       self$`frequency` <- `frequency`
       self$`normalizedError` <- `normalizedError`
       self$`startDate` <- `startDate`

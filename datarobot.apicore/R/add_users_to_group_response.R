@@ -42,7 +42,7 @@ AddUsersToGroupResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ AddUsersToGroupResponse <- R6::R6Class(
         private$validateProps(count, data)
       }
       self$`count` <- `count`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

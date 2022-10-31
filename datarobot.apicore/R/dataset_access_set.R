@@ -39,7 +39,7 @@ DatasetAccessSet <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`applyGrantToLinkedObjects` = NULL, `data` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`applyGrantToLinkedObjects`)) {
         stopifnot(is.logical(`applyGrantToLinkedObjects`), length(`applyGrantToLinkedObjects`) == 1)
@@ -63,7 +63,7 @@ DatasetAccessSet <- R6::R6Class(
         private$validateProps(applyGrantToLinkedObjects, data)
       }
       self$`applyGrantToLinkedObjects` <- `applyGrantToLinkedObjects`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

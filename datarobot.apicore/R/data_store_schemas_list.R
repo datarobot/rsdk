@@ -44,10 +44,10 @@ DataStoreSchemasList <- R6::R6Class(
         stopifnot(is.character(`catalog`), length(`catalog`) == 1)
       }
       if (!is.null(`catalogs`)) {
-        stopifnot(is.vector(`catalogs`))
+        stopifnot(is.vector(`catalogs`), sapply(`catalogs`, is.character))
       }
       if (!is.null(`schemas`)) {
-        stopifnot(is.vector(`schemas`))
+        stopifnot(is.vector(`schemas`), sapply(`schemas`, is.character))
       }
     }
   ),
@@ -70,8 +70,8 @@ DataStoreSchemasList <- R6::R6Class(
         private$validateProps(catalog, catalogs, schemas)
       }
       self$`catalog` <- `catalog`
-      sapply(`catalogs`, function(x) stopifnot(is.character(x)))
-      sapply(`schemas`, function(x) stopifnot(is.character(x)))
+      self$`catalogs` <- `catalogs`
+      self$`schemas` <- `schemas`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

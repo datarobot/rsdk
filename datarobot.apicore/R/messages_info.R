@@ -37,7 +37,7 @@ MessagesInfo <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`messages` = NULL) {
       if (!is.null(`messages`)) {
-        stopifnot(is.vector(`messages`))
+        stopifnot(is.vector(`messages`), sapply(`messages`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ MessagesInfo <- R6::R6Class(
         })
         private$validateProps(messages)
       }
-      sapply(`messages`, function(x) stopifnot(R6::is.R6(x)))
+      self$`messages` <- `messages`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

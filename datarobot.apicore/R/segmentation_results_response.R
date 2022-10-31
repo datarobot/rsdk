@@ -41,10 +41,10 @@ SegmentationResultsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`completedJobs` = NULL, `failedJobs` = NULL, `numberOfJobs` = NULL) {
       if (!is.null(`completedJobs`)) {
-        stopifnot(is.vector(`completedJobs`))
+        stopifnot(is.vector(`completedJobs`), sapply(`completedJobs`, R6::is.R6))
       }
       if (!is.null(`failedJobs`)) {
-        stopifnot(is.vector(`failedJobs`))
+        stopifnot(is.vector(`failedJobs`), sapply(`failedJobs`, R6::is.R6))
       }
       if (!is.null(`numberOfJobs`)) {
         stopifnot(is.numeric(`numberOfJobs`), length(`numberOfJobs`) == 1)
@@ -69,8 +69,8 @@ SegmentationResultsResponse <- R6::R6Class(
         })
         private$validateProps(completedJobs, failedJobs, numberOfJobs)
       }
-      sapply(`completedJobs`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`failedJobs`, function(x) stopifnot(R6::is.R6(x)))
+      self$`completedJobs` <- `completedJobs`
+      self$`failedJobs` <- `failedJobs`
       self$`numberOfJobs` <- `numberOfJobs`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

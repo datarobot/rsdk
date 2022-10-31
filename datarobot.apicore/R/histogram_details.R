@@ -39,7 +39,7 @@ HistogramDetails <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bars` = NULL, `bin` = NULL) {
       if (!is.null(`bars`)) {
-        stopifnot(is.vector(`bars`))
+        stopifnot(is.vector(`bars`), sapply(`bars`, R6::is.R6))
       }
       if (!is.null(`bin`)) {
         stopifnot(is.character(`bin`), length(`bin`) == 1)
@@ -62,7 +62,7 @@ HistogramDetails <- R6::R6Class(
         })
         private$validateProps(bars, bin)
       }
-      sapply(`bars`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bars` <- `bars`
       self$`bin` <- `bin`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

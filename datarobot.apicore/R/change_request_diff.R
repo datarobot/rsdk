@@ -39,10 +39,10 @@ ChangeRequestDiff <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`changesFrom` = NULL, `changesTo` = NULL) {
       if (!is.null(`changesFrom`)) {
-        stopifnot(is.vector(`changesFrom`))
+        stopifnot(is.vector(`changesFrom`), sapply(`changesFrom`, is.character))
       }
       if (!is.null(`changesTo`)) {
-        stopifnot(is.vector(`changesTo`))
+        stopifnot(is.vector(`changesTo`), sapply(`changesTo`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ ChangeRequestDiff <- R6::R6Class(
         })
         private$validateProps(changesFrom, changesTo)
       }
-      sapply(`changesFrom`, function(x) stopifnot(is.character(x)))
-      sapply(`changesTo`, function(x) stopifnot(is.character(x)))
+      self$`changesFrom` <- `changesFrom`
+      self$`changesTo` <- `changesTo`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

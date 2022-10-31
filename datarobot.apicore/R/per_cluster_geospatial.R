@@ -42,7 +42,7 @@ PerClusterGeospatial <- R6::R6Class(
         stopifnot(is.character(`clusterName`), length(`clusterName`) == 1)
       }
       if (!is.null(`representativeLocations`)) {
-        stopifnot(is.vector(`representativeLocations`))
+        stopifnot(is.vector(`representativeLocations`), sapply(`representativeLocations`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ PerClusterGeospatial <- R6::R6Class(
         private$validateProps(clusterName, representativeLocations)
       }
       self$`clusterName` <- `clusterName`
-      sapply(`representativeLocations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`representativeLocations` <- `representativeLocations`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -42,7 +42,7 @@ PerClassAccuracy <- R6::R6Class(
         stopifnot(is.character(`className`), length(`className`) == 1)
       }
       if (!is.null(`metrics`)) {
-        stopifnot(is.vector(`metrics`))
+        stopifnot(is.vector(`metrics`), sapply(`metrics`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ PerClassAccuracy <- R6::R6Class(
         private$validateProps(className, metrics)
       }
       self$`className` <- `className`
-      sapply(`metrics`, function(x) stopifnot(R6::is.R6(x)))
+      self$`metrics` <- `metrics`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

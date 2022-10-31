@@ -44,7 +44,7 @@ ShapImpactRetrieveResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`shapImpacts`)) {
-        stopifnot(is.vector(`shapImpacts`))
+        stopifnot(is.vector(`shapImpacts`), sapply(`shapImpacts`, R6::is.R6))
       }
       if (!is.null(`rowCount`)) {
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
@@ -71,7 +71,7 @@ ShapImpactRetrieveResponse <- R6::R6Class(
       }
       self$`count` <- `count`
       self$`rowCount` <- `rowCount`
-      sapply(`shapImpacts`, function(x) stopifnot(R6::is.R6(x)))
+      self$`shapImpacts` <- `shapImpacts`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

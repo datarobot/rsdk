@@ -44,7 +44,7 @@ MulticategoricalHistogram <- R6::R6Class(
         stopifnot(is.character(`featureName`), length(`featureName`) == 1)
       }
       if (!is.null(`histogram`)) {
-        stopifnot(is.vector(`histogram`))
+        stopifnot(is.vector(`histogram`), sapply(`histogram`, R6::is.R6))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -70,7 +70,7 @@ MulticategoricalHistogram <- R6::R6Class(
         private$validateProps(featureName, histogram, projectId)
       }
       self$`featureName` <- `featureName`
-      sapply(`histogram`, function(x) stopifnot(R6::is.R6(x)))
+      self$`histogram` <- `histogram`
       self$`projectId` <- `projectId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

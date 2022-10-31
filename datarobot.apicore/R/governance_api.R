@@ -120,7 +120,9 @@ GovernanceApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1194,7 +1196,9 @@ GovernanceApi <- R6::R6Class(
 
       queryParams["entityType"] <- entityType
 
-      queryParams["entityId"] <- entityId
+      if (!is.null(entityId)) {
+        queryParams["entityId"] <- paste0(entityId, collapse = ",")
+      }
 
       queryParams["myRequests"] <- myRequests
 
@@ -1202,7 +1206,9 @@ GovernanceApi <- R6::R6Class(
 
       queryParams["showCancelled"] <- showCancelled
 
-      queryParams["status"] <- status
+      if (!is.null(status)) {
+        queryParams["status"] <- paste0(status, collapse = ",")
+      }
 
       queryParams["orderBy"] <- orderBy
 

@@ -85,7 +85,7 @@ UserGroupResponse <- R6::R6Class(
         stopifnot(is.character(`accessRoleName`), length(`accessRoleName`) == 1)
       }
       if (!is.null(`accountPermissions`)) {
-        stopifnot(is.vector(`accountPermissions`))
+        stopifnot(is.vector(`accountPermissions`), sapply(`accountPermissions`, is.character))
       }
       if (!is.null(`createdBy`)) {
         stopifnot(is.character(`createdBy`), length(`createdBy`) == 1)
@@ -204,7 +204,7 @@ UserGroupResponse <- R6::R6Class(
       }
       self$`accessRoleId` <- `accessRoleId`
       self$`accessRoleName` <- `accessRoleName`
-      sapply(`accountPermissions`, function(x) stopifnot(is.character(x)))
+      self$`accountPermissions` <- `accountPermissions`
       self$`createdBy` <- `createdBy`
       self$`description` <- `description`
       self$`email` <- `email`

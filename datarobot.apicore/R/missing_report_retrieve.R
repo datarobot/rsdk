@@ -37,7 +37,7 @@ MissingReportRetrieve <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`missingValuesReport` = NULL) {
       if (!is.null(`missingValuesReport`)) {
-        stopifnot(is.vector(`missingValuesReport`))
+        stopifnot(is.vector(`missingValuesReport`), sapply(`missingValuesReport`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ MissingReportRetrieve <- R6::R6Class(
         })
         private$validateProps(missingValuesReport)
       }
-      sapply(`missingValuesReport`, function(x) stopifnot(R6::is.R6(x)))
+      self$`missingValuesReport` <- `missingValuesReport`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -48,8 +48,8 @@ CrossSeriesGroupByColumnValidatePayload <- R6::R6Class(
       if (!is.null(`multiseriesIdColumn`)) {
         stopifnot(is.character(`multiseriesIdColumn`), length(`multiseriesIdColumn`) == 1)
       }
-      if (!is.null(`crossSeriesGroupByColumns`)) {
-        stopifnot(is.vector(`crossSeriesGroupByColumns`))
+      if (!is.null(`crossSeriesGroupByColumns`) && length(`crossSeriesGroupByColumns`) > 0) {
+        stopifnot(is.vector(`crossSeriesGroupByColumns`), sapply(`crossSeriesGroupByColumns`, is.character))
       }
       if (!is.null(`userDefinedSegmentIdColumn`)) {
         stopifnot(is.character(`userDefinedSegmentIdColumn`), length(`userDefinedSegmentIdColumn`) == 1)
@@ -76,7 +76,7 @@ CrossSeriesGroupByColumnValidatePayload <- R6::R6Class(
         })
         private$validateProps(crossSeriesGroupByColumns, datetimePartitionColumn, multiseriesIdColumn, userDefinedSegmentIdColumn)
       }
-      sapply(`crossSeriesGroupByColumns`, function(x) stopifnot(is.character(x)))
+      self$`crossSeriesGroupByColumns` <- `crossSeriesGroupByColumns`
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`multiseriesIdColumn` <- `multiseriesIdColumn`
       self$`userDefinedSegmentIdColumn` <- `userDefinedSegmentIdColumn`

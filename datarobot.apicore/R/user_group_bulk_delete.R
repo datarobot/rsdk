@@ -37,7 +37,7 @@ UserGroupBulkDelete <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`groups` = NULL) {
       if (!is.null(`groups`)) {
-        stopifnot(is.vector(`groups`))
+        stopifnot(is.vector(`groups`), sapply(`groups`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ UserGroupBulkDelete <- R6::R6Class(
         })
         private$validateProps(groups)
       }
-      sapply(`groups`, function(x) stopifnot(R6::is.R6(x)))
+      self$`groups` <- `groups`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

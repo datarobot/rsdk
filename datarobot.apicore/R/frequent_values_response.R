@@ -43,7 +43,7 @@ FrequentValuesResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`frequentValues` = NULL, `name` = NULL, `numRows` = NULL, `projectId` = NULL) {
       if (!is.null(`frequentValues`)) {
-        stopifnot(is.vector(`frequentValues`))
+        stopifnot(is.vector(`frequentValues`), sapply(`frequentValues`, R6::is.R6))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -76,7 +76,7 @@ FrequentValuesResponse <- R6::R6Class(
         })
         private$validateProps(frequentValues, name, numRows, projectId)
       }
-      sapply(`frequentValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`frequentValues` <- `frequentValues`
       self$`name` <- `name`
       self$`numRows` <- `numRows`
       self$`projectId` <- `projectId`

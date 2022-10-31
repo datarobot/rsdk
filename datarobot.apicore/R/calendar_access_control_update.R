@@ -37,7 +37,7 @@ CalendarAccessControlUpdate <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`users` = NULL) {
       if (!is.null(`users`)) {
-        stopifnot(is.vector(`users`))
+        stopifnot(is.vector(`users`), sapply(`users`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ CalendarAccessControlUpdate <- R6::R6Class(
         })
         private$validateProps(users)
       }
-      sapply(`users`, function(x) stopifnot(R6::is.R6(x)))
+      self$`users` <- `users`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

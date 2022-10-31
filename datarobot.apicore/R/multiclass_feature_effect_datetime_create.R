@@ -45,8 +45,8 @@ MulticlassFeatureEffectDatetimeCreate <- R6::R6Class(
       if (!is.null(`backtestIndex`)) {
         stopifnot(is.character(`backtestIndex`), length(`backtestIndex`) == 1)
       }
-      if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+      if (!is.null(`features`) && length(`features`) > 0) {
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`rowCount`)) {
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
@@ -77,7 +77,7 @@ MulticlassFeatureEffectDatetimeCreate <- R6::R6Class(
         private$validateProps(backtestIndex, features, rowCount, topNFeatures)
       }
       self$`backtestIndex` <- `backtestIndex`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`rowCount` <- `rowCount`
       self$`topNFeatures` <- `topNFeatures`
     },

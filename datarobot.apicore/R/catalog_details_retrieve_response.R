@@ -84,7 +84,7 @@ CatalogDetailsRetrieveResponse <- R6::R6Class(
         stopifnot(is.character(`status`), length(`status`) == 1)
       }
       if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`))
+        stopifnot(is.vector(`tags`), sapply(`tags`, is.character))
       }
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -134,7 +134,7 @@ CatalogDetailsRetrieveResponse <- R6::R6Class(
       self$`modifiedBy` <- `modifiedBy`
       self$`name` <- `name`
       self$`status` <- `status`
-      sapply(`tags`, function(x) stopifnot(is.character(x)))
+      self$`tags` <- `tags`
       self$`type` <- `type`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

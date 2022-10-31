@@ -105,7 +105,7 @@ PredictionURLUpload <- R6::R6Class(
         private$validateProps(actualValueColumn, credentials, forecastPoint, predictionsEndDate, predictionsStartDate, relaxKnownInAdvanceFeaturesCheck, secondaryDatasetsConfigId, url)
       }
       self$`actualValueColumn` <- `actualValueColumn`
-      self$`credentials` <- .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = credentials)
+      self$`credentials` <- sapply(`credentials`, function(item) .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = item))
       self$`forecastPoint` <- `forecastPoint`
       self$`predictionsEndDate` <- `predictionsEndDate`
       self$`predictionsStartDate` <- `predictionsStartDate`

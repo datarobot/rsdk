@@ -41,7 +41,7 @@ FeatureListCreate <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`description` = NULL, `features` = NULL, `name` = NULL) {
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -70,7 +70,7 @@ FeatureListCreate <- R6::R6Class(
         private$validateProps(description, features, name)
       }
       self$`description` <- `description`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`name` <- `name`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

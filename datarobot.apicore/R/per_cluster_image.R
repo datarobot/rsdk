@@ -44,7 +44,7 @@ PerClusterImage <- R6::R6Class(
         stopifnot(is.character(`clusterName`), length(`clusterName`) == 1)
       }
       if (!is.null(`images`)) {
-        stopifnot(is.vector(`images`))
+        stopifnot(is.vector(`images`), sapply(`images`, is.character))
       }
       if (!is.null(`percentageOfMissingImages`)) {
       }
@@ -69,7 +69,7 @@ PerClusterImage <- R6::R6Class(
         private$validateProps(clusterName, images, percentageOfMissingImages)
       }
       self$`clusterName` <- `clusterName`
-      sapply(`images`, function(x) stopifnot(is.character(x)))
+      self$`images` <- `images`
       self$`percentageOfMissingImages` <- `percentageOfMissingImages`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

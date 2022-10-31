@@ -61,7 +61,7 @@ DriverConfigurationRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`associatedAuthTypes` = NULL, `className` = NULL, `creator` = NULL, `id` = NULL, `jdbcFieldSchemas` = NULL, `jdbcUrlPathDelimiter` = NULL, `jdbcUrlPrefix` = NULL, `jdbcUrlQueryDelimiter` = NULL, `jdbcUrlQueryParamDelimiter` = NULL, `jdbcUrlQueryParamKeyValueDelimiter` = NULL, `standardizedName` = NULL, `statements` = NULL, `updated` = NULL) {
       if (!is.null(`associatedAuthTypes`)) {
-        stopifnot(is.vector(`associatedAuthTypes`))
+        stopifnot(is.vector(`associatedAuthTypes`), sapply(`associatedAuthTypes`, is.character))
       }
       if (!is.null(`className`)) {
         stopifnot(is.character(`className`), length(`className`) == 1)
@@ -96,8 +96,8 @@ DriverConfigurationRetrieveResponse <- R6::R6Class(
       if (!is.null(`updated`)) {
         stopifnot(is.character(`updated`), length(`updated`) == 1)
       }
-      if (!is.null(`statements`)) {
-        stopifnot(is.vector(`statements`))
+      if (!is.null(`statements`) && length(`statements`) > 0) {
+        stopifnot(is.vector(`statements`), sapply(`statements`, is.character))
       }
     }
   ),
@@ -139,7 +139,7 @@ DriverConfigurationRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(associatedAuthTypes, className, creator, id, jdbcFieldSchemas, jdbcUrlPathDelimiter, jdbcUrlPrefix, jdbcUrlQueryDelimiter, jdbcUrlQueryParamDelimiter, jdbcUrlQueryParamKeyValueDelimiter, standardizedName, statements, updated)
       }
-      sapply(`associatedAuthTypes`, function(x) stopifnot(is.character(x)))
+      self$`associatedAuthTypes` <- `associatedAuthTypes`
       self$`className` <- `className`
       self$`creator` <- `creator`
       self$`id` <- `id`
@@ -150,7 +150,7 @@ DriverConfigurationRetrieveResponse <- R6::R6Class(
       self$`jdbcUrlQueryParamDelimiter` <- `jdbcUrlQueryParamDelimiter`
       self$`jdbcUrlQueryParamKeyValueDelimiter` <- `jdbcUrlQueryParamKeyValueDelimiter`
       self$`standardizedName` <- `standardizedName`
-      sapply(`statements`, function(x) stopifnot(is.character(x)))
+      self$`statements` <- `statements`
       self$`updated` <- `updated`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

@@ -37,7 +37,7 @@ UserBlueprintsValidationResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`vertexContext` = NULL) {
       if (!is.null(`vertexContext`)) {
-        stopifnot(is.vector(`vertexContext`))
+        stopifnot(is.vector(`vertexContext`), sapply(`vertexContext`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ UserBlueprintsValidationResponse <- R6::R6Class(
         })
         private$validateProps(vertexContext)
       }
-      sapply(`vertexContext`, function(x) stopifnot(R6::is.R6(x)))
+      self$`vertexContext` <- `vertexContext`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

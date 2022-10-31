@@ -47,7 +47,7 @@ ConnectorFieldSchema <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`choices` = NULL, `default` = NULL, `description` = NULL, `name` = NULL, `required` = NULL, `visibleByDefault` = NULL) {
       if (!is.null(`choices`)) {
-        stopifnot(is.vector(`choices`))
+        stopifnot(is.vector(`choices`), sapply(`choices`, is.character))
       }
       if (!is.null(`default`)) {
         stopifnot(is.character(`default`), length(`default`) == 1)
@@ -90,7 +90,7 @@ ConnectorFieldSchema <- R6::R6Class(
         })
         private$validateProps(choices, default, description, name, required, visibleByDefault)
       }
-      sapply(`choices`, function(x) stopifnot(is.character(x)))
+      self$`choices` <- `choices`
       self$`default` <- `default`
       self$`description` <- `description`
       self$`name` <- `name`

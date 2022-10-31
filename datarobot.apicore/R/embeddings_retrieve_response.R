@@ -41,13 +41,13 @@ EmbeddingsRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`embeddings` = NULL, `targetBins` = NULL, `targetValues` = NULL) {
       if (!is.null(`embeddings`)) {
-        stopifnot(is.vector(`embeddings`))
+        stopifnot(is.vector(`embeddings`), sapply(`embeddings`, R6::is.R6))
       }
       if (!is.null(`targetBins`)) {
-        stopifnot(is.vector(`targetBins`))
+        stopifnot(is.vector(`targetBins`), sapply(`targetBins`, R6::is.R6))
       }
       if (!is.null(`targetValues`)) {
-        stopifnot(is.vector(`targetValues`))
+        stopifnot(is.vector(`targetValues`), sapply(`targetValues`, is.character))
       }
     }
   ),
@@ -69,9 +69,9 @@ EmbeddingsRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(embeddings, targetBins, targetValues)
       }
-      sapply(`embeddings`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`targetBins`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`targetValues`, function(x) stopifnot(is.character(x)))
+      self$`embeddings` <- `embeddings`
+      self$`targetBins` <- `targetBins`
+      self$`targetValues` <- `targetValues`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

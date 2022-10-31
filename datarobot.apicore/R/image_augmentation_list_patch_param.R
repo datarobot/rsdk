@@ -71,8 +71,8 @@ ImageAugmentationListPatchParam <- R6::R6Class(
       if (!is.null(`transformationProbability`)) {
         stopifnot(is.numeric(`transformationProbability`), length(`transformationProbability`) == 1)
       }
-      if (!is.null(`transformations`)) {
-        stopifnot(is.vector(`transformations`))
+      if (!is.null(`transformations`) && length(`transformations`) > 0) {
+        stopifnot(is.vector(`transformations`), sapply(`transformations`, R6::is.R6))
       }
     }
   ),
@@ -111,7 +111,7 @@ ImageAugmentationListPatchParam <- R6::R6Class(
       self$`numberOfNewImages` <- `numberOfNewImages`
       self$`projectId` <- `projectId`
       self$`transformationProbability` <- `transformationProbability`
-      sapply(`transformations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`transformations` <- `transformations`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

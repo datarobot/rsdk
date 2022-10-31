@@ -22,8 +22,6 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field partNumber  integer The number of which csv part is being uploaded when using multipart upload
-#'
 #' @field predictionJobId  character ID of the Batch Prediction job
 #'
 #' @importFrom R6 R6Class
@@ -37,51 +35,37 @@ BatchPredictionJobId <- R6::R6Class(
     # @description A helper function to handle assist with type validation. This function will validate class parameters with definite
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
-    validateProps = function(`partNumber` = NULL, `predictionJobId` = NULL) {
-      if (!is.null(`partNumber`)) {
-        stopifnot(is.numeric(`partNumber`), length(`partNumber`) == 1)
-      }
+    validateProps = function(`predictionJobId` = NULL) {
       if (!is.null(`predictionJobId`)) {
         stopifnot(is.character(`predictionJobId`), length(`predictionJobId`) == 1)
       }
     }
   ),
   public = list(
-    `partNumber` = NULL,
     `predictionJobId` = NULL,
     #' @description A function used to initialize an instance of this class.
-    #' @param partNumber The number of which csv part is being uploaded when using multipart upload
     #' @param predictionJobId ID of the Batch Prediction job
     #' @param validateParams An optional param for auto validating this object's parameters before initialization. Default FALSE.
     #' @param ... Any additional keyword arguments to be passed into this object for initialization.
-    initialize = function(`partNumber` = NULL, `predictionJobId` = NULL, validateParams = FALSE, ...) {
+    initialize = function(`predictionJobId` = NULL, validateParams = FALSE, ...) {
       local.optional.var <- list(...)
       if (validateParams) {
-        lapply(list(`partNumber`, `predictionJobId`), function(param) {
+        lapply(list(`predictionJobId`), function(param) {
           stopifnot("Required param not set." = !is.null(param))
         })
-        private$validateProps(partNumber, predictionJobId)
+        private$validateProps(predictionJobId)
       }
-      self$`partNumber` <- `partNumber`
       self$`predictionJobId` <- `predictionJobId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.
     #' checking this objects set properties.
     validate = function() {
-      do.call(private$validateProps, list(partNumber = self$`partNumber`, predictionJobId = self$`predictionJobId`))
+      do.call(private$validateProps, list(predictionJobId = self$`predictionJobId`))
     },
     #' @description A helper function that serializes this object into a JSON encoded string.
     toJSON = function() {
       jsoncontent <- c(
-        if (!is.null(self$`partNumber`)) {
-          sprintf(
-            '"partNumber":
-            %d
-                  ',
-            self$`partNumber`
-          )
-        },
         if (!is.null(self$`predictionJobId`)) {
           sprintf(
             '"predictionJobId":
@@ -99,7 +83,6 @@ BatchPredictionJobId <- R6::R6Class(
     #' @param validateParams An optional param for auto validating this object's parameters after deserialization. Default FALSE.
     fromJSON = function(BatchPredictionJobIdJson, validateParams = FALSE) {
       BatchPredictionJobIdObject <- jsonlite::fromJSON(BatchPredictionJobIdJson)
-      self$`partNumber` <- BatchPredictionJobIdObject$`partNumber`
       self$`predictionJobId` <- BatchPredictionJobIdObject$`predictionJobId`
 
       if (validateParams) {

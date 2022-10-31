@@ -4,7 +4,7 @@
 \alias{PutBatchPredictionsCsvUploadPart}
 \title{PutBatchPredictionsCsvUploadPart}
 \usage{
-PutBatchPredictionsCsvUploadPart(predictionJobId, partNumber = 0, ...)
+PutBatchPredictionsCsvUploadPart(predictionJobId, body, partNumber = 0, ...)
 }
 \arguments{
 \item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}

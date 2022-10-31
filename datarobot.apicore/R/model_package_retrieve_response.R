@@ -107,7 +107,7 @@ ModelPackageRetrieveResponse <- R6::R6Class(
         stopifnot(is.character(`name`), length(`name`) == 1)
       }
       if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, is.character))
       }
       if (!is.null(`sourceMeta`)) {
         stopifnot(R6::is.R6(`sourceMeta`))
@@ -187,7 +187,7 @@ ModelPackageRetrieveResponse <- R6::R6Class(
       self$`modelId` <- `modelId`
       self$`modelKind` <- `modelKind`
       self$`name` <- `name`
-      sapply(`permissions`, function(x) stopifnot(is.character(x)))
+      self$`permissions` <- `permissions`
       self$`sourceMeta` <- `sourceMeta`
       self$`target` <- `target`
       self$`timeseries` <- `timeseries`

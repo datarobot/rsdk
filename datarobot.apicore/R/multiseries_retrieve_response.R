@@ -42,7 +42,7 @@ MultiseriesRetrieveResponse <- R6::R6Class(
         stopifnot(is.character(`datetimePartitionColumn`), length(`datetimePartitionColumn`) == 1)
       }
       if (!is.null(`detectedMultiseriesIdColumns`)) {
-        stopifnot(is.vector(`detectedMultiseriesIdColumns`))
+        stopifnot(is.vector(`detectedMultiseriesIdColumns`), sapply(`detectedMultiseriesIdColumns`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ MultiseriesRetrieveResponse <- R6::R6Class(
         private$validateProps(datetimePartitionColumn, detectedMultiseriesIdColumns)
       }
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
-      sapply(`detectedMultiseriesIdColumns`, function(x) stopifnot(R6::is.R6(x)))
+      self$`detectedMultiseriesIdColumns` <- `detectedMultiseriesIdColumns`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

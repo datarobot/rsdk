@@ -149,7 +149,7 @@ PredictionFromCatalogDataset <- R6::R6Class(
       self$`actualValueColumn` <- `actualValueColumn`
       self$`credentialData` <- .setComplexProperty(typeList = list(BasicCredentials, S3Credentials, OAuthCredentials), propertyData = credentialData)
       self$`credentialId` <- `credentialId`
-      self$`credentials` <- .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = credentials)
+      self$`credentials` <- sapply(`credentials`, function(item) .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = item))
       self$`datasetId` <- `datasetId`
       self$`datasetVersionId` <- `datasetVersionId`
       self$`forecastPoint` <- `forecastPoint`

@@ -40,8 +40,8 @@ MulticlassFeatureEffectCreate <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`features` = NULL, `rowCount` = NULL, `topNFeatures` = NULL) {
-      if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+      if (!is.null(`features`) && length(`features`) > 0) {
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`rowCount`)) {
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
@@ -69,7 +69,7 @@ MulticlassFeatureEffectCreate <- R6::R6Class(
         })
         private$validateProps(features, rowCount, topNFeatures)
       }
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`rowCount` <- `rowCount`
       self$`topNFeatures` <- `topNFeatures`
     },

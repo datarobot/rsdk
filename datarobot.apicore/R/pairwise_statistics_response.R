@@ -43,7 +43,7 @@ PairwiseStatisticsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`data` = NULL, `featureName` = NULL, `projectId` = NULL, `statisticType` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`featureName`)) {
         stopifnot(is.character(`featureName`), length(`featureName`) == 1)
@@ -76,7 +76,7 @@ PairwiseStatisticsResponse <- R6::R6Class(
         })
         private$validateProps(data, featureName, projectId, statisticType)
       }
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`featureName` <- `featureName`
       self$`projectId` <- `projectId`
       self$`statisticType` <- `statisticType`

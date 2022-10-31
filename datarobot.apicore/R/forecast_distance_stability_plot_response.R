@@ -46,7 +46,7 @@ ForecastDistanceStabilityPlotResponse <- R6::R6Class(
         stopifnot(inherits(`endDate`, "POSIXt"))
       }
       if (!is.null(`forecastDistancePlotData`)) {
-        stopifnot(is.vector(`forecastDistancePlotData`))
+        stopifnot(is.vector(`forecastDistancePlotData`), sapply(`forecastDistancePlotData`, R6::is.R6))
       }
       if (!is.null(`metricName`)) {
         stopifnot(is.character(`metricName`), length(`metricName`) == 1)
@@ -77,7 +77,7 @@ ForecastDistanceStabilityPlotResponse <- R6::R6Class(
         private$validateProps(endDate, forecastDistancePlotData, metricName, startDate)
       }
       self$`endDate` <- `endDate`
-      sapply(`forecastDistancePlotData`, function(x) stopifnot(R6::is.R6(x)))
+      self$`forecastDistancePlotData` <- `forecastDistancePlotData`
       self$`metricName` <- `metricName`
       self$`startDate` <- `startDate`
     },

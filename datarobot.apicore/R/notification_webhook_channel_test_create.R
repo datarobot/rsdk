@@ -61,8 +61,8 @@ NotificationWebhookChannelTestCreate <- R6::R6Class(
       if (!is.null(`contentType`)) {
         stopifnot(is.character(`contentType`), length(`contentType`) == 1)
       }
-      if (!is.null(`customHeaders`)) {
-        stopifnot(is.vector(`customHeaders`))
+      if (!is.null(`customHeaders`) && length(`customHeaders`) > 0) {
+        stopifnot(is.vector(`customHeaders`), sapply(`customHeaders`, R6::is.R6))
       }
       if (!is.null(`emailAddress`)) {
         stopifnot(is.character(`emailAddress`), length(`emailAddress`) == 1)
@@ -113,7 +113,7 @@ NotificationWebhookChannelTestCreate <- R6::R6Class(
       }
       self$`channelType` <- `channelType`
       self$`contentType` <- `contentType`
-      sapply(`customHeaders`, function(x) stopifnot(R6::is.R6(x)))
+      self$`customHeaders` <- `customHeaders`
       self$`emailAddress` <- `emailAddress`
       self$`name` <- `name`
       self$`orgId` <- `orgId`

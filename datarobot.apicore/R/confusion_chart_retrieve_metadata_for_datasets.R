@@ -47,7 +47,7 @@ ConfusionChartRetrieveMetadataForDatasets <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`classNames` = NULL, `datasetId` = NULL, `modelId` = NULL, `projectId` = NULL, `relevantClassesPositions` = NULL, `totalMatrixSum` = NULL) {
       if (!is.null(`classNames`)) {
-        stopifnot(is.vector(`classNames`))
+        stopifnot(is.vector(`classNames`), sapply(`classNames`, is.character))
       }
       if (!is.null(`datasetId`)) {
         stopifnot(is.character(`datasetId`), length(`datasetId`) == 1)
@@ -59,7 +59,7 @@ ConfusionChartRetrieveMetadataForDatasets <- R6::R6Class(
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
       if (!is.null(`relevantClassesPositions`)) {
-        stopifnot(is.vector(`relevantClassesPositions`))
+        stopifnot(is.vector(`relevantClassesPositions`), sapply(`relevantClassesPositions`, R6::is.R6))
       }
       if (!is.null(`totalMatrixSum`)) {
         stopifnot(is.numeric(`totalMatrixSum`), length(`totalMatrixSum`) == 1)
@@ -90,11 +90,11 @@ ConfusionChartRetrieveMetadataForDatasets <- R6::R6Class(
         })
         private$validateProps(classNames, datasetId, modelId, projectId, relevantClassesPositions, totalMatrixSum)
       }
-      sapply(`classNames`, function(x) stopifnot(is.character(x)))
+      self$`classNames` <- `classNames`
       self$`datasetId` <- `datasetId`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
-      sapply(`relevantClassesPositions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`relevantClassesPositions` <- `relevantClassesPositions`
       self$`totalMatrixSum` <- `totalMatrixSum`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

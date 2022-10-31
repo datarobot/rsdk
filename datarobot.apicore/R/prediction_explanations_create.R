@@ -54,8 +54,8 @@ PredictionExplanationsCreate <- R6::R6Class(
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
-      if (!is.null(`classNames`)) {
-        stopifnot(is.vector(`classNames`))
+      if (!is.null(`classNames`) && length(`classNames`) > 0) {
+        stopifnot(is.vector(`classNames`), sapply(`classNames`, is.character))
       }
       if (!is.null(`maxExplanations`)) {
         stopifnot(is.numeric(`maxExplanations`), length(`maxExplanations`) == 1)
@@ -97,7 +97,7 @@ PredictionExplanationsCreate <- R6::R6Class(
         })
         private$validateProps(classNames, datasetId, maxExplanations, modelId, numTopClasses, thresholdHigh, thresholdLow)
       }
-      sapply(`classNames`, function(x) stopifnot(is.character(x)))
+      self$`classNames` <- `classNames`
       self$`datasetId` <- `datasetId`
       self$`maxExplanations` <- `maxExplanations`
       self$`modelId` <- `modelId`

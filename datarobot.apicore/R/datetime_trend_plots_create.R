@@ -58,8 +58,8 @@ DatetimeTrendPlotsCreate <- R6::R6Class(
       if (!is.null(`fullAverage`)) {
         stopifnot(is.logical(`fullAverage`), length(`fullAverage`) == 1)
       }
-      if (!is.null(`seriesIds`)) {
-        stopifnot(is.vector(`seriesIds`))
+      if (!is.null(`seriesIds`) && length(`seriesIds`) > 0) {
+        stopifnot(is.vector(`seriesIds`), sapply(`seriesIds`, is.character))
       }
       if (!is.null(`source`)) {
         stopifnot(is.character(`source`), length(`source`) == 1)
@@ -94,7 +94,7 @@ DatetimeTrendPlotsCreate <- R6::R6Class(
       self$`forecastDistanceEnd` <- `forecastDistanceEnd`
       self$`forecastDistanceStart` <- `forecastDistanceStart`
       self$`fullAverage` <- `fullAverage`
-      sapply(`seriesIds`, function(x) stopifnot(is.character(x)))
+      self$`seriesIds` <- `seriesIds`
       self$`source` <- `source`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

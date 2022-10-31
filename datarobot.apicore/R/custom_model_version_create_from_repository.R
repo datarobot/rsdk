@@ -62,8 +62,8 @@ CustomModelVersionCreateFromRepository <- R6::R6Class(
       }
       if (!is.null(`requiredMetadata`)) {
       }
-      if (!is.null(`requiredMetadataValues`)) {
-        stopifnot(is.vector(`requiredMetadataValues`))
+      if (!is.null(`requiredMetadataValues`) && length(`requiredMetadataValues`) > 0) {
+        stopifnot(is.vector(`requiredMetadataValues`), sapply(`requiredMetadataValues`, R6::is.R6))
       }
       if (!is.null(`sourcePath`)) {
         .setPrimitiveProperty(typeList = list("character", "array"), propertyData = sourcePath)
@@ -101,7 +101,7 @@ CustomModelVersionCreateFromRepository <- R6::R6Class(
       self$`ref` <- `ref`
       self$`repositoryId` <- `repositoryId`
       self$`requiredMetadata` <- `requiredMetadata`
-      sapply(`requiredMetadataValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`requiredMetadataValues` <- `requiredMetadataValues`
       self$`sourcePath` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = sourcePath)
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

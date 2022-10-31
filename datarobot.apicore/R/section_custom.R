@@ -71,8 +71,8 @@ SectionCustom <- R6::R6Class(
       if (!is.null(`locked`)) {
         stopifnot(is.logical(`locked`), length(`locked`) == 1)
       }
-      if (!is.null(`sections`)) {
-        stopifnot(is.vector(`sections`))
+      if (!is.null(`sections`) && length(`sections`) > 0) {
+        stopifnot(is.vector(`sections`), sapply(`sections`, is.character))
       }
     }
   ),
@@ -109,7 +109,7 @@ SectionCustom <- R6::R6Class(
       self$`instructions` <- `instructions`
       self$`locked` <- `locked`
       self$`regularText` <- `regularText`
-      sapply(`sections`, function(x) stopifnot(is.character(x)))
+      self$`sections` <- `sections`
       self$`title` <- `title`
       self$`type` <- `type`
     },

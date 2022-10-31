@@ -39,10 +39,10 @@ BlueprintChartRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`edges` = NULL, `nodes` = NULL) {
       if (!is.null(`edges`)) {
-        stopifnot(is.vector(`edges`))
+        stopifnot(is.vector(`edges`), sapply(`edges`, R6::is.R6))
       }
       if (!is.null(`nodes`)) {
-        stopifnot(is.vector(`nodes`))
+        stopifnot(is.vector(`nodes`), sapply(`nodes`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ BlueprintChartRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(edges, nodes)
       }
-      sapply(`edges`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`nodes`, function(x) stopifnot(R6::is.R6(x)))
+      self$`edges` <- `edges`
+      self$`nodes` <- `nodes`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

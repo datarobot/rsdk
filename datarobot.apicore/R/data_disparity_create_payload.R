@@ -39,7 +39,7 @@ DataDisparityCreatePayload <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`comparedClassNames` = NULL, `feature` = NULL) {
       if (!is.null(`comparedClassNames`)) {
-        stopifnot(is.vector(`comparedClassNames`))
+        stopifnot(is.vector(`comparedClassNames`), sapply(`comparedClassNames`, is.character))
       }
       if (!is.null(`feature`)) {
         stopifnot(is.character(`feature`), length(`feature`) == 1)
@@ -62,7 +62,7 @@ DataDisparityCreatePayload <- R6::R6Class(
         })
         private$validateProps(comparedClassNames, feature)
       }
-      sapply(`comparedClassNames`, function(x) stopifnot(is.character(x)))
+      self$`comparedClassNames` <- `comparedClassNames`
       self$`feature` <- `feature`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

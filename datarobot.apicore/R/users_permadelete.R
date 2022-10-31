@@ -46,8 +46,8 @@ UsersPermadelete <- R6::R6Class(
       if (!is.null(`orphansOwner`)) {
         stopifnot(is.character(`orphansOwner`), length(`orphansOwner`) == 1)
       }
-      if (!is.null(`userIds`)) {
-        stopifnot(is.vector(`userIds`))
+      if (!is.null(`userIds`) && length(`userIds`) > 0) {
+        stopifnot(is.vector(`userIds`), sapply(`userIds`, is.character))
       }
     }
   ),
@@ -71,7 +71,7 @@ UsersPermadelete <- R6::R6Class(
       }
       self$`orgId` <- `orgId`
       self$`orphansOwner` <- `orphansOwner`
-      sapply(`userIds`, function(x) stopifnot(is.character(x)))
+      self$`userIds` <- `userIds`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

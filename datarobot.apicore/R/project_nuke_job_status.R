@@ -48,7 +48,7 @@ ProjectNukeJobStatus <- R6::R6Class(
         stopifnot(inherits(`created`, "POSIXt"))
       }
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`message`)) {
         stopifnot(is.character(`message`), length(`message`) == 1)
@@ -84,7 +84,7 @@ ProjectNukeJobStatus <- R6::R6Class(
         private$validateProps(created, data, message, status, statusId)
       }
       self$`created` <- `created`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`message` <- `message`
       self$`status` <- `status`
       self$`statusId` <- `statusId`

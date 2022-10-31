@@ -46,7 +46,7 @@ DiscardedFeaturesResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`remainingRestoreLimit`)) {
         stopifnot(is.numeric(`remainingRestoreLimit`), length(`remainingRestoreLimit`) == 1)
@@ -77,7 +77,7 @@ DiscardedFeaturesResponse <- R6::R6Class(
         private$validateProps(count, features, remainingRestoreLimit, totalRestoreLimit)
       }
       self$`count` <- `count`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`remainingRestoreLimit` <- `remainingRestoreLimit`
       self$`totalRestoreLimit` <- `totalRestoreLimit`
     },

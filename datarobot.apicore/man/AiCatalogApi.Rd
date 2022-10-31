@@ -356,7 +356,7 @@ result <- api.instance$DatasetsFromDataSourceCreate(datasource=datasource)
 
 \dontrun{
 library(datarobot.apicore)
-file <- '/path/to/file.csv' # data.frame | The data to be used for the creation.
+file <- '/path/to/file.csv' # character | The data to be used for the creation.
 categories <- list(c('categories_example')) # OneOfstringarray | An array of strings describing the intended use of the dataset.
 
 api.instance <- AiCatalogApi$new()
@@ -2733,7 +2733,7 @@ Produces: "application/json"
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{file}}{data.frame. The data to be used for the creation.}
+\item{\code{file}}{character. The data to be used for the creation.}
 
 \item{\code{categories}}{\link{OneOfstringarray}. An array of strings describing the intended use of the dataset.}
 
@@ -2767,7 +2767,7 @@ Response status codes, messages, and headers:
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{\dontrun{
 library(datarobot.apicore)
-file <- '/path/to/file.csv' # data.frame | The data to be used for the creation.
+file <- '/path/to/file.csv' # character | The data to be used for the creation.
 categories <- list(c('categories_example')) # OneOfstringarray | An array of strings describing the intended use of the dataset.
 
 api.instance <- AiCatalogApi$new()

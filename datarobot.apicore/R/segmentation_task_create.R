@@ -57,8 +57,8 @@ SegmentationTaskCreate <- R6::R6Class(
       if (!is.null(`modelPackageId`)) {
         stopifnot(is.character(`modelPackageId`), length(`modelPackageId`) == 1)
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`useAutomatedSegmentation`)) {
         stopifnot(is.logical(`useAutomatedSegmentation`), length(`useAutomatedSegmentation`) == 1)
@@ -66,8 +66,8 @@ SegmentationTaskCreate <- R6::R6Class(
       if (!is.null(`useTimeSeries`)) {
         stopifnot(is.logical(`useTimeSeries`), length(`useTimeSeries`) == 1)
       }
-      if (!is.null(`userDefinedSegmentIdColumns`)) {
-        stopifnot(is.vector(`userDefinedSegmentIdColumns`))
+      if (!is.null(`userDefinedSegmentIdColumns`) && length(`userDefinedSegmentIdColumns`) > 0) {
+        stopifnot(is.vector(`userDefinedSegmentIdColumns`), sapply(`userDefinedSegmentIdColumns`, is.character))
       }
     }
   ),
@@ -99,11 +99,11 @@ SegmentationTaskCreate <- R6::R6Class(
       }
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`modelPackageId` <- `modelPackageId`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`target` <- `target`
       self$`useAutomatedSegmentation` <- `useAutomatedSegmentation`
       self$`useTimeSeries` <- `useTimeSeries`
-      sapply(`userDefinedSegmentIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`userDefinedSegmentIdColumns` <- `userDefinedSegmentIdColumns`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

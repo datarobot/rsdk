@@ -8,7 +8,8 @@ GetPredictionExplanationsRowsAsDataFrame(
   project,
   predictionExplanationId,
   excludeAdjustedPredictions = TRUE,
-  batchSize = NULL
+  batchSize = NULL,
+  adjustmentMethod = NULL
 )
 }
 \arguments{
@@ -24,6 +25,8 @@ projects that use an exposure column.}
 
 \item{batchSize}{integer. Optional. Maximum number of prediction explanations rows to
 retrieve per request}
+
+\item{adjustmentMethod.}{Character &#39;exposureNormalized&#39; (for regression projects with exposure) or &#39;N/A&#39; (for classification projects) The value of &#39;exposureNormalized&#39; indicates that prediction outputs are adjusted (or divided) by exposure. The value of &#39;N/A&#39; indicates that no adjustments are applied to the adjusted predictions and they are identical to the unadjusted predictions.}
 }
 \value{
 data frame with following columns:

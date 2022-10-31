@@ -47,16 +47,16 @@ RelationshipsConfigResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`datasetDefinitions` = NULL, `featureDiscoveryMode` = NULL, `featureDiscoverySettings` = NULL, `id` = NULL, `relationships` = NULL, `snowflakePushDownCompatible` = NULL) {
       if (!is.null(`datasetDefinitions`)) {
-        stopifnot(is.vector(`datasetDefinitions`))
+        stopifnot(is.vector(`datasetDefinitions`), sapply(`datasetDefinitions`, R6::is.R6))
       }
       if (!is.null(`relationships`)) {
-        stopifnot(is.vector(`relationships`))
+        stopifnot(is.vector(`relationships`), sapply(`relationships`, R6::is.R6))
       }
       if (!is.null(`featureDiscoveryMode`)) {
         stopifnot(is.character(`featureDiscoveryMode`), length(`featureDiscoveryMode`) == 1)
       }
-      if (!is.null(`featureDiscoverySettings`)) {
-        stopifnot(is.vector(`featureDiscoverySettings`))
+      if (!is.null(`featureDiscoverySettings`) && length(`featureDiscoverySettings`) > 0) {
+        stopifnot(is.vector(`featureDiscoverySettings`), sapply(`featureDiscoverySettings`, R6::is.R6))
       }
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -90,11 +90,11 @@ RelationshipsConfigResponse <- R6::R6Class(
         })
         private$validateProps(datasetDefinitions, featureDiscoveryMode, featureDiscoverySettings, id, relationships, snowflakePushDownCompatible)
       }
-      sapply(`datasetDefinitions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`datasetDefinitions` <- `datasetDefinitions`
       self$`featureDiscoveryMode` <- `featureDiscoveryMode`
-      sapply(`featureDiscoverySettings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureDiscoverySettings` <- `featureDiscoverySettings`
       self$`id` <- `id`
-      sapply(`relationships`, function(x) stopifnot(R6::is.R6(x)))
+      self$`relationships` <- `relationships`
       self$`snowflakePushDownCompatible` <- `snowflakePushDownCompatible`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

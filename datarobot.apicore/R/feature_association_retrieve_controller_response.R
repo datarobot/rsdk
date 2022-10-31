@@ -39,10 +39,10 @@ FeatureAssociationRetrieveControllerResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`features` = NULL, `strengths` = NULL) {
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, R6::is.R6))
       }
       if (!is.null(`strengths`)) {
-        stopifnot(is.vector(`strengths`))
+        stopifnot(is.vector(`strengths`), sapply(`strengths`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ FeatureAssociationRetrieveControllerResponse <- R6::R6Class(
         })
         private$validateProps(features, strengths)
       }
-      sapply(`features`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`strengths`, function(x) stopifnot(R6::is.R6(x)))
+      self$`features` <- `features`
+      self$`strengths` <- `strengths`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -88,7 +88,7 @@ CustomModelVersionResponse <- R6::R6Class(
         stopifnot(is.logical(`isFrozen`), length(`isFrozen`) == 1)
       }
       if (!is.null(`items`)) {
-        stopifnot(is.vector(`items`))
+        stopifnot(is.vector(`items`), sapply(`items`, R6::is.R6))
       }
       if (!is.null(`label`)) {
         stopifnot(is.character(`label`), length(`label`) == 1)
@@ -105,8 +105,8 @@ CustomModelVersionResponse <- R6::R6Class(
       if (!is.null(`baseEnvironmentVersionId`)) {
         stopifnot(is.character(`baseEnvironmentVersionId`), length(`baseEnvironmentVersionId`) == 1)
       }
-      if (!is.null(`dependencies`)) {
-        stopifnot(is.vector(`dependencies`))
+      if (!is.null(`dependencies`) && length(`dependencies`) > 0) {
+        stopifnot(is.vector(`dependencies`), sapply(`dependencies`, R6::is.R6))
       }
       if (!is.null(`desiredMemory`)) {
         stopifnot(is.numeric(`desiredMemory`), length(`desiredMemory`) == 1)
@@ -122,8 +122,8 @@ CustomModelVersionResponse <- R6::R6Class(
       }
       if (!is.null(`requiredMetadata`)) {
       }
-      if (!is.null(`requiredMetadataValues`)) {
-        stopifnot(is.vector(`requiredMetadataValues`))
+      if (!is.null(`requiredMetadataValues`) && length(`requiredMetadataValues`) > 0) {
+        stopifnot(is.vector(`requiredMetadataValues`), sapply(`requiredMetadataValues`, R6::is.R6))
       }
       if (!is.null(`requiresHa`)) {
         stopifnot(is.logical(`requiresHa`), length(`requiresHa`) == 1)
@@ -184,18 +184,18 @@ CustomModelVersionResponse <- R6::R6Class(
       self$`baseEnvironmentVersionId` <- `baseEnvironmentVersionId`
       self$`created` <- `created`
       self$`customModelId` <- `customModelId`
-      sapply(`dependencies`, function(x) stopifnot(R6::is.R6(x)))
+      self$`dependencies` <- `dependencies`
       self$`description` <- `description`
       self$`desiredMemory` <- `desiredMemory`
       self$`id` <- `id`
       self$`isFrozen` <- `isFrozen`
-      sapply(`items`, function(x) stopifnot(R6::is.R6(x)))
+      self$`items` <- `items`
       self$`label` <- `label`
       self$`maximumMemory` <- `maximumMemory`
       self$`networkEgressPolicy` <- `networkEgressPolicy`
       self$`replicas` <- `replicas`
       self$`requiredMetadata` <- `requiredMetadata`
-      sapply(`requiredMetadataValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`requiredMetadataValues` <- `requiredMetadataValues`
       self$`requiresHa` <- `requiresHa`
       self$`versionMajor` <- `versionMajor`
       self$`versionMinor` <- `versionMinor`

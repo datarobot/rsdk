@@ -83,11 +83,11 @@ DatasetRefresh <- R6::R6Class(
         })
         private$validateProps(dayOfMonth, dayOfWeek, hour, minute, month)
       }
-      self$`dayOfMonth` <- .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = dayOfMonth)
-      self$`dayOfWeek` <- .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = dayOfWeek)
+      self$`dayOfMonth` <- sapply(`dayOfMonth`, function(item) .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = item))
+      self$`dayOfWeek` <- sapply(`dayOfWeek`, function(item) .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = item))
       self$`hour` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = hour)
       self$`minute` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = minute)
-      self$`month` <- .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = month)
+      self$`month` <- sapply(`month`, function(item) .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = item))
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

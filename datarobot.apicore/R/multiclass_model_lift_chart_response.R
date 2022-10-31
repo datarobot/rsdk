@@ -39,7 +39,7 @@ MulticlassModelLiftChartResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`classBins` = NULL, `source` = NULL) {
       if (!is.null(`classBins`)) {
-        stopifnot(is.vector(`classBins`))
+        stopifnot(is.vector(`classBins`), sapply(`classBins`, R6::is.R6))
       }
       if (!is.null(`source`)) {
         stopifnot(is.character(`source`), length(`source`) == 1)
@@ -62,7 +62,7 @@ MulticlassModelLiftChartResponse <- R6::R6Class(
         })
         private$validateProps(classBins, source)
       }
-      sapply(`classBins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`classBins` <- `classBins`
       self$`source` <- `source`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

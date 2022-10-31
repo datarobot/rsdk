@@ -51,8 +51,8 @@ OrganizationUserPatch <- R6::R6Class(
       if (!is.null(`accessRoleId`)) {
         stopifnot(is.character(`accessRoleId`), length(`accessRoleId`) == 1)
       }
-      if (!is.null(`accessRoleIds`)) {
-        stopifnot(is.vector(`accessRoleIds`))
+      if (!is.null(`accessRoleIds`) && length(`accessRoleIds`) > 0) {
+        stopifnot(is.vector(`accessRoleIds`), sapply(`accessRoleIds`, is.character))
       }
       if (!is.null(`activated`)) {
         stopifnot(is.logical(`activated`), length(`activated`) == 1)
@@ -98,7 +98,7 @@ OrganizationUserPatch <- R6::R6Class(
         private$validateProps(accessRoleId, accessRoleIds, activated, expirationDate, maxWorkers, orgAdmin, organizationId)
       }
       self$`accessRoleId` <- `accessRoleId`
-      sapply(`accessRoleIds`, function(x) stopifnot(is.character(x)))
+      self$`accessRoleIds` <- `accessRoleIds`
       self$`activated` <- `activated`
       self$`expirationDate` <- `expirationDate`
       self$`maxWorkers` <- `maxWorkers`

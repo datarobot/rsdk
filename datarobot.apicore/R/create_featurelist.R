@@ -41,7 +41,7 @@ CreateFeaturelist <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`features` = NULL, `name` = NULL, `skipDatetimePartitionColumn` = NULL) {
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -69,7 +69,7 @@ CreateFeaturelist <- R6::R6Class(
         })
         private$validateProps(features, name, skipDatetimePartitionColumn)
       }
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`name` <- `name`
       self$`skipDatetimePartitionColumn` <- `skipDatetimePartitionColumn`
     },

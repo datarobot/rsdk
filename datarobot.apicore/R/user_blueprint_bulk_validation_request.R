@@ -39,7 +39,7 @@ UserBlueprintBulkValidationRequest <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`projectId` = NULL, `userBlueprintIds` = NULL) {
       if (!is.null(`userBlueprintIds`)) {
-        stopifnot(is.vector(`userBlueprintIds`))
+        stopifnot(is.vector(`userBlueprintIds`), sapply(`userBlueprintIds`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -63,7 +63,7 @@ UserBlueprintBulkValidationRequest <- R6::R6Class(
         private$validateProps(projectId, userBlueprintIds)
       }
       self$`projectId` <- `projectId`
-      sapply(`userBlueprintIds`, function(x) stopifnot(is.character(x)))
+      self$`userBlueprintIds` <- `userBlueprintIds`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -38,8 +38,8 @@ ApprovalPolicyReview <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`groups` = NULL, `reminderPeriod` = NULL) {
-      if (!is.null(`groups`)) {
-        stopifnot(is.vector(`groups`))
+      if (!is.null(`groups`) && length(`groups`) > 0) {
+        stopifnot(is.vector(`groups`), sapply(`groups`, R6::is.R6))
       }
       if (!is.null(`reminderPeriod`)) {
         stopifnot(is.character(`reminderPeriod`), length(`reminderPeriod`) == 1)
@@ -62,7 +62,7 @@ ApprovalPolicyReview <- R6::R6Class(
         })
         private$validateProps(groups, reminderPeriod)
       }
-      sapply(`groups`, function(x) stopifnot(R6::is.R6(x)))
+      self$`groups` <- `groups`
       self$`reminderPeriod` <- `reminderPeriod`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

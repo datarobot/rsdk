@@ -51,13 +51,13 @@ ModelRocCurveResponse <- R6::R6Class(
       if (!is.null(`kolmogorovSmirnovMetric`)) {
       }
       if (!is.null(`negativeClassPredictions`)) {
-        stopifnot(is.vector(`negativeClassPredictions`))
+        stopifnot(is.vector(`negativeClassPredictions`), sapply(`negativeClassPredictions`, is.numeric))
       }
       if (!is.null(`positiveClassPredictions`)) {
-        stopifnot(is.vector(`positiveClassPredictions`))
+        stopifnot(is.vector(`positiveClassPredictions`), sapply(`positiveClassPredictions`, is.numeric))
       }
       if (!is.null(`rocPoints`)) {
-        stopifnot(is.vector(`rocPoints`))
+        stopifnot(is.vector(`rocPoints`), sapply(`rocPoints`, R6::is.R6))
       }
       if (!is.null(`source`)) {
         stopifnot(is.character(`source`), length(`source`) == 1)
@@ -90,9 +90,9 @@ ModelRocCurveResponse <- R6::R6Class(
       }
       self$`auc` <- `auc`
       self$`kolmogorovSmirnovMetric` <- `kolmogorovSmirnovMetric`
-      sapply(`negativeClassPredictions`, function(x) stopifnot(is.character(x)))
-      sapply(`positiveClassPredictions`, function(x) stopifnot(is.character(x)))
-      sapply(`rocPoints`, function(x) stopifnot(R6::is.R6(x)))
+      self$`negativeClassPredictions` <- `negativeClassPredictions`
+      self$`positiveClassPredictions` <- `positiveClassPredictions`
+      self$`rocPoints` <- `rocPoints`
       self$`source` <- `source`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

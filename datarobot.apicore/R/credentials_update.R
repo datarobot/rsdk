@@ -105,8 +105,8 @@ CredentialsUpdate <- R6::R6Class(
       if (!is.null(`oauthIssuerUrl`)) {
         stopifnot(is.character(`oauthIssuerUrl`), length(`oauthIssuerUrl`) == 1)
       }
-      if (!is.null(`oauthScopes`)) {
-        stopifnot(is.vector(`oauthScopes`))
+      if (!is.null(`oauthScopes`) && length(`oauthScopes`) > 0) {
+        stopifnot(is.vector(`oauthScopes`), sapply(`oauthScopes`, is.character))
       }
       if (!is.null(`password`)) {
         stopifnot(is.character(`password`), length(`password`) == 1)
@@ -192,7 +192,7 @@ CredentialsUpdate <- R6::R6Class(
       self$`name` <- `name`
       self$`oauthIssuerType` <- `oauthIssuerType`
       self$`oauthIssuerUrl` <- `oauthIssuerUrl`
-      sapply(`oauthScopes`, function(x) stopifnot(is.character(x)))
+      self$`oauthScopes` <- `oauthScopes`
       self$`password` <- `password`
       self$`personalAccessToken` <- `personalAccessToken`
       self$`refreshToken` <- `refreshToken`

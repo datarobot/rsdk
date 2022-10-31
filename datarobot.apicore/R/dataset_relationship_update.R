@@ -43,11 +43,11 @@ DatasetRelationshipUpdate <- R6::R6Class(
       if (!is.null(`linkedDatasetId`)) {
         stopifnot(is.character(`linkedDatasetId`), length(`linkedDatasetId`) == 1)
       }
-      if (!is.null(`linkedFeatures`)) {
-        stopifnot(is.vector(`linkedFeatures`))
+      if (!is.null(`linkedFeatures`) && length(`linkedFeatures`) > 0) {
+        stopifnot(is.vector(`linkedFeatures`), sapply(`linkedFeatures`, is.character))
       }
-      if (!is.null(`sourceFeatures`)) {
-        stopifnot(is.vector(`sourceFeatures`))
+      if (!is.null(`sourceFeatures`) && length(`sourceFeatures`) > 0) {
+        stopifnot(is.vector(`sourceFeatures`), sapply(`sourceFeatures`, is.character))
       }
     }
   ),
@@ -70,8 +70,8 @@ DatasetRelationshipUpdate <- R6::R6Class(
         private$validateProps(linkedDatasetId, linkedFeatures, sourceFeatures)
       }
       self$`linkedDatasetId` <- `linkedDatasetId`
-      sapply(`linkedFeatures`, function(x) stopifnot(is.character(x)))
-      sapply(`sourceFeatures`, function(x) stopifnot(is.character(x)))
+      self$`linkedFeatures` <- `linkedFeatures`
+      self$`sourceFeatures` <- `sourceFeatures`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

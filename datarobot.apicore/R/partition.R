@@ -77,7 +77,7 @@ Partition <- R6::R6Class(
       if (!is.null(`holdoutPct`)) {
       }
       if (!is.null(`partitionKeyCols`)) {
-        stopifnot(is.vector(`partitionKeyCols`))
+        stopifnot(is.vector(`partitionKeyCols`), sapply(`partitionKeyCols`, is.character))
       }
       if (!is.null(`reps`)) {
         stopifnot(is.numeric(`reps`), length(`reps`) == 1)
@@ -150,7 +150,7 @@ Partition <- R6::R6Class(
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`holdoutLevel` <- `holdoutLevel`
       self$`holdoutPct` <- `holdoutPct`
-      sapply(`partitionKeyCols`, function(x) stopifnot(is.character(x)))
+      self$`partitionKeyCols` <- `partitionKeyCols`
       self$`reps` <- `reps`
       self$`trainingLevel` <- `trainingLevel`
       self$`useTimeSeries` <- `useTimeSeries`

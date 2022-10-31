@@ -63,7 +63,7 @@ AnomalyAssessmentExplanationsResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`endDate`)) {
         stopifnot(inherits(`endDate`, "POSIXt"))
@@ -126,7 +126,7 @@ AnomalyAssessmentExplanationsResponse <- R6::R6Class(
       }
       self$`backtest` <- .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = backtest)
       self$`count` <- `count`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`endDate` <- `endDate`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`

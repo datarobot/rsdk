@@ -41,8 +41,8 @@ SecondaryDatasetConfigUpdate <- R6::R6Class(
       if (!is.null(`secondaryDatasetConfigId`)) {
         stopifnot(is.character(`secondaryDatasetConfigId`), length(`secondaryDatasetConfigId`) == 1)
       }
-      if (!is.null(`credentialsIds`)) {
-        stopifnot(is.vector(`credentialsIds`))
+      if (!is.null(`credentialsIds`) && length(`credentialsIds`) > 0) {
+        stopifnot(is.vector(`credentialsIds`), sapply(`credentialsIds`, R6::is.R6))
       }
     }
   ),
@@ -62,7 +62,7 @@ SecondaryDatasetConfigUpdate <- R6::R6Class(
         })
         private$validateProps(credentialsIds, secondaryDatasetConfigId)
       }
-      sapply(`credentialsIds`, function(x) stopifnot(R6::is.R6(x)))
+      self$`credentialsIds` <- `credentialsIds`
       self$`secondaryDatasetConfigId` <- `secondaryDatasetConfigId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

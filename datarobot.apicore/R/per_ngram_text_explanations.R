@@ -46,7 +46,7 @@ PerNgramTextExplanations <- R6::R6Class(
         stopifnot(is.logical(`isUnknown`), length(`isUnknown`) == 1)
       }
       if (!is.null(`ngrams`)) {
-        stopifnot(is.vector(`ngrams`))
+        stopifnot(is.vector(`ngrams`), sapply(`ngrams`, R6::is.R6))
       }
       if (!is.null(`qualitativateStrength`)) {
         stopifnot(is.character(`qualitativateStrength`), length(`qualitativateStrength`) == 1)
@@ -76,7 +76,7 @@ PerNgramTextExplanations <- R6::R6Class(
         private$validateProps(isUnknown, ngrams, qualitativateStrength, strength)
       }
       self$`isUnknown` <- `isUnknown`
-      sapply(`ngrams`, function(x) stopifnot(R6::is.R6(x)))
+      self$`ngrams` <- `ngrams`
       self$`qualitativateStrength` <- `qualitativateStrength`
       self$`strength` <- `strength`
     },

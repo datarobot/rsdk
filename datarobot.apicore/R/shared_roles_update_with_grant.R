@@ -63,7 +63,7 @@ SharedRolesUpdateWithGrant <- R6::R6Class(
         private$validateProps(operation, roles)
       }
       self$`operation` <- `operation`
-      self$`roles` <- .setComplexProperty(typeList = list(GrantAccessControlWithUsernameWithGrant, GrantAccessControlWithIdWithGrant), propertyData = roles)
+      self$`roles` <- sapply(`roles`, function(item) .setComplexProperty(typeList = list(GrantAccessControlWithUsernameWithGrant, GrantAccessControlWithIdWithGrant), propertyData = item))
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

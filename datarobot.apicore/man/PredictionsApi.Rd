@@ -106,10 +106,9 @@ result <- api.instance$BatchPredictionsCreate(batchPredictionJobCreate=batchPred
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId)
 }
 
 ## ------------------------------------------------
@@ -120,9 +119,10 @@ result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predicti
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
 partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+body <- '/path/to/file.csv' # character | Path to local file to upload
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber, body=body)
 }
 
 ## ------------------------------------------------
@@ -132,10 +132,10 @@ result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNum
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+body <- '/path/to/file.csv' # character | Path to local file to upload
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, body=body)
 }
 
 ## ------------------------------------------------
@@ -145,10 +145,9 @@ result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNum
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsDelete(predictionJobId)
 }
 
 ## ------------------------------------------------
@@ -158,10 +157,9 @@ result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsDownloadList(predictionJobId)
 }
 
 ## ------------------------------------------------
@@ -222,11 +220,10 @@ result <- api.instance$BatchPredictionsList(offset, limit, allJobs, status=statu
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate | 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchPredictionJobUpdate=batchPredictionJobUpdate)
+result <- api.instance$BatchPredictionsPatch(predictionJobId, batchPredictionJobUpdate=batchPredictionJobUpdate)
 }
 
 ## ------------------------------------------------
@@ -236,10 +233,9 @@ result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchP
 \dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsRetrieve(predictionJobId)
 }
 
 ## ------------------------------------------------
@@ -1159,7 +1155,6 @@ Produces: NA
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsCsvUploadFinalizeMultipartCreate(
   predictionJobId,
-  partNumber,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1168,8 +1163,6 @@ Produces: NA
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
-
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1204,10 +1197,9 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId)
 }
 }
 \if{html}{\out{</div>}}
@@ -1225,6 +1217,7 @@ Produces: NA
 \if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsCsvUploadPartPut(
   predictionJobId,
   partNumber,
+  body = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1235,6 +1228,8 @@ Produces: NA
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
 
 \item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
+
+\item{\code{body}}{character. Path to local file to upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1273,9 +1268,10 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
 partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+body <- '/path/to/file.csv' # character | Path to local file to upload
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber, body=body)
 }
 }
 \if{html}{\out{</div>}}
@@ -1292,7 +1288,7 @@ Produces: NA
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsCsvUploadPutMany(
   predictionJobId,
-  partNumber,
+  body = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1302,7 +1298,7 @@ Produces: NA
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
 
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
+\item{\code{body}}{character. Path to local file to upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1340,10 +1336,10 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
+body <- '/path/to/file.csv' # character | Path to local file to upload
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, body=body)
 }
 }
 \if{html}{\out{</div>}}
@@ -1358,15 +1354,13 @@ result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNum
 Cancel a Batch Prediction job
 Produces: NA
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsDelete(predictionJobId, partNumber, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsDelete(predictionJobId, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
-
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1398,10 +1392,9 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsDelete(predictionJobId)
 }
 }
 \if{html}{\out{</div>}}
@@ -1416,15 +1409,13 @@ result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
 Download the scored data set of a batch prediction job
 Produces: NA
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsDownloadList(predictionJobId, partNumber, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsDownloadList(predictionJobId, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
-
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1461,10 +1452,9 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsDownloadList(predictionJobId)
 }
 }
 \if{html}{\out{</div>}}
@@ -1709,7 +1699,6 @@ Produces: "application/json"
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsPatch(
   predictionJobId,
-  partNumber,
   batchPredictionJobUpdate = NULL,
   ...
 )}\if{html}{\out{</div>}}
@@ -1719,8 +1708,6 @@ Produces: "application/json"
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
-
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
 
 \item{\code{batchPredictionJobUpdate}}{\link{BatchPredictionJobUpdate}.}
 
@@ -1757,11 +1744,10 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate | 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchPredictionJobUpdate=batchPredictionJobUpdate)
+result <- api.instance$BatchPredictionsPatch(predictionJobId, batchPredictionJobUpdate=batchPredictionJobUpdate)
 }
 }
 \if{html}{\out{</div>}}
@@ -1776,15 +1762,13 @@ result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchP
 Retrieve Batch Prediction job
 Produces: "application/json"
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsRetrieve(predictionJobId, partNumber, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{PredictionsApi$BatchPredictionsRetrieve(predictionJobId, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{predictionJobId}}{character. ID of the Batch Prediction job}
-
-\item{\code{partNumber}}{integer. The number of which csv part is being uploaded when using multipart upload}
 
 \item{\code{...}}{Optional. Additional named parameters to be passed downward.}
 }
@@ -1813,10 +1797,9 @@ Response status codes, messages, and headers:
 \preformatted{\dontrun{
 library(datarobot.apicore)
 predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload 
 
 api.instance <- PredictionsApi$new()
-result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
+result <- api.instance$BatchPredictionsRetrieve(predictionJobId)
 }
 }
 \if{html}{\out{</div>}}

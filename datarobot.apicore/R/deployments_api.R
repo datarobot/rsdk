@@ -111,7 +111,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -288,7 +290,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -337,7 +341,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -427,7 +433,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -473,7 +481,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -515,7 +525,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -689,7 +701,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1304,7 +1318,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1392,7 +1408,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1435,7 +1453,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1477,7 +1497,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1525,7 +1547,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1736,7 +1760,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1923,7 +1949,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2160,7 +2188,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2243,7 +2273,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2295,7 +2327,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2526,7 +2560,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2631,7 +2667,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2680,7 +2718,9 @@ DeploymentsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3478,7 +3518,9 @@ DeploymentsApi <- R6::R6Class(
 
       queryParams["modelId"] <- modelId
 
-      queryParams["featureNames"] <- featureNames
+      if (!is.null(featureNames)) {
+        queryParams["featureNames"] <- paste0(featureNames, collapse = ",")
+      }
 
       queryParams["metric"] <- metric
 
@@ -3727,17 +3769,27 @@ DeploymentsApi <- R6::R6Class(
 
       queryParams["search"] <- search
 
-      queryParams["serviceHealth"] <- serviceHealth
+      if (!is.null(serviceHealth)) {
+        queryParams["serviceHealth"] <- paste0(serviceHealth, collapse = ",")
+      }
 
-      queryParams["modelHealth"] <- modelHealth
+      if (!is.null(modelHealth)) {
+        queryParams["modelHealth"] <- paste0(modelHealth, collapse = ",")
+      }
 
-      queryParams["accuracyHealth"] <- accuracyHealth
+      if (!is.null(accuracyHealth)) {
+        queryParams["accuracyHealth"] <- paste0(accuracyHealth, collapse = ",")
+      }
 
       queryParams["role"] <- role
 
-      queryParams["status"] <- status
+      if (!is.null(status)) {
+        queryParams["status"] <- paste0(status, collapse = ",")
+      }
 
-      queryParams["importance"] <- importance
+      if (!is.null(importance)) {
+        queryParams["importance"] <- paste0(importance, collapse = ",")
+      }
 
       queryParams["lastPredictionTimestampStart"] <- lastPredictionTimestampStart
 
@@ -3747,13 +3799,21 @@ DeploymentsApi <- R6::R6Class(
 
       queryParams["predictionUsageDailyAvgLessThan"] <- predictionUsageDailyAvgLessThan
 
-      queryParams["defaultPredictionServerId"] <- defaultPredictionServerId
+      if (!is.null(defaultPredictionServerId)) {
+        queryParams["defaultPredictionServerId"] <- paste0(defaultPredictionServerId, collapse = ",")
+      }
 
-      queryParams["buildEnvironmentType"] <- buildEnvironmentType
+      if (!is.null(buildEnvironmentType)) {
+        queryParams["buildEnvironmentType"] <- paste0(buildEnvironmentType, collapse = ",")
+      }
 
-      queryParams["executionEnvironmentType"] <- executionEnvironmentType
+      if (!is.null(executionEnvironmentType)) {
+        queryParams["executionEnvironmentType"] <- paste0(executionEnvironmentType, collapse = ",")
+      }
 
-      queryParams["predictionEnvironmentPlatform"] <- predictionEnvironmentPlatform
+      if (!is.null(predictionEnvironmentPlatform)) {
+        queryParams["predictionEnvironmentPlatform"] <- paste0(predictionEnvironmentPlatform, collapse = ",")
+      }
 
       queryParams["hasDecisionFlow"] <- hasDecisionFlow
 
@@ -4229,13 +4289,19 @@ DeploymentsApi <- R6::R6Class(
         stop("Missing required parameter `deploymentId`.")
       }
 
-      queryParams["passthroughColumns"] <- passthroughColumns
+      if (!is.null(passthroughColumns)) {
+        queryParams["passthroughColumns"] <- paste0(passthroughColumns, collapse = ",")
+      }
 
       queryParams["passthroughColumnsSet"] <- passthroughColumnsSet
 
-      queryParams["maxExplanations"] <- maxExplanations
+      if (!is.null(maxExplanations)) {
+        queryParams["maxExplanations"] <- paste0(maxExplanations, collapse = ",")
+      }
 
-      queryParams["maxCodes"] <- maxCodes
+      if (!is.null(maxCodes)) {
+        queryParams["maxCodes"] <- paste0(maxCodes, collapse = ",")
+      }
 
       queryParams["thresholdHigh"] <- thresholdHigh
 

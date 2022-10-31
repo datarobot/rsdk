@@ -1,6 +1,6 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.29.0.9001
+Version: 2.29.0.9002
 Description: For working with the 'DataRobot' predictive modeling platform's
     API <https://www.datarobot.com/>.
 Depends: R (>= 3.5), methods, stats, datarobot.apicore
@@ -28,7 +28,7 @@ Suggests: lubridate, testthat, stubthat, devtools (>= 2.4.1), knitr,
 VignetteBuilder: knitr
 RoxygenNote: 7.2.1
 NeedsCompilation: no
-Packaged: 2022-10-26 01:24:52 UTC; user
+Packaged: 2022-10-31 20:32:18 UTC; user
 Language: en-US
 Config/testthat/edition: 2
 Remotes: r-lib/devtools

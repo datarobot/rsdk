@@ -79,11 +79,11 @@ ProjectSecondaryDatasetConfigResponse <- R6::R6Class(
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
-      if (!is.null(`config`)) {
-        stopifnot(is.vector(`config`))
+      if (!is.null(`config`) && length(`config`) > 0) {
+        stopifnot(is.vector(`config`), sapply(`config`, R6::is.R6))
       }
-      if (!is.null(`credentialIds`)) {
-        stopifnot(is.vector(`credentialIds`))
+      if (!is.null(`credentialIds`) && length(`credentialIds`) > 0) {
+        stopifnot(is.vector(`credentialIds`), sapply(`credentialIds`, R6::is.R6))
       }
       if (!is.null(`featurelistId`)) {
         stopifnot(is.character(`featurelistId`), length(`featurelistId`) == 1)
@@ -91,8 +91,8 @@ ProjectSecondaryDatasetConfigResponse <- R6::R6Class(
       if (!is.null(`projectVersion`)) {
         stopifnot(is.character(`projectVersion`), length(`projectVersion`) == 1)
       }
-      if (!is.null(`secondaryDatasets`)) {
-        stopifnot(is.vector(`secondaryDatasets`))
+      if (!is.null(`secondaryDatasets`) && length(`secondaryDatasets`) > 0) {
+        stopifnot(is.vector(`secondaryDatasets`), sapply(`secondaryDatasets`, R6::is.R6))
       }
     }
   ),
@@ -132,18 +132,18 @@ ProjectSecondaryDatasetConfigResponse <- R6::R6Class(
         })
         private$validateProps(config, created, creatorFullName, creatorUserId, credentialIds, featurelistId, id, isDefault, name, projectId, projectVersion, secondaryDatasets)
       }
-      sapply(`config`, function(x) stopifnot(R6::is.R6(x)))
+      self$`config` <- `config`
       self$`created` <- `created`
       self$`creatorFullName` <- `creatorFullName`
       self$`creatorUserId` <- `creatorUserId`
-      sapply(`credentialIds`, function(x) stopifnot(R6::is.R6(x)))
+      self$`credentialIds` <- `credentialIds`
       self$`featurelistId` <- `featurelistId`
       self$`id` <- `id`
       self$`isDefault` <- `isDefault`
       self$`name` <- `name`
       self$`projectId` <- `projectId`
       self$`projectVersion` <- `projectVersion`
-      sapply(`secondaryDatasets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`secondaryDatasets` <- `secondaryDatasets`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

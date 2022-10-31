@@ -102,8 +102,8 @@ UpdateSsoConfiguration <- R6::R6Class(
       if (!is.null(`entityId`)) {
         stopifnot(is.character(`entityId`), length(`entityId`) == 1)
       }
-      if (!is.null(`groupMapping`)) {
-        stopifnot(is.vector(`groupMapping`))
+      if (!is.null(`groupMapping`) && length(`groupMapping`) > 0) {
+        stopifnot(is.vector(`groupMapping`), sapply(`groupMapping`, R6::is.R6))
       }
       if (!is.null(`idpMetadata`)) {
         stopifnot(R6::is.R6(`idpMetadata`))
@@ -126,8 +126,8 @@ UpdateSsoConfiguration <- R6::R6Class(
       if (!is.null(`organizationId`)) {
         stopifnot(is.character(`organizationId`), length(`organizationId`) == 1)
       }
-      if (!is.null(`roleMapping`)) {
-        stopifnot(is.vector(`roleMapping`))
+      if (!is.null(`roleMapping`) && length(`roleMapping`) > 0) {
+        stopifnot(is.vector(`roleMapping`), sapply(`roleMapping`, R6::is.R6))
       }
       if (!is.null(`securityParameters`)) {
         stopifnot(R6::is.R6(`securityParameters`))
@@ -210,7 +210,7 @@ UpdateSsoConfiguration <- R6::R6Class(
       self$`enableSso` <- `enableSso`
       self$`enforceSso` <- `enforceSso`
       self$`entityId` <- `entityId`
-      sapply(`groupMapping`, function(x) stopifnot(R6::is.R6(x)))
+      self$`groupMapping` <- `groupMapping`
       self$`idpMetadata` <- `idpMetadata`
       self$`idpMetadataHttpsVerify` <- `idpMetadataHttpsVerify`
       self$`idpMetadataUrl` <- `idpMetadataUrl`
@@ -218,7 +218,7 @@ UpdateSsoConfiguration <- R6::R6Class(
       self$`issuer` <- `issuer`
       self$`name` <- `name`
       self$`organizationId` <- `organizationId`
-      sapply(`roleMapping`, function(x) stopifnot(R6::is.R6(x)))
+      self$`roleMapping` <- `roleMapping`
       self$`securityParameters` <- `securityParameters`
       self$`sessionLengthSeconds` <- `sessionLengthSeconds`
       self$`signOnUrl` <- `signOnUrl`

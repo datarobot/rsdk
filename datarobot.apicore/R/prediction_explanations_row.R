@@ -59,7 +59,7 @@ PredictionExplanationsRow <- R6::R6Class(
       if (!is.null(`adjustedPrediction`)) {
       }
       if (!is.null(`adjustedPredictionValues`)) {
-        stopifnot(is.vector(`adjustedPredictionValues`))
+        stopifnot(is.vector(`adjustedPredictionValues`), sapply(`adjustedPredictionValues`, R6::is.R6))
       }
       if (!is.null(`forecastDistance`)) {
         stopifnot(is.numeric(`forecastDistance`), length(`forecastDistance`) == 1)
@@ -70,12 +70,12 @@ PredictionExplanationsRow <- R6::R6Class(
       if (!is.null(`prediction`)) {
       }
       if (!is.null(`predictionExplanations`)) {
-        stopifnot(is.vector(`predictionExplanations`))
+        stopifnot(is.vector(`predictionExplanations`), sapply(`predictionExplanations`, R6::is.R6))
       }
       if (!is.null(`predictionThreshold`)) {
       }
       if (!is.null(`predictionValues`)) {
-        stopifnot(is.vector(`predictionValues`))
+        stopifnot(is.vector(`predictionValues`), sapply(`predictionValues`, R6::is.R6))
       }
       if (!is.null(`rowId`)) {
         stopifnot(is.numeric(`rowId`), length(`rowId`) == 1)
@@ -123,13 +123,13 @@ PredictionExplanationsRow <- R6::R6Class(
         private$validateProps(adjustedPrediction, adjustedPredictionValues, forecastDistance, forecastPoint, prediction, predictionExplanations, predictionThreshold, predictionValues, rowId, seriesId, timestamp)
       }
       self$`adjustedPrediction` <- `adjustedPrediction`
-      sapply(`adjustedPredictionValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`adjustedPredictionValues` <- `adjustedPredictionValues`
       self$`forecastDistance` <- `forecastDistance`
       self$`forecastPoint` <- `forecastPoint`
       self$`prediction` <- `prediction`
-      sapply(`predictionExplanations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionExplanations` <- `predictionExplanations`
       self$`predictionThreshold` <- `predictionThreshold`
-      sapply(`predictionValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionValues` <- `predictionValues`
       self$`rowId` <- `rowId`
       self$`seriesId` <- `seriesId`
       self$`timestamp` <- `timestamp`

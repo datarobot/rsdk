@@ -39,10 +39,10 @@ ModelingFeaturesCreateFromDiscardedResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`featuresToRestore` = NULL, `warnings` = NULL) {
       if (!is.null(`featuresToRestore`)) {
-        stopifnot(is.vector(`featuresToRestore`))
+        stopifnot(is.vector(`featuresToRestore`), sapply(`featuresToRestore`, is.character))
       }
       if (!is.null(`warnings`)) {
-        stopifnot(is.vector(`warnings`))
+        stopifnot(is.vector(`warnings`), sapply(`warnings`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ ModelingFeaturesCreateFromDiscardedResponse <- R6::R6Class(
         })
         private$validateProps(featuresToRestore, warnings)
       }
-      sapply(`featuresToRestore`, function(x) stopifnot(is.character(x)))
-      sapply(`warnings`, function(x) stopifnot(is.character(x)))
+      self$`featuresToRestore` <- `featuresToRestore`
+      self$`warnings` <- `warnings`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -93,7 +93,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`categories` = NULL, `createdBy` = NULL, `creationDate` = NULL, `dataEngineQueryId` = NULL, `dataPersisted` = NULL, `dataSourceId` = NULL, `dataSourceType` = NULL, `datasetId` = NULL, `datasetSize` = NULL, `description` = NULL, `eda1ModificationDate` = NULL, `eda1ModifierFullName` = NULL, `entityCountByType` = NULL, `error` = NULL, `featureCount` = NULL, `featureCountByType` = NULL, `isDataEngineEligible` = NULL, `isLatestVersion` = NULL, `isSnapshot` = NULL, `lastModificationDate` = NULL, `lastModifierFullName` = NULL, `name` = NULL, `processingState` = NULL, `rowCount` = NULL, `sampleSize` = NULL, `tags` = NULL, `timeSeriesProperties` = NULL, `uri` = NULL, `versionId` = NULL) {
       if (!is.null(`categories`)) {
-        stopifnot(is.vector(`categories`))
+        stopifnot(is.vector(`categories`), sapply(`categories`, is.character))
       }
       if (!is.null(`createdBy`)) {
         stopifnot(is.character(`createdBy`), length(`createdBy`) == 1)
@@ -135,7 +135,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
         stopifnot(is.numeric(`featureCount`), length(`featureCount`) == 1)
       }
       if (!is.null(`featureCountByType`)) {
-        stopifnot(is.vector(`featureCountByType`))
+        stopifnot(is.vector(`featureCountByType`), sapply(`featureCountByType`, R6::is.R6))
       }
       if (!is.null(`isDataEngineEligible`)) {
         stopifnot(is.logical(`isDataEngineEligible`), length(`isDataEngineEligible`) == 1)
@@ -162,7 +162,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
       }
       if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`))
+        stopifnot(is.vector(`tags`), sapply(`tags`, is.character))
       }
       if (!is.null(`timeSeriesProperties`)) {
         stopifnot(R6::is.R6(`timeSeriesProperties`))
@@ -251,7 +251,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
         })
         private$validateProps(categories, createdBy, creationDate, dataEngineQueryId, dataPersisted, dataSourceId, dataSourceType, datasetId, datasetSize, description, eda1ModificationDate, eda1ModifierFullName, entityCountByType, error, featureCount, featureCountByType, isDataEngineEligible, isLatestVersion, isSnapshot, lastModificationDate, lastModifierFullName, name, processingState, rowCount, sampleSize, tags, timeSeriesProperties, uri, versionId)
       }
-      sapply(`categories`, function(x) stopifnot(is.character(x)))
+      self$`categories` <- `categories`
       self$`createdBy` <- `createdBy`
       self$`creationDate` <- `creationDate`
       self$`dataEngineQueryId` <- `dataEngineQueryId`
@@ -266,7 +266,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
       self$`entityCountByType` <- `entityCountByType`
       self$`error` <- `error`
       self$`featureCount` <- `featureCount`
-      sapply(`featureCountByType`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureCountByType` <- `featureCountByType`
       self$`isDataEngineEligible` <- `isDataEngineEligible`
       self$`isLatestVersion` <- `isLatestVersion`
       self$`isSnapshot` <- `isSnapshot`
@@ -276,7 +276,7 @@ FullDatasetDetailsResponse <- R6::R6Class(
       self$`processingState` <- `processingState`
       self$`rowCount` <- `rowCount`
       self$`sampleSize` <- `sampleSize`
-      sapply(`tags`, function(x) stopifnot(is.character(x)))
+      self$`tags` <- `tags`
       self$`timeSeriesProperties` <- `timeSeriesProperties`
       self$`uri` <- `uri`
       self$`versionId` <- `versionId`

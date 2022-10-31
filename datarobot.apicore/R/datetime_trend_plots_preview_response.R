@@ -41,7 +41,7 @@ DatetimeTrendPlotsPreviewResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bins` = NULL, `endDate` = NULL, `startDate` = NULL) {
       if (!is.null(`bins`)) {
-        stopifnot(is.vector(`bins`))
+        stopifnot(is.vector(`bins`), sapply(`bins`, R6::is.R6))
       }
       if (!is.null(`endDate`)) {
         stopifnot(inherits(`endDate`, "POSIXt"))
@@ -69,7 +69,7 @@ DatetimeTrendPlotsPreviewResponse <- R6::R6Class(
         })
         private$validateProps(bins, endDate, startDate)
       }
-      sapply(`bins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bins` <- `bins`
       self$`endDate` <- `endDate`
       self$`startDate` <- `startDate`
     },

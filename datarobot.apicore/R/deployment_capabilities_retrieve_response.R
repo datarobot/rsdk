@@ -37,7 +37,7 @@ DeploymentCapabilitiesRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`data` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ DeploymentCapabilitiesRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(data)
       }
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

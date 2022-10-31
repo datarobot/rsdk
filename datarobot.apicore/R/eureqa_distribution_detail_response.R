@@ -51,7 +51,7 @@ EureqaDistributionDetailResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bins` = NULL, `complexity` = NULL, `error` = NULL, `errorMetric` = NULL, `eureqaSolutionId` = NULL, `expression` = NULL, `expressionAnnotated` = NULL, `threshold` = NULL) {
       if (!is.null(`bins`)) {
-        stopifnot(is.vector(`bins`))
+        stopifnot(is.vector(`bins`), sapply(`bins`, R6::is.R6))
       }
       if (!is.null(`complexity`)) {
         stopifnot(is.numeric(`complexity`), length(`complexity`) == 1)
@@ -102,7 +102,7 @@ EureqaDistributionDetailResponse <- R6::R6Class(
         })
         private$validateProps(bins, complexity, error, errorMetric, eureqaSolutionId, expression, expressionAnnotated, threshold)
       }
-      sapply(`bins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bins` <- `bins`
       self$`complexity` <- `complexity`
       self$`error` <- `error`
       self$`errorMetric` <- `errorMetric`

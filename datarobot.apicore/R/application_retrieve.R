@@ -105,13 +105,13 @@ ApplicationRetrieve <- R6::R6Class(
         stopifnot(is.character(`creatorUserhash`), length(`creatorUserhash`) == 1)
       }
       if (!is.null(`datasets`)) {
-        stopifnot(is.vector(`datasets`))
+        stopifnot(is.vector(`datasets`), sapply(`datasets`, is.character))
       }
       if (!is.null(`deactivationStatusId`)) {
         stopifnot(is.character(`deactivationStatusId`), length(`deactivationStatusId`) == 1)
       }
       if (!is.null(`deploymentIds`)) {
-        stopifnot(is.vector(`deploymentIds`))
+        stopifnot(is.vector(`deploymentIds`), sapply(`deploymentIds`, is.character))
       }
       if (!is.null(`deploymentName`)) {
         stopifnot(is.character(`deploymentName`), length(`deploymentName`) == 1)
@@ -120,7 +120,7 @@ ApplicationRetrieve <- R6::R6Class(
         stopifnot(is.character(`deploymentStatusId`), length(`deploymentStatusId`) == 1)
       }
       if (!is.null(`deployments`)) {
-        stopifnot(is.vector(`deployments`))
+        stopifnot(is.vector(`deployments`), sapply(`deployments`, R6::is.R6))
       }
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -135,7 +135,7 @@ ApplicationRetrieve <- R6::R6Class(
         stopifnot(is.character(`name`), length(`name`) == 1)
       }
       if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, is.character))
       }
       if (!is.null(`poolUsed`)) {
         stopifnot(is.logical(`poolUsed`), length(`poolUsed`) == 1)
@@ -217,18 +217,18 @@ ApplicationRetrieve <- R6::R6Class(
       self$`creatorFirstName` <- `creatorFirstName`
       self$`creatorLastName` <- `creatorLastName`
       self$`creatorUserhash` <- `creatorUserhash`
-      sapply(`datasets`, function(x) stopifnot(is.character(x)))
+      self$`datasets` <- `datasets`
       self$`deactivationStatusId` <- `deactivationStatusId`
-      sapply(`deploymentIds`, function(x) stopifnot(is.character(x)))
+      self$`deploymentIds` <- `deploymentIds`
       self$`deploymentName` <- `deploymentName`
       self$`deploymentStatusId` <- `deploymentStatusId`
-      sapply(`deployments`, function(x) stopifnot(R6::is.R6(x)))
+      self$`deployments` <- `deployments`
       self$`description` <- `description`
       self$`hasCustomLogo` <- `hasCustomLogo`
       self$`id` <- `id`
       self$`modelDeploymentId` <- `modelDeploymentId`
       self$`name` <- `name`
-      sapply(`permissions`, function(x) stopifnot(is.character(x)))
+      self$`permissions` <- `permissions`
       self$`poolUsed` <- `poolUsed`
       self$`updatedAt` <- `updatedAt`
       self$`userId` <- `userId`

@@ -54,7 +54,7 @@ SegmentationResultsCompletedResponse <- R6::R6Class(
         stopifnot(is.numeric(`segmentsCount`), length(`segmentsCount`) == 1)
       }
       if (!is.null(`segmentsEda`)) {
-        stopifnot(is.vector(`segmentsEda`))
+        stopifnot(is.vector(`segmentsEda`), sapply(`segmentsEda`, R6::is.R6))
       }
       if (!is.null(`url`)) {
         stopifnot(is.character(`url`), length(`url`) == 1)
@@ -86,7 +86,7 @@ SegmentationResultsCompletedResponse <- R6::R6Class(
       self$`name` <- `name`
       self$`segmentationTaskId` <- `segmentationTaskId`
       self$`segmentsCount` <- `segmentsCount`
-      sapply(`segmentsEda`, function(x) stopifnot(R6::is.R6(x)))
+      self$`segmentsEda` <- `segmentsEda`
       self$`url` <- `url`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

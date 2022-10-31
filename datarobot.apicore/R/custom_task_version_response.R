@@ -87,7 +87,7 @@ CustomTaskVersionResponse <- R6::R6Class(
         stopifnot(is.logical(`isFrozen`), length(`isFrozen`) == 1)
       }
       if (!is.null(`items`)) {
-        stopifnot(is.vector(`items`))
+        stopifnot(is.vector(`items`), sapply(`items`, R6::is.R6))
       }
       if (!is.null(`label`)) {
         stopifnot(is.character(`label`), length(`label`) == 1)
@@ -104,19 +104,19 @@ CustomTaskVersionResponse <- R6::R6Class(
       if (!is.null(`baseEnvironmentVersionId`)) {
         stopifnot(is.character(`baseEnvironmentVersionId`), length(`baseEnvironmentVersionId`) == 1)
       }
-      if (!is.null(`dependencies`)) {
-        stopifnot(is.vector(`dependencies`))
+      if (!is.null(`dependencies`) && length(`dependencies`) > 0) {
+        stopifnot(is.vector(`dependencies`), sapply(`dependencies`, R6::is.R6))
       }
       if (!is.null(`maximumMemory`)) {
         stopifnot(is.numeric(`maximumMemory`), length(`maximumMemory`) == 1)
       }
       if (!is.null(`requiredMetadata`)) {
       }
-      if (!is.null(`requiredMetadataValues`)) {
-        stopifnot(is.vector(`requiredMetadataValues`))
+      if (!is.null(`requiredMetadataValues`) && length(`requiredMetadataValues`) > 0) {
+        stopifnot(is.vector(`requiredMetadataValues`), sapply(`requiredMetadataValues`, R6::is.R6))
       }
-      if (!is.null(`warning`)) {
-        stopifnot(is.vector(`warning`))
+      if (!is.null(`warning`) && length(`warning`) > 0) {
+        stopifnot(is.vector(`warning`), sapply(`warning`, is.character))
       }
     }
   ),
@@ -171,18 +171,18 @@ CustomTaskVersionResponse <- R6::R6Class(
       self$`created` <- `created`
       self$`customModelId` <- `customModelId`
       self$`customTaskId` <- `customTaskId`
-      sapply(`dependencies`, function(x) stopifnot(R6::is.R6(x)))
+      self$`dependencies` <- `dependencies`
       self$`description` <- `description`
       self$`id` <- `id`
       self$`isFrozen` <- `isFrozen`
-      sapply(`items`, function(x) stopifnot(R6::is.R6(x)))
+      self$`items` <- `items`
       self$`label` <- `label`
       self$`maximumMemory` <- `maximumMemory`
       self$`requiredMetadata` <- `requiredMetadata`
-      sapply(`requiredMetadataValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`requiredMetadataValues` <- `requiredMetadataValues`
       self$`versionMajor` <- `versionMajor`
       self$`versionMinor` <- `versionMinor`
-      sapply(`warning`, function(x) stopifnot(is.character(x)))
+      self$`warning` <- `warning`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

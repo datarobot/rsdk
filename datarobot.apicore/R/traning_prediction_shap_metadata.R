@@ -46,7 +46,7 @@ TraningPredictionShapMetadata <- R6::R6Class(
         stopifnot(is.numeric(`shapRemainingTotal`), length(`shapRemainingTotal`) == 1)
       }
       if (!is.null(`warnings`)) {
-        stopifnot(is.vector(`warnings`))
+        stopifnot(is.vector(`warnings`), sapply(`warnings`, R6::is.R6))
       }
     }
   ),
@@ -70,7 +70,7 @@ TraningPredictionShapMetadata <- R6::R6Class(
       }
       self$`shapBaseValue` <- `shapBaseValue`
       self$`shapRemainingTotal` <- `shapRemainingTotal`
-      sapply(`warnings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`warnings` <- `warnings`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

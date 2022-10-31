@@ -39,10 +39,10 @@ ApplicationAccessControlUpdateRequest <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`data` = NULL, `permissions` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
-      if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+      if (!is.null(`permissions`) && length(`permissions`) > 0) {
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ ApplicationAccessControlUpdateRequest <- R6::R6Class(
         })
         private$validateProps(data, permissions)
       }
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`permissions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
+      self$`permissions` <- `permissions`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

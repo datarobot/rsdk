@@ -123,7 +123,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -266,7 +268,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -366,7 +370,6 @@ PredictionsApi <- R6::R6Class(
     #' @details Finalize a multipart upload, indicating that no further chunks will be sent
     #' @details This method invokes `POST /batchPredictions/{predictionJobId}/csvUpload/finalizeMultipart/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
@@ -387,13 +390,12 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId)
     #' }
-    BatchPredictionsCsvUploadFinalizeMultipartCreate = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsCsvUploadFinalizeMultipartCreateWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsCsvUploadFinalizeMultipartCreate = function(predictionJobId, ...) {
+      apiResponse <- private$BatchPredictionsCsvUploadFinalizeMultipartCreateWithHttpInfo(predictionJobId, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -402,7 +404,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -418,6 +422,7 @@ PredictionsApi <- R6::R6Class(
     #' @details This method invokes `PUT /batchPredictions/{predictionJobId}/csvUpload/part/{partNumber}/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
     #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
+    #' @param body character. Path to local file to upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
@@ -442,12 +447,13 @@ PredictionsApi <- R6::R6Class(
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
     #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+    #' body <- '/path/to/file.csv' # character | Path to local file to upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsCsvUploadPartPut(predictionJobId, partNumber, body=body)
     #' }
-    BatchPredictionsCsvUploadPartPut = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsCsvUploadPartPutWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsCsvUploadPartPut = function(predictionJobId, partNumber, body = NULL, ...) {
+      apiResponse <- private$BatchPredictionsCsvUploadPartPutWithHttpInfo(predictionJobId, partNumber, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -456,7 +462,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -471,7 +479,7 @@ PredictionsApi <- R6::R6Class(
     #' @details Stream CSV data to the prediction job. Only available for jobs thatuses the localFile intake option.
     #' @details This method invokes `PUT /batchPredictions/{predictionJobId}/csvUpload/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
+    #' @param body character. Path to local file to upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
@@ -495,13 +503,13 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
+    #' body <- '/path/to/file.csv' # character | Path to local file to upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsCsvUploadPutMany(predictionJobId, body=body)
     #' }
-    BatchPredictionsCsvUploadPutMany = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsCsvUploadPutManyWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsCsvUploadPutMany = function(predictionJobId, body = NULL, ...) {
+      apiResponse <- private$BatchPredictionsCsvUploadPutManyWithHttpInfo(predictionJobId, body, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -510,7 +518,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -525,7 +535,6 @@ PredictionsApi <- R6::R6Class(
     #' @details If the job is running, it will be aborted. Then it will be removed, meaning all underlying data will be deleted and the job is removed from the list of jobs.
     #' @details This method invokes `DELETE /batchPredictions/{predictionJobId}/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
@@ -543,13 +552,12 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsDelete(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsDelete(predictionJobId)
     #' }
-    BatchPredictionsDelete = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsDeleteWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsDelete = function(predictionJobId, ...) {
+      apiResponse <- private$BatchPredictionsDeleteWithHttpInfo(predictionJobId, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -558,7 +566,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -573,7 +583,6 @@ PredictionsApi <- R6::R6Class(
     #' @details This is only valid for jobs scored using the \&quot;localFile\&quot; output option
     #' @details This method invokes `GET /batchPredictions/{predictionJobId}/download/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
@@ -596,13 +605,12 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsDownloadList(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsDownloadList(predictionJobId)
     #' }
-    BatchPredictionsDownloadList = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsDownloadListWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsDownloadList = function(predictionJobId, ...) {
+      apiResponse <- private$BatchPredictionsDownloadListWithHttpInfo(predictionJobId, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -611,7 +619,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -782,7 +792,6 @@ PredictionsApi <- R6::R6Class(
     #' @details If a job has finished execution regardless of the result, it can have parameters changed to ensure better filtering in the job list upon retrieval. Another case: updating job scoring status externally.
     #' @details This method invokes `PATCH /batchPredictions/{predictionJobId}/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
     #' @param batchPredictionJobUpdate \link{BatchPredictionJobUpdate}.
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @return \link{BatchPredictionJobResponse}
@@ -802,14 +811,13 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
     #' batchPredictionJobUpdate <- BatchPredictionJobUpdate$new() # BatchPredictionJobUpdate |
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsPatch(predictionJobId, partNumber, batchPredictionJobUpdate=batchPredictionJobUpdate)
+    #' result <- api.instance$BatchPredictionsPatch(predictionJobId, batchPredictionJobUpdate=batchPredictionJobUpdate)
     #' }
-    BatchPredictionsPatch = function(predictionJobId, partNumber, batchPredictionJobUpdate = NULL, ...) {
-      apiResponse <- private$BatchPredictionsPatchWithHttpInfo(predictionJobId, partNumber, batchPredictionJobUpdate, ...)
+    BatchPredictionsPatch = function(predictionJobId, batchPredictionJobUpdate = NULL, ...) {
+      apiResponse <- private$BatchPredictionsPatchWithHttpInfo(predictionJobId, batchPredictionJobUpdate, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -833,7 +841,6 @@ PredictionsApi <- R6::R6Class(
     #' @details Retrieve a Batch Prediction job.
     #' @details This method invokes `GET /batchPredictions/{predictionJobId}/` in the DataRobot Public API.
     #' @param predictionJobId character. ID of the Batch Prediction job
-    #' @param partNumber integer. The number of which csv part is being uploaded when using multipart upload
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @return \link{BatchPredictionJobResponse}
     #' @details Response status codes, messages, and headers:
@@ -846,13 +853,12 @@ PredictionsApi <- R6::R6Class(
     #' \dontrun{
     #' library(datarobot.apicore)
     #' predictionJobId <- 'predictionJobId_example' # character | ID of the Batch Prediction job
-    #' partNumber <- 0 # integer | The number of which csv part is being uploaded when using multipart upload
     #'
     #' api.instance <- PredictionsApi$new()
-    #' result <- api.instance$BatchPredictionsRetrieve(predictionJobId, partNumber)
+    #' result <- api.instance$BatchPredictionsRetrieve(predictionJobId)
     #' }
-    BatchPredictionsRetrieve = function(predictionJobId, partNumber, ...) {
-      apiResponse <- private$BatchPredictionsRetrieveWithHttpInfo(predictionJobId, partNumber, ...)
+    BatchPredictionsRetrieve = function(predictionJobId, ...) {
+      apiResponse <- private$BatchPredictionsRetrieveWithHttpInfo(predictionJobId, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) == 202) {
         # When the DataRobot Public API returns a 202, this means that
@@ -959,7 +965,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1001,7 +1009,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1047,7 +1057,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1092,7 +1104,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1228,7 +1242,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1320,7 +1336,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1363,7 +1381,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1494,7 +1514,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1537,7 +1559,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1587,7 +1611,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1629,7 +1655,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1720,7 +1748,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1768,7 +1798,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2006,7 +2038,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2049,7 +2083,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2157,7 +2193,9 @@ PredictionsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2525,7 +2563,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsCsvUploadFinalizeMultipartCreate`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsCsvUploadFinalizeMultipartCreateWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsCsvUploadFinalizeMultipartCreateWithHttpInfo = function(predictionJobId, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2534,18 +2572,10 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `predictionJobId`.")
       }
 
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
-      }
-
       body <- NULL
       urlPath <- "/batchPredictions/{predictionJobId}/csvUpload/finalizeMultipart/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 
@@ -2570,7 +2600,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsCsvUploadPartPut`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsCsvUploadPartPutWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsCsvUploadPartPutWithHttpInfo = function(predictionJobId, partNumber, body = NULL, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2583,7 +2613,11 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `partNumber`.")
       }
 
-      body <- NULL
+      if (!missing(`body`) && is.character(`body`)) {
+        body <- httr::upload_file(body)
+      } else {
+        stop("BatchPredictionsCsvUploadPartPutWithHttpInfo requires parameter body to be a character path to a local file.")
+      }
       urlPath <- "/batchPredictions/{predictionJobId}/csvUpload/part/{partNumber}/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
@@ -2600,6 +2634,7 @@ PredictionsApi <- R6::R6Class(
         queryParams = queryParams,
         headerParams = headerParams,
         body = body,
+        encode = "raw",
         ...
       )
 
@@ -2615,7 +2650,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsCsvUploadPutMany`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsCsvUploadPutManyWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsCsvUploadPutManyWithHttpInfo = function(predictionJobId, body = NULL, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2624,18 +2659,14 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `predictionJobId`.")
       }
 
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
+      if (!missing(`body`) && is.character(`body`)) {
+        body <- httr::upload_file(body)
+      } else {
+        stop("BatchPredictionsCsvUploadPutManyWithHttpInfo requires parameter body to be a character path to a local file.")
       }
-
-      body <- NULL
       urlPath <- "/batchPredictions/{predictionJobId}/csvUpload/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 
@@ -2645,6 +2676,7 @@ PredictionsApi <- R6::R6Class(
         queryParams = queryParams,
         headerParams = headerParams,
         body = body,
+        encode = "raw",
         ...
       )
 
@@ -2660,7 +2692,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsDelete`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsDeleteWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsDeleteWithHttpInfo = function(predictionJobId, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2669,18 +2701,10 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `predictionJobId`.")
       }
 
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
-      }
-
       body <- NULL
       urlPath <- "/batchPredictions/{predictionJobId}/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 
@@ -2705,7 +2729,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsDownloadList`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsDownloadListWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsDownloadListWithHttpInfo = function(predictionJobId, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2714,18 +2738,10 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `predictionJobId`.")
       }
 
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
-      }
-
       body <- NULL
       urlPath <- "/batchPredictions/{predictionJobId}/download/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 
@@ -2841,9 +2857,13 @@ PredictionsApi <- R6::R6Class(
 
       queryParams["limit"] <- limit
 
-      queryParams["status"] <- status
+      if (!is.null(status)) {
+        queryParams["status"] <- paste0(status, collapse = ",")
+      }
 
-      queryParams["source"] <- source
+      if (!is.null(source)) {
+        queryParams["source"] <- paste0(source, collapse = ",")
+      }
 
       queryParams["deploymentId"] <- deploymentId
 
@@ -2863,7 +2883,9 @@ PredictionsApi <- R6::R6Class(
 
       queryParams["batchPredictionJobDefinitionId"] <- batchPredictionJobDefinitionId
 
-      queryParams["hostname"] <- hostname
+      if (!is.null(hostname)) {
+        queryParams["hostname"] <- paste0(hostname, collapse = ",")
+      }
 
       queryParams["intakeType"] <- intakeType
 
@@ -2894,17 +2916,13 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsPatch`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsPatchWithHttpInfo = function(predictionJobId, partNumber, batchPredictionJobUpdate = NULL, ...) {
+    BatchPredictionsPatchWithHttpInfo = function(predictionJobId, batchPredictionJobUpdate = NULL, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
       if (missing(`predictionJobId`)) {
         stop("Missing required parameter `predictionJobId`.")
-      }
-
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
       }
 
       if (!missing(`batchPredictionJobUpdate`) && isa(batchPredictionJobUpdate, c("BatchPredictionJobUpdate", "R6"))) {
@@ -2916,10 +2934,6 @@ PredictionsApi <- R6::R6Class(
       urlPath <- "/batchPredictions/{predictionJobId}/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 
@@ -2945,7 +2959,7 @@ PredictionsApi <- R6::R6Class(
     },
     # A helper function to invoke the API operation `BatchPredictionsRetrieve`. This function is responsible for
     # validating request parameters, building the request, deserializing the response, and handling errors.
-    BatchPredictionsRetrieveWithHttpInfo = function(predictionJobId, partNumber, ...) {
+    BatchPredictionsRetrieveWithHttpInfo = function(predictionJobId, ...) {
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2954,18 +2968,10 @@ PredictionsApi <- R6::R6Class(
         stop("Missing required parameter `predictionJobId`.")
       }
 
-      if (missing(`partNumber`)) {
-        stop("Missing required parameter `partNumber`.")
-      }
-
       body <- NULL
       urlPath <- "/batchPredictions/{predictionJobId}/"
       if (!missing(`predictionJobId`)) {
         urlPath <- gsub(paste0("\\{", "predictionJobId", "\\}"), URLencode(as.character(`predictionJobId`), reserved = TRUE), urlPath)
-      }
-
-      if (!missing(`partNumber`)) {
-        urlPath <- gsub(paste0("\\{", "partNumber", "\\}"), URLencode(as.character(`partNumber`), reserved = TRUE), urlPath)
       }
 
 

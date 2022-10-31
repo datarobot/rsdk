@@ -74,11 +74,11 @@ DatasetDefinitionResponse <- R6::R6Class(
       if (!is.null(`dataSource`)) {
         stopifnot(R6::is.R6(`dataSource`))
       }
-      if (!is.null(`dataSources`)) {
-        stopifnot(is.vector(`dataSources`))
+      if (!is.null(`dataSources`) && length(`dataSources`) > 0) {
+        stopifnot(is.vector(`dataSources`), sapply(`dataSources`, R6::is.R6))
       }
-      if (!is.null(`featureLists`)) {
-        stopifnot(is.vector(`featureLists`))
+      if (!is.null(`featureLists`) && length(`featureLists`) > 0) {
+        stopifnot(is.vector(`featureLists`), sapply(`featureLists`, is.character))
       }
       if (!is.null(`isDeleted`)) {
         stopifnot(is.logical(`isDeleted`), length(`isDeleted`) == 1)
@@ -128,9 +128,9 @@ DatasetDefinitionResponse <- R6::R6Class(
       self$`catalogId` <- `catalogId`
       self$`catalogVersionId` <- `catalogVersionId`
       self$`dataSource` <- `dataSource`
-      sapply(`dataSources`, function(x) stopifnot(R6::is.R6(x)))
+      self$`dataSources` <- `dataSources`
       self$`featureListId` <- `featureListId`
-      sapply(`featureLists`, function(x) stopifnot(is.character(x)))
+      self$`featureLists` <- `featureLists`
       self$`identifier` <- `identifier`
       self$`isDeleted` <- `isDeleted`
       self$`originalIdentifier` <- `originalIdentifier`

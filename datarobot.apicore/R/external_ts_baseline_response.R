@@ -81,8 +81,8 @@ ExternalTSBaselineResponse <- R6::R6Class(
       if (!is.null(`target`)) {
         stopifnot(is.character(`target`), length(`target`) == 1)
       }
-      if (!is.null(`backtests`)) {
-        stopifnot(is.vector(`backtests`))
+      if (!is.null(`backtests`) && length(`backtests`) > 0) {
+        stopifnot(is.vector(`backtests`), sapply(`backtests`, R6::is.R6))
       }
       if (!is.null(`forecastWindowEnd`)) {
         stopifnot(is.numeric(`forecastWindowEnd`), length(`forecastWindowEnd`) == 1)
@@ -96,8 +96,8 @@ ExternalTSBaselineResponse <- R6::R6Class(
       if (!is.null(`holdoutStartDate`)) {
         stopifnot(inherits(`holdoutStartDate`, "POSIXt"))
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
     }
   ),
@@ -139,7 +139,7 @@ ExternalTSBaselineResponse <- R6::R6Class(
         })
         private$validateProps(backtests, baselineValidationJobId, catalogVersionId, datetimePartitionColumn, forecastWindowEnd, forecastWindowStart, holdoutEndDate, holdoutStartDate, isExternalBaselineDatasetValid, message, multiseriesIdColumns, projectId, target)
       }
-      sapply(`backtests`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtests` <- `backtests`
       self$`baselineValidationJobId` <- `baselineValidationJobId`
       self$`catalogVersionId` <- `catalogVersionId`
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
@@ -149,7 +149,7 @@ ExternalTSBaselineResponse <- R6::R6Class(
       self$`holdoutStartDate` <- `holdoutStartDate`
       self$`isExternalBaselineDatasetValid` <- `isExternalBaselineDatasetValid`
       self$`message` <- `message`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`projectId` <- `projectId`
       self$`target` <- `target`
     },

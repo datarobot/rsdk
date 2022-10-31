@@ -41,7 +41,7 @@ DeploymentCapability <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`messages` = NULL, `name` = NULL, `supported` = NULL) {
       if (!is.null(`messages`)) {
-        stopifnot(is.vector(`messages`))
+        stopifnot(is.vector(`messages`), sapply(`messages`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -69,7 +69,7 @@ DeploymentCapability <- R6::R6Class(
         })
         private$validateProps(messages, name, supported)
       }
-      sapply(`messages`, function(x) stopifnot(is.character(x)))
+      self$`messages` <- `messages`
       self$`name` <- `name`
       self$`supported` <- `supported`
     },

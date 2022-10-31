@@ -37,7 +37,7 @@ ClusterNamesUpdateParam <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`clusterNameMappings` = NULL) {
       if (!is.null(`clusterNameMappings`)) {
-        stopifnot(is.vector(`clusterNameMappings`))
+        stopifnot(is.vector(`clusterNameMappings`), sapply(`clusterNameMappings`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ ClusterNamesUpdateParam <- R6::R6Class(
         })
         private$validateProps(clusterNameMappings)
       }
-      sapply(`clusterNameMappings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`clusterNameMappings` <- `clusterNameMappings`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

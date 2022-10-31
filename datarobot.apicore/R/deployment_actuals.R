@@ -39,7 +39,7 @@ DeploymentActuals <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`data` = NULL, `keepActualsWithoutPredictions` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`keepActualsWithoutPredictions`)) {
         stopifnot(is.logical(`keepActualsWithoutPredictions`), length(`keepActualsWithoutPredictions`) == 1)
@@ -62,7 +62,7 @@ DeploymentActuals <- R6::R6Class(
         })
         private$validateProps(data, keepActualsWithoutPredictions)
       }
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`keepActualsWithoutPredictions` <- `keepActualsWithoutPredictions`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

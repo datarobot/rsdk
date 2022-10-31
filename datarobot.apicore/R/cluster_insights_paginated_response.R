@@ -98,7 +98,7 @@ ClusterInsightsPaginatedResponse <- R6::R6Class(
         private$validateProps(count, data, isCurrentClusterInsightVersion, next_, previous, totalCount, version)
       }
       self$`count` <- `count`
-      self$`data` <- .setComplexProperty(typeList = list(ImageFeature, GeospatialFeature, TextFeature, NumericFeature, CategoricalFeature, DocumentFeature), propertyData = data)
+      self$`data` <- sapply(`data`, function(item) .setComplexProperty(typeList = list(ImageFeature, GeospatialFeature, TextFeature, NumericFeature, CategoricalFeature, DocumentFeature), propertyData = item))
       self$`isCurrentClusterInsightVersion` <- `isCurrentClusterInsightVersion`
       self$`next_` <- `next_`
       self$`previous` <- `previous`

@@ -56,11 +56,11 @@ UsageDataExport <- R6::R6Class(
       if (!is.null(`end`)) {
         stopifnot(inherits(`end`, "POSIXt"))
       }
-      if (!is.null(`include`)) {
-        stopifnot(is.vector(`include`))
+      if (!is.null(`include`) && length(`include`) > 0) {
+        stopifnot(is.vector(`include`), sapply(`include`, is.character))
       }
-      if (!is.null(`includeReport`)) {
-        stopifnot(is.vector(`includeReport`))
+      if (!is.null(`includeReport`) && length(`includeReport`) > 0) {
+        stopifnot(is.vector(`includeReport`), sapply(`includeReport`, is.character))
       }
       if (!is.null(`noCache`)) {
         stopifnot(is.logical(`noCache`), length(`noCache`) == 1)
@@ -105,9 +105,9 @@ UsageDataExport <- R6::R6Class(
         private$validateProps(end, include, includeIdentifyingFields, includeReport, noCache, projectId, start, userId)
       }
       self$`end` <- `end`
-      sapply(`include`, function(x) stopifnot(is.character(x)))
+      self$`include` <- `include`
       self$`includeIdentifyingFields` <- `includeIdentifyingFields`
-      sapply(`includeReport`, function(x) stopifnot(is.character(x)))
+      self$`includeReport` <- `includeReport`
       self$`noCache` <- `noCache`
       self$`projectId` <- `projectId`
       self$`start` <- `start`

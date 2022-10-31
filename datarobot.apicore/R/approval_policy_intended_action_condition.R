@@ -47,7 +47,7 @@ ApprovalPolicyIntendedActionCondition <- R6::R6Class(
         stopifnot(is.character(`fieldName`), length(`fieldName`) == 1)
       }
       if (!is.null(`values`)) {
-        stopifnot(is.vector(`values`))
+        stopifnot(is.vector(`values`), sapply(`values`, is.character))
       }
     }
   ),
@@ -71,7 +71,7 @@ ApprovalPolicyIntendedActionCondition <- R6::R6Class(
       }
       self$`condition` <- `condition`
       self$`fieldName` <- `fieldName`
-      sapply(`values`, function(x) stopifnot(is.character(x)))
+      self$`values` <- `values`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

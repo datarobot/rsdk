@@ -55,10 +55,10 @@ DerivedFeatures <- R6::R6Class(
         stopifnot(is.character(`originalFeature`), length(`originalFeature`) == 1)
       }
       if (!is.null(`stageCoefficients`)) {
-        stopifnot(is.vector(`stageCoefficients`))
+        stopifnot(is.vector(`stageCoefficients`), sapply(`stageCoefficients`, R6::is.R6))
       }
       if (!is.null(`transformations`)) {
-        stopifnot(is.vector(`transformations`))
+        stopifnot(is.vector(`transformations`), sapply(`transformations`, R6::is.R6))
       }
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -92,8 +92,8 @@ DerivedFeatures <- R6::R6Class(
       self$`coefficient` <- `coefficient`
       self$`derivedFeature` <- `derivedFeature`
       self$`originalFeature` <- `originalFeature`
-      sapply(`stageCoefficients`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`transformations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`stageCoefficients` <- `stageCoefficients`
+      self$`transformations` <- `transformations`
       self$`type` <- `type`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

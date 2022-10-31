@@ -71,8 +71,8 @@ DataStoreRetrieveResponse <- R6::R6Class(
       if (!is.null(`updated`)) {
         stopifnot(is.character(`updated`), length(`updated`) == 1)
       }
-      if (!is.null(`associatedAuthTypes`)) {
-        stopifnot(is.vector(`associatedAuthTypes`))
+      if (!is.null(`associatedAuthTypes`) && length(`associatedAuthTypes`) > 0) {
+        stopifnot(is.vector(`associatedAuthTypes`), sapply(`associatedAuthTypes`, is.character))
       }
     }
   ),
@@ -104,7 +104,7 @@ DataStoreRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(associatedAuthTypes, canonicalName, creator, id, params, role, type, updated)
       }
-      sapply(`associatedAuthTypes`, function(x) stopifnot(is.character(x)))
+      self$`associatedAuthTypes` <- `associatedAuthTypes`
       self$`canonicalName` <- `canonicalName`
       self$`creator` <- `creator`
       self$`id` <- `id`

@@ -147,7 +147,7 @@ CatalogExtendedDetailsResponse <- R6::R6Class(
       if (!is.null(`relevance`)) {
       }
       if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`))
+        stopifnot(is.vector(`tags`), sapply(`tags`, is.character))
       }
       if (!is.null(`uri`)) {
         stopifnot(is.character(`uri`), length(`uri`) == 1)
@@ -244,7 +244,7 @@ CatalogExtendedDetailsResponse <- R6::R6Class(
       self$`processingState` <- `processingState`
       self$`projectsUsedInCount` <- `projectsUsedInCount`
       self$`relevance` <- `relevance`
-      sapply(`tags`, function(x) stopifnot(is.character(x)))
+      self$`tags` <- `tags`
       self$`uri` <- `uri`
       self$`userBlueprintId` <- `userBlueprintId`
     },

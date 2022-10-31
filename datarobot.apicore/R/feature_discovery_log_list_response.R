@@ -48,7 +48,7 @@ FeatureDiscoveryLogListResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`featureDiscoveryLog`)) {
-        stopifnot(is.vector(`featureDiscoveryLog`))
+        stopifnot(is.vector(`featureDiscoveryLog`), sapply(`featureDiscoveryLog`, is.character))
       }
       if (!is.null(`next_`)) {
         stopifnot(is.character(`next_`), length(`next_`) == 1)
@@ -84,7 +84,7 @@ FeatureDiscoveryLogListResponse <- R6::R6Class(
         private$validateProps(count, featureDiscoveryLog, next_, previous, totalLogLines)
       }
       self$`count` <- `count`
-      sapply(`featureDiscoveryLog`, function(x) stopifnot(is.character(x)))
+      self$`featureDiscoveryLog` <- `featureDiscoveryLog`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
       self$`totalLogLines` <- `totalLogLines`
