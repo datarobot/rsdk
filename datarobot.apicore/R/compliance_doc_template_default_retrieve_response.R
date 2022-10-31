@@ -55,7 +55,7 @@ ComplianceDocTemplateDefaultRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(sections)
       }
-      self$`sections` <- .setComplexProperty(typeList = list(SectionDataRobot, SectionUser, SectionCustom, SectionTableOfContents), propertyData = sections)
+      self$`sections` <- sapply(`sections`, function(item) .setComplexProperty(typeList = list(SectionDataRobot, SectionUser, SectionCustom, SectionTableOfContents), propertyData = item))
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

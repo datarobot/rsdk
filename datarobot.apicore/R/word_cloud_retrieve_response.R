@@ -37,7 +37,7 @@ WordCloudRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`ngrams` = NULL) {
       if (!is.null(`ngrams`)) {
-        stopifnot(is.vector(`ngrams`))
+        stopifnot(is.vector(`ngrams`), sapply(`ngrams`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ WordCloudRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(ngrams)
       }
-      sapply(`ngrams`, function(x) stopifnot(R6::is.R6(x)))
+      self$`ngrams` <- `ngrams`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

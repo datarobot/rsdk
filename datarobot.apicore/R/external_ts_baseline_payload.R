@@ -67,8 +67,8 @@ ExternalTSBaselinePayload <- R6::R6Class(
       if (!is.null(`target`)) {
         stopifnot(is.character(`target`), length(`target`) == 1)
       }
-      if (!is.null(`backtests`)) {
-        stopifnot(is.vector(`backtests`))
+      if (!is.null(`backtests`) && length(`backtests`) > 0) {
+        stopifnot(is.vector(`backtests`), sapply(`backtests`, R6::is.R6))
       }
       if (!is.null(`holdoutEndDate`)) {
         stopifnot(inherits(`holdoutEndDate`, "POSIXt"))
@@ -76,8 +76,8 @@ ExternalTSBaselinePayload <- R6::R6Class(
       if (!is.null(`holdoutStartDate`)) {
         stopifnot(inherits(`holdoutStartDate`, "POSIXt"))
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
     }
   ),
@@ -111,14 +111,14 @@ ExternalTSBaselinePayload <- R6::R6Class(
         })
         private$validateProps(backtests, catalogVersionId, datetimePartitionColumn, forecastWindowEnd, forecastWindowStart, holdoutEndDate, holdoutStartDate, multiseriesIdColumns, target)
       }
-      sapply(`backtests`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtests` <- `backtests`
       self$`catalogVersionId` <- `catalogVersionId`
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`forecastWindowEnd` <- `forecastWindowEnd`
       self$`forecastWindowStart` <- `forecastWindowStart`
       self$`holdoutEndDate` <- `holdoutEndDate`
       self$`holdoutStartDate` <- `holdoutStartDate`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`target` <- `target`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

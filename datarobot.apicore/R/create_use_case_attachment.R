@@ -37,7 +37,7 @@ CreateUseCaseAttachment <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`attachedObjects` = NULL) {
       if (!is.null(`attachedObjects`)) {
-        stopifnot(is.vector(`attachedObjects`))
+        stopifnot(is.vector(`attachedObjects`), sapply(`attachedObjects`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ CreateUseCaseAttachment <- R6::R6Class(
         })
         private$validateProps(attachedObjects)
       }
-      sapply(`attachedObjects`, function(x) stopifnot(R6::is.R6(x)))
+      self$`attachedObjects` <- `attachedObjects`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

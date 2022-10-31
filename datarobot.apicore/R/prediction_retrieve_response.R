@@ -60,7 +60,7 @@ PredictionRetrieveResponse <- R6::R6Class(
         .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = positiveClass)
       }
       if (!is.null(`predictions`)) {
-        stopifnot(is.vector(`predictions`))
+        stopifnot(is.vector(`predictions`), sapply(`predictions`, R6::is.R6))
       }
       if (!is.null(`task`)) {
         stopifnot(is.character(`task`), length(`task`) == 1)
@@ -86,8 +86,8 @@ PredictionRetrieveResponse <- R6::R6Class(
       if (!is.null(`shapBaseValue`)) {
         stopifnot(is.numeric(`shapBaseValue`), length(`shapBaseValue`) == 1)
       }
-      if (!is.null(`shapWarnings`)) {
-        stopifnot(is.vector(`shapWarnings`))
+      if (!is.null(`shapWarnings`) && length(`shapWarnings`) > 0) {
+        stopifnot(is.vector(`shapWarnings`), sapply(`shapWarnings`, R6::is.R6))
       }
     }
   ),
@@ -132,9 +132,9 @@ PredictionRetrieveResponse <- R6::R6Class(
       self$`maxExplanations` <- `maxExplanations`
       self$`positiveClass` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = positiveClass)
       self$`predictionIntervalsSize` <- `predictionIntervalsSize`
-      sapply(`predictions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictions` <- `predictions`
       self$`shapBaseValue` <- `shapBaseValue`
-      sapply(`shapWarnings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`shapWarnings` <- `shapWarnings`
       self$`task` <- `task`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

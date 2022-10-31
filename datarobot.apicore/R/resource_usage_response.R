@@ -52,7 +52,7 @@ ResourceUsageResponse <- R6::R6Class(
         stopifnot(is.character(`previous`), length(`previous`) == 1)
       }
       if (!is.null(`usage`)) {
-        stopifnot(is.vector(`usage`))
+        stopifnot(is.vector(`usage`), sapply(`usage`, R6::is.R6))
       }
     }
   ),
@@ -79,7 +79,7 @@ ResourceUsageResponse <- R6::R6Class(
       self$`count` <- `count`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
-      sapply(`usage`, function(x) stopifnot(R6::is.R6(x)))
+      self$`usage` <- `usage`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

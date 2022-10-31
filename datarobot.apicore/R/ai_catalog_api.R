@@ -231,7 +231,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -501,7 +503,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -591,7 +595,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -636,7 +642,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -735,7 +743,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -920,7 +930,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1011,7 +1023,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1201,7 +1215,7 @@ AiCatalogApi <- R6::R6Class(
     #'
     #' @details Create a dataset from a file.
     #' @details This method invokes `POST /datasets/fromFile/` in the DataRobot Public API.
-    #' @param file data.frame. The data to be used for the creation.
+    #' @param file character. The data to be used for the creation.
     #' @param categories \link{OneOfstringarray}. An array of strings describing the intended use of the dataset.
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @return \link{CreatedDatasetResponse}
@@ -1218,7 +1232,7 @@ AiCatalogApi <- R6::R6Class(
     #' @examples
     #' \dontrun{
     #' library(datarobot.apicore)
-    #' file <- '/path/to/file.csv' # data.frame | The data to be used for the creation.
+    #' file <- '/path/to/file.csv' # character | The data to be used for the creation.
     #' categories <- list(c('categories_example')) # OneOfstringarray | An array of strings describing the intended use of the dataset.
     #'
     #' api.instance <- AiCatalogApi$new()
@@ -1458,7 +1472,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1638,7 +1654,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -1921,7 +1939,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2165,7 +2185,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2256,7 +2278,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -2303,7 +2327,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3103,7 +3129,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3684,7 +3712,9 @@ AiCatalogApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -3886,19 +3916,29 @@ AiCatalogApi <- R6::R6Class(
 
       queryParams["searchFor"] <- searchFor
 
-      queryParams["tag"] <- tag
+      if (!is.null(tag)) {
+        queryParams["tag"] <- paste0(tag, collapse = ",")
+      }
 
       queryParams["accessType"] <- accessType
 
-      queryParams["datasourceType"] <- datasourceType
+      if (!is.null(datasourceType)) {
+        queryParams["datasourceType"] <- paste0(datasourceType, collapse = ",")
+      }
 
-      queryParams["category"] <- category
+      if (!is.null(category)) {
+        queryParams["category"] <- paste0(category, collapse = ",")
+      }
 
       queryParams["filterFailed"] <- filterFailed
 
-      queryParams["ownerUserId"] <- ownerUserId
+      if (!is.null(ownerUserId)) {
+        queryParams["ownerUserId"] <- paste0(ownerUserId, collapse = ",")
+      }
 
-      queryParams["ownerUsername"] <- ownerUsername
+      if (!is.null(ownerUsername)) {
+        queryParams["ownerUsername"] <- paste0(ownerUsername, collapse = ",")
+      }
 
       queryParams["type"] <- type
 
@@ -5091,7 +5131,9 @@ AiCatalogApi <- R6::R6Class(
 
       queryParams["filterFailed"] <- filterFailed
 
-      queryParams["datasetVersionIds"] <- datasetVersionIds
+      if (!is.null(datasetVersionIds)) {
+        queryParams["datasetVersionIds"] <- paste0(datasetVersionIds, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/datasets/"

@@ -49,7 +49,7 @@ ScheduledJobsListResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`count` = NULL, `data` = NULL, `next_` = NULL, `previous` = NULL, `totalCount` = NULL, `updatedAt` = NULL, `updatedBy` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`next_`)) {
         stopifnot(is.character(`next_`), length(`next_`) == 1)
@@ -98,7 +98,7 @@ ScheduledJobsListResponse <- R6::R6Class(
         private$validateProps(count, data, next_, previous, totalCount, updatedAt, updatedBy)
       }
       self$`count` <- `count`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
       self$`totalCount` <- `totalCount`

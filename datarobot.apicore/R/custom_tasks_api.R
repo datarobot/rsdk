@@ -44,7 +44,7 @@ CustomTasksApi <- R6::R6Class(
     #' @param customTaskId character. ID of the custom task.
     #' @param baseEnvironmentId character. The base environment to use with this custom task version.
     #' @param isMajorUpdate Enum < [false, False, true, True] > If set to true, new major version will created, otherwise minor version will be created.
-    #' @param file data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding &#x60;filePath&#x60; supplied that shows the relative location of the file. For example, you have two files: &#x60;/home/username/custom-task/main.py&#x60; and &#x60;/home/username/custom-task/helpers/helper.py&#x60;. When uploading these files, you would _also_ need to include two &#x60;filePath&#x60; fields of, &#x60;\\\&quot;main.py\\\&quot;&#x60; and &#x60;\\\&quot;helpers/helper.py\\\&quot;&#x60;. If the supplied &#x60;file&#x60; already exists at the supplied &#x60;filePath&#x60;, the old file is replaced by the new file.
+    #' @param file character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' @param filePath \link{OneOfstringarray}. The local path of the file being uploaded. See the &#x60;file&#x60; field explanation for more details.
     #' @param filesToDelete \link{OneOfstringarray}. The IDs of the files to be deleted.
     #' @param maximumMemory integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -70,7 +70,7 @@ CustomTasksApi <- R6::R6Class(
     #' customTaskId <- 'customTaskId_example' # character | ID of the custom task.
     #' baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
     #' isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-    #' file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+    #' file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
     #' filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
     #' maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -186,7 +186,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -276,7 +278,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -317,7 +321,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -509,7 +515,7 @@ CustomTasksApi <- R6::R6Class(
     #' @param customTaskId character. ID of the custom task.
     #' @param baseEnvironmentId character. The base environment to use with this custom task version.
     #' @param isMajorUpdate Enum < [false, False, true, True] > If set to true, new major version will created, otherwise minor version will be created.
-    #' @param file data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding &#x60;filePath&#x60; supplied that shows the relative location of the file. For example, you have two files: &#x60;/home/username/custom-task/main.py&#x60; and &#x60;/home/username/custom-task/helpers/helper.py&#x60;. When uploading these files, you would _also_ need to include two &#x60;filePath&#x60; fields of, &#x60;\\\&quot;main.py\\\&quot;&#x60; and &#x60;\\\&quot;helpers/helper.py\\\&quot;&#x60;. If the supplied &#x60;file&#x60; already exists at the supplied &#x60;filePath&#x60;, the old file is replaced by the new file.
+    #' @param file character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' @param filePath \link{OneOfstringarray}. The local path of the file being uploaded. See the &#x60;file&#x60; field explanation for more details.
     #' @param maximumMemory integer. The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
     #' @param requiredMetadata character. Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment&#39;s requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
@@ -534,7 +540,7 @@ CustomTasksApi <- R6::R6Class(
     #' customTaskId <- 'customTaskId_example' # character | ID of the custom task.
     #' baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this custom task version.
     #' isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
-    #' file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+    #' file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
     #' filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
     #' maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
     #' requiredMetadata <- 'requiredMetadata_example' # character | Additional parameters required by the execution environment. The required keys are defined by the fieldNames in the base environment's requiredMetadataKeys. Once set, they cannot be changed. If you to change them, make a new version.
@@ -647,7 +653,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -741,7 +749,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -784,7 +794,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -830,7 +842,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -876,7 +890,9 @@ CustomTasksApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {

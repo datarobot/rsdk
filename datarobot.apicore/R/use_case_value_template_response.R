@@ -46,7 +46,7 @@ UseCaseValueTemplateResponse <- R6::R6Class(
         stopifnot(is.character(`description`), length(`description`) == 1)
       }
       if (!is.null(`schema`)) {
-        stopifnot(is.vector(`schema`))
+        stopifnot(is.vector(`schema`), sapply(`schema`, R6::is.R6))
       }
       if (!is.null(`templateType`)) {
         stopifnot(is.character(`templateType`), length(`templateType`) == 1)
@@ -77,7 +77,7 @@ UseCaseValueTemplateResponse <- R6::R6Class(
         private$validateProps(description, schema, templateType, title)
       }
       self$`description` <- `description`
-      sapply(`schema`, function(x) stopifnot(R6::is.R6(x)))
+      self$`schema` <- `schema`
       self$`templateType` <- `templateType`
       self$`title` <- `title`
     },

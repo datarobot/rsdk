@@ -39,10 +39,10 @@ ModelParametersRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`derivedFeatures` = NULL, `parameters` = NULL) {
       if (!is.null(`derivedFeatures`)) {
-        stopifnot(is.vector(`derivedFeatures`))
+        stopifnot(is.vector(`derivedFeatures`), sapply(`derivedFeatures`, R6::is.R6))
       }
       if (!is.null(`parameters`)) {
-        stopifnot(is.vector(`parameters`))
+        stopifnot(is.vector(`parameters`), sapply(`parameters`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ ModelParametersRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(derivedFeatures, parameters)
       }
-      sapply(`derivedFeatures`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`parameters`, function(x) stopifnot(R6::is.R6(x)))
+      self$`derivedFeatures` <- `derivedFeatures`
+      self$`parameters` <- `parameters`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

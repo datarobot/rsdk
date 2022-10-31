@@ -65,7 +65,7 @@ BasicDatasetWithSizeResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`categories` = NULL, `createdBy` = NULL, `creationDate` = NULL, `dataPersisted` = NULL, `datasetId` = NULL, `datasetSize` = NULL, `isDataEngineEligible` = NULL, `isLatestVersion` = NULL, `isSnapshot` = NULL, `name` = NULL, `processingState` = NULL, `rowCount` = NULL, `sampleSize` = NULL, `timeSeriesProperties` = NULL, `versionId` = NULL) {
       if (!is.null(`categories`)) {
-        stopifnot(is.vector(`categories`))
+        stopifnot(is.vector(`categories`), sapply(`categories`, is.character))
       }
       if (!is.null(`createdBy`)) {
         stopifnot(is.character(`createdBy`), length(`createdBy`) == 1)
@@ -153,7 +153,7 @@ BasicDatasetWithSizeResponse <- R6::R6Class(
         })
         private$validateProps(categories, createdBy, creationDate, dataPersisted, datasetId, datasetSize, isDataEngineEligible, isLatestVersion, isSnapshot, name, processingState, rowCount, sampleSize, timeSeriesProperties, versionId)
       }
-      sapply(`categories`, function(x) stopifnot(is.character(x)))
+      self$`categories` <- `categories`
       self$`createdBy` <- `createdBy`
       self$`creationDate` <- `creationDate`
       self$`dataPersisted` <- `dataPersisted`

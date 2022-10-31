@@ -162,8 +162,8 @@ ProjectFeatureResponse <- R6::R6Class(
       if (!is.null(`multilabelInsights`)) {
         stopifnot(R6::is.R6(`multilabelInsights`))
       }
-      if (!is.null(`parentFeatureNames`)) {
-        stopifnot(is.vector(`parentFeatureNames`))
+      if (!is.null(`parentFeatureNames`) && length(`parentFeatureNames`) > 0) {
+        stopifnot(is.vector(`parentFeatureNames`), sapply(`parentFeatureNames`, is.character))
       }
       if (!is.null(`uniqueCount`)) {
         stopifnot(is.numeric(`uniqueCount`), length(`uniqueCount`) == 1)
@@ -253,7 +253,7 @@ ProjectFeatureResponse <- R6::R6Class(
       self$`multilabelInsights` <- `multilabelInsights`
       self$`naCount` <- `naCount`
       self$`name` <- `name`
-      sapply(`parentFeatureNames`, function(x) stopifnot(is.character(x)))
+      self$`parentFeatureNames` <- `parentFeatureNames`
       self$`projectId` <- `projectId`
       self$`stdDev` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = stdDev)
       self$`targetLeakage` <- `targetLeakage`

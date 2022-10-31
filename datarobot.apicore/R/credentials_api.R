@@ -128,7 +128,9 @@ CredentialsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -215,7 +217,9 @@ CredentialsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -311,7 +315,9 @@ CredentialsApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -378,7 +384,9 @@ CredentialsApi <- R6::R6Class(
 
       queryParams["limit"] <- limit
 
-      queryParams["types"] <- types
+      if (!is.null(types)) {
+        queryParams["types"] <- paste0(types, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/credentials/{credentialId}/associations/"
@@ -532,7 +540,9 @@ CredentialsApi <- R6::R6Class(
 
       queryParams["limit"] <- limit
 
-      queryParams["types"] <- types
+      if (!is.null(types)) {
+        queryParams["types"] <- paste0(types, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/credentials/"

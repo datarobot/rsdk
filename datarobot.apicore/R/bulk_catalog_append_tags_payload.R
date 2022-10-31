@@ -42,7 +42,7 @@ BulkCatalogAppendTagsPayload <- R6::R6Class(
         stopifnot(is.character(`action`), length(`action`) == 1)
       }
       if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`))
+        stopifnot(is.vector(`tags`), sapply(`tags`, is.character))
       }
     }
   ),
@@ -63,7 +63,7 @@ BulkCatalogAppendTagsPayload <- R6::R6Class(
         private$validateProps(action, tags)
       }
       self$`action` <- `action`
-      sapply(`tags`, function(x) stopifnot(is.character(x)))
+      self$`tags` <- `tags`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

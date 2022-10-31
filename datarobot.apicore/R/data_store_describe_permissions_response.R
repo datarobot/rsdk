@@ -69,7 +69,7 @@ DataStoreDescribePermissionsResponse <- R6::R6Class(
         stopifnot(is.logical(`canScanDatabase`), length(`canScanDatabase`) == 1)
       }
       if (!is.null(`canSetRoles`)) {
-        stopifnot(is.vector(`canSetRoles`))
+        stopifnot(is.vector(`canSetRoles`), sapply(`canSetRoles`, is.character))
       }
       if (!is.null(`canShare`)) {
         stopifnot(is.logical(`canShare`), length(`canShare`) == 1)
@@ -129,7 +129,7 @@ DataStoreDescribePermissionsResponse <- R6::R6Class(
       self$`canDelete` <- `canDelete`
       self$`canEdit` <- `canEdit`
       self$`canScanDatabase` <- `canScanDatabase`
-      sapply(`canSetRoles`, function(x) stopifnot(is.character(x)))
+      self$`canSetRoles` <- `canSetRoles`
       self$`canShare` <- `canShare`
       self$`canTestConnection` <- `canTestConnection`
       self$`canView` <- `canView`

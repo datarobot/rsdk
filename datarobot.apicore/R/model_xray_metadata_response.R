@@ -39,7 +39,7 @@ ModelXrayMetadataResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`sources` = NULL, `status` = NULL) {
       if (!is.null(`sources`)) {
-        stopifnot(is.vector(`sources`))
+        stopifnot(is.vector(`sources`), sapply(`sources`, is.character))
       }
       if (!is.null(`status`)) {
         stopifnot(is.character(`status`), length(`status`) == 1)
@@ -62,7 +62,7 @@ ModelXrayMetadataResponse <- R6::R6Class(
         })
         private$validateProps(sources, status)
       }
-      sapply(`sources`, function(x) stopifnot(is.character(x)))
+      self$`sources` <- `sources`
       self$`status` <- `status`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

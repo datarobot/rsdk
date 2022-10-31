@@ -24,7 +24,7 @@ ApiClient <- R6::R6Class(
     #' @field basePath Base path for all requests. May be set by environment variable.
     basePath = "https://app.datarobot.com/api/v2",
     #' @field userAgent Default user agent in the HTTP request.
-    userAgent = "DataRobotRClientAPICore/0.4.0.9000",
+    userAgent = "DataRobotRClientAPICore/0.1.0.9000",
     #' @field defaultHeaders Default HTTP headers to use with all API requests.
     defaultHeaders = NULL,
     #' @field username Username for HTTP basic authentication. Unused.
@@ -110,10 +110,11 @@ ApiClient <- R6::R6Class(
     #' @param queryParams A vector of named query parameters for this request. See [httr::modify_url()] for more information.
     #' @param headerParams A vector of named header parameters for this request. These should be exclusive of the list produced by [DataRobotDefaultHeaders].
     #' @param body The body for an HTTP request. It can be nearly anything, see [httr::VERB()] for more information.
-    #' @param encode How the body should be encoded. Options: "multipart", "form", "json", "raw". See [https://httr.r-lib.org/reference/POST.html] for more information.
+    #' @param encode How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "json".
+    #' @param filename If present for GET requests, causes the content of the response to be saved to disk at the specified path. See [https://httr.r-lib.org/reference/write_disk.html] for more information.
     #' @param ... Further named parameters that may be passed on to the `httr` library. See [httr::VERB()] for more information.
-    CallApi = function(url, method, queryParams, headerParams, body, encode = "raw", ...) {
-      resp <- self$Execute(url, method, queryParams, headerParams, body, encode, ...)
+    CallApi = function(url, method, queryParams, headerParams, body, encode = "json", filename = NULL, ...) {
+      resp <- self$Execute(url, method, queryParams, headerParams, body, encode, filename, ...)
       if (private$ResponseHasDeprecationHeader(resp)) {
         # DSX-2384 warn about deprecated/disabled resources that have the Deprecation header set
         private$DeprecatedHeaderMessage(resp)
@@ -147,16 +148,17 @@ ApiClient <- R6::R6Class(
     #' @param queryParams A vector of named query parameters for this request. See [httr::modify_url()] for more information.
     #' @param headerParams A vector of named header parameters for this request. These should be exclusive of the list produced by [DataRobotDefaultHeaders].
     #' @param body The body for an HTTP request. It can be nearly anything, see [httr::VERB()] for more information.
-    #' @param encode How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "raw" since by convention we pass in raw JSON strings. See [https://httr.r-lib.org/reference/POST.html] for more information.
+    #' @param encode How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "json".
+    #' @param filename If present for GET requests, causes the content of the response to be saved to disk at the specified path. See [https://httr.r-lib.org/reference/write_disk.html] for more information.
     #' @param ... Further named parameters that may be passed on to the `httr` library. See [httr::VERB()] for more information.
-    Execute = function(url, method, queryParams, headerParams, body, encode = "raw", ...) {
+    Execute = function(url, method, queryParams, headerParams, body, encode = "json", filename = NULL, ...) {
       headers <- httr::add_headers(c(
         headerParams,
         self$DataRobotDefaultHeaders(),
         self$defaultHeaders
       ))
 
-      if (encode == "raw") {
+      if (encode == "json") {
         headers <- c(headers, httr::content_type_json())
       }
 
@@ -166,7 +168,11 @@ ApiClient <- R6::R6Class(
       }
 
       if (method == "GET") {
-        httr::GET(url, query = queryParams, headers, httpTimeout, httr::user_agent(self$`userAgent`), ...)
+        args <- list(url = url, query = queryParams, headers, httpTimeout, httr::user_agent(self$`userAgent`), ...)
+        if (!is.null(filename)) {
+          args$config <- httr::write_disk(filename)
+        }
+        do.call(httr::GET, args)
       } else if (method == "POST") {
         httr::POST(url, query = queryParams, headers, body = body, encode = encode, httpTimeout, httr::user_agent(self$`userAgent`), ...)
       } else if (method == "PUT") {

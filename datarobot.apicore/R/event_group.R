@@ -41,7 +41,7 @@ EventGroup <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`events` = NULL, `id` = NULL, `label` = NULL) {
       if (!is.null(`events`)) {
-        stopifnot(is.vector(`events`))
+        stopifnot(is.vector(`events`), sapply(`events`, R6::is.R6))
       }
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -69,7 +69,7 @@ EventGroup <- R6::R6Class(
         })
         private$validateProps(events, id, label)
       }
-      sapply(`events`, function(x) stopifnot(R6::is.R6(x)))
+      self$`events` <- `events`
       self$`id` <- `id`
       self$`label` <- `label`
     },

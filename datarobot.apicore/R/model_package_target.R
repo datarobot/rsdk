@@ -50,7 +50,7 @@ ModelPackageTarget <- R6::R6Class(
         stopifnot(is.numeric(`classCount`), length(`classCount`) == 1)
       }
       if (!is.null(`classNames`)) {
-        stopifnot(is.vector(`classNames`))
+        stopifnot(is.vector(`classNames`), sapply(`classNames`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -90,7 +90,7 @@ ModelPackageTarget <- R6::R6Class(
         private$validateProps(classCount, classNames, name, predictionProbabilitiesColumn, predictionThreshold, type)
       }
       self$`classCount` <- `classCount`
-      sapply(`classNames`, function(x) stopifnot(is.character(x)))
+      self$`classNames` <- `classNames`
       self$`name` <- `name`
       self$`predictionProbabilitiesColumn` <- `predictionProbabilitiesColumn`
       self$`predictionThreshold` <- `predictionThreshold`

@@ -38,11 +38,11 @@ CredentialsAssociationUpdate <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`credentialsToAdd` = NULL, `credentialsToRemove` = NULL) {
-      if (!is.null(`credentialsToAdd`)) {
-        stopifnot(is.vector(`credentialsToAdd`))
+      if (!is.null(`credentialsToAdd`) && length(`credentialsToAdd`) > 0) {
+        stopifnot(is.vector(`credentialsToAdd`), sapply(`credentialsToAdd`, R6::is.R6))
       }
-      if (!is.null(`credentialsToRemove`)) {
-        stopifnot(is.vector(`credentialsToRemove`))
+      if (!is.null(`credentialsToRemove`) && length(`credentialsToRemove`) > 0) {
+        stopifnot(is.vector(`credentialsToRemove`), sapply(`credentialsToRemove`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ CredentialsAssociationUpdate <- R6::R6Class(
         })
         private$validateProps(credentialsToAdd, credentialsToRemove)
       }
-      sapply(`credentialsToAdd`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`credentialsToRemove`, function(x) stopifnot(is.character(x)))
+      self$`credentialsToAdd` <- `credentialsToAdd`
+      self$`credentialsToRemove` <- `credentialsToRemove`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

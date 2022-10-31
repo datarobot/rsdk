@@ -78,15 +78,14 @@ DocumentationApi <- R6::R6Class(
     #' @description Request generation of automated document
     #' Produces: NA
     #'
-    #' @details Request generation of an automated document that&#39;s available for your account. Below is an example request body to generate Model Compliance documentation:  &#x60;&#x60;&#x60; json {     \&quot;documentType\&quot;: \&quot;MODEL_COMPLIANCE\&quot;,     \&quot;entityId\&quot;: \&quot;507f191e810c19729de860ea\&quot;,     \&quot;outputFormat\&quot;: \&quot;docx\&quot; } &#x60;&#x60;&#x60;  For Autopilot Summary, set a corresponding document type, &#x60;AUTOPILOT_SUMMARY&#x60;, and assign a needed project ID to the &#x60;entityId&#x60; value.  After the request is sent, the jobs needed for document generation are queued. You can see the status of the generation by polling the URL in the &#x60;Location&#x60; headers. After the generation is complete, the status URL will automatically redirect you to the resource location to download the document.
-    #' @details This method invokes `POST /automatedDocuments/` in the DataRobot Public API.
+    #' @details Request generation of an automated document that's available for your account. Below is an example request body to generate Model Compliance documentation:  ```json {"documentType": "MODEL_COMPLIANCE", "entityId": "507f191e810c19729de860ea", "outputFormat": "docx" }```  For Autopilot Summary, set a corresponding document type, "AUTOPILOT_SUMMARY", and assign a needed project ID to the "entityId" value.  After the request is sent, the jobs needed for document generation are queued. You can see the status of the generation by polling the URL in the "Location" headers. After the generation is complete, the status URL will automatically redirect you to the resource location to download the document.    #' @details This method invokes `POST /automatedDocuments/` in the DataRobot Public API.
     #' @param automatedDocCreate \link{AutomatedDocCreate}.
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @details Response status codes, messages, and headers:
     #' \itemize{
     #' \item **`202`** Document generation request accepted.
     #' \itemize{
-    #' \item **`Location`** URL to poll document generation status: :http:get:&#x60;/api/v2/status/(statusId)/&#x60;
+    #' \item **`Location`** URL to poll document generation status: :http:get:"/api/v2/status/(statusId)/"
     #' }
     #' \item **`422`** Unable to process document generation request.
     #' \itemize{
@@ -110,7 +109,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -122,7 +123,7 @@ DocumentationApi <- R6::R6Class(
     #' @description Delete automated document.
     #' Produces: NA
     #'
-    #' @details Delete a document using its ID. Example request:  &gt; &#x60;&#x60;&#x60; text &gt; DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 &gt; Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 &gt; &#x60;&#x60;&#x60;
+    #' @details Delete a document using its ID. Example request:  &gt; ``` text &gt; DELETE https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 &gt; Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 &gt; ```
     #' @details This method invokes `DELETE /automatedDocuments/{documentId}/` in the DataRobot Public API.
     #' @param documentId character. Unique identifier of the generated document.
     #' @param ... Optional. Additional named parameters to be passed downward.
@@ -153,7 +154,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -165,7 +168,7 @@ DocumentationApi <- R6::R6Class(
     #' @description List all generated documents.
     #' Produces: "application/json"
     #'
-    #' @details Get information about all previously generated documents available for your account. The information includes document ID and type, ID of the entity it was generated for, time of creation, and other information.  Example request to get a list of all documents:  &#x60;&#x60;&#x60; text GET https://app.datarobot.com/api/v2/automatedDocuments/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 &#x60;&#x60;&#x60;  Query for specific documents. For example, request a list of documents generated for a specific model in &#x60;docx&#x60; and &#x60;html&#x60; formats:  &#x60;&#x60;&#x60; text GET https://app.datarobot.com/api/v2/automatedDocuments?entityId&#x3D; 5ec4ea7e41054c158c5b002f&amp;outputFormat&#x3D;docx&amp;outputFormat&#x3D;html HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 &#x60;&#x60;&#x60;  In response body, you will get a page with queried documents. This is an example response with one document returned:  &#x60;&#x60;&#x60; json {     \&quot;totalCount\&quot;: 1,     \&quot;count\&quot;: 1,     \&quot;previous\&quot;: null,     \&quot;next\&quot;: null,     \&quot;data\&quot;: [         {             \&quot;id\&quot;: \&quot;5ebdb5e911a5fb85edff2b3c\&quot;,             \&quot;documentType\&quot;: \&quot;MODEL_COMPLIANCE\&quot;,             \&quot;entityId\&quot;: \&quot;5ebbb5e7d9d7b96e3d48e3b5\&quot;,             \&quot;templateId\&quot;: \&quot;5bd812e5f750edd392fa880f\&quot;,             \&quot;locale\&quot;: \&quot;EN_US\&quot;,             \&quot;outputFormat\&quot;: \&quot;DOCX\&quot;,             \&quot;createdAt\&quot;: \&quot;2019-11-07T11:12:13.141516Z\&quot;         }     ] } &#x60;&#x60;&#x60;  If there are no matching documents, you will get a page with an empty data array.
+    #' @details Get information about all previously generated documents available for your account. The information includes document ID and type, ID of the entity it was generated for, time of creation, and other information.  Example request to get a list of all documents:  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  Query for specific documents. For example, request a list of documents generated for a specific model in "docx" and "html" formats:  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments?entityId&#x3D; 5ec4ea7e41054c158c5b002f&amp;outputFormat&#x3D;docx&amp;outputFormat&#x3D;html HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  In response body, you will get a page with queried documents. This is an example response with one document returned:  ``` json {     "totalCount": 1,     "count": 1,     "previous": null,     "next": null,     "data": [         {             "id": "5ebdb5e911a5fb85edff2b3c",             "documentType": "MODEL_COMPLIANCE",             "entityId": "5ebbb5e7d9d7b96e3d48e3b5",             "templateId": "5bd812e5f750edd392fa880f",             "locale": "EN_US",             "outputFormat": "DOCX",             "createdAt": "2019-11-07T11:12:13.141516Z"         }     ] } ```  If there are no matching documents, you will get a page with an empty data array.
     #' @details This method invokes `GET /automatedDocuments/` in the DataRobot Public API.
     #' @param offset integer. Number of items to skip. Defaults to 0 if not provided.
     #' @param limit integer. Number of items to return, defaults to 100 if not provided.
@@ -216,7 +219,7 @@ DocumentationApi <- R6::R6Class(
     #' @description Download generated document.
     #' Produces: NA
     #'
-    #' @details Download a generated Automated Documentation file.  &#x60;&#x60;&#x60; text GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 &#x60;&#x60;&#x60;  In response, you will get a file containing the generated documentation.
+    #' @details Download a generated Automated Documentation file.  ``` text GET https://app.datarobot.com/api/v2/automatedDocuments/5ec4ea7e41054c158c5b002f/ HTTP/1.1 Authorization: Bearer DnwzBUSTOtKBO5Sp1hoUByG4YgZwCCw4 ```  In response, you will get a file containing the generated documentation.
     #' @details This method invokes `GET /automatedDocuments/{documentId}/` in the DataRobot Public API.
     #' @param documentId character. Unique identifier of the generated document.
     #' @param ... Optional. Additional named parameters to be passed downward.
@@ -224,7 +227,7 @@ DocumentationApi <- R6::R6Class(
     #' \itemize{
     #' \item **`200`** Download request succeeded.
     #' \itemize{
-    #' \item **`ContentMinusDisposition`** Autogenerated filename (\&quot;attachment;filename&#x3D;report_name.outputFormat\&quot;).
+    #' \item **`ContentMinusDisposition`** Autogenerated filename ("attachment;filename&#x3D;report_name.outputFormat").
     #' \item **`ContentMinusType`** MIME type corresponding to document file format
     #' }
     #' \item **`404`** Documentation record not found.
@@ -249,7 +252,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -261,7 +266,7 @@ DocumentationApi <- R6::R6Class(
     #' @description Create a new compliance documentation template
     #' Produces: "application/json"
     #'
-    #' @details Create a new compliance documentation template. One can retrieve the default DataRobot template via &#x60;GET /api/v2/complianceDocTemplates/default/&#x60; endpoint.
+    #' @details Create a new compliance documentation template. One can retrieve the default DataRobot template via "GET /api/v2/complianceDocTemplates/default/" endpoint.
     #' @details This method invokes `POST /complianceDocTemplates/` in the DataRobot Public API.
     #' @param complianceDocTemplateCreate \link{ComplianceDocTemplateCreate}.
     #' @param ... Optional. Additional named parameters to be passed downward.
@@ -308,7 +313,7 @@ DocumentationApi <- R6::R6Class(
     #'
     #' @details Retrieve the default documentation template.
     #' @details This method invokes `GET /complianceDocTemplates/default/` in the DataRobot Public API.
-    #' @param type Enum < [timeSeries, normal] > Specifies the type of the default template to retrieve, either &#x60;&#x60;normal&#x60;&#x60; or &#x60;&#x60;timeSeries&#x60;&#x60;. The &#x60;&#x60;normal&#x60;&#x60; template is applicable for all AutoML projects that are not time series. The &#x60;&#x60;timeSeries&#x60;&#x60; template is only applicable to time series projects.
+    #' @param type Enum < [timeSeries, normal] > Specifies the type of the default template to retrieve, either ""normal"" or ""timeSeries"". The ""normal"" template is applicable for all AutoML projects that are not time series. The ""timeSeries"" template is only applicable to time series projects.
     #' @param ... Optional. Additional named parameters to be passed downward.
     #' @return \link{ComplianceDocTemplateDefaultRetrieveResponse}
     #' @details Response status codes, messages, and headers:
@@ -381,7 +386,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -393,12 +400,12 @@ DocumentationApi <- R6::R6Class(
     #' @description List compliance documentation templates
     #' Produces: "application/json"
     #'
-    #' @details List user&#39;s custom-built compliance documentation templates.
+    #' @details List user's custom-built compliance documentation templates.
     #' @details This method invokes `GET /complianceDocTemplates/` in the DataRobot Public API.
     #' @param offset integer. Number of results to skip.
     #' @param limit integer. At most this many results are returned. The default may change without notice.
     #' @param namePart character. When present, only return templates with names that contain the given substring.
-    #' @param orderBy Enum < [id, -id] > Sort order to apply to the dataset list. Prefix the attribute name with a dash to sort in descending order (e.g., orderBy&#x3D;&#39;-id&#39;).
+    #' @param orderBy Enum < [id, -id] > Sort order to apply to the dataset list. Prefix the attribute name with a dash to sort in descending order (e.g., orderBy&#x3D;'-id').
     #' @param labels character. Name of labels to filter by.
     #' @param projectType Enum < [autoMl, timeSeries] > Type of project templates to search for. If not specified, returns all project templates types.
     #' @param ... Optional. Additional named parameters to be passed downward.
@@ -444,7 +451,7 @@ DocumentationApi <- R6::R6Class(
     #' @description Update an existing model compliance documentation template
     #' Produces: NA
     #'
-    #' @details Update an existing model compliance documentation template with the given &#x60;templateId&#x60;. The template must be accessible by the user. If the &#x60;templateId&#x60; is not found for the user, the update cannot be performed. For a description of the template &#x60;sections&#x60; object options, see the sample &#x60;sections&#x60; on the schema below.
+    #' @details Update an existing model compliance documentation template with the given "templateId". The template must be accessible by the user. If the "templateId" is not found for the user, the update cannot be performed. For a description of the template "sections" object options, see the sample "sections" on the schema below.
     #' @details This method invokes `PATCH /complianceDocTemplates/{templateId}/` in the DataRobot Public API.
     #' @param templateId character. The Id of a model compliance document template accessible by the user
     #' @param complianceDocTemplateUpdate \link{ComplianceDocTemplateUpdate}.
@@ -480,7 +487,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -533,7 +542,7 @@ DocumentationApi <- R6::R6Class(
         apiResponse
       }
     },
-    #' @description Get template&#39;s access control list
+    #' @description Get template's access control list
     #' Produces: "application/json"
     #'
     #' @details Get a list of users, groups and organizations who have access to this template and their roles on the template.
@@ -590,7 +599,7 @@ DocumentationApi <- R6::R6Class(
         apiResponse
       }
     },
-    #' @description Update template&#39;s access controls
+    #' @description Update template's access controls
     #' Produces: NA
     #'
     #' @details Set roles for users on this template.
@@ -629,7 +638,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -650,7 +661,7 @@ DocumentationApi <- R6::R6Class(
     #' \itemize{
     #' \item **`202`** Job to initialize compliance documentation pre-processing successfully started.
     #' \itemize{
-    #' \item **`Location`** URL to poll for getting a status of the job: :http:get:&#x60;/api/v2/status/(statusId)/&#x60;
+    #' \item **`Location`** URL to poll for getting a status of the job: :http:get:"/api/v2/status/(statusId)/"
     #' }
     #' \item **`404`** Model not found.
     #' \itemize{
@@ -678,7 +689,9 @@ DocumentationApi <- R6::R6Class(
         # endpoint for checking that job's status.
         apiResponse
       } else if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        .ReturnResponse(apiResponse$content)
+        if (httr::has_content(resp)) {
+          httr::content(resp)
+        }
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         apiResponse
       } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
@@ -853,13 +866,21 @@ DocumentationApi <- R6::R6Class(
 
       queryParams["limit"] <- limit
 
-      queryParams["documentType"] <- documentType
+      if (!is.null(documentType)) {
+        queryParams["documentType"] <- paste0(documentType, collapse = ",")
+      }
 
-      queryParams["outputFormat"] <- outputFormat
+      if (!is.null(outputFormat)) {
+        queryParams["outputFormat"] <- paste0(outputFormat, collapse = ",")
+      }
 
-      queryParams["locale"] <- locale
+      if (!is.null(locale)) {
+        queryParams["locale"] <- paste0(locale, collapse = ",")
+      }
 
-      queryParams["entityId"] <- entityId
+      if (!is.null(entityId)) {
+        queryParams["entityId"] <- paste0(entityId, collapse = ",")
+      }
 
       body <- NULL
       urlPath <- "/automatedDocuments/"

@@ -41,7 +41,7 @@ BatchFeatureTransformRetrieveResponse <- R6::R6Class(
       if (!is.null(`failures`)) {
       }
       if (!is.null(`newFeatureNames`)) {
-        stopifnot(is.vector(`newFeatureNames`))
+        stopifnot(is.vector(`newFeatureNames`), sapply(`newFeatureNames`, is.character))
       }
     }
   ),
@@ -62,7 +62,7 @@ BatchFeatureTransformRetrieveResponse <- R6::R6Class(
         private$validateProps(failures, newFeatureNames)
       }
       self$`failures` <- `failures`
-      sapply(`newFeatureNames`, function(x) stopifnot(is.character(x)))
+      self$`newFeatureNames` <- `newFeatureNames`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

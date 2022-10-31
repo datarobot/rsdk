@@ -82,8 +82,8 @@ UseCaseUpdate <- R6::R6Class(
       if (!is.null(`potentialValueTemplate`)) {
         .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
       }
-      if (!is.null(`predictionTargets`)) {
-        stopifnot(is.vector(`predictionTargets`))
+      if (!is.null(`predictionTargets`) && length(`predictionTargets`) > 0) {
+        stopifnot(is.vector(`predictionTargets`), sapply(`predictionTargets`, is.character))
       }
       if (!is.null(`realizedValue`)) {
         stopifnot(R6::is.R6(`realizedValue`))
@@ -91,8 +91,8 @@ UseCaseUpdate <- R6::R6Class(
       if (!is.null(`stage`)) {
         stopifnot(is.character(`stage`), length(`stage`) == 1)
       }
-      if (!is.null(`targetDates`)) {
-        stopifnot(is.vector(`targetDates`))
+      if (!is.null(`targetDates`) && length(`targetDates`) > 0) {
+        stopifnot(is.vector(`targetDates`), sapply(`targetDates`, R6::is.R6))
       }
     }
   ),
@@ -140,10 +140,10 @@ UseCaseUpdate <- R6::R6Class(
       self$`owner` <- `owner`
       self$`potentialValue` <- `potentialValue`
       self$`potentialValueTemplate` <- .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
-      sapply(`predictionTargets`, function(x) stopifnot(is.character(x)))
+      self$`predictionTargets` <- `predictionTargets`
       self$`realizedValue` <- `realizedValue`
       self$`stage` <- `stage`
-      sapply(`targetDates`, function(x) stopifnot(R6::is.R6(x)))
+      self$`targetDates` <- `targetDates`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

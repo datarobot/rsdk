@@ -41,13 +41,13 @@ AverageModelMetricsField <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`metrics` = NULL, `source` = NULL, `thresholds` = NULL) {
       if (!is.null(`metrics`)) {
-        stopifnot(is.vector(`metrics`))
+        stopifnot(is.vector(`metrics`), sapply(`metrics`, R6::is.R6))
       }
       if (!is.null(`source`)) {
         stopifnot(is.character(`source`), length(`source`) == 1)
       }
       if (!is.null(`thresholds`)) {
-        stopifnot(is.vector(`thresholds`))
+        stopifnot(is.vector(`thresholds`), sapply(`thresholds`, is.numeric))
       }
     }
   ),
@@ -69,9 +69,9 @@ AverageModelMetricsField <- R6::R6Class(
         })
         private$validateProps(metrics, source, thresholds)
       }
-      sapply(`metrics`, function(x) stopifnot(R6::is.R6(x)))
+      self$`metrics` <- `metrics`
       self$`source` <- `source`
-      sapply(`thresholds`, function(x) stopifnot(is.character(x)))
+      self$`thresholds` <- `thresholds`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

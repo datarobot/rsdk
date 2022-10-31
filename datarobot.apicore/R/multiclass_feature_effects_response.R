@@ -51,7 +51,7 @@ MulticlassFeatureEffectsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`count` = NULL, `data` = NULL, `modelId` = NULL, `next_` = NULL, `previous` = NULL, `projectId` = NULL, `source` = NULL, `totalCount` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -105,7 +105,7 @@ MulticlassFeatureEffectsResponse <- R6::R6Class(
         private$validateProps(count, data, modelId, next_, previous, projectId, source, totalCount)
       }
       self$`count` <- `count`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`modelId` <- `modelId`
       self$`next_` <- `next_`
       self$`previous` <- `previous`

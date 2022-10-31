@@ -43,7 +43,7 @@ DataPointResponse <- R6::R6Class(
       if (!is.null(`prediction`)) {
       }
       if (!is.null(`shapExplanation`)) {
-        stopifnot(is.vector(`shapExplanation`))
+        stopifnot(is.vector(`shapExplanation`), sapply(`shapExplanation`, R6::is.R6))
       }
       if (!is.null(`timestamp`)) {
         stopifnot(inherits(`timestamp`, "POSIXt"))
@@ -69,7 +69,7 @@ DataPointResponse <- R6::R6Class(
         private$validateProps(prediction, shapExplanation, timestamp)
       }
       self$`prediction` <- `prediction`
-      sapply(`shapExplanation`, function(x) stopifnot(R6::is.R6(x)))
+      self$`shapExplanation` <- `shapExplanation`
       self$`timestamp` <- `timestamp`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

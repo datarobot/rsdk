@@ -67,7 +67,7 @@ AOTChartMetadataResponse <- R6::R6Class(
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
       if (!is.null(`resolutions`)) {
-        stopifnot(is.vector(`resolutions`))
+        stopifnot(is.vector(`resolutions`), sapply(`resolutions`, is.character))
       }
     }
   ),
@@ -103,7 +103,7 @@ AOTChartMetadataResponse <- R6::R6Class(
       self$`metricName` <- `metricName`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
-      sapply(`resolutions`, function(x) stopifnot(is.character(x)))
+      self$`resolutions` <- `resolutions`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

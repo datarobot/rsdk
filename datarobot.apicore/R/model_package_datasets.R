@@ -49,7 +49,7 @@ ModelPackageDatasets <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`baselineSegmentedBy` = NULL, `datasetName` = NULL, `holdoutDataCatalogId` = NULL, `holdoutDatasetName` = NULL, `targetHistogramBaseline` = NULL, `trainingDataCatalogId` = NULL, `trainingDataSize` = NULL) {
       if (!is.null(`baselineSegmentedBy`)) {
-        stopifnot(is.vector(`baselineSegmentedBy`))
+        stopifnot(is.vector(`baselineSegmentedBy`), sapply(`baselineSegmentedBy`, is.character))
       }
       if (!is.null(`datasetName`)) {
         stopifnot(is.character(`datasetName`), length(`datasetName`) == 1)
@@ -97,7 +97,7 @@ ModelPackageDatasets <- R6::R6Class(
         })
         private$validateProps(baselineSegmentedBy, datasetName, holdoutDataCatalogId, holdoutDatasetName, targetHistogramBaseline, trainingDataCatalogId, trainingDataSize)
       }
-      sapply(`baselineSegmentedBy`, function(x) stopifnot(is.character(x)))
+      self$`baselineSegmentedBy` <- `baselineSegmentedBy`
       self$`datasetName` <- `datasetName`
       self$`holdoutDataCatalogId` <- `holdoutDataCatalogId`
       self$`holdoutDatasetName` <- `holdoutDatasetName`

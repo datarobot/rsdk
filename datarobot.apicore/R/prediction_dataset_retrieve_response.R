@@ -122,11 +122,11 @@ PredictionDatasetRetrieveResponse <- R6::R6Class(
       if (!is.null(`dataStartDate`)) {
         stopifnot(inherits(`dataStartDate`, "POSIXt"))
       }
-      if (!is.null(`detectedActualValueColumns`)) {
-        stopifnot(is.vector(`detectedActualValueColumns`))
+      if (!is.null(`detectedActualValueColumns`) && length(`detectedActualValueColumns`) > 0) {
+        stopifnot(is.vector(`detectedActualValueColumns`), sapply(`detectedActualValueColumns`, R6::is.R6))
       }
-      if (!is.null(`forecastPointRange`)) {
-        stopifnot(is.vector(`forecastPointRange`))
+      if (!is.null(`forecastPointRange`) && length(`forecastPointRange`) > 0) {
+        stopifnot(is.vector(`forecastPointRange`), sapply(`forecastPointRange`, is.character))
       }
       if (!is.null(`maxForecastDate`)) {
         stopifnot(inherits(`maxForecastDate`, "POSIXt"))
@@ -196,9 +196,9 @@ PredictionDatasetRetrieveResponse <- R6::R6Class(
       self$`dataEndDate` <- `dataEndDate`
       self$`dataQualityWarnings` <- `dataQualityWarnings`
       self$`dataStartDate` <- `dataStartDate`
-      sapply(`detectedActualValueColumns`, function(x) stopifnot(R6::is.R6(x)))
+      self$`detectedActualValueColumns` <- `detectedActualValueColumns`
       self$`forecastPoint` <- `forecastPoint`
-      sapply(`forecastPointRange`, function(x) stopifnot(is.character(x)))
+      self$`forecastPointRange` <- `forecastPointRange`
       self$`id` <- `id`
       self$`maxForecastDate` <- `maxForecastDate`
       self$`name` <- `name`

@@ -44,10 +44,10 @@ DRConnectorV1Details <- R6::R6Class(
         stopifnot(is.character(`connectorId`), length(`connectorId`) == 1)
       }
       if (!is.null(`fields`)) {
-        stopifnot(is.vector(`fields`))
+        stopifnot(is.vector(`fields`), sapply(`fields`, R6::is.R6))
       }
-      if (!is.null(`fieldSchemas`)) {
-        stopifnot(is.vector(`fieldSchemas`))
+      if (!is.null(`fieldSchemas`) && length(`fieldSchemas`) > 0) {
+        stopifnot(is.vector(`fieldSchemas`), sapply(`fieldSchemas`, R6::is.R6))
       }
     }
   ),
@@ -70,8 +70,8 @@ DRConnectorV1Details <- R6::R6Class(
         private$validateProps(connectorId, fieldSchemas, fields)
       }
       self$`connectorId` <- `connectorId`
-      sapply(`fieldSchemas`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`fields`, function(x) stopifnot(R6::is.R6(x)))
+      self$`fieldSchemas` <- `fieldSchemas`
+      self$`fields` <- `fields`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

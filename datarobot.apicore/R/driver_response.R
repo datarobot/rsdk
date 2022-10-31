@@ -56,11 +56,11 @@ DriverResponse <- R6::R6Class(
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
       }
-      if (!is.null(`associatedAuthTypes`)) {
-        stopifnot(is.vector(`associatedAuthTypes`))
+      if (!is.null(`associatedAuthTypes`) && length(`associatedAuthTypes`) > 0) {
+        stopifnot(is.vector(`associatedAuthTypes`), sapply(`associatedAuthTypes`, is.character))
       }
-      if (!is.null(`baseNames`)) {
-        stopifnot(is.vector(`baseNames`))
+      if (!is.null(`baseNames`) && length(`baseNames`) > 0) {
+        stopifnot(is.vector(`baseNames`), sapply(`baseNames`, is.character))
       }
       if (!is.null(`canonicalName`)) {
         stopifnot(is.character(`canonicalName`), length(`canonicalName`) == 1)
@@ -104,8 +104,8 @@ DriverResponse <- R6::R6Class(
         })
         private$validateProps(associatedAuthTypes, baseNames, canonicalName, className, configurationId, creator, id, version)
       }
-      sapply(`associatedAuthTypes`, function(x) stopifnot(is.character(x)))
-      sapply(`baseNames`, function(x) stopifnot(is.character(x)))
+      self$`associatedAuthTypes` <- `associatedAuthTypes`
+      self$`baseNames` <- `baseNames`
       self$`canonicalName` <- `canonicalName`
       self$`className` <- `className`
       self$`configurationId` <- `configurationId`

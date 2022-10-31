@@ -45,7 +45,7 @@ SeriesAccuracyRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`data` = NULL, `next_` = NULL, `previous` = NULL, `querySeriesCount` = NULL, `totalSeriesCount` = NULL) {
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`querySeriesCount`)) {
         stopifnot(is.numeric(`querySeriesCount`), length(`querySeriesCount`) == 1)
@@ -83,7 +83,7 @@ SeriesAccuracyRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(data, next_, previous, querySeriesCount, totalSeriesCount)
       }
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
       self$`querySeriesCount` <- `querySeriesCount`

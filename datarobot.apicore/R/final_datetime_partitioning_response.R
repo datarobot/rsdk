@@ -153,7 +153,7 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
         stopifnot(inherits(`availableTrainingStartDate`, "POSIXt"))
       }
       if (!is.null(`backtests`)) {
-        stopifnot(is.vector(`backtests`))
+        stopifnot(is.vector(`backtests`), sapply(`backtests`, R6::is.R6))
       }
       if (!is.null(`calendarId`)) {
         stopifnot(is.character(`calendarId`), length(`calendarId`) == 1)
@@ -162,7 +162,7 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
         stopifnot(is.character(`calendarName`), length(`calendarName`) == 1)
       }
       if (!is.null(`crossSeriesGroupByColumns`)) {
-        stopifnot(is.vector(`crossSeriesGroupByColumns`))
+        stopifnot(is.vector(`crossSeriesGroupByColumns`), sapply(`crossSeriesGroupByColumns`, is.character))
       }
       if (!is.null(`dateFormat`)) {
         stopifnot(is.character(`dateFormat`), length(`dateFormat`) == 1)
@@ -192,7 +192,7 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
         stopifnot(is.numeric(`featureDerivationWindowStart`), length(`featureDerivationWindowStart`) == 1)
       }
       if (!is.null(`featureSettings`)) {
-        stopifnot(is.vector(`featureSettings`))
+        stopifnot(is.vector(`featureSettings`), sapply(`featureSettings`, R6::is.R6))
       }
       if (!is.null(`forecastWindowEnd`)) {
         stopifnot(is.numeric(`forecastWindowEnd`), length(`forecastWindowEnd`) == 1)
@@ -228,7 +228,7 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
         stopifnot(is.numeric(`modelSplits`), length(`modelSplits`) == 1)
       }
       if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`numberOfBacktests`)) {
         stopifnot(is.numeric(`numberOfBacktests`), length(`numberOfBacktests`) == 1)
@@ -240,10 +240,10 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
         stopifnot(is.numeric(`numberOfKnownInAdvanceFeatures`), length(`numberOfKnownInAdvanceFeatures`) == 1)
       }
       if (!is.null(`partitioningWarnings`)) {
-        stopifnot(is.vector(`partitioningWarnings`))
+        stopifnot(is.vector(`partitioningWarnings`), sapply(`partitioningWarnings`, R6::is.R6))
       }
       if (!is.null(`periodicities`)) {
-        stopifnot(is.vector(`periodicities`))
+        stopifnot(is.vector(`periodicities`), sapply(`periodicities`, R6::is.R6))
       }
       if (!is.null(`primaryTrainingDuration`)) {
         stopifnot(is.character(`primaryTrainingDuration`), length(`primaryTrainingDuration`) == 1)
@@ -281,8 +281,8 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
       if (!is.null(`isHoldoutModified`)) {
         stopifnot(is.logical(`isHoldoutModified`), length(`isHoldoutModified`) == 1)
       }
-      if (!is.null(`partitioningExtendedWarnings`)) {
-        stopifnot(is.vector(`partitioningExtendedWarnings`))
+      if (!is.null(`partitioningExtendedWarnings`) && length(`partitioningExtendedWarnings`) > 0) {
+        stopifnot(is.vector(`partitioningExtendedWarnings`), sapply(`partitioningExtendedWarnings`, R6::is.R6))
       }
     }
   ),
@@ -404,10 +404,10 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
       self$`availableTrainingEndDate` <- `availableTrainingEndDate`
       self$`availableTrainingRowCount` <- `availableTrainingRowCount`
       self$`availableTrainingStartDate` <- `availableTrainingStartDate`
-      sapply(`backtests`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtests` <- `backtests`
       self$`calendarId` <- `calendarId`
       self$`calendarName` <- `calendarName`
-      sapply(`crossSeriesGroupByColumns`, function(x) stopifnot(is.character(x)))
+      self$`crossSeriesGroupByColumns` <- `crossSeriesGroupByColumns`
       self$`dateFormat` <- `dateFormat`
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`defaultToAPriori` <- `defaultToAPriori`
@@ -417,7 +417,7 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
       self$`disableHoldout` <- `disableHoldout`
       self$`featureDerivationWindowEnd` <- `featureDerivationWindowEnd`
       self$`featureDerivationWindowStart` <- `featureDerivationWindowStart`
-      sapply(`featureSettings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureSettings` <- `featureSettings`
       self$`forecastWindowEnd` <- `forecastWindowEnd`
       self$`forecastWindowStart` <- `forecastWindowStart`
       self$`gapDuration` <- `gapDuration`
@@ -430,13 +430,13 @@ FinalDatetimePartitioningResponse <- R6::R6Class(
       self$`holdoutStartDate` <- `holdoutStartDate`
       self$`isHoldoutModified` <- `isHoldoutModified`
       self$`modelSplits` <- `modelSplits`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`numberOfBacktests` <- `numberOfBacktests`
       self$`numberOfDoNotDeriveFeatures` <- `numberOfDoNotDeriveFeatures`
       self$`numberOfKnownInAdvanceFeatures` <- `numberOfKnownInAdvanceFeatures`
-      sapply(`partitioningExtendedWarnings`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`partitioningWarnings`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`periodicities`, function(x) stopifnot(R6::is.R6(x)))
+      self$`partitioningExtendedWarnings` <- `partitioningExtendedWarnings`
+      self$`partitioningWarnings` <- `partitioningWarnings`
+      self$`periodicities` <- `periodicities`
       self$`primaryTrainingDuration` <- `primaryTrainingDuration`
       self$`primaryTrainingEndDate` <- `primaryTrainingEndDate`
       self$`primaryTrainingRowCount` <- `primaryTrainingRowCount`

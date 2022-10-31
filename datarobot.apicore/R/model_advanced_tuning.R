@@ -39,7 +39,7 @@ ModelAdvancedTuning <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`tuningDescription` = NULL, `tuningParameters` = NULL) {
       if (!is.null(`tuningParameters`)) {
-        stopifnot(is.vector(`tuningParameters`))
+        stopifnot(is.vector(`tuningParameters`), sapply(`tuningParameters`, R6::is.R6))
       }
       if (!is.null(`tuningDescription`)) {
         stopifnot(is.character(`tuningDescription`), length(`tuningDescription`) == 1)
@@ -63,7 +63,7 @@ ModelAdvancedTuning <- R6::R6Class(
         private$validateProps(tuningDescription, tuningParameters)
       }
       self$`tuningDescription` <- `tuningDescription`
-      sapply(`tuningParameters`, function(x) stopifnot(R6::is.R6(x)))
+      self$`tuningParameters` <- `tuningParameters`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

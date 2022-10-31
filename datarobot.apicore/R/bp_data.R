@@ -59,16 +59,16 @@ BpData <- R6::R6Class(
         stopifnot(is.character(`taskParameters`), length(`taskParameters`) == 1)
       }
       if (!is.null(`tasks`)) {
-        stopifnot(is.vector(`tasks`))
+        stopifnot(is.vector(`tasks`), sapply(`tasks`, is.character))
       }
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
       }
-      if (!is.null(`children`)) {
-        stopifnot(is.vector(`children`))
+      if (!is.null(`children`) && length(`children`) > 0) {
+        stopifnot(is.vector(`children`), sapply(`children`, is.character))
       }
-      if (!is.null(`inputs`)) {
-        stopifnot(is.vector(`inputs`))
+      if (!is.null(`inputs`) && length(`inputs`) > 0) {
+        stopifnot(is.vector(`inputs`), sapply(`inputs`, is.character))
       }
       if (!is.null(`output`)) {
         .setPrimitiveProperty(typeList = list("character", "array"), propertyData = output)
@@ -103,13 +103,13 @@ BpData <- R6::R6Class(
         })
         private$validateProps(children, id, inputs, output, taskMap, taskParameters, tasks, type)
       }
-      sapply(`children`, function(x) stopifnot(is.character(x)))
+      self$`children` <- `children`
       self$`id` <- `id`
-      sapply(`inputs`, function(x) stopifnot(is.character(x)))
+      self$`inputs` <- `inputs`
       self$`output` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = output)
       self$`taskMap` <- `taskMap`
       self$`taskParameters` <- `taskParameters`
-      sapply(`tasks`, function(x) stopifnot(is.character(x)))
+      self$`tasks` <- `tasks`
       self$`type` <- `type`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

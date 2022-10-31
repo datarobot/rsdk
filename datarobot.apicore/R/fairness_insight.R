@@ -55,7 +55,7 @@ FairnessInsight <- R6::R6Class(
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
       if (!is.null(`perClassFairness`)) {
-        stopifnot(is.vector(`perClassFairness`))
+        stopifnot(is.vector(`perClassFairness`), sapply(`perClassFairness`, R6::is.R6))
       }
       if (!is.null(`protectedFeature`)) {
         stopifnot(is.character(`protectedFeature`), length(`protectedFeature`) == 1)
@@ -92,7 +92,7 @@ FairnessInsight <- R6::R6Class(
       self$`fairnessMetric` <- `fairnessMetric`
       self$`fairnessThreshold` <- `fairnessThreshold`
       self$`modelId` <- `modelId`
-      sapply(`perClassFairness`, function(x) stopifnot(R6::is.R6(x)))
+      self$`perClassFairness` <- `perClassFairness`
       self$`predictionThreshold` <- `predictionThreshold`
       self$`protectedFeature` <- `protectedFeature`
     },

@@ -54,8 +54,8 @@ PredictedVsActualData <- R6::R6Class(
       if (!is.null(`rowCount`)) {
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
       }
-      if (!is.null(`bin`)) {
-        stopifnot(is.vector(`bin`))
+      if (!is.null(`bin`) && length(`bin`) > 0) {
+        stopifnot(is.vector(`bin`), sapply(`bin`, is.character))
       }
     }
   ),
@@ -82,7 +82,7 @@ PredictedVsActualData <- R6::R6Class(
         private$validateProps(actual, bin, label, predicted, rowCount)
       }
       self$`actual` <- `actual`
-      sapply(`bin`, function(x) stopifnot(is.character(x)))
+      self$`bin` <- `bin`
       self$`label` <- `label`
       self$`predicted` <- `predicted`
       self$`rowCount` <- `rowCount`

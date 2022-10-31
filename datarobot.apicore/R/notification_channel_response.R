@@ -74,7 +74,7 @@ NotificationChannelResponse <- R6::R6Class(
         stopifnot(inherits(`createdAt`, "POSIXt"))
       }
       if (!is.null(`customHeaders`)) {
-        stopifnot(is.vector(`customHeaders`))
+        stopifnot(is.vector(`customHeaders`), sapply(`customHeaders`, R6::is.R6))
       }
       if (!is.null(`emailAddress`)) {
         stopifnot(is.character(`emailAddress`), length(`emailAddress`) == 1)
@@ -156,7 +156,7 @@ NotificationChannelResponse <- R6::R6Class(
       self$`channelType` <- `channelType`
       self$`contentType` <- `contentType`
       self$`createdAt` <- `createdAt`
-      sapply(`customHeaders`, function(x) stopifnot(R6::is.R6(x)))
+      self$`customHeaders` <- `customHeaders`
       self$`emailAddress` <- `emailAddress`
       self$`id` <- `id`
       self$`languageCode` <- `languageCode`

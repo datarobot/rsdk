@@ -89,7 +89,7 @@ CombinedModelSegmentsResponse <- R6::R6Class(
         stopifnot(is.numeric(`modelCount`), length(`modelCount`) == 1)
       }
       if (!is.null(`modelIcon`)) {
-        stopifnot(is.vector(`modelIcon`))
+        stopifnot(is.vector(`modelIcon`), sapply(`modelIcon`, is.numeric))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -178,7 +178,7 @@ CombinedModelSegmentsResponse <- R6::R6Class(
       self$`modelAssignedBy` <- `modelAssignedBy`
       self$`modelAwardTime` <- `modelAwardTime`
       self$`modelCount` <- `modelCount`
-      sapply(`modelIcon`, function(x) stopifnot(is.character(x)))
+      self$`modelIcon` <- `modelIcon`
       self$`modelId` <- `modelId`
       self$`modelMetrics` <- `modelMetrics`
       self$`modelType` <- `modelType`

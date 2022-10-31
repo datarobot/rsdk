@@ -77,7 +77,7 @@ TemplateResponse <- R6::R6Class(
         stopifnot(is.character(`instructions`), length(`instructions`) == 1)
       }
       if (!is.null(`labels`)) {
-        stopifnot(is.vector(`labels`))
+        stopifnot(is.vector(`labels`), sapply(`labels`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -138,12 +138,12 @@ TemplateResponse <- R6::R6Class(
       self$`description` <- `description`
       self$`id` <- `id`
       self$`instructions` <- `instructions`
-      sapply(`labels`, function(x) stopifnot(is.character(x)))
+      self$`labels` <- `labels`
       self$`name` <- `name`
       self$`orgId` <- `orgId`
       self$`permissions` <- `permissions`
       self$`projectType` <- `projectType`
-      self$`sections` <- .setComplexProperty(typeList = list(SectionDataRobot, SectionUser, SectionCustom, SectionTableOfContents), propertyData = sections)
+      self$`sections` <- sapply(`sections`, function(item) .setComplexProperty(typeList = list(SectionDataRobot, SectionUser, SectionCustom, SectionTableOfContents), propertyData = item))
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

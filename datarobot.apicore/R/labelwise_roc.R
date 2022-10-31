@@ -54,10 +54,10 @@ LabelwiseROC <- R6::R6Class(
         stopifnot(R6::is.R6(`averageModelMetrics`))
       }
       if (!is.null(`charts`)) {
-        stopifnot(is.vector(`charts`))
+        stopifnot(is.vector(`charts`), sapply(`charts`, R6::is.R6))
       }
       if (!is.null(`labels`)) {
-        stopifnot(is.vector(`labels`))
+        stopifnot(is.vector(`labels`), sapply(`labels`, is.character))
       }
       if (!is.null(`next_`)) {
         stopifnot(is.character(`next_`), length(`next_`) == 1)
@@ -105,9 +105,9 @@ LabelwiseROC <- R6::R6Class(
         private$validateProps(averageModelMetrics, charts, count, labels, next_, previous, rocType, totalCount)
       }
       self$`averageModelMetrics` <- `averageModelMetrics`
-      sapply(`charts`, function(x) stopifnot(R6::is.R6(x)))
+      self$`charts` <- `charts`
       self$`count` <- `count`
-      sapply(`labels`, function(x) stopifnot(is.character(x)))
+      self$`labels` <- `labels`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
       self$`rocType` <- `rocType`

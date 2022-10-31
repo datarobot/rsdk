@@ -142,7 +142,7 @@ PrimeModelDetailsRetrieveResponse <- R6::R6Class(
         stopifnot(is.logical(`predictionThresholdReadOnly`), length(`predictionThresholdReadOnly`) == 1)
       }
       if (!is.null(`processes`)) {
-        stopifnot(is.vector(`processes`))
+        stopifnot(is.vector(`processes`), sapply(`processes`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -264,7 +264,7 @@ PrimeModelDetailsRetrieveResponse <- R6::R6Class(
       self$`parentModelId` <- `parentModelId`
       self$`predictionThreshold` <- `predictionThreshold`
       self$`predictionThresholdReadOnly` <- `predictionThresholdReadOnly`
-      sapply(`processes`, function(x) stopifnot(is.character(x)))
+      self$`processes` <- `processes`
       self$`projectId` <- `projectId`
       self$`ruleCount` <- `ruleCount`
       self$`rulesetId` <- `rulesetId`

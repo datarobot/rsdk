@@ -83,8 +83,8 @@ OrganizationUserResponse <- R6::R6Class(
       if (!is.null(`username`)) {
         stopifnot(is.character(`username`), length(`username`) == 1)
       }
-      if (!is.null(`accessRoleIds`)) {
-        stopifnot(is.vector(`accessRoleIds`))
+      if (!is.null(`accessRoleIds`) && length(`accessRoleIds`) > 0) {
+        stopifnot(is.vector(`accessRoleIds`), sapply(`accessRoleIds`, is.character))
       }
       if (!is.null(`scheduledForDeletion`)) {
         stopifnot(is.logical(`scheduledForDeletion`), length(`scheduledForDeletion`) == 1)
@@ -125,7 +125,7 @@ OrganizationUserResponse <- R6::R6Class(
         })
         private$validateProps(accessRoleIds, activated, expirationDate, firstName, id, lastName, maxWorkers, orgAdmin, organizationId, scheduledForDeletion, username)
       }
-      sapply(`accessRoleIds`, function(x) stopifnot(is.character(x)))
+      self$`accessRoleIds` <- `accessRoleIds`
       self$`activated` <- `activated`
       self$`expirationDate` <- `expirationDate`
       self$`firstName` <- `firstName`

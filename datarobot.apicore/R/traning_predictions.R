@@ -66,8 +66,8 @@ TraningPredictions <- R6::R6Class(
       if (!is.null(`maxExplanations`)) {
         stopifnot(is.numeric(`maxExplanations`), length(`maxExplanations`) == 1)
       }
-      if (!is.null(`shapWarnings`)) {
-        stopifnot(is.vector(`shapWarnings`))
+      if (!is.null(`shapWarnings`) && length(`shapWarnings`) > 0) {
+        stopifnot(is.vector(`shapWarnings`), sapply(`shapWarnings`, R6::is.R6))
       }
     }
   ),
@@ -102,7 +102,7 @@ TraningPredictions <- R6::R6Class(
       self$`id` <- `id`
       self$`maxExplanations` <- `maxExplanations`
       self$`modelId` <- `modelId`
-      sapply(`shapWarnings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`shapWarnings` <- `shapWarnings`
       self$`url` <- `url`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

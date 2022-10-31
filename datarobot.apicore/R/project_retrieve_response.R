@@ -156,8 +156,8 @@ ProjectRetrieveResponse <- R6::R6Class(
       if (!is.null(`useFeatureDiscovery`)) {
         stopifnot(is.logical(`useFeatureDiscovery`), length(`useFeatureDiscovery`) == 1)
       }
-      if (!is.null(`autopilotClusterList`)) {
-        stopifnot(is.vector(`autopilotClusterList`))
+      if (!is.null(`autopilotClusterList`) && length(`autopilotClusterList`) > 0) {
+        stopifnot(is.vector(`autopilotClusterList`), sapply(`autopilotClusterList`, is.numeric))
       }
       if (!is.null(`externalTimeSeriesBaselineDatasetMetadata`)) {
         stopifnot(R6::is.R6(`externalTimeSeriesBaselineDatasetMetadata`))
@@ -258,7 +258,7 @@ ProjectRetrieveResponse <- R6::R6Class(
         private$validateProps(advancedOptions, autopilotClusterList, autopilotMode, catalogId, catalogVersionId, created, externalTimeSeriesBaselineDatasetMetadata, featureEngineeringPredictionPoint, fileName, holdoutUnlocked, id, maxClusters, maxTrainPct, maxTrainRows, metric, minClusters, partition, positiveClass, primaryLocationColumn, projectName, queryGeneratorId, quickrun, relationshipsConfigurationId, segmentation, stage, target, targetType, unsupervisedMode, unsupervisedType, useFeatureDiscovery)
       }
       self$`advancedOptions` <- `advancedOptions`
-      sapply(`autopilotClusterList`, function(x) stopifnot(is.character(x)))
+      self$`autopilotClusterList` <- `autopilotClusterList`
       self$`autopilotMode` <- `autopilotMode`
       self$`catalogId` <- `catalogId`
       self$`catalogVersionId` <- `catalogVersionId`

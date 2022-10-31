@@ -42,7 +42,7 @@ UseCaseSharingUpdate <- R6::R6Class(
         stopifnot(is.character(`operation`), length(`operation`) == 1)
       }
       if (!is.null(`roles`)) {
-        stopifnot(is.vector(`roles`))
+        stopifnot(is.vector(`roles`), sapply(`roles`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ UseCaseSharingUpdate <- R6::R6Class(
         private$validateProps(operation, roles)
       }
       self$`operation` <- `operation`
-      sapply(`roles`, function(x) stopifnot(R6::is.R6(x)))
+      self$`roles` <- `roles`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

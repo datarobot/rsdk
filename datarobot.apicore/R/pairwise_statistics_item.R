@@ -39,7 +39,7 @@ PairwiseStatisticsItem <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`labelConfiguration` = NULL, `statisticValue` = NULL) {
       if (!is.null(`labelConfiguration`)) {
-        stopifnot(is.vector(`labelConfiguration`))
+        stopifnot(is.vector(`labelConfiguration`), sapply(`labelConfiguration`, R6::is.R6))
       }
       if (!is.null(`statisticValue`)) {
       }
@@ -61,7 +61,7 @@ PairwiseStatisticsItem <- R6::R6Class(
         })
         private$validateProps(labelConfiguration, statisticValue)
       }
-      sapply(`labelConfiguration`, function(x) stopifnot(R6::is.R6(x)))
+      self$`labelConfiguration` <- `labelConfiguration`
       self$`statisticValue` <- `statisticValue`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

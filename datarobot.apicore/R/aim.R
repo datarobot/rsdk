@@ -249,11 +249,11 @@ Aim <- R6::R6Class(
       if (!is.null(`allowPartialHistoryTimeSeriesPredictions`)) {
         stopifnot(is.logical(`allowPartialHistoryTimeSeriesPredictions`), length(`allowPartialHistoryTimeSeriesPredictions`) == 1)
       }
-      if (!is.null(`allowedPairwiseInteractionGroups`)) {
-        stopifnot(is.vector(`allowedPairwiseInteractionGroups`))
+      if (!is.null(`allowedPairwiseInteractionGroups`) && length(`allowedPairwiseInteractionGroups`) > 0) {
+        stopifnot(is.vector(`allowedPairwiseInteractionGroups`), sapply(`allowedPairwiseInteractionGroups`, R6::is.R6))
       }
-      if (!is.null(`autopilotClusterList`)) {
-        stopifnot(is.vector(`autopilotClusterList`))
+      if (!is.null(`autopilotClusterList`) && length(`autopilotClusterList`) > 0) {
+        stopifnot(is.vector(`autopilotClusterList`), sapply(`autopilotClusterList`, is.numeric))
       }
       if (!is.null(`autopilotDataSamplingMethod`)) {
         stopifnot(is.character(`autopilotDataSamplingMethod`), length(`autopilotDataSamplingMethod`) == 1)
@@ -261,8 +261,8 @@ Aim <- R6::R6Class(
       if (!is.null(`autopilotWithFeatureDiscovery`)) {
         stopifnot(is.logical(`autopilotWithFeatureDiscovery`), length(`autopilotWithFeatureDiscovery`) == 1)
       }
-      if (!is.null(`backtests`)) {
-        stopifnot(is.vector(`backtests`))
+      if (!is.null(`backtests`) && length(`backtests`) > 0) {
+        stopifnot(is.vector(`backtests`), sapply(`backtests`, R6::is.R6))
       }
       if (!is.null(`biasMitigationFeatureName`)) {
         stopifnot(is.character(`biasMitigationFeatureName`), length(`biasMitigationFeatureName`) == 1)
@@ -288,8 +288,8 @@ Aim <- R6::R6Class(
       if (!is.null(`credentials`)) {
         .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = credentials)
       }
-      if (!is.null(`crossSeriesGroupByColumns`)) {
-        stopifnot(is.vector(`crossSeriesGroupByColumns`))
+      if (!is.null(`crossSeriesGroupByColumns`) && length(`crossSeriesGroupByColumns`) > 0) {
+        stopifnot(is.vector(`crossSeriesGroupByColumns`), sapply(`crossSeriesGroupByColumns`, is.character))
       }
       if (!is.null(`cvHoldoutLevel`)) {
         .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = cvHoldoutLevel)
@@ -327,8 +327,8 @@ Aim <- R6::R6Class(
       if (!is.null(`exposure`)) {
         stopifnot(is.character(`exposure`), length(`exposure`) == 1)
       }
-      if (!is.null(`externalPredictions`)) {
-        stopifnot(is.vector(`externalPredictions`))
+      if (!is.null(`externalPredictions`) && length(`externalPredictions`) > 0) {
+        stopifnot(is.vector(`externalPredictions`), sapply(`externalPredictions`, is.character))
       }
       if (!is.null(`externalTimeSeriesBaselineDatasetId`)) {
         stopifnot(is.character(`externalTimeSeriesBaselineDatasetId`), length(`externalTimeSeriesBaselineDatasetId`) == 1)
@@ -354,8 +354,8 @@ Aim <- R6::R6Class(
       if (!is.null(`featureEngineeringPredictionPoint`)) {
         stopifnot(is.character(`featureEngineeringPredictionPoint`), length(`featureEngineeringPredictionPoint`) == 1)
       }
-      if (!is.null(`featureSettings`)) {
-        stopifnot(is.vector(`featureSettings`))
+      if (!is.null(`featureSettings`) && length(`featureSettings`) > 0) {
+        stopifnot(is.vector(`featureSettings`), sapply(`featureSettings`, R6::is.R6))
       }
       if (!is.null(`featurelistId`)) {
         stopifnot(is.character(`featurelistId`), length(`featurelistId`) == 1)
@@ -411,20 +411,20 @@ Aim <- R6::R6Class(
       if (!is.null(`monotonicIncreasingFeaturelistId`)) {
         stopifnot(is.character(`monotonicIncreasingFeaturelistId`), length(`monotonicIncreasingFeaturelistId`) == 1)
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`numberOfBacktests`)) {
         stopifnot(is.numeric(`numberOfBacktests`), length(`numberOfBacktests`) == 1)
       }
-      if (!is.null(`offset`)) {
-        stopifnot(is.vector(`offset`))
+      if (!is.null(`offset`) && length(`offset`) > 0) {
+        stopifnot(is.vector(`offset`), sapply(`offset`, is.character))
       }
-      if (!is.null(`partitionKeyCols`)) {
-        stopifnot(is.vector(`partitionKeyCols`))
+      if (!is.null(`partitionKeyCols`) && length(`partitionKeyCols`) > 0) {
+        stopifnot(is.vector(`partitionKeyCols`), sapply(`partitionKeyCols`, is.character))
       }
-      if (!is.null(`periodicities`)) {
-        stopifnot(is.vector(`periodicities`))
+      if (!is.null(`periodicities`) && length(`periodicities`) > 0) {
+        stopifnot(is.vector(`periodicities`), sapply(`periodicities`, R6::is.R6))
       }
       if (!is.null(`positiveClass`)) {
         .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = positiveClass)
@@ -438,8 +438,8 @@ Aim <- R6::R6Class(
       if (!is.null(`primaryLocationColumn`)) {
         stopifnot(is.character(`primaryLocationColumn`), length(`primaryLocationColumn`) == 1)
       }
-      if (!is.null(`protectedFeatures`)) {
-        stopifnot(is.vector(`protectedFeatures`))
+      if (!is.null(`protectedFeatures`) && length(`protectedFeatures`) > 0) {
+        stopifnot(is.vector(`protectedFeatures`), sapply(`protectedFeatures`, is.character))
       }
       if (!is.null(`quantileLevel`)) {
         stopifnot(is.numeric(`quantileLevel`), length(`quantileLevel`) == 1)
@@ -480,8 +480,8 @@ Aim <- R6::R6Class(
       if (!is.null(`smartDownsampled`)) {
         stopifnot(is.logical(`smartDownsampled`), length(`smartDownsampled`) == 1)
       }
-      if (!is.null(`stopWords`)) {
-        stopifnot(is.vector(`stopWords`))
+      if (!is.null(`stopWords`) && length(`stopWords`) > 0) {
+        stopifnot(is.vector(`stopWords`), sapply(`stopWords`, is.character))
       }
       if (!is.null(`target`)) {
         stopifnot(is.character(`target`), length(`target`) == 1)
@@ -751,12 +751,12 @@ Aim <- R6::R6Class(
       self$`accuracyOptimizedMb` <- `accuracyOptimizedMb`
       self$`aggregationType` <- `aggregationType`
       self$`allowPartialHistoryTimeSeriesPredictions` <- `allowPartialHistoryTimeSeriesPredictions`
-      sapply(`allowedPairwiseInteractionGroups`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`autopilotClusterList`, function(x) stopifnot(is.character(x)))
+      self$`allowedPairwiseInteractionGroups` <- `allowedPairwiseInteractionGroups`
+      self$`autopilotClusterList` <- `autopilotClusterList`
       self$`autopilotDataSamplingMethod` <- `autopilotDataSamplingMethod`
       self$`autopilotDataSelectionMethod` <- `autopilotDataSelectionMethod`
       self$`autopilotWithFeatureDiscovery` <- `autopilotWithFeatureDiscovery`
-      sapply(`backtests`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtests` <- `backtests`
       self$`biasMitigationFeatureName` <- `biasMitigationFeatureName`
       self$`biasMitigationTechnique` <- `biasMitigationTechnique`
       self$`blendBestModels` <- `blendBestModels`
@@ -764,8 +764,8 @@ Aim <- R6::R6Class(
       self$`calendarId` <- `calendarId`
       self$`classMappingAggregationSettings` <- `classMappingAggregationSettings`
       self$`considerBlendersInRecommendation` <- `considerBlendersInRecommendation`
-      self$`credentials` <- .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = credentials)
-      sapply(`crossSeriesGroupByColumns`, function(x) stopifnot(is.character(x)))
+      self$`credentials` <- sapply(`credentials`, function(item) .setComplexProperty(typeList = list(PasswordCredentials, CredentialId), propertyData = item))
+      self$`crossSeriesGroupByColumns` <- `crossSeriesGroupByColumns`
       self$`cvHoldoutLevel` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = cvHoldoutLevel)
       self$`cvMethod` <- `cvMethod`
       self$`dateRemoval` <- `dateRemoval`
@@ -778,7 +778,7 @@ Aim <- R6::R6Class(
       self$`eventsCount` <- `eventsCount`
       self$`exponentiallyWeightedMovingAlpha` <- `exponentiallyWeightedMovingAlpha`
       self$`exposure` <- `exposure`
-      sapply(`externalPredictions`, function(x) stopifnot(is.character(x)))
+      self$`externalPredictions` <- `externalPredictions`
       self$`externalTimeSeriesBaselineDatasetId` <- `externalTimeSeriesBaselineDatasetId`
       self$`externalTimeSeriesBaselineDatasetName` <- `externalTimeSeriesBaselineDatasetName`
       self$`fairnessMetricsSet` <- `fairnessMetricsSet`
@@ -787,7 +787,7 @@ Aim <- R6::R6Class(
       self$`featureDerivationWindowStart` <- `featureDerivationWindowStart`
       self$`featureDiscoverySupervisedFeatureReduction` <- `featureDiscoverySupervisedFeatureReduction`
       self$`featureEngineeringPredictionPoint` <- `featureEngineeringPredictionPoint`
-      sapply(`featureSettings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureSettings` <- `featureSettings`
       self$`featurelistId` <- `featurelistId`
       self$`forecastWindowEnd` <- `forecastWindowEnd`
       self$`forecastWindowStart` <- `forecastWindowStart`
@@ -806,17 +806,17 @@ Aim <- R6::R6Class(
       self$`modelSplits` <- `modelSplits`
       self$`monotonicDecreasingFeaturelistId` <- `monotonicDecreasingFeaturelistId`
       self$`monotonicIncreasingFeaturelistId` <- `monotonicIncreasingFeaturelistId`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`numberOfBacktests` <- `numberOfBacktests`
-      sapply(`offset`, function(x) stopifnot(is.character(x)))
+      self$`offset` <- `offset`
       self$`onlyIncludeMonotonicBlueprints` <- `onlyIncludeMonotonicBlueprints`
-      sapply(`partitionKeyCols`, function(x) stopifnot(is.character(x)))
-      sapply(`periodicities`, function(x) stopifnot(R6::is.R6(x)))
+      self$`partitionKeyCols` <- `partitionKeyCols`
+      self$`periodicities` <- `periodicities`
       self$`positiveClass` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = positiveClass)
       self$`preferableTargetValue` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = preferableTargetValue)
       self$`prepareModelForDeployment` <- `prepareModelForDeployment`
       self$`primaryLocationColumn` <- `primaryLocationColumn`
-      sapply(`protectedFeatures`, function(x) stopifnot(is.character(x)))
+      self$`protectedFeatures` <- `protectedFeatures`
       self$`quantileLevel` <- `quantileLevel`
       self$`quickrun` <- `quickrun`
       self$`rateTopPctThreshold` <- `rateTopPctThreshold`
@@ -830,7 +830,7 @@ Aim <- R6::R6Class(
       self$`segmentationTaskId` <- `segmentationTaskId`
       self$`shapOnlyMode` <- `shapOnlyMode`
       self$`smartDownsampled` <- `smartDownsampled`
-      sapply(`stopWords`, function(x) stopifnot(is.character(x)))
+      self$`stopWords` <- `stopWords`
       self$`target` <- `target`
       self$`targetType` <- `targetType`
       self$`trainingLevel` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = trainingLevel)

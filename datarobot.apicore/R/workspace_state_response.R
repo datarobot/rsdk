@@ -45,7 +45,7 @@ WorkspaceStateResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`datasets` = NULL, `language` = NULL, `query` = NULL, `queryGeneratorId` = NULL, `runTime` = NULL) {
       if (!is.null(`datasets`)) {
-        stopifnot(is.vector(`datasets`))
+        stopifnot(is.vector(`datasets`), sapply(`datasets`, R6::is.R6))
       }
       if (!is.null(`language`)) {
         stopifnot(is.character(`language`), length(`language`) == 1)
@@ -82,7 +82,7 @@ WorkspaceStateResponse <- R6::R6Class(
         })
         private$validateProps(datasets, language, query, queryGeneratorId, runTime)
       }
-      sapply(`datasets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`datasets` <- `datasets`
       self$`language` <- `language`
       self$`query` <- `query`
       self$`queryGeneratorId` <- `queryGeneratorId`

@@ -52,7 +52,7 @@ FeatureImpactResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`featureImpacts`)) {
-        stopifnot(is.vector(`featureImpacts`))
+        stopifnot(is.vector(`featureImpacts`), sapply(`featureImpacts`, R6::is.R6))
       }
       if (!is.null(`next_`)) {
         stopifnot(is.character(`next_`), length(`next_`) == 1)
@@ -98,7 +98,7 @@ FeatureImpactResponse <- R6::R6Class(
         private$validateProps(count, featureImpacts, next_, previous, ranRedundancyDetection, rowCount, shapBased)
       }
       self$`count` <- `count`
-      sapply(`featureImpacts`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureImpacts` <- `featureImpacts`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
       self$`ranRedundancyDetection` <- `ranRedundancyDetection`

@@ -41,13 +41,13 @@ FeatureDriftOverTimeRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`buckets` = NULL, `metric` = NULL, `summaries` = NULL) {
       if (!is.null(`buckets`)) {
-        stopifnot(is.vector(`buckets`))
+        stopifnot(is.vector(`buckets`), sapply(`buckets`, R6::is.R6))
       }
       if (!is.null(`metric`)) {
         stopifnot(is.character(`metric`), length(`metric`) == 1)
       }
       if (!is.null(`summaries`)) {
-        stopifnot(is.vector(`summaries`))
+        stopifnot(is.vector(`summaries`), sapply(`summaries`, R6::is.R6))
       }
     }
   ),
@@ -69,9 +69,9 @@ FeatureDriftOverTimeRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(buckets, metric, summaries)
       }
-      sapply(`buckets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`buckets` <- `buckets`
       self$`metric` <- `metric`
-      sapply(`summaries`, function(x) stopifnot(R6::is.R6(x)))
+      self$`summaries` <- `summaries`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

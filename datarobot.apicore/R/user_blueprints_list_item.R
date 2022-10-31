@@ -91,13 +91,13 @@ UserBlueprintsListItem <- R6::R6Class(
         stopifnot(is.character(`diagram`), length(`diagram`) == 1)
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`featuresText`)) {
         stopifnot(is.character(`featuresText`), length(`featuresText`) == 1)
       }
       if (!is.null(`icons`)) {
-        stopifnot(is.vector(`icons`))
+        stopifnot(is.vector(`icons`), sapply(`icons`, is.numeric))
       }
       if (!is.null(`insights`)) {
         stopifnot(is.character(`insights`), length(`insights`) == 1)
@@ -115,7 +115,7 @@ UserBlueprintsListItem <- R6::R6Class(
         stopifnot(is.logical(`shapSupport`), length(`shapSupport`) == 1)
       }
       if (!is.null(`supportedTargetTypes`)) {
-        stopifnot(is.vector(`supportedTargetTypes`))
+        stopifnot(is.vector(`supportedTargetTypes`), sapply(`supportedTargetTypes`, is.character))
       }
       if (!is.null(`supportsGpu`)) {
         stopifnot(is.logical(`supportsGpu`), length(`supportsGpu`) == 1)
@@ -126,11 +126,11 @@ UserBlueprintsListItem <- R6::R6Class(
       if (!is.null(`userId`)) {
         stopifnot(is.character(`userId`), length(`userId`) == 1)
       }
-      if (!is.null(`customTaskVersionMetadata`)) {
-        stopifnot(is.vector(`customTaskVersionMetadata`))
+      if (!is.null(`customTaskVersionMetadata`) && length(`customTaskVersionMetadata`) > 0) {
+        stopifnot(is.vector(`customTaskVersionMetadata`), sapply(`customTaskVersionMetadata`, R6::is.R6))
       }
-      if (!is.null(`hexColumnNameLookup`)) {
-        stopifnot(is.vector(`hexColumnNameLookup`))
+      if (!is.null(`hexColumnNameLookup`) && length(`hexColumnNameLookup`) > 0) {
+        stopifnot(is.vector(`hexColumnNameLookup`), sapply(`hexColumnNameLookup`, R6::is.R6))
       }
       if (!is.null(`hiddenFromCatalog`)) {
         stopifnot(is.logical(`hiddenFromCatalog`), length(`hiddenFromCatalog`) == 1)
@@ -204,14 +204,14 @@ UserBlueprintsListItem <- R6::R6Class(
       }
       self$`blender` <- `blender`
       self$`blueprintId` <- `blueprintId`
-      sapply(`customTaskVersionMetadata`, function(x) stopifnot(R6::is.R6(x)))
+      self$`customTaskVersionMetadata` <- `customTaskVersionMetadata`
       self$`decompressedFormat` <- `decompressedFormat`
       self$`diagram` <- `diagram`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`featuresText` <- `featuresText`
-      sapply(`hexColumnNameLookup`, function(x) stopifnot(R6::is.R6(x)))
+      self$`hexColumnNameLookup` <- `hexColumnNameLookup`
       self$`hiddenFromCatalog` <- `hiddenFromCatalog`
-      sapply(`icons`, function(x) stopifnot(is.character(x)))
+      self$`icons` <- `icons`
       self$`insights` <- `insights`
       self$`isTimeSeries` <- `isTimeSeries`
       self$`linkedToProjectId` <- `linkedToProjectId`
@@ -219,7 +219,7 @@ UserBlueprintsListItem <- R6::R6Class(
       self$`projectId` <- `projectId`
       self$`referenceModel` <- `referenceModel`
       self$`shapSupport` <- `shapSupport`
-      sapply(`supportedTargetTypes`, function(x) stopifnot(is.character(x)))
+      self$`supportedTargetTypes` <- `supportedTargetTypes`
       self$`supportsGpu` <- `supportsGpu`
       self$`supportsNewSeries` <- `supportsNewSeries`
       self$`userBlueprintId` <- `userBlueprintId`

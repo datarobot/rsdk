@@ -41,8 +41,8 @@ SegmentAnalysis <- R6::R6Class(
       if (!is.null(`enabled`)) {
         stopifnot(is.logical(`enabled`), length(`enabled`) == 1)
       }
-      if (!is.null(`attributes`)) {
-        stopifnot(is.vector(`attributes`))
+      if (!is.null(`attributes`) && length(`attributes`) > 0) {
+        stopifnot(is.vector(`attributes`), sapply(`attributes`, is.character))
       }
     }
   ),
@@ -62,7 +62,7 @@ SegmentAnalysis <- R6::R6Class(
         })
         private$validateProps(attributes, enabled)
       }
-      sapply(`attributes`, function(x) stopifnot(is.character(x)))
+      self$`attributes` <- `attributes`
       self$`enabled` <- `enabled`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

@@ -41,7 +41,7 @@ UseCaseRealizedValuesOverTimeResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`buckets` = NULL, `previousTimeRangeSummary` = NULL, `summary` = NULL) {
       if (!is.null(`buckets`)) {
-        stopifnot(is.vector(`buckets`))
+        stopifnot(is.vector(`buckets`), sapply(`buckets`, R6::is.R6))
       }
       if (!is.null(`previousTimeRangeSummary`)) {
         stopifnot(R6::is.R6(`previousTimeRangeSummary`))
@@ -69,7 +69,7 @@ UseCaseRealizedValuesOverTimeResponse <- R6::R6Class(
         })
         private$validateProps(buckets, previousTimeRangeSummary, summary)
       }
-      sapply(`buckets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`buckets` <- `buckets`
       self$`previousTimeRangeSummary` <- `previousTimeRangeSummary`
       self$`summary` <- `summary`
     },

@@ -43,7 +43,7 @@ FeatureEffectsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`featureEffects` = NULL, `modelId` = NULL, `projectId` = NULL, `source` = NULL) {
       if (!is.null(`featureEffects`)) {
-        stopifnot(is.vector(`featureEffects`))
+        stopifnot(is.vector(`featureEffects`), sapply(`featureEffects`, R6::is.R6))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -76,7 +76,7 @@ FeatureEffectsResponse <- R6::R6Class(
         })
         private$validateProps(featureEffects, modelId, projectId, source)
       }
-      sapply(`featureEffects`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureEffects` <- `featureEffects`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
       self$`source` <- `source`

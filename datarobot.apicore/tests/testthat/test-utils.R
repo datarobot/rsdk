@@ -55,6 +55,28 @@ describe(".setMixedProperty", {
   it("should work if typelist is a list and not a vector", {
     .setMixedProperty(list("logical", "character"), TRUE)
   })
+
+  it("should set primitive values", {
+    val <- .setMixedProperty(list("logical", "character", "numeric"), "parakeet")
+    expect_equal(val, "parakeet")
+    val <- .setMixedProperty(list("logical", "character", "numeric"), TRUE)
+    expect_equal(val, TRUE)
+    val <- .setMixedProperty(list("logical", "character", "numeric"), 3)
+    expect_equal(val, 3)
+    val <- .setMixedProperty(list("Comment", "character", "numeric"), "parakeet")
+    expect_equal(val, "parakeet")
+    val <- .setMixedProperty(list("Comment", "logical", "numeric"), TRUE)
+    expect_equal(val, TRUE)
+    val <- .setMixedProperty(list("Comment", "character", "numeric"), 3)
+    expect_equal(val, 3)
+  })
+
+  it("should set complex values", {
+    val <- .setMixedProperty(list("character", "Comment"), Comment$new())
+    expect_equal(val, Comment$new())
+    val <- .setMixedProperty(list("Comment", "character"), Comment$new())
+    expect_equal(val, Comment$new())
+  })
 })
 
 describe(".setComplexProperty", {

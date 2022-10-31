@@ -43,16 +43,16 @@ RelationshipsConfigCreate <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`datasetDefinitions` = NULL, `featureDiscoveryMode` = NULL, `featureDiscoverySettings` = NULL, `relationships` = NULL) {
       if (!is.null(`datasetDefinitions`)) {
-        stopifnot(is.vector(`datasetDefinitions`))
+        stopifnot(is.vector(`datasetDefinitions`), sapply(`datasetDefinitions`, R6::is.R6))
       }
       if (!is.null(`relationships`)) {
-        stopifnot(is.vector(`relationships`))
+        stopifnot(is.vector(`relationships`), sapply(`relationships`, R6::is.R6))
       }
       if (!is.null(`featureDiscoveryMode`)) {
         stopifnot(is.character(`featureDiscoveryMode`), length(`featureDiscoveryMode`) == 1)
       }
-      if (!is.null(`featureDiscoverySettings`)) {
-        stopifnot(is.vector(`featureDiscoverySettings`))
+      if (!is.null(`featureDiscoverySettings`) && length(`featureDiscoverySettings`) > 0) {
+        stopifnot(is.vector(`featureDiscoverySettings`), sapply(`featureDiscoverySettings`, R6::is.R6))
       }
     }
   ),
@@ -76,10 +76,10 @@ RelationshipsConfigCreate <- R6::R6Class(
         })
         private$validateProps(datasetDefinitions, featureDiscoveryMode, featureDiscoverySettings, relationships)
       }
-      sapply(`datasetDefinitions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`datasetDefinitions` <- `datasetDefinitions`
       self$`featureDiscoveryMode` <- `featureDiscoveryMode`
-      sapply(`featureDiscoverySettings`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`relationships`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureDiscoverySettings` <- `featureDiscoverySettings`
+      self$`relationships` <- `relationships`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

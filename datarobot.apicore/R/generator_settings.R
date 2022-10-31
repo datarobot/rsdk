@@ -75,8 +75,8 @@ GeneratorSettings <- R6::R6Class(
       if (!is.null(`endToSeriesMaxDatetime`)) {
         stopifnot(is.logical(`endToSeriesMaxDatetime`), length(`endToSeriesMaxDatetime`) == 1)
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`startFromSeriesMinDatetime`)) {
         stopifnot(is.logical(`startFromSeriesMinDatetime`), length(`startFromSeriesMinDatetime`) == 1)
@@ -123,7 +123,7 @@ GeneratorSettings <- R6::R6Class(
       self$`defaultNumericAggregationMethod` <- `defaultNumericAggregationMethod`
       self$`defaultTextAggregationMethod` <- `defaultTextAggregationMethod`
       self$`endToSeriesMaxDatetime` <- `endToSeriesMaxDatetime`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`startFromSeriesMinDatetime` <- `startFromSeriesMinDatetime`
       self$`target` <- `target`
       self$`timeStep` <- `timeStep`

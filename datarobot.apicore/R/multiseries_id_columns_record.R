@@ -41,7 +41,7 @@ MultiseriesIdColumnsRecord <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`multiseriesIdColumns` = NULL, `timeStep` = NULL, `timeUnit` = NULL) {
       if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`timeStep`)) {
         stopifnot(is.numeric(`timeStep`), length(`timeStep`) == 1)
@@ -69,7 +69,7 @@ MultiseriesIdColumnsRecord <- R6::R6Class(
         })
         private$validateProps(multiseriesIdColumns, timeStep, timeUnit)
       }
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`timeStep` <- `timeStep`
       self$`timeUnit` <- `timeUnit`
     },

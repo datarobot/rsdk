@@ -47,7 +47,7 @@ BiasVsAccuracyInsight <- R6::R6Class(
       if (!is.null(`fairnessThreshold`)) {
       }
       if (!is.null(`models`)) {
-        stopifnot(is.vector(`models`))
+        stopifnot(is.vector(`models`), sapply(`models`, R6::is.R6))
       }
       if (!is.null(`accuracyMetric`)) {
         stopifnot(is.character(`accuracyMetric`), length(`accuracyMetric`) == 1)
@@ -85,7 +85,7 @@ BiasVsAccuracyInsight <- R6::R6Class(
       self$`accuracyMetric` <- `accuracyMetric`
       self$`fairnessMetric` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = fairnessMetric)
       self$`fairnessThreshold` <- `fairnessThreshold`
-      sapply(`models`, function(x) stopifnot(R6::is.R6(x)))
+      self$`models` <- `models`
       self$`protectedFeature` <- .setPrimitiveProperty(typeList = list("character", "array"), propertyData = protectedFeature)
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

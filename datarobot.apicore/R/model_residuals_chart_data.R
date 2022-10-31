@@ -47,10 +47,10 @@ ModelResidualsChartData <- R6::R6Class(
       if (!is.null(`coefficientOfDetermination`)) {
       }
       if (!is.null(`data`)) {
-        stopifnot(is.vector(`data`))
+        stopifnot(is.vector(`data`), sapply(`data`, R6::is.R6))
       }
       if (!is.null(`histogram`)) {
-        stopifnot(is.vector(`histogram`))
+        stopifnot(is.vector(`histogram`), sapply(`histogram`, R6::is.R6))
       }
       if (!is.null(`residualMean`)) {
       }
@@ -81,8 +81,8 @@ ModelResidualsChartData <- R6::R6Class(
         private$validateProps(coefficientOfDetermination, data, histogram, residualMean, standardDeviation)
       }
       self$`coefficientOfDetermination` <- `coefficientOfDetermination`
-      sapply(`data`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`histogram`, function(x) stopifnot(R6::is.R6(x)))
+      self$`data` <- `data`
+      self$`histogram` <- `histogram`
       self$`residualMean` <- `residualMean`
       self$`standardDeviation` <- `standardDeviation`
     },

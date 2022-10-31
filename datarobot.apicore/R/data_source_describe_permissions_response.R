@@ -67,7 +67,7 @@ DataSourceDescribePermissionsResponse <- R6::R6Class(
         stopifnot(is.logical(`canEdit`), length(`canEdit`) == 1)
       }
       if (!is.null(`canSetRoles`)) {
-        stopifnot(is.vector(`canSetRoles`))
+        stopifnot(is.vector(`canSetRoles`), sapply(`canSetRoles`, is.character))
       }
       if (!is.null(`canShare`)) {
         stopifnot(is.logical(`canShare`), length(`canShare`) == 1)
@@ -122,7 +122,7 @@ DataSourceDescribePermissionsResponse <- R6::R6Class(
       self$`canCreateProject` <- `canCreateProject`
       self$`canDelete` <- `canDelete`
       self$`canEdit` <- `canEdit`
-      sapply(`canSetRoles`, function(x) stopifnot(is.character(x)))
+      self$`canSetRoles` <- `canSetRoles`
       self$`canShare` <- `canShare`
       self$`canView` <- `canView`
       self$`dataSourceId` <- `dataSourceId`

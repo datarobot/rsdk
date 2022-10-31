@@ -53,8 +53,8 @@ AutopilotStart <- R6::R6Class(
       if (!is.null(`featurelistId`)) {
         stopifnot(is.character(`featurelistId`), length(`featurelistId`) == 1)
       }
-      if (!is.null(`autopilotClusterList`)) {
-        stopifnot(is.vector(`autopilotClusterList`))
+      if (!is.null(`autopilotClusterList`) && length(`autopilotClusterList`) > 0) {
+        stopifnot(is.vector(`autopilotClusterList`), sapply(`autopilotClusterList`, is.numeric))
       }
       if (!is.null(`blendBestModels`)) {
         stopifnot(is.logical(`blendBestModels`), length(`blendBestModels`) == 1)
@@ -104,7 +104,7 @@ AutopilotStart <- R6::R6Class(
         })
         private$validateProps(autopilotClusterList, blendBestModels, considerBlendersInRecommendation, featurelistId, mode, prepareModelForDeployment, runLeakageRemovedFeatureList, scoringCodeOnly)
       }
-      sapply(`autopilotClusterList`, function(x) stopifnot(is.character(x)))
+      self$`autopilotClusterList` <- `autopilotClusterList`
       self$`blendBestModels` <- `blendBestModels`
       self$`considerBlendersInRecommendation` <- `considerBlendersInRecommendation`
       self$`featurelistId` <- `featurelistId`

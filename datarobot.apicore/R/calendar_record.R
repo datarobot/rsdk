@@ -74,7 +74,7 @@ CalendarRecord <- R6::R6Class(
         stopifnot(inherits(`latestEvent`, "POSIXt"))
       }
       if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
@@ -86,7 +86,7 @@ CalendarRecord <- R6::R6Class(
         stopifnot(is.numeric(`numEvents`), length(`numEvents`) == 1)
       }
       if (!is.null(`projectId`)) {
-        stopifnot(is.vector(`projectId`))
+        stopifnot(is.vector(`projectId`), sapply(`projectId`, is.character))
       }
       if (!is.null(`role`)) {
         stopifnot(is.character(`role`), length(`role`) == 1)
@@ -137,11 +137,11 @@ CalendarRecord <- R6::R6Class(
       self$`earliestEvent` <- `earliestEvent`
       self$`id` <- `id`
       self$`latestEvent` <- `latestEvent`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`name` <- `name`
       self$`numEventTypes` <- `numEventTypes`
       self$`numEvents` <- `numEvents`
-      sapply(`projectId`, function(x) stopifnot(is.character(x)))
+      self$`projectId` <- `projectId`
       self$`role` <- `role`
       self$`source` <- `source`
     },

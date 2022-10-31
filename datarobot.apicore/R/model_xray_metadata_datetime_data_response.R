@@ -44,7 +44,7 @@ ModelXrayMetadataDatetimeDataResponse <- R6::R6Class(
         stopifnot(is.character(`backtestIndex`), length(`backtestIndex`) == 1)
       }
       if (!is.null(`sources`)) {
-        stopifnot(is.vector(`sources`))
+        stopifnot(is.vector(`sources`), sapply(`sources`, is.character))
       }
       if (!is.null(`status`)) {
         stopifnot(is.character(`status`), length(`status`) == 1)
@@ -70,7 +70,7 @@ ModelXrayMetadataDatetimeDataResponse <- R6::R6Class(
         private$validateProps(backtestIndex, sources, status)
       }
       self$`backtestIndex` <- `backtestIndex`
-      sapply(`sources`, function(x) stopifnot(is.character(x)))
+      self$`sources` <- `sources`
       self$`status` <- `status`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

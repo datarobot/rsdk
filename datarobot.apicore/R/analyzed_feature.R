@@ -45,7 +45,7 @@ AnalyzedFeature <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`detailsHistogram` = NULL, `disparityScore` = NULL, `featureImpact` = NULL, `name` = NULL, `status` = NULL) {
       if (!is.null(`detailsHistogram`)) {
-        stopifnot(is.vector(`detailsHistogram`))
+        stopifnot(is.vector(`detailsHistogram`), sapply(`detailsHistogram`, R6::is.R6))
       }
       if (!is.null(`disparityScore`)) {
       }
@@ -81,7 +81,7 @@ AnalyzedFeature <- R6::R6Class(
         })
         private$validateProps(detailsHistogram, disparityScore, featureImpact, name, status)
       }
-      sapply(`detailsHistogram`, function(x) stopifnot(R6::is.R6(x)))
+      self$`detailsHistogram` <- `detailsHistogram`
       self$`disparityScore` <- `disparityScore`
       self$`featureImpact` <- `featureImpact`
       self$`name` <- `name`

@@ -39,7 +39,7 @@ DeploymentPredictionUsageResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`dailyRates` = NULL, `lastTimestamp` = NULL) {
       if (!is.null(`dailyRates`)) {
-        stopifnot(is.vector(`dailyRates`))
+        stopifnot(is.vector(`dailyRates`), sapply(`dailyRates`, is.numeric))
       }
       if (!is.null(`lastTimestamp`)) {
         stopifnot(inherits(`lastTimestamp`, "POSIXt"))
@@ -62,7 +62,7 @@ DeploymentPredictionUsageResponse <- R6::R6Class(
         })
         private$validateProps(dailyRates, lastTimestamp)
       }
-      sapply(`dailyRates`, function(x) stopifnot(is.character(x)))
+      self$`dailyRates` <- `dailyRates`
       self$`lastTimestamp` <- `lastTimestamp`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

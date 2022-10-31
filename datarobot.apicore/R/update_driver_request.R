@@ -50,8 +50,8 @@ UpdateDriverRequest <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`baseNames` = NULL, `canonicalName` = NULL, `className` = NULL, `configurationId` = NULL, `localJarUrls` = NULL, `removeConfig` = NULL, `skipConfigVerification` = NULL, `version` = NULL) {
-      if (!is.null(`baseNames`)) {
-        stopifnot(is.vector(`baseNames`))
+      if (!is.null(`baseNames`) && length(`baseNames`) > 0) {
+        stopifnot(is.vector(`baseNames`), sapply(`baseNames`, is.character))
       }
       if (!is.null(`canonicalName`)) {
         stopifnot(is.character(`canonicalName`), length(`canonicalName`) == 1)
@@ -62,8 +62,8 @@ UpdateDriverRequest <- R6::R6Class(
       if (!is.null(`configurationId`)) {
         stopifnot(is.character(`configurationId`), length(`configurationId`) == 1)
       }
-      if (!is.null(`localJarUrls`)) {
-        stopifnot(is.vector(`localJarUrls`))
+      if (!is.null(`localJarUrls`) && length(`localJarUrls`) > 0) {
+        stopifnot(is.vector(`localJarUrls`), sapply(`localJarUrls`, is.character))
       }
       if (!is.null(`removeConfig`)) {
         stopifnot(is.logical(`removeConfig`), length(`removeConfig`) == 1)
@@ -104,11 +104,11 @@ UpdateDriverRequest <- R6::R6Class(
         })
         private$validateProps(baseNames, canonicalName, className, configurationId, localJarUrls, removeConfig, skipConfigVerification, version)
       }
-      sapply(`baseNames`, function(x) stopifnot(is.character(x)))
+      self$`baseNames` <- `baseNames`
       self$`canonicalName` <- `canonicalName`
       self$`className` <- `className`
       self$`configurationId` <- `configurationId`
-      sapply(`localJarUrls`, function(x) stopifnot(is.character(x)))
+      self$`localJarUrls` <- `localJarUrls`
       self$`removeConfig` <- `removeConfig`
       self$`skipConfigVerification` <- `skipConfigVerification`
       self$`version` <- `version`

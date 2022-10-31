@@ -47,7 +47,7 @@ AverageModelMetricsValues <- R6::R6Class(
         stopifnot(is.numeric(`numLabelsUsedInCalculation`), length(`numLabelsUsedInCalculation`) == 1)
       }
       if (!is.null(`values`)) {
-        stopifnot(is.vector(`values`))
+        stopifnot(is.vector(`values`), sapply(`values`, is.numeric))
       }
     }
   ),
@@ -71,7 +71,7 @@ AverageModelMetricsValues <- R6::R6Class(
       }
       self$`name` <- `name`
       self$`numLabelsUsedInCalculation` <- `numLabelsUsedInCalculation`
-      sapply(`values`, function(x) stopifnot(is.character(x)))
+      self$`values` <- `values`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

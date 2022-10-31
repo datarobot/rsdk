@@ -39,10 +39,10 @@ UserBlueprintsBulkDeleteResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`failedToDelete` = NULL, `successfullyDeleted` = NULL) {
       if (!is.null(`failedToDelete`)) {
-        stopifnot(is.vector(`failedToDelete`))
+        stopifnot(is.vector(`failedToDelete`), sapply(`failedToDelete`, is.character))
       }
       if (!is.null(`successfullyDeleted`)) {
-        stopifnot(is.vector(`successfullyDeleted`))
+        stopifnot(is.vector(`successfullyDeleted`), sapply(`successfullyDeleted`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ UserBlueprintsBulkDeleteResponse <- R6::R6Class(
         })
         private$validateProps(failedToDelete, successfullyDeleted)
       }
-      sapply(`failedToDelete`, function(x) stopifnot(is.character(x)))
-      sapply(`successfullyDeleted`, function(x) stopifnot(is.character(x)))
+      self$`failedToDelete` <- `failedToDelete`
+      self$`successfullyDeleted` <- `successfullyDeleted`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

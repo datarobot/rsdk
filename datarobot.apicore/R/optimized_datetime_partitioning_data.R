@@ -115,8 +115,8 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       if (!is.null(`allowPartialHistoryTimeSeriesPredictions`)) {
         stopifnot(is.logical(`allowPartialHistoryTimeSeriesPredictions`), length(`allowPartialHistoryTimeSeriesPredictions`) == 1)
       }
-      if (!is.null(`autopilotClusterList`)) {
-        stopifnot(is.vector(`autopilotClusterList`))
+      if (!is.null(`autopilotClusterList`) && length(`autopilotClusterList`) > 0) {
+        stopifnot(is.vector(`autopilotClusterList`), sapply(`autopilotClusterList`, is.numeric))
       }
       if (!is.null(`autopilotDataSelectionMethod`)) {
         stopifnot(is.character(`autopilotDataSelectionMethod`), length(`autopilotDataSelectionMethod`) == 1)
@@ -127,8 +127,8 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       if (!is.null(`calendarId`)) {
         stopifnot(is.character(`calendarId`), length(`calendarId`) == 1)
       }
-      if (!is.null(`crossSeriesGroupByColumns`)) {
-        stopifnot(is.vector(`crossSeriesGroupByColumns`))
+      if (!is.null(`crossSeriesGroupByColumns`) && length(`crossSeriesGroupByColumns`) > 0) {
+        stopifnot(is.vector(`crossSeriesGroupByColumns`), sapply(`crossSeriesGroupByColumns`, is.character))
       }
       if (!is.null(`defaultToAPriori`)) {
         stopifnot(is.logical(`defaultToAPriori`), length(`defaultToAPriori`) == 1)
@@ -151,8 +151,8 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       if (!is.null(`featureDerivationWindowStart`)) {
         stopifnot(is.numeric(`featureDerivationWindowStart`), length(`featureDerivationWindowStart`) == 1)
       }
-      if (!is.null(`featureSettings`)) {
-        stopifnot(is.vector(`featureSettings`))
+      if (!is.null(`featureSettings`) && length(`featureSettings`) > 0) {
+        stopifnot(is.vector(`featureSettings`), sapply(`featureSettings`, R6::is.R6))
       }
       if (!is.null(`forecastWindowEnd`)) {
         stopifnot(is.numeric(`forecastWindowEnd`), length(`forecastWindowEnd`) == 1)
@@ -178,14 +178,14 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       if (!is.null(`modelSplits`)) {
         stopifnot(is.numeric(`modelSplits`), length(`modelSplits`) == 1)
       }
-      if (!is.null(`multiseriesIdColumns`)) {
-        stopifnot(is.vector(`multiseriesIdColumns`))
+      if (!is.null(`multiseriesIdColumns`) && length(`multiseriesIdColumns`) > 0) {
+        stopifnot(is.vector(`multiseriesIdColumns`), sapply(`multiseriesIdColumns`, is.character))
       }
       if (!is.null(`numberOfBacktests`)) {
         stopifnot(is.numeric(`numberOfBacktests`), length(`numberOfBacktests`) == 1)
       }
-      if (!is.null(`periodicities`)) {
-        stopifnot(is.vector(`periodicities`))
+      if (!is.null(`periodicities`) && length(`periodicities`) > 0) {
+        stopifnot(is.vector(`periodicities`), sapply(`periodicities`, R6::is.R6))
       }
       if (!is.null(`target`)) {
         stopifnot(is.character(`target`), length(`target`) == 1)
@@ -302,11 +302,11 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       }
       self$`aggregationType` <- `aggregationType`
       self$`allowPartialHistoryTimeSeriesPredictions` <- `allowPartialHistoryTimeSeriesPredictions`
-      sapply(`autopilotClusterList`, function(x) stopifnot(is.character(x)))
+      self$`autopilotClusterList` <- `autopilotClusterList`
       self$`autopilotDataSelectionMethod` <- `autopilotDataSelectionMethod`
-      self$`backtests` <- .setComplexProperty(typeList = list(BacktestOldMethodForOpenApi, BacktestNewMethodForOpenApi), propertyData = backtests)
+      self$`backtests` <- sapply(`backtests`, function(item) .setComplexProperty(typeList = list(BacktestOldMethodForOpenApi, BacktestNewMethodForOpenApi), propertyData = item))
       self$`calendarId` <- `calendarId`
-      sapply(`crossSeriesGroupByColumns`, function(x) stopifnot(is.character(x)))
+      self$`crossSeriesGroupByColumns` <- `crossSeriesGroupByColumns`
       self$`datetimePartitionColumn` <- `datetimePartitionColumn`
       self$`defaultToAPriori` <- `defaultToAPriori`
       self$`defaultToDoNotDerive` <- `defaultToDoNotDerive`
@@ -315,7 +315,7 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       self$`disableHoldout` <- `disableHoldout`
       self$`featureDerivationWindowEnd` <- `featureDerivationWindowEnd`
       self$`featureDerivationWindowStart` <- `featureDerivationWindowStart`
-      sapply(`featureSettings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureSettings` <- `featureSettings`
       self$`forecastWindowEnd` <- `forecastWindowEnd`
       self$`forecastWindowStart` <- `forecastWindowStart`
       self$`gapDuration` <- `gapDuration`
@@ -324,9 +324,9 @@ OptimizedDatetimePartitioningData <- R6::R6Class(
       self$`holdoutStartDate` <- `holdoutStartDate`
       self$`isHoldoutModified` <- `isHoldoutModified`
       self$`modelSplits` <- `modelSplits`
-      sapply(`multiseriesIdColumns`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesIdColumns` <- `multiseriesIdColumns`
       self$`numberOfBacktests` <- `numberOfBacktests`
-      sapply(`periodicities`, function(x) stopifnot(R6::is.R6(x)))
+      self$`periodicities` <- `periodicities`
       self$`target` <- `target`
       self$`treatAsExponential` <- `treatAsExponential`
       self$`unsupervisedMode` <- `unsupervisedMode`

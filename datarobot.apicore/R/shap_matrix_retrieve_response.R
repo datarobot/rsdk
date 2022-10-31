@@ -37,7 +37,7 @@ ShapMatrixRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`columnNames` = NULL) {
       if (!is.null(`columnNames`)) {
-        stopifnot(is.vector(`columnNames`))
+        stopifnot(is.vector(`columnNames`), sapply(`columnNames`, is.character))
       }
     }
   ),
@@ -55,7 +55,7 @@ ShapMatrixRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(columnNames)
       }
-      sapply(`columnNames`, function(x) stopifnot(is.character(x)))
+      self$`columnNames` <- `columnNames`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

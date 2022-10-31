@@ -122,8 +122,8 @@ ProjectAdvancedOptionsResponse <- R6::R6Class(
       if (!is.null(`weights`)) {
         stopifnot(is.character(`weights`), length(`weights`) == 1)
       }
-      if (!is.null(`allowedPairwiseInteractionGroups`)) {
-        stopifnot(is.vector(`allowedPairwiseInteractionGroups`))
+      if (!is.null(`allowedPairwiseInteractionGroups`) && length(`allowedPairwiseInteractionGroups`) > 0) {
+        stopifnot(is.vector(`allowedPairwiseInteractionGroups`), sapply(`allowedPairwiseInteractionGroups`, R6::is.R6))
       }
       if (!is.null(`considerBlendersInRecommendation`)) {
         stopifnot(is.logical(`considerBlendersInRecommendation`), length(`considerBlendersInRecommendation`) == 1)
@@ -137,8 +137,8 @@ ProjectAdvancedOptionsResponse <- R6::R6Class(
       if (!is.null(`minSecondaryValidationModelCount`)) {
         stopifnot(is.logical(`minSecondaryValidationModelCount`), length(`minSecondaryValidationModelCount`) == 1)
       }
-      if (!is.null(`offset`)) {
-        stopifnot(is.vector(`offset`))
+      if (!is.null(`offset`) && length(`offset`) > 0) {
+        stopifnot(is.vector(`offset`), sapply(`offset`, is.character))
       }
       if (!is.null(`runLeakageRemovedFeatureList`)) {
         stopifnot(is.logical(`runLeakageRemovedFeatureList`), length(`runLeakageRemovedFeatureList`) == 1)
@@ -201,7 +201,7 @@ ProjectAdvancedOptionsResponse <- R6::R6Class(
         })
         private$validateProps(allowedPairwiseInteractionGroups, blendBestModels, blueprintThreshold, considerBlendersInRecommendation, defaultMonotonicDecreasingFeaturelistId, defaultMonotonicIncreasingFeaturelistId, downsampledMajorityRows, downsampledMinorityRows, eventsCount, exposure, majorityDownsamplingRate, minSecondaryValidationModelCount, offset, onlyIncludeMonotonicBlueprints, prepareModelForDeployment, responseCap, runLeakageRemovedFeatureList, scoringCodeOnly, seed, shapOnlyMode, smartDownsampled, weights)
       }
-      sapply(`allowedPairwiseInteractionGroups`, function(x) stopifnot(R6::is.R6(x)))
+      self$`allowedPairwiseInteractionGroups` <- `allowedPairwiseInteractionGroups`
       self$`blendBestModels` <- `blendBestModels`
       self$`blueprintThreshold` <- `blueprintThreshold`
       self$`considerBlendersInRecommendation` <- `considerBlendersInRecommendation`
@@ -213,7 +213,7 @@ ProjectAdvancedOptionsResponse <- R6::R6Class(
       self$`exposure` <- `exposure`
       self$`majorityDownsamplingRate` <- `majorityDownsamplingRate`
       self$`minSecondaryValidationModelCount` <- `minSecondaryValidationModelCount`
-      sapply(`offset`, function(x) stopifnot(is.character(x)))
+      self$`offset` <- `offset`
       self$`onlyIncludeMonotonicBlueprints` <- `onlyIncludeMonotonicBlueprints`
       self$`prepareModelForDeployment` <- `prepareModelForDeployment`
       self$`responseCap` <- .setPrimitiveProperty(typeList = list("logical", "numeric"), propertyData = responseCap)

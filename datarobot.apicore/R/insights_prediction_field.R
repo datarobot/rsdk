@@ -39,7 +39,7 @@ InsightsPredictionField <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`labels` = NULL, `values` = NULL) {
       if (!is.null(`labels`)) {
-        stopifnot(is.vector(`labels`))
+        stopifnot(is.vector(`labels`), sapply(`labels`, is.character))
       }
       if (!is.null(`values`)) {
         .setPrimitiveProperty(typeList = list("numeric", "array"), propertyData = values)
@@ -62,8 +62,8 @@ InsightsPredictionField <- R6::R6Class(
         })
         private$validateProps(labels, values)
       }
-      sapply(`labels`, function(x) stopifnot(is.character(x)))
-      self$`values` <- .setPrimitiveProperty(typeList = list("numeric", "array"), propertyData = values)
+      self$`labels` <- `labels`
+      self$`values` <- sapply(`values`, function(item) .setPrimitiveProperty(typeList = list("numeric", "array"), propertyData = item))
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

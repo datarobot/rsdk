@@ -43,7 +43,7 @@ BatchFeatureTransform <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`parentNames` = NULL, `prefix` = NULL, `suffix` = NULL, `variableType` = NULL) {
       if (!is.null(`parentNames`)) {
-        stopifnot(is.vector(`parentNames`))
+        stopifnot(is.vector(`parentNames`), sapply(`parentNames`, is.character))
       }
       if (!is.null(`variableType`)) {
         stopifnot(is.character(`variableType`), length(`variableType`) == 1)
@@ -76,7 +76,7 @@ BatchFeatureTransform <- R6::R6Class(
         })
         private$validateProps(parentNames, prefix, suffix, variableType)
       }
-      sapply(`parentNames`, function(x) stopifnot(is.character(x)))
+      self$`parentNames` <- `parentNames`
       self$`prefix` <- `prefix`
       self$`suffix` <- `suffix`
       self$`variableType` <- `variableType`

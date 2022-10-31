@@ -48,7 +48,7 @@ FeatureFitDatetimeResponse <- R6::R6Class(
         stopifnot(is.character(`backtestIndex`), length(`backtestIndex`) == 1)
       }
       if (!is.null(`featureFit`)) {
-        stopifnot(is.vector(`featureFit`))
+        stopifnot(is.vector(`featureFit`), sapply(`featureFit`, R6::is.R6))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -84,7 +84,7 @@ FeatureFitDatetimeResponse <- R6::R6Class(
         private$validateProps(backtestIndex, featureFit, modelId, projectId, source)
       }
       self$`backtestIndex` <- `backtestIndex`
-      sapply(`featureFit`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureFit` <- `featureFit`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
       self$`source` <- `source`

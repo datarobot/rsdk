@@ -37,7 +37,7 @@ ProjectNukeJobListStatus <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`jobs` = NULL) {
       if (!is.null(`jobs`)) {
-        stopifnot(is.vector(`jobs`))
+        stopifnot(is.vector(`jobs`), sapply(`jobs`, R6::is.R6))
       }
     }
   ),
@@ -55,7 +55,7 @@ ProjectNukeJobListStatus <- R6::R6Class(
         })
         private$validateProps(jobs)
       }
-      sapply(`jobs`, function(x) stopifnot(R6::is.R6(x)))
+      self$`jobs` <- `jobs`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

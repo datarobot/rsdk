@@ -42,7 +42,7 @@ MulticlassFeatureImpact <- R6::R6Class(
         stopifnot(is.character(`class`), length(`class`) == 1)
       }
       if (!is.null(`featureImpacts`)) {
-        stopifnot(is.vector(`featureImpacts`))
+        stopifnot(is.vector(`featureImpacts`), sapply(`featureImpacts`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ MulticlassFeatureImpact <- R6::R6Class(
         private$validateProps(class, featureImpacts)
       }
       self$`class` <- `class`
-      sapply(`featureImpacts`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureImpacts` <- `featureImpacts`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

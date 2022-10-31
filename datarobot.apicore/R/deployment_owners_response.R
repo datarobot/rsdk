@@ -42,7 +42,7 @@ DeploymentOwnersResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`preview`)) {
-        stopifnot(is.vector(`preview`))
+        stopifnot(is.vector(`preview`), sapply(`preview`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ DeploymentOwnersResponse <- R6::R6Class(
         private$validateProps(count, preview)
       }
       self$`count` <- `count`
-      sapply(`preview`, function(x) stopifnot(R6::is.R6(x)))
+      self$`preview` <- `preview`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -47,7 +47,7 @@ PartitioningExtendedWarning <- R6::R6Class(
         stopifnot(is.character(`partition`), length(`partition`) == 1)
       }
       if (!is.null(`warnings`)) {
-        stopifnot(is.vector(`warnings`))
+        stopifnot(is.vector(`warnings`), sapply(`warnings`, R6::is.R6))
       }
     }
   ),
@@ -71,7 +71,7 @@ PartitioningExtendedWarning <- R6::R6Class(
       }
       self$`backtestIndex` <- `backtestIndex`
       self$`partition` <- `partition`
-      sapply(`warnings`, function(x) stopifnot(R6::is.R6(x)))
+      self$`warnings` <- `warnings`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

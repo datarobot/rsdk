@@ -4,7 +4,7 @@
 \alias{RetrieveBatchPredictions}
 \title{RetrieveBatchPredictions}
 \usage{
-RetrieveBatchPredictions(predictionJobId, partNumber = 0, ...)
+RetrieveBatchPredictions(predictionJobId, ...)
 }
 \arguments{
 \item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}

@@ -70,7 +70,7 @@ BlueprintResponse <- R6::R6Class(
         stopifnot(is.character(`monotonicIncreasingFeaturelistId`), length(`monotonicIncreasingFeaturelistId`) == 1)
       }
       if (!is.null(`processes`)) {
-        stopifnot(is.vector(`processes`))
+        stopifnot(is.vector(`processes`), sapply(`processes`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -123,7 +123,7 @@ BlueprintResponse <- R6::R6Class(
       self$`modelType` <- `modelType`
       self$`monotonicDecreasingFeaturelistId` <- `monotonicDecreasingFeaturelistId`
       self$`monotonicIncreasingFeaturelistId` <- `monotonicIncreasingFeaturelistId`
-      sapply(`processes`, function(x) stopifnot(is.character(x)))
+      self$`processes` <- `processes`
       self$`projectId` <- `projectId`
       self$`recommendedFeaturelistId` <- `recommendedFeaturelistId`
       self$`supportsComposableMl` <- `supportsComposableMl`

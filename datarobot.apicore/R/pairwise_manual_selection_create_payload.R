@@ -47,7 +47,7 @@ PairwiseManualSelectionCreatePayload <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`columnLabels` = NULL, `featureName` = NULL, `multilabelInsightsKey` = NULL, `name` = NULL, `projectId` = NULL, `rowLabels` = NULL) {
       if (!is.null(`columnLabels`)) {
-        stopifnot(is.vector(`columnLabels`))
+        stopifnot(is.vector(`columnLabels`), sapply(`columnLabels`, is.character))
       }
       if (!is.null(`featureName`)) {
         stopifnot(is.character(`featureName`), length(`featureName`) == 1)
@@ -62,7 +62,7 @@ PairwiseManualSelectionCreatePayload <- R6::R6Class(
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
       if (!is.null(`rowLabels`)) {
-        stopifnot(is.vector(`rowLabels`))
+        stopifnot(is.vector(`rowLabels`), sapply(`rowLabels`, is.character))
       }
     }
   ),
@@ -90,12 +90,12 @@ PairwiseManualSelectionCreatePayload <- R6::R6Class(
         })
         private$validateProps(columnLabels, featureName, multilabelInsightsKey, name, projectId, rowLabels)
       }
-      sapply(`columnLabels`, function(x) stopifnot(is.character(x)))
+      self$`columnLabels` <- `columnLabels`
       self$`featureName` <- `featureName`
       self$`multilabelInsightsKey` <- `multilabelInsightsKey`
       self$`name` <- `name`
       self$`projectId` <- `projectId`
-      sapply(`rowLabels`, function(x) stopifnot(is.character(x)))
+      self$`rowLabels` <- `rowLabels`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

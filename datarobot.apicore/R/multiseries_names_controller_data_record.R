@@ -37,7 +37,7 @@ MultiseriesNamesControllerDataRecord <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`items` = NULL) {
       if (!is.null(`items`)) {
-        stopifnot(is.vector(`items`))
+        stopifnot(is.vector(`items`), sapply(`items`, is.character))
       }
     }
   ),
@@ -55,7 +55,7 @@ MultiseriesNamesControllerDataRecord <- R6::R6Class(
         })
         private$validateProps(items)
       }
-      sapply(`items`, function(x) stopifnot(is.character(x)))
+      self$`items` <- `items`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

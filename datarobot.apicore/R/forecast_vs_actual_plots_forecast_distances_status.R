@@ -44,20 +44,20 @@ ForecastVsActualPlotsForecastDistancesStatus <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`completed` = NULL, `errored` = NULL, `inProgress` = NULL, `insufficientData` = NULL, `notCompleted` = NULL) {
-      if (!is.null(`completed`)) {
-        stopifnot(is.vector(`completed`))
+      if (!is.null(`completed`) && length(`completed`) > 0) {
+        stopifnot(is.vector(`completed`), sapply(`completed`, is.numeric))
       }
-      if (!is.null(`errored`)) {
-        stopifnot(is.vector(`errored`))
+      if (!is.null(`errored`) && length(`errored`) > 0) {
+        stopifnot(is.vector(`errored`), sapply(`errored`, is.numeric))
       }
-      if (!is.null(`inProgress`)) {
-        stopifnot(is.vector(`inProgress`))
+      if (!is.null(`inProgress`) && length(`inProgress`) > 0) {
+        stopifnot(is.vector(`inProgress`), sapply(`inProgress`, is.numeric))
       }
-      if (!is.null(`insufficientData`)) {
-        stopifnot(is.vector(`insufficientData`))
+      if (!is.null(`insufficientData`) && length(`insufficientData`) > 0) {
+        stopifnot(is.vector(`insufficientData`), sapply(`insufficientData`, is.numeric))
       }
-      if (!is.null(`notCompleted`)) {
-        stopifnot(is.vector(`notCompleted`))
+      if (!is.null(`notCompleted`) && length(`notCompleted`) > 0) {
+        stopifnot(is.vector(`notCompleted`), sapply(`notCompleted`, is.numeric))
       }
     }
   ),
@@ -83,11 +83,11 @@ ForecastVsActualPlotsForecastDistancesStatus <- R6::R6Class(
         })
         private$validateProps(completed, errored, inProgress, insufficientData, notCompleted)
       }
-      sapply(`completed`, function(x) stopifnot(is.character(x)))
-      sapply(`errored`, function(x) stopifnot(is.character(x)))
-      sapply(`inProgress`, function(x) stopifnot(is.character(x)))
-      sapply(`insufficientData`, function(x) stopifnot(is.character(x)))
-      sapply(`notCompleted`, function(x) stopifnot(is.character(x)))
+      self$`completed` <- `completed`
+      self$`errored` <- `errored`
+      self$`inProgress` <- `inProgress`
+      self$`insufficientData` <- `insufficientData`
+      self$`notCompleted` <- `notCompleted`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

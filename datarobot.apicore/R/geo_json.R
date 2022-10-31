@@ -39,7 +39,7 @@ GeoJSON <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`coordinates` = NULL, `type` = NULL) {
       if (!is.null(`coordinates`)) {
-        stopifnot(is.vector(`coordinates`))
+        stopifnot(is.vector(`coordinates`), sapply(`coordinates`, is.character))
       }
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -62,7 +62,7 @@ GeoJSON <- R6::R6Class(
         })
         private$validateProps(coordinates, type)
       }
-      sapply(`coordinates`, function(x) stopifnot(is.character(x)))
+      self$`coordinates` <- `coordinates`
       self$`type` <- `type`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

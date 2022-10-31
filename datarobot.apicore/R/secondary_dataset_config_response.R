@@ -83,11 +83,11 @@ SecondaryDatasetConfigResponse <- R6::R6Class(
       if (!is.null(`secondaryDatasetConfigId`)) {
         stopifnot(is.character(`secondaryDatasetConfigId`), length(`secondaryDatasetConfigId`) == 1)
       }
-      if (!is.null(`credentialIds`)) {
-        stopifnot(is.vector(`credentialIds`))
+      if (!is.null(`credentialIds`) && length(`credentialIds`) > 0) {
+        stopifnot(is.vector(`credentialIds`), sapply(`credentialIds`, R6::is.R6))
       }
-      if (!is.null(`secondaryDatasets`)) {
-        stopifnot(is.vector(`secondaryDatasets`))
+      if (!is.null(`secondaryDatasets`) && length(`secondaryDatasets`) > 0) {
+        stopifnot(is.vector(`secondaryDatasets`), sapply(`secondaryDatasets`, R6::is.R6))
       }
     }
   ),
@@ -128,14 +128,14 @@ SecondaryDatasetConfigResponse <- R6::R6Class(
       self$`created` <- `created`
       self$`creatorFullName` <- `creatorFullName`
       self$`creatorUserId` <- `creatorUserId`
-      sapply(`credentialIds`, function(x) stopifnot(R6::is.R6(x)))
+      self$`credentialIds` <- `credentialIds`
       self$`featurelistId` <- `featurelistId`
       self$`isDefault` <- `isDefault`
       self$`isDeleted` <- `isDeleted`
       self$`name` <- `name`
       self$`projectId` <- `projectId`
       self$`secondaryDatasetConfigId` <- `secondaryDatasetConfigId`
-      sapply(`secondaryDatasets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`secondaryDatasets` <- `secondaryDatasets`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

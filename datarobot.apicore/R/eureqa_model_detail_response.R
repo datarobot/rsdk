@@ -66,7 +66,7 @@ EureqaModelDetailResponse <- R6::R6Class(
         stopifnot(is.character(`expressionAnnotated`), length(`expressionAnnotated`) == 1)
       }
       if (!is.null(`plotData`)) {
-        stopifnot(is.vector(`plotData`))
+        stopifnot(is.vector(`plotData`), sapply(`plotData`, R6::is.R6))
       }
     }
   ),
@@ -102,7 +102,7 @@ EureqaModelDetailResponse <- R6::R6Class(
       self$`eureqaSolutionId` <- `eureqaSolutionId`
       self$`expression` <- `expression`
       self$`expressionAnnotated` <- `expressionAnnotated`
-      sapply(`plotData`, function(x) stopifnot(R6::is.R6(x)))
+      self$`plotData` <- `plotData`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

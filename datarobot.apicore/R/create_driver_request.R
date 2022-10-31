@@ -47,10 +47,10 @@ CreateDriverRequest <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`baseNames` = NULL, `canonicalName` = NULL, `className` = NULL, `configurationId` = NULL, `localJarUrls` = NULL, `version` = NULL) {
       if (!is.null(`baseNames`)) {
-        stopifnot(is.vector(`baseNames`))
+        stopifnot(is.vector(`baseNames`), sapply(`baseNames`, is.character))
       }
       if (!is.null(`localJarUrls`)) {
-        stopifnot(is.vector(`localJarUrls`))
+        stopifnot(is.vector(`localJarUrls`), sapply(`localJarUrls`, is.character))
       }
       if (!is.null(`canonicalName`)) {
         stopifnot(is.character(`canonicalName`), length(`canonicalName`) == 1)
@@ -90,11 +90,11 @@ CreateDriverRequest <- R6::R6Class(
         })
         private$validateProps(baseNames, canonicalName, className, configurationId, localJarUrls, version)
       }
-      sapply(`baseNames`, function(x) stopifnot(is.character(x)))
+      self$`baseNames` <- `baseNames`
       self$`canonicalName` <- `canonicalName`
       self$`className` <- `className`
       self$`configurationId` <- `configurationId`
-      sapply(`localJarUrls`, function(x) stopifnot(is.character(x)))
+      self$`localJarUrls` <- `localJarUrls`
       self$`version` <- `version`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

@@ -78,7 +78,7 @@ ModelJobResponse <- R6::R6Class(
         stopifnot(is.character(`modelType`), length(`modelType`) == 1)
       }
       if (!is.null(`processes`)) {
-        stopifnot(is.vector(`processes`))
+        stopifnot(is.vector(`processes`), sapply(`processes`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -131,7 +131,7 @@ ModelJobResponse <- R6::R6Class(
       self$`modelCategory` <- `modelCategory`
       self$`modelId` <- `modelId`
       self$`modelType` <- `modelType`
-      sapply(`processes`, function(x) stopifnot(is.character(x)))
+      self$`processes` <- `processes`
       self$`projectId` <- `projectId`
       self$`samplePct` <- `samplePct`
       self$`status` <- `status`

@@ -81,8 +81,8 @@ CustomModelCreate <- R6::R6Class(
       if (!is.null(`calibratePredictions`)) {
         stopifnot(is.logical(`calibratePredictions`), length(`calibratePredictions`) == 1)
       }
-      if (!is.null(`classLabels`)) {
-        stopifnot(is.vector(`classLabels`))
+      if (!is.null(`classLabels`) && length(`classLabels`) > 0) {
+        stopifnot(is.vector(`classLabels`), sapply(`classLabels`, is.character))
       }
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -182,7 +182,7 @@ CustomModelCreate <- R6::R6Class(
         private$validateProps(calibratePredictions, classLabels, customModelType, description, desiredMemory, language, maximumMemory, name, negativeClassLabel, networkEgressPolicy, positiveClassLabel, predictionThreshold, replicas, requiresHa, supportsBinaryClassification, supportsRegression, targetName, targetType, userProvidedId)
       }
       self$`calibratePredictions` <- `calibratePredictions`
-      sapply(`classLabels`, function(x) stopifnot(is.character(x)))
+      self$`classLabels` <- `classLabels`
       self$`customModelType` <- `customModelType`
       self$`description` <- `description`
       self$`desiredMemory` <- `desiredMemory`

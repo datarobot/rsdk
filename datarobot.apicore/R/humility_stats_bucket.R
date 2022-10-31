@@ -42,7 +42,7 @@ HumilityStatsBucket <- R6::R6Class(
         stopifnot(R6::is.R6(`period`))
       }
       if (!is.null(`values`)) {
-        stopifnot(is.vector(`values`))
+        stopifnot(is.vector(`values`), sapply(`values`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ HumilityStatsBucket <- R6::R6Class(
         private$validateProps(period, values)
       }
       self$`period` <- `period`
-      sapply(`values`, function(x) stopifnot(R6::is.R6(x)))
+      self$`values` <- `values`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

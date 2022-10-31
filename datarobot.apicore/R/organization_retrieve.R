@@ -154,8 +154,8 @@ OrganizationRetrieve <- R6::R6Class(
       if (!is.null(`supportEmail`)) {
         stopifnot(is.character(`supportEmail`), length(`supportEmail`) == 1)
       }
-      if (!is.null(`accountPermissions`)) {
-        stopifnot(is.vector(`accountPermissions`))
+      if (!is.null(`accountPermissions`) && length(`accountPermissions`) > 0) {
+        stopifnot(is.vector(`accountPermissions`), sapply(`accountPermissions`, is.character))
       }
       if (!is.null(`desiredCustomModelContainerSize`)) {
         stopifnot(is.numeric(`desiredCustomModelContainerSize`), length(`desiredCustomModelContainerSize`) == 1)
@@ -258,7 +258,7 @@ OrganizationRetrieve <- R6::R6Class(
         })
         private$validateProps(accountPermissions, agreementStatus, datasetRefreshJobLimit, datasetRefreshJobUserLimit, defaultUserMaxGpuWorkers, defaultUserMaxWorkers, desiredCustomModelContainerSize, enableSso, groupsCount, id, inactiveUsersCount, maxCustomModelContainerSize, maxCustomModelReplicasPerDeployment, maxCustomModelReplicasPerDeploymentForBatchPredictions, maxDeploymentLimit, maxEdaWorkers, maxGpuWorkers, maxPipelineModuleRuntimes, maxUploadSize, maxUploadSizeCatalog, maxWorkers, maximumActiveUsers, membersCount, mlopsEventStorageRetentionDays, name, ormVersion, prepaidDeploymentLimit, restrictedSharing, snapshotLimit, supportEmail)
       }
-      sapply(`accountPermissions`, function(x) stopifnot(is.character(x)))
+      self$`accountPermissions` <- `accountPermissions`
       self$`agreementStatus` <- `agreementStatus`
       self$`datasetRefreshJobLimit` <- `datasetRefreshJobLimit`
       self$`datasetRefreshJobUserLimit` <- `datasetRefreshJobUserLimit`

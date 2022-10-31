@@ -53,8 +53,8 @@ TimeSeriesOptions <- R6::R6Class(
       if (!is.null(`exponentiallyWeightedMovingAlpha`)) {
         stopifnot(is.numeric(`exponentiallyWeightedMovingAlpha`), length(`exponentiallyWeightedMovingAlpha`) == 1)
       }
-      if (!is.null(`periodicities`)) {
-        stopifnot(is.vector(`periodicities`))
+      if (!is.null(`periodicities`) && length(`periodicities`) > 0) {
+        stopifnot(is.vector(`periodicities`), sapply(`periodicities`, R6::is.R6))
       }
       if (!is.null(`treatAsExponential`)) {
         stopifnot(is.character(`treatAsExponential`), length(`treatAsExponential`) == 1)
@@ -86,7 +86,7 @@ TimeSeriesOptions <- R6::R6Class(
       self$`calendarId` <- `calendarId`
       self$`differencingMethod` <- `differencingMethod`
       self$`exponentiallyWeightedMovingAlpha` <- `exponentiallyWeightedMovingAlpha`
-      sapply(`periodicities`, function(x) stopifnot(R6::is.R6(x)))
+      self$`periodicities` <- `periodicities`
       self$`treatAsExponential` <- `treatAsExponential`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

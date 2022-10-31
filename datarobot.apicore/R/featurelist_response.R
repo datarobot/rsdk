@@ -57,7 +57,7 @@ FeaturelistResponse <- R6::R6Class(
         stopifnot(is.character(`description`), length(`description`) == 1)
       }
       if (!is.null(`features`)) {
-        stopifnot(is.vector(`features`))
+        stopifnot(is.vector(`features`), sapply(`features`, is.character))
       }
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
@@ -106,7 +106,7 @@ FeaturelistResponse <- R6::R6Class(
       }
       self$`created` <- `created`
       self$`description` <- `description`
-      sapply(`features`, function(x) stopifnot(is.character(x)))
+      self$`features` <- `features`
       self$`id` <- `id`
       self$`isUserCreated` <- `isUserCreated`
       self$`name` <- `name`

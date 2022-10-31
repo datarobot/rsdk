@@ -10,8 +10,6 @@ RetrieveAutomatedDocuments(documentId, filename, ...)
 \item{documentId}{character. The ID of the automated documentation to download}
 
 \item{filename}{character. Filename of file to save the automated documentation to.}
-
-\item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}
 }
 \value{
 Nothing returned, but downloads the file to the stated filename.

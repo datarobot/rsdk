@@ -54,8 +54,8 @@ SamlClientConfig <- R6::R6Class(
       if (!is.null(`certUnderscorefileUnderscorevalue`)) {
         stopifnot(is.character(`certUnderscorefileUnderscorevalue`), length(`certUnderscorefileUnderscorevalue`) == 1)
       }
-      if (!is.null(`encryptionUnderscorekeypairs`)) {
-        stopifnot(is.vector(`encryptionUnderscorekeypairs`))
+      if (!is.null(`encryptionUnderscorekeypairs`) && length(`encryptionUnderscorekeypairs`) > 0) {
+        stopifnot(is.vector(`encryptionUnderscorekeypairs`), sapply(`encryptionUnderscorekeypairs`, R6::is.R6))
       }
       if (!is.null(`idUnderscoreattrUnderscorename`)) {
         stopifnot(is.character(`idUnderscoreattrUnderscorename`), length(`idUnderscoreattrUnderscorename`) == 1)
@@ -99,7 +99,7 @@ SamlClientConfig <- R6::R6Class(
       }
       self$`certUnderscorefile` <- `certUnderscorefile`
       self$`certUnderscorefileUnderscorevalue` <- `certUnderscorefileUnderscorevalue`
-      sapply(`encryptionUnderscorekeypairs`, function(x) stopifnot(R6::is.R6(x)))
+      self$`encryptionUnderscorekeypairs` <- `encryptionUnderscorekeypairs`
       self$`idUnderscoreattrUnderscorename` <- `idUnderscoreattrUnderscorename`
       self$`idUnderscoreattrUnderscorenameUnderscorecrypto` <- `idUnderscoreattrUnderscorenameUnderscorecrypto`
       self$`keyUnderscorefile` <- `keyUnderscorefile`

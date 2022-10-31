@@ -39,10 +39,10 @@ DataStoreSQLVerifyResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`columns` = NULL, `records` = NULL) {
       if (!is.null(`columns`)) {
-        stopifnot(is.vector(`columns`))
+        stopifnot(is.vector(`columns`), sapply(`columns`, is.character))
       }
       if (!is.null(`records`)) {
-        stopifnot(is.vector(`records`))
+        stopifnot(is.vector(`records`), sapply(`records`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ DataStoreSQLVerifyResponse <- R6::R6Class(
         })
         private$validateProps(columns, records)
       }
-      sapply(`columns`, function(x) stopifnot(is.character(x)))
-      sapply(`records`, function(x) stopifnot(R6::is.R6(x)))
+      self$`columns` <- `columns`
+      self$`records` <- `records`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

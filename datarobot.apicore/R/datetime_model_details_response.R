@@ -111,7 +111,7 @@ DatetimeModelDetailsResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`backtests` = NULL, `blueprintId` = NULL, `dataSelectionMethod` = NULL, `effectiveFeatureDerivationWindowEnd` = NULL, `effectiveFeatureDerivationWindowStart` = NULL, `featurelistId` = NULL, `featurelistName` = NULL, `forecastWindowEnd` = NULL, `forecastWindowStart` = NULL, `holdoutScore` = NULL, `holdoutStatus` = NULL, `id` = NULL, `isFrozen` = NULL, `isStarred` = NULL, `linkFunction` = NULL, `metrics` = NULL, `modelCategory` = NULL, `modelFamily` = NULL, `modelNumber` = NULL, `modelType` = NULL, `monotonicDecreasingFeaturelistId` = NULL, `monotonicIncreasingFeaturelistId` = NULL, `parentModelId` = NULL, `predictionThreshold` = NULL, `predictionThresholdReadOnly` = NULL, `processes` = NULL, `projectId` = NULL, `samplePct` = NULL, `samplingMethod` = NULL, `supportsComposableMl` = NULL, `supportsMonotonicConstraints` = NULL, `timeWindowSamplePct` = NULL, `trainingDuration` = NULL, `trainingEndDate` = NULL, `trainingInfo` = NULL, `trainingRowCount` = NULL, `trainingStartDate` = NULL, `windowsBasisUnit` = NULL) {
       if (!is.null(`backtests`)) {
-        stopifnot(is.vector(`backtests`))
+        stopifnot(is.vector(`backtests`), sapply(`backtests`, R6::is.R6))
       }
       if (!is.null(`blueprintId`)) {
         stopifnot(is.character(`blueprintId`), length(`blueprintId`) == 1)
@@ -183,7 +183,7 @@ DatetimeModelDetailsResponse <- R6::R6Class(
         stopifnot(is.logical(`predictionThresholdReadOnly`), length(`predictionThresholdReadOnly`) == 1)
       }
       if (!is.null(`processes`)) {
-        stopifnot(is.vector(`processes`))
+        stopifnot(is.vector(`processes`), sapply(`processes`, is.character))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -311,7 +311,7 @@ DatetimeModelDetailsResponse <- R6::R6Class(
         })
         private$validateProps(backtests, blueprintId, dataSelectionMethod, effectiveFeatureDerivationWindowEnd, effectiveFeatureDerivationWindowStart, featurelistId, featurelistName, forecastWindowEnd, forecastWindowStart, holdoutScore, holdoutStatus, id, isFrozen, isStarred, linkFunction, metrics, modelCategory, modelFamily, modelNumber, modelType, monotonicDecreasingFeaturelistId, monotonicIncreasingFeaturelistId, parentModelId, predictionThreshold, predictionThresholdReadOnly, processes, projectId, samplePct, samplingMethod, supportsComposableMl, supportsMonotonicConstraints, timeWindowSamplePct, trainingDuration, trainingEndDate, trainingInfo, trainingRowCount, trainingStartDate, windowsBasisUnit)
       }
-      sapply(`backtests`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtests` <- `backtests`
       self$`blueprintId` <- `blueprintId`
       self$`dataSelectionMethod` <- `dataSelectionMethod`
       self$`effectiveFeatureDerivationWindowEnd` <- `effectiveFeatureDerivationWindowEnd`
@@ -336,7 +336,7 @@ DatetimeModelDetailsResponse <- R6::R6Class(
       self$`parentModelId` <- `parentModelId`
       self$`predictionThreshold` <- `predictionThreshold`
       self$`predictionThresholdReadOnly` <- `predictionThresholdReadOnly`
-      sapply(`processes`, function(x) stopifnot(is.character(x)))
+      self$`processes` <- `processes`
       self$`projectId` <- `projectId`
       self$`samplePct` <- `samplePct`
       self$`samplingMethod` <- `samplingMethod`

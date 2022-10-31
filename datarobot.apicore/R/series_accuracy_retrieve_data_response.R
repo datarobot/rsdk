@@ -65,7 +65,7 @@ SeriesAccuracyRetrieveDataResponse <- R6::R6Class(
         stopifnot(is.character(`multiseriesId`), length(`multiseriesId`) == 1)
       }
       if (!is.null(`multiseriesValues`)) {
-        stopifnot(is.vector(`multiseriesValues`))
+        stopifnot(is.vector(`multiseriesValues`), sapply(`multiseriesValues`, is.character))
       }
       if (!is.null(`rowCount`)) {
         stopifnot(is.numeric(`rowCount`), length(`rowCount`) == 1)
@@ -129,7 +129,7 @@ SeriesAccuracyRetrieveDataResponse <- R6::R6Class(
       self$`endDate` <- `endDate`
       self$`holdoutScore` <- `holdoutScore`
       self$`multiseriesId` <- `multiseriesId`
-      sapply(`multiseriesValues`, function(x) stopifnot(is.character(x)))
+      self$`multiseriesValues` <- `multiseriesValues`
       self$`rowCount` <- `rowCount`
       self$`startDate` <- `startDate`
       self$`targetAverage` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = targetAverage)

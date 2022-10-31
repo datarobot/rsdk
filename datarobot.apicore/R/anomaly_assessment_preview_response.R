@@ -62,7 +62,7 @@ AnomalyAssessmentPreviewResponse <- R6::R6Class(
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
       if (!is.null(`previewBins`)) {
-        stopifnot(is.vector(`previewBins`))
+        stopifnot(is.vector(`previewBins`), sapply(`previewBins`, R6::is.R6))
       }
       if (!is.null(`projectId`)) {
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
@@ -114,7 +114,7 @@ AnomalyAssessmentPreviewResponse <- R6::R6Class(
       self$`backtest` <- .setPrimitiveProperty(typeList = list("numeric", "character"), propertyData = backtest)
       self$`endDate` <- `endDate`
       self$`modelId` <- `modelId`
-      sapply(`previewBins`, function(x) stopifnot(R6::is.R6(x)))
+      self$`previewBins` <- `previewBins`
       self$`projectId` <- `projectId`
       self$`recordId` <- `recordId`
       self$`seriesId` <- `seriesId`

@@ -106,7 +106,7 @@ BatchPredictionJobResponse <- R6::R6Class(
         stopifnot(R6::is.R6(`links`))
       }
       if (!is.null(`logs`)) {
-        stopifnot(is.vector(`logs`))
+        stopifnot(is.vector(`logs`), sapply(`logs`, is.character))
       }
       if (!is.null(`percentageCompleted`)) {
       }
@@ -213,7 +213,7 @@ BatchPredictionJobResponse <- R6::R6Class(
       self$`jobOutputSize` <- `jobOutputSize`
       self$`jobSpec` <- `jobSpec`
       self$`links` <- `links`
-      sapply(`logs`, function(x) stopifnot(is.character(x)))
+      self$`logs` <- `logs`
       self$`percentageCompleted` <- `percentageCompleted`
       self$`queuePosition` <- `queuePosition`
       self$`queued` <- `queued`

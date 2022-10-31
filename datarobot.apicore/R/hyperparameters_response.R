@@ -75,7 +75,7 @@ HyperparametersResponse <- R6::R6Class(
         stopifnot(is.numeric(`numThreads`), length(`numThreads`) == 1)
       }
       if (!is.null(`priorSolutions`)) {
-        stopifnot(is.vector(`priorSolutions`))
+        stopifnot(is.vector(`priorSolutions`), sapply(`priorSolutions`, is.character))
       }
       if (!is.null(`randomSeed`)) {
         stopifnot(is.numeric(`randomSeed`), length(`randomSeed`) == 1)
@@ -160,7 +160,7 @@ HyperparametersResponse <- R6::R6Class(
       self$`errorMetric` <- `errorMetric`
       self$`maxGenerations` <- `maxGenerations`
       self$`numThreads` <- `numThreads`
-      sapply(`priorSolutions`, function(x) stopifnot(is.character(x)))
+      self$`priorSolutions` <- `priorSolutions`
       self$`randomSeed` <- `randomSeed`
       self$`splitMode` <- `splitMode`
       self$`syncMigrations` <- `syncMigrations`

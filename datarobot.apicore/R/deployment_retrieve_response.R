@@ -110,7 +110,7 @@ DeploymentRetrieveResponse <- R6::R6Class(
         stopifnot(R6::is.R6(`modelHealth`))
       }
       if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, is.character))
       }
       if (!is.null(`predictionUsage`)) {
         stopifnot(R6::is.R6(`predictionUsage`))
@@ -139,8 +139,8 @@ DeploymentRetrieveResponse <- R6::R6Class(
       if (!is.null(`modelPackageInitialDownload`)) {
         stopifnot(R6::is.R6(`modelPackageInitialDownload`))
       }
-      if (!is.null(`openedChangeRequests`)) {
-        stopifnot(is.vector(`openedChangeRequests`))
+      if (!is.null(`openedChangeRequests`) && length(`openedChangeRequests`) > 0) {
+        stopifnot(is.vector(`openedChangeRequests`), sapply(`openedChangeRequests`, is.character))
       }
       if (!is.null(`owners`)) {
         stopifnot(R6::is.R6(`owners`))
@@ -230,9 +230,9 @@ DeploymentRetrieveResponse <- R6::R6Class(
       self$`modelHealth` <- `modelHealth`
       self$`modelPackage` <- `modelPackage`
       self$`modelPackageInitialDownload` <- `modelPackageInitialDownload`
-      sapply(`openedChangeRequests`, function(x) stopifnot(is.character(x)))
+      self$`openedChangeRequests` <- `openedChangeRequests`
       self$`owners` <- `owners`
-      sapply(`permissions`, function(x) stopifnot(is.character(x)))
+      self$`permissions` <- `permissions`
       self$`predictionEnvironment` <- `predictionEnvironment`
       self$`predictionUsage` <- `predictionUsage`
       self$`scoringCodeInitialDownload` <- `scoringCodeInitialDownload`

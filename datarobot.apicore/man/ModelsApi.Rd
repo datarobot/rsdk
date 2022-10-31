@@ -296,7 +296,7 @@ customModelId <- 'customModelId_example' # character | ID of the custom model.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
 filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -379,7 +379,7 @@ isMajorUpdate <- "true" # character | If set to true, new major version will cre
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 baseEnvironmentVersionId <- 'baseEnvironmentVersionId_example' # character | The base environment version ID to use with this model version.Can be set only by user with correct permissions.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
 filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
@@ -1549,7 +1549,7 @@ result <- api.instance$ProjectsRatingTableModelsRetrieve(projectId, modelId)
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 parentModelId <- 'parentModelId_example' # character | the parent model this rating table file was derived from
-ratingTableFile <- '/path/to/file.csv' # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
+ratingTableFile <- '/path/to/file.csv' # character | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
 ratingTableName <- 'ratingTableName_example' # character | the name of the new rating table to create
 
 api.instance <- ModelsApi$new()
@@ -3097,7 +3097,7 @@ Produces: "application/json"
 
 \item{\code{desiredMemory}}{integer. The amount of memory that is expected to be allocated by the custom model.}
 
-\item{\code{file}}{data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would \emph{also} need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.}
+\item{\code{file}}{character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding \code{filePath} supplied that shows the relative location of the file. For example, you have two files: \verb{/home/username/custom-task/main.py} and \verb{/home/username/custom-task/helpers/helper.py}. When uploading these files, you would \emph{also} need to include two \code{filePath} fields of, \verb{\\\\\\"main.py\\\\\\"} and \verb{\\\\\\"helpers/helper.py\\\\\\"}. If the supplied \code{file} already exists at the supplied \code{filePath}, the old file is replaced by the new file.}
 
 \item{\code{filePath}}{\link{OneOfstringarray}. The local path of the file being uploaded. See the `file` field explanation for more details.}
 
@@ -3151,7 +3151,7 @@ customModelId <- 'customModelId_example' # character | ID of the custom model.
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 isMajorUpdate <- "true" # character | If set to true, new major version will created, otherwise minor version will be created.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
 filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 filesToDelete <- list(c('filesToDelete_example')) # OneOfstringarray | The IDs of the files to be deleted.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
@@ -3471,7 +3471,7 @@ Produces: "application/json"
 
 \item{\code{desiredMemory}}{integer. The amount of memory that is expected to be allocated by the custom model.}
 
-\item{\code{file}}{data.frame. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would \emph{also} need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.}
+\item{\code{file}}{character. A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding \code{filePath} supplied that shows the relative location of the file. For example, you have two files: \verb{/home/username/custom-task/main.py} and \verb{/home/username/custom-task/helpers/helper.py}. When uploading these files, you would \emph{also} need to include two \code{filePath} fields of, \verb{\\\\\\"main.py\\\\\\"} and \verb{\\\\\\"helpers/helper.py\\\\\\"}. If the supplied \code{file} already exists at the supplied \code{filePath}, the old file is replaced by the new file.}
 
 \item{\code{filePath}}{\link{OneOfstringarray}. The local path of the file being uploaded. See the `file` field explanation for more details.}
 
@@ -3524,7 +3524,7 @@ isMajorUpdate <- "true" # character | If set to true, new major version will cre
 baseEnvironmentId <- 'baseEnvironmentId_example' # character | The base environment to use with this model version.
 baseEnvironmentVersionId <- 'baseEnvironmentVersionId_example' # character | The base environment version ID to use with this model version.Can be set only by user with correct permissions.
 desiredMemory <- 56 # integer | The amount of memory that is expected to be allocated by the custom model.
-file <- '/path/to/file.csv' # data.frame | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
+file <- '/path/to/file.csv' # character | A file with code for a custom task or a custom model. For each file supplied as form data, you must have a corresponding `filePath` supplied that shows the relative location of the file. For example, you have two files: `/home/username/custom-task/main.py` and `/home/username/custom-task/helpers/helper.py`. When uploading these files, you would _also_ need to include two `filePath` fields of, `\\\"main.py\\\"` and `\\\"helpers/helper.py\\\"`. If the supplied `file` already exists at the supplied `filePath`, the old file is replaced by the new file.
 filePath <- list(c('filePath_example')) # OneOfstringarray | The local path of the file being uploaded. See the `file` field explanation for more details.
 maximumMemory <- 56 # integer | The maximum memory that might be allocated by the custom-model. If exceeded, the custom-model will be killed
 networkEgressPolicy <- 'networkEgressPolicy_example' # character | Network egress policy.
@@ -8765,7 +8765,7 @@ Produces: "application/json"
 
 \item{\code{parentModelId}}{character. the parent model this rating table file was derived from}
 
-\item{\code{ratingTableFile}}{data.frame. rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`}
+\item{\code{ratingTableFile}}{character. rating table file to use for the new rating table. Accepts \code{Content-Type:multipart/form-data}}
 
 \item{\code{ratingTableName}}{character. the name of the new rating table to create}
 
@@ -8798,7 +8798,7 @@ Response status codes, messages, and headers:
 library(datarobot.apicore)
 projectId <- 'projectId_example' # character | the project that owns this data
 parentModelId <- 'parentModelId_example' # character | the parent model this rating table file was derived from
-ratingTableFile <- '/path/to/file.csv' # data.frame | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
+ratingTableFile <- '/path/to/file.csv' # character | rating table file to use for the new rating table. Accepts `Content-Type:multipart/form-data`
 ratingTableName <- 'ratingTableName_example' # character | the name of the new rating table to create
 
 api.instance <- ModelsApi$new()

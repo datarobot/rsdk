@@ -46,7 +46,7 @@ JobListResponse <- R6::R6Class(
         stopifnot(is.numeric(`count`), length(`count`) == 1)
       }
       if (!is.null(`jobs`)) {
-        stopifnot(is.vector(`jobs`))
+        stopifnot(is.vector(`jobs`), sapply(`jobs`, R6::is.R6))
       }
       if (!is.null(`next_`)) {
         stopifnot(is.character(`next_`), length(`next_`) == 1)
@@ -77,7 +77,7 @@ JobListResponse <- R6::R6Class(
         private$validateProps(count, jobs, next_, previous)
       }
       self$`count` <- `count`
-      sapply(`jobs`, function(x) stopifnot(R6::is.R6(x)))
+      self$`jobs` <- `jobs`
       self$`next_` <- `next_`
       self$`previous` <- `previous`
     },

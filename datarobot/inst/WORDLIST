@@ -2476,6 +2476,7 @@ linkedDatasetId
 linkedToProjectId
 linkFunction
 LinksToRelated
+linter
 lintr
 linux
 ListAutomatedDocumentOptions
@@ -4008,6 +4009,7 @@ Roxygen
 RoxygenNote
 rrutter
 Rscript
+rsdk
 rsource
 RStudio
 ruleCount
@@ -4315,6 +4317,7 @@ stringified
 Stringify
 stripIndent
 stubthat
+styler
 styleTask
 subtasks
 successfullyDeleted

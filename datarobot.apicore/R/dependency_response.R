@@ -43,7 +43,7 @@ DependencyResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`constraints` = NULL, `line` = NULL, `lineNumber` = NULL, `packageName` = NULL) {
       if (!is.null(`constraints`)) {
-        stopifnot(is.vector(`constraints`))
+        stopifnot(is.vector(`constraints`), sapply(`constraints`, R6::is.R6))
       }
       if (!is.null(`line`)) {
         stopifnot(is.character(`line`), length(`line`) == 1)
@@ -76,7 +76,7 @@ DependencyResponse <- R6::R6Class(
         })
         private$validateProps(constraints, line, lineNumber, packageName)
       }
-      sapply(`constraints`, function(x) stopifnot(R6::is.R6(x)))
+      self$`constraints` <- `constraints`
       self$`line` <- `line`
       self$`lineNumber` <- `lineNumber`
       self$`packageName` <- `packageName`

@@ -54,7 +54,7 @@ ParetoFrontResponse <- R6::R6Class(
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
       if (!is.null(`solutions`)) {
-        stopifnot(is.vector(`solutions`))
+        stopifnot(is.vector(`solutions`), sapply(`solutions`, R6::is.R6))
       }
       if (!is.null(`targetType`)) {
         stopifnot(is.character(`targetType`), length(`targetType`) == 1)
@@ -86,7 +86,7 @@ ParetoFrontResponse <- R6::R6Class(
       self$`errorMetric` <- `errorMetric`
       self$`hyperparameters` <- .setComplexProperty(typeList = list(HyperparametersResponse), propertyData = hyperparameters)
       self$`projectId` <- `projectId`
-      sapply(`solutions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`solutions` <- `solutions`
       self$`targetType` <- `targetType`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

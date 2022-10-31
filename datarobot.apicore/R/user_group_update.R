@@ -63,8 +63,8 @@ UserGroupUpdate <- R6::R6Class(
       if (!is.null(`accessRoleId`)) {
         stopifnot(is.character(`accessRoleId`), length(`accessRoleId`) == 1)
       }
-      if (!is.null(`accountPermissions`)) {
-        stopifnot(is.vector(`accountPermissions`))
+      if (!is.null(`accountPermissions`) && length(`accountPermissions`) > 0) {
+        stopifnot(is.vector(`accountPermissions`), sapply(`accountPermissions`, is.character))
       }
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -140,7 +140,7 @@ UserGroupUpdate <- R6::R6Class(
         private$validateProps(accessRoleId, accountPermissions, description, email, maxAppCount, maxCustomDeployments, maxEdaWorkers, maxRam, maxUploadSize, maxUploadSizeCatalog, maxWorkers, name, orgId)
       }
       self$`accessRoleId` <- `accessRoleId`
-      sapply(`accountPermissions`, function(x) stopifnot(is.character(x)))
+      self$`accountPermissions` <- `accountPermissions`
       self$`description` <- `description`
       self$`email` <- `email`
       self$`maxAppCount` <- `maxAppCount`

@@ -66,8 +66,8 @@ SectionDataRobot <- R6::R6Class(
       if (!is.null(`locked`)) {
         stopifnot(is.logical(`locked`), length(`locked`) == 1)
       }
-      if (!is.null(`sections`)) {
-        stopifnot(is.vector(`sections`))
+      if (!is.null(`sections`) && length(`sections`) > 0) {
+        stopifnot(is.vector(`sections`), sapply(`sections`, is.character))
       }
     }
   ),
@@ -101,7 +101,7 @@ SectionDataRobot <- R6::R6Class(
       self$`description` <- `description`
       self$`instructions` <- `instructions`
       self$`locked` <- `locked`
-      sapply(`sections`, function(x) stopifnot(is.character(x)))
+      self$`sections` <- `sections`
       self$`title` <- `title`
       self$`type` <- `type`
     },

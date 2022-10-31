@@ -39,7 +39,7 @@ AllDataImage <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`images` = NULL, `percentageOfMissingImages` = NULL) {
       if (!is.null(`images`)) {
-        stopifnot(is.vector(`images`))
+        stopifnot(is.vector(`images`), sapply(`images`, is.character))
       }
       if (!is.null(`percentageOfMissingImages`)) {
       }
@@ -61,7 +61,7 @@ AllDataImage <- R6::R6Class(
         })
         private$validateProps(images, percentageOfMissingImages)
       }
-      sapply(`images`, function(x) stopifnot(is.character(x)))
+      self$`images` <- `images`
       self$`percentageOfMissingImages` <- `percentageOfMissingImages`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

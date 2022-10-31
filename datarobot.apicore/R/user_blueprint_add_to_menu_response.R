@@ -41,13 +41,13 @@ UserBlueprintAddToMenuResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`addedToMenu` = NULL, `message` = NULL, `notAddedToMenu` = NULL) {
       if (!is.null(`addedToMenu`)) {
-        stopifnot(is.vector(`addedToMenu`))
+        stopifnot(is.vector(`addedToMenu`), sapply(`addedToMenu`, R6::is.R6))
       }
       if (!is.null(`message`)) {
         stopifnot(is.character(`message`), length(`message`) == 1)
       }
-      if (!is.null(`notAddedToMenu`)) {
-        stopifnot(is.vector(`notAddedToMenu`))
+      if (!is.null(`notAddedToMenu`) && length(`notAddedToMenu`) > 0) {
+        stopifnot(is.vector(`notAddedToMenu`), sapply(`notAddedToMenu`, R6::is.R6))
       }
     }
   ),
@@ -69,9 +69,9 @@ UserBlueprintAddToMenuResponse <- R6::R6Class(
         })
         private$validateProps(addedToMenu, message, notAddedToMenu)
       }
-      sapply(`addedToMenu`, function(x) stopifnot(R6::is.R6(x)))
+      self$`addedToMenu` <- `addedToMenu`
       self$`message` <- `message`
-      sapply(`notAddedToMenu`, function(x) stopifnot(R6::is.R6(x)))
+      self$`notAddedToMenu` <- `notAddedToMenu`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

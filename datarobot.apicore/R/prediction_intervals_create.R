@@ -37,7 +37,7 @@ PredictionIntervalsCreate <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`percentiles` = NULL) {
       if (!is.null(`percentiles`)) {
-        stopifnot(is.vector(`percentiles`))
+        stopifnot(is.vector(`percentiles`), sapply(`percentiles`, is.numeric))
       }
     }
   ),
@@ -55,7 +55,7 @@ PredictionIntervalsCreate <- R6::R6Class(
         })
         private$validateProps(percentiles)
       }
-      sapply(`percentiles`, function(x) stopifnot(is.character(x)))
+      self$`percentiles` <- `percentiles`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

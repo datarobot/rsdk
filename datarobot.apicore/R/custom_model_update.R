@@ -60,8 +60,8 @@ CustomModelUpdate <- R6::R6Class(
     # types assigned to them, as well as handling validation of parameters with anyOf and oneOf types listed. These types
     # can themselves be other R6 objects.
     validateProps = function(`classLabels` = NULL, `description` = NULL, `desiredMemory` = NULL, `language` = NULL, `maximumMemory` = NULL, `name` = NULL, `negativeClassLabel` = NULL, `networkEgressPolicy` = NULL, `positiveClassLabel` = NULL, `predictionThreshold` = NULL, `replicas` = NULL, `requiresHa` = NULL, `targetName` = NULL) {
-      if (!is.null(`classLabels`)) {
-        stopifnot(is.vector(`classLabels`))
+      if (!is.null(`classLabels`) && length(`classLabels`) > 0) {
+        stopifnot(is.vector(`classLabels`), sapply(`classLabels`, is.character))
       }
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -139,7 +139,7 @@ CustomModelUpdate <- R6::R6Class(
         })
         private$validateProps(classLabels, description, desiredMemory, language, maximumMemory, name, negativeClassLabel, networkEgressPolicy, positiveClassLabel, predictionThreshold, replicas, requiresHa, targetName)
       }
-      sapply(`classLabels`, function(x) stopifnot(is.character(x)))
+      self$`classLabels` <- `classLabels`
       self$`description` <- `description`
       self$`desiredMemory` <- `desiredMemory`
       self$`language` <- `language`

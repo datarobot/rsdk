@@ -69,7 +69,7 @@ CommentRetrieve <- R6::R6Class(
         stopifnot(is.character(`id`), length(`id`) == 1)
       }
       if (!is.null(`mentions`)) {
-        stopifnot(is.vector(`mentions`))
+        stopifnot(is.vector(`mentions`), sapply(`mentions`, R6::is.R6))
       }
       if (!is.null(`updatedAt`)) {
         stopifnot(is.character(`updatedAt`), length(`updatedAt`) == 1)
@@ -110,7 +110,7 @@ CommentRetrieve <- R6::R6Class(
       self$`entityId` <- `entityId`
       self$`entityType` <- `entityType`
       self$`id` <- `id`
-      sapply(`mentions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`mentions` <- `mentions`
       self$`updatedAt` <- `updatedAt`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

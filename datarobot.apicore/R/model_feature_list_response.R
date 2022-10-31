@@ -41,13 +41,13 @@ ModelFeatureListResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`aPrioriFeatureNames` = NULL, `featureNames` = NULL, `knownInAdvanceFeatureNames` = NULL) {
       if (!is.null(`aPrioriFeatureNames`)) {
-        stopifnot(is.vector(`aPrioriFeatureNames`))
+        stopifnot(is.vector(`aPrioriFeatureNames`), sapply(`aPrioriFeatureNames`, is.character))
       }
       if (!is.null(`featureNames`)) {
-        stopifnot(is.vector(`featureNames`))
+        stopifnot(is.vector(`featureNames`), sapply(`featureNames`, is.character))
       }
       if (!is.null(`knownInAdvanceFeatureNames`)) {
-        stopifnot(is.vector(`knownInAdvanceFeatureNames`))
+        stopifnot(is.vector(`knownInAdvanceFeatureNames`), sapply(`knownInAdvanceFeatureNames`, is.character))
       }
     }
   ),
@@ -69,9 +69,9 @@ ModelFeatureListResponse <- R6::R6Class(
         })
         private$validateProps(aPrioriFeatureNames, featureNames, knownInAdvanceFeatureNames)
       }
-      sapply(`aPrioriFeatureNames`, function(x) stopifnot(is.character(x)))
-      sapply(`featureNames`, function(x) stopifnot(is.character(x)))
-      sapply(`knownInAdvanceFeatureNames`, function(x) stopifnot(is.character(x)))
+      self$`aPrioriFeatureNames` <- `aPrioriFeatureNames`
+      self$`featureNames` <- `featureNames`
+      self$`knownInAdvanceFeatureNames` <- `knownInAdvanceFeatureNames`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

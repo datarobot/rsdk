@@ -43,7 +43,7 @@ BacktestStabilityPlotResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`backtestPlotData` = NULL, `endDate` = NULL, `metricName` = NULL, `startDate` = NULL) {
       if (!is.null(`backtestPlotData`)) {
-        stopifnot(is.vector(`backtestPlotData`))
+        stopifnot(is.vector(`backtestPlotData`), sapply(`backtestPlotData`, R6::is.R6))
       }
       if (!is.null(`endDate`)) {
         stopifnot(inherits(`endDate`, "POSIXt"))
@@ -76,7 +76,7 @@ BacktestStabilityPlotResponse <- R6::R6Class(
         })
         private$validateProps(backtestPlotData, endDate, metricName, startDate)
       }
-      sapply(`backtestPlotData`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtestPlotData` <- `backtestPlotData`
       self$`endDate` <- `endDate`
       self$`metricName` <- `metricName`
       self$`startDate` <- `startDate`

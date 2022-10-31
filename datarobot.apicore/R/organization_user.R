@@ -60,8 +60,8 @@ OrganizationUser <- R6::R6Class(
       if (!is.null(`accessRoleId`)) {
         stopifnot(is.character(`accessRoleId`), length(`accessRoleId`) == 1)
       }
-      if (!is.null(`accessRoleIds`)) {
-        stopifnot(is.vector(`accessRoleIds`))
+      if (!is.null(`accessRoleIds`) && length(`accessRoleIds`) > 0) {
+        stopifnot(is.vector(`accessRoleIds`), sapply(`accessRoleIds`, is.character))
       }
       if (!is.null(`create`)) {
         stopifnot(is.logical(`create`), length(`create`) == 1)
@@ -119,7 +119,7 @@ OrganizationUser <- R6::R6Class(
         private$validateProps(accessRoleId, accessRoleIds, create, firstName, language, lastName, orgAdmin, password, requireClickthrough, username)
       }
       self$`accessRoleId` <- `accessRoleId`
-      sapply(`accessRoleIds`, function(x) stopifnot(is.character(x)))
+      self$`accessRoleIds` <- `accessRoleIds`
       self$`create` <- `create`
       self$`firstName` <- `firstName`
       self$`language` <- `language`

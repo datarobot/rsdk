@@ -42,7 +42,7 @@ MulticategoricalHistogramItem <- R6::R6Class(
         stopifnot(is.character(`label`), length(`label`) == 1)
       }
       if (!is.null(`plot`)) {
-        stopifnot(is.vector(`plot`))
+        stopifnot(is.vector(`plot`), sapply(`plot`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ MulticategoricalHistogramItem <- R6::R6Class(
         private$validateProps(label, plot)
       }
       self$`label` <- `label`
-      sapply(`plot`, function(x) stopifnot(R6::is.R6(x)))
+      self$`plot` <- `plot`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

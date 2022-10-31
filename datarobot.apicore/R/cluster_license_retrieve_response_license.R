@@ -58,7 +58,7 @@ ClusterLicenseRetrieveResponseLicense <- R6::R6Class(
         stopifnot(is.logical(`expired`), length(`expired`) == 1)
       }
       if (!is.null(`featureFlags`)) {
-        stopifnot(is.vector(`featureFlags`))
+        stopifnot(is.vector(`featureFlags`), sapply(`featureFlags`, R6::is.R6))
       }
       if (!is.null(`maxDeploymentLimit`)) {
         stopifnot(is.numeric(`maxDeploymentLimit`), length(`maxDeploymentLimit`) == 1)
@@ -100,7 +100,7 @@ ClusterLicenseRetrieveResponseLicense <- R6::R6Class(
       self$`concurrentWorkersCount` <- `concurrentWorkersCount`
       self$`expirationTimestamp` <- `expirationTimestamp`
       self$`expired` <- `expired`
-      sapply(`featureFlags`, function(x) stopifnot(R6::is.R6(x)))
+      self$`featureFlags` <- `featureFlags`
       self$`maxDeploymentLimit` <- `maxDeploymentLimit`
       self$`maximumActiveUsers` <- `maximumActiveUsers`
       self$`prepaidDeploymentLimit` <- `prepaidDeploymentLimit`

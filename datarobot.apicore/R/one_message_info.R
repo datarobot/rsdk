@@ -46,8 +46,8 @@ OneMessageInfo <- R6::R6Class(
       if (!is.null(`messageText`)) {
         stopifnot(is.character(`messageText`), length(`messageText`) == 1)
       }
-      if (!is.null(`additionalInfo`)) {
-        stopifnot(is.vector(`additionalInfo`))
+      if (!is.null(`additionalInfo`) && length(`additionalInfo`) > 0) {
+        stopifnot(is.vector(`additionalInfo`), sapply(`additionalInfo`, is.character))
       }
     }
   ),
@@ -69,7 +69,7 @@ OneMessageInfo <- R6::R6Class(
         })
         private$validateProps(additionalInfo, messageLevel, messageText)
       }
-      sapply(`additionalInfo`, function(x) stopifnot(is.character(x)))
+      self$`additionalInfo` <- `additionalInfo`
       self$`messageLevel` <- `messageLevel`
       self$`messageText` <- `messageText`
     },

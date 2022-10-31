@@ -71,7 +71,7 @@ ApplicationCreateResponse <- R6::R6Class(
         stopifnot(is.character(`deactivationStatusId`), length(`deactivationStatusId`) == 1)
       }
       if (!is.null(`deploymentIds`)) {
-        stopifnot(is.vector(`deploymentIds`))
+        stopifnot(is.vector(`deploymentIds`), sapply(`deploymentIds`, is.character))
       }
       if (!is.null(`deploymentStatusId`)) {
         stopifnot(is.character(`deploymentStatusId`), length(`deploymentStatusId`) == 1)
@@ -136,7 +136,7 @@ ApplicationCreateResponse <- R6::R6Class(
       self$`createdAt` <- `createdAt`
       self$`createdBy` <- `createdBy`
       self$`deactivationStatusId` <- `deactivationStatusId`
-      sapply(`deploymentIds`, function(x) stopifnot(is.character(x)))
+      self$`deploymentIds` <- `deploymentIds`
       self$`deploymentStatusId` <- `deploymentStatusId`
       self$`id` <- `id`
       self$`modelDeploymentId` <- `modelDeploymentId`

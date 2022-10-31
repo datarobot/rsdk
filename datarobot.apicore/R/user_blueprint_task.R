@@ -69,10 +69,10 @@ UserBlueprintTask <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`arguments` = NULL, `categories` = NULL, `colnamesAndTypes` = NULL, `customTaskId` = NULL, `customTaskVersions` = NULL, `description` = NULL, `icon` = NULL, `isCommonTask` = NULL, `isCustomTask` = NULL, `isVisibleInComposableMl` = NULL, `label` = NULL, `outputMethods` = NULL, `supportsScoringCode` = NULL, `taskCode` = NULL, `timeSeriesOnly` = NULL, `url` = NULL, `validInputs` = NULL) {
       if (!is.null(`arguments`)) {
-        stopifnot(is.vector(`arguments`))
+        stopifnot(is.vector(`arguments`), sapply(`arguments`, R6::is.R6))
       }
       if (!is.null(`categories`)) {
-        stopifnot(is.vector(`categories`))
+        stopifnot(is.vector(`categories`), sapply(`categories`, is.character))
       }
       if (!is.null(`description`)) {
         stopifnot(is.character(`description`), length(`description`) == 1)
@@ -84,7 +84,7 @@ UserBlueprintTask <- R6::R6Class(
         stopifnot(is.character(`label`), length(`label`) == 1)
       }
       if (!is.null(`outputMethods`)) {
-        stopifnot(is.vector(`outputMethods`))
+        stopifnot(is.vector(`outputMethods`), sapply(`outputMethods`, is.character))
       }
       if (!is.null(`supportsScoringCode`)) {
         stopifnot(is.logical(`supportsScoringCode`), length(`supportsScoringCode`) == 1)
@@ -99,16 +99,16 @@ UserBlueprintTask <- R6::R6Class(
         .setPrimitiveProperty(typeList = list("character"), propertyData = url)
       }
       if (!is.null(`validInputs`)) {
-        stopifnot(is.vector(`validInputs`))
+        stopifnot(is.vector(`validInputs`), sapply(`validInputs`, is.character))
       }
-      if (!is.null(`colnamesAndTypes`)) {
-        stopifnot(is.vector(`colnamesAndTypes`))
+      if (!is.null(`colnamesAndTypes`) && length(`colnamesAndTypes`) > 0) {
+        stopifnot(is.vector(`colnamesAndTypes`), sapply(`colnamesAndTypes`, R6::is.R6))
       }
       if (!is.null(`customTaskId`)) {
         stopifnot(is.character(`customTaskId`), length(`customTaskId`) == 1)
       }
-      if (!is.null(`customTaskVersions`)) {
-        stopifnot(is.vector(`customTaskVersions`))
+      if (!is.null(`customTaskVersions`) && length(`customTaskVersions`) > 0) {
+        stopifnot(is.vector(`customTaskVersions`), sapply(`customTaskVersions`, R6::is.R6))
       }
       if (!is.null(`isCommonTask`)) {
         stopifnot(is.logical(`isCommonTask`), length(`isCommonTask`) == 1)
@@ -167,23 +167,23 @@ UserBlueprintTask <- R6::R6Class(
         })
         private$validateProps(arguments, categories, colnamesAndTypes, customTaskId, customTaskVersions, description, icon, isCommonTask, isCustomTask, isVisibleInComposableMl, label, outputMethods, supportsScoringCode, taskCode, timeSeriesOnly, url, validInputs)
       }
-      sapply(`arguments`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`categories`, function(x) stopifnot(is.character(x)))
-      sapply(`colnamesAndTypes`, function(x) stopifnot(R6::is.R6(x)))
+      self$`arguments` <- `arguments`
+      self$`categories` <- `categories`
+      self$`colnamesAndTypes` <- `colnamesAndTypes`
       self$`customTaskId` <- `customTaskId`
-      sapply(`customTaskVersions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`customTaskVersions` <- `customTaskVersions`
       self$`description` <- `description`
       self$`icon` <- `icon`
       self$`isCommonTask` <- `isCommonTask`
       self$`isCustomTask` <- `isCustomTask`
       self$`isVisibleInComposableMl` <- `isVisibleInComposableMl`
       self$`label` <- `label`
-      sapply(`outputMethods`, function(x) stopifnot(is.character(x)))
+      self$`outputMethods` <- `outputMethods`
       self$`supportsScoringCode` <- `supportsScoringCode`
       self$`taskCode` <- `taskCode`
       self$`timeSeriesOnly` <- `timeSeriesOnly`
       self$`url` <- .setPrimitiveProperty(typeList = list("character"), propertyData = url)
-      sapply(`validInputs`, function(x) stopifnot(is.character(x)))
+      self$`validInputs` <- `validInputs`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

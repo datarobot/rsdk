@@ -4,7 +4,7 @@
 \alias{ListBatchPredictionsDownload}
 \title{ListBatchPredictionsDownload}
 \usage{
-ListBatchPredictionsDownload(predictionJobId, partNumber = 0, ...)
+ListBatchPredictionsDownload(predictionJobId, ...)
 }
 \arguments{
 \item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}

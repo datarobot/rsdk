@@ -39,10 +39,10 @@ VertexContextItemInfo <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`inputs` = NULL, `outputs` = NULL) {
       if (!is.null(`inputs`)) {
-        stopifnot(is.vector(`inputs`))
+        stopifnot(is.vector(`inputs`), sapply(`inputs`, is.character))
       }
       if (!is.null(`outputs`)) {
-        stopifnot(is.vector(`outputs`))
+        stopifnot(is.vector(`outputs`), sapply(`outputs`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ VertexContextItemInfo <- R6::R6Class(
         })
         private$validateProps(inputs, outputs)
       }
-      sapply(`inputs`, function(x) stopifnot(is.character(x)))
-      sapply(`outputs`, function(x) stopifnot(is.character(x)))
+      self$`inputs` <- `inputs`
+      self$`outputs` <- `outputs`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

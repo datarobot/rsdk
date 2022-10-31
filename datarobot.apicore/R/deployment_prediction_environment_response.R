@@ -61,8 +61,8 @@ DeploymentPredictionEnvironmentResponse <- R6::R6Class(
       if (!is.null(`plugin`)) {
         stopifnot(is.character(`plugin`), length(`plugin`) == 1)
       }
-      if (!is.null(`supportedModelFormats`)) {
-        stopifnot(is.vector(`supportedModelFormats`))
+      if (!is.null(`supportedModelFormats`) && length(`supportedModelFormats`) > 0) {
+        stopifnot(is.vector(`supportedModelFormats`), sapply(`supportedModelFormats`, is.character))
       }
     }
   ),
@@ -95,7 +95,7 @@ DeploymentPredictionEnvironmentResponse <- R6::R6Class(
       self$`name` <- `name`
       self$`platform` <- `platform`
       self$`plugin` <- `plugin`
-      sapply(`supportedModelFormats`, function(x) stopifnot(is.character(x)))
+      self$`supportedModelFormats` <- `supportedModelFormats`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

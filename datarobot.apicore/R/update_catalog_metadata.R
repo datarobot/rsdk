@@ -46,8 +46,8 @@ UpdateCatalogMetadata <- R6::R6Class(
       if (!is.null(`name`)) {
         stopifnot(is.character(`name`), length(`name`) == 1)
       }
-      if (!is.null(`tags`)) {
-        stopifnot(is.vector(`tags`))
+      if (!is.null(`tags`) && length(`tags`) > 0) {
+        stopifnot(is.vector(`tags`), sapply(`tags`, is.character))
       }
     }
   ),
@@ -71,7 +71,7 @@ UpdateCatalogMetadata <- R6::R6Class(
       }
       self$`description` <- `description`
       self$`name` <- `name`
-      sapply(`tags`, function(x) stopifnot(is.character(x)))
+      self$`tags` <- `tags`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

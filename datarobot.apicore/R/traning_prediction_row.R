@@ -71,14 +71,14 @@ TraningPredictionRow <- R6::R6Class(
       if (!is.null(`forecastPoint`)) {
         stopifnot(inherits(`forecastPoint`, "POSIXt"))
       }
-      if (!is.null(`predictionExplanations`)) {
-        stopifnot(is.vector(`predictionExplanations`))
+      if (!is.null(`predictionExplanations`) && length(`predictionExplanations`) > 0) {
+        stopifnot(is.vector(`predictionExplanations`), sapply(`predictionExplanations`, R6::is.R6))
       }
       if (!is.null(`predictionThreshold`)) {
         stopifnot(is.numeric(`predictionThreshold`), length(`predictionThreshold`) == 1)
       }
-      if (!is.null(`predictionValues`)) {
-        stopifnot(is.vector(`predictionValues`))
+      if (!is.null(`predictionValues`) && length(`predictionValues`) > 0) {
+        stopifnot(is.vector(`predictionValues`), sapply(`predictionValues`, R6::is.R6))
       }
       if (!is.null(`seriesId`)) {
         stopifnot(is.character(`seriesId`), length(`seriesId`) == 1)
@@ -129,9 +129,9 @@ TraningPredictionRow <- R6::R6Class(
       self$`forecastPoint` <- `forecastPoint`
       self$`partitionId` <- `partitionId`
       self$`prediction` <- .setPrimitiveProperty(typeList = list("numeric", "character", "array"), propertyData = prediction)
-      sapply(`predictionExplanations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionExplanations` <- `predictionExplanations`
       self$`predictionThreshold` <- `predictionThreshold`
-      sapply(`predictionValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionValues` <- `predictionValues`
       self$`rowId` <- `rowId`
       self$`seriesId` <- `seriesId`
       self$`shapMetadata` <- `shapMetadata`

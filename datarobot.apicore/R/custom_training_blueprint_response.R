@@ -69,7 +69,7 @@ CustomTrainingBlueprintResponse <- R6::R6Class(
         stopifnot(is.character(`targetType`), length(`targetType`) == 1)
       }
       if (!is.null(`trainingHistory`)) {
-        stopifnot(is.vector(`trainingHistory`))
+        stopifnot(is.vector(`trainingHistory`), sapply(`trainingHistory`, R6::is.R6))
       }
       if (!is.null(`userBlueprintId`)) {
         stopifnot(is.character(`userBlueprintId`), length(`userBlueprintId`) == 1)
@@ -110,7 +110,7 @@ CustomTrainingBlueprintResponse <- R6::R6Class(
       self$`executionEnvironment` <- `executionEnvironment`
       self$`executionEnvironmentVersion` <- `executionEnvironmentVersion`
       self$`targetType` <- `targetType`
-      sapply(`trainingHistory`, function(x) stopifnot(R6::is.R6(x)))
+      self$`trainingHistory` <- `trainingHistory`
       self$`userBlueprintId` <- `userBlueprintId`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

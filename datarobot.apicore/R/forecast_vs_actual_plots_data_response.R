@@ -47,16 +47,16 @@ ForecastVsActualPlotsDataResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`bins` = NULL, `calendarEvents` = NULL, `endDate` = NULL, `forecastDistances` = NULL, `resolution` = NULL, `startDate` = NULL) {
       if (!is.null(`bins`)) {
-        stopifnot(is.vector(`bins`))
+        stopifnot(is.vector(`bins`), sapply(`bins`, R6::is.R6))
       }
       if (!is.null(`calendarEvents`)) {
-        stopifnot(is.vector(`calendarEvents`))
+        stopifnot(is.vector(`calendarEvents`), sapply(`calendarEvents`, R6::is.R6))
       }
       if (!is.null(`endDate`)) {
         stopifnot(inherits(`endDate`, "POSIXt"))
       }
       if (!is.null(`forecastDistances`)) {
-        stopifnot(is.vector(`forecastDistances`))
+        stopifnot(is.vector(`forecastDistances`), sapply(`forecastDistances`, is.numeric))
       }
       if (!is.null(`resolution`)) {
         stopifnot(is.character(`resolution`), length(`resolution`) == 1)
@@ -90,10 +90,10 @@ ForecastVsActualPlotsDataResponse <- R6::R6Class(
         })
         private$validateProps(bins, calendarEvents, endDate, forecastDistances, resolution, startDate)
       }
-      sapply(`bins`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`calendarEvents`, function(x) stopifnot(R6::is.R6(x)))
+      self$`bins` <- `bins`
+      self$`calendarEvents` <- `calendarEvents`
       self$`endDate` <- `endDate`
-      sapply(`forecastDistances`, function(x) stopifnot(is.character(x)))
+      self$`forecastDistances` <- `forecastDistances`
       self$`resolution` <- `resolution`
       self$`startDate` <- `startDate`
     },

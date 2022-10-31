@@ -49,10 +49,10 @@ AccuracyOverTimePlotsMetadataResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`backtestMetadata` = NULL, `backtestStatuses` = NULL, `estimatedSeriesLimit` = NULL, `forecastDistance` = NULL, `holdoutMetadata` = NULL, `holdoutStatuses` = NULL, `resolutions` = NULL) {
       if (!is.null(`backtestMetadata`)) {
-        stopifnot(is.vector(`backtestMetadata`))
+        stopifnot(is.vector(`backtestMetadata`), sapply(`backtestMetadata`, R6::is.R6))
       }
       if (!is.null(`backtestStatuses`)) {
-        stopifnot(is.vector(`backtestStatuses`))
+        stopifnot(is.vector(`backtestStatuses`), sapply(`backtestStatuses`, R6::is.R6))
       }
       if (!is.null(`forecastDistance`)) {
         stopifnot(is.numeric(`forecastDistance`), length(`forecastDistance`) == 1)
@@ -64,7 +64,7 @@ AccuracyOverTimePlotsMetadataResponse <- R6::R6Class(
         stopifnot(R6::is.R6(`holdoutStatuses`))
       }
       if (!is.null(`resolutions`)) {
-        stopifnot(is.vector(`resolutions`))
+        stopifnot(is.vector(`resolutions`), sapply(`resolutions`, is.character))
       }
       if (!is.null(`estimatedSeriesLimit`)) {
         stopifnot(is.numeric(`estimatedSeriesLimit`), length(`estimatedSeriesLimit`) == 1)
@@ -97,13 +97,13 @@ AccuracyOverTimePlotsMetadataResponse <- R6::R6Class(
         })
         private$validateProps(backtestMetadata, backtestStatuses, estimatedSeriesLimit, forecastDistance, holdoutMetadata, holdoutStatuses, resolutions)
       }
-      sapply(`backtestMetadata`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`backtestStatuses`, function(x) stopifnot(R6::is.R6(x)))
+      self$`backtestMetadata` <- `backtestMetadata`
+      self$`backtestStatuses` <- `backtestStatuses`
       self$`estimatedSeriesLimit` <- `estimatedSeriesLimit`
       self$`forecastDistance` <- `forecastDistance`
       self$`holdoutMetadata` <- `holdoutMetadata`
       self$`holdoutStatuses` <- `holdoutStatuses`
-      sapply(`resolutions`, function(x) stopifnot(is.character(x)))
+      self$`resolutions` <- `resolutions`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

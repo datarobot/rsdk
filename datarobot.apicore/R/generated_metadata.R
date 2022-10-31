@@ -39,10 +39,10 @@ GeneratedMetadata <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`outputColumns` = NULL, `outputDatasets` = NULL) {
       if (!is.null(`outputColumns`)) {
-        stopifnot(is.vector(`outputColumns`))
+        stopifnot(is.vector(`outputColumns`), sapply(`outputColumns`, R6::is.R6))
       }
       if (!is.null(`outputDatasets`)) {
-        stopifnot(is.vector(`outputDatasets`))
+        stopifnot(is.vector(`outputDatasets`), sapply(`outputDatasets`, is.character))
       }
     }
   ),
@@ -62,8 +62,8 @@ GeneratedMetadata <- R6::R6Class(
         })
         private$validateProps(outputColumns, outputDatasets)
       }
-      sapply(`outputColumns`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`outputDatasets`, function(x) stopifnot(is.character(x)))
+      self$`outputColumns` <- `outputColumns`
+      self$`outputDatasets` <- `outputDatasets`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

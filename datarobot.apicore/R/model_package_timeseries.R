@@ -84,7 +84,7 @@ ModelPackageTimeseries <- R6::R6Class(
         stopifnot(is.character(`forecastDistanceColumnName`), length(`forecastDistanceColumnName`) == 1)
       }
       if (!is.null(`forecastDistances`)) {
-        stopifnot(is.vector(`forecastDistances`))
+        stopifnot(is.vector(`forecastDistances`), sapply(`forecastDistances`, is.numeric))
       }
       if (!is.null(`forecastDistancesTimeUnit`)) {
         stopifnot(is.character(`forecastDistancesTimeUnit`), length(`forecastDistancesTimeUnit`) == 1)
@@ -153,7 +153,7 @@ ModelPackageTimeseries <- R6::R6Class(
       self$`featureDerivationWindowEnd` <- `featureDerivationWindowEnd`
       self$`featureDerivationWindowStart` <- `featureDerivationWindowStart`
       self$`forecastDistanceColumnName` <- `forecastDistanceColumnName`
-      sapply(`forecastDistances`, function(x) stopifnot(is.character(x)))
+      self$`forecastDistances` <- `forecastDistances`
       self$`forecastDistancesTimeUnit` <- `forecastDistancesTimeUnit`
       self$`forecastPointColumnName` <- `forecastPointColumnName`
       self$`isCrossSeries` <- `isCrossSeries`

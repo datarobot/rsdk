@@ -62,7 +62,7 @@ CombinedModelResponse <- R6::R6Class(
         stopifnot(is.character(`segmentationTaskId`), length(`segmentationTaskId`) == 1)
       }
       if (!is.null(`segments`)) {
-        stopifnot(is.vector(`segments`))
+        stopifnot(is.vector(`segments`), sapply(`segments`, R6::is.R6))
       }
     }
   ),
@@ -95,7 +95,7 @@ CombinedModelResponse <- R6::R6Class(
       self$`modelCategory` <- `modelCategory`
       self$`projectId` <- `projectId`
       self$`segmentationTaskId` <- `segmentationTaskId`
-      sapply(`segments`, function(x) stopifnot(R6::is.R6(x)))
+      self$`segments` <- `segments`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

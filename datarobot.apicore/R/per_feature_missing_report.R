@@ -53,7 +53,7 @@ PerFeatureMissingReport <- R6::R6Class(
       if (!is.null(`missingPercentage`)) {
       }
       if (!is.null(`tasks`)) {
-        stopifnot(is.vector(`tasks`))
+        stopifnot(is.vector(`tasks`), sapply(`tasks`, R6::is.R6))
       }
       if (!is.null(`type`)) {
         stopifnot(is.character(`type`), length(`type`) == 1)
@@ -85,7 +85,7 @@ PerFeatureMissingReport <- R6::R6Class(
       self$`feature` <- `feature`
       self$`missingCount` <- `missingCount`
       self$`missingPercentage` <- `missingPercentage`
-      sapply(`tasks`, function(x) stopifnot(R6::is.R6(x)))
+      self$`tasks` <- `tasks`
       self$`type` <- `type`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

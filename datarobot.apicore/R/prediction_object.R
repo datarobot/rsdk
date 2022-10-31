@@ -89,11 +89,11 @@ PredictionObject <- R6::R6Class(
       if (!is.null(`positiveProbability`)) {
         stopifnot(is.numeric(`positiveProbability`), length(`positiveProbability`) == 1)
       }
-      if (!is.null(`predictionExplanationMetadata`)) {
-        stopifnot(is.vector(`predictionExplanationMetadata`))
+      if (!is.null(`predictionExplanationMetadata`) && length(`predictionExplanationMetadata`) > 0) {
+        stopifnot(is.vector(`predictionExplanationMetadata`), sapply(`predictionExplanationMetadata`, R6::is.R6))
       }
-      if (!is.null(`predictionExplanations`)) {
-        stopifnot(is.vector(`predictionExplanations`))
+      if (!is.null(`predictionExplanations`) && length(`predictionExplanations`) > 0) {
+        stopifnot(is.vector(`predictionExplanations`), sapply(`predictionExplanations`, R6::is.R6))
       }
       if (!is.null(`predictionIntervalLowerBound`)) {
         stopifnot(is.numeric(`predictionIntervalLowerBound`), length(`predictionIntervalLowerBound`) == 1)
@@ -104,8 +104,8 @@ PredictionObject <- R6::R6Class(
       if (!is.null(`predictionThreshold`)) {
         stopifnot(is.numeric(`predictionThreshold`), length(`predictionThreshold`) == 1)
       }
-      if (!is.null(`predictionValues`)) {
-        stopifnot(is.vector(`predictionValues`))
+      if (!is.null(`predictionValues`) && length(`predictionValues`) > 0) {
+        stopifnot(is.vector(`predictionValues`), sapply(`predictionValues`, R6::is.R6))
       }
       if (!is.null(`segmentId`)) {
         stopifnot(is.character(`segmentId`), length(`segmentId`) == 1)
@@ -173,12 +173,12 @@ PredictionObject <- R6::R6Class(
       self$`originalFormatTimestamp` <- `originalFormatTimestamp`
       self$`positiveProbability` <- `positiveProbability`
       self$`prediction` <- .setPrimitiveProperty(typeList = list("numeric", "character", "array"), propertyData = prediction)
-      sapply(`predictionExplanationMetadata`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`predictionExplanations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionExplanationMetadata` <- `predictionExplanationMetadata`
+      self$`predictionExplanations` <- `predictionExplanations`
       self$`predictionIntervalLowerBound` <- `predictionIntervalLowerBound`
       self$`predictionIntervalUpperBound` <- `predictionIntervalUpperBound`
       self$`predictionThreshold` <- `predictionThreshold`
-      sapply(`predictionValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`predictionValues` <- `predictionValues`
       self$`rowId` <- `rowId`
       self$`segmentId` <- `segmentId`
       self$`seriesId` <- `seriesId`

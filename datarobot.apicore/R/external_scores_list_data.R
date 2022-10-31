@@ -57,7 +57,7 @@ ExternalScoresListData <- R6::R6Class(
         stopifnot(is.character(`projectId`), length(`projectId`) == 1)
       }
       if (!is.null(`scores`)) {
-        stopifnot(is.vector(`scores`))
+        stopifnot(is.vector(`scores`), sapply(`scores`, R6::is.R6))
       }
     }
   ),
@@ -87,7 +87,7 @@ ExternalScoresListData <- R6::R6Class(
       self$`datasetId` <- `datasetId`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
-      sapply(`scores`, function(x) stopifnot(R6::is.R6(x)))
+      self$`scores` <- `scores`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

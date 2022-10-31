@@ -41,7 +41,7 @@ ClusterNamesResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`clusters` = NULL, `modelId` = NULL, `projectId` = NULL) {
       if (!is.null(`clusters`)) {
-        stopifnot(is.vector(`clusters`))
+        stopifnot(is.vector(`clusters`), sapply(`clusters`, R6::is.R6))
       }
       if (!is.null(`modelId`)) {
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
@@ -69,7 +69,7 @@ ClusterNamesResponse <- R6::R6Class(
         })
         private$validateProps(clusters, modelId, projectId)
       }
-      sapply(`clusters`, function(x) stopifnot(R6::is.R6(x)))
+      self$`clusters` <- `clusters`
       self$`modelId` <- `modelId`
       self$`projectId` <- `projectId`
     },

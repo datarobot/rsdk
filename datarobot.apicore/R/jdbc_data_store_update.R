@@ -43,8 +43,8 @@ JDBCDataStoreUpdate <- R6::R6Class(
       if (!is.null(`driverId`)) {
         stopifnot(is.character(`driverId`), length(`driverId`) == 1)
       }
-      if (!is.null(`jdbcFields`)) {
-        stopifnot(is.vector(`jdbcFields`))
+      if (!is.null(`jdbcFields`) && length(`jdbcFields`) > 0) {
+        stopifnot(is.vector(`jdbcFields`), sapply(`jdbcFields`, R6::is.R6))
       }
       if (!is.null(`jdbcUrl`)) {
         stopifnot(is.character(`jdbcUrl`), length(`jdbcUrl`) == 1)
@@ -70,7 +70,7 @@ JDBCDataStoreUpdate <- R6::R6Class(
         private$validateProps(driverId, jdbcFields, jdbcUrl)
       }
       self$`driverId` <- `driverId`
-      sapply(`jdbcFields`, function(x) stopifnot(R6::is.R6(x)))
+      self$`jdbcFields` <- `jdbcFields`
       self$`jdbcUrl` <- `jdbcUrl`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

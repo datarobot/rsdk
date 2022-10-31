@@ -63,8 +63,8 @@ S3OutputAdaptor <- R6::R6Class(
       if (!is.null(`format`)) {
         stopifnot(is.character(`format`), length(`format`) == 1)
       }
-      if (!is.null(`partitionColumns`)) {
-        stopifnot(is.vector(`partitionColumns`))
+      if (!is.null(`partitionColumns`) && length(`partitionColumns`) > 0) {
+        stopifnot(is.vector(`partitionColumns`), sapply(`partitionColumns`, is.character))
       }
       if (!is.null(`serverSideEncryption`)) {
         stopifnot(R6::is.R6(`serverSideEncryption`))
@@ -100,7 +100,7 @@ S3OutputAdaptor <- R6::R6Class(
       self$`credentialId` <- .setPrimitiveProperty(typeList = list("character"), propertyData = credentialId)
       self$`endpointUrl` <- `endpointUrl`
       self$`format` <- `format`
-      sapply(`partitionColumns`, function(x) stopifnot(is.character(x)))
+      self$`partitionColumns` <- `partitionColumns`
       self$`serverSideEncryption` <- `serverSideEncryption`
       self$`type` <- `type`
       self$`url` <- `url`

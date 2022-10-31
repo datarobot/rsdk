@@ -53,7 +53,7 @@ ActivationMap <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`activationValues` = NULL, `actualTargetValue` = NULL, `featureName` = NULL, `imageHeight` = NULL, `imageId` = NULL, `imageWidth` = NULL, `links` = NULL, `overlayImageId` = NULL, `predictedTargetValue` = NULL) {
       if (!is.null(`activationValues`)) {
-        stopifnot(is.vector(`activationValues`))
+        stopifnot(is.vector(`activationValues`), sapply(`activationValues`, R6::is.R6))
       }
       if (!is.null(`actualTargetValue`)) {
         .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = actualTargetValue)
@@ -111,7 +111,7 @@ ActivationMap <- R6::R6Class(
         })
         private$validateProps(activationValues, actualTargetValue, featureName, imageHeight, imageId, imageWidth, links, overlayImageId, predictedTargetValue)
       }
-      sapply(`activationValues`, function(x) stopifnot(R6::is.R6(x)))
+      self$`activationValues` <- `activationValues`
       self$`actualTargetValue` <- .setPrimitiveProperty(typeList = list("character", "numeric"), propertyData = actualTargetValue)
       self$`featureName` <- `featureName`
       self$`imageHeight` <- `imageHeight`

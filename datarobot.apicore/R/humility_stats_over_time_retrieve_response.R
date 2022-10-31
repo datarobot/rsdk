@@ -45,7 +45,7 @@ HumilityStatsOverTimeRetrieveResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`buckets` = NULL, `modelId` = NULL, `segmentAttribute` = NULL, `segmentValue` = NULL, `summary` = NULL) {
       if (!is.null(`buckets`)) {
-        stopifnot(is.vector(`buckets`))
+        stopifnot(is.vector(`buckets`), sapply(`buckets`, R6::is.R6))
       }
       if (!is.null(`summary`)) {
         stopifnot(R6::is.R6(`summary`))
@@ -83,7 +83,7 @@ HumilityStatsOverTimeRetrieveResponse <- R6::R6Class(
         })
         private$validateProps(buckets, modelId, segmentAttribute, segmentValue, summary)
       }
-      sapply(`buckets`, function(x) stopifnot(R6::is.R6(x)))
+      self$`buckets` <- `buckets`
       self$`modelId` <- `modelId`
       self$`segmentAttribute` <- `segmentAttribute`
       self$`segmentValue` <- `segmentValue`

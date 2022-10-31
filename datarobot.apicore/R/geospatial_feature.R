@@ -49,7 +49,7 @@ GeospatialFeature <- R6::R6Class(
         stopifnot(is.character(`featureType`), length(`featureType`) == 1)
       }
       if (!is.null(`insights`)) {
-        stopifnot(is.vector(`insights`))
+        stopifnot(is.vector(`insights`), sapply(`insights`, R6::is.R6))
       }
       if (!is.null(`featureImpact`)) {
         stopifnot(is.numeric(`featureImpact`), length(`featureImpact`) == 1)
@@ -79,7 +79,7 @@ GeospatialFeature <- R6::R6Class(
       self$`featureImpact` <- `featureImpact`
       self$`featureName` <- `featureName`
       self$`featureType` <- `featureType`
-      sapply(`insights`, function(x) stopifnot(R6::is.R6(x)))
+      self$`insights` <- `insights`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -39,10 +39,10 @@ NotificationEventListResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`eventGroups` = NULL, `events` = NULL) {
       if (!is.null(`eventGroups`)) {
-        stopifnot(is.vector(`eventGroups`))
+        stopifnot(is.vector(`eventGroups`), sapply(`eventGroups`, R6::is.R6))
       }
       if (!is.null(`events`)) {
-        stopifnot(is.vector(`events`))
+        stopifnot(is.vector(`events`), sapply(`events`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ NotificationEventListResponse <- R6::R6Class(
         })
         private$validateProps(eventGroups, events)
       }
-      sapply(`eventGroups`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`events`, function(x) stopifnot(R6::is.R6(x)))
+      self$`eventGroups` <- `eventGroups`
+      self$`events` <- `events`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -49,7 +49,7 @@ CrossClassAccuracy <- R6::R6Class(
         stopifnot(is.character(`modelId`), length(`modelId`) == 1)
       }
       if (!is.null(`perClassAccuracyScores`)) {
-        stopifnot(is.vector(`perClassAccuracyScores`))
+        stopifnot(is.vector(`perClassAccuracyScores`), sapply(`perClassAccuracyScores`, R6::is.R6))
       }
       if (!is.null(`predictionThreshold`)) {
       }
@@ -77,7 +77,7 @@ CrossClassAccuracy <- R6::R6Class(
       }
       self$`feature` <- `feature`
       self$`modelId` <- `modelId`
-      sapply(`perClassAccuracyScores`, function(x) stopifnot(R6::is.R6(x)))
+      self$`perClassAccuracyScores` <- `perClassAccuracyScores`
       self$`predictionThreshold` <- `predictionThreshold`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

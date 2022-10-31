@@ -48,8 +48,8 @@ ApprovalPolicyTrigger <- R6::R6Class(
       if (!is.null(`intendedAction`)) {
         stopifnot(R6::is.R6(`intendedAction`))
       }
-      if (!is.null(`filterGroups`)) {
-        stopifnot(is.vector(`filterGroups`))
+      if (!is.null(`filterGroups`) && length(`filterGroups`) > 0) {
+        stopifnot(is.vector(`filterGroups`), sapply(`filterGroups`, R6::is.R6))
       }
       if (!is.null(`labels`)) {
         stopifnot(R6::is.R6(`labels`))
@@ -77,7 +77,7 @@ ApprovalPolicyTrigger <- R6::R6Class(
         private$validateProps(entityType, filterGroups, intendedAction, labels)
       }
       self$`entityType` <- `entityType`
-      sapply(`filterGroups`, function(x) stopifnot(R6::is.R6(x)))
+      self$`filterGroups` <- `filterGroups`
       self$`intendedAction` <- `intendedAction`
       self$`labels` <- `labels`
     },

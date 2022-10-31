@@ -65,8 +65,8 @@ PredictionExplanation <- R6::R6Class(
       }
       if (!is.null(`strength`)) {
       }
-      if (!is.null(`perNgramTextExplanations`)) {
-        stopifnot(is.vector(`perNgramTextExplanations`))
+      if (!is.null(`perNgramTextExplanations`) && length(`perNgramTextExplanations`) > 0) {
+        stopifnot(is.vector(`perNgramTextExplanations`), sapply(`perNgramTextExplanations`, R6::is.R6))
       }
     }
   ),
@@ -100,7 +100,7 @@ PredictionExplanation <- R6::R6Class(
       self$`featureValue` <- `featureValue`
       self$`imageExplanationUrl` <- `imageExplanationUrl`
       self$`label` <- `label`
-      sapply(`perNgramTextExplanations`, function(x) stopifnot(R6::is.R6(x)))
+      self$`perNgramTextExplanations` <- `perNgramTextExplanations`
       self$`qualitativateStrength` <- `qualitativateStrength`
       self$`strength` <- `strength`
     },

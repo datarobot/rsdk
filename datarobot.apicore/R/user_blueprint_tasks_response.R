@@ -39,10 +39,10 @@ UserBlueprintTasksResponse <- R6::R6Class(
     # can themselves be other R6 objects.
     validateProps = function(`categories` = NULL, `tasks` = NULL) {
       if (!is.null(`categories`)) {
-        stopifnot(is.vector(`categories`))
+        stopifnot(is.vector(`categories`), sapply(`categories`, R6::is.R6))
       }
       if (!is.null(`tasks`)) {
-        stopifnot(is.vector(`tasks`))
+        stopifnot(is.vector(`tasks`), sapply(`tasks`, R6::is.R6))
       }
     }
   ),
@@ -62,8 +62,8 @@ UserBlueprintTasksResponse <- R6::R6Class(
         })
         private$validateProps(categories, tasks)
       }
-      sapply(`categories`, function(x) stopifnot(R6::is.R6(x)))
-      sapply(`tasks`, function(x) stopifnot(R6::is.R6(x)))
+      self$`categories` <- `categories`
+      self$`tasks` <- `tasks`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

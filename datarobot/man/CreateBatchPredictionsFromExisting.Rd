@@ -4,7 +4,7 @@
 \alias{CreateBatchPredictionsFromExisting}
 \title{CreateBatchPredictionsFromExisting}
 \usage{
-CreateBatchPredictionsFromExisting(predictionJobId, partNumber = 0, ...)
+CreateBatchPredictionsFromExisting(predictionJobId, ...)
 }
 \arguments{
 \item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}

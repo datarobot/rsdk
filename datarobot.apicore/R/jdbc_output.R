@@ -83,11 +83,11 @@ JDBCOutput <- R6::R6Class(
       if (!is.null(`schema`)) {
         stopifnot(is.character(`schema`), length(`schema`) == 1)
       }
-      if (!is.null(`updateColumns`)) {
-        stopifnot(is.vector(`updateColumns`))
+      if (!is.null(`updateColumns`) && length(`updateColumns`) > 0) {
+        stopifnot(is.vector(`updateColumns`), sapply(`updateColumns`, is.character))
       }
-      if (!is.null(`whereColumns`)) {
-        stopifnot(is.vector(`whereColumns`))
+      if (!is.null(`whereColumns`) && length(`whereColumns`) > 0) {
+        stopifnot(is.vector(`whereColumns`), sapply(`whereColumns`, is.character))
       }
     }
   ),
@@ -134,8 +134,8 @@ JDBCOutput <- R6::R6Class(
       self$`statementType` <- `statementType`
       self$`table` <- `table`
       self$`type` <- `type`
-      sapply(`updateColumns`, function(x) stopifnot(is.character(x)))
-      sapply(`whereColumns`, function(x) stopifnot(is.character(x)))
+      self$`updateColumns` <- `updateColumns`
+      self$`whereColumns` <- `whereColumns`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

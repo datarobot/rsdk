@@ -54,7 +54,7 @@ ImageAugmentationOptionsTransformation <- R6::R6Class(
         stopifnot(is.character(`name`), length(`name`) == 1)
       }
       if (!is.null(`params`)) {
-        stopifnot(is.vector(`params`))
+        stopifnot(is.vector(`params`), sapply(`params`, R6::is.R6))
       }
       if (!is.null(`translatedName`)) {
         stopifnot(is.character(`translatedName`), length(`translatedName`) == 1)
@@ -86,7 +86,7 @@ ImageAugmentationOptionsTransformation <- R6::R6Class(
       self$`affectedByTransformationProbability` <- `affectedByTransformationProbability`
       self$`enabledByDefault` <- `enabledByDefault`
       self$`name` <- `name`
-      sapply(`params`, function(x) stopifnot(R6::is.R6(x)))
+      self$`params` <- `params`
       self$`translatedName` <- `translatedName`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability

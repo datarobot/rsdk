@@ -41,8 +41,8 @@ UserLimitsPatchBody <- R6::R6Class(
       if (!is.null(`accountLimits`)) {
         stopifnot(R6::is.R6(`accountLimits`))
       }
-      if (!is.null(`rateLimits`)) {
-        stopifnot(is.vector(`rateLimits`))
+      if (!is.null(`rateLimits`) && length(`rateLimits`) > 0) {
+        stopifnot(is.vector(`rateLimits`), sapply(`rateLimits`, R6::is.R6))
       }
     }
   ),
@@ -63,7 +63,7 @@ UserLimitsPatchBody <- R6::R6Class(
         private$validateProps(accountLimits, rateLimits)
       }
       self$`accountLimits` <- `accountLimits`
-      sapply(`rateLimits`, function(x) stopifnot(R6::is.R6(x)))
+      self$`rateLimits` <- `rateLimits`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

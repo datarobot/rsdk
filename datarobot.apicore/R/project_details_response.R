@@ -127,8 +127,8 @@ ProjectDetailsResponse <- R6::R6Class(
       if (!is.null(`useFeatureDiscovery`)) {
         stopifnot(is.logical(`useFeatureDiscovery`), length(`useFeatureDiscovery`) == 1)
       }
-      if (!is.null(`autopilotClusterList`)) {
-        stopifnot(is.vector(`autopilotClusterList`))
+      if (!is.null(`autopilotClusterList`) && length(`autopilotClusterList`) > 0) {
+        stopifnot(is.vector(`autopilotClusterList`), sapply(`autopilotClusterList`, is.numeric))
       }
       if (!is.null(`featureEngineeringPredictionPoint`)) {
         stopifnot(is.character(`featureEngineeringPredictionPoint`), length(`featureEngineeringPredictionPoint`) == 1)
@@ -201,7 +201,7 @@ ProjectDetailsResponse <- R6::R6Class(
         private$validateProps(advancedOptions, autopilotClusterList, autopilotMode, created, featureEngineeringPredictionPoint, fileName, holdoutUnlocked, id, maxClusters, maxTrainPct, maxTrainRows, metric, minClusters, partition, positiveClass, projectName, stage, target, targetType, unsupervisedMode, unsupervisedType, useFeatureDiscovery)
       }
       self$`advancedOptions` <- `advancedOptions`
-      sapply(`autopilotClusterList`, function(x) stopifnot(is.character(x)))
+      self$`autopilotClusterList` <- `autopilotClusterList`
       self$`autopilotMode` <- `autopilotMode`
       self$`created` <- `created`
       self$`featureEngineeringPredictionPoint` <- `featureEngineeringPredictionPoint`

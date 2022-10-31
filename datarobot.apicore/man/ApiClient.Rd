@@ -150,7 +150,8 @@ params are passed to \code{\link[=Execute]{Execute()}}.
   queryParams,
   headerParams,
   body,
-  encode = "raw",
+  encode = "json",
+  filename = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -168,7 +169,9 @@ params are passed to \code{\link[=Execute]{Execute()}}.
 
 \item{\code{body}}{The body for an HTTP request. It can be nearly anything, see \code{\link[httr:VERB]{httr::VERB()}} for more information.}
 
-\item{\code{encode}}{How the body should be encoded. Options: "multipart", "form", "json", "raw". See \link{https://httr.r-lib.org/reference/POST.html} for more information.}
+\item{\code{encode}}{How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "json".}
+
+\item{\code{filename}}{If present for GET requests, causes the content of the response to be saved to disk at the specified path. See \link{https://httr.r-lib.org/reference/write_disk.html} for more information.}
 
 \item{\code{...}}{Further named parameters that may be passed on to the \code{httr} library. See \code{\link[httr:VERB]{httr::VERB()}} for more information.}
 }
@@ -187,7 +190,8 @@ Helper function that delegates to the \link{httr} library for making HTTP reques
   queryParams,
   headerParams,
   body,
-  encode = "raw",
+  encode = "json",
+  filename = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -205,7 +209,9 @@ Helper function that delegates to the \link{httr} library for making HTTP reques
 
 \item{\code{body}}{The body for an HTTP request. It can be nearly anything, see \code{\link[httr:VERB]{httr::VERB()}} for more information.}
 
-\item{\code{encode}}{How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "raw" since by convention we pass in raw JSON strings. See \link{https://httr.r-lib.org/reference/POST.html} for more information.}
+\item{\code{encode}}{How the body should be encoded. Options: "multipart", "form", "json", "raw". By default, this is "json".}
+
+\item{\code{filename}}{If present for GET requests, causes the content of the response to be saved to disk at the specified path. See \link{https://httr.r-lib.org/reference/write_disk.html} for more information.}
 
 \item{\code{...}}{Further named parameters that may be passed on to the \code{httr} library. See \code{\link[httr:VERB]{httr::VERB()}} for more information.}
 }

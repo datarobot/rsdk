@@ -4,11 +4,7 @@
 \alias{CreateBatchPredictionsCsvUploadFinalizeMultipart}
 \title{CreateBatchPredictionsCsvUploadFinalizeMultipart}
 \usage{
-CreateBatchPredictionsCsvUploadFinalizeMultipart(
-  predictionJobId,
-  partNumber = 0,
-  ...
-)
+CreateBatchPredictionsCsvUploadFinalizeMultipart(predictionJobId, ...)
 }
 \arguments{
 \item{...}{Additional keyword arguments to be passed on to the \code{datarobot.apicore} and \code{httr} libraries.}

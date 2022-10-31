@@ -24,7 +24,7 @@ CreateDatasetsRefreshJobs(
 Schedule dataset refresh
 }
 \details{
-Create a dataset refresh job that will automatically create dataset snapshots on a schedule.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  -   \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have     at least one enabled job. -   \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error     that happened, possible values include (but are not limited to):     \verb{Generic Limit Reached}, \verb{Max Job Limit Reached for Dataset}, and     \verb{Max Job Limit Reached for User}.
+Create a dataset refresh job that will automatically create dataset snapshots on a schedule.  Optionally if the limit of enabled jobs per user is reached the following metadata will be added to the default error response payload:  - \strong{datasetsWithJob} (\emph{array}) - The list of datasets IDs that have at   least one enabled job. - \strong{errorType} (\emph{string}) - (New in version v2.21) The type of error   that happened, possible values include (but are not limited to):   \verb{Generic Limit Reached}, \verb{Max Job Limit Reached for Dataset}, and   \verb{Max Job Limit Reached for User}.
 
 This method invokes \verb{POST /datasets/\{datasetId\}/refreshJobs/} in the DataRobot Public API.
 }

@@ -89,8 +89,8 @@ UseCase <- R6::R6Class(
       if (!is.null(`id`)) {
         stopifnot(is.character(`id`), length(`id`) == 1)
       }
-      if (!is.null(`mentions`)) {
-        stopifnot(is.vector(`mentions`))
+      if (!is.null(`mentions`) && length(`mentions`) > 0) {
+        stopifnot(is.vector(`mentions`), sapply(`mentions`, R6::is.R6))
       }
       if (!is.null(`notes`)) {
         stopifnot(is.character(`notes`), length(`notes`) == 1)
@@ -98,8 +98,8 @@ UseCase <- R6::R6Class(
       if (!is.null(`owner`)) {
         stopifnot(R6::is.R6(`owner`))
       }
-      if (!is.null(`permissions`)) {
-        stopifnot(is.vector(`permissions`))
+      if (!is.null(`permissions`) && length(`permissions`) > 0) {
+        stopifnot(is.vector(`permissions`), sapply(`permissions`, is.character))
       }
       if (!is.null(`potentialValue`)) {
         stopifnot(R6::is.R6(`potentialValue`))
@@ -107,8 +107,8 @@ UseCase <- R6::R6Class(
       if (!is.null(`potentialValueTemplate`)) {
         .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
       }
-      if (!is.null(`predictionTargets`)) {
-        stopifnot(is.vector(`predictionTargets`))
+      if (!is.null(`predictionTargets`) && length(`predictionTargets`) > 0) {
+        stopifnot(is.vector(`predictionTargets`), sapply(`predictionTargets`, is.character))
       }
       if (!is.null(`realizedValue`)) {
         .setMixedProperty(typeList = list("MonetaryValue", "character"), propertyData = realizedValue)
@@ -116,8 +116,8 @@ UseCase <- R6::R6Class(
       if (!is.null(`stage`)) {
         stopifnot(is.character(`stage`), length(`stage`) == 1)
       }
-      if (!is.null(`targetDates`)) {
-        stopifnot(is.vector(`targetDates`))
+      if (!is.null(`targetDates`) && length(`targetDates`) > 0) {
+        stopifnot(is.vector(`targetDates`), sapply(`targetDates`, R6::is.R6))
       }
     }
   ),
@@ -173,17 +173,17 @@ UseCase <- R6::R6Class(
       self$`description` <- `description`
       self$`feasibility` <- `feasibility`
       self$`id` <- `id`
-      sapply(`mentions`, function(x) stopifnot(R6::is.R6(x)))
+      self$`mentions` <- `mentions`
       self$`name` <- `name`
       self$`notes` <- `notes`
       self$`owner` <- `owner`
-      sapply(`permissions`, function(x) stopifnot(is.character(x)))
+      self$`permissions` <- `permissions`
       self$`potentialValue` <- `potentialValue`
       self$`potentialValueTemplate` <- .setComplexProperty(typeList = list(UseCaseValueTemplateClassification, UseCaseValueTemplateRegression), propertyData = potentialValueTemplate)
-      sapply(`predictionTargets`, function(x) stopifnot(is.character(x)))
+      self$`predictionTargets` <- `predictionTargets`
       self$`realizedValue` <- .setMixedProperty(typeList = list("MonetaryValue", "character"), propertyData = realizedValue)
       self$`stage` <- `stage`
-      sapply(`targetDates`, function(x) stopifnot(R6::is.R6(x)))
+      self$`targetDates` <- `targetDates`
     },
     #' @description A helper function that provides public access to the private validateProps function. This allows users the ability
     #' to programmatically validate objects before sending them to DataRobot.

@@ -153,8 +153,8 @@ CreateBatchPredictions <- function(columnNamesRemapping, timeseriesSettings, mod
 #' @seealso The method BatchPredictionsCsvUploadFinalizeMultipartCreate in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-CreateBatchPredictionsCsvUploadFinalizeMultipart <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+CreateBatchPredictionsCsvUploadFinalizeMultipart <- function(predictionJobId, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadFinalizeMultipartCreate(predictionJobId = predictionJobId, ...))
 }
 
 #' PutBatchPredictionsCsvUploadPart
@@ -169,8 +169,8 @@ CreateBatchPredictionsCsvUploadFinalizeMultipart <- function(predictionJobId, pa
 #' @seealso The method BatchPredictionsCsvUploadPartPut in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-PutBatchPredictionsCsvUploadPart <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadPartPut(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+PutBatchPredictionsCsvUploadPart <- function(predictionJobId, body, partNumber = 0, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadPartPut(predictionJobId = predictionJobId, partNumber = partNumber, body = body, ...))
 }
 
 #' PutManyBatchPredictionsCsvUpload
@@ -185,8 +185,8 @@ PutBatchPredictionsCsvUploadPart <- function(predictionJobId, partNumber = 0, ..
 #' @seealso The method BatchPredictionsCsvUploadPutMany in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-PutManyBatchPredictionsCsvUpload <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadPutMany(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+PutManyBatchPredictionsCsvUpload <- function(predictionJobId, body, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsCsvUploadPutMany(predictionJobId = predictionJobId, body = body, ...))
 }
 
 #' DeleteBatchPredictions
@@ -201,8 +201,8 @@ PutManyBatchPredictionsCsvUpload <- function(predictionJobId, partNumber = 0, ..
 #' @seealso The method BatchPredictionsDelete in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-DeleteBatchPredictions <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsDelete(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+DeleteBatchPredictions <- function(predictionJobId, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsDelete(predictionJobId = predictionJobId, ...))
 }
 
 #' ListBatchPredictionsDownload
@@ -217,8 +217,8 @@ DeleteBatchPredictions <- function(predictionJobId, partNumber = 0, ...) {
 #' @seealso The method BatchPredictionsDownloadList in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-ListBatchPredictionsDownload <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsDownloadList(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+ListBatchPredictionsDownload <- function(predictionJobId, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsDownloadList(predictionJobId = predictionJobId, ...))
 }
 
 #' CreateBatchPredictionsFromExisting
@@ -233,8 +233,8 @@ ListBatchPredictionsDownload <- function(predictionJobId, partNumber = 0, ...) {
 #' @seealso The method BatchPredictionsFromExistingCreate in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-CreateBatchPredictionsFromExisting <- function(predictionJobId, partNumber = 0, ...) {
-  batchPredictionJobId <- datarobot.apicore::BatchPredictionJobId$new(predictionJobId = predictionJobId, partNumber = partNumber, validateParams = TRUE)
+CreateBatchPredictionsFromExisting <- function(predictionJobId, ...) {
+  batchPredictionJobId <- datarobot.apicore::BatchPredictionJobId$new(predictionJobId = predictionJobId, validateParams = TRUE)
   return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsFromExistingCreate(batchPredictionJobId = batchPredictionJobId, ...))
 }
 
@@ -283,9 +283,9 @@ ListBatchPredictions <- function(modelId, outputType, orderBy, source, endDateTi
 #' @seealso The method BatchPredictionsPatch in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-PatchBatchPredictions <- function(predictionJobId, scoredRows, jobIntakeSize, hidden, skippedRows, aborted, jobOutputSize, failedRows, started, completed, logs, status, partNumber = 0, ...) {
+PatchBatchPredictions <- function(predictionJobId, scoredRows, jobIntakeSize, hidden, skippedRows, aborted, jobOutputSize, failedRows, started, completed, logs, status, ...) {
   batchPredictionJobUpdate <- datarobot.apicore::BatchPredictionJobUpdate$new(scoredRows = scoredRows, jobIntakeSize = jobIntakeSize, hidden = hidden, skippedRows = skippedRows, aborted = aborted, jobOutputSize = jobOutputSize, failedRows = failedRows, started = started, completed = completed, logs = logs, status = status, validateParams = TRUE)
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsPatch(predictionJobId = predictionJobId, batchPredictionJobUpdate = batchPredictionJobUpdate, partNumber = partNumber, ...))
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsPatch(predictionJobId = predictionJobId, batchPredictionJobUpdate = batchPredictionJobUpdate, ...))
 }
 
 #' RetrieveBatchPredictions
@@ -300,8 +300,8 @@ PatchBatchPredictions <- function(predictionJobId, scoredRows, jobIntakeSize, hi
 #' @seealso The method BatchPredictionsRetrieve in [datarobot.apicore::PredictionsApi], which invokes the same underlying API endpoint.
 #' @export
 #' @md
-RetrieveBatchPredictions <- function(predictionJobId, partNumber = 0, ...) {
-  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsRetrieve(predictionJobId = predictionJobId, partNumber = partNumber, ...))
+RetrieveBatchPredictions <- function(predictionJobId, ...) {
+  return(datarobot.apicore::PredictionsApi$new()$BatchPredictionsRetrieve(predictionJobId = predictionJobId, ...))
 }
 
 

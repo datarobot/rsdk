@@ -121,8 +121,8 @@ SsoConfigurationResponse <- R6::R6Class(
       if (!is.null(`groupDelimiter`)) {
         stopifnot(is.character(`groupDelimiter`), length(`groupDelimiter`) == 1)
       }
-      if (!is.null(`groupMapping`)) {
-        stopifnot(is.vector(`groupMapping`))
+      if (!is.null(`groupMapping`) && length(`groupMapping`) > 0) {
+        stopifnot(is.vector(`groupMapping`), sapply(`groupMapping`, R6::is.R6))
       }
       if (!is.null(`idpMetadata`)) {
         stopifnot(R6::is.R6(`idpMetadata`))
@@ -142,8 +142,8 @@ SsoConfigurationResponse <- R6::R6Class(
       if (!is.null(`roleDelimiter`)) {
         stopifnot(is.character(`roleDelimiter`), length(`roleDelimiter`) == 1)
       }
-      if (!is.null(`roleMapping`)) {
-        stopifnot(is.vector(`roleMapping`))
+      if (!is.null(`roleMapping`) && length(`roleMapping`) > 0) {
+        stopifnot(is.vector(`roleMapping`), sapply(`roleMapping`, R6::is.R6))
       }
       if (!is.null(`securityParameters`)) {
         stopifnot(R6::is.R6(`securityParameters`))
@@ -224,7 +224,7 @@ SsoConfigurationResponse <- R6::R6Class(
       self$`enforceSso` <- `enforceSso`
       self$`entityId` <- `entityId`
       self$`groupDelimiter` <- `groupDelimiter`
-      sapply(`groupMapping`, function(x) stopifnot(R6::is.R6(x)))
+      self$`groupMapping` <- `groupMapping`
       self$`id` <- `id`
       self$`idpMetadata` <- `idpMetadata`
       self$`idpMetadataHttpsVerify` <- `idpMetadataHttpsVerify`
@@ -234,7 +234,7 @@ SsoConfigurationResponse <- R6::R6Class(
       self$`name` <- `name`
       self$`organizationId` <- `organizationId`
       self$`roleDelimiter` <- `roleDelimiter`
-      sapply(`roleMapping`, function(x) stopifnot(R6::is.R6(x)))
+      self$`roleMapping` <- `roleMapping`
       self$`securityParameters` <- `securityParameters`
       self$`sessionLengthSeconds` <- `sessionLengthSeconds`
       self$`signOnUrl` <- `signOnUrl`
