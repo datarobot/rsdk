@@ -4,10 +4,12 @@ A read-only public repository of the R API Client for the DataRobot Public API. 
 
 ## Installation
 
+To install the latest official release, use:
+
 ```R
 library(remotes)
-remotes::install_github("datarobot/rsdk", subdir = "datarobot.apicore")
-remotes::install_github("datarobot/rsdk", subdir = "datarobot")
+install_github("datarobot/rsdk", subdir = "datarobot.apicore", ref = github_release())
+install_github("datarobot/rsdk", subdir = "datarobot", ref = github_release())
 library(datarobot)
 ```
 
