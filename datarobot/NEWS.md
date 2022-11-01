@@ -1,3 +1,14 @@
+# datarobot v2.29.0.9003
+
+API Changes:
+
+* Exported and documented the helper function `WaitForAsyncReturn` for use with DataRobot API endpoints that work with long-running jobs or are otherwise asynchronous.
+
+Bugfixes:
+
+* Removed some problematic docstrings on the `DocumentationApi` class that were causing issues during package installation and documentation build.
+* Removed some unnecessary files from the package.
+
 # datarobot v2.29.0.9002
 
 The `datarobot` package is now dependent on R >= 3.5.
