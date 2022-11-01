@@ -1,5 +1,13 @@
 # datarobot: 'DataRobot' Predictive Modeling API
 
+<!-- badges: start -->
+
+<!-- https://shields.io/category/version -->
+![GitHub R package version (subdirectory of monorepo)](https://img.shields.io/github/r-package/v/datarobot/rsdk?filename=datarobot%2FDESCRIPTION&label=datarobot&logo=R)
+![GitHub R package version (subdirectory of monorepo)](https://img.shields.io/github/r-package/v/datarobot/rsdk?filename=datarobot.apicore%2FDESCRIPTION&label=datarobot.apicore&logo=R)
+
+<!-- badges: end -->
+
 A read-only public repository of the R API Client for the DataRobot Public API. For working with the 'DataRobot' predictive modeling platform's API &lt;https://www.datarobot.com/&gt;.
 
 ## Installation
