@@ -30,8 +30,6 @@ An S3 object of class 'projectSummaryList', consisting of the following elements
     project.
   \item partition. Dataframe with one row for each project and 12 columns specifying
     partitioning details.
-  \item recommender. Dataframe with one row for each project and 3 columns characterizing
-    recommender projects.
   \item advancedOptions. Dataframe with one row for each project and 4 columns specifying values
     for advanced option parameters.
   \item positiveClass. Character string identifying the positive target class for binary

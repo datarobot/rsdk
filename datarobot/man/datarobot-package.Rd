@@ -6,5 +6,5 @@
 \alias{datarobot-package}
 \title{datarobot: 'DataRobot' Predictive Modeling API}
 \description{
-For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
+For working with the 'DataRobot' predictive modeling platform's API \url{https://www.datarobot.com/}.
 }

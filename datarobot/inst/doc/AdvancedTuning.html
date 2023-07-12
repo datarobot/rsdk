@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford" />
 
-<meta name="date" content="2022-05-05" />
+<meta name="date" content="2023-07-12" />
 
 <title>Advanced Tuning for Models</title>
 
@@ -122,13 +122,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -334,34 +341,67 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Advanced Tuning for Models</h1>
 <h4 class="author">Peter Hurford</h4>
-<h4 class="date">2022-05-05</h4>
+<h4 class="date">2023-07-12</h4>
 
 
 
-<p>DataRobot is very good at choosing optimal hyperparameters for models to maximize speed and accuracy. However, sometimes we wish to change those hyperparameters ourselves either because we know something DataRobot does not about how to maximize accuracy, we want to experiment with different approaches, or we have some other reason to use a particular parameter. To do this, we use the advanced tuning interface.</p>
+<p>DataRobot is very good at choosing optimal hyperparameters for models
+to maximize speed and accuracy. However, sometimes we wish to change
+those hyperparameters ourselves either because we know something
+DataRobot does not about how to maximize accuracy, we want to experiment
+with different approaches, or we have some other reason to use a
+particular parameter. To do this, we use the advanced tuning
+interface.</p>
 <div id="interactive-advanced-tuning-interface" class="section level2">
 <h2>Interactive Advanced Tuning Interface</h2>
-<p>The easiest way to do advanced tuning is to set up a model and use <code>RunInteractiveTuning</code> to start an interactive tuning job:</p>
+<p>The easiest way to do advanced tuning is to set up a model and use
+<code>RunInteractiveTuning</code> to start an interactive tuning
+job:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tuningJobId <span class="ot">&lt;-</span> <span class="fu">RunInteractiveTuning</span>(myModel)</span></code></pre></div>
-<p>This function will guide you through an interactive step-by-step process to tune each hyperparameter of your model. You will get to see the default, current value, and possible values for each choice and then iterate through them. You can simply press ENTER to skip any hyperparameter you wish to leave at its current value. Afterwards, you will receive a <code>jobId</code> value that you can use to get your model:</p>
+<p>This function will guide you through an interactive step-by-step
+process to tune each hyperparameter of your model. You will get to see
+the default, current value, and possible values for each choice and then
+iterate through them. You can simply press ENTER to skip any
+hyperparameter you wish to leave at its current value. Afterwards, you
+will receive a <code>jobId</code> value that you can use to get your
+model:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(myModel<span class="sc">$</span>projectId, tuningJobId)</span></code></pre></div>
-<p>Note that occasionally the interactive tuning interface may duplicate parameters – this is because the model itself has multiple parameters with the same name (e.g., parameters for one hot encoding text values followed by parameters for one hot encoding numeric variables will use the same names). They are listed in the order they are found in the blueprint but unfortunately more user-facing information cannot be provided.</p>
+<p>Note that occasionally the interactive tuning interface may duplicate
+parameters – this is because the model itself has multiple parameters
+with the same name (e.g., parameters for one hot encoding text values
+followed by parameters for one hot encoding numeric variables will use
+the same names). They are listed in the order they are found in the
+blueprint but unfortunately more user-facing information cannot be
+provided.</p>
 </div>
 <div id="get-data-on-parameters-available-for-tuning" class="section level2">
 <h2>Get Data on Parameters Available for Tuning</h2>
-<p>If you wish to see the underlying data of which parameters are available for tuning for a model and what their default, current, and possible values are, you can turn to <code>GetTuningParameters</code>:</p>
+<p>If you wish to see the underlying data of which parameters are
+available for tuning for a model and what their default, current, and
+possible values are, you can turn to
+<code>GetTuningParameters</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">GetTuningParameters</span>(myModel)</span></code></pre></div>
-<p>You can get more concisely printed tuning parameters by using <code>summary</code>:</p>
+<p>You can get more concisely printed tuning parameters by using
+<code>summary</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">GetTuningParameters</span>(myModel))</span></code></pre></div>
 </div>
 <div id="programmatic-tuning-interface" class="section level2">
 <h2>Programmatic Tuning Interface</h2>
-<p>Lastly, while interactive tuning is useful, it may be needlessly slow to iterate through every parameter or you may wish to do tuning outside of an interactive mode. To do this, we also offer a programmatic tuning interface using <code>StartTuningSession</code>:</p>
+<p>Lastly, while interactive tuning is useful, it may be needlessly slow
+to iterate through every parameter or you may wish to do tuning outside
+of an interactive mode. To do this, we also offer a programmatic tuning
+interface using <code>StartTuningSession</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>myXGBModel <span class="ot">&lt;-</span> <span class="fu">GetModel</span>(projectId, modelId)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>RunTune <span class="ot">&lt;-</span> <span class="fu">StartTuningSession</span>(myXGBModel)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tuningJob <span class="ot">&lt;-</span> <span class="fu">RunTune</span>(myXGBModel, <span class="at">colsample_bytree =</span> <span class="fl">0.4</span>, <span class="at">colsample_bylevel =</span> <span class="fl">0.8</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(projectId, tuningJob)</span></code></pre></div>
-<p><code>RunTune</code> is a function that is dynamically generated by <code>StartTuningSession</code> that then lets you fill in all the hyperparameters for your particular model. If you pass an XGB model, <code>RunTune</code> will have the hyperparameters to tune XGB (e.g., <code>colsample_bytree</code>), whereas if you pass an Elastic Net model, the function will instead have hyperparameters for Elastic Nets (e.g., <code>lambda</code>) instead.</p>
+<p><code>RunTune</code> is a function that is dynamically generated by
+<code>StartTuningSession</code> that then lets you fill in all the
+hyperparameters for your particular model. If you pass an XGB model,
+<code>RunTune</code> will have the hyperparameters to tune XGB (e.g.,
+<code>colsample_bytree</code>), whereas if you pass an Elastic Net
+model, the function will instead have hyperparameters for Elastic Nets
+(e.g., <code>lambda</code>) instead.</p>
 </div>
 
 

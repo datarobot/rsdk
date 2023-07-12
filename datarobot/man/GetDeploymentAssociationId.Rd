@@ -50,12 +50,12 @@ settings for a deployment.
 }
 \section{Functions}{
 \itemize{
-\item \code{UpdateDeploymentAssociationId}: Updates the association ID settings of
+\item \code{UpdateDeploymentAssociationId()}: Updates the association ID settings of
 a deployment. It will only update those settings that correspond to set
 arguments. This function will throw an error if the update fails and return
 the updated settings on success.
-}}
 
+}}
 \seealso{
 Other deployment accuracy functions: 
 \code{\link{GetDeploymentAccuracyOverTime}()},

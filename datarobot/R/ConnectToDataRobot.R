@@ -127,7 +127,7 @@ ConnectWithUsernamePassword <- function(endpoint, username, password) {
 }
 
 SaveConnectionEnvironmentVars <- function(endpoint, token) {
-  message("Authentication token saved")
+  packageStartupMessage("Authentication token saved")
   Sys.setenv(DATAROBOT_API_ENDPOINT = endpoint)
   Sys.setenv(DATAROBOT_API_TOKEN = token)
 }

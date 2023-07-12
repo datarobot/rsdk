@@ -317,14 +317,12 @@ test_that("Fail on invalid targetTypes", {
           " instead."))
 })
 
-
 test_that("Use full autopilot mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$FullAuto),
       "Autopilot started")
     expect_equal(as.character(bodyForInspect$mode), AutopilotMode$FullAuto)
-    expect_false(as.logical(bodyForInspect$quickrun))
   })
 })
 
@@ -334,7 +332,6 @@ test_that("Use manual mode", {
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Manual),
       "Autopilot started")
     expect_equal(as.character(bodyForInspect$mode), AutopilotMode$Manual)
-    expect_false(as.logical(bodyForInspect$quickrun))
   })
 })
 
@@ -342,10 +339,12 @@ test_that("Use quickrun mode", {
   withSetTargetMocks({
     expect_message(
       SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick),
-      "Autopilot started")
-    # Quickrun does full auto, but with the quickrun parameter
-    expect_equal(as.character(bodyForInspect$mode), AutopilotMode$FullAuto)
-    expect_true(as.logical(bodyForInspect$quickrun))
+      "Autopilot started"
+    )
+    # Prior to DSX-2417 using Quick would actually use FullAuto but with quickrun == TRUE
+    # now we just use Quick mode
+    expect_equal(as.character(bodyForInspect$mode), AutopilotMode$Quick)
+    expect_null(bodyForInspect$quickrun)
   })
 })
 

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford" />
 
-<meta name="date" content="2022-05-05" />
+<meta name="date" content="2023-07-12" />
 
 <title>Introduction to Calendars</title>
 
@@ -122,13 +122,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -334,11 +341,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to Calendars</h1>
 <h4 class="author">Peter Hurford</h4>
-<h4 class="date">2022-05-05</h4>
+<h4 class="date">2023-07-12</h4>
 
 
 
-<p>A <strong>calendar</strong> is an external file that lists events for a time series, such as holidays. For example, we might consider this calendar:</p>
+<p>A <strong>calendar</strong> is an external file that lists events for
+a time series, such as holidays. For example, we might consider this
+calendar:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>calendar <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;calendar.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarobot&quot;</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(calendar)</span></code></pre></div>
@@ -374,8 +383,14 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </table>
 <div id="connect-to-datarobot" class="section level2">
 <h2>Connect to DataRobot</h2>
-<p>To explore calendars, let’s first connect to DataRobot. First, you must load the DataRobot R package library.</p>
-<p>If you have set up a credentials file, <code>library(datarobot)</code> will initialize a connection to DataRobot automatically. Otherwise, you can specify your <code>endpoint</code> and <code>apiToken</code> as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the “Introduction to DataRobot” vignette.</p>
+<p>To explore calendars, let’s first connect to DataRobot. First, you
+must load the DataRobot R package library.</p>
+<p>If you have set up a credentials file,
+<code>library(datarobot)</code> will initialize a connection to
+DataRobot automatically. Otherwise, you can specify your
+<code>endpoint</code> and <code>apiToken</code> as in this example to
+connect to DataRobot directly. For more information on connecting to
+DataRobot, see the “Introduction to DataRobot” vignette.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR DATAROBOT URL GOES HERE&gt;/api/v2&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN GOES HERE&gt;&quot;</span></span>
@@ -383,7 +398,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="creating-calendars" class="section level2">
 <h2>Creating Calendars</h2>
-<p>To create a DataRobot calendar from the CSV file, use <code>CreateCalendar</code>:</p>
+<p>To create a DataRobot calendar from the CSV file, use
+<code>CreateCalendar</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>calendar <span class="ot">&lt;-</span> <span class="fu">CreateCalendar</span>(<span class="st">&quot;calendar.csv&quot;</span>, <span class="at">name =</span> <span class="st">&quot;holidays&quot;</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(calendar)</span></code></pre></div>
 <p>$name [1] “holidays”</p>
@@ -398,7 +414,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="retrieving-calendars" class="section level2">
 <h2>Retrieving Calendars</h2>
-<p>You can retrieve a calendar from the list of calendars. This will list all calendars across all projects.</p>
+<p>You can retrieve a calendar from the list of calendars. This will
+list all calendars across all projects.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>calendars <span class="ot">&lt;-</span> <span class="fu">ListCalendars</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>calendar <span class="ot">&lt;-</span> calendars[[<span class="dv">1</span>]]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(calendar)</span></code></pre></div>
@@ -429,7 +446,10 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="making-a-time-series-project-using-a-calendar" class="section level2">
 <h2>Making a Time Series Project using a Calendar</h2>
-<p>The main point of having calendars is not to admire them, but to use them for time series modeling! To do this, make a datetime partition like you usually would and pass the calendar using the <code>calendar</code> parameter.</p>
+<p>The main point of having calendars is not to admire them, but to use
+them for time series modeling! To do this, make a datetime partition
+like you usually would and pass the calendar using the
+<code>calendar</code> parameter.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">SetupProject</span>(timeSeriesData, <span class="at">projectName =</span> <span class="st">&quot;time series with calendar&quot;</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>cal <span class="ot">&lt;-</span> <span class="fu">CreateCalendar</span>(<span class="st">&quot;calendar.csv&quot;</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="st">&quot;date&quot;</span>,</span>
@@ -440,7 +460,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="getting-the-calendar-associated-with-a-project" class="section level2">
 <h2>Getting the Calendar Associated with a Project</h2>
-<p>You can get the calendar associated with a project using <code>GetCalendarFromProject</code></p>
+<p>You can get the calendar associated with a project using
+<code>GetCalendarFromProject</code></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>projectId <span class="ot">&lt;-</span> <span class="st">&quot;59dab74bbd2a54035786bfc0&quot;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>calendar <span class="ot">&lt;-</span> <span class="fu">GetCalendarFromProject</span>(project)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(calendar)</span></code></pre></div>
@@ -456,7 +477,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="getting-the-projects-associated-with-a-calendar" class="section level2">
 <h2>Getting the Projects Associated with a Calendar</h2>
-<p>To see all the projects associated with a particular calendar, look at the <code>projectIds</code> parameter of the calendar.</p>
+<p>To see all the projects associated with a particular calendar, look
+at the <code>projectIds</code> parameter of the calendar.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(calendar<span class="sc">$</span>projectIds)</span></code></pre></div>
 <p>[[1]] [1] “59dab74bbd2a54035786bfc0”</p>
 </div>

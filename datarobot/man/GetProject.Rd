@@ -25,7 +25,6 @@ An S3 object of class 'dataRobotProject', consisting of the following elements:
   \item metric. Character string specifying the metric optimized by all project models.
   \item partition. A 7-element list describing the data partitioning for model fitting
     and cross validation.
-  \item recommender. A 3-element list with information specific to recommender models.
   \item advancedOptions. A 4-element list with advanced option specifications.
   \item positiveClass. Character string: name of positive class for binary response models.
   \item maxTrainPct. The maximum percentage of the project dataset that can be used without going

@@ -44,8 +44,10 @@ data in the specified range.
 Only rows with the highest anomaly scores have Shapley explanations calculated.
 \item timestamp POSIXct. Timestamp for the row.
 \item prediction numeric. The output of the model for this row.
-}\preformatted{Each ShapleyFeatureContribution contains:
 }
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{Each ShapleyFeatureContribution contains:
+}\if{html}{\out{</div>}}
 
 \itemize{
 \item featureValue. character. The feature value for this row.

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford, Madeleine Mott" />
 
-<meta name="date" content="2022-05-05" />
+<meta name="date" content="2023-07-12" />
 
 <title>Introduction to Time Series</title>
 
@@ -122,13 +122,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -334,32 +341,84 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to Time Series</h1>
 <h4 class="author">Peter Hurford, Madeleine Mott</h4>
-<h4 class="date">2022-05-05</h4>
+<h4 class="date">2023-07-12</h4>
 
 
 
-<p>DataRobot now includes the ability to make time series projects via the API.</p>
-<p>Time series projects, like OTV projects, use datetime partitioning, and all the workflow changes that apply to other datetime partitioned projects also apply to them. Unlike other projects, time series projects produce different types of models which forecast multiple future predictions instead of an individual prediction for each row.</p>
-<p>DataRobot uses a general time series framework to configure how time series features are created and what future values the models will output. This framework consists of a Forecast Point (defining a time a prediction is being made), a Feature Derivation Window (a rolling window used to create features), and a Forecast Window (a rolling window of future values to predict). These components are described in more detail below.</p>
-<p>Time series projects will automatically transform the dataset provided in order to apply this framework. During the transformation, DataRobot uses the Feature Derivation Window to derive time series features (such as lags and rolling statistics), and uses the Forecast Window to provide examples of forecasting different distances in the future (such as time shifts). After project creation, a new dataset and a new feature list are generated and used to train the models. This process is reapplied automatically at prediction time as well in order to generate future predictions based on the original data features.</p>
-<p>The <code>timeUnit</code> and <code>timeStep</code> used to define the Feature Derivation and Forecast Windows are taken from the datetime partition column, and can be retrieved for a given column in the input data by using <code>GetFeatureInfo</code>.</p>
+<p>DataRobot now includes the ability to make time series projects via
+the API.</p>
+<p>Time series projects, like OTV projects, use datetime partitioning,
+and all the workflow changes that apply to other datetime partitioned
+projects also apply to them. Unlike other projects, time series projects
+produce different types of models which forecast multiple future
+predictions instead of an individual prediction for each row.</p>
+<p>DataRobot uses a general time series framework to configure how time
+series features are created and what future values the models will
+output. This framework consists of a Forecast Point (defining a time a
+prediction is being made), a Feature Derivation Window (a rolling window
+used to create features), and a Forecast Window (a rolling window of
+future values to predict). These components are described in more detail
+below.</p>
+<p>Time series projects will automatically transform the dataset
+provided in order to apply this framework. During the transformation,
+DataRobot uses the Feature Derivation Window to derive time series
+features (such as lags and rolling statistics), and uses the Forecast
+Window to provide examples of forecasting different distances in the
+future (such as time shifts). After project creation, a new dataset and
+a new feature list are generated and used to train the models. This
+process is reapplied automatically at prediction time as well in order
+to generate future predictions based on the original data features.</p>
+<p>The <code>timeUnit</code> and <code>timeStep</code> used to define
+the Feature Derivation and Forecast Windows are taken from the datetime
+partition column, and can be retrieved for a given column in the input
+data by using <code>GetFeatureInfo</code>.</p>
 <div id="setting-up-a-time-series-project" class="section level2">
 <h2>Setting Up A Time Series Project</h2>
-<p>To set up a time series project, use the new time series specific parameters found in <code>CreateDatetimePartitionSpecification</code>:</p>
+<p>To set up a time series project, use the new time series specific
+parameters found in
+<code>CreateDatetimePartitionSpecification</code>:</p>
 <ul>
-<li><strong>useTimeSeries</strong> - set this to TRUE to enable time series for the project.</li>
-<li><strong>defaultToKnownInAdvance</strong> - set this to TRUE to default to treating all features as known in advance features. Otherwise they will not be handled as known in advance features. See the prediction documentation for more information.</li>
-<li><strong>featureDerivationWindowStart</strong> - the offset into the past to the start of the feature derivation window.</li>
-<li><strong>featureDerivationWindowEnd</strong> - the offset into the past to the end of the feature derivation window.</li>
-<li><strong>forecastWindowStart</strong> - the offset into the future to the start of the forecast window.</li>
-<li><strong>forecastWindowEnd</strong> - the offset into the future to the end of the forecast window.</li>
-<li><strong>featureSettings</strong> - A list of settings. Can be used to set individual features to “known in advance”.</li>
-<li><strong>treatAsExponential</strong> - Used to specify whether to treat the data as an exponential trend, which will apply a log-transform. By default, set as “auto”, this can be inferred automatically. See possible values in <code>TreatAsExponential</code>.</li>
-<li><strong>differencingMethod</strong> - Used to specify a differencing method to apply if data is stationary. By default, set as “auto”, this can be inferred automatically. See possible values in <code>DifferenicngMethod</code>.</li>
-<li><strong>periodicities</strong> - A list of periodicities of different timestamps, specified in a list of lists.</li>
-<li><strong>windowsBasisUnit</strong> - The unit to use for feature derivation and forecast windows. Defaults to the inferred time step. If <code>&quot;ROW&quot;</code>, will define the window with a number of rows.</li>
+<li><strong>useTimeSeries</strong> - set this to TRUE to enable time
+series for the project.</li>
+<li><strong>defaultToKnownInAdvance</strong> - set this to TRUE to
+default to treating all features as known in advance features. Otherwise
+they will not be handled as known in advance features. See the
+prediction documentation for more information.</li>
+<li><strong>featureDerivationWindowStart</strong> - the offset into the
+past to the start of the feature derivation window.</li>
+<li><strong>featureDerivationWindowEnd</strong> - the offset into the
+past to the end of the feature derivation window.</li>
+<li><strong>forecastWindowStart</strong> - the offset into the future to
+the start of the forecast window.</li>
+<li><strong>forecastWindowEnd</strong> - the offset into the future to
+the end of the forecast window.</li>
+<li><strong>featureSettings</strong> - A list of settings. Can be used
+to set individual features to “known in advance”.</li>
+<li><strong>treatAsExponential</strong> - Used to specify whether to
+treat the data as an exponential trend, which will apply a
+log-transform. By default, set as “auto”, this can be inferred
+automatically. See possible values in
+<code>TreatAsExponential</code>.</li>
+<li><strong>differencingMethod</strong> - Used to specify a differencing
+method to apply if data is stationary. By default, set as “auto”, this
+can be inferred automatically. See possible values in
+<code>DifferenicngMethod</code>.</li>
+<li><strong>periodicities</strong> - A list of periodicities of
+different timestamps, specified in a list of lists.</li>
+<li><strong>windowsBasisUnit</strong> - The unit to use for feature
+derivation and forecast windows. Defaults to the inferred time step. If
+<code>&quot;ROW&quot;</code>, will define the window with a number of rows.</li>
 </ul>
-<p>When using datasets to a time series project, the dataset might look something like the following, if <code>time</code> is the datetime partition column, <code>target</code> is the target column, and <code>temp</code> is an input feature. If the dataset was uploaded with a forecast point of “2017-01-08” and during partitioning the feature derivation window start and end were set to -5 and -3 and the forecast window start and end were set to 1 and 3, then rows 1 through 3 are historical data, row 6 is the forecast point, and rows 7 though 9 are forecast rows that will have predictions when predictions are computed.</p>
+<p>When using datasets to a time series project, the dataset might look
+something like the following, if <code>time</code> is the datetime
+partition column, <code>target</code> is the target column, and
+<code>temp</code> is an input feature. If the dataset was uploaded with
+a forecast point of “2017-01-08” and during partitioning the feature
+derivation window start and end were set to -5 and -3 and the forecast
+window start and end were set to 1 and 3, then rows 1 through 3 are
+historical data, row 6 is the forecast point, and rows 7 though 9 are
+forecast rows that will have predictions when predictions are
+computed.</p>
 <table>
 <thead>
 <tr class="header">
@@ -426,7 +485,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 </tbody>
 </table>
-<p>On the other hand, if the project instead used <code>holiday</code> as a known in advance input feature, the uploaded dataset might look like the following:</p>
+<p>On the other hand, if the project instead used <code>holiday</code>
+as a known in advance input feature, the uploaded dataset might look
+like the following:</p>
 <table>
 <thead>
 <tr class="header">
@@ -493,18 +554,38 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 </tbody>
 </table>
-<p>Here’s a simple example of using this data in a time series project:</p>
+<p>Here’s a simple example of using this data in a time series
+project:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">StartProject</span>(<span class="at">dataSource =</span> data, <span class="at">target =</span> <span class="st">&quot;target&quot;</span>, <span class="at">partition =</span> partition, <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>)</span></code></pre></div>
 </div>
 <div id="feature-derivation-window" class="section level2">
 <h2>Feature Derivation Window</h2>
-<p>The Feature Derivation window represents the rolling window that is used to derive time series features and lags, relative to the Forecast Point. It is defined in terms of <code>featureDerivationWindowStart</code> and <code>featureDerivationWindowEnd</code> which are integer values representing datetime offsets in terms of the <code>timeUnit</code> (e.g. hours or days).</p>
-<p>The Feature Derivation Window start and end must be less than or equal to zero, indicating they are positioned before the forecast point. Additionally, the window must be specified as an integer multiple of the <code>timeStep</code> which defines the expected difference in time units between rows in the data.</p>
-<p>Enough rows of historical data must be provided to cover the span of the effective Feature Derivation Window (which may be longer than the project’s Feature Derivation Window depending on the differencing settings chosen). The effective Feature Derivation Window of any model can be checked via the <code>effectiveFeatureDerivationWindowStart</code> and <code>effectiveFeatureDerivationWindowEnd</code> attributes of a datetime model. See <code>GetDatetimeModel</code>.</p>
-<p>The window is closed, meaning the edges are considered to be inside the window.</p>
-<p>This information is added to your <code>CreateDatetimePartitionSpecification</code> call like so:</p>
+<p>The Feature Derivation window represents the rolling window that is
+used to derive time series features and lags, relative to the Forecast
+Point. It is defined in terms of
+<code>featureDerivationWindowStart</code> and
+<code>featureDerivationWindowEnd</code> which are integer values
+representing datetime offsets in terms of the <code>timeUnit</code>
+(e.g. hours or days).</p>
+<p>The Feature Derivation Window start and end must be less than or
+equal to zero, indicating they are positioned before the forecast point.
+Additionally, the window must be specified as an integer multiple of the
+<code>timeStep</code> which defines the expected difference in time
+units between rows in the data.</p>
+<p>Enough rows of historical data must be provided to cover the span of
+the effective Feature Derivation Window (which may be longer than the
+project’s Feature Derivation Window depending on the differencing
+settings chosen). The effective Feature Derivation Window of any model
+can be checked via the
+<code>effectiveFeatureDerivationWindowStart</code> and
+<code>effectiveFeatureDerivationWindowEnd</code> attributes of a
+datetime model. See <code>GetDatetimeModel</code>.</p>
+<p>The window is closed, meaning the edges are considered to be inside
+the window.</p>
+<p>This information is added to your
+<code>CreateDatetimePartitionSpecification</code> call like so:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureDerivationWindowStart =</span> <span class="sc">-</span><span class="dv">24</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureDerivationWindowEnd =</span> <span class="sc">-</span><span class="dv">12</span>,</span>
@@ -512,10 +593,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="forecast-window" class="section level2">
 <h2>Forecast Window</h2>
-<p>The Forecast Window represents the rolling window of future values to predict, relative to the Forecast Point. It is defined in terms of the <code>forecastWindowStart</code> and <code>forecastWindowEnd</code>, which are positive integer values indicating datetime offsets in terms of the <code>timeUnit</code> (e.g. hours or days).</p>
-<p>The Forecast Window start and end must be positive integers, indicating they are positioned after the forecast point. Additionally, the window must be specified as an integer multiple of the <code>timeStep</code> which defines the expected difference in time units between rows in the data.</p>
-<p>The window is closed, meaning the edges are considered to be inside the window.</p>
-<p>This information is added to your <code>CreateDatetimePartitionSpecification</code> call like so:</p>
+<p>The Forecast Window represents the rolling window of future values to
+predict, relative to the Forecast Point. It is defined in terms of the
+<code>forecastWindowStart</code> and <code>forecastWindowEnd</code>,
+which are positive integer values indicating datetime offsets in terms
+of the <code>timeUnit</code> (e.g. hours or days).</p>
+<p>The Forecast Window start and end must be positive integers,
+indicating they are positioned after the forecast point. Additionally,
+the window must be specified as an integer multiple of the
+<code>timeStep</code> which defines the expected difference in time
+units between rows in the data.</p>
+<p>The window is closed, meaning the edges are considered to be inside
+the window.</p>
+<p>This information is added to your
+<code>CreateDatetimePartitionSpecification</code> call like so:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">forecastWindowStart =</span> <span class="dv">1</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">forecastWindowEnd =</span> <span class="dv">10</span>,</span>
@@ -523,19 +614,48 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="modeling-data-and-time-series-features" class="section level2">
 <h2>Modeling Data and Time Series Features</h2>
-<p>In time series projects, a new set of modeling features is created after setting the partitioning options. If a featurelist is specified with the partitioning options, it will be used to select which features should be used to derived modeling features; if a featurelist is not specified, the default featurelist will be used.</p>
-<p>These features are automatically derived from those in the project’s dataset and are the features used for modeling - note that <code>ListFeaturelists</code> and <code>ListModelingFeaturelists</code> will return different data in time series projects. Modeling featurelists are the ones that can be used for modeling and will be accepted by the backend, while regular featurelists will continue to exist but cannot be used. Modeling features are only accessible once the target and partitioning options have been set. In projects that don’t use time series modeling, once the target has been set, both modeling and regular features and featurelists will behave the same.</p>
+<p>In time series projects, a new set of modeling features is created
+after setting the partitioning options. If a featurelist is specified
+with the partitioning options, it will be used to select which features
+should be used to derived modeling features; if a featurelist is not
+specified, the default featurelist will be used.</p>
+<p>These features are automatically derived from those in the project’s
+dataset and are the features used for modeling - note that
+<code>ListFeaturelists</code> and <code>ListModelingFeaturelists</code>
+will return different data in time series projects. Modeling
+featurelists are the ones that can be used for modeling and will be
+accepted by the backend, while regular featurelists will continue to
+exist but cannot be used. Modeling features are only accessible once the
+target and partitioning options have been set. In projects that don’t
+use time series modeling, once the target has been set, both modeling
+and regular features and featurelists will behave the same.</p>
 </div>
 <div id="making-predictions" class="section level2">
 <h2>Making Predictions</h2>
-<p>Prediction datasets are uploaded as normal predictions. However, when uploading a prediction dataset, a new parameter <code>forecastPoint</code> can be specified. The forecast point of a prediction dataset identifies the point in time relative which predictions should be generated, and if one is not specified when uploading a dataset, the server will choose the most recent possible forecast point. The forecast window specified when setting the partitioning options for the project determines how far into the future from the forecast point predictions should be calculated.</p>
+<p>Prediction datasets are uploaded as normal predictions. However, when
+uploading a prediction dataset, a new parameter
+<code>forecastPoint</code> can be specified. The forecast point of a
+prediction dataset identifies the point in time relative which
+predictions should be generated, and if one is not specified when
+uploading a dataset, the server will choose the most recent possible
+forecast point. The forecast window specified when setting the
+partitioning options for the project determines how far into the future
+from the forecast point predictions should be calculated.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(timeSeriesModel, testData, <span class="at">forecastPoint =</span> <span class="st">&quot;1958-01-01&quot;</span>)</span></code></pre></div>
 </div>
 <div id="feature-settings" class="section level2">
 <h2>Feature Settings</h2>
-<p>When setting up a time series project, input features could be identified as known in advance features. These features are not used to generate lags, and are expected to be known for the rows in the forecast window at predict time (e.g. “how much money will have been spent on marketing”, “is this a holiday”).</p>
-<p>To start a time series project, use <code>CreateDatetimePartitionSpecification</code> and specify the <code>feaureSettings</code>. (Note that this is for illustrative purposes only - this project will not actually build because the 10 data points are smaller than the 100 datapoint minimum required.)</p>
+<p>When setting up a time series project, input features could be
+identified as known in advance features. These features are not used to
+generate lags, and are expected to be known for the rows in the forecast
+window at predict time (e.g. “how much money will have been spent on
+marketing”, “is this a holiday”).</p>
+<p>To start a time series project, use
+<code>CreateDatetimePartitionSpecification</code> and specify the
+<code>feaureSettings</code>. (Note that this is for illustrative
+purposes only - this project will not actually build because the 10 data
+points are smaller than the 100 datapoint minimum required.)</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;holiday&quot;</span>,</span>
@@ -545,7 +665,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;target&quot;</span>,</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">partition =</span> partition,</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">metric =</span> <span class="st">&quot;RMSE&quot;</span>)</span></code></pre></div>
-<p>If you have another known in advance feature (e.g., <code>weekend</code>), just add it to feature settings as a list of lists:</p>
+<p>If you have another known in advance feature (e.g.,
+<code>weekend</code>), just add it to feature settings as a list of
+lists:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;holiday&quot;</span>,</span>
@@ -555,8 +677,15 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="formatting-durations" class="section level2">
 <h2>Formatting Durations</h2>
-<p>Some parts of time series require specifying durations. When date ranges are specified with a start and an end date, the end date is exclusive, so only dates earlier than the end date are included, but the start date is inclusive, so dates equal to or later than the start date are included. If the start and end date are the same, then no dates are included in the range.</p>
-<p>Durations are specified using a subset of ISO8601. Durations will be of the form PnYnMnDTnHnMnS where each “n” may be replaced with an integer value. Within the duration string,</p>
+<p>Some parts of time series require specifying durations. When date
+ranges are specified with a start and an end date, the end date is
+exclusive, so only dates earlier than the end date are included, but the
+start date is inclusive, so dates equal to or later than the start date
+are included. If the start and end date are the same, then no dates are
+included in the range.</p>
+<p>Durations are specified using a subset of ISO8601. Durations will be
+of the form PnYnMnDTnHnMnS where each “n” may be replaced with an
+integer value. Within the duration string,</p>
 <ul>
 <li>nY represents the number of years</li>
 <li>the nM following the “P” represents the number of months</li>
@@ -564,7 +693,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <li>nH represents the number of hours</li>
 <li>the nM following the “T” represents the number of minutes</li>
 <li>nS represents the number of seconds</li>
-<li>“P” is used to indicate that the string represents a period and “T” indicates the beginning of the time component of the string. Any section with a value of 0 may be excluded. As with datetimes, if the partition column did not include a time component in its date format, the time component of any duration must be either unspecified or consist only of zeros.</li>
+<li>“P” is used to indicate that the string represents a period and “T”
+indicates the beginning of the time component of the string. Any section
+with a value of 0 may be excluded. As with datetimes, if the partition
+column did not include a time component in its date format, the time
+component of any duration must be either unspecified or consist only of
+zeros.</li>
 </ul>
 <p>Example Durations:</p>
 <ul>
@@ -575,7 +709,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="multiseries" class="section level2">
 <h2>Multiseries</h2>
-<p>The API also supports <strong>multiseries</strong>, or data with multiple time series delineated by multiseries ID columns. To create this, create a project, then create a datetime partition specification that specifies the <code>datetimePartitionColumn</code> (the column with your date in it) and the <code>multiseriesIdColumns</code> (a list of columns specifying the ids that delineate the multiseries).</p>
+<p>The API also supports <strong>multiseries</strong>, or data with
+multiple time series delineated by multiseries ID columns. To create
+this, create a project, then create a datetime partition specification
+that specifies the <code>datetimePartitionColumn</code> (the column with
+your date in it) and the <code>multiseriesIdColumns</code> (a list of
+columns specifying the ids that delineate the multiseries).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;multiseries.csv&quot;</span>, <span class="at">package =</span> <span class="st">&quot;datarobot&quot;</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
@@ -590,18 +729,49 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="prediction-intervals" class="section level2">
 <h2>Prediction Intervals</h2>
-<p>For each model, prediction intervals estimate the range of values DataRobot expects actual values of the target to fall within. They are similar to a confidence interval of a prediction, but are based on the residual errors measured during the backtesting for the selected model.</p>
-<p>Note that because calculation depends on the backtesting values, prediction intervals are not available for predictions on models that have not had all backtests completed. Additionally, prediction intervals are not available when the number of points per forecast distance is less than 10, due to insufficient data.</p>
-<p>In a prediction request, users can specify a prediction intervals size, which specifies the desired probability of actual values falling within the interval range. Larger values are less precise, but more conservative. For example, specifying a size of 80 will result in a lower bound of 10% and an upper bound of 90%. More generally, for a specific <code>predictionIntervalsSize</code>, the upper and lower bounds will be calculated as follows:</p>
+<p>For each model, prediction intervals estimate the range of values
+DataRobot expects actual values of the target to fall within. They are
+similar to a confidence interval of a prediction, but are based on the
+residual errors measured during the backtesting for the selected
+model.</p>
+<p>Note that because calculation depends on the backtesting values,
+prediction intervals are not available for predictions on models that
+have not had all backtests completed. Additionally, prediction intervals
+are not available when the number of points per forecast distance is
+less than 10, due to insufficient data.</p>
+<p>In a prediction request, users can specify a prediction intervals
+size, which specifies the desired probability of actual values falling
+within the interval range. Larger values are less precise, but more
+conservative. For example, specifying a size of 80 will result in a
+lower bound of 10% and an upper bound of 90%. More generally, for a
+specific <code>predictionIntervalsSize</code>, the upper and lower
+bounds will be calculated as follows:</p>
 <ul>
-<li>predictionIntervalUpperBound = 50% + (<code>predictionIntervalsSize</code> / 2)</li>
-<li>predictionIntervalLowerBound = 50% - (<code>predictionIntervalsSize</code> / 2)</li>
+<li>predictionIntervalUpperBound = 50% +
+(<code>predictionIntervalsSize</code> / 2)</li>
+<li>predictionIntervalLowerBound = 50% -
+(<code>predictionIntervalsSize</code> / 2)</li>
 </ul>
-<p>To view prediction intervals data for a prediction, the prediction needs to have been created using <code>Predict</code> and specifying <code>includePredictionIntervals = TRUE</code>. The size for the prediction interval can be specified with the <code>predictionIntervalsSize</code> parameter for the same function, and will default to 80 if left unspecified. Specifying these fields will result in prediction interval bounds being included in the retrieved prediction data for that request. See <code>Predict</code> for more details.</p>
+<p>To view prediction intervals data for a prediction, the prediction
+needs to have been created using <code>Predict</code> and specifying
+<code>includePredictionIntervals = TRUE</code>. The size for the
+prediction interval can be specified with the
+<code>predictionIntervalsSize</code> parameter for the same function,
+and will default to 80 if left unspecified. Specifying these fields will
+result in prediction interval bounds being included in the retrieved
+prediction data for that request. See <code>Predict</code> for more
+details.</p>
 </div>
 <div id="disabling-derived-features" class="section level2">
 <h2>Disabling Derived Features</h2>
-<p>DataRobot does a lot of good work to automatically derive features that may be useful (e.g., lags). You can always see these features clearly by calling <code>GetTimeSeriesFeatureDerivationLog</code>. However, from time to time, it may be useful to disable DataRobot’s automatic feature engineering for a particular feature (e.g., so you can derive lags yourself manually). To do this, we can use the <code>featureSettings</code> to turn off derived features for a particular base feature:</p>
+<p>DataRobot does a lot of good work to automatically derive features
+that may be useful (e.g., lags). You can always see these features
+clearly by calling <code>GetTimeSeriesFeatureDerivationLog</code>.
+However, from time to time, it may be useful to disable DataRobot’s
+automatic feature engineering for a particular feature (e.g., so you can
+derive lags yourself manually). To do this, we can use the
+<code>featureSettings</code> to turn off derived features for a
+particular base feature:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">useTimeSeries =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">featureSettings =</span> <span class="fu">list</span>(<span class="fu">list</span>(<span class="st">&quot;featureName&quot;</span> <span class="ot">=</span> <span class="st">&quot;sales&quot;</span>,</span>

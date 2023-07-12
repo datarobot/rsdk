@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur Raj Anand" />
 
-<meta name="date" content="2022-05-05" />
+<meta name="date" content="2023-07-12" />
 
 <title>Introduction to Prediction Explanations</title>
 
@@ -122,13 +122,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -332,20 +339,42 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">Introduction to Prediction Explanations</h1>
-<h4 class="author">Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur Raj Anand</h4>
-<h4 class="date">2022-05-05</h4>
+<h1 class="title toc-ignore">Introduction to Prediction
+Explanations</h1>
+<h4 class="author">Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur
+Raj Anand</h4>
+<h4 class="date">2023-07-12</h4>
 
 
 
-<p>A few questions always asked by business leaders after seeing the results of highly accurate machine learning models are as follows<br />
+<p>A few questions always asked by business leaders after seeing the
+results of highly accurate machine learning models are as follows<br />
 - Are machine learning models interpretable and transparent?<br />
-- How can the results of the model be used to develop a business strategy?<br />
-- Can the predictions from the model be used to explain to the regulators why something was rejected or accepted based on model prediction?</p>
-<p>DataRobot does provide many diagnostics like partial dependence, feature impact, and prediction explanations to answer the above questions and using those diagnostics predictions can be converted to prescriptions for the business. In this vignette we would be covering prediction explanations. Partial dependence has been covered in detail in the companion vignette “Interpreting Predictive Models Using Partial Dependence Plots”.</p>
+- How can the results of the model be used to develop a business
+strategy?<br />
+- Can the predictions from the model be used to explain to the
+regulators why something was rejected or accepted based on model
+prediction?</p>
+<p>DataRobot does provide many diagnostics like partial dependence,
+feature impact, and prediction explanations to answer the above
+questions and using those diagnostics predictions can be converted to
+prescriptions for the business. In this vignette we would be covering
+prediction explanations. Partial dependence has been covered in detail
+in the companion vignette “Interpreting Predictive Models Using Partial
+Dependence Plots”.</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The DataRobot modeling engine is a commercial product that supports the rapid development and evaluation of a large number of different predictive models from a single data source. The open-source R package datarobot allows users of the DataRobot modeling engine to interact with it from R, creating new modeling projects, examining model characteristics, and generating predictions from any of these models for a specified dataset. This vignette illustrates how to interact with DataRobot using <strong>datarobot</strong> package, build models, make prediction using a model and then use prediction explanations to explain why a model is predicting high or low. Prediction explanations can be used to answer the questions mentioned earlier.</p>
+<p>The DataRobot modeling engine is a commercial product that supports
+the rapid development and evaluation of a large number of different
+predictive models from a single data source. The open-source R package
+datarobot allows users of the DataRobot modeling engine to interact with
+it from R, creating new modeling projects, examining model
+characteristics, and generating predictions from any of these models for
+a specified dataset. This vignette illustrates how to interact with
+DataRobot using <strong>datarobot</strong> package, build models, make
+prediction using a model and then use prediction explanations to explain
+why a model is predicting high or low. Prediction explanations can be
+used to answer the questions mentioned earlier.</p>
 </div>
 <div id="load-the-useful-libraries" class="section level2">
 <h2>Load the useful libraries</h2>
@@ -356,11 +385,29 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="connecting-to-datarobot" class="section level2">
 <h2>Connecting to DataRobot</h2>
-<p>To access the DataRobot modeling engine, it is necessary to establish an authenticated connection, which can be done in one of two ways. In both cases, the necessary information is an <strong>endpoint</strong> - the URL address of the specific DataRobot server being used - and a <strong>token</strong>, a previously validated access token.</p>
-<p><strong>token</strong> is unique for each DataRobot modeling engine account and can be accessed using the DataRobot webapp in the account profile section.</p>
-<p><strong>endpoint</strong> depends on DataRobot modeling engine installation (cloud-based, on-prem…) you are using. Contact your DataRobot admin for endpoint to use. The <strong>endpoint</strong> for DataRobot cloud accounts is <code>https://app.datarobot.com/api/v2</code></p>
-<p>The first access method uses a YAML configuration file with these two elements - labeled <strong>token</strong> and <strong>endpoint</strong> - located at $HOME/.config/datarobot/drconfig.yaml. If this file exists when the datarobot package is loaded, a connection to the DataRobot modeling engine is automatically established. It is also possible to establish a connection using this YAML file via the ConnectToDataRobot function, by specifying the configPath parameter.</p>
-<p>The second method of establishing a connection to the DataRobot modeling engine is to call the function ConnectToDataRobot with the <strong>endpoint</strong> and <strong>token</strong> parameters.</p>
+<p>To access the DataRobot modeling engine, it is necessary to establish
+an authenticated connection, which can be done in one of two ways. In
+both cases, the necessary information is an <strong>endpoint</strong> -
+the URL address of the specific DataRobot server being used - and a
+<strong>token</strong>, a previously validated access token.</p>
+<p><strong>token</strong> is unique for each DataRobot modeling engine
+account and can be accessed using the DataRobot webapp in the account
+profile section.</p>
+<p><strong>endpoint</strong> depends on DataRobot modeling engine
+installation (cloud-based, on-prem…) you are using. Contact your
+DataRobot admin for endpoint to use. The <strong>endpoint</strong> for
+DataRobot cloud accounts is
+<code>https://app.datarobot.com/api/v2</code></p>
+<p>The first access method uses a YAML configuration file with these two
+elements - labeled <strong>token</strong> and <strong>endpoint</strong>
+- located at $HOME/.config/datarobot/drconfig.yaml. If this file exists
+when the datarobot package is loaded, a connection to the DataRobot
+modeling engine is automatically established. It is also possible to
+establish a connection using this YAML file via the ConnectToDataRobot
+function, by specifying the configPath parameter.</p>
+<p>The second method of establishing a connection to the DataRobot
+modeling engine is to call the function ConnectToDataRobot with the
+<strong>endpoint</strong> and <strong>token</strong> parameters.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR ENDPOINT HERE&gt;/api/v2&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span></span>
@@ -368,7 +415,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>We would be using a sample dataset related to credit scoring open sourced by LendingClub (<a href="https://www.lendingclub.com/" class="uri">https://www.lendingclub.com/</a>). Below is the information related to the variables.</p>
+<p>We would be using a sample dataset related to credit scoring open
+sourced by LendingClub (<a href="https://www.lendingclub.com/" class="uri">https://www.lendingclub.com/</a>). Below is the information
+related to the variables.</p>
 <table style="width:100%;">
 <colgroup>
 <col width="20%" />
@@ -726,7 +775,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="divide-data-into-train-and-test-and-setup-the-project" class="section level2">
 <h2>Divide data into train and test and setup the project</h2>
-<p>Let’s divide our data in train and test. We can use train data to create a datarobot project using <strong>StartProject</strong> function and test data to make predictions and generate prediction explanations. Detailed explanation about creating projects was described in the vignette , “Introduction to the DataRobot R Package.” The specific sequence used here was:</p>
+<p>Let’s divide our data in train and test. We can use train data to
+create a datarobot project using <strong>StartProject</strong> function
+and test data to make predictions and generate prediction explanations.
+Detailed explanation about creating projects was described in the
+vignette , “Introduction to the DataRobot R Package.” The specific
+sequence used here was:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;is_bad&quot;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>projectName <span class="ot">&lt;-</span> <span class="st">&quot;Credit Scoring&quot;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -740,7 +794,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> target,</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">workerCount =</span> <span class="st">&quot;max&quot;</span>,</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">wait =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p>Once the modeling process has completed, the ListModels function returns an S3 object of class “listOfModels” that characterizes all of the models in a specified DataRobot project.</p>
+<p>Once the modeling process has completed, the ListModels function
+returns an S3 object of class “listOfModels” that characterizes all of
+the models in a specified DataRobot project.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">ListModels</span>(project))</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
@@ -782,8 +838,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 <tr class="even">
 <td align="left">2</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping::One-Hot Encoding::Univariate credibility estimates with ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word N-Gram Text Modeler using token occurrences::Missing Values Imputed::Search for differences::Search for ratios</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping::One-Hot Encoding::Univariate credibility estimates with
+ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word
+N-Gram Text Modeler using token occurrences::Missing Values
+Imputed::Search for differences::Search for ratios</td>
 <td align="left">5cdafc69215387127c7697ac</td>
 <td align="left">788bd071d49fc43acc55e646c3341445</td>
 <td align="left">Informative Features</td>
@@ -815,8 +876,13 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping::One-Hot Encoding::Univariate credibility estimates with ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word N-Gram Text Modeler using token occurrences::Missing Values Imputed::Search for differences::Search for ratios</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping::One-Hot Encoding::Univariate credibility estimates with
+ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word
+N-Gram Text Modeler using token occurrences::Missing Values
+Imputed::Search for differences::Search for ratios</td>
 <td align="left">5cdafe722153872da07697be</td>
 <td align="left">788bd071d49fc43acc55e646c3341445</td>
 <td align="left">Informative Features</td>
@@ -840,7 +906,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="generating-model-predictions" class="section level2">
 <h2>Generating Model Predictions</h2>
-<p>Let’s look at some model predictions. The generation of model predictions uses the <code>Predict</code> function:</p>
+<p>Let’s look at some model predictions. The generation of model
+predictions uses the <code>Predict</code> function:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bestModel <span class="ot">&lt;-</span> <span class="fu">GetRecommendedModel</span>(project)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bestPredictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(bestModel, test, <span class="at">type =</span> <span class="st">&quot;probability&quot;</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>testPredictions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">original =</span> test<span class="sc">$</span>is_bad, <span class="at">prediction =</span> bestPredictions)</span>
@@ -889,11 +956,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="calculate-prediction-explanations" class="section level2">
 <h2>Calculate Prediction Explanations</h2>
-<p>For each prediction, DataRobot provides an ordered list of explanations; the number of explanations is based on the setting. Each explanation is a feature from the dataset and its corresponding value, accompanied by a qualitative indicator of the explanation’s strength—strong (+++), medium (++), or weak (+) positive or negative (-) influence.</p>
-<p>There are three main inputs you can set for DataRobot to use when computing prediction explanations<br />
-1. <code>maxExplanations</code>: the Number of explanations for each predictions. Default is 3.<br />
-2. <code>thresholdLow</code>: Probability threshold below which DataRobot should calculate prediction explanations.<br />
-3. <code>thresholdHigh</code>: Probability threshold above which DataRobot should calculate prediction explanations.</p>
+<p>For each prediction, DataRobot provides an ordered list of
+explanations; the number of explanations is based on the setting. Each
+explanation is a feature from the dataset and its corresponding value,
+accompanied by a qualitative indicator of the explanation’s
+strength—strong (+++), medium (++), or weak (+) positive or negative (-)
+influence.</p>
+<p>There are three main inputs you can set for DataRobot to use when
+computing prediction explanations<br />
+1. <code>maxExplanations</code>: the Number of explanations for each
+predictions. Default is 3.<br />
+2. <code>thresholdLow</code>: Probability threshold below which
+DataRobot should calculate prediction explanations.<br />
+3. <code>thresholdHigh</code>: Probability threshold above which
+DataRobot should calculate prediction explanations.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>explanations <span class="ot">&lt;-</span> <span class="fu">GetPredictionExplanations</span>(bestModel, test, <span class="at">maxExplanations =</span> <span class="dv">3</span>,</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">thresholdLow =</span> <span class="fl">0.25</span>, <span class="at">thresholdHigh =</span> <span class="fl">0.75</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(explanations), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
@@ -1095,15 +1171,32 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 </tbody>
 </table>
-<p>From the example above, you could answer “Why did the model give one of the customers a 97% probability of defaulting?” Top explanation explains that <strong>purpose_cat</strong> of loan was “credit card small business”” and we can also see in above example that whenever model is predicting high probability of default, <strong>purpose_cat</strong> is related to small business.</p>
+<p>From the example above, you could answer “Why did the model give one
+of the customers a 97% probability of defaulting?” Top explanation
+explains that <strong>purpose_cat</strong> of loan was “credit card
+small business”” and we can also see in above example that whenever
+model is predicting high probability of default,
+<strong>purpose_cat</strong> is related to small business.</p>
 <p>Some notes on explanations:<br />
-- If the data points are very similar, the explanations can list the same rounded up values.<br />
-- It is possible to have a explanation state of MISSING if a “missing value” was important in making the prediction.<br />
-- Typically, the top explanations for a prediction have the same direction as the outcome, but it’s possible that with interaction effects or correlations among variables a explanation could, for instance, have a strong positive impact on a negative prediction.</p>
+- If the data points are very similar, the explanations can list the
+same rounded up values.<br />
+- It is possible to have a explanation state of MISSING if a “missing
+value” was important in making the prediction.<br />
+- Typically, the top explanations for a prediction have the same
+direction as the outcome, but it’s possible that with interaction
+effects or correlations among variables a explanation could, for
+instance, have a strong positive impact on a negative prediction.</p>
 </div>
 <div id="adjusted-predictions-in-prediction-explanations" class="section level2">
 <h2>Adjusted Predictions in Prediction Explanations</h2>
-<p>In some projects – such as insurance projects – the prediction adjusted by exposure is more useful to look at than just raw prediction. For example, the raw prediction (e.g. claim counts) is divided by exposure (e.g. time) in the project with exposure column. The adjusted prediction provides insights with regard to the predicted claim counts per unit of time. To include that information, set <code>excludeAdjustedPredictions</code> to False in correspondent method calls.</p>
+<p>In some projects – such as insurance projects – the prediction
+adjusted by exposure is more useful to look at than just raw prediction.
+For example, the raw prediction (e.g. claim counts) is divided by
+exposure (e.g. time) in the project with exposure column. The adjusted
+prediction provides insights with regard to the predicted claim counts
+per unit of time. To include that information, set
+<code>excludeAdjustedPredictions</code> to False in correspondent method
+calls.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>explanations <span class="ot">&lt;-</span> <span class="fu">GetPredictionExplanations</span>(bestModel, test, <span class="at">maxExplanations =</span> <span class="dv">3</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">thresholdLow =</span> <span class="fl">0.25</span>, <span class="at">thresholdHigh =</span> <span class="fl">0.75</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">excludeAdjustedPredictions =</span> <span class="cn">FALSE</span>)</span>
@@ -1309,7 +1402,15 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
-<p>This note has described the <strong>Prediction Explanations</strong> which are useful for understanding why model is predicting high or low predictions for a specific case. DataRobot also provides qualitative strength of each explanation. <strong>Prediction Explanations</strong> can be used in developing good business strategy by taking prescriptions based on the explanations which are responsible for high or low predictions. They are also useful in explaining the actions taken based on the model predictions to regulatory or compliance department within an organization.</p>
+<p>This note has described the <strong>Prediction Explanations</strong>
+which are useful for understanding why model is predicting high or low
+predictions for a specific case. DataRobot also provides qualitative
+strength of each explanation. <strong>Prediction Explanations</strong>
+can be used in developing good business strategy by taking prescriptions
+based on the explanations which are responsible for high or low
+predictions. They are also useful in explaining the actions taken based
+on the model predictions to regulatory or compliance department within
+an organization.</p>
 </div>
 
 

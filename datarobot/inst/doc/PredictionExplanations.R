@@ -61,7 +61,6 @@ kable(head(explanations), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
 #                                            thresholdLow = 0.25, thresholdHigh = 0.75,
 #                                            excludeAdjustedPredictions = FALSE)
 #  kable(head(explanations), longtable = TRUE, booktabs = TRUE, row.names = TRUE)
-#  
 
 ## ----echo = FALSE, results = "asis", message = FALSE, warning = FALSE---------
 explanations <- readRDS("PredictionExplanationsExposure.rds")

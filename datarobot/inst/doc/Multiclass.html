@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford" />
 
-<meta name="date" content="2022-05-05" />
+<meta name="date" content="2023-07-12" />
 
 <title>Introduction to Multiclass</title>
 
@@ -122,13 +122,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -334,15 +341,24 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to Multiclass</h1>
 <h4 class="author">Peter Hurford</h4>
-<h4 class="date">2022-05-05</h4>
+<h4 class="date">2023-07-12</h4>
 
 
 
-<p><strong>Multiclass projects</strong> in DataRobot are projects that allow for prediction of more than two classes (unlike binary prediction, which is for precisely two classes). Currently, DataRobot supports predicting up to 10 different classes.</p>
+<p><strong>Multiclass projects</strong> in DataRobot are projects that
+allow for prediction of more than two classes (unlike binary prediction,
+which is for precisely two classes). Currently, DataRobot supports
+predicting up to 10 different classes.</p>
 <div id="connect-to-datarobot" class="section level2">
 <h2>Connect to DataRobot</h2>
-<p>To explore multiclass projects, let’s first connect to DataRobot. First, you must load the DataRobot R package library.</p>
-<p>If you have set up a credentials file, <code>library(datarobot)</code> will initialize a connection to DataRobot automatically. Otherwise, you can specify your <code>endpoint</code> and <code>apiToken</code> as in this example to connect to DataRobot directly. For more information on connecting to DataRobot, see the “Introduction to DataRobot” vignette.</p>
+<p>To explore multiclass projects, let’s first connect to DataRobot.
+First, you must load the DataRobot R package library.</p>
+<p>If you have set up a credentials file,
+<code>library(datarobot)</code> will initialize a connection to
+DataRobot automatically. Otherwise, you can specify your
+<code>endpoint</code> and <code>apiToken</code> as in this example to
+connect to DataRobot directly. For more information on connecting to
+DataRobot, see the “Introduction to DataRobot” vignette.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR DATAROBOT URL GOES HERE&gt;/api/v2&quot;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN GOES HERE&gt;&quot;</span></span>
@@ -354,7 +370,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># Load `iris` from R data memory.</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(iris)</span></code></pre></div>
-<p>If your target is categorical and has a cardinality of up to 10, we will automatically select a Multiclass <code>targetType</code> and that argument is not needed when calling <code>StartProject</code>. However, if the target is numerical and you would like to force it to be seen as a Multiclass project in DataRobot, you can specify the <code>targetType</code> as seen below:</p>
+<p>If your target is categorical and has a cardinality of up to 10, we
+will automatically select a Multiclass <code>targetType</code> and that
+argument is not needed when calling <code>StartProject</code>. However,
+if the target is numerical and you would like to force it to be seen as
+a Multiclass project in DataRobot, you can specify the
+<code>targetType</code> as seen below:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(iris,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">projectName =</span> <span class="st">&quot;multiclassExample&quot;</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;Species&quot;</span>,</span>
@@ -371,7 +392,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <pre><code>## Multiclass with labels setosa, versicolor, virginica</code></pre>
 <pre><code>setosa versicolor  virginica 
     50         47         53 </code></pre>
-<p>You can also get a dataframe with the probabilities of each class using <code>type = &quot;probability&quot;</code>:</p>
+<p>You can also get a dataframe with the probabilities of each class
+using <code>type = &quot;probability&quot;</code>:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(model, iris, <span class="at">type =</span> <span class="st">&quot;probability&quot;</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(predictions))</span></code></pre></div>
 <pre><code>## request issued, waiting for predictions</code></pre>
@@ -420,7 +442,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="confusion-charts" class="section level2">
 <h2>Confusion Charts</h2>
-<p>The <strong>confusion chart</strong> is a chart that helps understand how the multiclass model performs:</p>
+<p>The <strong>confusion chart</strong> is a chart that helps understand
+how the multiclass model performs:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>confusionChart <span class="ot">&lt;-</span> <span class="fu">GetConfusionChart</span>(model, <span class="at">source =</span> DataPartition<span class="sc">$</span>VALIDATION)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">capture.output</span>(confusionChart))</span></code></pre></div>
 <table>
@@ -434,7 +457,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><span class="math inline">\(source | |[1] &quot;validation&quot; | | | |\)</span>data</td>
+<td align="left"><span class="math inline">\(source | |[1]
+&quot;validation&quot; | | | |\)</span>data</td>
 </tr>
 <tr class="even">
 <td align="left"><span class="math inline">\(data\)</span>classes</td>
@@ -467,7 +491,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages[[2]] | |percentage otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[3]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages[[2]] | |percentage
+otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
+| | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[3]]</td>
 </tr>
 <tr class="odd">
 <td align="left">percentage otherClassName</td>
@@ -488,10 +514,12 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(f1 | |[1] 1.0000000 0.8888889 0.9523810 | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(f1 | |[1] 1.0000000 0.8888889 0.9523810 | | |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll</td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[1]] | |[,1] [,2] | |[1,] 15 0 | |[2,] 0 9 | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll[[2]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[1]] | |[,1] [,2] | |[1,]
+15 0 | |[2,] 0 9 | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll[[2]]</td>
 </tr>
 <tr class="odd">
 <td align="left">[,1] [,2]</td>
@@ -506,7 +534,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[3]] | |[,1] [,2] | |[1,] 13 1 | |[2,] 0 10 | | | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>recall</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[3]] | |[,1] [,2] | |[1,]
+13 1 | |[2,] 0 10 | | | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>recall</td>
 </tr>
 <tr class="even">
 <td align="left">[1] 1.0 0.8 1.0</td>
@@ -515,7 +544,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(actualCount | |[1] 9 5 10 | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>precision</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(actualCount | |[1] 9 5 10 | | |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>precision</td>
 </tr>
 <tr class="odd">
 <td align="left">[1] 1.0000000 1.0000000 0.9090909</td>
@@ -542,7 +572,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages[[2]] | |percentage otherClassName | |1 0 setosa | |2 1 versicolor | |3 0 virginica | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasPredictedPercentages[[3]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages[[2]] | |percentage
+otherClassName | |1 0 setosa | |2 1 versicolor | |3 0 virginica | | |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>wasPredictedPercentages[[3]]</td>
 </tr>
 <tr class="even">
 <td align="left">percentage otherClassName</td>
@@ -563,7 +595,8 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(className | |[1] &quot;setosa&quot; &quot;versicolor&quot; &quot;virginica&quot; | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>predictedCount</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(className | |[1] &quot;setosa&quot;
+&quot;versicolor&quot; &quot;virginica&quot; | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>predictedCount</td>
 </tr>
 <tr class="odd">
 <td align="left">[1] 9 4 11</td>
@@ -597,18 +630,41 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 </tbody>
 </table>
-<p>Here, we can see the source comes from the <code>&quot;validation&quot;</code> partition (options are in the <code>DataPartition</code> object), and class metrics show:</p>
+<p>Here, we can see the source comes from the <code>&quot;validation&quot;</code>
+partition (options are in the <code>DataPartition</code> object), and
+class metrics show:</p>
 <ul>
-<li><strong>wasActualPercentages:</strong> for each class, what percentage of that class was predicted as. A prediction of any other class would involve mispredicting.</li>
-<li><strong>wasPredictedPercentages:</strong> for each predicted class, what percentage of that prediction was actually the other class.</li>
-<li><strong>confusionMatrix:</strong> A matrix for each predicted class, showing on the x-axis whether the actual class matches the predicted class (1) or not (2), and on the y-axis whether the class being predicted is the class for the matrix (1) or not (2). Thus the top-left quadrant (1-1) is the number of records that actually are the predicted class and were predicted to be that class (true positives), the top-right quadrant (1-2) is the number of records that were mispredicted as not the class but actually were the class (false negatives), the bottom-left quadrant (1-2) is the number of records that actually were not the class but were mispredicted to be the class (false positives), and the bottom-right quadrant (2-2) is the number of records that are not the class and were also predicted to not be the class (true negatives).</li>
+<li><strong>wasActualPercentages:</strong> for each class, what
+percentage of that class was predicted as. A prediction of any other
+class would involve mispredicting.</li>
+<li><strong>wasPredictedPercentages:</strong> for each predicted class,
+what percentage of that prediction was actually the other class.</li>
+<li><strong>confusionMatrix:</strong> A matrix for each predicted class,
+showing on the x-axis whether the actual class matches the predicted
+class (1) or not (2), and on the y-axis whether the class being
+predicted is the class for the matrix (1) or not (2). Thus the top-left
+quadrant (1-1) is the number of records that actually are the predicted
+class and were predicted to be that class (true positives), the
+top-right quadrant (1-2) is the number of records that were mispredicted
+as not the class but actually were the class (false negatives), the
+bottom-left quadrant (1-2) is the number of records that actually were
+not the class but were mispredicted to be the class (false positives),
+and the bottom-right quadrant (2-2) is the number of records that are
+not the class and were also predicted to not be the class (true
+negatives).</li>
 <li><strong>f1:</strong> The F1 score for each class.</li>
-<li><strong>precision</strong> The precision statistic for each class.</li>
+<li><strong>precision</strong> The precision statistic for each
+class.</li>
 <li><strong>recall:</strong> The recall statistic for each class.</li>
-<li><strong>actualCount:</strong> The number of records for each class that actually are that class.</li>
-<li><strong>predictedCount:</strong> The number of times each class was predicted.</li>
+<li><strong>actualCount:</strong> The number of records for each class
+that actually are that class.</li>
+<li><strong>predictedCount:</strong> The number of times each class was
+predicted.</li>
 </ul>
-<p>The confusion chart also shows a full confusion matrix with one row and one column for each class, showing how each class was predicted or mispredicted. The columns represent the predicted classes and the rows represent the actual classes.</p>
+<p>The confusion chart also shows a full confusion matrix with one row
+and one column for each class, showing how each class was predicted or
+mispredicted. The columns represent the predicted classes and the rows
+represent the actual classes.</p>
 </div>
 
 

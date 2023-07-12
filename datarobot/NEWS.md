@@ -1,27 +1,54 @@
+# datarobot v2.18.3
+
+The `datarobot` package is now dependent on R >= 3.5.
+
+New Features:
+
+* The R client will now output a warning when you attempt to access certain resources (projects, models, deployments, etc.) that are deprecated or disabled by the DataRobot platform migration to Python 3.
+* Added support for comprehensive autopilot: use `mode = AutopilotMode.Comprehensive`.
+
+Enhancements:
+
+* The function `RequestFeatureImpact` now accepts a `rowCount` argument, which will change the sample size used for Feature Impact calculations.
+* The un-exported function `datarobot:::UploadData` now takes an optional argument `fileName`.
+
+Bugfixes:
+
+* Fixed an issue where an [undocumented feature](https://github.com/jeroen/curl/pull/290/) in curl==5.0.1 is installed that caused any invocation of `datarobot:::UploadData` (i.e. `SetupProject`) to fail with the error `No method asJSON S3 class: form_file`.
+* Loading the `datarobot` package with `suppressPackageStartupMessages()` will now suppress all messages.
+
+API Changes:
+
+* The functions `ListProjects` and `as.data.frame.projectSummaryList` no longer return fields related to recommender models, which were removed in v2.5.0.
+* The function `SetTarget` now sets autopilot mode to `Quick` by default. Additionally, when `Quick` is passed, the underlying `/aim` endpoint will no longer be invoked with `Auto`.
+
+Deprecated and Defunct:
+
+* `quickrun` argument is removed from the function `SetTarget`. Users should set `mode = AutopilotMode.Quick` instead.
+* Compliance Documentation got deprecated in favor of Automated Documentation API.
+
+Dependency Changes:
+
+* The `datarobot` package is now dependent on R >= 3.5 due to changes in the updated "Introduction to DataRobot" vignette.
+* Added dependency on `AmesHousing` package for updated "Introduction to DataRobot" vignette.
+* Removed dependency on `MASS` package.
+* Client documentation is now explicitly generated with Roxygen2 v7.2.3.
+
+Documentation Changes:
+
+* Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset. 
+
 # datarobot v2.18.2
 
 This release fixes the test suite to conditionally use the `stubthat` package, which as of 2022-04-17 is no longer available on CRAN (but is still available in the Microsoft snapshot archive.) This package is listed as a Suggests dependency, and the codebase is updated to reflect this.
 
-New Features:
-
-Enhancements:
-
 Bugfixes:
+
 * Fixed some tests exercising the `BuildPath` helper function.
-
-API Changes:
-
-Deprecated and Defunct:
-
-Dependency Changes:
-
-Documentation Changes:
 
 # datarobot v2.18.1
 
 This release fixes a breaking change in the client around `ListProjects` due to the removal of Spark / H20 models from the DataRobot platform.
-
-New Features:
 
 Enhancements:
 

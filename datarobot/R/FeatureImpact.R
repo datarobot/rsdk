@@ -4,6 +4,8 @@
 
 #' @param model character. The model for which you want to compute Feature Impact, e.g.
 #'    from the list of models returned by \code{ListModels(project)}.
+#' @param rowCount numeric. The sample size to use for Feature Impact computation. It is
+#'    possible to re-compute Feature Impact with a different row count.
 #' @return A job ID (character)
 #' @examples
 #' \dontrun{
@@ -12,12 +14,14 @@
 #'   featureImpact <- GetFeatureImpactForJobId(project, featureImpactJobId)
 #' }
 #' @export
-RequestFeatureImpact <- function(model) {
+RequestFeatureImpact <- function(model, rowCount = NULL) {
   validModel <- ValidateModel(model)
   projectId <- validModel$projectId
   modelId <- validModel$modelId
+  body <- list()
+  body$rowCount <- rowCount
   routeString <- UrlJoin("projects", projectId, "models", modelId, "featureImpact")
-  rawResponse <- DataRobotPOST(routeString, returnRawResponse = TRUE)
+  rawResponse <- DataRobotPOST(routeString, body = body, returnRawResponse = TRUE)
   JobIdFromResponse(rawResponse)
 }
 

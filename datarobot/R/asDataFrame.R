@@ -253,9 +253,8 @@ as.data.frame.projectSummaryList <- function(x, row.names = NULL,
     outFrame <- simpleFrame
   } else {
     partFrame <- x$partition
-    recFrame <- x$recommender
     advFrame <- x$advancedOptions
-    outFrame <- cbind.data.frame(simpleFrame, partFrame, recFrame, advFrame,
+    outFrame <- cbind.data.frame(simpleFrame, partFrame, advFrame,
                                  stringsAsFactors = FALSE)
   }
   if (!is.null(row.names)) {

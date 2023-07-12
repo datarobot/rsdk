@@ -10,7 +10,7 @@ SetTarget(
   metric = NULL,
   weights = NULL,
   partition = NULL,
-  mode = NULL,
+  mode = AutopilotMode$Quick,
   seed = NULL,
   targetType = NULL,
   positiveClass = NULL,
@@ -50,7 +50,7 @@ CreateRandomPartition, CreateStratifiedPartition, CreateUserPartition
 and CreateDatetimePartitionSpecification.}
 
 \item{mode}{character. Optional. Specifies the autopilot mode used to start the
-modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$FullAuto} is
+modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$Quick} is
 default.}
 
 \item{seed}{integer. Optional. Seed for the random number generator used in

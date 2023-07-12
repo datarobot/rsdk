@@ -14,12 +14,14 @@ namedEnumList <- function(...) {
 #' \code{FullAuto} represents running the entire autopilot. \code{Quick} runs a quicker, abridged
 #' version of the autopilot that focuses on the most important models. \code{Manual} does not run
 #' the autopilot and instead leaves it to the user to select the algorithms to be run.
+#' \code{Comprehensive} runs all blueprints in the repository, and may be extremely slow.
 #' @export
 AutopilotMode <- list(
   FullAuto = "auto",
   Manual = "manual",
-  Quick = "quick")
-
+  Quick = "quick",
+  Comprehensive = "comprehensive"
+)
 
 #' Job statuses
 #'

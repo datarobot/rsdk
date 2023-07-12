@@ -27,6 +27,11 @@ GetComplianceDocumentationBody <- function(templateId = NULL) {
 #' }
 #' @export
 CreateComplianceDocumentation <- function(model, templateId = NULL) {
+  Deprecated(
+    message = "CreateComplianceDocumentation (use CreateAutomatedDocuments instead)",
+    deprecatedInVersion = "2.18",
+    removedInVersion = "2.29"
+  )
   model <- ValidateModel(model)
   projectId <- model$projectId
   modelId <- model$modelId
@@ -63,6 +68,11 @@ CreateComplianceDocumentation <- function(model, templateId = NULL) {
 #' @export
 DownloadComplianceDocumentation <- function(model, filename, templateId = NULL,
                                             create = TRUE, maxWait = 600) {
+  Deprecated(
+    message = "DownloadComplianceDocumentation (use RetrieveAutomatedDocuments instead)",
+    deprecatedInVersion = "2.18",
+    removedInVersion = "2.29"
+  )
   model <- ValidateModel(model)
   projectId <- model$projectId
   modelId <- model$modelId

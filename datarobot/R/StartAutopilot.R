@@ -37,7 +37,7 @@ IsCrossSeriesGroupByPartition <- function(partition) {
 #'   handle a numeric target with a few unique values that could be used for either multiclass
 #'   or regression. See \code{TargetType} for an easier way to keep track of the options.
 #' @param mode character. Optional. Specifies the autopilot mode used to start the
-#'   modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$FullAuto} is
+#'   modeling project; See \code{AutopilotMode} for valid options; \code{AutopilotMode$Quick} is
 #'   default.
 #' @param seed integer. Optional. Seed for the random number generator used in
 #'   creating random partitions for model fitting.
@@ -91,7 +91,7 @@ IsCrossSeriesGroupByPartition <- function(partition) {
 #' }
 #' @export
 SetTarget <- function(project, target, metric = NULL, weights = NULL,
-                      partition = NULL, mode = NULL, seed = NULL, targetType = NULL,
+                      partition = NULL, mode = AutopilotMode$Quick, seed = NULL, targetType = NULL,
                       positiveClass = NULL, blueprintThreshold = NULL,
                       responseCap = NULL, featurelistId = NULL,
                       smartDownsampled = NULL, majorityDownsamplingRate = NULL,
@@ -104,11 +104,6 @@ SetTarget <- function(project, target, metric = NULL, weights = NULL,
   if (is.null(target)) {
     stop("No target variable specified - cannot start Autopilot")
   }
-
-  if (!is.null(mode) && mode == AutopilotMode$Quick) {
-    mode <- AutopilotMode$FullAuto
-    quickrun <- TRUE
-  } else { quickrun <- FALSE }
 
   projectId <- ValidateProject(project)
   routeString <- UrlJoin("projects", projectId, "aim")
@@ -124,7 +119,6 @@ SetTarget <- function(project, target, metric = NULL, weights = NULL,
   bodyList$metric <- metric
   bodyList$weights <- weights
   bodyList$mode <- mode
-  bodyList$quickrun <- quickrun
   bodyList$seed <- seed
   bodyList$positiveClass <- positiveClass
   bodyList$blueprintThreshold <- blueprintThreshold

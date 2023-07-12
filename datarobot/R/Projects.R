@@ -59,8 +59,6 @@ DeleteProject <- function(project) {
 #'     project.
 #'   \item partition. Dataframe with one row for each project and 12 columns specifying
 #'     partitioning details.
-#'   \item recommender. Dataframe with one row for each project and 3 columns characterizing
-#'     recommender projects.
 #'   \item advancedOptions. Dataframe with one row for each project and 4 columns specifying values
 #'     for advanced option parameters.
 #'   \item positiveClass. Character string identifying the positive target class for binary
@@ -100,7 +98,8 @@ ListProjects <- function(filter = NULL) {
 
 
 projectSummaryList <- function(projectSummaryData) {
-  emptyProjectSummaryList <- structure(list(projectId = character(0), projectName = character(0),
+  if (length(projectSummaryData) == 0) {
+    emptyProjectSummaryList <- structure(list(projectId = character(0), projectName = character(0),
                  fileName = character(0), stage = character(0), autopilotMode = logical(0),
                  created = character(0), target = logical(0), metric = logical(0),
                  partition = data.frame(datetimeCol = logical(0), cvMethod = logical(0),
@@ -109,9 +108,6 @@ projectSummaryList <- function(projectSummaryData) {
                                         userPartitionCol = logical(0),  validationType = logical(0),
                                         trainingLevel = logical(0), partitionKeyCols = logical(0),
                                         holdoutPct = logical(0), validationLevel = logical(0)),
-                 recommender = data.frame(recommenderItemId = logical(0),
-                                          isRecommender = logical(0),
-                                          recommenderUserId = logical(0)),
                  advancedOptions = data.frame(blueprintThreshold = logical(0),
                                               responseCap = logical(0), seed = logical(0),
                                               weights = logical(0)),
@@ -119,15 +115,13 @@ projectSummaryList <- function(projectSummaryData) {
                  holdoutUnlocked = logical(0),
                  targetType = logical(0)),
             class = "projectSummaryList")
-
-  if (length(projectSummaryData) == 0) {
-    emptyProjectSummaryList
+    return(emptyProjectSummaryList)
   } else {
     idIndex <- which(names(projectSummaryData) == "id")
     names(projectSummaryData)[[idIndex]] <- "projectId"
     projectSummaryData <- as.dataRobotProject(projectSummaryData)
     class(projectSummaryData) <- "projectSummaryList"
-    projectSummaryData
+    return(projectSummaryData)
   }
 }
 
@@ -151,7 +145,6 @@ projectSummaryList <- function(projectSummaryData) {
 #'   \item metric. Character string specifying the metric optimized by all project models.
 #'   \item partition. A 7-element list describing the data partitioning for model fitting
 #'     and cross validation.
-#'   \item recommender. A 3-element list with information specific to recommender models.
 #'   \item advancedOptions. A 4-element list with advanced option specifications.
 #'   \item positiveClass. Character string: name of positive class for binary response models.
 #'   \item maxTrainPct. The maximum percentage of the project dataset that can be used without going
