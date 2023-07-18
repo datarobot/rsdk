@@ -4,10 +4,13 @@
 \alias{UploadData}
 \title{Upload a data source.}
 \usage{
-UploadData(dataSource)
+UploadData(dataSource, fileName = NULL)
 }
 \arguments{
 \item{dataSource}{character. The file to upload.}
+
+\item{fileName}{character. The name of the file after it is uploaded. If not set, defaults
+to the name of the uploaded file.}
 }
 \value{
 An httr object specifying the form upload content of the file path.

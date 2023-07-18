@@ -2,9 +2,9 @@
 title: "Introduction to Time Series"
 author: "Peter Hurford, Madeleine Mott"
 date: "`r Sys.Date()`"
-output: 
+output:
  rmarkdown::html_vignette:
-  fig_caption: yes 
+  fig_caption: yes
 vignette: >
  %\VignetteIndexEntry{Introduction to Time Series}
  %\VignetteEngine{knitr::rmarkdown}
@@ -179,14 +179,14 @@ Example Durations:
 
 ## Multiseries
 
-The API also supports **multiseries**, or data with multiple time series delineated by multiseries ID columns. To create this, create a project, then create a datetime partition specification that specifies the `datetimePartitionColumn` (the column with your date in it) and the `multiseriesIdColumns` (a list of columns specifying the ids that delineate the multiseries).
+The client also supports **multiseries**: data with multiple time series delineated by multiseries ID columns. To use multiseries modeling, create a project with a datetime partition specification that indicates the `datetimePartitionColumn` (the column with your date in it) and the `multiseriesIdColumns` (a list of columns specifying the IDs that delineate the multiseries).
 
 
 ```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
 data <- read.csv(system.file("extdata", "multiseries.csv", package = "datarobot"))
 partition <- CreateDatetimePartitionSpecification(datetimePartitionColumn = "timestamp",
                                                   useTimeSeries = TRUE,
-                                                  multiseriesIdColumns = "series_id")
+                                                  multiseriesIdColumns = ('series_id')
 project <- StartProject(data,
                         projectName = "test-TimeSeries",
                         target = "target",
@@ -227,9 +227,9 @@ partition <- CreateDatetimePartitionSpecification(datetimePartitionColumn = "tim
 
 It is possible to retrieve Datetime Trend Plots for time series models
 to estimate the accuracy of the model. This includes Accuracy over Time and Forecast vs Actual for supervised projects,
-and Anomaly over Time for unsupervised projects. 
+and Anomaly over Time for unsupervised projects.
 
-* You can retrieve respective plots using the `GetAccuracyOverTimePlot`, `GetForecastVsActualPlot`, and `GetAnomalyOverTimePlot` functions. You can find the example for plotting the data in the each function documentation. 
-* By default, the plots would be automatically computed when accessed via retrieval methods. You can compute Datetime Trend Plots separately using a common `ComputeDatetimeTrendPlots` function. 
+* You can retrieve respective plots using the `GetAccuracyOverTimePlot`, `GetForecastVsActualPlot`, and `GetAnomalyOverTimePlot` functions. You can find the example for plotting the data in the each function documentation.
+* By default, the plots would be automatically computed when accessed via retrieval methods. You can compute Datetime Trend Plots separately using a common `ComputeDatetimeTrendPlots` function.
 * In addition, you can retrieve the respective detailed metadata for each plot type. Use the `GetAccuracyOverTimePlotsMetadata`, `GetForecastVsActualPlotsMetadata`, and `GetAnomalyOverTimePlotsMetadata` functions.
 * And the preview plots using using the `GetAccuracyOverTimePlotPreview`, `GetForecastVsActualPlotPreview`, and `GetAnomalyOverTimePlotPreview` functions.

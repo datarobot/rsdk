@@ -12,67 +12,107 @@
 
 <meta name="author" content="Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur Raj Anand" />
 
-<meta name="date" content="2022-10-31" />
+<meta name="date" content="2023-07-14" />
 
 <title>Introduction to Prediction Explanations</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -81,13 +121,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   for (var i = 0; i < sheets.length; i++) {
     if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
     try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
+    var j = 0;
+    while (j < rules.length) {
       var rule = rules[j];
       // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -99,7 +146,187 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -111,53 +338,95 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore">Introduction to Prediction Explanations</h1>
-<h4 class="author">Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur Raj Anand</h4>
-<h4 class="date">2022-10-31</h4>
+<h1 class="title toc-ignore">Introduction to Prediction
+Explanations</h1>
+<h4 class="author">Peter Hurford, Colin Priest, Sergey Yurgenson, Thakur
+Raj Anand</h4>
+<h4 class="date">2023-07-14</h4>
 
 
 
-<p>A few questions always asked by business leaders after seeing the results of highly accurate machine learning models are as follows<br />
+<p>A few questions always asked by business leaders after seeing the
+results of highly accurate machine learning models are as follows<br />
 - Are machine learning models interpretable and transparent?<br />
-- How can the results of the model be used to develop a business strategy?<br />
-- Can the predictions from the model be used to explain to the regulators why something was rejected or accepted based on model prediction?</p>
-<p>DataRobot does provide many diagnostics like partial dependence, feature impact, and prediction explanations to answer the above questions and using those diagnostics predictions can be converted to prescriptions for the business. In this vignette we would be covering prediction explanations. Partial dependence has been covered in detail in the companion vignette &quot;Interpreting Predictive Models Using Partial Dependence Plots&quot;.</p>
+- How can the results of the model be used to develop a business
+strategy?<br />
+- Can the predictions from the model be used to explain to the
+regulators why something was rejected or accepted based on model
+prediction?</p>
+<p>DataRobot does provide many diagnostics like partial dependence,
+feature impact, and prediction explanations to answer the above
+questions and using those diagnostics predictions can be converted to
+prescriptions for the business. In this vignette we would be covering
+prediction explanations. Partial dependence has been covered in detail
+in the companion vignette “Interpreting Predictive Models Using Partial
+Dependence Plots”.</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>The DataRobot modeling engine is a commercial product that supports the rapid development and evaluation of a large number of different predictive models from a single data source. The open-source R package datarobot allows users of the DataRobot modeling engine to interact with it from R, creating new modeling projects, examining model characteristics, and generating predictions from any of these models for a specified dataset. This vignette illustrates how to interact with DataRobot using <strong>datarobot</strong> package, build models, make prediction using a model and then use prediction explanations to explain why a model is predicting high or low. Prediction explanations can be used to answer the questions mentioned earlier.</p>
+<p>The DataRobot modeling engine is a commercial product that supports
+the rapid development and evaluation of a large number of different
+predictive models from a single data source. The open-source R package
+datarobot allows users of the DataRobot modeling engine to interact with
+it from R, creating new modeling projects, examining model
+characteristics, and generating predictions from any of these models for
+a specified dataset. This vignette illustrates how to interact with
+DataRobot using <strong>datarobot</strong> package, build models, make
+prediction using a model and then use prediction explanations to explain
+why a model is predicting high or low. Prediction explanations can be
+used to answer the questions mentioned earlier.</p>
 </div>
 <div id="load-the-useful-libraries" class="section level2">
 <h2>Load the useful libraries</h2>
-<p>Let's load <strong>datarobot</strong> and other useful packages</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httr)
-<span class="kw">library</span>(knitr)
-<span class="kw">library</span>(data.table)</code></pre></div>
+<p>Let’s load <strong>datarobot</strong> and other useful packages</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
 </div>
 <div id="connecting-to-datarobot" class="section level2">
 <h2>Connecting to DataRobot</h2>
-<p>To access the DataRobot modeling engine, it is necessary to establish an authenticated connection, which can be done in one of two ways. In both cases, the necessary information is an <strong>endpoint</strong> - the URL address of the specific DataRobot server being used - and a <strong>token</strong>, a previously validated access token.</p>
-<p><strong>token</strong> is unique for each DataRobot modeling engine account and can be accessed using the DataRobot webapp in the account profile section.</p>
-<p><strong>endpoint</strong> depends on DataRobot modeling engine installation (cloud-based, on-prem...) you are using. Contact your DataRobot admin for endpoint to use. The <strong>endpoint</strong> for DataRobot cloud accounts is <code>https://app.datarobot.com/api/v2</code></p>
-<p>The first access method uses a YAML configuration file with these two elements - labeled <strong>token</strong> and <strong>endpoint</strong> - located at $HOME/.config/datarobot/drconfig.yaml. If this file exists when the datarobot package is loaded, a connection to the DataRobot modeling engine is automatically established. It is also possible to establish a connection using this YAML file via the ConnectToDataRobot function, by specifying the configPath parameter.</p>
-<p>The second method of establishing a connection to the DataRobot modeling engine is to call the function ConnectToDataRobot with the <strong>endpoint</strong> and <strong>token</strong> parameters.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(datarobot)
-endpoint &lt;-<span class="st"> &quot;https://&lt;YOUR ENDPOINT HERE&gt;/api/v2&quot;</span>
-apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
-<span class="kw">ConnectToDataRobot</span>(<span class="dt">endpoint =</span> endpoint, <span class="dt">token =</span> apiToken)</code></pre></div>
+<p>To access the DataRobot modeling engine, it is necessary to establish
+an authenticated connection, which can be done in one of two ways. In
+both cases, the necessary information is an <strong>endpoint</strong> -
+the URL address of the specific DataRobot server being used - and a
+<strong>token</strong>, a previously validated access token.</p>
+<p><strong>token</strong> is unique for each DataRobot modeling engine
+account and can be accessed using the DataRobot webapp in the account
+profile section.</p>
+<p><strong>endpoint</strong> depends on DataRobot modeling engine
+installation (cloud-based, on-prem…) you are using. Contact your
+DataRobot admin for endpoint to use. The <strong>endpoint</strong> for
+DataRobot cloud accounts is
+<code>https://app.datarobot.com/api/v2</code></p>
+<p>The first access method uses a YAML configuration file with these two
+elements - labeled <strong>token</strong> and <strong>endpoint</strong>
+- located at $HOME/.config/datarobot/drconfig.yaml. If this file exists
+when the datarobot package is loaded, a connection to the DataRobot
+modeling engine is automatically established. It is also possible to
+establish a connection using this YAML file via the ConnectToDataRobot
+function, by specifying the configPath parameter.</p>
+<p>The second method of establishing a connection to the DataRobot
+modeling engine is to call the function ConnectToDataRobot with the
+<strong>endpoint</strong> and <strong>token</strong> parameters.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR ENDPOINT HERE&gt;/api/v2&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(<span class="at">endpoint =</span> endpoint, <span class="at">token =</span> apiToken)</span></code></pre></div>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>We would be using a sample dataset related to credit scoring open sourced by LendingClub (<a href="https://www.lendingclub.com/" class="uri">https://www.lendingclub.com/</a>). Below is the information related to the variables.</p>
-<table>
+<p>We would be using a sample dataset related to credit scoring open
+sourced by LendingClub (<a href="https://www.lendingclub.com/" class="uri">https://www.lendingclub.com/</a>). Below is the information
+related to the variables.</p>
+<table style="width:100%;">
 <colgroup>
-<col width="19%"></col>
-<col width="11%"></col>
-<col width="12%"></col>
-<col width="12%"></col>
-<col width="11%"></col>
-<col width="11%"></col>
-<col width="11%"></col>
-<col width="9%"></col>
+<col width="20%" />
+<col width="11%" />
+<col width="12%" />
+<col width="12%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="9%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -268,7 +537,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 68203</td>
 <td align="left">3rd Qu.: 82000</td>
 <td align="left">Max. :900000</td>
-<td align="left">NA's :1</td>
+<td align="left">NA’s :1</td>
 </tr>
 <tr class="even">
 <td align="left">verification_status</td>
@@ -368,7 +637,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 0.1482</td>
 <td align="left">3rd Qu.: 0.0000</td>
 <td align="left">Max. :11.0000</td>
-<td align="left">NA's :5</td>
+<td align="left">NA’s :5</td>
 </tr>
 <tr class="even">
 <td align="left">earliest_cr_line</td>
@@ -388,7 +657,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 1.067</td>
 <td align="left">3rd Qu.: 2.000</td>
 <td align="left">Max. :25.000</td>
-<td align="left">NA's :5</td>
+<td align="left">NA’s :5</td>
 </tr>
 <tr class="even">
 <td align="left">mths_since_last_delinq</td>
@@ -398,7 +667,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 35.89</td>
 <td align="left">3rd Qu.: 53.00</td>
 <td align="left">Max. :120.00</td>
-<td align="left">NA's :6316</td>
+<td align="left">NA’s :6316</td>
 </tr>
 <tr class="odd">
 <td align="left">mths_since_last_record</td>
@@ -408,7 +677,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 61.65</td>
 <td align="left">3rd Qu.:101.00</td>
 <td align="left">Max. :119.00</td>
-<td align="left">NA's :9160</td>
+<td align="left">NA’s :9160</td>
 </tr>
 <tr class="even">
 <td align="left">open_acc</td>
@@ -418,7 +687,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 9.335</td>
 <td align="left">3rd Qu.:12.000</td>
 <td align="left">Max. :39.000</td>
-<td align="left">NA's :5</td>
+<td align="left">NA’s :5</td>
 </tr>
 <tr class="odd">
 <td align="left">pub_rec</td>
@@ -428,7 +697,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean :0.06013</td>
 <td align="left">3rd Qu.:0.00000</td>
 <td align="left">Max. :3.00000</td>
-<td align="left">NA's :5</td>
+<td align="left">NA’s :5</td>
 </tr>
 <tr class="even">
 <td align="left">revol_bal</td>
@@ -448,7 +717,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean : 48.47</td>
 <td align="left">3rd Qu.: 71.90</td>
 <td align="left">Max. :108.80</td>
-<td align="left">NA's :23</td>
+<td align="left">NA’s :23</td>
 </tr>
 <tr class="even">
 <td align="left">total_acc</td>
@@ -458,7 +727,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <td align="left">Mean :22.09</td>
 <td align="left">3rd Qu.:29.00</td>
 <td align="left">Max. :90.00</td>
-<td align="left">NA's :5</td>
+<td align="left">NA’s :5</td>
 </tr>
 <tr class="odd">
 <td align="left">initial_list_status</td>
@@ -473,7 +742,7 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 <tr class="even">
 <td align="left">mths_since_last_major_derog</td>
 <td align="left">Mode:logical</td>
-<td align="left">NA's:10000</td>
+<td align="left">NA’s:10000</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
@@ -505,34 +774,41 @@ apiToken &lt;-<span class="st"> &quot;&lt;YOUR API TOKEN HERE&gt;&quot;</span>
 </div>
 <div id="divide-data-into-train-and-test-and-setup-the-project" class="section level2">
 <h2>Divide data into train and test and setup the project</h2>
-<p>Let's divide our data in train and test. We can use train data to create a datarobot project using <strong>StartProject</strong> function and test data to make predictions and generate prediction explanations. Detailed explanation about creating projects was described in the vignette , “Introduction to the DataRobot R Package.” The specific sequence used here was:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">target &lt;-<span class="st"> &quot;is_bad&quot;</span>
-projectName &lt;-<span class="st"> &quot;Credit Scoring&quot;</span>
-
-<span class="kw">set.seed</span>(<span class="dv">1111</span>)
-split &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">nrow</span>(Lending), <span class="kw">round</span>(<span class="fl">0.9</span> <span class="op">*</span><span class="st"> </span><span class="kw">nrow</span>(Lending)), <span class="dt">replace =</span> <span class="ot">FALSE</span>)
-train &lt;-<span class="st"> </span>Lending[split,]
-test &lt;-<span class="st"> </span>Lending[<span class="op">-</span>split,]
-
-project &lt;-<span class="st"> </span><span class="kw">StartProject</span>(<span class="dt">dataSource =</span> train, 
-                        <span class="dt">projectName =</span> projectName,
-                        <span class="dt">target =</span> target,
-                        <span class="dt">workerCount =</span> <span class="st">&quot;max&quot;</span>,
-                        <span class="dt">wait =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<p>Once the modeling process has completed, the ListModels function returns an S3 object of class “listOfModels” that characterizes all of the models in a specified DataRobot project.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">results &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">ListModels</span>(project))
-<span class="kw">kable</span>(<span class="kw">head</span>(results), <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<table style="width:100%;">
+<p>Let’s divide our data in train and test. We can use train data to
+create a datarobot project using <strong>StartProject</strong> function
+and test data to make predictions and generate prediction explanations.
+Detailed explanation about creating projects was described in the
+vignette , “Introduction to the DataRobot R Package.” The specific
+sequence used here was:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>target <span class="ot">&lt;-</span> <span class="st">&quot;is_bad&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>projectName <span class="ot">&lt;-</span> <span class="st">&quot;Credit Scoring&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1111</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>split <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(Lending), <span class="fu">round</span>(<span class="fl">0.9</span> <span class="sc">*</span> <span class="fu">nrow</span>(Lending)), <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> Lending[split,]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> Lending[<span class="sc">-</span>split,]</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(<span class="at">dataSource =</span> train, </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                        <span class="at">projectName =</span> projectName,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> target,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        <span class="at">workerCount =</span> <span class="st">&quot;max&quot;</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">wait =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Once the modeling process has completed, the ListModels function
+returns an S3 object of class “listOfModels” that characterizes all of
+the models in a specified DataRobot project.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">ListModels</span>(project))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(results), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<table>
 <colgroup>
-<col width="0%"></col>
-<col width="12%"></col>
-<col width="59%"></col>
-<col width="5%"></col>
-<col width="6%"></col>
-<col width="4%"></col>
-<col width="5%"></col>
-<col width="2%"></col>
-<col width="3%"></col>
+<col width="0%" />
+<col width="12%" />
+<col width="60%" />
+<col width="5%" />
+<col width="6%" />
+<col width="4%" />
+<col width="5%" />
+<col width="2%" />
+<col width="3%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -561,8 +837,13 @@ project &lt;-<span class="st"> </span><span class="kw">StartProject</span>(<span
 </tr>
 <tr class="even">
 <td align="left">2</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping::One-Hot Encoding::Univariate credibility estimates with ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word N-Gram Text Modeler using token occurrences::Missing Values Imputed::Search for differences::Search for ratios</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping::One-Hot Encoding::Univariate credibility estimates with
+ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word
+N-Gram Text Modeler using token occurrences::Missing Values
+Imputed::Search for differences::Search for ratios</td>
 <td align="left">5cdafc69215387127c7697ac</td>
 <td align="left">788bd071d49fc43acc55e646c3341445</td>
 <td align="left">Informative Features</td>
@@ -594,8 +875,13 @@ project &lt;-<span class="st"> </span><span class="kw">StartProject</span>(<span
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping</td>
-<td align="left">Gradient Boosted Greedy Trees Classifier with Early Stopping::One-Hot Encoding::Univariate credibility estimates with ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word N-Gram Text Modeler using token occurrences::Missing Values Imputed::Search for differences::Search for ratios</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping</td>
+<td align="left">Gradient Boosted Greedy Trees Classifier with Early
+Stopping::One-Hot Encoding::Univariate credibility estimates with
+ElasticNet::Category Count::Converter for Text Mining::Auto-Tuned Word
+N-Gram Text Modeler using token occurrences::Missing Values
+Imputed::Search for differences::Search for ratios</td>
 <td align="left">5cdafe722153872da07697be</td>
 <td align="left">788bd071d49fc43acc55e646c3341445</td>
 <td align="left">Informative Features</td>
@@ -619,11 +905,12 @@ project &lt;-<span class="st"> </span><span class="kw">StartProject</span>(<span
 </div>
 <div id="generating-model-predictions" class="section level2">
 <h2>Generating Model Predictions</h2>
-<p>Let's look at some model predictions. The generation of model predictions uses the <code>Predict</code> function:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bestModel &lt;-<span class="st"> </span><span class="kw">GetRecommendedModel</span>(project)
-bestPredictions &lt;-<span class="st"> </span><span class="kw">Predict</span>(bestModel, test, <span class="dt">type =</span> <span class="st">&quot;probability&quot;</span>)
-testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">original =</span> test<span class="op">$</span>is_bad, <span class="dt">prediction =</span> bestPredictions)
-<span class="kw">kable</span>(<span class="kw">head</span>(testPredictions), <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<p>Let’s look at some model predictions. The generation of model
+predictions uses the <code>Predict</code> function:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bestModel <span class="ot">&lt;-</span> <span class="fu">GetRecommendedModel</span>(project)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>bestPredictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(bestModel, test, <span class="at">type =</span> <span class="st">&quot;probability&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>testPredictions <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">original =</span> test<span class="sc">$</span>is_bad, <span class="at">prediction =</span> bestPredictions)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(testPredictions), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -668,38 +955,47 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 </div>
 <div id="calculate-prediction-explanations" class="section level2">
 <h2>Calculate Prediction Explanations</h2>
-<p>For each prediction, DataRobot provides an ordered list of explanations; the number of explanations is based on the setting. Each explanation is a feature from the dataset and its corresponding value, accompanied by a qualitative indicator of the explanation’s strength—strong (+++), medium (++), or weak (+) positive or negative (-) influence.</p>
-<p>There are three main inputs you can set for DataRobot to use when computing prediction explanations<br />
-1. <code>maxExplanations</code>: the Number of explanations for each predictions. Default is 3.<br />
-2. <code>thresholdLow</code>: Probability threshold below which DataRobot should calculate prediction explanations.<br />
-3. <code>thresholdHigh</code>: Probability threshold above which DataRobot should calculate prediction explanations.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">explanations &lt;-<span class="st"> </span><span class="kw">GetPredictionExplanations</span>(bestModel, test, <span class="dt">maxExplanations =</span> <span class="dv">3</span>,
-                                          <span class="dt">thresholdLow =</span> <span class="fl">0.25</span>, <span class="dt">thresholdHigh =</span> <span class="fl">0.75</span>)
-<span class="kw">kable</span>(<span class="kw">head</span>(explanations), <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<table>
+<p>For each prediction, DataRobot provides an ordered list of
+explanations; the number of explanations is based on the setting. Each
+explanation is a feature from the dataset and its corresponding value,
+accompanied by a qualitative indicator of the explanation’s
+strength—strong (+++), medium (++), or weak (+) positive or negative (-)
+influence.</p>
+<p>There are three main inputs you can set for DataRobot to use when
+computing prediction explanations<br />
+1. <code>maxExplanations</code>: the Number of explanations for each
+predictions. Default is 3.<br />
+2. <code>thresholdLow</code>: Probability threshold below which
+DataRobot should calculate prediction explanations.<br />
+3. <code>thresholdHigh</code>: Probability threshold above which
+DataRobot should calculate prediction explanations.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>explanations <span class="ot">&lt;-</span> <span class="fu">GetPredictionExplanations</span>(bestModel, test, <span class="at">maxExplanations =</span> <span class="dv">3</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">thresholdLow =</span> <span class="fl">0.25</span>, <span class="at">thresholdHigh =</span> <span class="fl">0.75</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(explanations), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<table style="width:100%;">
 <colgroup>
-<col width="0%"></col>
-<col width="1%"></col>
-<col width="2%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="4%"></col>
-<col width="4%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
-<col width="7%"></col>
-<col width="9%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="6%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
+<col width="0%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="4%" />
+<col width="2%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="7%" />
+<col width="9%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -738,7 +1034,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.9285303</td>
 <td align="left">revol_util</td>
 <td align="left">37.1</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2260173</td>
 <td align="right">1</td>
 <td align="left">Notes</td>
@@ -748,7 +1044,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">23</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1403030</td>
 <td align="right">1</td>
 </tr>
@@ -767,7 +1063,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">27</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2090679</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
@@ -790,13 +1086,13 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.3073045</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
-<td align="left">FICO score 762 want's to buy a new car</td>
-<td align="left">--</td>
+<td align="left">FICO score 762 want’s to buy a new car</td>
+<td align="left">–</td>
 <td align="right">-0.2362631</td>
 <td align="right">1</td>
 <td align="left">revol_util</td>
 <td align="left">18.3</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2127375</td>
 <td align="right">1</td>
 </tr>
@@ -810,17 +1106,17 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.9406490</td>
 <td align="left">revol_util</td>
 <td align="left">39.5</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2576392</td>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">24</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2124569</td>
 <td align="right">1</td>
 <td align="left">annual_inc</td>
 <td align="left">112000</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2024626</td>
 <td align="right">1</td>
 </tr>
@@ -839,12 +1135,12 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">earliest_cr_line (Day of Week)</td>
 <td align="left">2</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1870957</td>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">19</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1591037</td>
 <td align="right">1</td>
 </tr>
@@ -863,7 +1159,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">24</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2587315</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
@@ -874,43 +1170,60 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 </tr>
 </tbody>
 </table>
-<p>From the example above, you could answer &quot;Why did the model give one of the customers a 97% probability of defaulting?&quot; Top explanation explains that <strong>purpose_cat</strong> of loan was &quot;credit card small business&quot;&quot; and we can also see in above example that whenever model is predicting high probability of default, <strong>purpose_cat</strong> is related to small business.</p>
+<p>From the example above, you could answer “Why did the model give one
+of the customers a 97% probability of defaulting?” Top explanation
+explains that <strong>purpose_cat</strong> of loan was “credit card
+small business”” and we can also see in above example that whenever
+model is predicting high probability of default,
+<strong>purpose_cat</strong> is related to small business.</p>
 <p>Some notes on explanations:<br />
-- If the data points are very similar, the explanations can list the same rounded up values.<br />
-- It is possible to have a explanation state of MISSING if a “missing value” was important in making the prediction.<br />
-- Typically, the top explanations for a prediction have the same direction as the outcome, but it’s possible that with interaction effects or correlations among variables a explanation could, for instance, have a strong positive impact on a negative prediction.</p>
+- If the data points are very similar, the explanations can list the
+same rounded up values.<br />
+- It is possible to have a explanation state of MISSING if a “missing
+value” was important in making the prediction.<br />
+- Typically, the top explanations for a prediction have the same
+direction as the outcome, but it’s possible that with interaction
+effects or correlations among variables a explanation could, for
+instance, have a strong positive impact on a negative prediction.</p>
 </div>
 <div id="adjusted-predictions-in-prediction-explanations" class="section level2">
 <h2>Adjusted Predictions in Prediction Explanations</h2>
-<p>In some projects -- such as insurance projects -- the prediction adjusted by exposure is more useful to look at than just raw prediction. For example, the raw prediction (e.g. claim counts) is divided by exposure (e.g. time) in the project with exposure column. The adjusted prediction provides insights with regard to the predicted claim counts per unit of time. To include that information, set <code>excludeAdjustedPredictions</code> to False in correspondent method calls.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">explanations &lt;-<span class="st"> </span><span class="kw">GetPredictionExplanations</span>(bestModel, test, <span class="dt">maxExplanations =</span> <span class="dv">3</span>,
-                                          <span class="dt">thresholdLow =</span> <span class="fl">0.25</span>, <span class="dt">thresholdHigh =</span> <span class="fl">0.75</span>,
-                                          <span class="dt">excludeAdjustedPredictions =</span> <span class="ot">FALSE</span>)
-<span class="kw">kable</span>(<span class="kw">head</span>(explanations), <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">TRUE</span>)</code></pre></div>
-<table>
+<p>In some projects – such as insurance projects – the prediction
+adjusted by exposure is more useful to look at than just raw prediction.
+For example, the raw prediction (e.g. claim counts) is divided by
+exposure (e.g. time) in the project with exposure column. The adjusted
+prediction provides insights with regard to the predicted claim counts
+per unit of time. To include that information, set
+<code>excludeAdjustedPredictions</code> to False in correspondent method
+calls.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>explanations <span class="ot">&lt;-</span> <span class="fu">GetPredictionExplanations</span>(bestModel, test, <span class="at">maxExplanations =</span> <span class="dv">3</span>,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">thresholdLow =</span> <span class="fl">0.25</span>, <span class="at">thresholdHigh =</span> <span class="fl">0.75</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">excludeAdjustedPredictions =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(explanations), <span class="at">longtable =</span> <span class="cn">TRUE</span>, <span class="at">booktabs =</span> <span class="cn">TRUE</span>, <span class="at">row.names =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<table style="width:100%;">
 <colgroup>
-<col width="0%"></col>
-<col width="1%"></col>
-<col width="2%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="4%"></col>
-<col width="4%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
-<col width="7%"></col>
-<col width="9%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
-<col width="4%"></col>
-<col width="6%"></col>
-<col width="6%"></col>
-<col width="3%"></col>
-<col width="3%"></col>
+<col width="0%" />
+<col width="1%" />
+<col width="2%" />
+<col width="2%" />
+<col width="4%" />
+<col width="2%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="7%" />
+<col width="9%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
+<col width="4%" />
+<col width="6%" />
+<col width="6%" />
+<col width="3%" />
+<col width="3%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -949,7 +1262,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.9285303</td>
 <td align="left">revol_util</td>
 <td align="left">37.1</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2260173</td>
 <td align="right">1</td>
 <td align="left">Notes</td>
@@ -959,7 +1272,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">23</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1403030</td>
 <td align="right">1</td>
 </tr>
@@ -978,7 +1291,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">27</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2090679</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
@@ -1001,13 +1314,13 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.3073045</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
-<td align="left">FICO score 762 want's to buy a new car</td>
-<td align="left">--</td>
+<td align="left">FICO score 762 want’s to buy a new car</td>
+<td align="left">–</td>
 <td align="right">-0.2362631</td>
 <td align="right">1</td>
 <td align="left">revol_util</td>
 <td align="left">18.3</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2127375</td>
 <td align="right">1</td>
 </tr>
@@ -1021,17 +1334,17 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">0.9406490</td>
 <td align="left">revol_util</td>
 <td align="left">39.5</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2576392</td>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">24</td>
-<td align="left">---</td>
+<td align="left">—</td>
 <td align="right">-0.2124569</td>
 <td align="right">1</td>
 <td align="left">annual_inc</td>
 <td align="left">112000</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2024626</td>
 <td align="right">1</td>
 </tr>
@@ -1050,12 +1363,12 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">earliest_cr_line (Day of Week)</td>
 <td align="left">2</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1870957</td>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">19</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.1591037</td>
 <td align="right">1</td>
 </tr>
@@ -1074,7 +1387,7 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 <td align="right">1</td>
 <td align="left">total_acc</td>
 <td align="left">24</td>
-<td align="left">--</td>
+<td align="left">–</td>
 <td align="right">-0.2587315</td>
 <td align="right">1</td>
 <td align="left">purpose</td>
@@ -1088,7 +1401,15 @@ testPredictions &lt;-<span class="st"> </span><span class="kw">data.frame</span>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>
-<p>This note has described the <strong>Prediction Explanations</strong> which are useful for understanding why model is predicting high or low predictions for a specific case. DataRobot also provides qualitative strength of each explanation. <strong>Prediction Explanations</strong> can be used in developing good business strategy by taking prescriptions based on the explanations which are responsible for high or low predictions. They are also useful in explaining the actions taken based on the model predictions to regulatory or compliance department within an organization.</p>
+<p>This note has described the <strong>Prediction Explanations</strong>
+which are useful for understanding why model is predicting high or low
+predictions for a specific case. DataRobot also provides qualitative
+strength of each explanation. <strong>Prediction Explanations</strong>
+can be used in developing good business strategy by taking prescriptions
+based on the explanations which are responsible for high or low
+predictions. They are also useful in explaining the actions taken based
+on the model predictions to regulatory or compliance department within
+an organization.</p>
 </div>
 
 

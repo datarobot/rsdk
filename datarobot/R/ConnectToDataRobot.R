@@ -75,7 +75,7 @@ ConnectToDataRobot <- function(endpoint = NULL,
     ConnectWithUsernamePassword(endpoint, username, password)
   } else if (haveConfigPath) {
     ConnectWithConfigFile(configPath)
-  } else if (!is.na(envEndpoint) & !is.na(envToken)) {
+  } else if (!is.na(envEndpoint) && !is.na(envToken)) {
     ConnectWithToken(envEndpoint, envToken)
   } else {
     errorMsg <- "No authentication method provided."
@@ -164,7 +164,7 @@ ConnectWithUsernamePassword <- function(endpoint, username, password) {
 }
 
 SaveConnectionEnvironmentVars <- function(endpoint, token) {
-  message("Authentication token saved")
+  packageStartupMessage("Authentication token saved")
   Sys.setenv(DATAROBOT_API_ENDPOINT = endpoint)
   Sys.setenv(DATAROBOT_API_TOKEN = token)
 }

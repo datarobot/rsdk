@@ -1,3 +1,36 @@
+# datarobot v2.31.0.9000
+
+This release addresses an issue where a new feature in the `curl==5.0.1` package that caused any invocation of `datarobot:::UploadData` (i.e. `SetupProject`) to fail with the error `No method asJSON S3 class: form_file`.
+
+New API Functions:
+
+Other New Features:
+
+Enhancements:
+
+* The un-exported function `datarobot:::UploadData` now takes an optional argument `fileName`.
+
+Bugfixes:
+
+* Fixed an issue where a [new feature](https://github.com/jeroen/curl/pull/290/) in curl==5.0.1 is installed that caused any invocation of `datarobot:::UploadData` (i.e. `SetupProject`) to fail with the error `No method asJSON S3 class: form_file`.
+* Loading the `datarobot` package with `suppressPackageStartupMessages()` will now suppress all messages.
+
+API Changes:
+
+Deprecated and Defunct:
+* `CreateProjectsDatetimeModelsFeatureFit` has been removed. Use `CreateProjectsDatetimeModelsFeatureEffects` instead.
+* `ListProjectsDatetimeModelsFeatureFit` has been removed. Use `ListProjectsDatetimeModelsFeatureEffects` instead.
+* `ListProjectsDatetimeModelsFeatureFitMetadata` has been removed. Use `ListProjectsDatetimeModelsFeatureEffectsMetadata` instead.
+* `CreateProjectsModelsFeatureFit` has been removed. Use `CreateProjectsModelsFeatureEffects` instead.
+* `ListProjectsModelsFeatureFit` has been removed. Use `ListProjectsModelsFeatureEffects` instead.
+* `ListProjectsModelsFeatureFitMetadata` has been removed. Use `ListProjectsModelsFeatureEffectsMetadata` instead.
+
+Dependency Changes:
+* Client documentation is now explicitly generated with Roxygen2 v7.2.3.
+* Added `Suggests: mockery` to improve unit test development experience.
+
+Documentation Changes:
+
 # datarobot v2.29.0.9003
 
 API Changes:

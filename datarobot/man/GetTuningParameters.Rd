@@ -12,8 +12,13 @@ GetTuningParameters(model)
 \value{
 A list detailing the following about each tuning parameter:
 \itemize{
-  \item currentValue character. The current searched values of that parameter.
-  \item defaultValue character. The default value of that parameter.
+  \item currentValue character. The single value or list of values of the
+       parameter that were grid searched. Depending on the grid search
+       specification, could be a single fixed value (no grid search),
+       a list of discrete values, or a range.
+  \item defaultValue character. The actual value used to train the model; either
+       the single value of the parameter specified before training, or the best
+       value from the list of grid-searched values (based on `current_value`).
   \item parameterId character. A unique ID for that particular parameter.
   \item parameterName character. The name of the tuning parameter.
   \item taskName character. The name of the task the parameter is for.

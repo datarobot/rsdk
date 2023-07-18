@@ -370,55 +370,6 @@ ListProjectsDatetimeModelsFeatureEffectsMetadata <- function(modelId, projectId,
   return(datarobot.apicore::InsightsApi$new()$ProjectsDatetimeModelsFeatureEffectsMetadataList(modelId = modelId, projectId = projectId, ...))
 }
 
-#' CreateProjectsDatetimeModelsFeatureFit
-#'
-#' Add a request to the queue to calculate Feature Fit for a backtest.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit for a backtest. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
-#' @details This method invokes `POST /projects/{projectId}/datetimeModels/{modelId}/featureFit/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsDatetimeModelsFeatureFitCreate in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-CreateProjectsDatetimeModelsFeatureFit <- function(backtestIndex, modelId, projectId, ...) {
-  modelXrayCreateDatetime <- datarobot.apicore::ModelXrayCreateDatetime$new(backtestIndex = backtestIndex, validateParams = TRUE)
-  return(datarobot.apicore::InsightsApi$new()$ProjectsDatetimeModelsFeatureFitCreate(modelXrayCreateDatetime = modelXrayCreateDatetime, modelId = modelId, projectId = projectId, ...))
-}
-
-#' ListProjectsDatetimeModelsFeatureFit
-#'
-#' Retrieve Feature Fit for a model backtest.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for a model backtest. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted for a given backtest, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
-#' @details This method invokes `GET /projects/{projectId}/datetimeModels/{modelId}/featureFit/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsDatetimeModelsFeatureFitList in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-ListProjectsDatetimeModelsFeatureFit <- function(backtestIndex, modelId, projectId, includeIcePlots, source = "training", ...) {
-  return(datarobot.apicore::InsightsApi$new()$ProjectsDatetimeModelsFeatureFitList(backtestIndex = backtestIndex, modelId = modelId, source = source, projectId = projectId, includeIcePlots = includeIcePlots, ...))
-}
-
-#' ListProjectsDatetimeModelsFeatureFitMetadata
-#'
-#' Retrieve Feature Fit metadata for each backtest. Response contains status and available sources for each backtest of the model.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata for each backtest. Response contains status and available sources for each backtest of the model. One of the provided backtestIndex indexes used for submitting the compute request and retrieving Feature Fit. \\* Start/stop models contain a single backtestIndex response value of startstop. \\* Other models contain backtestIndex of 0, 1, ..., holdout. One of the provided source parameters used for retrieving Feature Fit. \\* Each backtest source can be, at a minimum, training or validation. If holdout is configured for the project, backtestIndex also includes holdout with sources training and holdout. \\* Source value of training is always available. (versions prior to v2.17 support validation only) \\* When a start/stop model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available. \\* Source holdout is not available when there is no holdout configured for the project.
-#' @details This method invokes `GET /projects/{projectId}/datetimeModels/{modelId}/featureFitMetadata/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsDatetimeModelsFeatureFitMetadataList in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-ListProjectsDatetimeModelsFeatureFitMetadata <- function(modelId, projectId, ...) {
-  return(datarobot.apicore::InsightsApi$new()$ProjectsDatetimeModelsFeatureFitMetadataList(modelId = modelId, projectId = projectId, ...))
-}
-
 #' ListProjectsDatetimeModelsForecastDistanceStabilityPlot
 #'
 #' Retrieve a plot displaying the stability of the time series model across different forecast distances.
@@ -1132,54 +1083,6 @@ ListProjectsModelsFeatureEffects <- function(modelId, projectId, includeIcePlots
 #' @md
 ListProjectsModelsFeatureEffectsMetadata <- function(modelId, projectId, ...) {
   return(datarobot.apicore::InsightsApi$new()$ProjectsModelsFeatureEffectsMetadataList(modelId = modelId, projectId = projectId, ...))
-}
-
-#' CreateProjectsModelsFeatureFit
-#'
-#' Add a request to the queue to calculate Feature Fit.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Add a request to the queue to calculate Feature Fit. If the job has been previously submitted, the request fails, returning the jobId of the previously submitted job. Use this jobId to check status of the previously submitted job.
-#' @details This method invokes `POST /projects/{projectId}/models/{modelId}/featureFit/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsModelsFeatureFitCreate in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-CreateProjectsModelsFeatureFit <- function(modelId, projectId, ...) {
-  return(datarobot.apicore::InsightsApi$new()$ProjectsModelsFeatureFitCreate(modelId = modelId, projectId = projectId, ...))
-}
-
-#' ListProjectsModelsFeatureFit
-#'
-#' Retrieve Feature Fit for the model.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit for the model. Feature Fit provides partial dependence and predicted vs actual values for the top 500 features, ordered by feature importance score. The partial dependence shows marginal effect of a feature on the target variable after accounting for the average effects of all other predictive features. It indicates how, holding all other variables except the feature of interest as they were, the value of this feature affects your prediction. If a Feature Fit job was previously submitted, this endpoint will return a response structured as {\"message\": \\<message\\>, \"jobId\": \\<jobId\\>} where jobId is the ID of the job. Retrieve the job with :<http:get>:/api/v2/projects/(projectId)/jobs/(jobId)/
-#' @details This method invokes `GET /projects/{projectId}/models/{modelId}/featureFit/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsModelsFeatureFitList in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-ListProjectsModelsFeatureFit <- function(modelId, projectId, includeIcePlots, source = "training", ...) {
-  return(datarobot.apicore::InsightsApi$new()$ProjectsModelsFeatureFitList(modelId = modelId, source = source, projectId = projectId, includeIcePlots = includeIcePlots, ...))
-}
-
-#' ListProjectsModelsFeatureFitMetadata
-#'
-#' Retrieve Feature Fit metadata. Response contains status and available sources.
-#'
-#' NOTE: Starting from API v2.29 this endpoint will be deprecated. Retrieve Feature Fit metadata. Response contains status and available sources. One of the provided source parameters used for retrieving Feature Fit. \\* Source can be, at a minimum, training or validation. If holdout is configured for the project, source also includes holdout. \\* Source value of training is always available.(versions prior to v2.17 support validation only) \\* When a model is trained into validation or holdout without stacked predictions (i.e., no out-of-sample predictions in validation or holdout), validation and holdout sources are not available.
-#' @details This method invokes `GET /projects/{projectId}/models/{modelId}/featureFitMetadata/` in the DataRobot Public API.
-#'
-#' @param ... Additional keyword arguments to be passed on to the `datarobot.apicore` and `httr` libraries.
-#'
-#' @seealso The method ProjectsModelsFeatureFitMetadataList in [datarobot.apicore::InsightsApi], which invokes the same underlying API endpoint.
-#' @export
-#' @md
-ListProjectsModelsFeatureFitMetadata <- function(modelId, projectId, ...) {
-  return(datarobot.apicore::InsightsApi$new()$ProjectsModelsFeatureFitMetadataList(modelId = modelId, projectId = projectId, ...))
 }
 
 
