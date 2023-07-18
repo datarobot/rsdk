@@ -24,29 +24,29 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
   # Note: This does not include the GET request to confirm that the project status is 'aim'
   #       (ready for target-setting), since that is mocked separately via GetProjectStatus
 
-  patchStub <- stub(httr::PATCH)
-  getStub <- stub(httr::GET)
+  patchMock <- stub(httr::PATCH)
+  getMock <- stub(httr::GET)
 
   aimUrl <- datarobot:::UrlJoin(projectUrl, "aim")
   statusUrl <- datarobot:::UrlJoin(fakeEndpoint, "status", "some-status")
 
-  patchStub$onCall(1)$expects(url = aimUrl)
-  patchStub$onCall(1)$returns(httr:::response(
+  patchMock$onCall(1)$expects(url = aimUrl)
+  patchMock$onCall(1)$returns(httr:::response(
     url = aimUrl,
     status_code = 202L,
     headers = list(location = statusUrl),
     content = raw(0)
   ))
 
-  getStub$onCall(1)$expects(url = statusUrl)
-  getStub$onCall(1)$returns(httr:::response(
+  getMock$onCall(1)$expects(url = statusUrl)
+  getMock$onCall(1)$returns(httr:::response(
     url = statusUrl,
     status_code = 200L,
     content = charToRaw('{"status": "someStatus"}')
   ))
 
-  getStub$onCall(2)$expects(url = statusUrl)
-  getStub$onCall(2)$returns(httr:::response(
+  getMock$onCall(2)$expects(url = statusUrl)
+  getMock$onCall(2)$returns(httr:::response(
     url = statusUrl,
     status_code = 303L,
     headers = list(location = projectUrl),
@@ -61,9 +61,9 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
       status_code = 303L,
       content = charToRaw(getMultiseriesJson)
     )
-    getStub$onCall(3)$returns(multiseriesRequestResponse)
-    getStub$onCall(4)$expects(url = statusUrl)
-    getStub$onCall(4)$returns(httr:::response(
+    getMock$onCall(3)$returns(multiseriesRequestResponse)
+    getMock$onCall(4)$expects(url = statusUrl)
+    getMock$onCall(4)$returns(httr:::response(
       url = statusUrl,
       status_code = 303L,
       headers = list(location = projectUrl),
@@ -77,38 +77,38 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
         status_code = 303L,
         content = charToRaw(getCrossSeriesJson)
       )
-      getStub$onCall(5)$returns(crossSeriesRequestResponse)
-      getStub$onCall(6)$expects(url = statusUrl)
-      getStub$onCall(6)$returns(httr:::response(
+      getMock$onCall(5)$returns(crossSeriesRequestResponse)
+      getMock$onCall(6)$expects(url = statusUrl)
+      getMock$onCall(6)$returns(httr:::response(
         url = statusUrl,
         status_code = 303L,
         headers = list(location = projectUrl),
         content = raw(0)
       ))
-      getStub$onCall(7)$expects(url = projectUrl)
-      getStub$onCall(7)$returns(httr:::response(
+      getMock$onCall(7)$expects(url = projectUrl)
+      getMock$onCall(7)$returns(httr:::response(
         url = projectUrl,
         status_code = 200L,
         content = raw(0)
       ))
     } else {
-      getStub$onCall(5)$expects(url = projectUrl)
-      getStub$onCall(5)$returns(httr:::response(
+      getMock$onCall(5)$expects(url = projectUrl)
+      getMock$onCall(5)$returns(httr:::response(
         url = projectUrl,
         status_code = 200L,
         content = raw(0)
       ))
     }
   } else {
-    getStub$onCall(3)$expects(url = projectUrl)
-    getStub$onCall(3)$returns(httr:::response(
+    getMock$onCall(3)$expects(url = projectUrl)
+    getMock$onCall(3)$returns(httr:::response(
       url = projectUrl,
       status_code = 200L,
       content = raw(0)
     ))
   }
 
-  postStub <- stub(httr::POST)
+  postMock <- stub(httr::POST)
   postMultiseriesModelUrl <- UrlJoin(projectUrl, "multiseriesProperties")
   multiseriesRequestResponse <- httr:::response(
     url = postMultiseriesModelUrl,
@@ -116,7 +116,7 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
     headers = list(location = statusUrl),
     content = raw(0)
   )
-  postStub$onCall(1)$returns(multiseriesRequestResponse)
+  postMock$onCall(1)$returns(multiseriesRequestResponse)
   if (isTRUE(crossSeriesGroupByMock)) {
     crossSeriesRequestResponse <- httr:::response(
       url = getCrossSeriesUrl,
@@ -124,13 +124,13 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
       headers = list(location = statusUrl),
       content = charToRaw(getCrossSeriesJson)
     )
-    postStub$onCall(2)$returns(crossSeriesRequestResponse)
+    postMock$onCall(2)$returns(crossSeriesRequestResponse)
   }
 
   with_mock(
-    "httr::PATCH" = patchStub$f,
-    "httr::POST" = postStub$f,
-    "httr::GET" = getStub$f,
+    "httr::PATCH" = patchMock$f,
+    "httr::POST" = postMock$f,
+    "httr::GET" = getMock$f,
     # Mock patch to be able to record the input so we can test against it
     "datarobot:::DataRobotPATCH" = function(routeString,
                                             addUrl = TRUE,
@@ -149,16 +149,16 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
     ...
   ) # Tests get injected here.
 
-  expect_equal(patchStub$calledTimes(), 1)
+  expect_equal(patchMock$calledTimes(), 1)
 
   if (isTRUE(crossSeriesGroupByMock)) {
-    expect_equal(postStub$calledTimes(), 2)
-    expect_equal(getStub$calledTimes(), 7)
+    expect_equal(postMock$calledTimes(), 2)
+    expect_equal(getMock$calledTimes(), 7)
   } else if (isTRUE(multiseriesMock)) {
-    expect_equal(postStub$calledTimes(), 1)
-    expect_equal(getStub$calledTimes(), 5)
+    expect_equal(postMock$calledTimes(), 1)
+    expect_equal(getMock$calledTimes(), 5)
   } else {
-    expect_equal(getStub$calledTimes(), 3)
+    expect_equal(getMock$calledTimes(), 3)
   }
 }
 

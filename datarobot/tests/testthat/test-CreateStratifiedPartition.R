@@ -1,4 +1,4 @@
-# Copyright 2021 DataRobot, Inc. and its affiliates.
+# Copyright 2021-2023 DataRobot, Inc. and its affiliates.
 #
 # All rights reserved.
 #
@@ -7,7 +7,7 @@
 # This is proprietary source code of DataRobot, Inc. and its
 # affiliates.
 library(testthat)
-library(stubthat)
+
 
 test_that("Required parameters are present", {
   expect_error(CreateStratifiedPartition())

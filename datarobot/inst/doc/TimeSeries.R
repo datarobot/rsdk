@@ -57,7 +57,7 @@ kable(data)
 #  data <- read.csv(system.file("extdata", "multiseries.csv", package = "datarobot"))
 #  partition <- CreateDatetimePartitionSpecification(datetimePartitionColumn = "timestamp",
 #                                                    useTimeSeries = TRUE,
-#                                                    multiseriesIdColumns = "series_id")
+#                                                    multiseriesIdColumns = ('series_id')
 #  project <- StartProject(data,
 #                          projectName = "test-TimeSeries",
 #                          target = "target",

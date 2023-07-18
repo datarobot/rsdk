@@ -1,6 +1,6 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.29.0.9003
+Version: 2.31.0.9000
 Description: For working with the 'DataRobot' predictive modeling platform's
     API <https://www.datarobot.com/>.
 Depends: R (>= 3.5), methods, stats, datarobot.apicore
@@ -22,13 +22,14 @@ Author: Ron Pearson [aut],
     Mykhailo Poliakov [ctb],
     DataRobot, Inc. [cph]
 Maintainer: AJ Alon <api-maintainer@datarobot.com>
-Suggests: lubridate, testthat, stubthat, devtools (>= 2.4.1), knitr,
-        rmarkdown, lintr, data.table, AmesHousing, mlbench, beanplot,
-        doBy, insuranceData, ggplot2, modelwordcloud, withr, memoise
+Suggests: lubridate, testthat, stubthat, mockery, devtools (>= 2.4.1),
+        knitr, rmarkdown, lintr, data.table, AmesHousing, mlbench,
+        beanplot, doBy, insuranceData, ggplot2, modelwordcloud, withr,
+        memoise
 VignetteBuilder: knitr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2022-11-01 20:06:18 UTC; aj
+Packaged: 2023-07-14 19:20:15 UTC; aj
 Language: en-US
 Config/testthat/edition: 2
 Remotes: r-lib/devtools
