@@ -1,4 +1,4 @@
-# datarobot v2.18.3
+# datarobot v2.18.4
 
 The `datarobot` package is now dependent on R >= 3.5.
 
@@ -11,10 +11,11 @@ Enhancements:
 
 * The function `RequestFeatureImpact` now accepts a `rowCount` argument, which will change the sample size used for Feature Impact calculations.
 * The un-exported function `datarobot:::UploadData` now takes an optional argument `fileName`.
+* The function `ListProjects` now accepts `limit` and `offset` arguments, which allows users to retrieve additional projects.
 
 Bugfixes:
 
-* Fixed an issue where an [undocumented feature](https://github.com/jeroen/curl/pull/290/) in curl==5.0.1 is installed that caused any invocation of `datarobot:::UploadData` (i.e. `SetupProject`) to fail with the error `No method asJSON S3 class: form_file`.
+* Fixed an issue where a [new feature](https://github.com/jeroen/curl/pull/290/) in curl==5.0.1 caused invocations of `datarobot:::UploadData` (i.e. `SetupProject`) as well as `datarobot:::UploadPredictionDataset` to fail with the error `No method asJSON S3 class: form_file`.
 * Loading the `datarobot` package with `suppressPackageStartupMessages()` will now suppress all messages.
 
 API Changes:
@@ -37,6 +38,11 @@ Dependency Changes:
 Documentation Changes:
 
 * Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset. 
+* Removed hard links to `lendingclub.com` in vignettes due to issues with the CRAN URL checker.
+
+# datarobot v2.18.3
+
+This release is superseded by v2.18.4.
 
 # datarobot v2.18.2
 

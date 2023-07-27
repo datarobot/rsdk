@@ -40,6 +40,8 @@ DeleteProject <- function(project) {
 #' @param filter list. Optional. A named list that can be used to specify various filters.
 #'  Currently `projectName` is supported which will filter returned projects for projects with
 #'  names containing the specified string.
+#' @param limit integer. Optional. At most this many results are returned, default: 1000
+#' @param offset integer. Optional. This many results will be skipped, default: 0
 #'
 #' @return An S3 object of class 'projectSummaryList', consisting of the following elements:
 #' \itemize{
@@ -78,9 +80,9 @@ DeleteProject <- function(project) {
 #'   ListProjects(filter = list("projectName" = "TimeSeries"))
 #' }
 #' @export
-ListProjects <- function(filter = NULL) {
+ListProjects <- function(filter = NULL, limit = 1000, offset = 0) {
   routeString <- "projects/"
-  params <- NULL
+  params <- list(offset = offset, limit = limit)
   if (!is.null(filter)) {
     if (!is.list(filter)) {
       stop("`filter` must be a list.")
@@ -89,7 +91,7 @@ ListProjects <- function(filter = NULL) {
       if (length(filter$projectName) != 1) {
         stop("`projectName` must be a character vector of length 1.")
       }
-      params <- list("projectName" = filter$projectName)
+      params$projectName <- filter$projectName
     }
   }
   returnValue <- DataRobotGET(routeString, query = params)

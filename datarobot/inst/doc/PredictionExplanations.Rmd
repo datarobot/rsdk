@@ -50,7 +50,7 @@ ConnectToDataRobot(endpoint = endpoint, token = apiToken)
 ```
 
 ## Data
-We would be using a sample dataset related to credit scoring open sourced by LendingClub (https://www.lendingclub.com/). Below is the information related to the variables.
+We would be using a sample dataset related to credit scoring open sourced by LendingClub. Below is the information related to the variables.
 
 ```{r echo = FALSE, results = "asis", message = FALSE, warning = FALSE}
 Lending <- fread("https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv")
