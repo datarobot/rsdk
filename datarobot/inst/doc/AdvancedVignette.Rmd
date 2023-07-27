@@ -40,7 +40,7 @@ ConnectToDataRobot(endpoint = "http://<YOUR DR SERVER>/api/v2", token = "<YOUR A
 
 ## Data
 
-We will be using the [Lending Club dataset](https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv), a sample dataset related to credit scoring open-sourced by LendingClub (https://www.lendingclub.com/). We can create a project with this dataset like this:
+We will be using the [Lending Club dataset](https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv), a sample dataset related to credit scoring open-sourced by LendingClub. We can create a project with this dataset like this:
 
 ```{r results = "asis", message = FALSE, warning = FALSE, eval = FALSE}
 lendingClubURL <- "https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv"

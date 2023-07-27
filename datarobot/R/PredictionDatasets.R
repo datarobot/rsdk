@@ -1,3 +1,11 @@
+# Copyright 2021-2023 DataRobot, Inc. and its affiliates.
+#
+# All rights reserved.
+#
+# DataRobot, Inc.
+#
+# This is proprietary source code of DataRobot, Inc. and its
+# affiliates.
 #' Function to upload new data to a DataRobot project for predictions
 #'
 #' The DataRobot prediction engine requires a CSV file containing the data to be
@@ -59,9 +67,8 @@ UploadPredictionDataset <- function(project, dataSource, forecastPoint = NULL,
     routeString <- UrlJoin("projects", projectId, "predictionDatasets", "urlUploads")
     dataList <- list(url = dataSource)
   } else {
-    dataPath <- DataPathFromDataArg(dataSource)
     routeString <- UrlJoin("projects", projectId, "predictionDatasets", "fileUploads")
-    dataList <- list(file = httr::upload_file(dataPath))
+    dataList <- list(file = UploadData(dataSource))
   }
   if (!is.null(forecastPoint) && (!is.null(predictionsStartDate) || !is.null(predictionsEndDate))) {
     stop(sQuote("forecastPoint"), " cannot be provided along with ", sQuote("predictionsStartDate"),
