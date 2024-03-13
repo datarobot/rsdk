@@ -40,8 +40,10 @@ DeleteProject <- function(project) {
 #' @param filter list. Optional. A named list that can be used to specify various filters.
 #'  Currently `projectName` is supported which will filter returned projects for projects with
 #'  names containing the specified string.
-#' @param limit integer. Optional. At most this many results are returned. Invoking `ListProjects` with this value against DataRobot 8.x (API 2.28) or older will throw an error.
-#' @param offset integer. Optional. This many results will be skipped. Invoking `ListProjects` with this value against DataRobot 8.x (API 2.28) or older will throw an error.
+#' @param limit integer. Optional. At most this many results are returned. Invoking `ListProjects`
+#'  with this value against DataRobot 8.x (API 2.28) or older will throw an error.
+#' @param offset integer. Optional. This many results will be skipped. Invoking `ListProjects` with
+#'  this value against DataRobot 8.x (API 2.28) or older will throw an error.
 #'
 #' @return An S3 object of class 'projectSummaryList', consisting of the following elements:
 #' \itemize{
@@ -82,7 +84,8 @@ DeleteProject <- function(project) {
 #' @export
 ListProjects <- function(filter = NULL, limit = NULL, offset = NULL) {
   routeString <- "projects/"
-  # We do not automatically pass the limit and offset arguments to ensure backwards compatibility for DataRobot < 9.0
+  # We do not automatically pass the limit and offset arguments to ensure backwards compatibility
+  # for DataRobot < 9.0
   params <- list()
   params$limit <- limit
   params$offset <- offset

@@ -419,8 +419,9 @@ MulticlassDeploymentAccuracyMetric <- namedEnumList(c(
 #'
 #' All possible deployment accuracy metrics. Added in DataRobot API 2.18.
 #'
-#' For usage, see `\code{DeploymentAccuracy} and `code{DeploymentAccuracyOverTime}.
+#' For usage, see `DeploymentAccuracy` and `DeploymentAccuracyOverTime`.
 #' @export
+#' @md
 DeploymentAccuracyMetric <- {
   # Combine and dedupe the different metric types
   DeploymentAccuracyMetric <- c(

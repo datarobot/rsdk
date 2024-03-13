@@ -7,10 +7,10 @@
 #' @param delay integer. Initial delay between tries (in seconds).
 #' @param maxdelay integer. Maximum delay (in seconds) between tries.
 #' @return function which gets the waiter status. This function returns a list with these items:
-#' /itemize{
-#'    /item index numeric. How many times we have waited.
-#'    /item secondsWaited numeric. How long (in seconds) since we started the timer.
-#'    /item stillTrying logical. Whether we should keep trying or give up (logical)
+#' \itemize{
+#'   \item index numeric. How many times we have waited.
+#'   \item secondsWaited numeric. How long (in seconds) since we started the timer.
+#'   \item stillTrying logical. Whether we should keep trying or give up (logical)
 #' }
 StartRetryWaiter <- function(timeout = NULL, delay = .1, maxdelay = 1.0) {
   if (is.null(timeout)) {

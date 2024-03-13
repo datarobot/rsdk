@@ -18,10 +18,10 @@ timeout)}
 }
 \value{
 function which gets the waiter status. This function returns a list with these items:
-/itemize{
-   /item index numeric. How many times we have waited.
-   /item secondsWaited numeric. How long (in seconds) since we started the timer.
-   /item stillTrying logical. Whether we should keep trying or give up (logical)
+\itemize{
+  \item index numeric. How many times we have waited.
+  \item secondsWaited numeric. How long (in seconds) since we started the timer.
+  \item stillTrying logical. Whether we should keep trying or give up (logical)
 }
 }
 \description{

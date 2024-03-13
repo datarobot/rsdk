@@ -17,7 +17,7 @@ identifier.}
 list with following elements:
 \itemize{
   \item status character. Model job status; an element of \code{JobStatus}, e.g.
-    \code{JobStatus$Queue.}
+    \code{JobStatus$Queue}.
   \item processes list. List of character vectors describing any preprocessing applied.
   \item projectId character. The unique identifier for the project.
   \item modelId character. The unique identifier for the related model.
@@ -26,7 +26,7 @@ list with following elements:
     the model.
   \item modelType character. string specifying the model this job builds.
   \item modelCategory character. What kind of model this is - \code{prime} for DataRobot Prime
-    models, /code{blend} for blender models, and /code{model} for other models.
+    models, \code{blend} for blender models, and \code{model} for other models.
   \item featurelistId character. Id of the featurelist used in fitting the model.
   \item blueprintId character. Id of the DataRobot blueprint on which the model is based.
   \item modelJobId character. Id of the job.

@@ -4,10 +4,10 @@ author: "Peter Hurford"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
-    fig_caption: yes  
+    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Introduction to Multiclass}
-  %\VignetteEngine{rmarkdown}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 

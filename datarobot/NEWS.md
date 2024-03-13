@@ -1,8 +1,16 @@
+# datarobot v2.18.6
+
+This is a maintenance release to ensure package compatibility with future versions of R.
+
+* Fixed a small issue with the metadata for the "Introduction to Multiclass" vignette.
+* Fixed some outstanding code formatting issues in various roxygen docs.
+
 # datarobot v2.18.5
 
 This is a maintenance release.
 
 Bugfixes:
+
 * The functions `ListProjects` now has NULL default values for `limit` and `offset` arguments to maintain backwards compatibility. This fixes compatibility issues with versions of DataRobot before 9.x.
 
 # datarobot v2.18.4

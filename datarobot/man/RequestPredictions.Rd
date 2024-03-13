@@ -35,7 +35,7 @@ predictJobId to be used by GetPredictions function to retrieve
 }
 \description{
 Prediction intervals can now be returned for predictions with datetime models.
-Use `includePredictionIntervals = TRUE` in calls to /code{Predict} or /code{RequestPredictions}.
+Use `includePredictionIntervals = TRUE` in calls to \code{Predict} or \code{RequestPredictions}.
 For each model, prediction intervals estimate the range of values DataRobot expects actual values
 of the target to fall within. They are similar to a confidence interval of a prediction, but are
 based on the residual errors measured during the backtesting for the selected model.
