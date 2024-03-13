@@ -1,6 +1,13 @@
+# datarobot v2.18.5
+
+This is a maintenance release.
+
+Bugfixes:
+* The functions `ListProjects` now has NULL default values for `limit` and `offset` arguments to maintain backwards compatibility. This fixes compatibility issues with versions of DataRobot before 9.x.
+
 # datarobot v2.18.4
 
-The `datarobot` package is now dependent on R >= 3.5.
+The `datarobot` package is now dependent on R >= 3.5. This is a maintenance release.
 
 New Features:
 
@@ -42,7 +49,7 @@ Documentation Changes:
 
 # datarobot v2.18.3
 
-This release is superseded by v2.18.4.
+This is a maintenance release that was superseded by v2.18.4.
 
 # datarobot v2.18.2
 
