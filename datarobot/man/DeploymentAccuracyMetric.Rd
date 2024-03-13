@@ -14,6 +14,6 @@ DeploymentAccuracyMetric
 All possible deployment accuracy metrics. Added in DataRobot API 2.18.
 }
 \details{
-For usage, see `\code{DeploymentAccuracy} and `code{DeploymentAccuracyOverTime}.
+For usage, see \code{DeploymentAccuracy} and \code{DeploymentAccuracyOverTime}.
 }
 \keyword{datasets}

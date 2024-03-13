@@ -121,7 +121,7 @@ SelectDesiredPredictions <- function(parsedPredictionResponse, type, classPrefix
 #' The contents of the return vector depends on the modeling
 #' task - binary classification, multiclass classification, or regression;
 #' whether or not the underlying data is time series, multiseries, cross-series, or not
-#' time series; and the value of the /code{type} parameter. For non-time-series regression tasks,
+#' time series; and the value of the \code{type} parameter. For non-time-series regression tasks,
 #' the type parameter is ignored and a vector of numerical predictions of the response
 #' variable is returned.
 #'

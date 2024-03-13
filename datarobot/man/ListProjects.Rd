@@ -11,9 +11,11 @@ ListProjects(filter = NULL, limit = NULL, offset = NULL)
 Currently `projectName` is supported which will filter returned projects for projects with
 names containing the specified string.}
 
-\item{limit}{integer. Optional. At most this many results are returned. Invoking `ListProjects` with this value against DataRobot 8.x (API 2.28) or older will throw an error.}
+\item{limit}{integer. Optional. At most this many results are returned. Invoking `ListProjects`
+with this value against DataRobot 8.x (API 2.28) or older will throw an error.}
 
-\item{offset}{integer. Optional. This many results will be skipped. Invoking `ListProjects` with this value against DataRobot 8.x (API 2.28) or older will throw an error.}
+\item{offset}{integer. Optional. This many results will be skipped. Invoking `ListProjects` with
+this value against DataRobot 8.x (API 2.28) or older will throw an error.}
 }
 \value{
 An S3 object of class 'projectSummaryList', consisting of the following elements:

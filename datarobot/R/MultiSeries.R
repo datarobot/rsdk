@@ -167,7 +167,7 @@ RequestMultiSeriesDetection <- function(project, dateColumn, multiseriesIdColumn
 #'
 #' Note that this function no longer needs to be called directly, but is called
 #' indirectly as a part of \code{SetTarget} (which itself is called indirectly as part of
-#' \code{StartProject}) when you pass a /code{crossSeriesGroupByColumn} using
+#' \code{StartProject}) when you pass a \code{crossSeriesGroupByColumn} using
 #' \code{CreateDatetimePartitionSpecification}.
 #'
 #' @inheritParams RequestMultiSeriesDetection
