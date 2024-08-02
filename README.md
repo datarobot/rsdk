@@ -29,4 +29,4 @@ The changelog for the R API Client can be found in [NEWS.md in the `datarobot` p
 
 ## Feedback
 
-If you have feedback or questions on the R API Client, please ask on [DataRobot Community](https://community.datarobot.com/).
+If you have feedback or questions on the R API Client, email [the team](mailto:api-maintainer@datarobot.com).
