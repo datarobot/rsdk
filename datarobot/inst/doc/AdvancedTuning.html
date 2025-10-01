@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2025-10-01" />
 
 <title>Advanced Tuning for Models</title>
 
@@ -31,25 +31,26 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -65,55 +66,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Advanced Tuning for Models</h1>
 <h4 class="author">Peter Hurford</h4>
-<h4 class="date">2024-03-13</h4>
+<h4 class="date">2025-10-01</h4>
 
 
 
@@ -357,7 +357,7 @@ interface.</p>
 <p>The easiest way to do advanced tuning is to set up a model and use
 <code>RunInteractiveTuning</code> to start an interactive tuning
 job:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>tuningJobId <span class="ot">&lt;-</span> <span class="fu">RunInteractiveTuning</span>(myModel)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>tuningJobId <span class="ot">&lt;-</span> <span class="fu">RunInteractiveTuning</span>(myModel)</span></code></pre></div>
 <p>This function will guide you through an interactive step-by-step
 process to tune each hyperparameter of your model. You will get to see
 the default, current value, and possible values for each choice and then
@@ -365,7 +365,7 @@ iterate through them. You can simply press ENTER to skip any
 hyperparameter you wish to leave at its current value. Afterwards, you
 will receive a <code>jobId</code> value that you can use to get your
 model:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(myModel<span class="sc">$</span>projectId, tuningJobId)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(myModel<span class="sc">$</span>projectId, tuningJobId)</span></code></pre></div>
 <p>Note that occasionally the interactive tuning interface may duplicate
 parameters – this is because the model itself has multiple parameters
 with the same name (e.g., parameters for one hot encoding text values
@@ -380,10 +380,10 @@ provided.</p>
 available for tuning for a model and what their default, current, and
 possible values are, you can turn to
 <code>GetTuningParameters</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">GetTuningParameters</span>(myModel)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">GetTuningParameters</span>(myModel)</span></code></pre></div>
 <p>You can get more concisely printed tuning parameters by using
 <code>summary</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">GetTuningParameters</span>(myModel))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">summary</span>(<span class="fu">GetTuningParameters</span>(myModel))</span></code></pre></div>
 </div>
 <div id="programmatic-tuning-interface" class="section level2">
 <h2>Programmatic Tuning Interface</h2>
@@ -391,10 +391,10 @@ possible values are, you can turn to
 to iterate through every parameter or you may wish to do tuning outside
 of an interactive mode. To do this, we also offer a programmatic tuning
 interface using <code>StartTuningSession</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>myXGBModel <span class="ot">&lt;-</span> <span class="fu">GetModel</span>(projectId, modelId)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>RunTune <span class="ot">&lt;-</span> <span class="fu">StartTuningSession</span>(myXGBModel)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tuningJob <span class="ot">&lt;-</span> <span class="fu">RunTune</span>(myXGBModel, <span class="at">colsample_bytree =</span> <span class="fl">0.4</span>, <span class="at">colsample_bylevel =</span> <span class="fl">0.8</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(projectId, tuningJob)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>myXGBModel <span class="ot">&lt;-</span> <span class="fu">GetModel</span>(projectId, modelId)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>RunTune <span class="ot">&lt;-</span> <span class="fu">StartTuningSession</span>(myXGBModel)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>tuningJob <span class="ot">&lt;-</span> <span class="fu">RunTune</span>(myXGBModel, <span class="at">colsample_bytree =</span> <span class="fl">0.4</span>, <span class="at">colsample_bylevel =</span> <span class="fl">0.8</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>tunedModel <span class="ot">&lt;-</span> <span class="fu">GetModelFromJobId</span>(projectId, tuningJob)</span></code></pre></div>
 <p><code>RunTune</code> is a function that is dynamically generated by
 <code>StartTuningSession</code> that then lets you fill in all the
 hyperparameters for your particular model. If you pass an XGB model,

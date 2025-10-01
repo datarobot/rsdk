@@ -34,33 +34,41 @@ test_that("validationType = 'TVH' option", {
 
 
 test_that("validationType = 'CV' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    stratifiedPartition <- CreateStratifiedPartition(validationType = "CV",
-                                                     holdoutPct = 20,
-                                                     reps = 5)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = stratifiedPartition)
-  })
+  with_mocked_bindings(
+    GetProjectStatus = function(...) { list("stage" = ProjectStage$AIM) },
+    {
+      stratifiedPartition <- CreateStratifiedPartition(validationType = "CV",
+                                                       holdoutPct = 20,
+                                                       reps = 5)
+      SetTarget(project = fakeProject,
+                target = fakeTarget,
+                partition = stratifiedPartition)
+    },
+    DataRobotPATCH = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    WaitForAsyncReturn = function(...) { "How about not" },
+    .package = "datarobot"
+  )
 })
 
 test_that("validationType = 'TVH' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    stratifiedPartition <- CreateStratifiedPartition(validationType = "TVH",
-                                                     holdoutPct = 20,
-                                                     validationPct = 16)
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = stratifiedPartition)
-  })
+  with_mocked_bindings(
+    GetProjectStatus = function(...) { list("stage" = ProjectStage$AIM) },
+    {
+      stratifiedPartition <- CreateStratifiedPartition(validationType = "TVH",
+                                                       holdoutPct = 20,
+                                                       validationPct = 16)
+      SetTarget(project = fakeProject,
+                target = fakeTarget,
+                partition = stratifiedPartition)
+    },
+    DataRobotPATCH = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    WaitForAsyncReturn = function(...) { "How about not" },
+    .package = "datarobot"
+  )
 })
 
 

@@ -12,7 +12,7 @@
 
 <meta name="author" content="Peter Hurford" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2025-10-01" />
 
 <title>Introduction to Multiclass</title>
 
@@ -31,25 +31,26 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -65,55 +66,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -341,7 +341,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">Introduction to Multiclass</h1>
 <h4 class="author">Peter Hurford</h4>
-<h4 class="date">2024-03-13</h4>
+<h4 class="date">2025-10-01</h4>
 
 
 
@@ -359,43 +359,43 @@ DataRobot automatically. Otherwise, you can specify your
 <code>endpoint</code> and <code>apiToken</code> as in this example to
 connect to DataRobot directly. For more information on connecting to
 DataRobot, see the “Introduction to DataRobot” vignette.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR DATAROBOT URL GOES HERE&gt;/api/v2&quot;</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN GOES HERE&gt;&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(<span class="at">endpoint =</span> endpoint, <span class="at">token =</span> apiToken)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>endpoint <span class="ot">&lt;-</span> <span class="st">&quot;https://&lt;YOUR DATAROBOT URL GOES HERE&gt;/api/v2&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>apiToken <span class="ot">&lt;-</span> <span class="st">&quot;&lt;YOUR API TOKEN GOES HERE&gt;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(<span class="at">endpoint =</span> endpoint, <span class="at">token =</span> apiToken)</span></code></pre></div>
 </div>
 <div id="creating-a-multiclass-project" class="section level2">
 <h2>Creating a Multiclass Project</h2>
 <p>Let’s predict for the iris dataset:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># Load `iris` from R data memory.</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">data</span>(iris) <span class="co"># Load `iris` from R data memory.</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="fu">kable</span>(iris)</span></code></pre></div>
 <p>If your target is categorical and has a cardinality of up to 10, we
 will automatically select a Multiclass <code>targetType</code> and that
 argument is not needed when calling <code>StartProject</code>. However,
 if the target is numerical and you would like to force it to be seen as
 a Multiclass project in DataRobot, you can specify the
 <code>targetType</code> as seen below:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(iris,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">projectName =</span> <span class="st">&quot;multiclassExample&quot;</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;Species&quot;</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">targetType =</span> TargetType<span class="sc">$</span>Multiclass,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">maxWait =</span> <span class="dv">600</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>project <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(iris,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                        <span class="at">projectName =</span> <span class="st">&quot;multiclassExample&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>                        <span class="at">target =</span> <span class="st">&quot;Species&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>                        <span class="at">targetType =</span> TargetType<span class="sc">$</span>Multiclass,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>                        <span class="at">maxWait =</span> <span class="dv">600</span>)</span></code></pre></div>
 <p>Now we can build a model:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>blueprint <span class="ot">&lt;-</span> <span class="fu">ListBlueprints</span>(project)[[<span class="dv">1</span>]]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">RequestNewModel</span>(project, blueprint)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>blueprint <span class="ot">&lt;-</span> <span class="fu">ListBlueprints</span>(project)[[<span class="dv">1</span>]]</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">RequestNewModel</span>(project, blueprint)</span></code></pre></div>
 <p>And then we can get predictions:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">ListModels</span>(project)[[<span class="dv">1</span>]]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(model, iris)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">table</span>(predictions))</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">ListModels</span>(project)[[<span class="dv">1</span>]]</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(model, iris)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">table</span>(predictions))</span></code></pre></div>
 <pre><code>## request issued, waiting for predictions</code></pre>
 <pre><code>## Multiclass with labels setosa, versicolor, virginica</code></pre>
 <pre><code>setosa versicolor  virginica 
     50         47         53 </code></pre>
 <p>You can also get a dataframe with the probabilities of each class
 using <code>type = &quot;probability&quot;</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(model, iris, <span class="at">type =</span> <span class="st">&quot;probability&quot;</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(predictions))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">Predict</span>(model, iris, <span class="at">type =</span> <span class="st">&quot;probability&quot;</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(predictions))</span></code></pre></div>
 <pre><code>## request issued, waiting for predictions</code></pre>
 <pre><code>## Multiclass with labels setosa, versicolor, virginica</code></pre>
 <table>
@@ -444,8 +444,8 @@ using <code>type = &quot;probability&quot;</code>:</p>
 <h2>Confusion Charts</h2>
 <p>The <strong>confusion chart</strong> is a chart that helps understand
 how the multiclass model performs:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>confusionChart <span class="ot">&lt;-</span> <span class="fu">GetConfusionChart</span>(model, <span class="at">source =</span> DataPartition<span class="sc">$</span>VALIDATION)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">capture.output</span>(confusionChart))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>confusionChart <span class="ot">&lt;-</span> <span class="fu">GetConfusionChart</span>(model, <span class="at">source =</span> DataPartition<span class="sc">$</span>VALIDATION)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">capture.output</span>(confusionChart))</span></code></pre></div>
 <table>
 <colgroup>
 <col width="100%" />
@@ -457,8 +457,10 @@ how the multiclass model performs:</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><span class="math inline">\(source | |[1]
-&quot;validation&quot; | | | |\)</span>data</td>
+<td align="left"><span class="math inline">\(source                                         |
+|[1] &quot;validation&quot;                                |
+|                                                |
+|\)</span>data</td>
 </tr>
 <tr class="even">
 <td align="left"><span class="math inline">\(data\)</span>classes</td>
@@ -473,7 +475,8 @@ how the multiclass model performs:</p>
 <td align="left"><span class="math inline">\(data\)</span>classMetrics</td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[1]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages         |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[1]]</td>
 </tr>
 <tr class="odd">
 <td align="left">percentage otherClassName</td>
@@ -491,9 +494,13 @@ how the multiclass model performs:</p>
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages[[2]] | |percentage
-otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
-| | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[3]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasActualPercentages[[2]]    |
+|percentage otherClassName                       |
+|1        0.0         setosa                     |
+|2        0.8     versicolor                     |
+|3        0.2      virginica                     |
+|                                                |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>wasActualPercentages[[3]]</td>
 </tr>
 <tr class="odd">
 <td align="left">percentage otherClassName</td>
@@ -514,12 +521,18 @@ otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(f1 | |[1] 1.0000000 0.8888889 0.9523810 | | |
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(f1                           |
+|[1] 1.0000000 0.8888889 0.9523810               |
+|                                                |
 |\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll</td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[1]] | |[,1] [,2] | |[1,]
-15 0 | |[2,] 0 9 | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll[[2]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[1]] |
+|[,1] [,2]                                       |
+|[1,]   15    0                                  |
+|[2,]    0    9                                  |
+|                                                |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>confusionMatrixOneVsAll[[2]]</td>
 </tr>
 <tr class="odd">
 <td align="left">[,1] [,2]</td>
@@ -534,8 +547,13 @@ otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[3]] | |[,1] [,2] | |[1,]
-13 1 | |[2,] 0 10 | | | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>recall</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(confusionMatrixOneVsAll[[3]] |
+|[,1] [,2]                                       |
+|[1,]   13    1                                  |
+|[2,]    0   10                                  |
+|                                                |
+|                                                |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>recall</td>
 </tr>
 <tr class="even">
 <td align="left">[1] 1.0 0.8 1.0</td>
@@ -544,7 +562,9 @@ otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(actualCount | |[1] 9 5 10 | | |
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(actualCount                  |
+|[1]  9  5 10                                    |
+|                                                |
 |\)</span>data<span class="math inline">\(classMetrics\)</span>precision</td>
 </tr>
 <tr class="odd">
@@ -554,7 +574,8 @@ otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages | |\)</span>data<span class="math inline">\(classMetrics\)</span>wasPredictedPercentages[[1]]</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages      |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>wasPredictedPercentages[[1]]</td>
 </tr>
 <tr class="even">
 <td align="left">percentage otherClassName</td>
@@ -572,8 +593,12 @@ otherClassName | |1 0.0 setosa | |2 0.8 versicolor | |3 0.2 virginica |
 <td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages[[2]] | |percentage
-otherClassName | |1 0 setosa | |2 1 versicolor | |3 0 virginica | | |
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(wasPredictedPercentages[[2]] |
+|percentage otherClassName                       |
+|1          0         setosa                     |
+|2          1     versicolor                     |
+|3          0      virginica                     |
+|                                                |
 |\)</span>data<span class="math inline">\(classMetrics\)</span>wasPredictedPercentages[[3]]</td>
 </tr>
 <tr class="even">
@@ -595,8 +620,11 @@ otherClassName | |1 0 setosa | |2 1 versicolor | |3 0 virginica | | |
 <td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(className | |[1] &quot;setosa&quot;
-&quot;versicolor&quot; &quot;virginica&quot; | | | |\)</span>data<span class="math inline">\(classMetrics\)</span>predictedCount</td>
+<td align="left"><span class="math inline">\(data\)</span>classMetrics<span class="math inline">\(className                    |
+|[1] &quot;setosa&quot;     &quot;versicolor&quot;
+&quot;virginica&quot;       |
+|                                                |
+|\)</span>data<span class="math inline">\(classMetrics\)</span>predictedCount</td>
 </tr>
 <tr class="odd">
 <td align="left">[1] 9 4 11</td>
