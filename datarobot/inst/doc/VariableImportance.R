@@ -1,9 +1,9 @@
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  friedman <- read.csv(system.file("extdata", "Friedman1.csv.gz", package = "datarobot"))
-#  originalProject <- StartProject(friedman, "OriginalProject", target = "Y", wait = TRUE)
-#  originalModels <- ListModels(originalProject)
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+# friedman <- read.csv(system.file("extdata", "Friedman1.csv.gz", package = "datarobot"))
+# originalProject <- StartProject(friedman, "OriginalProject", target = "Y", wait = TRUE)
+# originalModels <- ListModels(originalProject)
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 PermuteColumn <- function(originalFile, colName, permutedFile, iseed = 317) {
   set.seed(iseed)
   originalFile <- system.file("extdata", originalFile, package = "datarobot")
@@ -17,23 +17,23 @@ PermuteColumn <- function(originalFile, colName, permutedFile, iseed = 317) {
   write.csv(outFrame, permutedFile, row.names=FALSE)
 }
 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  modelList <- list(n = 11)
-#  modelList[[1]] <- originalModels
-#  permFile <- tempfile(fileext = "permFile.csv")
-#  for (i in 1:10) {
-#    varName <- paste("X",i,sep="")
-#    PermuteColumn("Friedman1.csv.gz", varName, permFile)
-#    projName <- paste("PermProject", varName, sep = "")
-#    permProject <- StartProject(permFile, projectName = projName, target = "Y", wait = TRUE)
-#    modelList[[i+1]] <- ListModels(permProject)
-#  }
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+# modelList <- list(n = 11)
+# modelList[[1]] <- originalModels
+# permFile <- tempfile(fileext = "permFile.csv")
+# for (i in 1:10) {
+#   varName <- paste("X",i,sep="")
+#   PermuteColumn("Friedman1.csv.gz", varName, permFile)
+#   projName <- paste("PermProject", varName, sep = "")
+#   permProject <- StartProject(permFile, projectName = projName, target = "Y", wait = TRUE)
+#   modelList[[i+1]] <- ListModels(permProject)
+# }
 
-## ---- echo = FALSE, warning=FALSE, message=FALSE------------------------------
+## ----echo = FALSE, warning=FALSE, message=FALSE-------------------------------
 library(datarobot)
 modelList <- readRDS("PermutationModelList.rds")
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 PermutationMerge <- function(compositeList, matchPct = NULL, metricNames, matchMetric = NULL) {
   df <- as.data.frame(compositeList[[1]], simple = FALSE)
   if (is.null(matchPct)) {
@@ -61,11 +61,11 @@ PermutationMerge <- function(compositeList, matchPct = NULL, metricNames, matchM
   outFrame
 }
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 metricNames <- c("originalRMSE", paste("X", seq(1, 10, 1), "RMSE", sep = ""))
 mergeFrame <- PermutationMerge(modelList, 16, metricNames)
 
-## ---- echo=FALSE, fig.width=7,fig.height=6, fig.cap="Beanplot summary of RMSE versus random permutation.", warnings=FALSE, message=FALSE----
+## ----echo=FALSE, fig.width=7,fig.height=6, fig.cap="Beanplot summary of RMSE versus random permutation.", warnings=FALSE, message=FALSE----
 par(mfrow = c(1, 1))
 library(beanplot)
 BeanNames <- c("None", paste("X", seq(1, 10, 1), sep = ""))
@@ -75,7 +75,7 @@ beanplot(mergeFrame[, 5:15], names = BeanNames,
          las = 2,
          what = c(0, 1, 0, 1))
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 ComputeDeltas <- function(mergeFrame, refCol, permNames, shiftNames) {
   allNames <- colnames(mergeFrame)
   refIndex <- which(allNames == refCol)
@@ -90,14 +90,14 @@ ComputeDeltas <- function(mergeFrame, refCol, permNames, shiftNames) {
   deltas
 }
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 allNames <- colnames(mergeFrame)
 refCol <- allNames[5]
 permNames <- allNames[6:15]
 shiftNames <- paste("X", seq(1, 10, 1), sep = "")
 deltaFrame <- ComputeDeltas(mergeFrame, refCol, permNames, shiftNames)
 
-## ---- echo=FALSE, fig.width=7,fig.height=6, fig.cap="Beanplot summary of RMSE shifts versus random permutation."----
+## ----echo=FALSE, fig.width=7,fig.height=6, fig.cap="Beanplot summary of RMSE shifts versus random permutation."----
 par(mfrow=c(1, 1))
 beanplot(deltaFrame[, 1:10],
          xlab = "Permutation", ylab = "RMSE Shift",
@@ -110,7 +110,7 @@ legend("topright", col = c("limegreen", "blue"), pch = c(16, 15), cex = 1.2,
        legend = c(bestModel, "Average"))
 abline(h = 0, lty = 2)
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 varImpSummary <- function(deltaFrame, refCol, oneIndex) {
   vars <- colnames(deltaFrame)
   refIndex <- which(vars == refCol)
@@ -127,13 +127,13 @@ varImpSummary <- function(deltaFrame, refCol, oneIndex) {
   varImpFrame
 }
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 varImp <- varImpSummary(deltaFrame, "originalRMSE", bestRow)
 avg <- round(varImp$average, digits = 3)
 wtAvg <- round(varImp$weightedAverage, digits = 3)
 best <- round(varImp$oneModel, digits = 3)
 df <- data.frame(Avg = avg, WtdAvg = wtAvg, Best = best)
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 df
 

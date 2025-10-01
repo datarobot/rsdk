@@ -12,7 +12,7 @@
 
 <meta name="author" content="Sergey Yurgenson, Madeleine Mott, Zach Mayer, Igor Veksler, Thakur Raj Anand" />
 
-<meta name="date" content="2024-03-13" />
+<meta name="date" content="2025-10-01" />
 
 <title>Datetime Partitioning</title>
 
@@ -31,25 +31,26 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
 <style type="text/css">
-  code {
-    white-space: pre;
-  }
-  .sourceCode {
-    overflow: visible;
-  }
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -65,55 +66,54 @@ pre > code.sourceCode { white-space: pre-wrap; }
 pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
-  { counter-reset: source-line 0; }
+{ counter-reset: source-line 0; }
 pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
+{ position: relative; left: -4em; counter-increment: source-line; }
 pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
 div.sourceCode
-  {   }
+{ }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
 </style>
 <script>
 // apply pandoc div.sourceCode style to pre.sourceCode instead
@@ -342,7 +342,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Datetime Partitioning</h1>
 <h4 class="author">Sergey Yurgenson, Madeleine Mott, Zach Mayer, Igor
 Veksler, Thakur Raj Anand</h4>
-<h4 class="date">2024-03-13</h4>
+<h4 class="date">2025-10-01</h4>
 
 
 
@@ -372,34 +372,34 @@ best practice similar to a cross sectional problem.</p>
 <div id="load-the-useful-libraries" class="section level3">
 <h3>Load the useful libraries</h3>
 <p>Let’s load <strong>datarobot</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span></code></pre></div>
 </div>
 <div id="running-a-datarobot-project-with-a-datetime-partition" class="section level3">
 <h3>Running a DataRobot Project with a datetime partition</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>lending <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv&quot;</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;earliest_cr_line&quot;</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">numberOfBacktests =</span> <span class="dv">5</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>proj <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(<span class="at">dataSource =</span> lending,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">projectName =</span> <span class="st">&quot;Lending_Club_Time_Series&quot;</span>,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">target =</span> <span class="st">&quot;is_bad&quot;</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">mode =</span> <span class="st">&quot;quick&quot;</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">partition =</span> partition)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>lending <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://s3.amazonaws.com/datarobot_public_datasets/10K_Lending_Club_Loans.csv&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="at">datetimePartitionColumn =</span> <span class="st">&quot;earliest_cr_line&quot;</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>                                                  <span class="at">numberOfBacktests =</span> <span class="dv">5</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>proj <span class="ot">&lt;-</span> <span class="fu">StartProject</span>(<span class="at">dataSource =</span> lending,</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>                     <span class="at">projectName =</span> <span class="st">&quot;Lending_Club_Time_Series&quot;</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>                     <span class="at">target =</span> <span class="st">&quot;is_bad&quot;</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>                     <span class="at">mode =</span> <span class="st">&quot;quick&quot;</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>                     <span class="at">partition =</span> partition)</span></code></pre></div>
 <p>We took advantage of DataRobot’s automated partition date selection
 after we specified the number of backtests to use. DataRobot allows
 further control, where we can further specify the validation start date
 as well as duration. Let’s look at an example below.</p>
 <div id="create-backtest-specifications" class="section level4">
 <h4>Create Backtest Specifications</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>backtest <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dates are not project specific but rather example dates</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>backtest[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">CreateBacktestSpecification</span>(<span class="dv">0</span>, <span class="fu">ConstructDurationString</span>(),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">&quot;1989-12-01&quot;</span>, <span class="fu">ConstructDurationString</span>(<span class="at">days =</span> <span class="dv">100</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>backtest[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="fu">CreateBacktestSpecification</span>(<span class="dv">1</span>, <span class="fu">ConstructDurationString</span>(), <span class="st">&quot;1999-10-01&quot;</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                                             <span class="fu">ConstructDurationString</span>(<span class="at">days =</span> <span class="dv">100</span>))</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># create desired partition specification</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="st">&quot;earliest_cr_line&quot;</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">numberOfBacktests =</span> <span class="dv">2</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">backtests =</span> backtest)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>backtest <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co"># Dates are not project specific but rather example dates</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>backtest[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">CreateBacktestSpecification</span>(<span class="dv">0</span>, <span class="fu">ConstructDurationString</span>(),</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>                                             <span class="st">&quot;1989-12-01&quot;</span>, <span class="fu">ConstructDurationString</span>(<span class="at">days =</span> <span class="dv">100</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>backtest[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="fu">CreateBacktestSpecification</span>(<span class="dv">1</span>, <span class="fu">ConstructDurationString</span>(), <span class="st">&quot;1999-10-01&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>                                             <span class="fu">ConstructDurationString</span>(<span class="at">days =</span> <span class="dv">100</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co"># create desired partition specification</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>partition <span class="ot">&lt;-</span> <span class="fu">CreateDatetimePartitionSpecification</span>(<span class="st">&quot;earliest_cr_line&quot;</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>                                                  <span class="at">numberOfBacktests =</span> <span class="dv">2</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a>                                                  <span class="at">backtests =</span> backtest)</span></code></pre></div>
 <p>Let’s continue with our original project. Often when training
 time-based models we would like to iterate within our workflow by by
 running all the backtest folds within a model to verify its stability.
@@ -410,42 +410,42 @@ can accomplish these actions below:</p>
 </div>
 <div id="model-iteration" class="section level3">
 <h3>Model Iteration</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Request more granular information on the datetime partition specification</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">GetDatetimePartition</span>(proj)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View blueprints associated with a project</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>bps <span class="ot">&lt;-</span> <span class="fu">ListBlueprints</span>(proj)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># View the the models within the model leaderboard</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">ListModels</span>(proj)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve a datetime model. There is now a new retrieval function specific to datetime partitioning</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModel</span>(proj, models[[<span class="dv">1</span>]]<span class="sc">$</span>modelId)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Score all Backtests</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>scoreJobId <span class="ot">&lt;-</span> <span class="fu">ScoreBacktests</span>(dt_model)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">WaitForJobToComplete</span>(proj, scoreJobId) <span class="co"># To make synchronous</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># now model information will also contain information about backtest scores</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>dtModelWithBt <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModel</span>(proj, dt_model<span class="sc">$</span>modelId)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrain a model using a different start &amp; end date.</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># One has to request a `Frozen` model to keep the hyper-parameters static and avoid lookahead bias.</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Within the context of deployment, this can be used to retrain a resulting model on more recent data.</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">UpdateProject</span>(proj, <span class="at">holdoutUnlocked =</span> <span class="cn">TRUE</span>) <span class="co"># If retraining on 100% of the data, we need to unlock the holdout set.</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>modelJobId_frozen   <span class="ot">&lt;-</span> <span class="fu">RequestFrozenDatetimeModel</span>(dt_model,</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">trainingStartDate =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1950/12/1&quot;</span>),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">trainingEndDate =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1998/3/1&quot;</span>))</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>new_dt_model_frozen <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId_frozen)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Train &amp; retrieve a new date-time model based on rowcount</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>modelJobId  <span class="ot">&lt;-</span> <span class="fu">RequestNewDatetimeModel</span>(proj, bps[[<span class="dv">1</span>]], <span class="at">trainingRowCount =</span> <span class="dv">100</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>new_dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Train &amp; retrieve a new date-time model based on duration</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>modelJobId   <span class="ot">&lt;-</span> <span class="fu">RequestNewDatetimeModel</span>(proj, bps[[<span class="dv">1</span>]],</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">trainingDuration =</span> <span class="fu">ConstructDurationString</span>(<span class="at">months=</span><span class="dv">10</span>))</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>new_dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># Request more granular information on the datetime partition specification</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">GetDatetimePartition</span>(proj)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># View blueprints associated with a project</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>bps <span class="ot">&lt;-</span> <span class="fu">ListBlueprints</span>(proj)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co"># View the the models within the model leaderboard</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">ListModels</span>(proj)</span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># Retrieve a datetime model. There is now a new retrieval function specific to datetime partitioning</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModel</span>(proj, models[[<span class="dv">1</span>]]<span class="sc">$</span>modelId)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="co"># Score all Backtests</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>scoreJobId <span class="ot">&lt;-</span> <span class="fu">ScoreBacktests</span>(dt_model)</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="fu">WaitForJobToComplete</span>(proj, scoreJobId) <span class="co"># To make synchronous</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co"># now model information will also contain information about backtest scores</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>dtModelWithBt <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModel</span>(proj, dt_model<span class="sc">$</span>modelId)</span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="co"># Retrain a model using a different start &amp; end date.</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="co"># One has to request a `Frozen` model to keep the hyper-parameters static and avoid lookahead bias.</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co"># Within the context of deployment, this can be used to retrain a resulting model on more recent data.</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="fu">UpdateProject</span>(proj, <span class="at">holdoutUnlocked =</span> <span class="cn">TRUE</span>) <span class="co"># If retraining on 100% of the data, we need to unlock the holdout set.</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>modelJobId_frozen   <span class="ot">&lt;-</span> <span class="fu">RequestFrozenDatetimeModel</span>(dt_model,</span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a>                                                  <span class="at">trainingStartDate =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1950/12/1&quot;</span>),</span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a>                                                  <span class="at">trainingEndDate =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1998/3/1&quot;</span>))</span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a>new_dt_model_frozen <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId_frozen)</span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="co"># Train &amp; retrieve a new date-time model based on rowcount</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a>modelJobId  <span class="ot">&lt;-</span> <span class="fu">RequestNewDatetimeModel</span>(proj, bps[[<span class="dv">1</span>]], <span class="at">trainingRowCount =</span> <span class="dv">100</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a>new_dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId)</span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="co"># Train &amp; retrieve a new date-time model based on duration</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a>modelJobId   <span class="ot">&lt;-</span> <span class="fu">RequestNewDatetimeModel</span>(proj, bps[[<span class="dv">1</span>]],</span>
+<span id="cb4-35"><a href="#cb4-35" tabindex="-1"></a>                                        <span class="at">trainingDuration =</span> <span class="fu">ConstructDurationString</span>(<span class="at">months=</span><span class="dv">10</span>))</span>
+<span id="cb4-36"><a href="#cb4-36" tabindex="-1"></a>new_dt_model <span class="ot">&lt;-</span> <span class="fu">GetDatetimeModelFromJobId</span>(proj, modelJobId)</span></code></pre></div>
 </div>
 
 

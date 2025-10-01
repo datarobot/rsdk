@@ -95,24 +95,26 @@ withSetTargetMocks <- function(..., multiseriesMock = FALSE, crossSeriesGroupByM
     postStub$onCall(2)$returns(crossSeriesRequestResponse)
   }
 
-  with_mock("httr::PATCH" = patchStub$f,
-            "httr::POST" = postStub$f,
-            "httr::GET" = getStub$f,
-            # Mock patch to be able to record the input so we can test against it
-            "datarobot:::DataRobotPATCH" = function(routeString,
-                                                    addUrl = TRUE,
-                                                    body = NULL,
-                                                    returnRawResponse = FALSE, ...) {
-              bodyForInspect <<- body
-              datarobot:::MakeDataRobotRequest(httr::PATCH, routeString,
-                                               addUrl = addUrl,
-                                               returnRawResponse = returnRawResponse,
-                                               body = body, ...)
-            },
-            "datarobot:::Endpoint" = function() fakeEndpoint,
-            "datarobot:::Token" = function() fakeToken,
-            GetProjectStatus = function(...) list(stage = ProjectStage$AIM),
-            ...) # Tests get injected here.
+  local_mocked_bindings(
+    "PATCH" = patchStub$f,
+    "POST" = postStub$f,
+    "GET" = getStub$f,
+    .package = "httr"
+  )
+  with_mocked_bindings(
+    ...,   # Tests get injected here. Make sure they are wrapped in a single code element.
+    "DataRobotPATCH" = function(routeString, addUrl = TRUE, body = NULL, returnRawResponse = FALSE, ...) {
+      bodyForInspect <<- body
+      datarobot:::MakeDataRobotRequest(httr::PATCH, routeString,
+                                       addUrl = addUrl,
+                                       returnRawResponse = returnRawResponse,
+                                       body = body, ...)
+    },
+    "Endpoint" = function() fakeEndpoint,
+    "Token" = function() fakeToken,
+    "GetProjectStatus" = function(...) list(stage = ProjectStage$AIM),
+    .package = "datarobot"
+  )
 
   expect_equal(patchStub$calledTimes(), 1)
 
@@ -458,13 +460,14 @@ test_that("Datetime partition with windowsBasisUnit", {
 })
 
 test_that("Datetime partition with invalid partition", {
-  with_mock("datarobot:::Endpoint" = function() fakeEndpoint,
-            "datarobot:::Token" = function() fakeToken,
-            GetProjectStatus = function(...) list(stage = ProjectStage$AIM), {
-    expect_error(SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
-                partition = list(fakeDateColumn)),
-      "must use a valid partition object")
-  })
+  local_mocked_bindings(
+    Endpoint = function() fakeEndpoint,
+    Token = function() fakeToken,
+    GetProjectStatus = function(...) list(stage = ProjectStage$AIM),
+    .package = "datarobot"
+  )
+  expect_error(SetTarget(project = fakeProject, target = fakeTarget, mode = AutopilotMode$Quick,
+                partition = list(fakeDateColumn)), "must use a valid partition object")
 })
 
 

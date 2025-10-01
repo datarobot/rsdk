@@ -1,3 +1,12 @@
+# datarobot v2.18.7
+
+This is a maintenance release to ensure package compatibility with future versions of R and
+testthat.
+
+Enhancements:
+
+Test suite updated to replace the deprecated `testthat::with_mock()` with `testthat::local_mocked_bindings()` and `testthat::with_mocked_bindings()`.
+
 # datarobot v2.18.6
 
 This is a maintenance release to ensure package compatibility with future versions of R.

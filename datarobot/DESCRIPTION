@@ -1,26 +1,53 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.18.6
+Version: 2.18.7
 Description: For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
 Depends: R (>= 3.5), methods, stats
 Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19)
 License: MIT + file LICENSE
 Encoding: UTF-8
-Author: 
-    Ron Pearson [aut],
-    Zachary Deane-Mayer [aut],
-    David Chudzicki [aut],
-    Dallin Akagi [aut],
-    Sergey Yurgenson [aut],
-    Thakur Raj Anand [aut],
-    Peter Hurford [aut],
-    Chester Ismay [aut],
-    AJ Alon [aut],
-    Andrew Watson [aut],
-    Gregory Williams [aut],
-    Anastasiia Tamazlykar [ctb],
-    Mykhailo Poliakov [ctb],
-    DataRobot, Inc. [cph]
+Authors@R: c(person(given = "Ron",
+                    family = "Pearson",
+                    role = "aut"),
+             person(given = "Zachary",
+                    family = "Deane-Mayer",
+                    role = "aut"),
+             person(given = "David",
+                    family = "Chudzicki",
+                    role = "aut"),
+             person(given = "Dallin",
+                    family = "Akagi",
+                    role = "aut"),
+             person(given = "Sergey",
+                    family = "Yurgenson",
+                    role = "aut"),
+             person(given = c("Thakur", "Raj"),
+                    family = "Anand",
+                    role = "aut"),
+             person(given = "Peter",
+                    family = "Hurford",
+                    role = "aut"),
+             person(given = "Chester",
+                    family = "Ismay",
+                    role = "aut"),
+             person(given = "AJ",
+                    family = "Alon",
+                    role = c("aut", "cre"),
+                    email = "api-maintainer@datarobot.com"),
+             person(given = "Andrew",
+                    family = "Watson",
+                    role = "aut"),
+             person(given = "Gregory",
+                    family = "Williams",
+                    role = "aut"),
+             person(given = "Anastasiia",
+                    family = "Tamazlykar",
+                    role = "ctb"),
+             person(given = "Mykhailo",
+                    family = "Poliakov",
+                    role = "ctb"),
+             person(given = "DataRobot Inc.",
+                    role = "cph"))
 Maintainer: AJ Alon <api-maintainer@datarobot.com>
 Suggests: lubridate, knitr, testthat, lintr, data.table, AmesHousing,
         mlbench, beanplot, doBy, insuranceData, rmarkdown, ggplot2,
@@ -28,6 +55,20 @@ Suggests: lubridate, knitr, testthat, lintr, data.table, AmesHousing,
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2024-03-13 19:51:54 UTC; aj
+Packaged: 2025-10-01 19:10:34 UTC; aj.alon
 Language: en-US
 Config/testthat/edition: 2
+Author: Ron Pearson [aut],
+  Zachary Deane-Mayer [aut],
+  David Chudzicki [aut],
+  Dallin Akagi [aut],
+  Sergey Yurgenson [aut],
+  Thakur Raj Anand [aut],
+  Peter Hurford [aut],
+  Chester Ismay [aut],
+  AJ Alon [aut, cre],
+  Andrew Watson [aut],
+  Gregory Williams [aut],
+  Anastasiia Tamazlykar [ctb],
+  Mykhailo Poliakov [ctb],
+  DataRobot Inc. [cph]

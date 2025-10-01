@@ -1,22 +1,22 @@
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 concreteFrame <- read.csv(system.file("extdata", "concreteData.csv", package = "datarobot"))
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 str(concreteFrame)
 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  myDRProject <- StartProject(concreteFrame, "ConcreteProject", target = "strength", wait = TRUE)
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+# myDRProject <- StartProject(concreteFrame, "ConcreteProject", target = "strength", wait = TRUE)
 
-## ---- echo = FALSE, warnings = FALSE, message = FALSE-------------------------
+## ----echo = FALSE, warnings = FALSE, message = FALSE--------------------------
 library(datarobot)
 concreteModels <- readRDS("concreteModels.rds")
 fullFrame <- as.data.frame(concreteModels, simple = FALSE)
 modelsFrame <- as.data.frame(concreteModels)
 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  concreteModels <- ListModels(myDRProject)
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+# concreteModels <- ListModels(myDRProject)
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 summary(concreteModels)
 
 ## ----echo = FALSE, fig.width=7,fig.height=6, fig.cap="Figure 1: Validation set performance for the 15 poorer-performing predictive models."----
@@ -25,7 +25,7 @@ plot(concreteModels, orderDecreasing = TRUE, selectRecords = seq(16, 30, 1),
      textColor = poorCol, xpos = 10, xlim = c(0, 18))
 abline(v = min(modelsFrame$validationMetric), lty = 2, lwd = 2, col = "magenta")
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 ridgeRows <- grep("Ridge", modelsFrame$modelType)
 modelsFrame[ridgeRows, c("expandedModel", "validationMetric")]
 
@@ -35,7 +35,7 @@ plot(concreteModels, orderDecreasing = TRUE, selectRecords = seq(1, 15, 1),
      textColor = goodCol, xlim = c(0, 18), xpos = 10)
 abline(v = min(modelsFrame$validationMetric), lty = 2, lwd = 2, col = "magenta")
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 FullAverageDataset <- function(covarFrame, refCovar, numGrid, plotRange = NULL) {
   covars <- colnames(covarFrame)
   refIndex <- which(covars == refCovar)
@@ -58,7 +58,7 @@ FullAverageDataset <- function(covarFrame, refCovar, numGrid, plotRange = NULL) 
   outFrame
 }
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 PDPbuilder <- function(covarFrame, refCovar, listOfModels,
                        numGrid = 100, plotRange = NULL) {
   augmentedFrame <- FullAverageDataset(covarFrame, refCovar,
@@ -84,12 +84,12 @@ PDPbuilder <- function(covarFrame, refCovar, listOfModels,
   hatSum
 }
 
-## ---- echo = TRUE, eval = FALSE-----------------------------------------------
-#  modelList <- list(concreteModels[[1]], concreteModels[[5]],
-#                    concreteModels[[12]], concreteModels[[29]])
-#  agePDPframe <- PDPbuilder(concreteFrame[, 1:8], "age", modelList)
+## ----echo = TRUE, eval = FALSE------------------------------------------------
+# modelList <- list(concreteModels[[1]], concreteModels[[5]],
+#                   concreteModels[[12]], concreteModels[[29]])
+# agePDPframe <- PDPbuilder(concreteFrame[, 1:8], "age", modelList)
 
-## ---- echo = TRUE-------------------------------------------------------------
+## ----echo = TRUE--------------------------------------------------------------
 PDPlot <- function(PDframe, Response, ltypes,
                    lColors, ...) {
   Rng <- range(Response)

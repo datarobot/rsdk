@@ -67,37 +67,45 @@ test_that("validationType = 'TVH' option", {
 
 
 test_that("validationType = 'CV' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    userPartition <- CreateUserPartition(validationType = "CV",
-                                         userPartitionCol = "TVHflag",
-                                         trainingLevel = "T",
-                                         holdoutLevel = "H",
-                                         validationLevel = "V")
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = userPartition)
-  })
+  with_mocked_bindings(
+    GetProjectStatus = function(...) { list("stage" = ProjectStage$AIM) },
+    {
+      userPartition <- CreateUserPartition(validationType = "CV",
+                                           userPartitionCol = "TVHflag",
+                                           trainingLevel = "T",
+                                           holdoutLevel = "H",
+                                           validationLevel = "V")
+      SetTarget(project = fakeProject,
+                target = fakeTarget,
+                partition = userPartition)
+    },
+    DataRobotPATCH = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    WaitForAsyncReturn = function(...) { "How about not" },
+    .package = "datarobot"
+  )
 })
 
 test_that("validationType = 'TVH' option can be used to SetTarget", {
-  with_mock("GetProjectStatus" = function(...) { list("stage" = ProjectStage$AIM) },
-            "datarobot::DataRobotPATCH" = function(...) {
-              list(...) # Resolve params to test that they pass without error
-            },
-            "datarobot::WaitForAsyncReturn" = function(...) { "How about not" }, {
-    userPartition <- CreateUserPartition(validationType = "TVH",
-                                         userPartitionCol = "TVHflag",
-                                         trainingLevel = "T",
-                                         holdoutLevel = "H",
-                                         validationLevel = "V")
-    SetTarget(project = fakeProject,
-              target = fakeTarget,
-              partition = userPartition)
-  })
+  with_mocked_bindings(
+    GetProjectStatus = function(...) { list("stage" = ProjectStage$AIM) },
+    {
+      userPartition <- CreateUserPartition(validationType = "TVH",
+                                           userPartitionCol = "TVHflag",
+                                           trainingLevel = "T",
+                                           holdoutLevel = "H",
+                                           validationLevel = "V")
+      SetTarget(project = fakeProject,
+                target = fakeTarget,
+                partition = userPartition)
+    },
+    DataRobotPATCH = function(...) {
+      list(...) # Resolve params to test that they pass without error
+    },
+    WaitForAsyncReturn = function(...) { "How about not" },
+    .package = "datarobot"
+  )
 })
 
 test_that("Invalid validationType returns message", {
