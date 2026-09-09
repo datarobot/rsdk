@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="DataRobot" />
+
+<meta name="date" content="2026-09-09" />
+
+<title>Connecting with a Custom CA Bundle</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Connecting with a Custom CA Bundle</h1>
+<h4 class="author">DataRobot</h4>
+<h4 class="date">2026-09-09</h4>
+
+
+
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>Some DataRobot deployments (on-premises installations or private
+cloud environments) use SSL/TLS certificates issued by a <strong>private
+or self-signed Certificate Authority (CA)</strong> that is not trusted
+by your operating system’s default CA bundle. In those cases, every
+HTTPS request the R client makes will fail with a
+certificate-verification error such as:</p>
+<pre><code>Error: SSL certificate problem: unable to get local issuer certificate</code></pre>
+<p>The solution is to point the client at a PEM-encoded CA bundle that
+includes the certificate(s) for your private CA. This vignette explains
+the three ways to do that, when to use each, and how they interact with
+the existing <code>sslVerify</code> option.</p>
+<hr />
+</div>
+<div id="obtaining-your-ca-bundle" class="section level2">
+<h2>Obtaining your CA bundle</h2>
+<p>Your DataRobot administrator or network/security team can supply the
+correct PEM file. It may be a single root certificate or a chain of
+intermediate certificates concatenated together. The file typically has
+a <code>.pem</code> or <code>.crt</code> extension.</p>
+<p>To verify the file is valid PEM before using it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co"># Quick sanity check: the file should start with the PEM header</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">readLines</span>(<span class="st">&quot;/path/to/my-ca-bundle.pem&quot;</span>, <span class="at">n =</span> <span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Expected output: &quot;-----</span><span class="re">BEGIN</span><span class="co"> CERTIFICATE-----&quot;</span></span></code></pre></div>
+<hr />
+</div>
+<div id="method-1-cabundle-argument-to-connecttodatarobot" class="section level2">
+<h2>Method 1 — <code>caBundle</code> argument to
+<code>ConnectToDataRobot()</code></h2>
+<p>Pass the path directly when calling
+<code>ConnectToDataRobot()</code>. The path is validated immediately
+(the file must exist), written to the <code>CURL_CA_BUNDLE</code>
+environment variable, and applied to every subsequent HTTP request in
+the session.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="at">endpoint =</span> <span class="st">&quot;https://your-datarobot-host/api/v2&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>  <span class="at">token    =</span> <span class="st">&quot;YOUR-API-TOKEN&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>  <span class="at">caBundle =</span> <span class="st">&quot;/path/to/my-ca-bundle.pem&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><strong>When to use this:</strong> scripted or interactive work where
+you want the path to be explicit and co-located with the rest of your
+connection setup. The path is validated at connect time, so you get a
+clear error message immediately if the file is missing.</p>
+<hr />
+</div>
+<div id="method-2-ca_bundle-key-in-drconfig.yaml" class="section level2">
+<h2>Method 2 — <code>ca_bundle</code> key in
+<code>drconfig.yaml</code></h2>
+<p>Add a <code>ca_bundle</code> entry to your DataRobot YAML
+configuration file (typically located at
+<code>~/.config/datarobot/drconfig.yaml</code>):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">endpoint</span><span class="kw">:</span><span class="at"> https://your-datarobot-host/api/v2</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">token</span><span class="kw">:</span><span class="at"> YOUR-API-TOKEN</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="fu">ssl_verify</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # optional; true is the default</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="fu">ca_bundle</span><span class="kw">:</span><span class="at"> /path/to/my-ca-bundle.pem</span></span></code></pre></div>
+<p>Once the file is saved, <code>ConnectToDataRobot()</code> (with or
+without an explicit <code>configPath</code>) will pick up the bundle
+automatically:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Uses ~/.config/datarobot/drconfig.yaml automatically</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co"># Or point at a specific config file</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(<span class="at">configPath =</span> <span class="st">&quot;~/.config/datarobot/drconfig.yaml&quot;</span>)</span></code></pre></div>
+<p><strong>When to use this:</strong> you share the same DataRobot host
+across multiple scripts and do not want to repeat the path in every
+script. The YAML file is the single source of truth for all connection
+settings.</p>
+<hr />
+</div>
+<div id="method-3-curl_ca_bundle-environment-variable" class="section level2">
+<h2>Method 3 — <code>CURL_CA_BUNDLE</code> environment variable</h2>
+<p>Export the environment variable <em>before</em> starting R. The
+client will pick it up on every connection attempt without any code
+change.</p>
+<p><strong>Shell (bash/zsh):</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="bu">export</span> <span class="va">CURL_CA_BUNDLE</span><span class="op">=</span><span class="st">&quot;/path/to/my-ca-bundle.pem&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="ex">Rscript</span> my_analysis.R</span></code></pre></div>
+<p><strong><code>.Renviron</code> file</strong> (applied automatically
+when R starts — recommended for persistent per-user configuration):</p>
+<pre><code>CURL_CA_BUNDLE=/path/to/my-ca-bundle.pem</code></pre>
+<p>Edit <code>~/.Renviron</code> directly or use
+<code>usethis::edit_r_environ()</code>. Restart R for the change to take
+effect.</p>
+<p><strong>R session (temporary override):</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">CURL_CA_BUNDLE =</span> <span class="st">&quot;/path/to/my-ca-bundle.pem&quot;</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="fu">library</span>(datarobot)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>()</span></code></pre></div>
+<p><strong>When to use this:</strong> CI/CD pipelines, containerised
+environments, or any situation where you need to inject the path through
+the environment rather than the source code. It also works when the R
+session is started without calling <code>ConnectToDataRobot()</code>
+explicitly (for example, when the package is loaded and a stored
+drconfig auto-connects).</p>
+<hr />
+</div>
+<div id="precedence" class="section level2">
+<h2>Precedence</h2>
+<p>When multiple input surfaces are used at the same time, the following
+order applies (highest priority first):</p>
+<ol style="list-style-type: decimal">
+<li><strong><code>ca_bundle</code> in drconfig.yaml</strong> — routes
+through <code>ConnectToDataRobot()</code>, which then writes to
+<code>CURL_CA_BUNDLE</code>.</li>
+<li><strong><code>caBundle</code> argument</strong> — used when you do
+not provide a config file; it writes to <code>CURL_CA_BUNDLE</code> for
+the current session.</li>
+<li><strong><code>CURL_CA_BUNDLE</code> environment variable</strong> —
+used as-is when neither of the above is provided (including env vars set
+in <code>.Renviron</code> before R starts).</li>
+</ol>
+<p>In practice, pick <strong>one</strong> input surface and use it
+consistently.</p>
+<hr />
+</div>
+<div id="interaction-with-sslverify" class="section level2">
+<h2>Interaction with <code>sslVerify</code></h2>
+<p>The <code>sslVerify</code> option and the CA bundle are independent
+controls applied together in a single <code>httr::set_config()</code>
+call, so neither clobbers the other:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>sslVerify</code></th>
+<th><code>caBundle</code></th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>TRUE</code> (default)</td>
+<td>not set</td>
+<td>Standard OS trust store — normal behaviour</td>
+</tr>
+<tr class="even">
+<td><code>TRUE</code></td>
+<td>set</td>
+<td>Custom CA bundle used; full peer verification still active</td>
+</tr>
+<tr class="odd">
+<td><code>FALSE</code></td>
+<td>not set</td>
+<td>SSL peer/host verification disabled entirely</td>
+</tr>
+<tr class="even">
+<td><code>FALSE</code></td>
+<td>set</td>
+<td>Verification disabled; <code>caBundle</code> has no additional
+effect</td>
+</tr>
+</tbody>
+</table>
+<p>Setting <code>sslVerify = FALSE</code> disables verification entirely
+and should only be used as a last resort (for example, in a development
+environment with no CA bundle available). Using a proper CA bundle
+(<code>sslVerify = TRUE</code> + <code>caBundle</code>) is strongly
+preferred because it maintains the security guarantees of TLS.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Recommended: verify with your private CA</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="at">endpoint =</span> <span class="st">&quot;https://your-datarobot-host/api/v2&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="at">token    =</span> <span class="st">&quot;YOUR-API-TOKEN&quot;</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="at">caBundle =</span> <span class="st">&quot;/path/to/my-ca-bundle.pem&quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>)</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="co"># Not recommended: disables all certificate verification</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="fu">ConnectToDataRobot</span>(</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>  <span class="at">endpoint  =</span> <span class="st">&quot;https://your-datarobot-host/api/v2&quot;</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  <span class="at">token     =</span> <span class="st">&quot;YOUR-API-TOKEN&quot;</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a>  <span class="at">sslVerify =</span> <span class="cn">FALSE</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>)</span></code></pre></div>
+<hr />
+</div>
+<div id="troubleshooting" class="section level2">
+<h2>Troubleshooting</h2>
+<p><strong><code>caBundle file not found: /path/to/my-ca-bundle.pem</code></strong><br />
+The file path passed to <code>caBundle</code> does not exist at connect
+time. Verify the path with
+<code>file.exists(&quot;/path/to/my-ca-bundle.pem&quot;)</code>.</p>
+<p><strong>Still getting SSL errors after setting
+<code>caBundle</code></strong><br />
+Confirm the bundle actually contains the issuer certificate for your
+DataRobot host:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">openssl</span> verify <span class="at">-CAfile</span> /path/to/my-ca-bundle.pem <span class="op">&lt;(</span><span class="ex">openssl</span> s_client <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="at">-connect</span> your-datarobot-host:443 <span class="op">&lt;</span>/dev/null <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="ex">openssl</span> x509<span class="op">)</span></span></code></pre></div>
+<p>If verification fails here, request the correct CA certificate from
+your DataRobot administrator.</p>
+<p><strong>Errors on package load (before
+<code>ConnectToDataRobot()</code> is called)</strong><br />
+If the package auto-connects from a drconfig.yaml on load, ensure
+<code>ca_bundle</code> is present in that file, or export
+<code>CURL_CA_BUNDLE</code> before starting R.</p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

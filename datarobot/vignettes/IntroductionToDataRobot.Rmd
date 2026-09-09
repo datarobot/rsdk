@@ -51,6 +51,21 @@ ConnectToDataRobot(endpoint = "YOUR-ENDPOINT-HERE", token = "YOUR-API_TOKEN-HERE
 
 DataRobot API can work behind a non-transparent HTTP proxy server. Please set environment variable `http_proxy` containing proxy URL to route all the DataRobot traffic through that proxy server, e.g. `http_proxy="http://my-proxy.local:3128" R -f my_datarobot_script.r`.
 
+### Connecting with a custom CA bundle
+
+On-premises or private-cloud DataRobot deployments sometimes use a private or self-signed Certificate Authority (CA). In those cases you will see SSL certificate errors when the client tries to connect. You can supply a PEM-encoded CA bundle via the `caBundle` argument, a `ca_bundle` entry in `drconfig.yaml`, or the `CURL_CA_BUNDLE` environment variable:
+
+```{r eval = FALSE}
+# Pass the path directly at connect time
+ConnectToDataRobot(
+  endpoint = "https://your-datarobot-host/api/v2",
+  token    = "YOUR-API-TOKEN",
+  caBundle = "/path/to/my-ca-bundle.pem"
+)
+```
+
+For full details on all three configuration methods, their precedence, and how they interact with `sslVerify`, see the **Connecting with a Custom CA Bundle** vignette (`vignette("CustomCABundle", package = "datarobot")`).
+
 
 ## Creating a new project
 

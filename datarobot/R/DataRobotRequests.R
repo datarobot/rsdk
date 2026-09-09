@@ -190,6 +190,17 @@ SSLVerify <- function() {
   Sys.getenv("DataRobot_SSL_Verify")
 }
 
+#' Return the path to the custom CA bundle (if set).
+#'
+#' Reads the \env{CURL_CA_BUNDLE} environment variable set by
+#' \code{SaveCABundlePreference()} and returns its value, or an empty string if unset.
+#'
+#' @return character. The CA bundle path, or \code{""} if not set.
+#' @keywords internal
+CABundle <- function() {
+  Sys.getenv("CURL_CA_BUNDLE")
+}
+
 
 BuildPath <- function(routeString, addUrl = TRUE) {
   endpoint <- Endpoint()

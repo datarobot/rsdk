@@ -11,7 +11,8 @@ ConnectToDataRobot(
   password = NULL,
   userAgentSuffix = NULL,
   sslVerify = TRUE,
-  configPath = NULL
+  configPath = NULL,
+  caBundle = NULL
 )
 }
 \arguments{
@@ -38,6 +39,14 @@ TRUE to check (default), FALSE to not check.}
 
 \item{configPath}{character. Path to YAML config file specifying configuration
 (token and endpoint).}
+
+\item{caBundle}{character. Path to a PEM-encoded Certificate Authority (CA) bundle file used
+to verify SSL/TLS connections. Useful when connecting to a DataRobot instance that uses a
+private or self-signed CA. When provided, this value is stored in the
+\env{CURL_CA_BUNDLE} environment variable and applied to all subsequent requests in
+the session. If \code{NULL} (the default), the value of \env{CURL_CA_BUNDLE} already
+present in the environment (if any) is preserved and used. Can also be set via
+\code{ca_bundle} in \code{drconfig.yaml}.}
 }
 \description{
 This function initializes a DataRobot session. To use DataRobot, you must connect to
@@ -49,13 +58,31 @@ your account. This can be done in three ways:
 }
 The three methods of authentication are given priority in that order (explicitly passing
 parameters to the function will trump a YAML config file, which will trump the environment
-variables.)
+variables), except where noted below for Certificate Authority (CA) bundle handling.
 If you have a YAML config file or environment variables set, you will not need to
 pass any parameters to \code{ConnectToDataRobot} in order to connect.
+}
+\details{
+A custom Certificate Authority (CA) bundle can be supplied in three equivalent ways:
+\itemize{
+  \item Pass the path directly via the \code{caBundle} argument.
+  \item Set \code{ca_bundle: /path/to/my.pem} in your \code{drconfig.yaml}.
+  \item Export the \env{CURL_CA_BUNDLE} environment variable before starting R.
+}
+When both \code{configPath} and \code{caBundle} are supplied, the configuration file's
+\code{ca_bundle} entry takes precedence; the environment variable is consulted only when
+neither of the other surfaces provides a bundle. Unlike the other connection parameters,
+the CA bundle allows this layering instead of rejecting mixed inputs outright.
 }
 \examples{
 \dontrun{
   ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
   ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
+  # Connect using a private CA bundle
+  ConnectToDataRobot(
+    endpoint = "https://app.datarobot.com/api/v2",
+    token = "thisismyfaketoken",
+    caBundle = "/path/to/my-ca-bundle.pem"
+  )
 }
 }

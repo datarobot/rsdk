@@ -1,0 +1,213 @@
+---
+title: "Connecting with a Custom CA Bundle"
+author: "DataRobot"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{Connecting with a Custom CA Bundle}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+## Overview
+
+Some DataRobot deployments (on-premises installations or private cloud environments) use
+SSL/TLS certificates issued by a **private or self-signed Certificate Authority (CA)** that
+is not trusted by your operating system's default CA bundle. In those cases, every HTTPS
+request the R client makes will fail with a certificate-verification error such as:
+
+```
+Error: SSL certificate problem: unable to get local issuer certificate
+```
+
+The solution is to point the client at a PEM-encoded CA bundle that includes the
+certificate(s) for your private CA. This vignette explains the three ways to do that, when
+to use each, and how they interact with the existing `sslVerify` option.
+
+---
+
+## Obtaining your CA bundle
+
+Your DataRobot administrator or network/security team can supply the correct PEM file.
+It may be a single root certificate or a chain of intermediate certificates concatenated
+together. The file typically has a `.pem` or `.crt` extension.
+
+To verify the file is valid PEM before using it:
+
+```{r verify-pem}
+# Quick sanity check: the file should start with the PEM header
+readLines("/path/to/my-ca-bundle.pem", n = 1)
+# Expected output: "-----BEGIN CERTIFICATE-----"
+```
+
+---
+
+## Method 1 — `caBundle` argument to `ConnectToDataRobot()`
+
+Pass the path directly when calling `ConnectToDataRobot()`. The path is validated
+immediately (the file must exist), written to the `CURL_CA_BUNDLE` environment
+variable, and applied to every subsequent HTTP request in the session.
+
+```{r caBundle-arg}
+library(datarobot)
+
+ConnectToDataRobot(
+  endpoint = "https://your-datarobot-host/api/v2",
+  token    = "YOUR-API-TOKEN",
+  caBundle = "/path/to/my-ca-bundle.pem"
+)
+```
+
+**When to use this:** scripted or interactive work where you want the path to be explicit
+and co-located with the rest of your connection setup. The path is validated at connect
+time, so you get a clear error message immediately if the file is missing.
+
+---
+
+## Method 2 — `ca_bundle` key in `drconfig.yaml`
+
+Add a `ca_bundle` entry to your DataRobot YAML configuration file (typically located at
+`~/.config/datarobot/drconfig.yaml`):
+
+```yaml
+endpoint: https://your-datarobot-host/api/v2
+token: YOUR-API-TOKEN
+ssl_verify: true       # optional; true is the default
+ca_bundle: /path/to/my-ca-bundle.pem
+```
+
+Once the file is saved, `ConnectToDataRobot()` (with or without an explicit `configPath`)
+will pick up the bundle automatically:
+
+```{r caBundle-yaml}
+library(datarobot)
+
+# Uses ~/.config/datarobot/drconfig.yaml automatically
+ConnectToDataRobot()
+
+# Or point at a specific config file
+ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
+```
+
+**When to use this:** you share the same DataRobot host across multiple scripts and do not
+want to repeat the path in every script. The YAML file is the single source of truth for
+all connection settings.
+
+---
+
+## Method 3 — `CURL_CA_BUNDLE` environment variable
+
+Export the environment variable *before* starting R. The client will pick it up on
+every connection attempt without any code change.
+
+**Shell (bash/zsh):**
+
+```bash
+export CURL_CA_BUNDLE="/path/to/my-ca-bundle.pem"
+Rscript my_analysis.R
+```
+
+**`.Renviron` file** (applied automatically when R starts — recommended for persistent
+per-user configuration):
+
+```
+CURL_CA_BUNDLE=/path/to/my-ca-bundle.pem
+```
+
+Edit `~/.Renviron` directly or use `usethis::edit_r_environ()`. Restart R for the change
+to take effect.
+
+**R session (temporary override):**
+
+```{r caBundle-envvar}
+Sys.setenv(CURL_CA_BUNDLE = "/path/to/my-ca-bundle.pem")
+
+library(datarobot)
+ConnectToDataRobot()
+```
+
+**When to use this:** CI/CD pipelines, containerised environments, or any situation where
+you need to inject the path through the environment rather than the source code. It also
+works when the R session is started without calling `ConnectToDataRobot()` explicitly (for
+example, when the package is loaded and a stored drconfig auto-connects).
+
+---
+
+## Precedence
+
+When multiple input surfaces are used at the same time, the following order applies
+(highest priority first):
+
+1. **`ca_bundle` in drconfig.yaml** — routes through `ConnectToDataRobot()`, which then
+   writes to `CURL_CA_BUNDLE`.
+2. **`caBundle` argument** — used when you do not provide a config file; it writes to
+   `CURL_CA_BUNDLE` for the current session.
+3. **`CURL_CA_BUNDLE` environment variable** — used as-is when neither of the above
+   is provided (including env vars set in `.Renviron` before R starts).
+
+In practice, pick **one** input surface and use it consistently.
+
+---
+
+## Interaction with `sslVerify`
+
+The `sslVerify` option and the CA bundle are independent controls applied together in a
+single `httr::set_config()` call, so neither clobbers the other:
+
+| `sslVerify` | `caBundle`  | Effect |
+|---|---|---|
+| `TRUE` (default) | not set | Standard OS trust store — normal behaviour |
+| `TRUE` | set | Custom CA bundle used; full peer verification still active |
+| `FALSE` | not set | SSL peer/host verification disabled entirely |
+| `FALSE` | set | Verification disabled; `caBundle` has no additional effect |
+
+Setting `sslVerify = FALSE` disables verification entirely and should only be used as a
+last resort (for example, in a development environment with no CA bundle available). Using
+a proper CA bundle (`sslVerify = TRUE` + `caBundle`) is strongly preferred because it
+maintains the security guarantees of TLS.
+
+```{r caBundle-and-ssl}
+# Recommended: verify with your private CA
+ConnectToDataRobot(
+  endpoint = "https://your-datarobot-host/api/v2",
+  token    = "YOUR-API-TOKEN",
+  caBundle = "/path/to/my-ca-bundle.pem"
+)
+
+# Not recommended: disables all certificate verification
+ConnectToDataRobot(
+  endpoint  = "https://your-datarobot-host/api/v2",
+  token     = "YOUR-API-TOKEN",
+  sslVerify = FALSE
+)
+```
+
+---
+
+## Troubleshooting
+
+**`caBundle file not found: /path/to/my-ca-bundle.pem`**  
+The file path passed to `caBundle` does not exist at connect time. Verify the path with
+`file.exists("/path/to/my-ca-bundle.pem")`.
+
+**Still getting SSL errors after setting `caBundle`**  
+Confirm the bundle actually contains the issuer certificate for your DataRobot host:
+
+```bash
+openssl verify -CAfile /path/to/my-ca-bundle.pem <(openssl s_client \
+  -connect your-datarobot-host:443 </dev/null 2>/dev/null | \
+  openssl x509)
+```
+
+If verification fails here, request the correct CA certificate from your DataRobot
+administrator.
+
+**Errors on package load (before `ConnectToDataRobot()` is called)**  
+If the package auto-connects from a drconfig.yaml on load, ensure `ca_bundle` is present
+in that file, or export `CURL_CA_BUNDLE` before starting R.

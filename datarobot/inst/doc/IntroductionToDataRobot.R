@@ -4,6 +4,14 @@
 ## ----results = "asis", message = FALSE, warning = FALSE, eval = FALSE---------
 # ConnectToDataRobot(endpoint = "YOUR-ENDPOINT-HERE", token = "YOUR-API_TOKEN-HERE")
 
+## ----eval = FALSE-------------------------------------------------------------
+# # Pass the path directly at connect time
+# ConnectToDataRobot(
+#   endpoint = "https://your-datarobot-host/api/v2",
+#   token    = "YOUR-API-TOKEN",
+#   caBundle = "/path/to/my-ca-bundle.pem"
+# )
+
 ## ----echo = FALSE, message = FALSE--------------------------------------------
 library(AmesHousing)
 Ames <- make_ames()
