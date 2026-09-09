@@ -1,8 +1,22 @@
+# datarobot v2.18.9
+
+This is a maintenance release.
+
+Bugfixes:
+
+* Fixed vignette rebuild issues on CRAN Linux check by removing `ComparingSubsets` vignette as it's dependent on `PimaIndiansDiabetes` which was removed in latest version of `mlbench` package.
+
 # datarobot v2.18.8
 
 This is a maintenance release.
 
 Enhancements:
+
+* Added support for custom CA bundles via a new `caBundle` argument to `ConnectToDataRobot()`,
+  a `ca_bundle` key in `drconfig.yaml`, and the `CURL_CA_BUNDLE` environment variable.
+  This allows connecting to DataRobot instances that use a private or self-signed Certificate
+  Authority without disabling SSL verification entirely. See `vignette("CustomCABundle")` for
+  details. (CFX-2363)
 
 Bugfixes:
 

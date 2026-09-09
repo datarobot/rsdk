@@ -9,9 +9,20 @@
 #' }
 #' The three methods of authentication are given priority in that order (explicitly passing
 #' parameters to the function will trump a YAML config file, which will trump the environment
-#' variables.)
+#' variables), except where noted below for Certificate Authority (CA) bundle handling.
 #' If you have a YAML config file or environment variables set, you will not need to
 #' pass any parameters to \code{ConnectToDataRobot} in order to connect.
+#'
+#' A custom Certificate Authority (CA) bundle can be supplied in three equivalent ways:
+#' \itemize{
+#'   \item Pass the path directly via the \code{caBundle} argument.
+#'   \item Set \code{ca_bundle: /path/to/my.pem} in your \code{drconfig.yaml}.
+#'   \item Export the \env{CURL_CA_BUNDLE} environment variable before starting R.
+#' }
+#' When both \code{configPath} and \code{caBundle} are supplied, the configuration file's
+#' \code{ca_bundle} entry takes precedence; the environment variable is consulted only when
+#' neither of the other surfaces provides a bundle. Unlike the other connection parameters,
+#' the CA bundle allows this layering instead of rejecting mixed inputs outright.
 #'
 #' @param endpoint character. URL specifying the DataRobot server to be used.
 #'   It depends on DataRobot modeling engine implementation (cloud-based, on-prem...) you are using.
@@ -28,12 +39,25 @@
 #'   TRUE to check (default), FALSE to not check.
 #' @param configPath character. Path to YAML config file specifying configuration
 #'   (token and endpoint).
+#' @param caBundle character. Path to a PEM-encoded Certificate Authority (CA) bundle file used
+#'   to verify SSL/TLS connections. Useful when connecting to a DataRobot instance that uses a
+#'   private or self-signed CA. When provided, this value is stored in the
+#'   \env{CURL_CA_BUNDLE} environment variable and applied to all subsequent requests in
+#'   the session. If \code{NULL} (the default), the value of \env{CURL_CA_BUNDLE} already
+#'   present in the environment (if any) is preserved and used. Can also be set via
+#'   \code{ca_bundle} in \code{drconfig.yaml}.
 #' @param username character. No longer supported.
 #' @param password character. No longer supported.
 #' @examples
 #' \dontrun{
 #'   ConnectToDataRobot("https://app.datarobot.com/api/v2", "thisismyfaketoken")
 #'   ConnectToDataRobot(configPath = "~/.config/datarobot/drconfig.yaml")
+#'   # Connect using a private CA bundle
+#'   ConnectToDataRobot(
+#'     endpoint = "https://app.datarobot.com/api/v2",
+#'     token = "thisismyfaketoken",
+#'     caBundle = "/path/to/my-ca-bundle.pem"
+#'   )
 #' }
 #' @export
 ConnectToDataRobot <- function(endpoint = NULL,
@@ -42,7 +66,8 @@ ConnectToDataRobot <- function(endpoint = NULL,
                                password = NULL,
                                userAgentSuffix = NULL,
                                sslVerify = TRUE,
-                               configPath = NULL
+                               configPath = NULL,
+                               caBundle = NULL
 ) {
   #  Check environment variables
   envEndpoint <- Sys.getenv("DATAROBOT_API_ENDPOINT", unset = NA)
@@ -59,6 +84,7 @@ ConnectToDataRobot <- function(endpoint = NULL,
     SaveUserAgentSuffix(userAgentSuffix)
   }
   SaveSSLVerifyPreference(sslVerify)
+  SaveCABundlePreference(caBundle)
   if (numAuthMethodsProvided > 1) {
     stop("Please provide only one of: config file or token.")
   } else if (haveToken) {
@@ -67,7 +93,7 @@ ConnectToDataRobot <- function(endpoint = NULL,
     ConnectWithUsernamePassword(endpoint, username, password)
   } else if (haveConfigPath) {
     ConnectWithConfigFile(configPath)
-  } else if (!is.na(envEndpoint) & !is.na(envToken)) {
+  } else if (!is.na(envEndpoint) && !is.na(envToken)) {
     ConnectWithToken(envEndpoint, envToken)
   } else {
     errorMsg <- "No authentication method provided."
@@ -91,14 +117,49 @@ ConnectWithConfigFile <- function(configPath) {
   }
   ConnectToDataRobot(endpoint = config$endpoint, token = config$token, username = config$username,
                      password = config$password, userAgentSuffix = config$user_agent_suffix,
-                     sslVerify = config$ssl_verify)
+                     sslVerify = config$ssl_verify, caBundle = config$ca_bundle)
 }
 
+#' Configure SSL verification and optional CA bundle for httr.
+#'
+#' Applies the session preferences stored in \env{DataRobot_SSL_Verify} and
+#' \env{CURL_CA_BUNDLE}. Verification stays enabled by default; disabling it via
+#' \code{sslVerify = FALSE} turns off both peer and host checks. When a CA bundle path is
+#' present it is validated and fed to libcurl via \code{cainfo}.
 SetSSLVerification <- function() {
   sslVerify <- Sys.getenv("DataRobot_SSL_Verify")
   if (identical(sslVerify, "FALSE")) {
     httr::set_config(httr::config(ssl_verifypeer = 0L, ssl_verifyhost = 0L))
+    return(invisible(NULL))
   }
+
+  caBundle <- Sys.getenv("CURL_CA_BUNDLE", unset = NA_character_)
+  configArgs <- list(
+    ssl_verifypeer = 1L,
+    ssl_verifyhost = 2L
+  )
+
+  if (!is.na(caBundle) && nzchar(caBundle)) {
+    expandedBundle <- path.expand(caBundle)
+    if (!file.exists(expandedBundle)) {
+      stop(
+        sprintf("CURL_CA_BUNDLE is set to '%s' but that file does not exist.", caBundle),
+        call. = FALSE
+      )
+    }
+    configArgs$cainfo <- tryCatch(
+      normalizePath(expandedBundle, winslash = "/", mustWork = TRUE),
+      error = function(e) {
+        stop(
+          sprintf("CURL_CA_BUNDLE is set to '%s' but that file does not exist.", caBundle),
+          call. = FALSE
+        )
+      }
+    )
+  }
+
+  httr::set_config(do.call(httr::config, configArgs))
+  invisible(NULL)
 }
 
 ConnectWithToken <- function(endpoint, token) {
@@ -143,6 +204,35 @@ SaveSSLVerifyPreference <- function(sslVerify) {
     }
     Sys.setenv(DataRobot_SSL_Verify = sslVerify)
   }
+}
+
+#' Save the CA bundle path to the session environment variable.
+#'
+#' When \code{caBundle} is non-NULL, validates that it is a single character string pointing
+#' to an existing file, then writes it to \env{CURL_CA_BUNDLE}. When NULL, the function
+#' is a no-op, preserving any pre-existing value of \env{CURL_CA_BUNDLE} (which allows
+#' users to set the variable before starting R and have it picked up automatically).
+#'
+#' @param caBundle character or NULL. Path to a PEM-encoded CA bundle file.
+#' @keywords internal
+SaveCABundlePreference <- function(caBundle) {
+  if (!is.null(caBundle)) {
+    if (length(caBundle) != 1 || !is.character(caBundle)) {
+      stop("caBundle must be a single character string (a file path) or NULL.")
+    }
+    expandedBundle <- path.expand(caBundle)
+    if (!file.exists(expandedBundle)) {
+      stop(sprintf("caBundle file not found: %s", caBundle))
+    }
+    resolvedBundle <- tryCatch(
+      normalizePath(expandedBundle, winslash = "/", mustWork = TRUE),
+      error = function(e) {
+        stop(sprintf("caBundle file not found: %s", caBundle), call. = FALSE)
+      }
+    )
+    Sys.setenv(CURL_CA_BUNDLE = resolvedBundle)
+  }
+  # NULL: intentionally a no-op -- preserve any pre-existing CURL_CA_BUNDLE env var.
 }
 
 StopIfDenied <- function(rawReturn) {

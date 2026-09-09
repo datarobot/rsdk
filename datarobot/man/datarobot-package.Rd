@@ -6,5 +6,30 @@
 \alias{datarobot-package}
 \title{datarobot: 'DataRobot' Predictive Modeling API}
 \description{
-For working with the 'DataRobot' predictive modeling platform's API \url{https://www.datarobot.com/}.
+For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
+}
+\author{
+\strong{Maintainer}: AJ Alon \email{api-maintainer@datarobot.com}
+
+Authors:
+\itemize{
+  \item Ron Pearson
+  \item Zachary Deane-Mayer
+  \item David Chudzicki
+  \item Dallin Akagi
+  \item Sergey Yurgenson
+  \item Thakur Raj Anand
+  \item Peter Hurford
+  \item Chester Ismay
+  \item Andrew Watson
+  \item Gregory Williams
+}
+
+Other contributors:
+\itemize{
+  \item Anastasiia Tamazlykar [contributor]
+  \item Mykhailo Poliakov [contributor]
+  \item DataRobot Inc. [copyright holder]
+}
+
 }
