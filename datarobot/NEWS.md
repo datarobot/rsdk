@@ -1,7 +1,29 @@
+# datarobot v2.18.8
+
+This is a maintenance release.
+
+Enhancements:
+
+Bugfixes:
+
+* Fixed vignette rebuild issues on CRAN Linux check flavors when `modelwordcloud` is unavailable.
+* Updated the Advanced vignette word-cloud example to keep plotting optional when `modelwordcloud` is not installed.
+
+API Changes:
+
+Deprecated and Defunct:
+
+Dependency Changes:
+
+* Removed `modelwordcloud` from `Suggests`.
+
+Documentation Changes:
+
+* Updated the word-cloud section in the Advanced vignette to gracefully skip plotting when optional dependencies are unavailable.
+
 # datarobot v2.18.7
 
-This is a maintenance release to ensure package compatibility with future versions of R and
-testthat.
+This is a maintenance release to ensure package compatibility with future versions of R.
 
 Enhancements:
 
@@ -61,7 +83,7 @@ Dependency Changes:
 
 Documentation Changes:
 
-* Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset. 
+* Updated "Introduction to DataRobot" vignette to use Ames, Iowa housing data instead of Boston housing dataset.
 * Removed hard links to `lendingclub.com` in vignettes due to issues with the CRAN URL checker.
 
 # datarobot v2.18.3

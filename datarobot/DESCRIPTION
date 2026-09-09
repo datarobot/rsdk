@@ -1,6 +1,6 @@
 Package: datarobot
 Title: 'DataRobot' Predictive Modeling API
-Version: 2.18.7
+Version: 2.18.8
 Description: For working with the 'DataRobot' predictive modeling platform's API <https://www.datarobot.com/>.
 Depends: R (>= 3.5), methods, stats
 Imports: httr (>= 1.2.0), jsonlite (>= 1.0), yaml (>= 2.1.19)
@@ -51,11 +51,11 @@ Authors@R: c(person(given = "Ron",
 Maintainer: AJ Alon <api-maintainer@datarobot.com>
 Suggests: lubridate, knitr, testthat, lintr, data.table, AmesHousing,
         mlbench, beanplot, doBy, insuranceData, rmarkdown, ggplot2,
-        modelwordcloud, withr, memoise
+        withr, memoise
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2025-10-01 19:10:34 UTC; aj.alon
+Packaged: 2026-05-26 20:21:07 UTC; aj.alon
 Language: en-US
 Config/testthat/edition: 2
 Author: Ron Pearson [aut],
@@ -72,3 +72,5 @@ Author: Ron Pearson [aut],
   Anastasiia Tamazlykar [ctb],
   Mykhailo Poliakov [ctb],
   DataRobot Inc. [cph]
+Repository: CRAN
+Date/Publication: 2026-05-26 20:40:11 UTC
