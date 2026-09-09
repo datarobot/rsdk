@@ -4,7 +4,7 @@ author: "Peter Hurford, Thakur Raj Anand, Chester Ismay"
 date: "`r Sys.Date()`"
 output:
   rmarkdown::html_vignette:
-    fig_caption: yes  
+    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Advanced Model Insights}
   %\VignetteEngine{knitr::rmarkdown}
@@ -191,7 +191,7 @@ ggplot(lc) + geom_line(aes(x = id, y = value, color = variable))
 
 The receiver operating characteristic curve, or ROC curve, is a graphical plot that illustrates the performance of a binary classifier system as its discrimination threshold is varied. The curve is created by plotting the true positive rate (TPR) against the false positive rate (FPR) at various threshold settings.
 
-ROC curve data can be generated for a specific data partition (validation, cross validation, or holdout) or for all the data partition using `GetRocCurve` and `ListRocCurves`. 
+ROC curve data can be generated for a specific data partition (validation, cross validation, or holdout) or for all the data partition using `GetRocCurve` and `ListRocCurves`.
 
 To retrieve ROC curve information use `GetRocCurve`:
 
@@ -264,7 +264,7 @@ You can also plot the ROC curve using `ggplot2`:
 
 ```{r, eval = TRUE}
 ggplot(
-  ValidationRocPoints, 
+  ValidationRocPoints,
   aes(x = falsePositiveRate, y = truePositiveRate)
 ) + geom_line()
 ```
@@ -293,7 +293,9 @@ The word cloud is a type of insight available for some text-processing models fo
 
 This example will show you how to obtain word cloud data and visualize it, similar to how DataRobot visualizes the word cloud in the "Model Insights" tab interface.
 
-The visualization example here uses the `modelwordcloud` package.
+The visualization example here uses the optional `modelwordcloud` package.
+
+If `modelwordcloud` is not installed, the plotting step below is skipped.
 
 Now let's find our word cloud:
 
@@ -306,8 +308,7 @@ wordCloud <- GetWordCloud(project, wordModel$modelId)
 saveRDS(wordCloud, "wordCloudModelInsights.rds")
 ```
 
-```{r, echo = FALSE, results = "asis", message = FALSE, warning = FALSE}
-library(modelwordcloud)
+```{r, echo = FALSE, results = "asis", message = FALSE, warning = FALSE, eval = "modelwordcloud" %in% rownames(installed.packages())}
 wordCloud <- readRDS("wordCloudModelInsights.rds")
 ```
 
@@ -315,29 +316,31 @@ Now we plot it!
 
 ```{r color-specs, include = FALSE, eval = FALSE}
 colors <- c(
-  colormap::colormap(c("#255FEC", "#2DBEF9")), 
+  colormap::colormap(c("#255FEC", "#2DBEF9")),
   colormap::colormap(
-    c("#FFAC9D", "#D80909"), 
+    c("#FFAC9D", "#D80909"),
     reverse = TRUE
   )
 )
 saveRDS(colors, "colors.rds")
 ```
 
-```{r, warning = FALSE, eval = TRUE}
+```{r, warning = FALSE, eval = "modelwordcloud" %in% rownames(installed.packages())}
 # Remove stop words
 wordCloud <- wordCloud[!wordCloud$isStopword, ]
 
-# Specify colors similar to what DataRobot produces for 
+# Specify colors similar to what DataRobot produces for
 # a wordcloud in Insights
 colors <- readRDS("colors.rds")
 
 # Make word cloud
 suppressWarnings(
-  wordcloud(words = wordCloud$ngram,
-            freq = wordCloud$frequency,
-            coefficients = wordCloud$coefficient,
-            colors = colors,
-            scale = c(3, 0.3))
+  get("wordcloud", envir = asNamespace("modelwordcloud"))(
+    words = wordCloud$ngram,
+    freq = wordCloud$frequency,
+    coefficients = wordCloud$coefficient,
+    colors = colors,
+    scale = c(3, 0.3)
+  )
 )
 ```

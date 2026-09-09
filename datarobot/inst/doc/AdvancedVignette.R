@@ -173,7 +173,7 @@ plot(CrossValidationRocPoints$falsePositiveRate, CrossValidationRocPoints$truePo
 
 ## ----eval = TRUE--------------------------------------------------------------
 ggplot(
-  ValidationRocPoints, 
+  ValidationRocPoints,
   aes(x = falsePositiveRate, y = truePositiveRate)
 ) + geom_line()
 
@@ -193,8 +193,7 @@ threshold <- ValidationRocPoints$threshold[which.max(ValidationRocPoints$f1Score
 # wordCloud <- GetWordCloud(project, wordModel$modelId)
 # saveRDS(wordCloud, "wordCloudModelInsights.rds")
 
-## ----echo = FALSE, results = "asis", message = FALSE, warning = FALSE---------
-library(modelwordcloud)
+## ----echo = FALSE, results = "asis", message = FALSE, warning = FALSE, eval = "modelwordcloud" %in% rownames(installed.packages())----
 wordCloud <- readRDS("wordCloudModelInsights.rds")
 
 ## ----color-specs, include = FALSE, eval = FALSE-------------------------------
@@ -207,20 +206,22 @@ wordCloud <- readRDS("wordCloudModelInsights.rds")
 # )
 # saveRDS(colors, "colors.rds")
 
-## ----warning = FALSE, eval = TRUE---------------------------------------------
+## ----warning = FALSE, eval = "modelwordcloud" %in% rownames(installed.packages())----
 # Remove stop words
 wordCloud <- wordCloud[!wordCloud$isStopword, ]
 
-# Specify colors similar to what DataRobot produces for 
+# Specify colors similar to what DataRobot produces for
 # a wordcloud in Insights
 colors <- readRDS("colors.rds")
 
 # Make word cloud
 suppressWarnings(
-  wordcloud(words = wordCloud$ngram,
-            freq = wordCloud$frequency,
-            coefficients = wordCloud$coefficient,
-            colors = colors,
-            scale = c(3, 0.3))
+  get("wordcloud", envir = asNamespace("modelwordcloud"))(
+    words = wordCloud$ngram,
+    freq = wordCloud$frequency,
+    coefficients = wordCloud$coefficient,
+    colors = colors,
+    scale = c(3, 0.3)
+  )
 )
 
